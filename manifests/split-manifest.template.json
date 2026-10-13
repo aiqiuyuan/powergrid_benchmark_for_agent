@@ -1,0 +1,56 @@
+{
+  "manifest_format_version": "0.1-design",
+  "status": "template",
+  "split_id": null,
+  "task_id": null,
+  "task_version": null,
+  "dataset_version": null,
+  "claim_scope": null,
+  "split_strategy": {
+    "grouping_rule": null,
+    "random_seed_if_used": null,
+    "chronological_boundaries": null,
+    "gap_duration": null,
+    "gap_rationale": null,
+    "same_topology_temporal_or_cross_topology": null
+  },
+  "role_definitions": {
+    "public-development": "visible inputs/labels for development and fitting",
+    "public-selection": "visible selection inputs/scoring; mainline not training labels",
+    "protected-feedback": "server-retained adaptive evaluation panel",
+    "final-test": "server-retained panel opened only after freeze"
+  },
+  "counts_by_role": {
+    "public-development": null,
+    "public-selection": null,
+    "protected-feedback": null,
+    "final-test": null
+  },
+  "public_samples": [],
+  "public_sample_required_fields": [
+    "sample_id",
+    "origin",
+    "content_sha256",
+    "group_id",
+    "data_role",
+    "time_interval_if_applicable",
+    "input_visibility",
+    "label_visibility",
+    "calibration_tag",
+    "exposure_history"
+  ],
+  "group_relations_record": null,
+  "no_accidental_same_origin_cross_role_record": null,
+  "feature_issue_and_label_availability_audit": null,
+  "sealed_panel": {
+    "commitment_algorithm": "sha256-over-canonical-manifest",
+    "canonicalization_version": null,
+    "commitment_sha256": null,
+    "private_members_retained_by_evaluator": true,
+    "private_retention_record": null
+  },
+  "known_public_or_pretraining_exposure_limitations": null,
+  "final_test_exposure_history": [],
+  "license_and_attribution_record": null,
+  "empty_samples_and_null_commitments_do_not_define_a_split": true
+}

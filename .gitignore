@@ -1,0 +1,26 @@
+# Local credentials and environment files
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Local scratch, data, raw runs and private configuration
+work/
+temp/
+.venv/
+__pycache__/
+.DS_Store
+data/
+datasets/
+raw-runs/
+logs/
+checkpoints/
+private/
+*.docx
+*.zip
+
+# Local editor and build files
+.idea/
+.vscode/
+*.pyc

@@ -1,0 +1,140 @@
+{
+  "manifest_format_version": "0.1-design",
+  "status": "template",
+  "release_ready": false,
+  "task_id": null,
+  "task_version": null,
+  "track_id": null,
+  "claim_scope": null,
+  "dataset": {
+    "source_urls": [],
+    "version": null,
+    "license_record": null,
+    "provenance_digest": null,
+    "exposure_audit_record": null,
+    "redistribution_policy": null
+  },
+  "split": {
+    "split_id": null,
+    "public_manifest_sha256": null,
+    "sealed_manifest_commitment_sha256": null,
+    "private_manifest_retention_policy": null,
+    "group_audit_record": null
+  },
+  "algorithm_contract": {
+    "entrypoint": null,
+    "input_schema_version": null,
+    "output_schema_version": null,
+    "state_reset_policy": null,
+    "training_label_roles": [
+      "public-development"
+    ],
+    "allowed_dependencies": [],
+    "allowed_solvers": [],
+    "external_pretrained_weights_policy": null,
+    "external_service_policy": null,
+    "executes_algorithm_on_new_inputs": true
+  },
+  "runtime": {
+    "image_digest": null,
+    "dependency_lock_sha256": null,
+    "task_package_sha256": null,
+    "archive_safety_and_completeness_record": null
+  },
+  "evaluator": {
+    "version": null,
+    "code_sha256": null,
+    "metric": null,
+    "direction": null,
+    "units": null,
+    "hard_constraint_policy": null,
+    "soft_penalty_policy": null,
+    "numerical_tolerances": null,
+    "substantial_improvement_threshold": null,
+    "per_instance_weights": null,
+    "candidate_failure_score": null,
+    "infrastructure_failure_is_missing": true,
+    "feedback_schema_version": null,
+    "feedback_truncation_policy": null,
+    "normalization_mapping_version": null
+  },
+  "baselines": {
+    "initial_artifact_sha256": null,
+    "strong_reference_artifact_sha256": null,
+    "calibration_results_record": null,
+    "reference_is_proven_optimal": false
+  },
+  "resource_profiles": {
+    "development": {
+      "cpu_cores": null,
+      "memory_gib": null,
+      "gpu_count": null,
+      "gpu_model": null,
+      "disk_gib": null,
+      "thread_limit": null,
+      "network_policy": null,
+      "cache_policy": null
+    },
+    "protected-feedback": {
+      "cpu_cores": null,
+      "memory_gib": null,
+      "gpu_count": null,
+      "gpu_model": null,
+      "disk_gib": null,
+      "thread_limit": null,
+      "network_policy": null,
+      "cache_policy": null
+    },
+    "final-build": {
+      "cpu_cores": null,
+      "memory_gib": null,
+      "gpu_count": null,
+      "gpu_model": null,
+      "disk_gib": null,
+      "thread_limit": null,
+      "network_policy": null,
+      "cache_policy": null
+    },
+    "final-execution": {
+      "cpu_cores": null,
+      "memory_gib": null,
+      "gpu_count": null,
+      "gpu_model": null,
+      "disk_gib": null,
+      "thread_limit": null,
+      "network_policy": null,
+      "cache_policy": null
+    }
+  },
+  "timeouts_seconds": {
+    "development": null,
+    "feedback_job": null,
+    "final_build": null,
+    "final_instance_or_episode": null,
+    "final_batch_total": null
+  },
+  "selection": {
+    "policy": "best-public-selection",
+    "tie_break_rule": null,
+    "no_valid_candidate_fallback": "initial-baseline",
+    "must_complete_within_development_budget": true
+  },
+  "feedback_budget": {
+    "mode": "limited",
+    "max_accepted_jobs": null,
+    "zero_means": "no-protected-feedback",
+    "charge_on": "accepted-immutable-artifact-job",
+    "same_job_infrastructure_retry_charges_again": false
+  },
+  "cumulative_token_cap": null,
+  "cumulative_token_reservation_enabled": false,
+  "recovery_policy_version": null,
+  "acceptance_records": {
+    "clean_environment": null,
+    "contract_fixtures": null,
+    "real_model_roundtrip": null,
+    "target_concurrency_batch": null,
+    "frozen_algorithm_replay": null
+  },
+  "unfilled_fields_prevent_formal_release": true
+}

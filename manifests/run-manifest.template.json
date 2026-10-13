@@ -1,0 +1,85 @@
+{
+  "manifest_format_version": "0.1-design",
+  "status": "template",
+  "run_id": null,
+  "cohort_id": null,
+  "planned_slot_id": null,
+  "task_id": null,
+  "task_version": null,
+  "split_id": null,
+  "protocol_id": null,
+  "agent": {
+    "algorithm_name": null,
+    "code_version": null,
+    "configuration_sha256": null,
+    "development_seed": null,
+    "model_identifier": null,
+    "model_version_if_available": null,
+    "single_response_max_output_tokens": null,
+    "context_policy": null,
+    "initial_baseline_artifact_sha256": null
+  },
+  "budgets": {
+    "development_seconds": null,
+    "feedback": {
+      "mode": "limited",
+      "max_accepted_jobs": null,
+      "zero_means": "no-protected-feedback",
+      "charge_on": "accepted-immutable-artifact-job",
+      "same_job_infrastructure_retry_charges_again": false
+    },
+    "cumulative_token_cap": null,
+    "cumulative_token_reservation_enabled": false
+  },
+  "resources": {
+    "development_profile_id": null,
+    "feedback_profile_id": null,
+    "final_profile_id": null
+  },
+  "evaluation_seeds": [],
+  "selection_policy": "best-public-selection",
+  "feedback_schema_version": null,
+  "preparation": {
+    "completion_record": null,
+    "development_start_at_utc": null,
+    "development_deadline_at_utc": null
+  },
+  "recovery": {
+    "policy_version": null,
+    "kind": "initial-run",
+    "parent_run_id": null,
+    "checkpoint_artifact_sha256": null
+  },
+  "feedback_summary": {
+    "submission_requests": null,
+    "feedback_jobs_counted": null,
+    "feedback_jobs_completed": null,
+    "feedback_jobs_delivered": null,
+    "feedback_jobs_read_acknowledged": null,
+    "distinct_artifact_hashes": null,
+    "evaluation_attempts": null,
+    "ledger_digest": null
+  },
+  "provider_usage": {
+    "input_tokens": null,
+    "output_tokens": null,
+    "cached_tokens": null,
+    "missing_usage_means": "unknown-not-zero"
+  },
+  "freeze": {
+    "receipt_sha256": null,
+    "frozen_at_utc": null,
+    "artifact_sha256": null,
+    "selection_evidence_sha256": null,
+    "baseline_fallback_reason": null
+  },
+  "final_evaluation": {
+    "record_sha256": null,
+    "status": null,
+    "raw_metrics": null,
+    "validity": null,
+    "resource_usage": null,
+    "failure_class": null
+  },
+  "unfilled_fields_are_not_a_completed_or_executable_run": true
+}

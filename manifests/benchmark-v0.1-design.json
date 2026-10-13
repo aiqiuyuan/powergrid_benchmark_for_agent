@@ -1,0 +1,158 @@
+{
+  "manifest_format_version": "0.1-design",
+  "benchmark_id": "powergrid-benchmark-for-agent",
+  "status": "design",
+  "release_ready": false,
+  "date": "2026-10-14",
+  "language": "zh-CN",
+  "documentation_scope": [
+    "step-1-research-contract-and-task-scope",
+    "step-2-task-cards-and-evaluation-contract"
+  ],
+  "runtime_implemented_by_this_submission": false,
+  "evidence_snapshot": {
+    "main_cutoff": "2026-10-13T23:32:00+08:00",
+    "repair_preparation_cutoff": "2026-10-13T23:38:00+08:00",
+    "planned_slots": 98,
+    "score_valid": 59,
+    "export_valid_not_final_tested": 15,
+    "failed": 14,
+    "actually_running": 3,
+    "unstarted_or_queued": 7,
+    "historical_results_are_calibration": true
+  },
+  "task_families": [
+    {
+      "task_id": "goc-sc-ac-opf",
+      "title": "GOC 安全约束交流最优潮流",
+      "task_card": "../docs/task-cards/goc-sc-ac-opf.md",
+      "status": "selected-not-runtime-certified",
+      "core_track": "medium-scale-sc-ac-opf",
+      "extension_tracks": [
+        "goc30000-stress"
+      ],
+      "frozen_task_release": null,
+      "family_aggregation_weight": 0.2
+    },
+    {
+      "task_id": "unit-commitment",
+      "title": "UC / SCUC 机组组合",
+      "task_card": "../docs/task-cards/unit-commitment.md",
+      "status": "selected-not-runtime-certified",
+      "core_track": "standard-uc",
+      "extension_tracks": [
+        "restricted-scuc-adaptation"
+      ],
+      "frozen_task_release": null,
+      "family_aggregation_weight": 0.2
+    },
+    {
+      "task_id": "rte-maintenance",
+      "title": "RTE 检修排程",
+      "task_card": "../docs/task-cards/rte-maintenance.md",
+      "status": "selected-not-runtime-certified",
+      "core_track": "maintenance-scheduling",
+      "extension_tracks": [],
+      "frozen_task_release": null,
+      "family_aggregation_weight": 0.2
+    },
+    {
+      "task_id": "l2rpn-grid-control",
+      "title": "L2RPN 电网控制",
+      "task_card": "../docs/task-cards/l2rpn-grid-control.md",
+      "status": "selected-not-runtime-certified",
+      "core_track": "single-environment-temporal-generalization",
+      "extension_tracks": [
+        "cross-topology",
+        "gpu-training",
+        "online-llm-control"
+      ],
+      "frozen_task_release": null,
+      "family_aggregation_weight": 0.2
+    },
+    {
+      "task_id": "heftcom-forecast-trade",
+      "title": "HEFTCom 预测与交易",
+      "task_card": "../docs/task-cards/heftcom-forecast-trade.md",
+      "status": "selected-not-runtime-certified",
+      "core_track": "offline-frozen-pipeline",
+      "extension_tracks": [
+        "rolling-retraining",
+        "online-adaptation"
+      ],
+      "frozen_task_release": null,
+      "family_aggregation_weight": 0.2
+    }
+  ],
+  "excluded_from_core_aggregation": [
+    {
+      "task": "ahc024",
+      "role": "non-energy-framework-smoke-test"
+    },
+    {
+      "task": "goc30000",
+      "role": "scale-and-recovery-stress-extension"
+    }
+  ],
+  "default_protocol": {
+    "protocol_id": "v0.1-design-public-selection-limited-feedback",
+    "data_roles": [
+      "public-development",
+      "public-selection",
+      "protected-feedback",
+      "final-test"
+    ],
+    "calibration_is_exposure_tag_not_fifth_role": true,
+    "selection_policy": "best-public-selection",
+    "selection_must_complete_before_deadline": true,
+    "initial_baseline_fallback": true,
+    "training_label_roles": [
+      "public-development"
+    ],
+    "selection_label_refit_requires_separate_protocol": true,
+    "development_budget_kind": "shared-wall-clock",
+    "development_seconds": null,
+    "starts_after_common_preparation": true,
+    "feedback_wait_counts_in_development_budget": true,
+    "cumulative_token_cap": null,
+    "cumulative_token_reservation_enabled": false,
+    "token_usage_recorded": true,
+    "feedback_budget": {
+      "mode": "limited",
+      "max_accepted_jobs": null,
+      "zero_means": "no-protected-feedback",
+      "charge_on": "accepted-immutable-artifact-job",
+      "same_job_infrastructure_retry_charges_again": false
+    },
+    "planned_calibration_feedback_limits": [
+      0,
+      1,
+      3,
+      5
+    ],
+    "optional_feedback_limit_after_calibration": 20,
+    "final_evaluation_executes_frozen_algorithm": true,
+    "final_evaluation_counts_in_development_budget": false,
+    "final_evaluation_counts_in_feedback_budget": false,
+    "final_test_used_for_candidate_selection": false,
+    "final_llm_calls_default_allowed": false,
+    "same_run_protected_jobs_concurrent": false
+  },
+  "freeze_required_before_release": [
+    "dataset-versions-and-license-records",
+    "grouped-role-members-and-exposure-audit",
+    "sealed-final-panel-commitment",
+    "baseline-artifacts-and-reference-scores",
+    "independent-scorer-and-tolerances",
+    "resource-profiles-and-all-timeouts",
+    "model-and-tool-policy",
+    "feedback-schema-and-truncation",
+    "normalization-and-failure-score",
+    "planned-seeds-and-statistical-analysis",
+    "recovery-and-test-exposure-policy",
+    "clean-environment-and-batch-acceptance-evidence"
+  ],
+  "specification": "../docs/benchmark-spec.md",
+  "evaluation_protocol": "../docs/protocol/evaluation-protocol.md",
+  "implementation_gates": "../docs/implementation-plan.md"
+}
