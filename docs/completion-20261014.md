@@ -6,7 +6,7 @@
 
 交付仓库：[aiqiuyuan/powergrid_benchmark_for_agent](https://github.com/aiqiuyuan/powergrid_benchmark_for_agent)。
 
-**发布核验：本地文档已完成并通过独立初审，最终核查与 GitHub 上传正在进行；实际上传记录将在完成后补入本说明。**
+**发布核验：已上传至 GitHub 的 `main` 分支，并从 GitHub 独立下载核对全部23个文件；远端提交与本地一致，README存在，文件内容逐一一致。** 首批上传核验对象为提交 [29ab99a](https://github.com/aiqiuyuan/powergrid_benchmark_for_agent/commit/29ab99a236e5db1ba66db625d5d209bccb0cb58d)。本说明随后更新发布，最终交付另留完整提交号与复核记录。
 
 ## 1. 完成的任务
 
@@ -52,6 +52,7 @@
 | 层次 | 状态 |
 |---|---|
 | 前两步的中文文档、任务卡、协议与设计声明 | 已完成；设计要求明确、未知量单独列出 |
+| GitHub发布 | 已上传main；独立下载与23文件内容核对通过，README可取得 |
 | 历史证据 | 截至2026-10-13 23:32 UTC+8，修复准备至23:38；没有假设后来运行已成功 |
 | 基础框架修复 | 本次未执行；待按F01–F12实施验收 |
 | 五个可运行稳定任务包 | 本次未认证；需真实算法执行、切分/许可、基线、资源与checker校准 |
