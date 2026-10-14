@@ -110,3 +110,18 @@ Forecasting对每个半小时的10%、20%、…、90%九个发电量分位数计
 - [HEFTCom官方仓库](https://github.com/jbrowell/HEFTcom24)：比赛背景、公开资料与规则入口。
 - [公开数据DOI](https://doi.org/10.5281/zenodo.13950764)：原始数据来源；派生数据清洗和特征需附单独provenance。
 - 先导数据卡记录上游CC BY 4.0，正式发布仍需核验原release、再分发权利与完整署名；不由本卡替代许可审计。
+
+## 10. 本次选定的可执行Adapter与公平排行路线
+
+**2026-10-14设计决定：测试前冻结算法/训练产物、逐日因果重放的新Trading排行。** 保留原0–1800 MWh边界和原结算；D−1 09:20 UTC前可得信息才进入当日请求。滚动重训若启用需另立协议，固定窗口、公布滞后和计算预算；Forecasting与Combined只有相应输出与评分都认证后才发布。[公平路线](../framework/fair-ranking.md#8-heftcom逐日因果重放)。
+
+| 合同项 | 本家族的选择 |
+|---|---|
+| 提交 | 冻结特征/训练/预测/交易源码、依赖、训练截止和权重来源；执行后生成报价，不接受只有bids的静态答案 |
+| 输入/输出 | 每市场日提供issue/available/target时间与合法历史；输出完整当日`timestamp,bid_mwh`，Forecasting启用时输出q10–q90 |
+| 权威评分 | 可信replay隔离未来真值/最终结算价，独立按原逻辑重算累计GBP；保留均收益、有效率和风险 |
+| 公平性 | 同日、同信息到达/训练截止、同合法特征、边界、结算及资源；终测不悄然重拟合权重 |
+| 基线覆盖 | 常数/ridge须重新审计0–1800边界与因果执行；[GEB v1.3](https://github.com/BigdogManLuo/HEFTcom24/releases/tag/v1.3)为公开强候选，权重训练日期与重训适配待认证 |
+| 发布条件 | 替换静态bids终评、特征/标签available-at审计、组织方结算parity、UTC/DST与缺交fixture、独立期、因果强基线与批量验收 |
+
+**就绪状态：`design / certification-pending / release_ready=false`。** 旧±5000历史回测只作calibration；旧正n已用反馈期不能重称未触碰测试。训练截止具体日期、开发`T/n/模型/资源/重复`及训练/逐日时限保持待定。详见[Adapter执行合同](../framework/task-adapters.md#7-heftcom训练证据加逐日因果预测交易)与[机器声明](../../manifests/task-adapters/heftcom-forecast-trade.json)。

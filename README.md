@@ -2,7 +2,9 @@
 
 面向能源领域优化与 ML 的算法演化 Benchmark：在共同的开发时限内，让智能体构造可执行算法，通过受控评测反馈改进，再在独立留出数据上测试冻结算法。
 
-**当前版本：`v0.1-design`，中文研究与评测规范。** 本仓库已完成前两步的文档建设：研究契约与 Benchmark 范围，以及五个任务族的任务卡、评测协议和产物契约。执行框架、真实数据切分、基线校准与可批量运行的任务发布尚待实现和验收。本仓库没有可直接启动的正式实验、已认证任务包或正式排行榜。
+**当前状态：Benchmark `v0.1-design` + 基础框架 `0.1.0`。更新：2026-10-15。** 前两步的研究契约、任务卡与评测规范已完成。第三步新增统一实验生命周期的独立参考实现、配置校验、算法提交 ABI、持久账本、快照／冻结、恢复及可运行的低成本验收夹具。五个真实能源 Task Adapter 与 Harbor／模型服务接桥仍待认证；没有发布正式能源榜单。
+
+三类模块已经整理为明确接口：**Configuration列出需决定的49个字段，数值保持待定；Task adapters逐任务明确可执行提交、公平排行路线和缺少条件；Reliability extensions把历史故障归入共同生命周期，并区分已有本地实现与外部部署验收。**
 
 ## 从哪里开始
 
@@ -18,6 +20,37 @@
 | 公开原题与内部脱敏证据如何区分 | [证据与公开来源索引](docs/evidence/source-index.md) |
 | 结构化设计声明及未来 release 所需字段 | [设计清单](manifests/benchmark-v0.1-design.json)、[清单使用说明](manifests/README.md) |
 | 这次完成了哪些工作、核查了什么 | [中文完成说明](docs/completion-20261014.md) |
+| 第三步如何拆分、哪些来自底座、哪些属于新基础层 | [统一生命周期与模块边界](docs/framework/architecture.md) |
+| 哪些配置值需要决定，缺值为什么不能运行 | [Configuration字段与责任](docs/framework/configuration.md)、[待定模板](configs/experiment.template.json)、[机器字段目录](configs/configuration-catalog.json) |
+| 每个task怎么交算法，选择哪种排行、目前具备哪些条件 | [公平排行路线](docs/framework/fair-ranking.md)、[Task Adapter合同](docs/framework/task-adapters.md)、五张任务卡§10 |
+| 过去的失败如何变成统一保障与验收 | [可靠性保障层](docs/framework/reliability-layer.md)、[分层验收](docs/framework/acceptance.md) |
+| 第三步实际完成与测试证据 | [第三步中文完成说明](docs/completion-step3-20261015.md)、[本地验收摘要](docs/evidence/framework-validation-20261015.json) |
+
+## 安装和核对基础层
+
+需要Python3.11或以上；核心包只有Python标准库依赖。可按个人偏好使用`uv`：
+
+```sh
+uv venv .venv
+uv pip install --python .venv/bin/python -e .
+.venv/bin/powergrid-bench config-check configs/experiment.template.json
+.venv/bin/powergrid-bench adapter-check manifests/task-adapters/unit-commitment.json
+.venv/bin/powergrid-bench fixture-run --work-dir work/first-acceptance --trusted-local
+```
+
+也可在已有虚拟环境中用`python -m pip install .`。不安装即可核对：
+
+```sh
+PYTHONPATH=src python3 -m unittest discover -s tests -v
+PYTHONPATH=src python3 -m powergrid_bench.cli config-check configs/experiment.template.json
+PYTHONPATH=src python3 -m powergrid_bench.cli fixture-run --work-dir work/acceptance --trusted-local
+```
+
+`config-check`默认允许审阅draft并列出未定字段；`--require-complete`会拒绝draft／缺值。`adapter-check`只核对设计声明，`--require-certified`会拒绝五个尚未认证的task。`executable=true`只表示配置填实，仍不是task或部署认证。
+
+夹具实际执行小算法、独立checker、反馈、恢复、冻结和新输入终评；开发时钟使用注入的逻辑时间，数值只用于功能测试。它不访问模型服务、集群或能源数据。`--trusted-local`仅用于可信代码，不能作为恶意代码隔离措施。每次使用新工作目录，既有记录不会覆盖；证据保存在`report.json`和`ledger.sqlite3`。详情见[验收边界](docs/framework/acceptance.md)。
+
+GitHub Actions已配置Python3.11／3.12／3.13的测试、80%覆盖率门槛、格式检查、构建与夹具证据归档。具体运行状态以仓库Actions页面为准；本地通过记录不等于远端工作流已经通过。
 
 ## 五个核心任务族
 
@@ -55,19 +88,19 @@ flowchart LR
 
 主快照截至 **2026-10-13 23:32（UTC+8）**，修复准备记录至 23:38。98 个去重槽位中：59 个已有评分有效（含 AHC024 两个按规则计零的结果）、15 个开发导出有效但未终评、14 个失败、3 个实际运行、7 个未启动或排队。它们是任务校准和框架诊断的依据，不是新协议下的正式横向比较。
 
-这次完成了问题定义、任务选择、协议决定、结构化字段和后续验收标准。真实 split 成员、不可变摘要、资源和超时、允许依赖/求解器、基线参考值、反馈内容与归一化映射仍需实测后冻结；清单中明确保留 `null` 与待定状态。详见[完成说明](docs/completion-20261014.md)。
+第三步已增加可验证的基础软件与五任务提交合同。真实 split 成员、资源和超时、允许依赖／求解器、基线参考值、反馈内容与归一化映射仍需实测后冻结；未定字段保持`null`。历史记录保留，新增实现和待接入工作见[第三步完成说明](docs/completion-step3-20261015.md)。
 
 ## 后续建设顺序
 
 1. **研究契约与任务范围：文档完成。** 固定研究对象、五个任务族、主线与扩展边界、比较单位和主要研究问题。
 2. **任务卡与统一评测契约：文档完成。** 整理现有证据，明确算法接口、四角色数据、预算、评分、产物与验收要求。
-3. **基础框架修复。** 先解决共同计时、反馈账本、产物冻结、打包完整性、故障恢复和静态答案评测。
+3. **基础框架统一：合同与本地参考实现完成。** 已验证共同计时、反馈账本、产物冻结、打包校验、恢复及算法ABI；G1还需要真实Harbor／模型工具往返、硬停止和实际投递验收。
 4. **任务包实现与校准。** 逐个任务构建真实切分、执行接口、基线、资源 profile 与固定评分。
 5. **批量认证与 release 冻结。** 清洁环境、恶意/无效产物、故障注入、目标并发、重放和跨任务批次全部验收。
 6. **正式研究。** 先做反馈预算与方法基线，再做智能体/演化结构消融及泛化分析；每次测试曝光有记录。
 
 ## 仓库与来源政策
 
-本次发布仅包含原创中文文档和设计 JSON，不上传私有框架源码、模型轨迹、密钥、机器配置、内部集群信息或原始实验数据。历史统计采用脱敏摘要，公开来源在各任务卡及来源索引中链接。内部历史成绩无法仅凭本仓库重新计算，这一限制保留在证据索引中。
+本仓库发布原创中文文档、设计JSON和独立编写的基础参考实现／测试。私有`eval-in-loop`源码、模型轨迹、凭据、机器配置、内部集群信息和原始能源实验数据不在发布包中。历史统计采用脱敏摘要，公开来源在任务卡及来源索引中链接；内部历史成绩无法仅凭本仓库重新计算。
 
 上游数据、checker、仿真环境和 solver 各自的许可证、版本与归属需要单独核验；当前没有把尚未审计的数据或代码赋予统一许可。新增实现、数据或正式结果时，应追加版本与归属记录，并采用可审查的提交/PR。

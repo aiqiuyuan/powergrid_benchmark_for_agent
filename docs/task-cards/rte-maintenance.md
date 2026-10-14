@@ -116,3 +116,18 @@ v0.1的`Public development / Public selection / Protected feedback / Final test`
 - [RTE官方ROADEF 2020问题仓库](https://github.com/rte-france/challenge-roadef-2020)：问题、checker与数据来源入口。
 - [原赛规则](https://github.com/rte-france/challenge-roadef-2020/blob/master/Challenge_Rules.pdf)、[原赛实例与checker入口](https://roadef.org/challenge/2020/en/instances.php)、[原赛最终排行榜](https://roadef.org/challenge/2020/en/finalresult.php)：用于核对原赛数据角色、规模、计算预算与历史成绩。
 - 正式发布需逐项锁定原始数据、checker及适配版本，并核验各自许可；当前只发布协议与先导摘要。
+
+## 10. 本次选定的可执行Adapter与公平排行路线
+
+**2026-10-14设计决定：先在原C+X面板按15/90分钟结构做冻结算法历史参照；智能体泛化另设独立面板。** C、X现在公开，不能重称未触碰测试；硬件、种子与checkpoint执行语义的差异必须记录。原积分依赖对手，新增方法时重算固定集合的全部受影响方法，不把原冠军291积分直接插入新榜。[公平路线](../framework/fair-ranking.md#6-rtecx历史参照先行)。
+
+| 合同项 | 本家族的选择 |
+|---|---|
+| 提交 | 通用求解器源码、dependency lock、参数与种子；运行时读取完整官方实例 |
+| 输入/输出 | 完整Interventions/Resources/Exclusions/Seasons及风险情景；每项作业恰好一个1-based整数开始时段 |
+| 权威评分 | 官方checker验全部约束与原风险目标，保存`F_15/F_90/V`、分项和成本；均值或CVaR近似不能替代原评分 |
+| 公平性 | 同面板/目标/checker、同随机化与执行合同；商业与开源solver许可、线程和资源显式分赛道 |
+| 基线覆盖 | 当前HiGHS+原目标局部搜索已有；[S34](https://github.com/mbmv7/rc)、[S56](https://github.com/FranciscoParrenoTorres/Roadef2020)源码公开，Gurobi依赖与构建/重放认证仍待完成 |
+| 发布条件 | 必需嵌套文件完备性、原checker parity、30例完整重评、15/90快照及seed语义、许可审计与独立泛化面板 |
+
+**就绪状态：`design / certification-pending / release_ready=false`。** 已准备/启动的重评不等于完成；旧A4验收也不替新冻结包签证。15/90分钟和原2 CPU/16 GB是历史协议参照，开发`T/n/资源/重复`仍不定值。详见[Adapter执行合同](../framework/task-adapters.md#5-rte风险目标求解与cx历史记录)与[机器声明](../../manifests/task-adapters/rte-maintenance.json)。

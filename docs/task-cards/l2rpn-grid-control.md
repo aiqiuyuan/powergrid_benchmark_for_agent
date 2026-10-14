@@ -105,3 +105,18 @@ v0.1优先统一动作与模拟限制，开发墙钟上限且**无累计token ca
 - [Grid2Op文档](https://grid2op.readthedocs.io/en/latest/)：环境与控制器接口。
 - [锁定版本原生L2RPN2020 scorer](https://github.com/Grid2op/grid2op/blob/v1.12.5/grid2op/utils/l2rpn_2020_scores.py)与[成本reward](https://github.com/Grid2op/grid2op/blob/v1.12.5/grid2op/Reward/l2RPNSandBoxScore.py)：先导评分语义。
 - [L2RPN比赛回顾论文](https://proceedings.mlr.press/v133/marot21a/marot21a.pdf)：历史比赛背景；不作为本地适配成绩的排行依据。
+
+## 10. 本次选定的可执行Adapter与公平排行路线
+
+**2026-10-14设计决定：现代锁定环境上经过认证的同能力新排行。** 已取得三支原赛领先方法代码/权重并完成旧公开24周的480-episode重评，但旧合同给Famou更窄动作和16/2048 simulate上限，其他方法保留原搜索权限。因此旧第4等名次仅是该不对称合同下的位置，不能当同权限公平榜或原2020隐藏终测名次。[公平路线](../framework/fair-ranking.md#7-l2rpn先认证相同能力)。
+
+| 合同项 | 本家族的选择 |
+|---|---|
+| 提交 | `Controller(metadata).act(observation, simulate)`源码、锁定依赖及权重/训练来源；不能只交动作轨迹 |
+| 输入/输出 | 只提供当前合法观测、允许forecast、预算与episode seed；逐步输出合法动作，simulate只走可信计数RPC |
+| 权威评分 | 锁定原生经济scorer与同输入/seed/backend的新reference，另报successful-step生存率和实际调用量 |
+| 公平性 | 每赛道全方法同动作类、simulate允许上限、信息、资源、初始化/单步/episode时间；实际消耗可以不同 |
+| 基线覆盖 | DoNothing/重连、Greedy、ES/PPO基础及`rl_agent/binbinchen/lujixiang`获取与兼容基础存在；能力转换须新artifact与回归记录 |
+| 发布条件 | 同权限认证、原生terminal/reference parity、训练来源/许可、独立面板审计、统一资源与完整独立终评 |
+
+**就绪状态：`design / certification-pending / release_ready=false`。** 375动作和16/2048是旧先导值，新具体能力上限仍待校准；pure topology与redispatch可分别立赛道。旧20份较大方法比较策略缺独立终评的记录保留，不由本次设计补成已完成。详见[Adapter执行合同](../framework/task-adapters.md#6-l2rpn每步控制器与受控simulate)与[机器声明](../../manifests/task-adapters/l2rpn-grid-control.json)。

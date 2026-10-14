@@ -24,3 +24,9 @@ private/
 .idea/
 .vscode/
 *.pyc
+.coverage
+coverage.xml
+.ruff_cache/
+build/
+dist/
+*.egg-info/

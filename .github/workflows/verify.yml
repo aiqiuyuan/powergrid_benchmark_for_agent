@@ -1,0 +1,41 @@
+name: Foundation verification
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ['3.11', '3.12', '3.13']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Install verification tools and package
+        run: |
+          python -m pip install '.[verification]'
+      - name: Check formatting and static issues
+        run: |
+          ruff check src tests
+          ruff format --check src tests
+      - name: Verify contracts and lifecycle with coverage
+        run: |
+          coverage run --source=powergrid_bench -m unittest discover -s tests
+          coverage report --fail-under=80
+          powergrid-bench config-check configs/experiment.template.json
+      - name: Build distribution and run installed fixture
+        run: |
+          python -m build
+          powergrid-bench fixture-run --work-dir work/acceptance --trusted-local
+      - name: Retain synthetic acceptance evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: fixture-python-${{ matrix.python }}
+          path: work/acceptance/report.json

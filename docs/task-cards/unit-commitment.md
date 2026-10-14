@@ -94,3 +94,18 @@ UC为核心、SCUC为扩展的家族定位已确定。待定项是SCUC扩展的�
 - [PGLib-UC](https://github.com/power-grid-lib/pglib-uc)：标准实例与基准来源；先导记录区分数据CC BY 4.0与代码MIT。
 - [UnitCommitment.jl 0.4 实例文档](https://anl-ceeesa.github.io/UnitCommitment.jl/0.4/guides/instances/)：参考实现与实例格式。
 - SCUC适配中的网络来源和上游数据权利应单独核验；某个代码仓库许可不自动覆盖所有派生数据。
+
+## 10. 本次选定的可执行Adapter与公平排行路线
+
+**2026-10-14设计决定：原始PGLib-UC通用求解器的新排行，派生DC SCUC独立扩展。** 本库没有官方竞赛榜；UC保留锁定原参数与完整时间窗口，SCUC有独立`track_id`、物理/安全合同及归一化，两个赛道不混排名。[公平路线](../framework/fair-ranking.md#5-uc与scuc标准求解器排行与独立扩展)。
+
+| 合同项 | 本家族的选择 |
+|---|---|
+| 提交 | 求解器源码、Julia/solver依赖锁定、参数与种子；终评执行冻结算法，不能仅交排程 |
+| 输入/输出 | 每例新读完整原JSON；输出`uc-schedule-v1`的热机on/power/reserve和新能源出力；SCUC附固定网络与全部security rows |
+| 权威评分 | 独立validator检查所有原约束并重算成本；solver自报最优/目标/下界不作为权威值 |
+| 公平性 | 全方法同窗口、同实例/目标/容差、同solver许可赛道、资源、线程与执行时限；不自动修复输入或弱化强基线 |
+| 基线覆盖 | 完整MILP/HiGHS与独立validator已有；January incumbent未证明最优，参考下界及gap须保留可信来源 |
+| 发布条件 | 替换静态排程终评、clean新输入重放、完整约束fixture、系统/日期分组与暴露审计、难度/资源及强基线校准 |
+
+**就绪状态：`design / certification-pending / release_ready=false`。** UC当前首要实现缺口是运行源码后独立验解；SCUC还需单独认证派生安全范围。已有60秒/例和30分钟开发仍仅为预实验，不替新Configuration填值。详见[Adapter执行合同](../framework/task-adapters.md#4-uc与派生scuc运行源码后验排程)与[机器声明](../../manifests/task-adapters/unit-commitment.json)。

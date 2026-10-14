@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.0-design",
+  "task_id": "unit-commitment",
+  "status": "design",
+  "certification_status": "pending",
+  "release_ready": false,
+  "selected_route": {
+    "id": "original-pglib-uc-executable-solver-ranking",
+    "claim_scope": "new-benchmark-ranking",
+    "historical_reference": "not-a-competition-library-only",
+    "official_rank_claim_allowed": false,
+    "extension_track_id": "derived-dc-scuc",
+    "extension_rankings_and_normalization_separate": true
+  },
+  "implementation": {
+    "binding_implemented_in_this_repository": false,
+    "argv": ["python3", "main.py", "--request", "{input}", "--output", "{output}"],
+    "input_schema": "task-request-v1-proposed",
+    "output_schema": "task-output-v1-proposed",
+    "native_inputs": ["pglib-instance.json"],
+    "extension_native_inputs": ["network-instance.json", "security-rows.json"],
+    "native_outputs": ["schedule.json", "solver_report.json-optional"],
+    "native_output_schema": "uc-schedule-v1",
+    "state_policy": "fresh-process-per-instance-no-cross-instance-writable-cache"
+  },
+  "candidate_contract": {
+    "kind": "algorithm",
+    "executes_on_new_inputs": true,
+    "source_required": true,
+    "dependency_lock_required": true,
+    "static_answers_allowed": false,
+    "preserve_full_time_horizon": true,
+    "automatic_input_repair_allowed": false,
+    "candidate_reported_objective_or_bound_is_authoritative": false
+  },
+  "metrics": {
+    "raw": ["independent_total_cost", "feasibility", "trusted_reference_lower_bound", "incumbent_gap", "runtime_seconds", "peak_memory_gib"],
+    "objective_direction": "minimize",
+    "aggregate_policy": null,
+    "candidate_failure_score": null,
+    "infrastructure_failure_is_missing": true
+  },
+  "fairness_contract": {
+    "preserve_original_uc_parameters": true,
+    "independent_constraint_and_cost_validation_required": true,
+    "solver_license_threads_and_resources_declared": true,
+    "system_and_date_group_split_required": true,
+    "public_library_does_not_supply_official_hidden_test_split": true,
+    "algorithm_performance_and_agent_development_tables_separate": true
+  },
+  "original_protocol_reference": {
+    "source": "PGLib-UC IEEE PES benchmark library",
+    "source_commit": "39a7f38cf4703de92f0291f0c873c2e98c789301",
+    "public_instances": 56,
+    "official_competition_leaderboard": null,
+    "official_training_development_test_split": null,
+    "values_are_source_inventory_not_new_configuration": true
+  },
+  "required_configuration_fields": ["development_seconds", "protected_feedback_budget", "model_profile", "repetitions", "development_resources", "feedback_resources", "final_resources", "per_instance_seconds", "final_build_seconds", "final_batch_seconds", "solver_license_profile", "solver_threads", "numerical_tolerances", "selection_policy", "aggregate_policy", "split_manifest", "extension_physics_version"],
+  "configuration_values": {
+    "development_seconds": null,
+    "protected_feedback_budget": null,
+    "model_profile": null,
+    "repetitions": null,
+    "per_instance_seconds": null,
+    "solver_license_profile": null
+  },
+  "readiness": {
+    "available_evidence": ["complete-milp-highs-reference", "independent-python-validator", "two-rts-and-small-derived-scuc-calibration-cases"],
+    "baseline_candidates": [{"name": "UnitCommitment.jl-and-full-PGLib-MILP-HiGHS", "source_url": "https://anl-ceeesa.github.io/UnitCommitment.jl/0.4/guides/instances/", "status": "local-reference-exists-new-contract-certification-pending"}],
+    "missing_evidence": ["replace-static-schedule-terminal-grading-with-code-execution", "clean-new-instance-replay", "complete-constraint-fixtures", "audited-grouped-panel", "trusted-bound-and-aggregation-policy", "derived-scuc-physics-and-difficulty-certification"]
+  },
+  "gates": ["task-binding-certification", "data-license-and-group-audit", "clean-julia-build", "constraint-and-cost-parity", "frozen-solver-new-input-replay", "timeout-with-and-without-incumbent", "same-platform-baselines", "target-concurrency-acceptance"],
+  "documentation": "docs/framework/task-adapters.md#4-uc与派生scuc运行源码后验排程"
+}

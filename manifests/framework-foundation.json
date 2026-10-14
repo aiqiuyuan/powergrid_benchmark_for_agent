@@ -1,0 +1,22 @@
+{
+  "schema_version": "foundation-status-v1",
+  "package": "powergrid-benchmark-foundation",
+  "version": "0.1.0",
+  "status": "local-reference-tested",
+  "benchmark_release_ready": false,
+  "research_configuration_values_decided": false,
+  "configuration_field_count": 49,
+  "implemented_modules": ["config", "artifacts", "clock", "ledger", "lifecycle", "process", "adapters", "fixtures", "cli"],
+  "code_origin": "independent-original-reference-implementation",
+  "private_upstream_source_included": false,
+  "adapter_contracts": ["goc-sc-ac-opf", "unit-commitment", "rte-maintenance", "l2rpn-grid-control", "heftcom-forecast-trade"],
+  "native_energy_adapter_certification_status": "pending",
+  "harbor_or_provider_integration_certified": false,
+  "hostile_candidate_isolation_certified": false,
+  "resource_quotas_and_container_hard_deadline_certified": false,
+  "full_request_rejection_transport_audit_implemented": false,
+  "agent_read_acknowledgment_available": false,
+  "target_concurrency_batch_certified": false,
+  "validation_report": "docs/evidence/framework-validation-20261015.json",
+  "completion_report": "docs/completion-step3-20261015.md"
+}

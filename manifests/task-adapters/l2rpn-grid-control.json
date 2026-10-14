@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0-design",
+  "task_id": "l2rpn-grid-control",
+  "status": "design",
+  "certification_status": "pending",
+  "release_ready": false,
+  "selected_route": {
+    "id": "certified-same-capabilities-modern-environment-ranking",
+    "claim_scope": "new-benchmark-ranking",
+    "historical_reference": "public24-reevaluation-v2-with-asymmetric-method-permissions",
+    "official_rank_claim_allowed": false,
+    "old_public24_is_fair_same_capability_ranking": false
+  },
+  "implementation": {
+    "binding_implemented_in_this_repository": false,
+    "argv": ["python3", "main.py", "--request", "{input}", "--output", "{output}"],
+    "input_schema": "task-request-v1-proposed",
+    "output_schema": "task-output-v1-proposed",
+    "controller_abi": "Controller(metadata).act(observation,simulate)",
+    "native_outputs": ["per-step-legal-grid2op-action"],
+    "simulate_transport": "trusted-rpc-only-counted-and-limited",
+    "state_policy": "episode-local-memory-fresh-controller-and-seed-per-episode"
+  },
+  "candidate_contract": {
+    "kind": "algorithm",
+    "executes_on_new_inputs": true,
+    "source_required": true,
+    "dependency_lock_required": true,
+    "weight_and_training_provenance_required": true,
+    "static_answers_allowed": false,
+    "future_real_chronics_visible": false,
+    "online_llm_control_in_default_track": false
+  },
+  "metrics": {
+    "raw": ["native_economic_score", "successful_step_survival_percent", "completed_episodes", "simulate_calls", "runtime_seconds", "peak_memory_gib"],
+    "objective_direction": "maximize",
+    "aggregate_policy": "predeclared-per-episode-native-score-mean-with-frozen-weights",
+    "candidate_failure_score": null,
+    "infrastructure_failure_is_missing": true
+  },
+  "fairness_contract": {
+    "same_action_permissions_for_all_ranked_methods": true,
+    "same_simulation_limit_for_all_ranked_methods": true,
+    "actual_consumption_need_not_be_equal": true,
+    "same_backend_seed_forecast_resources_and_limits": true,
+    "capability_changing_adaptations_have_new_artifact_identity": true,
+    "official_hidden_2020_test_manifest_verified_available": false,
+    "algorithm_performance_and_agent_development_tables_separate": true
+  },
+  "original_protocol_reference": {
+    "competition": "L2RPN NeurIPS 2020 Track 1 Robustness",
+    "hidden_final_weeks": 24,
+    "original_grid2op_version": "1.2.2",
+    "original_lightsim2grid_version": "0.2.4",
+    "values_are_historical_references_not_new_configuration": true,
+    "review_url": "https://proceedings.mlr.press/v133/marot21a/marot21a.pdf"
+  },
+  "required_configuration_fields": ["development_seconds", "protected_feedback_budget", "model_profile", "repetitions", "development_resources", "feedback_resources", "final_resources", "environment_version", "backend_version", "action_class", "action_schema", "simulate_per_step", "simulate_per_episode", "initialization_seconds", "per_step_seconds", "episode_seconds", "seed_policy", "selection_policy", "split_manifest", "scorer_and_reference_version", "pretrained_weight_policy"],
+  "configuration_values": {
+    "development_seconds": null,
+    "protected_feedback_budget": null,
+    "model_profile": null,
+    "repetitions": null,
+    "action_class": null,
+    "simulate_per_step": null,
+    "simulate_per_episode": null
+  },
+  "readiness": {
+    "available_evidence": ["native-modern-scoring-pilot", "local-controller-rpc-and-budget-wrapper", "three-public-leading-method-source-weight-and-compatibility-packages", "old-asymmetric-public24-complete-480-episode-reevaluation"],
+    "baseline_candidates": [
+      {"name": "rl_agent", "status": "source-weights-acquired-new-capability-certification-pending"},
+      {"name": "binbinchen", "status": "source-weights-acquired-new-capability-certification-pending"},
+      {"name": "lujixiang", "status": "source-weights-acquired-new-capability-certification-pending"}
+    ],
+    "missing_evidence": ["same-capability-adapter-certification-for-every-method", "new-independent-panel-exposure-and-group-audit", "native-scorer-terminal-and-reference-parity", "unified-resource-calibration", "pretrained-weight-provenance-audit", "existing-large-panel-20-policy-final-evaluation"]
+  },
+  "gates": ["task-binding-certification", "data-and-weight-license-audit", "same-action-and-simulation-permission", "fresh-reference-native-parity", "controller-isolation-and-invalid-action-fixtures", "frozen-controller-new-episode-replay", "same-platform-baselines", "target-concurrency-acceptance"],
+  "documentation": "docs/framework/task-adapters.md#6-l2rpn每步控制器与受控simulate"
+}

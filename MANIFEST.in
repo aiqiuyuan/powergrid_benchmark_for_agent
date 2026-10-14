@@ -1,0 +1,5 @@
+include README.md CHANGELOG.md
+recursive-include configs *.json
+recursive-include manifests *.json *.md
+recursive-include docs *.md *.json
+recursive-include tests *.py

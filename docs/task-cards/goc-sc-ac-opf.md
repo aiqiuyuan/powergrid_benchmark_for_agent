@@ -115,3 +115,18 @@
 
 - [ARPA-E GOC Challenge 1 数据目录](https://catalog.data.gov/dataset/arpa-e-grid-optimization-go-competition-challenge-1)：问题与数据来源入口。
 - 原始评分器、数据版本与适配应在正式实现中附来源锁定及许可记录；本仓库当前不再分发未核验的原始数据或上游代码。
+
+## 10. 本次选定的可执行Adapter与公平排行路线
+
+**2026-10-14设计决定：公开合成面板上的完整Code1/Code2统一重评。** 工业终赛实例不公开，不主张恢复原全量官方榜；原单场景`J`和可核验的合成division结果作为独立历史参照。新的泛化排行另有来源/暴露审计后的四角色面板，已经反复优化的场景进入开发或calibration。[公平路线](../framework/fair-ranking.md#4-goc公开合成统一重评)。
+
+| 合同项 | 本家族的选择 |
+|---|---|
+| 提交 | 可执行算法源码、dependency lock、参数/种子及合法训练来源；入口显式读取请求并生成输出 |
+| 输入/输出 | 每次读官方RAW/ROP/INL/CON；Code1生成`solution1.txt`，Code2读取同次冻结基态并生成全部原故障的`solution2.txt` |
+| 权威评分 | 官方evaluator独立验证有效性、硬可行性、完整故障、原始`J`和软惩罚；不接受静态解或拼接候选 |
+| 公平性 | 所有纳入方法同场景、同物理/容差、同两阶段能力、同资源与算法执行限额；开发`T/n`与执行时间分开 |
+| 基线覆盖 | 当前完整数值参考已有；LLNL [gollnlp](https://github.com/gollnlp/gollnlp)为公开强候选，尚未认证本平台clean build与全量重放 |
+| 发布条件 | 新面板与组审计、统一资源校准、全故障/异常fixture、固定聚合与失败政策、强基线和目标并发验收 |
+
+**就绪状态：`design / certification-pending / release_ready=false`。** 已有中等规模完整先导不替代上述新合同的认证，GOC30000只保留规模扩展。预算值按Configuration待定；10/45分钟仍是原赛参照，不直接成为新实验值。详见[Adapter执行合同](../framework/task-adapters.md#3-goc完整两阶段求解器)与[机器声明](../../manifests/task-adapters/goc-sc-ac-opf.json)。

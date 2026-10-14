@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0-design",
+  "task_id": "heftcom-forecast-trade",
+  "status": "design",
+  "certification_status": "pending",
+  "release_ready": false,
+  "selected_route": {
+    "id": "pretest-frozen-causal-day-ahead-replay",
+    "claim_scope": "new-benchmark-ranking",
+    "historical_reference": "actual-daily-archived-forecast-and-trade-output-recomputation",
+    "official_rank_claim_allowed": false,
+    "primary_track": "trading",
+    "forecasting_and_combined_certification_status": "pending",
+    "rolling_training_requires_separate_protocol": true
+  },
+  "implementation": {
+    "binding_implemented_in_this_repository": false,
+    "argv": ["python3", "main.py", "--request", "{input}", "--output", "{output}"],
+    "input_schema": "task-request-v1-proposed",
+    "output_schema": "task-output-v1-proposed",
+    "unit_of_execution": "one-market-day",
+    "native_outputs": ["bids.csv", "forecasts.csv-if-forecasting-enabled"],
+    "bid_fields": ["timestamp", "bid_mwh"],
+    "forecast_fields": ["timestamp", "q10", "q20", "q30", "q40", "q50", "q60", "q70", "q80", "q90"],
+    "feature_availability_fields": ["issue_time", "available_at", "target_timestamp"],
+    "state_policy": "pretest-frozen-weights-causal-history-only-no-test-period-refitting"
+  },
+  "candidate_contract": {
+    "kind": "algorithm",
+    "executes_on_new_inputs": true,
+    "source_required": true,
+    "dependency_lock_required": true,
+    "training_recipe_cutoff_and_weight_hash_required": true,
+    "static_answers_allowed": false,
+    "future_real_generation_and_settlement_labels_visible": false,
+    "test_period_refitting_in_primary_protocol": false
+  },
+  "metrics": {
+    "raw": ["cumulative_revenue_gbp", "mean_revenue_per_half_hour_gbp", "valid_bid_fraction", "downside_risk", "pinball_mwh-if-forecasting-enabled", "training_and_inference_seconds"],
+    "objective_direction": "maximize-trading-minimize-pinball",
+    "settlement_formula": "bid*DA_price+(generation-bid)*SS_price-0.07*(generation-bid)^2",
+    "combined_ranking_allowed_before_both_tasks_certified": false,
+    "candidate_failure_score": null,
+    "infrastructure_failure_is_missing": true
+  },
+  "fairness_contract": {
+    "bid_min_mwh": 0,
+    "bid_max_mwh": 1800,
+    "decision_cutoff": "D-1 09:20 UTC",
+    "causal_feature_and_label_available_at_audit_required": true,
+    "training_cutoff_must_precede_final_panel": true,
+    "official_settlement_timezone_dst_missing_submission_revision_parity_required": true,
+    "previous_positive_n_feedback_period_is_not_untouched_final_test": true,
+    "algorithm_performance_and_agent_development_tables_separate": true
+  },
+  "original_protocol_reference": {
+    "competition": "HEFTCom24",
+    "target_market_days": ["2024-02-20", "2024-05-19"],
+    "archive_is_public_historical_data": true,
+    "documentation_url": "https://zenodo.org/records/13950764/files/Competition%20Documentation%20v4.0.pdf?download=1",
+    "bounds_and_cutoff_are_task_semantics_not_development_budget_choices": true
+  },
+  "required_configuration_fields": ["development_seconds", "protected_feedback_budget", "model_profile", "repetitions", "development_resources", "feedback_resources", "final_resources", "training_cutoff", "public_training_data", "selection_fit_policy", "feature_availability_manifest", "per_day_seconds", "training_seconds", "initialization_seconds", "final_batch_seconds", "dependency_and_model_policy", "split_manifest", "settlement_version", "missing_bid_policy", "seed_policy"],
+  "configuration_values": {
+    "development_seconds": null,
+    "protected_feedback_budget": null,
+    "model_profile": null,
+    "repetitions": null,
+    "training_cutoff": null,
+    "per_day_seconds": null
+  },
+  "readiness": {
+    "available_evidence": ["public-nwp-energy-and-daily-submission-archive", "ridge-and-constant-calibration-starter", "local-historical-bids-only-grader"],
+    "baseline_candidates": [{"name": "GEB", "source_url": "https://github.com/BigdogManLuo/HEFTcom24/releases/tag/v1.3", "status": "published-source-and-pretrained-package-causality-certification-pending"}],
+    "missing_evidence": ["replace-bids-only-grading-with-frozen-pipeline-day-replay", "training-cutoff-and-feature-publication-audit", "baseline-causal-retraining-or-approved-weight-evidence", "organizer-settlement-parity", "independent-unexposed-time-panel", "complete-timestamp-dst-and-missing-data-fixtures"]
+  },
+  "gates": ["task-binding-certification", "data-and-model-license-audit", "causal-feature-and-label-time-audit", "frozen-pipeline-new-day-execution", "original-bid-bound-validation", "organizer-settlement-parity", "same-platform-causal-baselines", "independent-final-period", "target-concurrency-acceptance"],
+  "documentation": "docs/framework/task-adapters.md#7-heftcom训练证据加逐日因果预测交易"
+}
