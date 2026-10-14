@@ -27,8 +27,15 @@
 | P05 | L2RPN / Grid2Op | [Grid2Op 官方文档](https://grid2op.readthedocs.io/en/latest/)；[平台源码](https://github.com/Grid2op/grid2op) | 电网顺序决策平台；正式 task 仍须固定场景包、backend、动作及评分版本 |
 | P06 | HEFTCom | [HEFTCom24 发布方仓库](https://github.com/jbrowell/HEFTcom24) | 预测与交易任务及工具；本项目历史回测划分不等于官方在线比赛协议 |
 | P07 | AHC024 | [AtCoder Topological Map 原题](https://atcoder.jp/contests/ahc024/tasks/ahc024_a) | 非能源框架测试，排除于五个核心能源任务族之外 |
+| P08 | GOC原赛最终名次与阶段数据 | [官方Final Event工作簿](https://data.openei.org/files/6153/C1_E4_scenario_results_20200106.xlsx)；[原始数据归档](https://data.openei.org/submissions/6153)；[评分规则](https://data.openei.org/files/6153/Challenge_1_Scoring.pdf) | 区分全量/合成榜及Division；Dataset2旧文字与当前归档数量冲突已在任务卡注明；不补造Division3/4名次 |
+| P09 | UC原始公开实例 | [PGLib-UC固定版本](https://github.com/power-grid-lib/pglib-uc/tree/39a7f38cf4703de92f0291f0c873c2e98c789301)；[UnitCommitment.jl 0.4实例目录](https://anl-ceeesa.github.io/UnitCommitment.jl/0.4/guides/instances/) | 56例公开UC实例、MATPOWER派生SCUC来源；实例库没有本项目意义的原赛排行榜或密封train/test |
+| P10 | RTE原赛总榜与A/B/C/X | [官方决赛榜](https://roadef.org/challenge/2020/en/finalresult.php)；[实例页](https://roadef.org/challenge/2020/en/instances.php)；[实际赛程](https://roadef.org/challenge/2020/en/calendrier.php) | 13队总榜、每组15例；C赛前公开、X当时隐藏现在公开；奖项与积分榜区分 |
+| P11 | L2RPN 2020 Robustness原赛 | [CodaLab竞赛25426](https://competitions.codalab.org/competitions/25426)；[组织方回顾论文](https://proceedings.mlr.press/v133/marot21a/marot21a.pdf)；[公开环境说明](https://grid2op.readthedocs.io/en/latest/available_envs.html#l2rpn-neurips-2020-track1) | 采用2020最终榜而非Legacy；隐藏24周终测与本地留出不同；当前容量不证明原赛包哈希 |
+| P12 | HEFTCom原赛最终榜与实时数据 | [官方leaderboard CSV](https://zenodo.org/records/13950764/files/overall_leaderboard.csv?download=1)；[原赛文档v4.0](https://zenodo.org/records/13950764/files/Competition%20Documentation%20v4.0.pdf?download=1)；[组织方回顾论文](https://arxiv.org/html/2507.01579v2) | 区分预测/交易/Combined；2024实时赛期及0–1800MWh边界不同于本地历史回测/报价限制 |
 
 这些入口用于说明来源；本次规格提交未复制上游数据或 checker。正式数据与代码发布需分别记录上游版本、许可、归属及项目适配差异。
+
+同日原赛背景补充见五张任务卡第8节。数据规模以明确的文件清点或原始规则为依据，历史榜单只作背景和基线线索，不把本地成绩插入旧榜；本次没有重算完整竞赛榜单或重新构建其隐藏测试集。
 
 ## 内部证据摘要索引
 

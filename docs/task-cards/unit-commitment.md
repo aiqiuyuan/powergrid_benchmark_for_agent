@@ -67,7 +67,29 @@ PGLib-UC原数据公开，因此保护的是实验期访问与候选结果，不
 
 UC为核心、SCUC为扩展的家族定位已确定。待定项是SCUC扩展的准入门槛、精确物理模型与难度校准范围，以及同系统/跨系统划分、实例数量、商业求解器独立赛道、归一化与容差。**首要协议缺口是终评执行算法和独立测试面板**，而非扩大n取值。
 
-## 8. 公开来源
+## 8. 原始来源的排行榜与开发/测试数据
+
+**核查日期：2026-10-14。上游性质：公开优化实例库，不是一场带参赛排名的原始竞赛。** PGLib-UC由IEEE PES基准任务组维护，用于比较既定UC MILP的求解算法；其公开说明没有定义本库的官方竞赛排行榜。因此本卡的“原赛排行榜”记为**不适用**，不能把某篇论文的solver性能表或我们自己的相对成本排序当作官方名次。[PGLib-UC官方说明](https://github.com/power-grid-lib/pglib-uc/blob/39a7f38cf4703de92f0291f0c873c2e98c789301/README.md)
+
+### 8.1 上游公开实例与划分
+
+以下数量按核查时上游提交 `39a7f38cf4703de92f0291f0c873c2e98c789301` 的JSON文件清点，**不是官方训练/测试划分**。三组共56例，全部是公开benchmark实例；“test cases”在这里指优化测试用例，没有ML意义上的官方训练标签/密封测试标签。实例库仍可能更新，后续release必须锁定版本。[固定版本实例树](https://github.com/power-grid-lib/pglib-uc/tree/39a7f38cf4703de92f0291f0c873c2e98c789301)、[实例库说明](https://github.com/power-grid-lib/pglib-uc/blob/39a7f38cf4703de92f0291f0c873c2e98c789301/README.md)
+
+| 上游组 | 公开实例数 | 数据来源与变化方式 | 原始开发集/测试集情况 |
+|---|---:|---|---|
+| `ca` | 20 | California ISO公开数据；4个日期及Scenario400风电情景，分别配0%、1%、3%、5%备用需求 | 整组公开；未指定独立开发/密封测试角色 |
+| `ferc` | 24 | FERC机组数据与PJM负荷/备用/风电；12个日期各有low-wind和high-wind版本 | 整组公开；风电变化是情景变体，不是训练/测试标签 |
+| `rts_gmlc` | 12 | RTS-GMLC系统的2020年12个日期；PGLib适配调整爬坡率 | 整组公开；我们仅用了其中1月27日和7月6日两个日期 |
+
+来源结构见[官方说明](https://github.com/power-grid-lib/pglib-uc/blob/39a7f38cf4703de92f0291f0c873c2e98c789301/README.md)；日期清单与参考实现的铜板网络表示见[UnitCommitment.jl 0.4实例目录](https://anl-ceeesa.github.io/UnitCommitment.jl/0.4/guides/instances/#PGLIB-UC-Instances)。上游没有提供本项目要求的四角色split；公开/选择/受保护反馈/最终测试必须由我们另外按系统与时间情景分组建立。不能把剩余10个RTS日期自动称为“原赛隐藏测试集”。
+
+### 8.2 SCUC适配的原始数据边界
+
+现有SCUC扩展不是PGLib-UC的官方赛道。UnitCommitment.jl的MATPOWER派生库为每个原始网络提供2017年365个日期变体，并增加UC参数与不产生孤岛的线路故障；`case14`和`case30`属于其中公开的小系统。该库同样没有对应的官方竞赛榜单或密封train/test分割。[UnitCommitment.jl的MATPOWER派生说明](https://anl-ceeesa.github.io/UnitCommitment.jl/0.4/guides/instances/#MATPOWER)
+
+我们的36小时窗口、100/120MW线路限额及其安全范围属于本地派生合同，不能由上游实例的公开性推导为完整SCUC竞赛协议。比较参考求解器时应报告固定资源下的成本、可行率、下界与耗时；“原赛名次”对此任务不成立。
+
+## 9. 公开来源
 
 - [PGLib-UC](https://github.com/power-grid-lib/pglib-uc)：标准实例与基准来源；先导记录区分数据CC BY 4.0与代码MIT。
 - [UnitCommitment.jl 0.4 实例文档](https://anl-ceeesa.github.io/UnitCommitment.jl/0.4/guides/instances/)：参考实现与实例格式。

@@ -62,7 +62,57 @@ A/B/C/X等来源组是否同分布、规模是否合适，先做来源与难度�
 
 **阻塞：** 修复版本完整运行验收和替代重复。**待定：** 核心实例范围、风险归一化、反馈粒度、求解器能力边界、线程/进程限制、发布数据许可与独立划分。先修任务包完整性，再扩大实验矩阵。
 
-## 8. 公开来源
+## 8. 原始竞赛排行榜与开发／测试数据
+
+**公开资料核查日期：北京时间 2026-10-14。** 本节描述的是ROADEF/EURO 2020 RTE竞赛；赛事名称含2020，算法决赛结果实际在2021年公布，科学奖在2022年公布。原赛程、原排行榜和本卡§3的先导reward属于不同记录。[官方赛程](https://roadef.org/challenge/2020/en/calendrier.php)
+
+### 8.1 原始排行榜、计分与参赛类别
+
+原赛设Sprint、资格赛、半决赛和决赛。决赛合并 **C、X共30个实例** 排名：对每个实例，把15分钟与90分钟的原始目标值按 `V = 0.8 × F_15 + 0.2 × F_90` 加权，`V`越小越好；对于可行结果，该实例积分为 `max(0, 10 − 严格优于该队的队伍数)`，再求实例积分之和，总积分越大越好，理论上限300。官方规则的计算环境为Linux、2 CPU、16 GB RAM，按指定种子评测，不按多次随机重复的平均值排序。因此，下面的291等数字是**名次积分**，不是原始风险目标，也不是我们先导的0.373…归一化reward。[官方规则§2.3—2.6](https://github.com/rte-france/challenge-roadef-2020/blob/master/Challenge_Rules.pdf)
+
+以下保留官方决赛页的全部13支队伍与并列名次；字母`S`、`J`分别表示Senior、Junior，表格本身是两类队伍合并的总榜。[官方决赛排行榜及逐实例结果](https://roadef.org/challenge/2020/en/finalresult.php)
+
+| 决赛总排名 | Team ID／类别 | 队员 | 总积分 |
+|---|---|---|---:|
+| 1 | S34／Senior | Mirsad Buljubasic、Michel Vasquez | 291 |
+| 2 | S66／Senior | Hue Chi Lam、Hanyu Gu、Thi Thanh Thu Pham | 236 |
+| 3 | S56／Senior | Francisco Parreno、Ramon Álvarez-Valdés、Consuelo Parreno-Torres | 225 |
+| 4 | S19／Senior | Luc Libralesso、Florian Fontan | 187 |
+| 并列5 | J73／Junior | Marco Langiu | 139 |
+| 并列5 | S68／Senior | David Torre Sanchez、Matthew Bold | 139 |
+| 7 | S58／Senior | Marius Roland、Matteo Petris、Diego Cattaruzza、Martine Labbé、Martin Schmidt | 138 |
+| 并列8 | J43／Junior | Hyunwoo Park、Jaegwan Joo、Youngjoo Roh、Lee Jerimi | 77 |
+| 并列8 | J49／Junior | David Woller、Jakub Rada | 77 |
+| 10 | J24／Junior | Maximiliano Frungillo | 49 |
+| 11 | J3／Junior | Gabriel Gouvine | 48 |
+| 12 | S14／Senior | Hugo Chareyre | 40 |
+| 13 | S28／Senior | Lijun Wei、Jiawei Lin、Zhaohan Zhan、Lihui Huang、Jiawei Zeng、Jiadong Bu | 13 |
+
+S34是官方明确宣布的总冠军；J73是上述总榜中排名最高的Junior队伍。原赛另外设最佳Junior、最佳Open Source和科学贡献奖，**奖项类别不等同于一张独立的算法积分榜**。决赛页的`SOURCE`列是部分团队的代码入口，例如[S34源码](https://github.com/mbmv7/rc)、[S56源码](https://github.com/FranciscoParrenoTorres/Roadef2020)和[S19源码](https://github.com/fontanf/localsearchsolver)，不能只因存在代码链接就宣称某队获得Open Source奖；本次查到的决赛页未单独列出该奖授奖结果。科学奖的官方获奖队伍为 **S58**，与其决赛总排名第7是两项不同信息。[官方奖项设置](https://roadef.org/challenge/2020/en/prix.php)、[科学奖获奖结果](https://roadef.org/challenge/2020/en/scientificprizeresults.php)
+
+历史阶段榜也公开：[资格赛A榜](https://roadef.org/challenge/2020/en/qualifresult.php)、[半决赛B榜](https://roadef.org/challenge/2020/en/semifinalfresult.php)。需要重建逐实例对照时，决赛页提供完整汇总工作簿[compiler_final.xlsx](https://roadef.org/challenge/2020/en/compiler_final.xlsx)以及[C组结果](https://roadef.org/challenge/2020/en/compiler_C.xlsx)、[X组结果](https://roadef.org/challenge/2020/en/compiler_X.xlsx)。这些是历史性能参照；要成为本benchmark基线，仍需检查代码许可、依赖与求解器许可，并在本benchmark的统一资源和时限下重跑。
+
+### 8.2 原赛开发、阶段评测与隐藏测试
+
+原赛是组合优化算法竞赛，没有监督学习意义上的标签训练集。开发者取得完整实例输入、问题定义与checker，开发能处理新实例的求解程序。官方规则列出四组、每组15个实例，共60个；A是小／中规模，B、C、X是常规工业规模。规则给出的规模上限包括1000项干预、365个时间段和15类资源，不能据此假定每个实例都达到上限。[官方规则§2.3](https://github.com/rte-france/challenge-roadef-2020/blob/master/Challenge_Rules.pdf)
+
+| 原赛数据组 | 实例数／编号 | 比赛进行期间的角色与可见性 | 当前公开状态与入口 |
+|---|---|---|---|
+| A | 15，A01—A15 | 初始公开开发数据；用于Sprint和资格赛。官方赛历记录2020-04-01提供题面、checker和A组 | 公开：[A_set.7z](https://github.com/rte-france/challenge-roadef-2020/raw/master/A_set.7z) |
+| B | 15，B01—B15 | 资格赛后提供的公开数据；用于半决赛。官方赛历记录2021-01-05开放B组 | 公开：[B_set.7z](https://github.com/rte-france/challenge-roadef-2020/raw/master/B_set.7z) |
+| C | 15，C01—C15 | 决赛前公开，供最终程序开发和提交解；同时计入决赛。因此它不是比赛期间始终隐藏的测试组。官方赛历记录2021-03-16开放C组 | 公开：[C_compact.7z](https://github.com/rte-france/challenge-roadef-2020/raw/master/C_compact.7z) |
+| X | 15，X01—X15 | 比赛期间隐藏，由组织者运行提交程序，和C联合形成决赛总榜；规则说明比赛结束后公开 | 当前公开，分成两个下载包：[X_compact_1_1.7z](https://github.com/rte-france/challenge-roadef-2020/raw/master/X_compact_1_1.7z)、[X_compact_1_2.7z](https://github.com/rte-france/challenge-roadef-2020/raw/master/X_compact_1_2.7z)。X1/X2是X组的分包，不是额外两组各15例 |
+
+数量与阶段用途依据[官方规则§2.3—2.4](https://github.com/rte-france/challenge-roadef-2020/blob/master/Challenge_Rules.pdf)，发布日期依据[实际赛历](https://roadef.org/challenge/2020/en/calendrier.php)，现有下载入口依据[官方实例页](https://roadef.org/challenge/2020/en/instances.php)。需要注意，规则概述称C在半决赛后开放，但更新后的赛历把C开放时间列为2021-03-16、半决赛提交期限列为2021-04-02；实际复原可见性时应采用具体赛历，不把“C曾提前公开”改写为隐藏测试。RTE仓库另提供`exemple1.json`、`exemple2.json`两个功能示例及checker，不应把示例再计入上述60个工业实例。[RTE官方checker说明](https://github.com/rte-france/challenge-roadef-2020)
+
+### 8.3 与本项目先导及v0.1划分的关系
+
+本卡§3的4实例先导全部取自A组：A_07/A_09作公开开发，A_08/A_12作过程反馈与终评。它不是对原赛全部A组、原赛C/X决赛面板或隐藏X组的复现；每例60秒、1 CPU、2 GiB也不同于原赛15／90分钟的预算。
+
+v0.1的`Public development / Public selection / Protected feedback / Final test`是本项目拟建立的四种用途，**不能把原赛A/B/C/X四个字母一一机械对应过去**：原赛C在决赛前可见，X现在也已公开且有最佳值表。若后续使用C或X作服务端留出，需要冻结具体版本与实例清单，并披露“当前执行隔离的公开历史实例”及潜在历史知识污染；它们不会因此恢复成原赛当年的未公开测试。四组的难度、规模与历史暴露程度需要先统计，再确定独立划分；本次补充原赛信息并不代表这些v0.1划分已经落盘或完成验收。
+
+## 9. 公开来源
 
 - [RTE官方ROADEF 2020问题仓库](https://github.com/rte-france/challenge-roadef-2020)：问题、checker与数据来源入口。
+- [原赛规则](https://github.com/rte-france/challenge-roadef-2020/blob/master/Challenge_Rules.pdf)、[原赛实例与checker入口](https://roadef.org/challenge/2020/en/instances.php)、[原赛最终排行榜](https://roadef.org/challenge/2020/en/finalresult.php)：用于核对原赛数据角色、规模、计算预算与历史成绩。
 - 正式发布需逐项锁定原始数据、checker及适配版本，并核验各自许可；当前只发布协议与先导摘要。

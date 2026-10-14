@@ -63,7 +63,44 @@ v0.1优先统一动作与模拟限制，开发墙钟上限且**无累计token ca
 
 核心选择small环境还是正式较大场景；动作空间与是否允许redispatch；最终场景manifest、时间与GPU赛道；PPO训练诊断；最后评分与生存率的主次指标。**已有20份策略的独立终评缺失**必须保留在状态表中。
 
-## 8. 公开来源
+## 8. 原始竞赛排行榜与开发 / 测试数据
+
+> 官方来源核验日期：北京时间 **2026-10-14**。以下是原竞赛资料；本卡第3–5节是我们的预实验与拟定benchmark协议，二者的数据划分、环境和资源不能互换。
+
+### 8.1 竞赛身份与阶段
+
+原赛为 **L2RPN NeurIPS 2020，Track 1 / Robustness**，官方平台为[CodaLab竞赛25426](https://competitions.codalab.org/competitions/25426)。本卡不采用Track 2 / Adaptability的榜单。原流程是Warmup、Development / validation和自动Test：开发期可反复提交，在隐藏验证场景获得反馈；最终把开发期最后一次提交的代码自动运行在新的隐藏测试场景。当前平台另外保留Legacy阶段，页面显示的2022年结束日期和Legacy成绩不能替代2020年的最终榜。[官方阶段与规则](https://competitions.codalab.org/competitions/25426#phases)
+
+### 8.2 2020年Robustness最终排行榜
+
+组织方回顾论文表1的Robustness前3名如下；原页面Results入口也保留供检索。此次采用组织方论文中的**2020年最终成绩**，而非今天Legacy阶段的最高分。[组织方回顾论文，表1、§3.1](https://proceedings.mlr.press/v133/marot21a/marot21a.pdf)，[CodaLab Results](https://competitions.codalab.org/competitions/25426#results)
+
+| 最终名次 | 提交账号 / agent名称 | 官方分数（越大越好） |
+|---|---|---:|
+| 1 | `rl_agent` | 59.26 |
+| 2 | `binbinchen` | 46.89 |
+| 3 | `lujixiang` | 44.62 |
+
+分数为24个测试周上的归一化运行成本评分均值，**59.26不是59.26%存活率**。原比赛成本包括网损、再调度和停电后未供电的惩罚，使用DoNothing等参考控制器做映射；评分单位也不同于学习时自行设定的逐步reward。[原赛Game Rules](https://competitions.codalab.org/competitions/25426#learn_the_details-rules-of-the-game)
+
+### 8.3 原比赛提供的开发、验证与测试数据
+
+| 原始数据角色 | 提供方式与规模 | 参赛期间可见性及用途 |
+|---|---|---|
+| 公开训练 / 本地开发 | 原赛Instructions指定下载`l2rpn_neurips_2020_track1_small`；提供电网环境、生产/负荷chronics和starting kit，可在本地反复训练、仿真与调试 | 场景数据可下载；原比赛训练环境在各阶段保持同一来源，不是把隐藏验证集下载到本地开发 |
+| 隐藏Development / validation评测 | 代码提交后由服务器在未知场景运行并返回成绩及逐场景行为反馈；验证与终测按同一统计分布和选择规则构造 | 可重复提交看榜，但参赛端不获得验证场景的完整数据。官网统一评测规则写为24个周场景；本次未取得当年逐阶段场景ID清单，不将这条规则替代验证manifest的复核 |
+| 隐藏最终Test | **24个独立一周场景，每月2个**；5分钟一个决策步，一周2016步；场景未在训练中提供 | 对开发阶段最后提交自动测试一次；新的隐藏场景决定最终榜，不能再用最终分数选择候选 |
+| 当前可下载的同名系列 | Grid2Op官方文档列出small约**48个模拟年**、large约**240个模拟年**，以及同名测试用少量快照环境 | 这是目前公开分发环境的容量说明。它不是对2020服务器训练包哈希或隐藏测试集再发布情况的证明；本地自行留出的3周或96周不自动等于原赛隐藏测试集 |
+
+表中原始提交规则、训练环境入口和24周评测说明来自[CodaLab Instructions / Game Rules](https://competitions.codalab.org/competitions/25426#learn_the_details-evaluation)；隐藏验证、独立测试、每月2周和2016步来自[组织方回顾论文，§2.3.2、§2.4](https://proceedings.mlr.press/v133/marot21a/marot21a.pdf)；当前small / large容量与其原赛训练环境定位来自[Grid2Op官方环境文档](https://grid2op.readthedocs.io/en/latest/available_envs.html#l2rpn-neurips-2020-track1)。这些模拟年数不是现实中48年或240年的电网实测记录。
+
+### 8.4 对本benchmark的意义与可比性边界
+
+我们的6/3/3周小划分，以及144/48/24/96周较大四组设计，是另行构造的本地面板。不能把其中的public selection称为原赛隐藏validation，也不能给本地33.9228等分数插入上述最终榜。原赛官网冻结的是Grid2Op 1.2.2 / LightSim2Grid 0.2.4，本地适配版本和动作、模拟、时限已有变化；要主张历史名次，需要复核当年场景、起始时刻、环境、评分及资源，再运行同条件评测。[原赛环境版本与规则](https://competitions.codalab.org/competitions/25426#learn_the_details-evaluation)
+
+用于后续数据审计时，应同时保存：公开训练环境的版本与哈希、我们四组面板的来源和场景ID，以及能否取得原赛24个隐藏测试场景的证据。此次补充完成公开来源核验，没有下载或宣称复现当年的完整隐藏测试manifest。
+
+## 9. 公开来源
 
 - [Grid2Op文档](https://grid2op.readthedocs.io/en/latest/)：环境与控制器接口。
 - [锁定版本原生L2RPN2020 scorer](https://github.com/Grid2op/grid2op/blob/v1.12.5/grid2op/utils/l2rpn_2020_scores.py)与[成本reward](https://github.com/Grid2op/grid2op/blob/v1.12.5/grid2op/Reward/l2RPNSandBoxScore.py)：先导评分语义。
