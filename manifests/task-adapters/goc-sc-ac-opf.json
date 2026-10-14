@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0-design",
+  "task_id": "goc-sc-ac-opf",
+  "status": "design",
+  "certification_status": "pending",
+  "release_ready": false,
+  "selected_route": {
+    "id": "public-synthetic-unified-code1-code2",
+    "claim_scope": "new-benchmark-ranking",
+    "historical_reference": "public-synthetic-objectives-with-protocol-differences",
+    "official_rank_claim_allowed": false,
+    "industrial_full_final_reproduction_possible_from_public_data": false
+  },
+  "implementation": {
+    "binding_implemented_in_this_repository": false,
+    "argv": ["python3", "main.py", "--request", "{input}", "--output", "{output}"],
+    "input_schema": "task-request-v1-proposed",
+    "output_schema": "task-output-v1-proposed",
+    "stages": ["code1", "code2", "independent-official-verification"],
+    "native_inputs": ["case.raw", "case.rop", "case.inl", "case.con"],
+    "native_outputs": ["solution1.txt", "solution2.txt"],
+    "state_policy": "read-only-same-artifact-same-instance-code1-state-for-code2"
+  },
+  "candidate_contract": {
+    "kind": "algorithm",
+    "executes_on_new_inputs": true,
+    "source_required": true,
+    "dependency_lock_required": true,
+    "static_answers_allowed": false,
+    "complete_declared_contingency_coverage_required": true,
+    "code2_may_change_frozen_base_case": false,
+    "shard_identity": ["artifact_sha256", "input_sha256", "base_case_sha256", "contingency_ids"]
+  },
+  "metrics": {
+    "raw": ["J", "hard_feasibility", "soft_penalty_components", "contingency_coverage", "runtime_seconds", "peak_memory_gib"],
+    "objective_direction": "minimize",
+    "aggregate_policy": null,
+    "candidate_failure_score": null,
+    "infrastructure_failure_is_missing": true
+  },
+  "fairness_contract": {
+    "preserve_original_physics_and_decision_space": true,
+    "independent_official_evaluator_required": true,
+    "same_execution_resources_and_limits_for_all_ranked_methods": true,
+    "final_panel_exposure_audit_required": true,
+    "previously_optimized_final_scenarios_role": "public-development-or-calibration",
+    "algorithm_performance_and_agent_development_tables_separate": true
+  },
+  "original_protocol_reference": {
+    "competition": "ARPA-E GOC Challenge 1",
+    "real_time_code1_seconds": 600,
+    "offline_code1_seconds": 2700,
+    "values_are_historical_references_not_new_configuration": true,
+    "scoring_rules_url": "https://data.openei.org/files/6153/Challenge_1_Scoring.pdf"
+  },
+  "required_configuration_fields": ["development_seconds", "protected_feedback_budget", "model_profile", "repetitions", "development_resources", "feedback_resources", "final_resources", "code1_seconds", "code2_total_seconds", "final_build_seconds", "final_batch_seconds", "allowed_solvers", "numerical_tolerances", "selection_policy", "aggregate_policy", "split_manifest", "feedback_schema"],
+  "configuration_values": {
+    "development_seconds": null,
+    "protected_feedback_budget": null,
+    "model_profile": null,
+    "repetitions": null,
+    "code1_seconds": null,
+    "code2_total_seconds": null
+  },
+  "readiness": {
+    "available_evidence": ["complete-medium-scale-preliminary-code1-code2-runs", "official-public-evaluator-and-synthetic-input-sources", "current-complete-numerical-reference"],
+    "baseline_candidates": [{"name": "gollnlp", "source_url": "https://github.com/gollnlp/gollnlp", "status": "source-available-certification-pending"}],
+    "missing_evidence": ["clean-build-and-replay-of-strong-reference", "certified-unified-resource-profile", "audited-independent-panel", "complete-contingency-and-invalid-output-fixtures", "frozen-aggregation-and-failure-policy"]
+  },
+  "gates": ["task-binding-certification", "data-license-and-exposure-audit", "clean-build", "native-checker-parity", "frozen-algorithm-new-input-replay", "all-contingencies", "deadline-and-shard-recovery", "same-platform-baselines", "target-concurrency-acceptance"],
+  "documentation": "docs/framework/task-adapters.md#3-goc完整两阶段求解器"
+}

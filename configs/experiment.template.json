@@ -1,0 +1,91 @@
+{
+  "schema_version": "1.0",
+  "status": "draft",
+  "identity": {
+    "run_id": null,
+    "cohort_id": null,
+    "task_id": null,
+    "task_release_sha256": null,
+    "protocol_id": null,
+    "split_sha256": null,
+    "evaluator_sha256": null
+  },
+  "ranking": {
+    "kind": null,
+    "capability_profile": null,
+    "aggregation_id": null
+  },
+  "method": {
+    "backend": null,
+    "version_sha256": null,
+    "initial_artifact_sha256": null,
+    "context_policy": null
+  },
+  "model": {
+    "identifier": null,
+    "single_response_max_tokens": null,
+    "context_policy": null,
+    "retry_policy_id": null
+  },
+  "budgets": {
+    "development_seconds": null,
+    "feedback_jobs": null,
+    "feedback_timeout_seconds": null,
+    "build_timeout_seconds": null,
+    "final_case_timeout_seconds": null,
+    "final_batch_timeout_seconds": null
+  },
+  "resources": {
+    "development": {
+      "cpus": null,
+      "memory_mb": null,
+      "storage_mb": null,
+      "gpus": null
+    },
+    "feedback": {
+      "cpus": null,
+      "memory_mb": null,
+      "storage_mb": null,
+      "gpus": null
+    },
+    "final": {
+      "cpus": null,
+      "memory_mb": null,
+      "storage_mb": null,
+      "gpus": null
+    }
+  },
+  "selection": {
+    "metric_direction": null,
+    "feedback_schema_id": null
+  },
+  "recovery": {
+    "policy_id": null,
+    "max_infrastructure_attempts": null
+  },
+  "artifacts": {
+    "max_files": null,
+    "max_bytes": null
+  },
+  "repetitions": {
+    "count": null,
+    "development_seeds": null
+  },
+  "evaluation": {
+    "seeds": null,
+    "tolerance_policy_id": null
+  },
+  "deployment": {
+    "backend_profile": null,
+    "runtime_image_digest": null,
+    "certification_sha256": null
+  },
+  "policy": {
+    "cumulative_token_cap": null,
+    "token_reservation": false,
+    "feedback_zero_means": "no-protected-feedback",
+    "selection": "best-public-selection",
+    "tie_break": "earliest-completed",
+    "final_test_selects_candidates": false
+  }
+}

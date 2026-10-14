@@ -1,0 +1,426 @@
+{
+  "schema_version": "1.0",
+  "status": "design",
+  "values_are_undecided": true,
+  "fields": [
+    {
+      "path": "identity.run_id",
+      "kind": "string",
+      "description": "独立运行标识",
+      "choices": [],
+      "minimum": null,
+      "model_only": false
+    },
+    {
+      "path": "identity.cohort_id",
+      "kind": "string",
+      "description": "同预算与恢复规则的比较组",
+      "choices": [],
+      "minimum": null,
+      "model_only": false
+    },
+    {
+      "path": "identity.task_id",
+      "kind": "string",
+      "description": "任务家族",
+      "choices": [
+        "goc-sc-ac-opf",
+        "unit-commitment",
+        "rte-maintenance",
+        "l2rpn-grid-control",
+        "heftcom-forecast-trade"
+      ],
+      "minimum": null,
+      "model_only": false
+    },
+    {
+      "path": "identity.task_release_sha256",
+      "kind": "digest",
+      "description": "认证任务 release 的内容摘要",
+      "choices": [],
+      "minimum": null,
+      "model_only": false
+    },
+    {
+      "path": "identity.protocol_id",
+      "kind": "string",
+      "description": "研究协议与版本",
+      "choices": [],
+      "minimum": null,
+      "model_only": false
+    },
+    {
+      "path": "identity.split_sha256",
+      "kind": "digest",
+      "description": "数据角色／计分面板承诺摘要",
+      "choices": [],
+      "minimum": null,
+      "model_only": false
+    },
+    {
+      "path": "identity.evaluator_sha256",
+      "kind": "digest",
+      "description": "可信评分实现摘要",
+      "choices": [],
+      "minimum": null,
+      "model_only": false
+    },
+    {
+      "path": "ranking.kind",
+      "kind": "string",
+      "description": "结果结论范围",
+      "choices": [
+        "new-benchmark",
+        "historical-reference",
+        "agent-generalization"
+      ],
+      "minimum": null,
+      "model_only": false
+    },
+    {
+      "path": "ranking.capability_profile",
+      "kind": "string",
+      "description": "所有方法共同的动作／工具权限",
+      "choices": [],
+      "minimum": null,
+      "model_only": false
+    },
+    {
+      "path": "ranking.aggregation_id",
+      "kind": "string",
+      "description": "任务内聚合与归一化版本",
+      "choices": [],
+      "minimum": null,
+      "model_only": false
+    },
+    {
+      "path": "method.backend",
+      "kind": "string",
+      "description": "开发／搜索方法",
+      "choices": [
+        "coding-agent",
+        "population-evolution",
+        "training",
+        "solver-reference"
+      ],
+      "minimum": null,
+      "model_only": false
+    },
+    {
+      "path": "method.version_sha256",
+      "kind": "digest",
+      "description": "方法／agent 实现摘要",
+      "choices": [],
+      "minimum": null,
+      "model_only": false
+    },
+    {
+      "path": "method.initial_artifact_sha256",
+      "kind": "digest",
+      "description": "共同初始算法／回退候选",
+      "choices": [],
+      "minimum": null,
+      "model_only": false
+    },
+    {
+      "path": "method.context_policy",
+      "kind": "string",
+      "description": "初始上下文、记忆、工具与外部信息权限",
+      "choices": [],
+      "minimum": null,
+      "model_only": false
+    },
+    {
+      "path": "model.identifier",
+      "kind": "string",
+      "description": "模型标识或固定 profile",
+      "choices": [],
+      "minimum": null,
+      "model_only": true
+    },
+    {
+      "path": "model.single_response_max_tokens",
+      "kind": "integer",
+      "description": "单次响应上限",
+      "choices": [],
+      "minimum": 1,
+      "model_only": true
+    },
+    {
+      "path": "model.context_policy",
+      "kind": "string",
+      "description": "上下文窗口与压缩政策",
+      "choices": [],
+      "minimum": null,
+      "model_only": true
+    },
+    {
+      "path": "model.retry_policy_id",
+      "kind": "string",
+      "description": "有限重试、流式响应恢复政策",
+      "choices": [],
+      "minimum": null,
+      "model_only": true
+    },
+    {
+      "path": "budgets.development_seconds",
+      "kind": "number",
+      "description": "准备完成后的总开发墙钟 T",
+      "choices": [],
+      "minimum": 1e-06,
+      "model_only": false
+    },
+    {
+      "path": "budgets.feedback_jobs",
+      "kind": "integer",
+      "description": "最多受理作业 n；0 明确零反馈",
+      "choices": [],
+      "minimum": 0,
+      "model_only": false
+    },
+    {
+      "path": "budgets.feedback_timeout_seconds",
+      "kind": "number",
+      "description": "单次反馈执行时限",
+      "choices": [],
+      "minimum": 1e-06,
+      "model_only": false
+    },
+    {
+      "path": "budgets.build_timeout_seconds",
+      "kind": "number",
+      "description": "最终构建／编译时限",
+      "choices": [],
+      "minimum": 1e-06,
+      "model_only": false
+    },
+    {
+      "path": "budgets.final_case_timeout_seconds",
+      "kind": "number",
+      "description": "每实例／episode 执行时限",
+      "choices": [],
+      "minimum": 1e-06,
+      "model_only": false
+    },
+    {
+      "path": "budgets.final_batch_timeout_seconds",
+      "kind": "number",
+      "description": "完整最终面板总时限",
+      "choices": [],
+      "minimum": 1e-06,
+      "model_only": false
+    },
+    {
+      "path": "resources.development.cpus",
+      "kind": "number",
+      "description": "development 的 CPU 配额",
+      "choices": [],
+      "minimum": 1e-06,
+      "model_only": false
+    },
+    {
+      "path": "resources.development.memory_mb",
+      "kind": "number",
+      "description": "development 的 内存",
+      "choices": [],
+      "minimum": 1,
+      "model_only": false
+    },
+    {
+      "path": "resources.development.storage_mb",
+      "kind": "number",
+      "description": "development 的 临时磁盘",
+      "choices": [],
+      "minimum": 1,
+      "model_only": false
+    },
+    {
+      "path": "resources.development.gpus",
+      "kind": "number",
+      "description": "development 的 GPU 配额；0 为不使用",
+      "choices": [],
+      "minimum": 0,
+      "model_only": false
+    },
+    {
+      "path": "resources.feedback.cpus",
+      "kind": "number",
+      "description": "feedback 的 CPU 配额",
+      "choices": [],
+      "minimum": 1e-06,
+      "model_only": false
+    },
+    {
+      "path": "resources.feedback.memory_mb",
+      "kind": "number",
+      "description": "feedback 的 内存",
+      "choices": [],
+      "minimum": 1,
+      "model_only": false
+    },
+    {
+      "path": "resources.feedback.storage_mb",
+      "kind": "number",
+      "description": "feedback 的 临时磁盘",
+      "choices": [],
+      "minimum": 1,
+      "model_only": false
+    },
+    {
+      "path": "resources.feedback.gpus",
+      "kind": "number",
+      "description": "feedback 的 GPU 配额；0 为不使用",
+      "choices": [],
+      "minimum": 0,
+      "model_only": false
+    },
+    {
+      "path": "resources.final.cpus",
+      "kind": "number",
+      "description": "final 的 CPU 配额",
+      "choices": [],
+      "minimum": 1e-06,
+      "model_only": false
+    },
+    {
+      "path": "resources.final.memory_mb",
+      "kind": "number",
+      "description": "final 的 内存",
+      "choices": [],
+      "minimum": 1,
+      "model_only": false
+    },
+    {
+      "path": "resources.final.storage_mb",
+      "kind": "number",
+      "description": "final 的 临时磁盘",
+      "choices": [],
+      "minimum": 1,
+      "model_only": false
+    },
+    {
+      "path": "resources.final.gpus",
+      "kind": "number",
+      "description": "final 的 GPU 配额；0 为不使用",
+      "choices": [],
+      "minimum": 0,
+      "model_only": false
+    },
+    {
+      "path": "selection.metric_direction",
+      "kind": "string",
+      "description": "公开选择指标方向",
+      "choices": [
+        "higher",
+        "lower"
+      ],
+      "minimum": null,
+      "model_only": false
+    },
+    {
+      "path": "selection.feedback_schema_id",
+      "kind": "string",
+      "description": "允许反馈的聚合、诊断与截断版本",
+      "choices": [],
+      "minimum": null,
+      "model_only": false
+    },
+    {
+      "path": "recovery.policy_id",
+      "kind": "string",
+      "description": "同作业重试／整个开发重跑的政策版本",
+      "choices": [],
+      "minimum": null,
+      "model_only": false
+    },
+    {
+      "path": "recovery.max_infrastructure_attempts",
+      "kind": "integer",
+      "description": "同快照执行的有限次数",
+      "choices": [],
+      "minimum": 1,
+      "model_only": false
+    },
+    {
+      "path": "artifacts.max_files",
+      "kind": "integer",
+      "description": "算法包文件数量上限",
+      "choices": [],
+      "minimum": 1,
+      "model_only": false
+    },
+    {
+      "path": "artifacts.max_bytes",
+      "kind": "integer",
+      "description": "算法包字节上限",
+      "choices": [],
+      "minimum": 1,
+      "model_only": false
+    },
+    {
+      "path": "repetitions.count",
+      "kind": "integer",
+      "description": "独立开发重复数",
+      "choices": [],
+      "minimum": 1,
+      "model_only": false
+    },
+    {
+      "path": "repetitions.development_seeds",
+      "kind": "array",
+      "description": "配对、不同的开发 seed",
+      "choices": [],
+      "minimum": null,
+      "model_only": false
+    },
+    {
+      "path": "evaluation.seeds",
+      "kind": "array",
+      "description": "最终面板预注册的评测 seed",
+      "choices": [],
+      "minimum": null,
+      "model_only": false
+    },
+    {
+      "path": "evaluation.tolerance_policy_id",
+      "kind": "string",
+      "description": "数值容差／随机性重放准则",
+      "choices": [],
+      "minimum": null,
+      "model_only": false
+    },
+    {
+      "path": "deployment.backend_profile",
+      "kind": "string",
+      "description": "本机／Harbor／集群环境版本",
+      "choices": [],
+      "minimum": null,
+      "model_only": false
+    },
+    {
+      "path": "deployment.runtime_image_digest",
+      "kind": "string",
+      "description": "执行镜像不可变 sha256 digest",
+      "choices": [],
+      "minimum": null,
+      "model_only": false
+    },
+    {
+      "path": "deployment.certification_sha256",
+      "kind": "digest",
+      "description": "真实 backend 验收记录摘要",
+      "choices": [],
+      "minimum": null,
+      "model_only": false
+    }
+  ],
+  "agreed_protocol_policy": {
+    "cumulative_token_cap": null,
+    "token_reservation": false,
+    "feedback_zero_means": "no-protected-feedback",
+    "selection": "best-public-selection",
+    "tie_break": "earliest-completed",
+    "final_test_selects_candidates": false
+  },
+  "completeness_is_not_task_or_backend_certification": true
+}
