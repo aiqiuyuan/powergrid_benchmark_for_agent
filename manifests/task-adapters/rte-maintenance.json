@@ -13,11 +13,22 @@
   },
   "implementation": {
     "binding_implemented_in_this_repository": false,
-    "argv": ["python3", "main.py", "--request", "{input}", "--output", "{output}"],
+    "argv": [
+      "python3",
+      "main.py",
+      "--request",
+      "{input}",
+      "--output",
+      "{output}"
+    ],
     "input_schema": "task-request-v1-proposed",
     "output_schema": "task-output-v1-proposed",
-    "native_inputs": ["original-maintenance-instance.json"],
-    "native_outputs": ["schedule.txt"],
+    "native_inputs": [
+      "original-maintenance-instance.json"
+    ],
+    "native_outputs": [
+      "schedule.txt"
+    ],
     "native_output_row": "intervention_id start_period_1_based_integer",
     "state_policy": "fresh-process-per-instance-declared-randomization-policy",
     "historical_checkpoint_execution_semantics": null
@@ -33,7 +44,16 @@
     "candidate_random_seed_cherry_picking_allowed": false
   },
   "metrics": {
-    "raw": ["F_15", "F_90", "weighted_original_objective", "mean_risk", "quantile_excess_risk", "feasibility", "runtime_seconds", "peak_memory_gib"],
+    "raw": [
+      "F_15",
+      "F_90",
+      "weighted_original_objective",
+      "mean_risk",
+      "quantile_excess_risk",
+      "feasibility",
+      "runtime_seconds",
+      "peak_memory_gib"
+    ],
     "objective_direction": "minimize",
     "historical_weighted_objective": "0.8*F_15+0.2*F_90",
     "hypothetical_points_require_recompute_for_frozen_competitor_set": true,
@@ -50,14 +70,37 @@
   },
   "original_protocol_reference": {
     "competition": "ROADEF EURO 2020 RTE",
-    "final_panel": {"C": 15, "X": 15},
-    "execution_checkpoints_seconds": [900, 5400],
+    "final_panel": {
+      "C": 15,
+      "X": 15
+    },
+    "execution_checkpoints_seconds": [
+      900,
+      5400
+    ],
     "cpu_cores": 2,
     "memory_gb": 16,
     "values_are_historical_references_not_new_configuration": true,
     "rules_url": "https://github.com/rte-france/challenge-roadef-2020/blob/master/Challenge_Rules.pdf"
   },
-  "required_configuration_fields": ["development_seconds", "protected_feedback_budget", "model_profile", "repetitions", "development_resources", "feedback_resources", "final_resources", "historical_profile_confirmation", "historical_checkpoint_execution_semantics", "solver_license_profile", "seed_policy", "final_build_seconds", "final_batch_seconds", "selection_policy", "agent_generalization_split_manifest", "aggregation_competitor_set"],
+  "required_configuration_fields": [
+    "development_seconds",
+    "protected_feedback_budget",
+    "model_profile",
+    "repetitions",
+    "development_resources",
+    "feedback_resources",
+    "final_resources",
+    "historical_profile_confirmation",
+    "historical_checkpoint_execution_semantics",
+    "solver_license_profile",
+    "seed_policy",
+    "final_build_seconds",
+    "final_batch_seconds",
+    "selection_policy",
+    "agent_generalization_split_manifest",
+    "aggregation_competitor_set"
+  ],
   "configuration_values": {
     "development_seconds": null,
     "protected_feedback_budget": null,
@@ -67,13 +110,63 @@
     "historical_checkpoint_execution_semantics": null
   },
   "readiness": {
-    "available_evidence": ["a4-pilot-original-checker-and-executable-solver", "public-c-x-inputs-and-final-target-tables", "historical-reference-preparation-start-is-not-completion"],
-    "baseline_candidates": [
-      {"name": "S34", "source_url": "https://github.com/mbmv7/rc", "status": "source-available-gurobi-and-replay-certification-pending"},
-      {"name": "S56", "source_url": "https://github.com/FranciscoParrenoTorres/Roadef2020", "status": "source-available-gurobi-openmp-and-replay-certification-pending"}
+    "available_evidence": [
+      "a4-pilot-original-checker-and-executable-solver",
+      "public-c-x-inputs-and-final-target-tables",
+      "historical-reference-preparation-start-is-not-completion",
+      "native-RTEAdapter-trusted-local-A07-A09-A08-A12-calibration"
     ],
-    "missing_evidence": ["complete-new-package-required-file-acceptance", "clean-baseline-build-and-license-audit", "full-c-x-evaluation", "hardware-seed-and-checkpoint-semantic-audit", "independent-agent-panel", "real-model-feedback-roundtrip"]
+    "baseline_candidates": [
+      {
+        "name": "S34",
+        "source_url": "https://github.com/mbmv7/rc",
+        "status": "source-available-gurobi-and-replay-certification-pending"
+      },
+      {
+        "name": "S56",
+        "source_url": "https://github.com/FranciscoParrenoTorres/Roadef2020",
+        "status": "source-available-gurobi-openmp-and-replay-certification-pending"
+      }
+    ],
+    "missing_evidence": [
+      "complete-new-package-required-file-acceptance",
+      "clean-baseline-build-and-license-audit",
+      "full-c-x-evaluation",
+      "hardware-seed-and-checkpoint-semantic-audit",
+      "independent-agent-panel",
+      "real-model-feedback-roundtrip"
+    ]
   },
-  "gates": ["task-binding-certification", "complete-required-file-set", "data-and-solver-license-audit", "original-risk-checker-parity", "frozen-solver-new-input-replay", "c-x-reference-complete", "checkpoint-randomization-certification", "same-platform-baselines", "target-concurrency-acceptance"],
-  "documentation": "docs/framework/task-adapters.md#5-rte风险目标求解与cx历史记录"
+  "gates": [
+    "task-binding-certification",
+    "complete-required-file-set",
+    "data-and-solver-license-audit",
+    "original-risk-checker-parity",
+    "frozen-solver-new-input-replay",
+    "c-x-reference-complete",
+    "checkpoint-randomization-certification",
+    "same-platform-baselines",
+    "target-concurrency-acceptance"
+  ],
+  "documentation": "docs/framework/task-adapters.md#5-rte风险目标求解与cx历史记录",
+  "prototype_integration": {
+    "implemented": true,
+    "module": "src/powergrid_bench/rte.py",
+    "scope": "trusted-local-original-A-set-calibration",
+    "certified": false,
+    "original_c_x_reference_completed": false,
+    "native_entrypoint": [
+      "python3",
+      "solver.py",
+      "--instance",
+      "{input}",
+      "--output",
+      "{output}"
+    ],
+    "trusted_injected_arguments": [
+      "--time-limit",
+      "--seed"
+    ],
+    "integration_evidence": "docs/evidence/rte-lifecycle-acceptance-20261015.json"
+  }
 }

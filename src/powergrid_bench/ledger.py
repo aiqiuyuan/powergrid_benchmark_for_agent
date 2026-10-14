@@ -50,6 +50,10 @@ class Ledger:
                     run_id TEXT NOT NULL, artifact_sha256 TEXT NOT NULL,
                     score REAL NOT NULL, feasible INTEGER NOT NULL,
                     status TEXT NOT NULL, completed_at REAL NOT NULL);
+                CREATE TABLE IF NOT EXISTS selection_restores (
+                    run_id TEXT NOT NULL, evidence_key TEXT NOT NULL,
+                    fingerprint TEXT NOT NULL, evidence_id INTEGER NOT NULL,
+                    PRIMARY KEY(run_id, evidence_key));
             """)
             columns = {row["name"] for row in connection.execute("PRAGMA table_info(runs)")}
             if "max_infrastructure_attempts" not in columns:
@@ -411,6 +415,81 @@ class Ledger:
                     "SELECT * FROM selections WHERE evidence_id=?", (cursor.lastrowid,)
                 ).fetchone()
             )
+
+    def restore_selection(
+        self,
+        run_id: str,
+        evidence_key: str,
+        artifact_sha256: str,
+        score: float,
+        *,
+        completed_at: float,
+        feasible: bool = True,
+        status: str = "succeeded",
+        now: float | None = None,
+    ) -> dict:
+        """Controller-only restore of an authenticated durable public checkpoint.
+
+        The controller must read evidence from its protected checkpoint store;
+        an agent-supplied timestamp is never admissible evidence. Restoration can
+        happen after the deadline, but the checkpoint's original completion must
+        fall inside development. No changes are allowed once freezing starts.
+        The evidence key and full fingerprint make crash replay idempotent.
+        """
+        if not isinstance(evidence_key, str) or not evidence_key or len(evidence_key) > 1024:
+            raise LedgerError("Bounded durable selection evidence identity required")
+        try:
+            if type(score) not in (int, float) or not math.isfinite(score):
+                raise LedgerError("Restored public-selection score must be finite")
+            normalized_score = float(score)
+        except OverflowError as error:
+            raise LedgerError("Restored public-selection score must be finite") from error
+        if type(feasible) is not bool or status not in TERMINAL:
+            raise LedgerError("Restored selection has invalid feasibility/status")
+        if type(completed_at) not in (int, float):
+            raise LedgerError("Trusted selection completion timestamp required")
+        completed = self._now(completed_at)
+        fingerprint = content_hash(
+            {
+                "artifact_sha256": artifact_sha256,
+                "score": normalized_score,
+                "feasible": feasible,
+                "status": status,
+                "completed_at": completed,
+            }
+        )
+        observation = self.observe_time(run_id, now=now)
+        with self._transaction() as connection:
+            run = self._row(connection, "runs", "run_id", run_id)
+            observed = self._observe(connection, run, observation)
+            if (
+                run["state"] != "developing"
+                or run["receipt"] is not None
+                or run["started_at"] is None
+                or run["deadline_at"] is None
+                or not run["started_at"] <= completed <= run["deadline_at"]
+                or completed > observed
+            ):
+                raise LedgerError("Restore requires predeadline evidence before freezing")
+            existing = connection.execute(
+                "SELECT fingerprint,evidence_id FROM selection_restores "
+                "WHERE run_id=? AND evidence_key=?",
+                (run_id, evidence_key),
+            ).fetchone()
+            if existing is not None:
+                if existing["fingerprint"] != fingerprint:
+                    raise LedgerError("Conflicting durable selection evidence")
+                return self._row(connection, "selections", "evidence_id", existing["evidence_id"])
+            cursor = connection.execute(
+                "INSERT INTO selections(run_id,artifact_sha256,score,feasible,status,completed_at) "
+                "VALUES(?,?,?,?,?,?)",
+                (run_id, artifact_sha256, normalized_score, feasible, status, completed),
+            )
+            connection.execute(
+                "INSERT INTO selection_restores VALUES(?,?,?,?)",
+                (run_id, evidence_key, fingerprint, cursor.lastrowid),
+            )
+            return self._row(connection, "selections", "evidence_id", cursor.lastrowid)
 
     def best_selection(self, run_id: str) -> dict | None:
         with self._transaction() as connection:

@@ -40,10 +40,12 @@
 | [lifecycle.py](../../src/powergrid_bench/lifecycle.py) | `Lifecycle.prepare / start / submit / record_selection / freeze / final_start / final_retry / final_finish`；恢复、公共选择、基线回退、固定 final身份、拒绝旧attempt的晚到终态 | [生命周期测试](../../tests/test_lifecycle.py) |
 | [process.py](../../src/powergrid_bench/process.py) | `run_process` 用 argv、不启动 shell；有界输出与超时；POSIX进程组清理，仅用于可信本地夹具 | [进程测试](../../tests/test_process.py) |
 | [adapters.py](../../src/powergrid_bench/adapters.py) | `validate_candidate / execute_algorithm`；`candidate.json` 绑定 task和源码，要求输入／输出占位，新工作目录执行，独立 checker拒绝自评分；执行须显式 `trusted_local=True` | [Adapter测试](../../tests/test_adapters.py) |
+| [broker.py](../../src/powergrid_bench/broker.py) | 有界 Unix socket、安全算法包、task 校验钩子、保护反馈幂等／聚合白名单、显式 ACK、控制器恢复和冻结前对账 | [Broker 测试](../../tests/test_broker.py) |
+| [rte.py](../../src/powergrid_bench/rte.py) | 严格声明的原生 solver、新输入执行、完整冻结包、固定外部原始 checker、独立约束与风险目标；可信本地原型 | [RTE 测试](../../tests/test_rte.py)、[真实题目验收](rte-integration-acceptance.md) |
 
 `Lifecycle.prepare` 接收调用方已完成 preflight 的上下文与基线，它本身不证明外部资源已经准备，也不从 task卡自动生成证书。核心持久状态是 `planned → prepared → developing → freezing → frozen → final-evaluating → complete/failed`；八阶段图是职责流程，不能把这些状态误当生产部署全部已实现。
 
-本地账本记录的 delivery 是可信调用方提交的交付凭据，尚无真实网络或 agent读取证明。所有请求／拒绝的完整日志、实际 token／资源、整批计划槽位和可信 task／backend证据由 CLI／部署桥补齐；接口校验与生产准入须各有证据。
+本地账本记录的 delivery 是可信调用方提交的交付凭据。新增 broker 使用实际 Unix socket 和客户端 ACK，可证明客户端确认相同结果；它仍不能证明真实模型已读取。所有请求／拒绝的完整日志、实际 token／资源、整批计划槽位和可信 task／backend证据由 CLI／部署桥补齐；接口校验与生产准入须各有证据。
 
 ## 3. 一个 run 的八个阶段
 

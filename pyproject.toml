@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "powergrid-benchmark-foundation"
-version = "0.1.0"
+version = "0.2.0"
 description = "Reference experiment lifecycle and task contracts for energy algorithm research"
 readme = "README.md"
 requires-python = ">=3.11"

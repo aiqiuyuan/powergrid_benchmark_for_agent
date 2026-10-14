@@ -1,0 +1,162 @@
+{
+  "schema_version": "integration-validation-v1",
+  "date": "2026-10-15",
+  "package_version": "0.2.0",
+  "status": "passed",
+  "scope": "trusted-local-public-reference-and-real-RTE-calibration",
+  "production_certified": false,
+  "official_ranking_certified": false,
+  "previous_published_main": "e04c61370a36dc30c9e8106d3c1310e88c3e9fb2",
+  "python_version": "3.12.14",
+  "platform_scope": "macOS-arm64-local",
+  "unit_tests": {
+    "passed": 84,
+    "failed": 0,
+    "installed_wheel_passed": 84
+  },
+  "coverage": {
+    "statements": 1576,
+    "missed": 191,
+    "rounded_percent": 88,
+    "threshold_percent": 80
+  },
+  "static_check": "ruff check passed",
+  "format_check": "ruff format --check passed",
+  "build": {
+    "sdist": "passed",
+    "wheel": "passed",
+    "installed_cli": "passed"
+  },
+  "code_review": {
+    "decision": "approved",
+    "blocking_findings_remaining": 0,
+    "scope": "declared trusted-local public implementation"
+  },
+  "repository_checks": {
+    "files": 70,
+    "markdown_files": 28,
+    "json_files": 15,
+    "relative_links": 236,
+    "anchors": 22,
+    "preserved_task_cards": 5
+  },
+  "errors": [],
+  "configuration": {
+    "unresolved_fields": 49,
+    "automatic_research_defaults": false
+  },
+  "installed_fixture": {
+    "schema_version": "fixture-acceptance-v1",
+    "status": "passed",
+    "scope": "trusted-local-synthetic",
+    "production_certified": false,
+    "fixture_values_are_research_defaults": false,
+    "clock": {
+      "started_at": 100.0,
+      "deadline_at": 110.0,
+      "kind": "injected logical clock; subprocesses actually execute"
+    },
+    "feedback": {
+      "run_id": "fixture",
+      "state": "complete",
+      "budget": 1,
+      "counted": 1,
+      "completed": 1,
+      "delivered": 1,
+      "active": 0,
+      "read_acknowledged": null
+    },
+    "lost_receipt_is_idempotent": true,
+    "late_request_rejected": true,
+    "freeze_receipt": {
+      "run_id": "fixture",
+      "artifact_sha256": "62ed27b7ab17d4d21cb90dfbd5ba73667995f8a4c33ea45c1504a2298baa57ab",
+      "manifest_sha256": "62ed27b7ab17d4d21cb90dfbd5ba73667995f8a4c33ea45c1504a2298baa57ab",
+      "reason": "deadline",
+      "selection": {
+        "evidence_id": 2,
+        "run_id": "fixture",
+        "artifact_sha256": "62ed27b7ab17d4d21cb90dfbd5ba73667995f8a4c33ea45c1504a2298baa57ab",
+        "score": 0.0,
+        "feasible": 1,
+        "status": "succeeded",
+        "completed_at": 101.0
+      },
+      "schema_version": 1,
+      "frozen_at": 111.0,
+      "deadline_at": 110.0,
+      "context_sha256": "535f86af490037749348609ac66883fe9ea29908952610525013adafb783d252",
+      "selection_direction": "higher",
+      "selection_reason": "best_public_selection",
+      "feedback": {
+        "run_id": "fixture",
+        "state": "freezing",
+        "budget": 1,
+        "counted": 1,
+        "completed": 1,
+        "delivered": 1,
+        "active": 0,
+        "read_acknowledged": null
+      },
+      "unfinished_job_ids": [],
+      "receipt_sha256": "918141e1e4c44033ec0a942ad3ec0876573cacc424dab66b0a9093f7842dfb3b"
+    },
+    "final_attempts": 2,
+    "final_job_identity_preserved": true,
+    "final_state": "complete",
+    "fresh_final_input_executed": true,
+    "final_checker": {
+      "feasible": true,
+      "score": 0
+    },
+    "zero_feedback_verified": true,
+    "baseline_fallback_verified": true,
+    "limitations": [
+      "no real energy evaluator",
+      "no Harbor/provider certification",
+      "no hostile-code isolation or resource quota certification",
+      "no actual agent-channel delivery acknowledgment"
+    ]
+  },
+  "code_and_test_sha256": {
+    "src/powergrid_bench/broker.py": "59522c9c6caf710d35fe49fa09fe420424511d5292eb9c1570abcb7a53c9ed8c",
+    "src/powergrid_bench/rte.py": "baea55f7c86e74e65fd11f421616bf53e24b3b115e62ab63ac678af0e613f7f5",
+    "tests/test_broker.py": "2b9242fe1561d0557d0afa25931fe5988e8fee21ae0b827a332332130d7fbbb6",
+    "tests/test_rte.py": "b1e5acbe01dfe3718ba9ada5e0f23845908b1f006c91acbf4dd6b146f4fcf883",
+    "src/powergrid_bench/__init__.py": "6f1e1881c7b78c9acffc82e7c174c34b6b26ba90f6eade14ce19ba6b5cc2ba7f",
+    "src/powergrid_bench/adapters.py": "2704e2b2023f10ac4ed497aa58a1ffcbbcc23d2bf58b95a87f08ff38ae81f2d2",
+    "src/powergrid_bench/artifacts.py": "cd6cbe13d1980cad6dab7c8070a433c2b2f2542c9b29d69a6fdfd7552e891033",
+    "src/powergrid_bench/cli.py": "6c5a99d8a600ebfe2282d2060b07a93a9e5edbb5437aacc20793902be73e27d8",
+    "src/powergrid_bench/clock.py": "a9a92af6c37026f77e1e058f995c9a86c62fc62d5c1da8dad84d740df899060a",
+    "src/powergrid_bench/config.py": "16a701a08ca8fa40993f781bd59dd32983e558e87250504d3e12e56affb6b7f2",
+    "src/powergrid_bench/fixtures.py": "2b6417d7e8db1badf627c0eebf19f9dd82cdc5a6032a34b368a0b5e652a86333",
+    "src/powergrid_bench/ledger.py": "f66e809cb1c295a5259b9f5238c107cdbd5d60d2d364a86945752c7323fc2883",
+    "src/powergrid_bench/lifecycle.py": "73cd905f07e9d9219a880bb046474326bcbd0c0cdd53c993fdb57210af7360a7",
+    "src/powergrid_bench/process.py": "c5b0ea3b91d6d275eaa515a44ef104e0e8a9cb5771dd405149cfa2f65f0f0574",
+    "tests/__init__.py": "c8e015bdd73c579e9ed935d3ebe9b51d3380a4e5fe8c06f98345f67a0cdfc279",
+    "tests/test_adapters.py": "6797bb5405ab9f0756d6b60c421929f1e459a344c351ca3109407b24f480e6b8",
+    "tests/test_artifacts.py": "2be86d9b05df4d15f5645bb42cc16cf2e7f13d678802268c5b206369c203c96e",
+    "tests/test_cli.py": "8851ab23c4495dce0f4ff2d87637ff465257aec8c79cc4ced4b36af41872f950",
+    "tests/test_config.py": "87582b79eb2a1d25cee51e3abe8dcaf38eeb5a5db4d5605b750da9574c6e3052",
+    "tests/test_ledger.py": "facc1755994169f37b59dace9a7707141a73c787a1676356a111d1d6a188e830",
+    "tests/test_lifecycle.py": "4f103cbb7ea924452d59ea170577c523c902de42116fda7d5dd78391c54fa1de",
+    "tests/test_process.py": "8df3f987bb0eb99d4f61f7b9496215105d58af64fc884dd581e39ce42cfba451",
+    "tests/test_repository.py": "1a528292756cf6aa4388fd4d8ac78080ce4bc9109a41472371870f1a6fc03807"
+  },
+  "real_rte_acceptance_report": "docs/evidence/rte-lifecycle-acceptance-20261015.json",
+  "real_rte_runs_passed": [
+    0,
+    1
+  ],
+  "real_model_calls": 0,
+  "harbor_executed": false,
+  "remote_submission_status": "not-submitted-SSH-relay-unavailable",
+  "native_task_certifications": {
+    "goc-sc-ac-opf": "pending",
+    "unit-commitment": "pending",
+    "rte-maintenance": "pending",
+    "l2rpn-grid-control": "pending",
+    "heftcom-forecast-trade": "pending"
+  },
+  "github_actions_remote_status": "verify new commit separately"
+}

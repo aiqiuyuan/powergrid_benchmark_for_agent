@@ -116,3 +116,11 @@
 每 run 对账 requested／counted／completed／delivered／attempts／distinct hashes。跨任务先展示 raw 和有效性；需要总分时使用冻结的任务内归一化，再按任务族预声明权重聚合。多个 GOC 规模不会自动变为多个等权任务族，£收益、优化成本和控制分数不能直接平均。
 
 关闭 F01–F12 的证据级别与本次实际验收记录见[验收说明](acceptance.md)。真实研究准入仍需 G1 真实模型往返、G2 逐任务认证和 G3 批次／并发验收。
+
+## 8. 本轮接桥实现与证据范围
+
+基础版本之后新增[ExperimentBroker](../../src/powergrid_bench/broker.py)：有界 Unix socket 传输、安全算法压缩包、逐 task 受理前校验钩子、同键受理、串行反馈、受保护结果聚合白名单和显式客户端 ACK。结果查询不改变 delivered，ACK 凭据在控制器重启后保持稳定。ACK 证明客户端确认相同 payload，不证明模型已理解或读取反馈。
+
+公共选择持久保存原始完成时间；控制器可恢复已经落盘、截止前完成的选择证据，不重新执行算法，也不重发 T/n。新的迟到选择不能借恢复进入候选集。冻结前必须调用 broker 的对账接口，未解决的执行异常应明确失败，不能悄悄回退基线。恢复入口不通过 agent socket 开放。
+
+评测回调超时及异常路径保持执行租约，直到真实回调清理完成；Python 线程不能代替 Docker 硬停止。完整请求／拒绝入口日志、真实容器资源证据及跨主机恢复仍需外部部署验收。新增[RTE 真实题目验收](rte-integration-acceptance.md)使用固定原始 checker、真实输入和墙钟，但其可信本地执行不代表恶意候选隔离；[Harbor 接桥进度](harbor-live-acceptance.md)单独记录。
