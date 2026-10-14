@@ -105,3 +105,9 @@ PYTHONPATH=src python3 -m unittest discover -s tests -v
 生产可用性目标、最大基础设施失败率和整次开发重跑上限应在资源校准后预注册，本次不填写未经测量的99%等数字。报告中完整保留算法失败与合法零分，并把基础设施缺失单列。
 
 相关合同：[架构与八阶段生命周期](architecture.md)、[可靠性行为](reliability-layer.md)、[既有实施计划](../implementation-plan.md)、[冻结与记录契约](../protocol/artifact-contract.md)。
+
+## 6. 追加的 broker 与真实 RTE 集成验收
+
+新增[test_broker.py](../../tests/test_broker.py)覆盖真正的 Unix socket 往返、安全压缩包、受理前 task 校验、同键幂等、反馈聚合边界、显式 ACK 及持久恢复、超时租约和公共选择中断恢复。[test_rte.py](../../tests/test_rte.py)覆盖原生入口一致性、完整源码包、新输入执行、固定 checker 与数据、失败分类和可信执行范围。单元测试中的假 checker 只验证代码行为，不提供竞赛成绩。
+
+真实 RTE 校准另行使用原始 checker 和四个互不重叠但历史已暴露的 A 实例，执行 n=0/n=1 共同生命周期，使用真实 UTC 墙钟、原产物冻结和新的最终输入。原始目标、输入／产物／checker 摘要与验收参数见[机器记录](../evidence/rte-lifecycle-acceptance-20261015.json)及[中文完成说明](../completion-step3-live-20261015.md)。该记录明确 model_calls=0 与 Harbor 未执行，不能代替 G1 真实模型和隔离后端门槛。

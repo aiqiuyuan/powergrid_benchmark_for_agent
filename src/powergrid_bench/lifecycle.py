@@ -85,6 +85,34 @@ class Lifecycle:
             now=self.now(),
         )
 
+    def restore_selection(
+        self,
+        run_id: str,
+        evidence_key: str,
+        digest: str,
+        score: float,
+        *,
+        completed_at: float,
+        feasible: bool = True,
+        status: str = "succeeded",
+    ) -> dict:
+        """Restore controller-owned public evidence before beginning freeze.
+
+        This is not an agent submission interface. The durable checkpoint must
+        authenticate a computation completed before the original deadline.
+        """
+        self.store.verify(digest)
+        return self.ledger.restore_selection(
+            run_id,
+            evidence_key,
+            digest,
+            score,
+            completed_at=completed_at,
+            feasible=feasible,
+            status=status,
+            now=self.now(),
+        )
+
     def freeze(self, run_id: str, reason: str = "deadline") -> dict:
         run = self.ledger.get_run(run_id)
         if run["receipt"] is not None:
