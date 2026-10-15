@@ -1,0 +1,4 @@
+ARG RTE_RUNTIME_IMAGE=rte-abc-x15-runtime:1
+FROM ${RTE_RUNTIME_IMAGE}
+COPY app/ /app/
+WORKDIR /app

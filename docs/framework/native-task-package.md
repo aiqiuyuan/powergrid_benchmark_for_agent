@@ -1,5 +1,7 @@
 # 提交给eval-in-loop的task应整理成什么形式
 
+**RTE后续决定（2026-10-15）：** 当前RTE采用ABC45开放开发、X15隔离反馈，900秒／例、评测端15 CPU并行；冻结后5400秒／例评测且不回流。ABC允许官方checker本地自测，n仅统计完整X面板受理次数。RTE以[决定0006](../decisions/0006-rte-abc-open-x15-protected.md)和[新配置](../protocol/rte-abc-x15-configuration.md)为准；下文X04单例及禁止全部本地评分条款保留为被覆盖的历史设计，其他任务不受此例外影响。
+
 **核查日期：2026-10-15。** 依据当前使用的`eval-in-loop`工作区及其原生任务模板核对；基线HEAD为`2f998fee5ee4229c02271941e804c17f7a8e6eb5`。该工作区存在既有实验适配，不是干净的上游检出；下文是实际入口核查，不表示已新建或验收五个任务包。
 
 **第一阶段政策更新：** 按[固定case算法演化决定](../decisions/0005-fixed-case-evolution-first.md)，每task优先固定高难完整case，同case开发、计数反馈和截止复核；禁止开发agent取得完整checker、本地完整目标评分或搜索原赛测评源码。无免费public-selection评分，采用原生artifacts最终文件与截止冻结。下文源码核查基线仍为上列提交；已查到新版分支的黑名单能力，实际启用和防绕过须单独验收。

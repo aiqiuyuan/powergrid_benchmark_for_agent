@@ -1,6 +1,6 @@
 # 第三步：统一实验生命周期与模块边界
 
-> **当前第一阶段政策（2026-10-15）：以[决定0005](../decisions/0005-fixed-case-evolution-first.md)为准。** 每task固定一个高难完整case，同case开发、计n反馈与冻结复核；开发端禁止完整checker和本地完整目标评分，不设免费public-selection。下文四角色／独立留出、公开checker、best-public-selection等属于较早设计或第二阶段参考，不是本阶段默认。原生入口的实现与验收状态见当前决定和各任务卡§12。
+> **其他四task的第一阶段政策（2026-10-15）：以[决定0005](../decisions/0005-fixed-case-evolution-first.md)为准。** RTE另按[决定0006](../decisions/0006-rte-abc-open-x15-protected.md)采用ABC开放、X15受保护评测，允许ABC完整checker自测。其他四task固定一个高难完整case，同case开发、计n反馈与冻结复核；开发端禁止完整checker和本地完整目标评分，不设免费public-selection。下文四角色／独立留出、公开checker、best-public-selection等属于较早设计或第二阶段参考，不是本阶段默认。原生入口的实现与验收状态见当前决定和各任务卡§12。
 
 **当前个人运行路线（2026-10-15）：** 原生eval-in-loop及既有task优先；本页独立基础实现保留为参考，不要求个人另建运行时或迁移五任务。原框架已有账本、快照、恢复计时和agent续跑；扩展应针对实际缺口。具体边界见[最小测试设计](../decisions/0004-minimal-local-testing.md)，实际RTE集群证据见[完成说明](../completion-step3-cluster-20261015.md)。
 

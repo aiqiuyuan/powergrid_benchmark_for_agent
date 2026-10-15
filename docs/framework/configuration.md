@@ -1,5 +1,7 @@
 # Configuration：先明确要决定什么
 
+**RTE后续决定（2026-10-15）：** 当前RTE采用ABC45开放开发、X15隔离反馈，900秒／例、评测端15 CPU并行；冻结后5400秒／例评测且不回流。ABC允许官方checker本地自测，n仅统计完整X面板受理次数。RTE以[决定0006](../decisions/0006-rte-abc-open-x15-protected.md)和[新配置](../protocol/rte-abc-x15-configuration.md)为准；下文X04单例及禁止全部本地评分条款保留为被覆盖的历史设计，其他任务不受此例外影响。
+
 **个人小测范围更新（2026-10-15）：** 本页49字段是独立参考实现与完整研究配置的目录；原生eval-in-loop小测沿用现有配置，不要求先填写本模板或新增配置层。具体工作范围以[精简设计](../decisions/0004-minimal-local-testing.md)为准；下文校验规则仍适用于主动使用该参考实现的场景。
 
 **本轮设置更新（2026-10-15）：** 用户后续已确定五task、n=0／1／3／5／10、每档3次独立开发、T=43200秒、累计token不限／无累计预留截断；L2RPN主线恢复原赛动作范围。RTE已初选完整工业case X04，见[X04配置](../protocol/rte-x04-configuration.md)；其他task的case、模型、资源、实例执行预算等仍待实际核对／校准。取值与理由以[原题对齐与参数决定](../protocol/task-alignment-and-calibration.md)为准；没有为此新增配置层，也未将这些决定写成可直接执行的75项清单。
