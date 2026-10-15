@@ -1,5 +1,7 @@
 # Configuration：先明确要决定什么
 
+**个人小测范围更新（2026-10-15）：** 本页49字段是独立参考实现与完整研究配置的目录；原生eval-in-loop小测沿用现有配置，不要求先填写本模板或新增配置层。具体工作范围以[精简设计](../decisions/0004-minimal-local-testing.md)为准；下文校验规则仍适用于主动使用该参考实现的场景。
+
 **状态：字段目录和校验器已实现；正式研究参数仍待确定。** 用户要求本阶段先写清配置，不决定n、T、模型、资源和重复。配置字段以[config.py](../../src/powergrid_bench/config.py)为来源，机器目录是[configuration-catalog.json](../../configs/configuration-catalog.json)，模板是[experiment.template.json](../../configs/experiment.template.json)。安装及实际CLI入口见[README](../../README.md)。
 
 ## 1. 49个待决定字段，6项已约定政策

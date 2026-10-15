@@ -2,6 +2,8 @@
 
 面向能源领域优化与 ML 的算法演化 Benchmark：在共同的开发时限内，让智能体构造可执行算法，通过受控评测反馈改进，再在独立留出数据上测试冻结算法。
 
+**当前个人开发范围：直接复用 eval-in-loop 做小规模测试，只修阻断运行或导致错误结果的具体问题。** 原框架负责启动、Harbor、agent、反馈和既有记录；个人侧整理已有 task、原生配置和结果。独立基础包保留为参考，不要求迁移五任务、补齐49字段或完成生产故障矩阵才能小测。详见[精简设计决定](docs/decisions/0004-minimal-local-testing.md)。下文基础包与集群验收记录保留其原有适用范围。
+
 **当前状态：Benchmark `v0.1-design` + 基础框架 `0.2.0`。更新：2026-10-15。** 前两步的研究契约、任务卡与评测规范已完成。第三步新增统一实验生命周期的独立参考实现、配置校验、算法提交 ABI、持久账本、快照／冻结、恢复及可运行的低成本验收夹具。Unix socket broker 与 RTE 原生适配已经通过实际集群上的 **Harbor／真实模型 n=0、n=1 配对 canary 验收**，包括公共选择、受保护反馈／ACK、共同截止、产物冻结和独立终评。完整故障演练、五任务生产认证与目标并发仍待完成；没有发布正式能源榜单。
 
 三类模块已经整理为明确接口：**Configuration列出需决定的49个字段，数值保持待定；Task adapters逐任务明确可执行提交、公平排行路线和缺少条件；Reliability extensions把历史故障归入共同生命周期，并区分已有本地实现与外部部署验收。**
@@ -10,6 +12,7 @@
 
 | 需要了解的内容 | 文档 |
 |---|---|
+| 后续个人侧具体做什么、哪些框架建设停止 | [复用eval-in-loop的小规模测试设计](docs/decisions/0004-minimal-local-testing.md) |
 | 研究什么、为何选这五类任务、怎样组织比较 | [Benchmark 研究契约](docs/benchmark-spec.md) |
 | 已做实验用了哪些设置、得到什么结果、哪些问题需要修复 | [98 个预实验槽位的中文统计](docs/evidence/preliminary-experiments-20261013.md) |
 | 原始竞赛的排行榜、开发/测试集及其与本地划分的区别 | 五张任务卡第8节；PGLib-UC按公开实例库说明，不编造竞赛榜单 |
@@ -21,7 +24,7 @@
 | 结构化设计声明及未来 release 所需字段 | [设计清单](manifests/benchmark-v0.1-design.json)、[清单使用说明](manifests/README.md) |
 | 这次完成了哪些工作、核查了什么 | [中文完成说明](docs/completion-20261014.md) |
 | 第三步如何拆分、哪些来自底座、哪些属于新基础层 | [统一生命周期与模块边界](docs/framework/architecture.md) |
-| 哪些配置值需要决定，缺值为什么不能运行 | [Configuration字段与责任](docs/framework/configuration.md)、[待定模板](configs/experiment.template.json)、[机器字段目录](configs/configuration-catalog.json) |
+| 完整研究配置有哪些参考字段（个人小测沿用原生配置） | [Configuration字段与责任](docs/framework/configuration.md)、[待定模板](configs/experiment.template.json)、[机器字段目录](configs/configuration-catalog.json) |
 | 每个task怎么交算法，选择哪种排行、目前具备哪些条件 | [公平排行路线](docs/framework/fair-ranking.md)、[Task Adapter合同](docs/framework/task-adapters.md)、五张任务卡§10 |
 | 过去的失败如何变成统一保障与验收 | [可靠性保障层](docs/framework/reliability-layer.md)、[分层验收](docs/framework/acceptance.md) |
 | 最新真实集群实验：设置、结果、修复与剩余边界 | [中文集群验收完成说明](docs/completion-step3-cluster-20261015.md)、[脱敏机器证据](docs/evidence/harbor-cluster-acceptance-20261015.json) |
@@ -29,6 +32,8 @@
 | 第三步实际完成与测试证据 | [第三步中文完成说明](docs/completion-step3-20261015.md)、[本地验收摘要](docs/evidence/framework-validation-20261015.json) |
 
 ## 安装和核对基础层
+
+以下用于检查已交付的独立参考实现；个人使用原生`eval-in-loop`运行现有task，无需先安装本包或执行这些夹具。运行方式按所用框架版本和既有task入口填写。
 
 需要Python3.11或以上；核心包只有Python标准库依赖。可按个人偏好使用`uv`：
 
@@ -95,6 +100,8 @@ flowchart LR
 2026-10-15实际RTE canary两组严格通过：n=0成功调用模型5次、保护反馈0次；n=1成功调用模型8次、保护反馈受理／完成／ACK均1次。两组均在T=180秒共同截止前实际停止Docker，冻结已检查的公共checkpoint，A12原生独立终评均为AC。两组均选择未修改starter；实例属于历史已暴露的校准面板，不能据此报告算法提升、反馈效果或未见泛化。恢复证据覆盖完成后独立进程重开账本；开发中完整会话／Pod恢复和跨节点SQLite WAL仍需另验。详情见[最新中文报告](docs/completion-step3-cluster-20261015.md)。
 
 ## 后续建设顺序
+
+**个人当前路线以[精简设计](docs/decisions/0004-minimal-local-testing.md)为准：复用五个既有task入口，检查本次需要的配置和评分，只处理实际阻断，随后小规模实验并记录结果。** 以下完整建设阶段保留为研究／release路线参考，不是要求个人逐项实现后端保障，也不是小测前置清单。
 
 1. **研究契约与任务范围：文档完成。** 固定研究对象、五个任务族、主线与扩展边界、比较单位和主要研究问题。
 2. **任务卡与统一评测契约：文档完成。** 整理现有证据，明确算法接口、四角色数据、预算、评分、产物与验收要求。
