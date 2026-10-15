@@ -1,0 +1,10 @@
+# NOT LAUNCHABLE: both the rendered test.sh and private bundle are absent publicly.
+# The image must have /usr/local/bin/python3 and all frozen simulator dependencies.
+FROM ${VERIFIER_IMAGE_AT_SHA256}
+WORKDIR /tests
+COPY test.sh /tests/test.sh
+COPY private/powergym-volt-var-control/ /opt/powergrid-bench/private/powergym-volt-var-control/
+RUN chmod 0555 /tests/test.sh
+# The trusted runner must make /tests, the private bundle, and inputs read-only
+# to candidate subprocesses; a COPY instruction alone does not prove isolation.
+ENTRYPOINT ["/bin/sh", "/tests/test.sh"]

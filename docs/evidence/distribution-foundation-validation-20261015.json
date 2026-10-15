@@ -1,0 +1,102 @@
+{
+  "schema_version": "distribution-foundation-validation-v1",
+  "date": "2026-10-15",
+  "scope": "source-preparation-pure-contracts-starters-and-native-templates",
+  "release_ready": false,
+  "runtime": {
+    "python": "3.12.14",
+    "platform": "macOS-arm64",
+    "simulator_dependencies_installed": false
+  },
+  "checks": {
+    "unittest": {
+      "passed": 125,
+      "failed": 0,
+      "command": "python -m unittest discover -s tests"
+    },
+    "coverage": {
+      "covered_lines": 1816,
+      "statements": 2028,
+      "percent": 89.54635108481263,
+      "required_percent": 80
+    },
+    "ruff_check": "passed",
+    "ruff_format": "passed",
+    "sdist_and_wheel_build": "passed",
+    "core_config_check": "passed-draft-not-executable",
+    "extension_adapter_checks": "valid-design-certification-denied",
+    "synthetic_lifecycle_fixture": "passed-historical-reference-only-not-strict-n-acceptance",
+    "native_templates": {
+      "shell_syntax": "passed",
+      "unconfigured_private_verifier": "rejected-with-exit-2",
+      "unrendered_toml": "not-launchable",
+      "docker_build_executed": false
+    },
+    "independent_code_review": {
+      "status": "passed-after-fixes",
+      "resolved": [
+        "git-index-flags-hidden-source-mutation",
+        "source-change-during-copy",
+        "missing-support-copy",
+        "nonroot-submission-write-permissions"
+      ]
+    }
+  },
+  "source_preparation": [
+    {
+      "task_id": "mapdn-voltage-control",
+      "source_commit": "6895f1f0630b112745a3f681d7685d454407f9cb",
+      "tracked_files_verified": 71,
+      "published_data_archives_downloaded": false
+    },
+    {
+      "task_id": "powergym-volt-var-control",
+      "source_commit": "c9fc6d8357308a1f2bd2389474b56089c2a6bd78",
+      "tracked_files_verified": 93,
+      "required_csv_hashes_verified": 10
+    }
+  ],
+  "real_public_profile_packing": [
+    {
+      "feeder": "34Bus",
+      "ordered_files": [
+        "LoadShape1.CSV",
+        "LoadShape2.CSV",
+        "LoadShape3.CSV"
+      ],
+      "loads": 68,
+      "horizon": 24,
+      "source_rows": 26280,
+      "profile_count": 16,
+      "unused_rows": 168,
+      "packed_values_sha256": "45f3d3bda66aa69b0b2cff66f810e009d60b1183a0b0bad3d953c874b4d00bbc"
+    },
+    {
+      "feeder": "123Bus",
+      "ordered_files": [
+        "LoadShape1.CSV",
+        "LoadShape2.CSV",
+        "LoadShape3.CSV",
+        "PaperLoadShape.csv"
+      ],
+      "loads": 91,
+      "horizon": 24,
+      "source_rows": 35040,
+      "profile_count": 16,
+      "unused_rows": 96,
+      "packed_values_sha256": "824597078b1bdc2015b81d025f7eeac7932647a5c839fc2c6186495bda655174"
+    }
+  ],
+  "packing_is_not_calendar_day_provenance": true,
+  "not_executed": [
+    "mapdn-data-download-and-pickle-load",
+    "complete-power-flow-rollout",
+    "rl-training",
+    "docker-build",
+    "harbor-or-cluster-run",
+    "new-extension-n0-n1-canary",
+    "baseline-or-reward-calibration"
+  ],
+  "formal_five_task_75_run_design_changed": false,
+  "formal_extension_runs_submitted": false
+}

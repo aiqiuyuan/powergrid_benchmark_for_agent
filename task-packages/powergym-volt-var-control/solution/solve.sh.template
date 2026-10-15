@@ -1,0 +1,5 @@
+#!/bin/sh
+# No validated oracle is shipped. Replace only after same-case baseline acceptance.
+set -eu
+printf '%s\n' 'PowerGym oracle is pending: no validated full-case baseline is packaged.' >&2
+exit 2

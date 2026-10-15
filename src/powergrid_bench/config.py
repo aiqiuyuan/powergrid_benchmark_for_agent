@@ -8,13 +8,15 @@ import re
 from dataclasses import asdict, dataclass
 from typing import Any
 
-TASKS = (
+CORE_TASKS = (
     "goc-sc-ac-opf",
     "unit-commitment",
     "rte-maintenance",
     "l2rpn-grid-control",
     "heftcom-forecast-trade",
 )
+EXTENSION_TASKS = ("mapdn-voltage-control", "powergym-volt-var-control")
+TASKS = CORE_TASKS + EXTENSION_TASKS
 
 
 @dataclass(frozen=True)

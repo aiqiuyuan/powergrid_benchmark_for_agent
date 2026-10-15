@@ -58,3 +58,29 @@ class CliTests(unittest.TestCase):
         self.assertFalse(report["release_ready"])
         code, _ = self.invoke(["adapter-check", str(path), "--require-certified"])
         self.assertNotEqual(code, 0)
+
+    def test_distribution_extension_designs_require_certification(self):
+        for task in ("mapdn-voltage-control", "powergym-volt-var-control"):
+            path = ROOT / "manifests/task-adapters" / f"{task}.json"
+            code, report = self.invoke(["adapter-check", str(path)])
+            self.assertEqual(code, 0)
+            self.assertFalse(report["release_ready"])
+            code, _ = self.invoke(["adapter-check", str(path), "--require-certified"])
+            self.assertEqual(code, 2)
+
+    def test_distribution_preparation_rejects_bad_archive_arguments(self):
+        for arguments in (["invalid"], ["same=a", "same=b"]):
+            argv = [
+                "distribution-prepare",
+                "missing-lock",
+                "mapdn-voltage-control",
+                "--source",
+                "unused",
+                "--destination",
+                "unused",
+            ]
+            for argument in arguments:
+                argv.extend(["--archive", argument])
+            code, report = self.invoke(argv)
+            self.assertEqual(code, 2)
+            self.assertEqual(report["status"], "error")
