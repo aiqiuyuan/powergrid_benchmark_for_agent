@@ -3,3 +3,6 @@ recursive-include configs *.json
 recursive-include manifests *.json *.md
 recursive-include docs *.md *.json
 recursive-include tests *.py
+include task-packages/README.md
+recursive-include task-packages/mapdn-voltage-control *.md *.template *.py *.json
+recursive-include task-packages/powergym-volt-var-control *.md *.template *.py *.json

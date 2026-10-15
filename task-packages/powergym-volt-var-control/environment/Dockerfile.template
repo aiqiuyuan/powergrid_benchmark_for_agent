@@ -1,0 +1,9 @@
+# NOT LAUNCHABLE: render immutable image and runtime identity during trusted preparation.
+# The selected image must contain only approved candidate dependencies.
+FROM ${DEVELOPMENT_IMAGE_AT_SHA256}
+WORKDIR /app
+COPY --chown=${DEVELOPMENT_UID}:${DEVELOPMENT_GID} app/submission/ /app/submission/
+COPY app/public/ /app/public/
+COPY app/support/ /app/support/
+# Do not copy upstream PowerGym, target profiles, tests/, private runners, or score logs.
+USER ${DEVELOPMENT_UID}:${DEVELOPMENT_GID}

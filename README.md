@@ -67,7 +67,7 @@ PYTHONPATH=src python3 -m powergrid_bench.cli config-check configs/experiment.te
 PYTHONPATH=src python3 -m powergrid_bench.cli fixture-run --work-dir work/acceptance --trusted-local
 ```
 
-`config-check`默认允许审阅draft并列出未定字段；`--require-complete`会拒绝draft／缺值。`adapter-check`只核对设计声明，`--require-certified`会拒绝五个尚未认证的task。`executable=true`只表示配置填实，仍不是task或部署认证。
+`config-check`默认允许审阅draft并列出未定字段；`--require-complete`会拒绝draft／缺值。`adapter-check`只核对设计声明，`--require-certified`会拒绝全部七个尚未认证的task。`executable=true`只表示配置填实，仍不是task或部署认证。
 
 夹具实际执行小算法、独立checker、反馈、恢复、冻结和新输入终评；开发时钟使用注入的逻辑时间，数值只用于功能测试。它不访问模型服务、集群或能源数据。`--trusted-local`仅用于可信代码，不能作为恶意代码隔离措施。每次使用新工作目录，既有记录不会覆盖；证据保存在`report.json`和`ledger.sqlite3`。详情见[验收边界](docs/framework/acceptance.md)。
 
@@ -84,6 +84,17 @@ GitHub Actions已配置Python3.11／3.12／3.13的测试、80%覆盖率门槛、
 | [HEFTCom 预测与交易](docs/task-cards/heftcom-forecast-trade.md) | 时间序列ML、预测到决策、收益与风险 | 固定完整市场日／时段，保留因果信息；执行冻结流水线并恢复原结算 |
 
 GOC 的 500/793/2000/2312 等规模属于同一任务族；UC 为核心，受限 SCUC 适配为扩展。GOC30000 保留为压力测试，AHC024 保留为非能源框架测试，均不计入五个核心任务族。
+
+## 两个新增配电网扩展任务
+
+2026-10-15 按用户要求加入以下两题。**已交付卡片、设计声明、来源锁、基础合同代码、starter、小样例和原生 task 骨架；完整仿真运行器、正式难例及资源/基线校准仍待验收，均为 `release_ready=false`。** 它们尚未加入上面的五任务75-run计划。
+
+| 扩展任务 | 用途与基础接入 |
+|---|---|
+| [MAPDN 局部协同电压控制](docs/task-cards/mapdn-voltage-control.md) | 局部PV无功、droop与协同规则；校验无功能力和动作，区分真实有功损耗与reward代理 |
+| [PowerGym 混合设备 Volt/VAR 控制](docs/task-cards/powergym-volt-var-control.md) | 电容器、调压器与储能；校验混合动作和SOC，确定性打包负荷并隔离worker目录 |
+
+完成范围与验证见[中文完成说明](docs/completion-distribution-20261015.md)。接入方法见[配电网基础适配说明](docs/framework/distribution-control-integration.md)、[原生task骨架](task-packages/README.md)和[来源锁](configs/distribution-sources.json)。`distribution-prepare`将固定上游版本复制到可信评测准备目录，核对源文件摘要；它不生成开发数据包或执行潮流。公开starter只提供人工合成的接口自检，不含完整目标评分器。
 
 ## 共同实验语义
 

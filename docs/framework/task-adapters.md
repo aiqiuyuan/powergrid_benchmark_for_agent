@@ -171,3 +171,7 @@ Native Code1/Code2可以有语言特定入口，Adapter负责转成共同argv合
 | `certified` | 所有门槛通过，按冻结配置运行声明的任务/赛道 | 自动继承其他task/version的认证 |
 
 本次交付五个design声明、五套输入/输出合同和公平路线；预算具体值依用户要求保持未定。通用生命周期与可信fixture的运行证据和实际覆盖范围另见[生命周期文档](architecture.md)及[可靠性保障](reliability-layer.md)，生产Adapter必须在缺少上述证据时拒绝进入正式排行。
+
+## 新增配电网扩展（2026-10-15）
+
+[MAPDN](../task-cards/mapdn-voltage-control.md)和[PowerGym](../task-cards/powergym-volt-var-control.md)的设计声明已加入`manifests/task-adapters`，可用相同`adapter-check`审阅；原五任务正式计划未扩容。基础代码、公开starter、来源锁及原生骨架见[配电网接入说明](distribution-control-integration.md)。这是控制合同与准备工具，尚未接通完整目标仿真评分器；两题均保持pending/false。

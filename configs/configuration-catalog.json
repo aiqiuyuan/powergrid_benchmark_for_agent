@@ -28,7 +28,9 @@
         "unit-commitment",
         "rte-maintenance",
         "l2rpn-grid-control",
-        "heftcom-forecast-trade"
+        "heftcom-forecast-trade",
+        "mapdn-voltage-control",
+        "powergym-volt-var-control"
       ],
       "minimum": null,
       "model_only": false

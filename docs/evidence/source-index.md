@@ -32,6 +32,8 @@
 | P10 | RTE原赛总榜与A/B/C/X | [官方决赛榜](https://roadef.org/challenge/2020/en/finalresult.php)；[实例页](https://roadef.org/challenge/2020/en/instances.php)；[实际赛程](https://roadef.org/challenge/2020/en/calendrier.php) | 13队总榜、每组15例；C赛前公开、X当时隐藏现在公开；奖项与积分榜区分 |
 | P11 | L2RPN 2020 Robustness原赛 | [CodaLab竞赛25426](https://competitions.codalab.org/competitions/25426)；[组织方回顾论文](https://proceedings.mlr.press/v133/marot21a/marot21a.pdf)；[公开环境说明](https://grid2op.readthedocs.io/en/latest/available_envs.html#l2rpn-neurips-2020-track1) | 采用2020最终榜而非Legacy；隐藏24周终测与本地留出不同；当前容量不证明原赛包哈希 |
 | P12 | HEFTCom原赛最终榜与实时数据 | [官方leaderboard CSV](https://zenodo.org/records/13950764/files/overall_leaderboard.csv?download=1)；[原赛文档v4.0](https://zenodo.org/records/13950764/files/Competition%20Documentation%20v4.0.pdf?download=1)；[组织方回顾论文](https://arxiv.org/html/2507.01579v2) | 区分预测/交易/Combined；2024实时赛期及0–1800MWh边界不同于本地历史回测/报价限制 |
+| P13 | MAPDN | [固定源码6895f1f](https://github.com/Future-Power-Networks/MAPDN/tree/6895f1f0630b112745a3f681d7685d454407f9cb)；[论文](https://arxiv.org/html/2110.14300v5)；[固定数据版本](https://huggingface.co/datasets/hsvgbkhgbv/Multi-Agent-Power-Distribution-Networks/tree/a41d8c269e402a827d36d9a153a4bce73a990e53) | 2026-10-15核查；源码/小方法探针与数据元数据，不是完整潮流或早期论文复现；实际网损与无功代理分报 |
+| P14 | PowerGym | [固定源码c9fc6d8](https://github.com/siemens/powergym/tree/c9fc6d8357308a1f2bd2389474b56089c2a6bd78)；[论文](https://proceedings.mlr.press/v168/fan22a.html)；[维护者关于PPO/SAC代码的说明](https://github.com/siemens/powergym/issues/4) | 2026-10-15核查；明确SOC/数据打包/单例与设备语义，未复现PPO/SAC或完成OpenDSS物理核验 |
 
 这些入口用于说明来源；本次规格提交未复制上游数据或 checker。正式数据与代码发布需分别记录上游版本、许可、归属及项目适配差异。
 
@@ -66,3 +68,5 @@
 4. 后续结果追加带日期的快照，保留本次日期与冻结设置。目标无累计 token cap 政策不追溯修改旧实验。
 5. 将公开公式、公开实例与受保护信息分别审计；需要明确的访问合同和行为证据，不能仅凭下载公共 checker 判为泄漏。
 6. 本次所有成绩均用于校准任务难度、估计方差和确定基础合同。正式研究证据须来自完成认证的版本及另行冻结的 final test。
+
+两题基础接入和验证范围见[配电网说明](../framework/distribution-control-integration.md)；[源码/数据锁](../../configs/distribution-sources.json)不等于已验收的依赖锁、数据许可或正式task release。

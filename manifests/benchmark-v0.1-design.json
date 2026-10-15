@@ -154,5 +154,25 @@
   ],
   "specification": "../docs/benchmark-spec.md",
   "evaluation_protocol": "../docs/protocol/evaluation-protocol.md",
-  "implementation_gates": "../docs/implementation-plan.md"
+  "implementation_gates": "../docs/implementation-plan.md",
+  "extension_task_families": [
+    {
+      "task_id": "mapdn-voltage-control",
+      "title": "MAPDN 局部协同电压控制",
+      "task_card": "../docs/task-cards/mapdn-voltage-control.md",
+      "status": "adaptation-foundation-calibration-pending",
+      "frozen_task_release": null,
+      "included_in_current_75_run_design": false,
+      "release_ready": false
+    },
+    {
+      "task_id": "powergym-volt-var-control",
+      "title": "PowerGym 混合设备 Volt/VAR 控制",
+      "task_card": "../docs/task-cards/powergym-volt-var-control.md",
+      "status": "adaptation-foundation-calibration-pending",
+      "frozen_task_release": null,
+      "included_in_current_75_run_design": false,
+      "release_ready": false
+    }
+  ]
 }
