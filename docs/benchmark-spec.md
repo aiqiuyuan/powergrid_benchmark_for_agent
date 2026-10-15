@@ -1,5 +1,7 @@
 # Benchmark 研究契约与任务范围
 
+> **当前第一阶段政策（2026-10-15）：以[决定0005](decisions/0005-fixed-case-evolution-first.md)为准。** 每task固定一个高难完整case，同case开发、计n反馈与冻结复核；开发端禁止完整checker和本地完整目标评分，不设免费public-selection。下文四角色／独立留出、公开checker、best-public-selection等属于较早设计或第二阶段参考，不是本阶段默认。原生入口的实现与验收状态见当前决定和各任务卡§12。
+
 **版本：`v0.1-design`；日期：2026-10-14；状态：前两步文档规范完成，运行能力待实现与认证。**
 
 本规格把前期多组实验转为后续研究共同遵守的契约。已有实验事实见[预实验统计](evidence/preliminary-experiments-20261013.md)，执行细则见[评测协议](protocol/evaluation-protocol.md)，提交与留档见[产物契约](protocol/artifact-contract.md)。本文的要求是正式 release 的验收条件；本次发布没有完成运行框架修复或新实验。

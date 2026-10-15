@@ -2,23 +2,29 @@
 
 **个人小测范围更新（2026-10-15）：** 本页49字段是独立参考实现与完整研究配置的目录；原生eval-in-loop小测沿用现有配置，不要求先填写本模板或新增配置层。具体工作范围以[精简设计](../decisions/0004-minimal-local-testing.md)为准；下文校验规则仍适用于主动使用该参考实现的场景。
 
-**本轮设置更新（2026-10-15）：** 用户后续已确定五task、n=0／1／3／5／10、每档3次独立开发、T=43200秒、累计token不限／无累计预留截断；L2RPN主线恢复原赛动作范围。模型、资源、实例执行预算等仍待实际核对／校准。取值与理由以[原题对齐与参数决定](../protocol/task-alignment-and-calibration.md)为准；没有为此新增配置层，也未将这些决定写成可直接执行的75项清单。
+**本轮设置更新（2026-10-15）：** 用户后续已确定五task、n=0／1／3／5／10、每档3次独立开发、T=43200秒、累计token不限／无累计预留截断；L2RPN主线恢复原赛动作范围。RTE已初选完整工业case X04，见[X04配置](../protocol/rte-x04-configuration.md)；其他task的case、模型、资源、实例执行预算等仍待实际核对／校准。取值与理由以[原题对齐与参数决定](../protocol/task-alignment-and-calibration.md)为准；没有为此新增配置层，也未将这些决定写成可直接执行的75项清单。
 
 **状态：字段目录和校验器已实现；模板继续保留为通用待填示例。** 本页初始阶段仅列字段，不代选研究数值；这一历史范围不覆盖上文用户后来明确的决定。配置字段以[config.py](../../src/powergrid_bench/config.py)为来源，机器目录是[configuration-catalog.json](../../configs/configuration-catalog.json)，模板是[experiment.template.json](../../configs/experiment.template.json)。安装及实际CLI入口见[README](../../README.md)。
 
-## 1. 49个参考字段，6项已约定政策
+<a id="1-49个参考字段6项已约定政策"></a>
+
+## 1. 49个参考字段，6项旧参考政策
 
 模板有**49个可配置叶字段**，其值全部为`null`；非模型backend的4个model字段保留`null`且不要求填实，其他正式运行必需项仍须明确。`null`不代表沿用旧值、不限预算或零资源。准备脚本、预实验、测试fixture或部署环境中的默认值不能自动填进研究协议。
 
-已约定的政策保留在`policy`，它们是协议语义，不是新选的研究参数：
+以下表格忠实记录机器目录当前保留的旧`policy`，不把文档改动当代码已经支持新政策。第一阶段以[决定0005](../decisions/0005-fixed-case-evolution-first.md)为准：固定高难完整case；完整评分反馈仅走n计数；禁止开发agent获得完整checker或本地完整算分；禁止搜索原赛测评源码；原生artifacts最终文件在T截止冻结，不增加免费selection评分。允许语法／格式／小型示例检查，算法可信执行中的内部目标计算不被禁止。
+
+模板与独立参考selector保留旧政策，第一阶段复用原生eval-in-loop配置而不据此新建配置层。实际新版黑名单启用、开发镜像清理、旁路和截止收集仍待验收。目标case输入开发可见性也未因此自动确定。
+
+机器目录现有政策：
 
 | 字段 | 已约定值 | 含义 |
 |---|---|---|
 | `cumulative_token_cap` | `null` | 明确不设累计token cap；这里的null表示关闭该政策，不属于未决字段 |
 | `token_reservation` | `false` | 不用累计token预留提前终止开发 |
-| `feedback_zero_means` | `no-protected-feedback` | n=0没有受保护反馈，公开开发与selection仍可用 |
-| `selection` | `best-public-selection` | 按公开选择记录选唯一候选，选择必须在开发截止内完成 |
-| `tie_break` | `earliest-completed` | 同选择指标的平局取最早完成的有效选择记录 |
+| `feedback_zero_means` | `no-protected-feedback` | 旧参考语义；第一阶段n=0还明确禁止免费完整目标评分，轻量检查仍可用 |
+| `selection` | `best-public-selection` | 旧参考实现，第一阶段不采用；不能额外给免费完整selection评分 |
+| `tie_break` | `earliest-completed` | 仅适用旧selection；第一阶段收集截止artifacts最终文件，无评分并列选择 |
 | `final_test_selects_candidates` | `false` | final-test不用于选候选或checkpoint |
 
 模型单次输出上限、上下文窗口、供应商限流及实际token统计仍需配置/记录；不设累计cap不等于忽略单次请求限制。[统一预算政策](../protocol/evaluation-protocol.md#4-开发时限评测时限与-token)。
@@ -106,7 +112,7 @@
 | 37 | `selection.metric_direction` | `higher / lower` | Adapter原目标/冻结归一化决定，所有候选同方向 |
 | 38 | `selection.feedback_schema_id` | 非空字符串，允许聚合/诊断/截断版本 | task与研究者确定；n控制哪个非公开信息面板，不能仅计公开checker调用 |
 
-Selector采用已约定best-public-selection和earliest-completed政策；配置不允许用final-test选模型。HEFT的selection拟合边界、L2的预训练允许范围以及数学优化的合法公开目标计算另存task release，不能靠方向字段代替。
+此处Selector实际实现旧best-public-selection和earliest-completed；不表示第一阶段已经支持截止最终文件政策。第一阶段走原生artifacts，并且禁止任何免费完整目标评分（包括借selection命名）。HEFT的因果拟合边界、L2的预训练／simulate权限、solver内部计算和开发端评分边界另存task说明，不能靠方向字段代替。
 
 ### 2.8 恢复与产物：4项
 
@@ -154,7 +160,7 @@ Selector采用已约定best-public-selection和earliest-completed政策；配置
 1. 先确定[每个task的比较路线](fair-ranking.md)、原始物理和数据角色；不要先扩大n矩阵。
 2. 对starter与强参考运行清洁环境校准，测单次求解、内存、simulations/训练成本、有效率与可改进空间；这些样本登记calibration。
 3. 根据结果明确执行/资源/solver能力profile与反馈信息schema，预注册T/n实验矩阵、model、重复seed和选择政策；保持用户希望研究的变量可辨认。
-4. 固定独立面板、聚合与失败/恢复政策，保存task release、evaluator、capability、镜像和验收内容摘要。
+4. 第一阶段固定高难完整case、开发可见性、计数评分／截止artifacts及失败政策；第二阶段才要求独立泛化面板。保存现有task、checker、能力、镜像及验收证据。
 5. 填实正式配置，生成摘要并通过配置校验及独立preflight；再在目标并发运行认证批次。新版本改参数或数据需要新protocol/cohort与完整审计。
 
-本次没有选取具体T、n、模型、正式资源、重复数、执行秒数或实例日期。原赛语义和既有政策已明确；49项字段目录提供后续决定的清单，避免把“配置完整”与“真实任务/部署已可运行”混为一谈。
+本页初版未代选数值；用户后来已确定T=43200秒、n=0／1／3／5／10各3次、累计token不限／无累计预留。模型、资源、固定高难case及多数算法限额待校准。49字段与旧selector仍为参考实现，不要求第一阶段逐项填模板；先以原生配置完成必要task与评分权限验收。
