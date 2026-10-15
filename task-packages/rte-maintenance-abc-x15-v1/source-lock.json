@@ -1,0 +1,51 @@
+{
+  "repository": "https://github.com/rte-france/challenge-roadef-2020",
+  "commit": "052def4d47271f913f89a68169083059732360f3",
+  "files": {
+    "RTE_ChallengeROADEF2020_checker.py": {
+      "url": "https://raw.githubusercontent.com/rte-france/challenge-roadef-2020/052def4d47271f913f89a68169083059732360f3/RTE_ChallengeROADEF2020_checker.py",
+      "sha256": "9f1d7be2c5610d79ccbdd762c5c8736308fddc34e1ab39e6a6619be761f8322a",
+      "bytes": 14565
+    },
+    "Challenge_Subject.pdf": {
+      "url": "https://raw.githubusercontent.com/rte-france/challenge-roadef-2020/052def4d47271f913f89a68169083059732360f3/Challenge_Subject.pdf",
+      "sha256": "500adc075dfbb9b6f6d3c5d686508923224b6041411a007c2a08a6817462dd78",
+      "bytes": 455144
+    },
+    "Challenge_Rules.pdf": {
+      "url": "https://raw.githubusercontent.com/rte-france/challenge-roadef-2020/052def4d47271f913f89a68169083059732360f3/Challenge_Rules.pdf",
+      "sha256": "866ce0ec41eee3cd20d3281ee9de9c7b0e7ef2df2ae8679cbc2fdfb212314251",
+      "bytes": 673583
+    },
+    "LICENSE": {
+      "url": "https://raw.githubusercontent.com/rte-france/challenge-roadef-2020/052def4d47271f913f89a68169083059732360f3/LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "bytes": 11357
+    },
+    "README.md": {
+      "url": "https://raw.githubusercontent.com/rte-france/challenge-roadef-2020/052def4d47271f913f89a68169083059732360f3/README.md",
+      "sha256": "97a13612b215ccd1b4ee5deffa44e31b5c91ab833d38d922457435cdd72808c0",
+      "bytes": 11505
+    },
+    "example1.json": {
+      "url": "https://raw.githubusercontent.com/rte-france/challenge-roadef-2020/052def4d47271f913f89a68169083059732360f3/example1.json",
+      "sha256": "e5e7549e4adab1df43ca85ead4203bf37b661a647f927fd9b3ef1b2ca037b585",
+      "bytes": 1487
+    },
+    "example2.json": {
+      "url": "https://raw.githubusercontent.com/rte-france/challenge-roadef-2020/052def4d47271f913f89a68169083059732360f3/example2.json",
+      "sha256": "7a2bd91e595bd49378c117e9d6320aa53030c3770036ab14365c9b5d70874dc6",
+      "bytes": 1392
+    },
+    "output1.txt": {
+      "url": "https://raw.githubusercontent.com/rte-france/challenge-roadef-2020/052def4d47271f913f89a68169083059732360f3/output1.txt",
+      "sha256": "d730f8fd049b3d9d7dc5d28bd1feca2f33e4ccf3a988ab527728146ce2343f4b",
+      "bytes": 15
+    },
+    "output2.txt": {
+      "url": "https://raw.githubusercontent.com/rte-france/challenge-roadef-2020/052def4d47271f913f89a68169083059732360f3/output2.txt",
+      "sha256": "d730f8fd049b3d9d7dc5d28bd1feca2f33e4ccf3a988ab527728146ce2343f4b",
+      "bytes": 15
+    }
+  }
+}

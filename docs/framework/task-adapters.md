@@ -1,10 +1,12 @@
 # 五个任务的可执行Adapter合同
 
-> **当前第一阶段政策（2026-10-15）：以[决定0005](../decisions/0005-fixed-case-evolution-first.md)为准。** 每task固定一个高难完整case，同case开发、计n反馈与冻结复核；开发端禁止完整checker和本地完整目标评分，不设免费public-selection。下文四角色／独立留出、公开checker、best-public-selection等属于较早设计或第二阶段参考，不是本阶段默认。原生入口的实现与验收状态见当前决定和各任务卡§12。
+**RTE后续决定（2026-10-15）：** 当前RTE采用ABC45开放开发、X15隔离反馈，900秒／例、评测端15 CPU并行；冻结后5400秒／例评测且不回流。ABC允许官方checker本地自测，n仅统计完整X面板受理次数。RTE以[决定0006](../decisions/0006-rte-abc-open-x15-protected.md)和[新配置](../protocol/rte-abc-x15-configuration.md)为准；下文X04单例及禁止全部本地评分条款保留为被覆盖的历史设计，其他任务不受此例外影响。
+
+> **其他四task的第一阶段政策（2026-10-15）：以[决定0005](../decisions/0005-fixed-case-evolution-first.md)为准。** RTE另按[决定0006](../decisions/0006-rte-abc-open-x15-protected.md)采用ABC开放、X15受保护评测，允许ABC完整checker自测。其他四task固定一个高难完整case，同case开发、计n反馈与冻结复核；开发端禁止完整checker和本地完整目标评分，不设免费public-selection。下文四角色／独立留出、公开checker、best-public-selection等属于较早设计或第二阶段参考，不是本阶段默认。原生入口的实现与验收状态见当前决定和各任务卡§12。
 
 **当前实施顺序（2026-10-15）：先填写[公平比较设置](fair-ranking.md)，再按[原生task包格式](native-task-package.md)整理已有eval-in-loop任务，只补实际缺口。** 下文保留上一版详细参考合同；七个职责是评测需要覆盖的行为，不要求新建七个组件。通用JSON ABI、独立内核、RPC和完整生产认证不是个人小测的必建项。原生入口与配置能够满足的直接复用；本轮没有将五个task迁移到下述设计。
 
-**状态：2026-10-14，设计合同已构建，生产任务实现与认证待完成。** 统一生命周期管理预算、受理、冻结和证据；Task Adapter负责本任务的输入、算法调用、原生输出、独立checker与原始指标。任务源码、竞赛数据和既有内部部署代码未复制进本公开仓库。
+**状态：2026-10-14，设计合同已构建，生产任务实现与认证待完成。** 统一生命周期管理预算、受理、冻结和证据；Task Adapter负责本任务的输入、算法调用、原生输出、独立checker与原始指标。RTE原生task源码已在[独立任务包](../../task-packages/rte-maintenance-abc-x15-v1/README.md)公开；大型竞赛数据和既有内部部署代码仍由操作者分别准备。
 
 每个家族有[机器可读声明](../../manifests/task-adapters/)及任务卡§10。声明中的`implementation.argv`是要实现的调用模板；`status=design`阻止它被当成已认证生产Adapter。[公平排行路线](fair-ranking.md)解释为什么采用这些合同。
 

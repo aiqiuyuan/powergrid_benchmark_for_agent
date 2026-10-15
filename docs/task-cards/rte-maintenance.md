@@ -169,3 +169,13 @@ v0.1的`Public development / Public selection / Protected feedback / Final test`
 较新eval-in-loop `chufan_dev`已安全切换到本地；单测及真实任务验收仍须核对，不能把黑名单功能存在当作封住所有评分旁路。最短顺序是：**锁完整X04和可见边界 → 无模型可信成本测量 → 冻结剩余配置 → 只修原生task必要缺口 → n=0／正n及冻结复核验收 → 正式批次。** 原题全部干预、风险情景和原Alpha／Quantile目标不裁减，不额外建设平台。
 
 完整依据、资源差异和待定项见[X04配置确认与最小验收](../protocol/rte-x04-configuration.md)，政策见[固定case算法演化决定](../decisions/0005-fixed-case-evolution-first.md)。本次没有运行新基线或产生新分数，状态仍为`certification-pending / release_ready=false`。
+
+## 13. 当前任务包：ABC开放、X15受保护反馈（2026-10-15）
+
+**本节覆盖§12及此前与新划分冲突的研究政策；原赛资料与历史实验记录保留。** A／B／C共45个完整实例开放开发，允许官方checker本地评分；X15仅放在评测端，过程每例900秒、15路并行，完整面板每次受理计一次n。开发T=12小时、n=0／1／3／5／10、各三次独立开发，累计token不限。
+
+提交通用`solver.py`。截止冻结唯一最终源码，随后在同一X15上独立运行每例5400秒档，不回流、不占过程n。X是有限反馈的自适应评测面板；不称独立未见测试。该版本不再以X04单例作为开发／反馈／终评全集，也不再禁止ABC完整自测。
+
+资源为开发端2 CPU、评测端15 CPU，内存／存储采用显式初始配额待实测。完整原始输入、官方checker及逐例哈希固定；n只改变受保护反馈机会，不能随n改变实例或资源。过程reward保留严格全15例有效规则与输入归一化；原始F、有效率与失败结果均保存，不直接宣称原赛完整榜。
+
+来源与数据准备、命令、反馈字段、最终评测和验收边界见[新版配置](../protocol/rte-abc-x15-configuration.md)，政策见[决定0006](../decisions/0006-rte-abc-open-x15-protected.md)。新源码包见[原生task目录](../../task-packages/rte-maintenance-abc-x15-v1/README.md)。正式认证仍待Linux／Harbor、整套X并行资源与网络隔离验收，`release_ready=false`。

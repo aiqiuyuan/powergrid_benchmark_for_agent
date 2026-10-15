@@ -1,6 +1,6 @@
 # 决定 0003：墙钟预算、可执行产物与恢复
 
-> **当前第一阶段政策（2026-10-15）：以[决定0005](0005-fixed-case-evolution-first.md)为准。** 每task固定一个高难完整case，同case开发、计n反馈与冻结复核；开发端禁止完整checker和本地完整目标评分，不设免费public-selection。下文四角色／独立留出、公开checker、best-public-selection等属于较早设计或第二阶段参考，不是本阶段默认。原生入口的实现与验收状态见当前决定和各任务卡§12。
+> **其他四task的第一阶段政策（2026-10-15）：以[决定0005](0005-fixed-case-evolution-first.md)为准。** RTE另按[决定0006](0006-rte-abc-open-x15-protected.md)采用ABC开放、X15受保护评测，允许ABC完整checker自测。其他四task固定一个高难完整case，同case开发、计n反馈与冻结复核；开发端禁止完整checker和本地完整目标评分，不设免费public-selection。下文四角色／独立留出、公开checker、best-public-selection等属于较早设计或第二阶段参考，不是本阶段默认。原生入口的实现与验收状态见当前决定和各任务卡§12。
 
 **状态：墙钟/无累计 token cap 政策按已有研究要求采纳；运行修复待验收。日期：2026-10-14。**
 

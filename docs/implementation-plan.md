@@ -1,6 +1,8 @@
 # 后续实施顺序、待定项与验收矩阵
 
-> **当前第一阶段政策（2026-10-15）：以[决定0005](decisions/0005-fixed-case-evolution-first.md)为准。** 每task固定一个高难完整case，同case开发、计n反馈与冻结复核；开发端禁止完整checker和本地完整目标评分，不设免费public-selection。下文四角色／独立留出、公开checker、best-public-selection等属于较早设计或第二阶段参考，不是本阶段默认。原生入口的实现与验收状态见当前决定和各任务卡§12。
+**RTE后续决定（2026-10-15）：** RTE当前采用ABC45开放开发、X15受保护反馈；过程900秒／例、15路并行，冻结后5400秒／例独立评测。ABC允许完整官方checker自测，n只统计完整X15面板受理次数。以[决定0006](decisions/0006-rte-abc-open-x15-protected.md)及[新配置](protocol/rte-abc-x15-configuration.md)为准；下文决定0005的同case／完整checker限制仅继续作为其他四task的当前政策。
+
+> **其他四task的第一阶段政策（2026-10-15）：以[决定0005](decisions/0005-fixed-case-evolution-first.md)为准。** RTE另按[决定0006](decisions/0006-rte-abc-open-x15-protected.md)采用ABC开放、X15受保护评测，允许ABC完整checker自测。其他四task固定一个高难完整case，同case开发、计n反馈与冻结复核；开发端禁止完整checker和本地完整目标评分，不设免费public-selection。下文四角色／独立留出、公开checker、best-public-selection等属于较早设计或第二阶段参考，不是本阶段默认。原生入口的实现与验收状态见当前决定和各任务卡§12。
 
 **2026-10-15范围调整：个人侧后续按[最小测试设计](decisions/0004-minimal-local-testing.md)执行。** 直接复用已可运行的eval-in-loop，只补当前task／配置／评分的实际阻断。本文的完整认证矩阵保留为长期研究与发布参考；跨节点、自动恢复、完整故障矩阵等不再作为个人小测的前置建设。已有RTE真实模型／Harbor配对canary已通过，见[最新完成说明](completion-step3-cluster-20261015.md)。下文早期未验收描述保留其历史日期。
 

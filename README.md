@@ -1,24 +1,27 @@
 # PowerGrid Benchmark for Agent
 
-面向能源领域优化与ML的算法演化Benchmark。**第一阶段每task固定一个高难完整case，研究agent在同case上通过受控评分反馈改进算法的能力；跨case泛化留到下一阶段。** 开发端不提供完整checker，不允许本地完整目标评分或检索原赛测评源码；完整目标过程反馈统一通过框架计数评分器。
+面向能源领域优化与ML的算法演化Benchmark。**当前优先完成RTE任务：ABC45开放开发和官方checker自测，X15受保护评测；过程反馈每例15分钟、评测端15 CPU并行，截止冻结后每例90分钟终评，不回流开发。** n控制完整X面板的受理次数，ABC自测不计n。X同时用于反馈和终评，不声称独立未见测试。其他四任务暂沿用固定高难case的第一阶段设计。
 
 **当前个人开发范围：直接复用 eval-in-loop 做小规模测试，只修阻断运行或导致错误结果的具体问题。** 原框架负责启动、Harbor、agent、反馈和既有记录；个人侧整理已有 task、原生配置和结果。独立基础包保留为参考，不要求迁移五任务、补齐49字段或完成生产故障矩阵才能小测。详见[精简设计决定](docs/decisions/0004-minimal-local-testing.md)。下文基础包与集群验收记录保留其原有适用范围。
 
-**当前工作重点：按固定难例政策建设task，先落实RTE X_04。** [决定0005](docs/decisions/0005-fixed-case-evolution-first.md)定义本阶段的case选择、严格计n、原生artifacts冻结与同case终验；[原题对齐与参数决定](docs/protocol/task-alignment-and-calibration.md)列明逐题差额。RTE初选X_04，其他case ID、模型、资源与算法执行预算仍待固定。[公平比较清单](docs/framework/fair-ranking.md)保留38项设置，[原生task包说明](docs/framework/native-task-package.md)说明提交形式。源码更新、功能配置和任务验收分别记录，不能把政策整理当作严格评分隔离已完成。
+**当前RTE以[决定0006](docs/decisions/0006-rte-abc-open-x15-protected.md)为准。** [新版配置与操作](docs/protocol/rte-abc-x15-configuration.md)、[原生任务包](task-packages/rte-maintenance-abc-x15-v1/README.md)说明数据、提交、分数、资源和冻结后工具。[决定0005](docs/decisions/0005-fixed-case-evolution-first.md)和[X04配置](docs/protocol/rte-x04-configuration.md)保留先前选择过程；其中RTE单例及禁止ABC本地评分条款已被覆盖。[公平比较清单](docs/framework/fair-ranking.md)已同步RTE例外，其他任务的设置继续逐项核实。
 
 **本轮研究设计已定：五task × n=0／1／3／5／10 × 三次独立开发，共75次；每次开发上限12小时，累计token不限且无累计预留截断。L2RPN主线恢复原赛动作范围，包括redispatch，在统一条件下重跑基线；375动作版本单列。** 模型、实际资源、逐例执行限额、其余case ID和成本校准仍未完成，尚未启动75次长实验。新主线先按task分别报告原始指标，不设置跨task总分。
 
-**当前状态：Benchmark `v0.1-design`；已有独立参考实现版本为`0.2.0`。更新：2026-10-15。** 本阶段研究政策已整理，五任务运行包尚未全部适配。此前RTE在历史A4校准数据上通过Harbor／真实模型n=0、n=1配对canary，验证过旧公共选择、计数反馈／ACK、共同截止及独立终评；它不证明新X_04模式、禁止本地评分或新版黑名单已经验收。现有参考代码保留，不作为个人侧必迁路线；没有发布正式能源榜单。
+**当前状态：Benchmark `v0.1-design`；已有独立参考实现版本为`0.2.0`。更新：2026-10-15。** 本阶段研究政策已整理，五任务运行包尚未全部适配。此前RTE在历史A4校准数据上通过Harbor／真实模型n=0、n=1配对canary，验证过旧公共选择、计数反馈／ACK、共同截止及独立终评；它不证明新ABC／X15模式、并行资源或新版网络限制已经验收。现有参考代码保留，不作为个人侧必迁路线；没有发布正式能源榜单。
 
-**本地eval-in-loop已更新到`chufan_dev@c1fffbf`，保留原有改动及实验文件，完成必要兼容修复与本地测试／静态计划检查。** RTE X_04历史数据已独立核查；新任务的评分隔离、资源成本和真实运行仍待完成。详见[本轮完成说明](docs/completion-fixed-case-20261015.md)及[X_04配置草案](docs/protocol/rte-x04-configuration.md)。
+**本地eval-in-loop已更新到`chufan_dev@c1fffbf`，保留原有改动及实验文件，完成必要兼容修复与本地测试／静态计划检查。** RTE X_04历史数据已独立核查；ABC／X15新任务的实际资源成本、隔离和集群运行仍待验收。详见[本轮完成说明](docs/completion-fixed-case-20261015.md)及[X_04配置草案](docs/protocol/rte-x04-configuration.md)。
 
 三类模块已经整理为明确接口：**Configuration保留49字段的参考目录和待填模板，本轮已定设计以上文为准；Task adapters逐任务明确可执行提交、公平排行路线和缺少条件；Reliability extensions把历史故障归入共同生命周期，并区分已有本地实现与外部部署验收。**
+
+本轮ABC／X15任务包、数据准备、测试与实际完成边界见[中文完成说明](docs/completion-rte-abc-x15-20261015.md)。
 
 ## 从哪里开始
 
 | 需要了解的内容 | 文档 |
 |---|---|
-| 第一阶段固定case、计n与同case终验怎样执行 | [当前研究决定0005](docs/decisions/0005-fixed-case-evolution-first.md)、五张task-card §12 |
+| 当前RTE如何开发、计n和做90分钟终评 | [决定0006](docs/decisions/0006-rte-abc-open-x15-protected.md)、[配置与操作](docs/protocol/rte-abc-x15-configuration.md)、[任务包](task-packages/rte-maintenance-abc-x15-v1/README.md) |
+| 其他任务第一阶段固定case政策及历史选择 | [研究决定0005](docs/decisions/0005-fixed-case-evolution-first.md)、五张task-card §12；RTE最新见§13 |
 | 后续个人侧具体做什么、哪些框架建设停止 | [复用eval-in-loop的小规模测试设计](docs/decisions/0004-minimal-local-testing.md) |
 | 研究什么、为何选这五类任务、怎样组织比较 | [Benchmark 研究契约](docs/benchmark-spec.md) |
 | 已做实验用了哪些设置、得到什么结果、哪些问题需要修复 | [98 个预实验槽位的中文统计](docs/evidence/preliminary-experiments-20261013.md) |
@@ -76,7 +79,7 @@ GitHub Actions已配置Python3.11／3.12／3.13的测试、80%覆盖率门槛、
 |---|---|---|
 | [GOC SC-AC-OPF](docs/task-cards/goc-sc-ac-opf.md) | 非凸连续优化、故障分解、物理约束和数值工程 | 固定高难完整工况，执行基态及全部故障；移除开发完整评分旁路，重跑参考 |
 | [UC / SCUC](docs/task-cards/unit-commitment.md) | 离散调度、MILP、约束建模、启发式与数学求解混合 | 固定完整原始UC实例；从静态排程评分改为执行冻结solver |
-| [RTE 检修排程](docs/task-cards/rte-maintenance.md) | 组合搜索、资源约束、风险目标和排程 | 初选工业X_04；保留完整风险／约束，隔离开发checker并校准执行预算 |
+| [RTE 检修排程](docs/task-cards/rte-maintenance.md) | 组合搜索、资源约束、风险目标和排程 | ABC45开放开发，X15受保护反馈；15分钟过程、90分钟冻结后，评测15 CPU并行 |
 | [L2RPN 电网控制](docs/task-cards/l2rpn-grid-control.md) | 序贯决策、仿真搜索、RL 和规则混合 | 固定高难完整episode，恢复原动作范围并统一计数评分和现代scorer |
 | [HEFTCom 预测与交易](docs/task-cards/heftcom-forecast-trade.md) | 时间序列ML、预测到决策、收益与风险 | 固定完整市场日／时段，保留因果信息；执行冻结流水线并恢复原结算 |
 
@@ -90,18 +93,18 @@ flowchart LR
     B --> C[框架完整目标评分：最多受理n次]
     C -->|固定反馈，仅T内投递| B
     B --> D[T截止冻结artifacts最终版本]
-    D --> E[同一case执行冻结算法、独立评分]
+    D --> E[在约定面板上执行冻结算法、独立评分]
     E --> F[报告结果，不回流开发]
 ```
 
-- 每task固定一个高难完整case；开发、计数反馈、冻结复核均针对同case。第一阶段不声称未见泛化。
-- 开发端不提供完整checker，不允许本地完整目标评分、重写checker绕计数或搜索下载原赛测评源码。允许语法／格式／小型示例检查，solver内部优化计算正常；实际数据与工具边界逐task验收。
-- `n`是完整目标评分作业的最多受理数；分别记录受理、完成和投递。`n=0`没有完整目标过程反馈，最终仍复核冻结算法。
+- RTE采用ABC45开发、X15受保护反馈及冻结后评测；其他task暂按同一高难完整case。两种设计均不声称独立未见泛化。
+- RTE允许ABC官方checker自测，限制的是X数据、旧结果及评测回流；其他task暂按决定0005限制完整目标评分。实际数据、工具及网络边界逐task验收。
+- `n`是受保护完整面板评分作业的最多受理数；分别记录受理、完成和投递。RTE一次X15计一次，ABC自测不计；n=0没有X反馈。
 - 开发T包含训练、编译、获准检查和反馈等待；累计token不限，无累计预留截断，实际用量未知时记unknown。
 - 不设免费的public-selection／best-public-selection评分。agent依据已经计n的反馈在T内保留最终版本，截止冻结；无修改保留starter，不用终验再选优。
 - 最终复核不占过程n，不向开发回流。同task报告原始指标、有效性、资源及三次独立开发结果；单case历史值按相同输入并列披露差异，本批不设跨task总分。
 
-当前RTE旧开发包暴露完整评分支持代码，必须完成实际调整；较新上游的域名黑名单／搜索开关也需配置和验证。完整目标输入若可见，可能仍可重写目标函数，不能把“有黑名单”当作“严格n已实现”。详见[决定0005 §6](docs/decisions/0005-fixed-case-evolution-first.md#6-黑名单与评分隔离还缺什么)。
+当前RTE新版允许开发端对ABC完整评分，X仅留在可信评测端。原生黑名单／搜索开关及实际联网通道仍需部署验证，不能把“有黑名单”当作“X不可取得”。详见[决定0005 §6](docs/decisions/0005-fixed-case-evolution-first.md#6-黑名单与评分隔离还缺什么)。
 
 ## 当前证据与完成边界
 
@@ -118,12 +121,12 @@ flowchart LR
 1. **研究契约与任务范围：文档完成。** 固定研究对象、五个任务族、主线与扩展边界、比较单位和主要研究问题。
 2. **任务卡与统一评测契约：已同步第一阶段政策。** 五卡§12记录固定难例、严格计n、artifacts冻结与同case复核；旧四角色留作历史／第二阶段参考。
 3. **基础框架统一：合同、本地参考实现和RTE真实Harbor／模型主链路验收完成。** 已验证共同计时、反馈账本、实际反馈／ACK、容器停止、冻结与独立终评；G1其余故障矩阵、开发中完整中断恢复及部署认证继续推进。
-4. **当前优先：任务包实现与校准。** 从RTE X_04开始，落实评分权限、原生执行入口、基线、资源和完整评分；其他四题按同原则推进。
+4. **当前优先：任务包实现与校准。** 先完成RTE ABC／X15包及其15路并行，落实数据权限、基线、资源和完整评分；其他四题按同原则推进。
 5. **批量认证与 release 冻结。** 清洁环境、恶意/无效产物、故障注入、目标并发、重放和跨任务批次全部验收。
-6. **正式研究。** 第一阶段先做同case反馈预算与方法基线，再做智能体／演化结构消融；第二阶段独立设计跨case泛化。
+6. **正式研究。** 第一阶段在各task约定的评测面板上比较反馈预算与方法基线，再做智能体／演化结构消融；RTE使用ABC／X15协议，其他四task暂按同case设计。未见泛化另行设计。
 
 ## 仓库与来源政策
 
-本仓库发布原创中文文档、设计JSON和独立编写的基础参考实现／测试。私有`eval-in-loop`源码、模型轨迹、凭据、机器配置、内部集群信息和原始能源实验数据不在发布包中。历史统计采用脱敏摘要，公开来源在任务卡及来源索引中链接；内部历史成绩无法仅凭本仓库重新计算。
+本仓库发布原创中文文档、设计JSON和独立编写的基础参考实现／测试。私有`eval-in-loop`框架底座、模型轨迹、凭据、机器配置、内部集群信息和大型原始能源数据不在发布包中。`task-packages/`发布本地task适配与构建／测试说明；官方checker按其Apache-2.0许可独立注明来源。历史统计采用脱敏摘要，公开来源在任务卡及来源索引中链接；内部历史成绩无法仅凭本仓库重新计算。
 
 上游数据、checker、仿真环境和 solver 各自的许可证、版本与归属需要单独核验；当前没有把尚未审计的数据或代码赋予统一许可。新增实现、数据或正式结果时，应追加版本与归属记录，并采用可审查的提交/PR。
