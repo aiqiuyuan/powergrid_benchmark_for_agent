@@ -16,6 +16,8 @@
 
 本轮ABC／X15任务包、数据准备、测试与实际完成边界见[中文完成说明](docs/completion-rte-abc-x15-20261015.md)。
 
+正式批次的15角色、固定客户端、启动前验收和提交状态见[运行配置](docs/experiments/rte-abc-x15-formal-20261015.md)与[最新中文工作说明](docs/completion-rte-formal-launch-20261015.md)。**当前relay认证失效，正式提交数为0；服务器完整验收待继续。**
+
 ## 从哪里开始
 
 | 需要了解的内容 | 文档 |

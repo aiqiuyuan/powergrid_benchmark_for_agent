@@ -240,6 +240,48 @@ class ABCX15RunnerTests(unittest.TestCase):
                     os.kill(pid, signal.SIGKILL)
                     self.fail("candidate descendant survived process-group cleanup")
 
+    def test_private_failure_diagnostics_survive_cleanup_without_feedback_leak(self) -> None:
+        with mock.patch.object(sys, "path", list(sys.path)):
+            score = load_task_module("tests/score.py", "abc_x15_score_diagnostics")
+        for failure, expected_status in (("raise SystemExit(23)", "RE"),
+                                         ("time.sleep(30)", "TLE")):
+            with self.subTest(status=expected_status), tempfile.TemporaryDirectory() as temp:
+                root = Path(temp)
+                marker = root / "scratch-path.txt"
+                candidate = root / "candidate.py"
+                candidate.write_text(
+                    "import argparse,json,sys,time\nfrom pathlib import Path\n"
+                    "p=argparse.ArgumentParser();p.add_argument('--instance');p.add_argument('--output');"
+                    "p.add_argument('--time-limit');p.add_argument('--seed');a=p.parse_args()\n"
+                    "d=json.loads(Path(a.instance).read_text())\n"
+                    "Path(d['_marker']).write_text(str(Path(a.instance).parent))\n"
+                    "sys.stderr.buffer.write(b'old-prefix-' + b'x'*10000 + "
+                    "b'\\xff\\xfeprivate-resource-failure');sys.stderr.flush()\n"
+                    + failure + "\n"
+                )
+                manifest = synthetic_manifest(root, [tiny_instance("secret-case", _marker=str(marker))],
+                                              seconds=0.8, workers=1)
+                result = self.runner.evaluate_manifest(candidate, manifest, support=self.support,
+                                                       secure=False, timeout=7, workers=1)
+                record = result["cases"][0]
+                self.assertFalse(Path(marker.read_text()).exists(),
+                                 "diagnostics must outlive temporary scratch cleanup")
+                self.assertEqual(record["status"], expected_status)
+                self.assertEqual(record["candidate_returncode"], 23 if expected_status == "RE"
+                                 else -signal.SIGKILL)
+                tail = record["candidate_stderr_tail"]
+                self.assertLessEqual(len(tail.encode("utf-8")), 8192)
+                self.assertTrue(tail.endswith("private-resource-failure"))
+                self.assertNotIn("old-prefix-", tail)
+                self.assertGreater(record["staging_wall_seconds"], 0)
+                self.assertGreater(record["candidate_wall_seconds"], 0)
+                self.assertEqual(record["checker_wall_seconds"], 0.0,
+                                 "failed candidates must not run the official checker")
+                feedback = score.aggregate_feedback(result)
+                for private_value in ("secret-case", "private-resource-failure", "candidate_returncode",
+                                      "candidate_stderr_tail", "staging_wall_seconds"):
+                    self.assertNotIn(private_value, feedback)
+
     def test_secure_commands_use_requested_distinct_cpu_and_eight_gib_limits(self) -> None:
         class ImmediateProcess:
             pid = 12345678

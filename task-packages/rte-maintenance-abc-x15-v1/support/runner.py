@@ -21,6 +21,7 @@ from official import check_solution, normalized_score, regular_bytes
 
 OUTPUT_LIMIT = 4 << 20
 CANDIDATE_LIMIT = 1 << 20
+STDERR_TAIL_LIMIT = 8 << 10
 MEMORY_LIMIT = 8 << 30  # RLIMIT_AS, not a measured resident-memory requirement.
 CHILD_ENV = {"PATH": "/usr/local/bin:/usr/bin:/bin", "LANG": "C.UTF-8",
              "HOME": "/nonexistent", "OPENBLAS_NUM_THREADS": "1",
@@ -58,12 +59,23 @@ def check_sandbox(prefix: list[str]) -> None:
         raise RuntimeError("candidate sandbox readiness probe failed")
 
 
+def _stderr_tail(path: Path) -> str:
+    """Retain bounded private diagnostics before temporary scratch cleanup."""
+    with path.open("rb") as stream:
+        stream.seek(0, os.SEEK_END)
+        stream.seek(max(0, stream.tell() - STDERR_TAIL_LIMIT))
+        tail = stream.read(STDERR_TAIL_LIMIT).decode("utf-8", errors="replace")
+    # Replacement characters may expand malformed bytes; bound encoded UTF-8 too.
+    return tail.encode("utf-8")[-STDERR_TAIL_LIMIT:].decode("utf-8", errors="ignore")
+
+
 def execute(candidate: Path | bytes, instance: Path, scratch: Path, *, seconds: float,
             seed: int, secure: bool, cpu: int | None = None, uid: int = 64000,
             address_space_bytes: int = MEMORY_LIMIT,
             extra_args: tuple[str, ...] = ()) -> dict:
     """One candidate process; its wall budget includes imports, parsing and output."""
     global _ACTIVE_CHILD
+    staging_start = time.monotonic()
     source = scratch / "candidate.py"
     source.write_bytes(candidate if isinstance(candidate, bytes) else regular_bytes(candidate, CANDIDATE_LIMIT))
     source.chmod(0o444)
@@ -94,6 +106,7 @@ def execute(candidate: Path | bytes, instance: Path, scratch: Path, *, seconds: 
                         "--output", str(output), "--time-limit", str(max(0.1, seconds - 2)),
                         "--seed", str(seed), *extra_args]
     start = time.monotonic()
+    staging_wall_seconds = start - staging_start
     timed_out = False
     try:
         with (scratch / "stdout.log").open("wb") as stdout, (scratch / "stderr.log").open("wb") as stderr:
@@ -115,8 +128,11 @@ def execute(candidate: Path | bytes, instance: Path, scratch: Path, *, seconds: 
             scratch.chmod(0o700)
             os.chown(output_dir, 0, 0)
             output_dir.chmod(0o700)
+    candidate_wall_seconds = time.monotonic() - start
     return {"status": "TLE" if timed_out else ("RE" if process.returncode else "OK"),
-            "wall_seconds": time.monotonic() - start, "returncode": process.returncode,
+            "wall_seconds": candidate_wall_seconds, "returncode": process.returncode,
+            "staging_wall_seconds": staging_wall_seconds,
+            "candidate_stderr_tail": _stderr_tail(scratch / "stderr.log"),
             "candidate_peak_rss": resource.getrusage(resource.RUSAGE_CHILDREN).ru_maxrss,
             "output": output}
 
@@ -129,8 +145,10 @@ def _worker(connection: object, code: bytes, case: dict, instance: Path, *, supp
         os.setsid()
     signal.signal(signal.SIGTERM, _stop_worker)
     try:
+        hash_start = time.monotonic()
         if file_sha256(instance) != case["sha256"]:
             raise RuntimeError("instance checksum differs from frozen manifest")
+        hash_wall_seconds = time.monotonic() - hash_start
         with tempfile.TemporaryDirectory(prefix="rte-x15-") as temp:
             execution = execute(code, instance, Path(temp), seconds=seconds, seed=seed,
                                 secure=secure, cpu=cpu, uid=uid,
@@ -139,6 +157,11 @@ def _worker(connection: object, code: bytes, case: dict, instance: Path, *, supp
                       "wall_seconds": execution["wall_seconds"], "score": 0.0,
                       "constraint_errors": {}, "cpu": cpu, "cpu_id": cpu,
                       "worker_pid": os.getpid(),
+                      "candidate_returncode": execution["returncode"],
+                      "candidate_stderr_tail": execution["candidate_stderr_tail"],
+                      "staging_wall_seconds": hash_wall_seconds + execution["staging_wall_seconds"],
+                      "candidate_wall_seconds": execution["wall_seconds"],
+                      "checker_wall_seconds": 0.0,
                       "candidate_peak_rss": execution["candidate_peak_rss"],
                       "peak_rss_unit": "KiB" if sys.platform == "linux" else "bytes"}
             if execution["status"] == "OK":
