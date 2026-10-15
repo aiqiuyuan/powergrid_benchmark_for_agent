@@ -133,3 +133,17 @@ v0.1的`Public development / Public selection / Protected feedback / Final test`
 **就绪状态：`design / certification-pending / release_ready=false`。** 已准备/启动的重评不等于完成；旧A4验收也不替新冻结包签证。15/90分钟和原2 CPU/16 GB是历史协议参照，开发`T/n/资源/重复`仍不定值。详见[Adapter执行合同](../framework/task-adapters.md#5-rte风险目标求解与cx历史记录)与[机器声明](../../manifests/task-adapters/rte-maintenance.json)。
 
 **2026-10-15集成证据更新：** A07／A09／A08／A12校准面板已通过真实Harbor与模型的n=0、n=1配对canary，验证公共选择、受保护反馈／显式ACK、共同截止前容器停止、算法冻结与独立原checker终评。两组均选择未修改starter；T=180秒与每例10秒只用于接口验收，不是原赛15／90分钟复现或正式研究配置。完整C+X、强基线同平台重评、许可／随机化审计与新泛化面板仍待验收，任务认证状态保持不变。[中文结果与修复说明](../completion-step3-cluster-20261015.md)、[脱敏机器证据](../evidence/harbor-cluster-acceptance-20261015.json)。
+
+
+## 11. 原题对齐与参数依据（2026-10-15）
+
+本节更新第1—10节保留的历史设置状态；下列是本轮设计决定，**不表示新面板已认证、基线已重跑或新分数已生成**。已有A4 canary仅证明此前列出的接入路径。共同研究设计已定为T=43200秒、n=0／1／3／5／10、每档3次独立开发、累计token不限；模型、实际资源及其余执行限额仍须锁定或校准，详见[共同政策与取值依据](../protocol/task-alignment-and-calibration.md#2-四类取值依据与本轮已定设置)。
+
+| 旧差异／待明确项 | 本轮决定与依据 | 实际剩余工作 |
+|---|---|---|
+| A4接入规模小；均值MILP仅近似搜索目标 | 保留完整干预、资源、时段、风险情景和原Alpha／Quantile语义，由原checker计算权威风险 | 核对完整输入及checker；不能用均值或CVaR替换原评分 |
+| 先导60秒、canary 10秒与原赛15／90分钟并存 | agent主线逐例预算另做成本校准；C+X历史参照保留F15／F90及V=0.8F15+0.2F90，两者分开 | 锁定agent预算与计时边界；完整C+X重评不作为75次agent实验的先决条件 |
+| A07／A09／A08／A12已暴露且复用终评 | A4保留校准；本地实际有A组15例，须另定角色；只用A组不主张C+X或常规工业规模泛化 | 盘点来源／难度，绑定不同成员及访问权限，避免把旧反馈重新命名为全新final |
+| 原榜积分依赖对手；强方法有许可／构建条件 | 同预算重跑HiGHS均值MILP与原风险局部搜索；S34／S56为待核验参考，历史积分独立列示 | 核许可、依赖、seed与checkpoint语义；重算历史积分时固定对手集合，不能直接减原冠军积分 |
+
+详见[RTE逐项决定](../protocol/task-alignment-and-calibration.md#6-rte保留原风险分开agent实验与历史时间档)及[校准和进入正式实验的条件](../protocol/task-alignment-and-calibration.md#10-怎样消除参数随意)。任务仍为`certification-pending / release_ready=false`。
