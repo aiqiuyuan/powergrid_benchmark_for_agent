@@ -1,14 +1,16 @@
 # PowerGrid Benchmark for Agent
 
-面向能源领域优化与 ML 的算法演化 Benchmark：在共同的开发时限内，让智能体构造可执行算法，通过受控评测反馈改进，再在独立留出数据上测试冻结算法。
+面向能源领域优化与ML的算法演化Benchmark。**第一阶段每task固定一个高难完整case，研究agent在同case上通过受控评分反馈改进算法的能力；跨case泛化留到下一阶段。** 开发端不提供完整checker，不允许本地完整目标评分或检索原赛测评源码；完整目标过程反馈统一通过框架计数评分器。
 
 **当前个人开发范围：直接复用 eval-in-loop 做小规模测试，只修阻断运行或导致错误结果的具体问题。** 原框架负责启动、Harbor、agent、反馈和既有记录；个人侧整理已有 task、原生配置和结果。独立基础包保留为参考，不要求迁移五任务、补齐49字段或完成生产故障矩阵才能小测。详见[精简设计决定](docs/decisions/0004-minimal-local-testing.md)。下文基础包与集群验收记录保留其原有适用范围。
 
-**当前工作重点：先解决原题偏离和随意设置，再建设task。** [原题对齐与参数决定](docs/protocol/task-alignment-and-calibration.md)逐题写明恢复什么、保留什么本地变体、凭什么定值及还缺什么实测；[差异与成本审计](docs/evidence/task-alignment-audit-20261015.md)核对了实际代码、数据和旧测量。[公平比较清单](docs/framework/fair-ranking.md)仍是38项设置总目录，[原生task包说明](docs/framework/native-task-package.md)说明实际提交形式。既有UC／HEFTCom还需从静态答案评分改为执行冻结算法，不能把文档决定当作已经修复。
+**当前工作重点：按固定难例政策建设task，先落实RTE X_04。** [决定0005](docs/decisions/0005-fixed-case-evolution-first.md)定义本阶段的case选择、严格计n、原生artifacts冻结与同case终验；[原题对齐与参数决定](docs/protocol/task-alignment-and-calibration.md)列明逐题差额。RTE初选X_04，其他case ID、模型、资源与算法执行预算仍待固定。[公平比较清单](docs/framework/fair-ranking.md)保留38项设置，[原生task包说明](docs/framework/native-task-package.md)说明提交形式。源码更新、功能配置和任务验收分别记录，不能把政策整理当作严格评分隔离已完成。
 
-**本轮研究设计已定：五task × n=0／1／3／5／10 × 三次独立开发，共75次；每次开发上限12小时，累计token不限且无累计预留截断。L2RPN主线恢复原赛动作范围，包括redispatch，在统一条件下重跑基线；375动作版本单列。** 模型、实际资源、逐例执行限额、最终成员和成本校准仍未完成，尚未启动75次长实验。新主线先按task分别报告原始指标，不设置跨task总分。
+**本轮研究设计已定：五task × n=0／1／3／5／10 × 三次独立开发，共75次；每次开发上限12小时，累计token不限且无累计预留截断。L2RPN主线恢复原赛动作范围，包括redispatch，在统一条件下重跑基线；375动作版本单列。** 模型、实际资源、逐例执行限额、其余case ID和成本校准仍未完成，尚未启动75次长实验。新主线先按task分别报告原始指标，不设置跨task总分。
 
-**当前状态：Benchmark `v0.1-design` + 基础框架 `0.2.0`。更新：2026-10-15。** 前两步的研究契约、任务卡与评测规范已完成。第三步新增统一实验生命周期的独立参考实现、配置校验、算法提交 ABI、持久账本、快照／冻结、恢复及可运行的低成本验收夹具。Unix socket broker 与 RTE 原生适配已经通过实际集群上的 **Harbor／真实模型 n=0、n=1 配对 canary 验收**，包括公共选择、受保护反馈／ACK、共同截止、产物冻结和独立终评。完整故障演练、五任务生产认证与目标并发仍待完成；没有发布正式能源榜单。
+**当前状态：Benchmark `v0.1-design`；已有独立参考实现版本为`0.2.0`。更新：2026-10-15。** 本阶段研究政策已整理，五任务运行包尚未全部适配。此前RTE在历史A4校准数据上通过Harbor／真实模型n=0、n=1配对canary，验证过旧公共选择、计数反馈／ACK、共同截止及独立终评；它不证明新X_04模式、禁止本地评分或新版黑名单已经验收。现有参考代码保留，不作为个人侧必迁路线；没有发布正式能源榜单。
+
+**本地eval-in-loop已更新到`chufan_dev@c1fffbf`，保留原有改动及实验文件，完成必要兼容修复与本地测试／静态计划检查。** RTE X_04历史数据已独立核查；新任务的评分隔离、资源成本和真实运行仍待完成。详见[本轮完成说明](docs/completion-fixed-case-20261015.md)及[X_04配置草案](docs/protocol/rte-x04-configuration.md)。
 
 三类模块已经整理为明确接口：**Configuration保留49字段的参考目录和待填模板，本轮已定设计以上文为准；Task adapters逐任务明确可执行提交、公平排行路线和缺少条件；Reliability extensions把历史故障归入共同生命周期，并区分已有本地实现与外部部署验收。**
 
@@ -16,17 +18,18 @@
 
 | 需要了解的内容 | 文档 |
 |---|---|
+| 第一阶段固定case、计n与同case终验怎样执行 | [当前研究决定0005](docs/decisions/0005-fixed-case-evolution-first.md)、五张task-card §12 |
 | 后续个人侧具体做什么、哪些框架建设停止 | [复用eval-in-loop的小规模测试设计](docs/decisions/0004-minimal-local-testing.md) |
 | 研究什么、为何选这五类任务、怎样组织比较 | [Benchmark 研究契约](docs/benchmark-spec.md) |
 | 已做实验用了哪些设置、得到什么结果、哪些问题需要修复 | [98 个预实验槽位的中文统计](docs/evidence/preliminary-experiments-20261013.md) |
 | 原始竞赛的排行榜、开发/测试集及其与本地划分的区别 | 五张任务卡第8节；PGLib-UC按公开实例库说明，不编造竞赛榜单 |
-| 开发时间、反馈次数、数据隔离、选模和最终测试如何定义 | [评测协议](docs/protocol/evaluation-protocol.md) |
+| 开发时间、计数反馈、数据权限与冻结复核如何定义 | [评测协议](docs/protocol/evaluation-protocol.md) |
 | 如何提交算法、冻结产物、保存反馈与重放证据 | [产物与记录契约](docs/protocol/artifact-contract.md) |
 | 后续先修什么、怎样证明框架与任务可以稳定批量运行 | [实施顺序与验收矩阵](docs/implementation-plan.md) |
-| 当前有哪些明确决定、还有什么必须通过校准确定 | [范围决定](docs/decisions/0001-benchmark-scope.md)、[反馈与留出决定](docs/decisions/0002-feedback-and-holdout.md)、[预算与产物决定](docs/decisions/0003-budget-and-artifact-policy.md) |
+| 当前有哪些明确决定、历史政策如何保留 | [当前决定0005](docs/decisions/0005-fixed-case-evolution-first.md)；旧[范围](docs/decisions/0001-benchmark-scope.md)、[反馈与留出](docs/decisions/0002-feedback-and-holdout.md)、[预算与产物](docs/decisions/0003-budget-and-artifact-policy.md)保留历史 |
 | 公开原题与内部脱敏证据如何区分 | [证据与公开来源索引](docs/evidence/source-index.md) |
 | 结构化设计声明及未来 release 所需字段 | [设计清单](manifests/benchmark-v0.1-design.json)、[清单使用说明](manifests/README.md) |
-| 这次完成了哪些工作、核查了什么 | [中文完成说明](docs/completion-20261014.md) |
+| 固定case政策、源码升级与本轮实际完成边界 | [本轮中文完成说明](docs/completion-fixed-case-20261015.md)；初版见[历史完成说明](docs/completion-20261014.md) |
 | 第三步如何拆分、哪些来自底座、哪些属于新基础层 | [统一生命周期与模块边界](docs/framework/architecture.md) |
 | 完整研究配置有哪些参考字段（个人小测沿用原生配置） | [Configuration字段与责任](docs/framework/configuration.md)、[待定模板](configs/experiment.template.json)、[机器字段目录](configs/configuration-catalog.json) |
 | 公平比较有哪些设置要决定、如何决定每task的最小实现 | [公平设置与五任务路线](docs/framework/fair-ranking.md)、[Task Adapter参考合同](docs/framework/task-adapters.md)、五张任务卡§10 |
@@ -41,7 +44,7 @@
 
 ## 安装和核对基础层
 
-以下用于检查已交付的独立参考实现；个人使用原生`eval-in-loop`运行现有task，无需先安装本包或执行这些夹具。运行方式按所用框架版本和既有task入口填写。
+以下用于检查已交付的独立参考实现；个人使用原生`eval-in-loop`运行现有task，无需先安装本包或执行这些夹具。**通用JSON模板、参考selector及下面的夹具保留旧四角色／免费public-selection设计，不是第一阶段严格计n的可启动配置或验收证据。** 运行方式按实际框架版本和已核对task入口填写。
 
 需要Python3.11或以上；核心包只有Python标准库依赖。可按个人偏好使用`uv`：
 
@@ -71,11 +74,11 @@ GitHub Actions已配置Python3.11／3.12／3.13的测试、80%覆盖率门槛、
 
 | 任务族 | 演化对象与能力 | 预实验给出的首要建设需求 |
 |---|---|---|
-| [GOC SC-AC-OPF](docs/task-cards/goc-sc-ac-opf.md) | 非凸连续优化、故障分解、物理约束和数值工程 | 从固定场景优化升级到通用求解器留出评测；完善收尾、快照和恢复 |
-| [UC / SCUC](docs/task-cards/unit-commitment.md) | 离散调度、MILP、约束建模、启发式与数学求解混合 | 从静态调度文件升级到执行冻结求解器；校准难度与数值下限 |
-| [RTE 检修排程](docs/task-cards/rte-maintenance.md) | 组合搜索、资源约束、风险目标和排程 | 修复任务包完整性；执行新实例排程，分离反馈和终评 |
-| [L2RPN 电网控制](docs/task-cards/l2rpn-grid-control.md) | 序贯决策、仿真搜索、RL 和规则混合 | 统一开发预算与场景切分；完成已导出策略的独立最终测试 |
-| [HEFTCom 预测与交易](docs/task-cards/heftcom-forecast-trade.md) | 时间序列 ML、预测到决策、收益与风险 | 执行冻结预测/交易管线；独立时间留出与信息可用时间审计 |
+| [GOC SC-AC-OPF](docs/task-cards/goc-sc-ac-opf.md) | 非凸连续优化、故障分解、物理约束和数值工程 | 固定高难完整工况，执行基态及全部故障；移除开发完整评分旁路，重跑参考 |
+| [UC / SCUC](docs/task-cards/unit-commitment.md) | 离散调度、MILP、约束建模、启发式与数学求解混合 | 固定完整原始UC实例；从静态排程评分改为执行冻结solver |
+| [RTE 检修排程](docs/task-cards/rte-maintenance.md) | 组合搜索、资源约束、风险目标和排程 | 初选工业X_04；保留完整风险／约束，隔离开发checker并校准执行预算 |
+| [L2RPN 电网控制](docs/task-cards/l2rpn-grid-control.md) | 序贯决策、仿真搜索、RL 和规则混合 | 固定高难完整episode，恢复原动作范围并统一计数评分和现代scorer |
+| [HEFTCom 预测与交易](docs/task-cards/heftcom-forecast-trade.md) | 时间序列ML、预测到决策、收益与风险 | 固定完整市场日／时段，保留因果信息；执行冻结流水线并恢复原结算 |
 
 GOC 的 500/793/2000/2312 等规模属于同一任务族；UC 为核心，受限 SCUC 适配为扩展。GOC30000 保留为压力测试，AHC024 保留为非能源框架测试，均不计入五个核心任务族。
 
@@ -83,27 +86,28 @@ GOC 的 500/793/2000/2312 等规模属于同一任务族；UC 为核心，受限
 
 ```mermaid
 flowchart LR
-    A[公开开发数据与初始基线] --> B[开发与算法演化]
-    B --> C[公开选择面板]
-    C --> B
-    B --> D[受保护反馈面板]
-    D -->|最多受理 n 个作业，且在 T 内投递| B
-    B --> E[截止后冻结选中算法]
-    E --> F[独立最终测试：执行算法并检查输出]
+    A[相同题面、starter与获准开发材料] --> B[共同T内开发]
+    B --> C[框架完整目标评分：最多受理n次]
+    C -->|固定反馈，仅T内投递| B
+    B --> D[T截止冻结artifacts最终版本]
+    D --> E[同一case执行冻结算法、独立评分]
+    E --> F[报告结果，不回流开发]
 ```
 
-- 四种数据角色：`public-development`、`public-selection`、`protected-feedback`、`final-test`；旧的暴露面板标记为 calibration。
-- 开发墙钟 `T` 在共同环境准备完成后启动，包含训练、编译、本地测试、公开选择和反馈等待。**不设累计 token cap**；记录实际 token，用量不可得时记 unknown。
-- `n` 是受保护评测作业的受理上限。`n=0` 禁止受保护反馈，不等于不限次数；公开目标与 checker 可以使用。
-- 默认按开发截止前完成的公开 selection 选候选；截止后冻结，终评执行算法处理留出输入，并由独立 checker 评分。
-- 分开保存受理、完成和送达计数；原样重试、故障分类与恢复来源可以核对。
-- 同一任务内报告原始指标、有效性和资源；本批不设跨任务总分。未来若汇总，先预注册归一化并按任务族聚合。
+- 每task固定一个高难完整case；开发、计数反馈、冻结复核均针对同case。第一阶段不声称未见泛化。
+- 开发端不提供完整checker，不允许本地完整目标评分、重写checker绕计数或搜索下载原赛测评源码。允许语法／格式／小型示例检查，solver内部优化计算正常；实际数据与工具边界逐task验收。
+- `n`是完整目标评分作业的最多受理数；分别记录受理、完成和投递。`n=0`没有完整目标过程反馈，最终仍复核冻结算法。
+- 开发T包含训练、编译、获准检查和反馈等待；累计token不限，无累计预留截断，实际用量未知时记unknown。
+- 不设免费的public-selection／best-public-selection评分。agent依据已经计n的反馈在T内保留最终版本，截止冻结；无修改保留starter，不用终验再选优。
+- 最终复核不占过程n，不向开发回流。同task报告原始指标、有效性、资源及三次独立开发结果；单case历史值按相同输入并列披露差异，本批不设跨task总分。
+
+当前RTE旧开发包暴露完整评分支持代码，必须完成实际调整；较新上游的域名黑名单／搜索开关也需配置和验证。完整目标输入若可见，可能仍可重写目标函数，不能把“有黑名单”当作“严格n已实现”。详见[决定0005 §6](docs/decisions/0005-fixed-case-evolution-first.md#6-黑名单与评分隔离还缺什么)。
 
 ## 当前证据与完成边界
 
 主快照截至 **2026-10-13 23:32（UTC+8）**，修复准备记录至 23:38。98 个去重槽位中：59 个已有评分有效（含 AHC024 两个按规则计零的结果）、15 个开发导出有效但未终评、14 个失败、3 个实际运行、7 个未启动或排队。它们是任务校准和框架诊断的依据，不是新协议下的正式横向比较。
 
-第三步已增加可验证的基础软件与五任务提交合同。真实 split 成员、资源和超时、允许依赖／求解器、基线参考值、反馈内容与归一化映射仍需实测后冻结；未定字段保持`null`。历史记录保留，新增实现和待接入工作见[第三步完成说明](docs/completion-step3-20261015.md)。
+第三步已增加可验证的基础软件与五任务提交合同。固定目标case、数据权限、资源和超时、允许依赖／求解器、基线参考值、反馈内容与reward映射仍需核对／实测后冻结；未定字段保持`null`。历史记录保留，新增实现和待接入工作见[第三步完成说明](docs/completion-step3-20261015.md)。
 
 2026-10-15实际RTE canary两组严格通过：n=0成功调用模型5次、保护反馈0次；n=1成功调用模型8次、保护反馈受理／完成／ACK均1次。两组均在T=180秒共同截止前实际停止Docker，冻结已检查的公共checkpoint，A12原生独立终评均为AC。两组均选择未修改starter；实例属于历史已暴露的校准面板，不能据此报告算法提升、反馈效果或未见泛化。恢复证据覆盖完成后独立进程重开账本；开发中完整会话／Pod恢复和跨节点SQLite WAL仍需另验。详情见[最新中文报告](docs/completion-step3-cluster-20261015.md)。
 
@@ -112,11 +116,11 @@ flowchart LR
 **个人当前路线以[精简设计](docs/decisions/0004-minimal-local-testing.md)为准：复用五个既有task入口，检查本次需要的配置和评分，只处理实际阻断，随后小规模实验并记录结果。** 以下完整建设阶段保留为研究／release路线参考，不是要求个人逐项实现后端保障，也不是小测前置清单。
 
 1. **研究契约与任务范围：文档完成。** 固定研究对象、五个任务族、主线与扩展边界、比较单位和主要研究问题。
-2. **任务卡与统一评测契约：文档完成。** 整理现有证据，明确算法接口、四角色数据、预算、评分、产物与验收要求。
+2. **任务卡与统一评测契约：已同步第一阶段政策。** 五卡§12记录固定难例、严格计n、artifacts冻结与同case复核；旧四角色留作历史／第二阶段参考。
 3. **基础框架统一：合同、本地参考实现和RTE真实Harbor／模型主链路验收完成。** 已验证共同计时、反馈账本、实际反馈／ACK、容器停止、冻结与独立终评；G1其余故障矩阵、开发中完整中断恢复及部署认证继续推进。
-4. **任务包实现与校准。** 逐个任务构建真实切分、执行接口、基线、资源 profile 与固定评分。
+4. **当前优先：任务包实现与校准。** 从RTE X_04开始，落实评分权限、原生执行入口、基线、资源和完整评分；其他四题按同原则推进。
 5. **批量认证与 release 冻结。** 清洁环境、恶意/无效产物、故障注入、目标并发、重放和跨任务批次全部验收。
-6. **正式研究。** 先做反馈预算与方法基线，再做智能体/演化结构消融及泛化分析；每次测试曝光有记录。
+6. **正式研究。** 第一阶段先做同case反馈预算与方法基线，再做智能体／演化结构消融；第二阶段独立设计跨case泛化。
 
 ## 仓库与来源政策
 

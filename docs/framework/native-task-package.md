@@ -2,6 +2,8 @@
 
 **核查日期：2026-10-15。** 依据当前使用的`eval-in-loop`工作区及其原生任务模板核对；基线HEAD为`2f998fee5ee4229c02271941e804c17f7a8e6eb5`。该工作区存在既有实验适配，不是干净的上游检出；下文是实际入口核查，不表示已新建或验收五个任务包。
 
+**第一阶段政策更新：** 按[固定case算法演化决定](../decisions/0005-fixed-case-evolution-first.md)，每task优先固定高难完整case，同case开发、计数反馈和截止复核；禁止开发agent取得完整checker、本地完整目标评分或搜索原赛测评源码。无免费public-selection评分，采用原生artifacts最终文件与截止冻结。下文源码核查基线仍为上列提交；已查到新版分支的黑名单能力，实际启用和防绕过须单独验收。
+
 结论：**每个task整理成一个原生Harbor任务目录，沿用现有`tasks/_template`结构。** 先按[公平设置清单](fair-ranking.md)确定数据、算法权限、评分和预算，再填任务目录。框架已有启动、候选打包、反馈judge和终评入口，个人侧只补task真正缺的内容。
 
 ## 1. task包和算法产物是两件事
@@ -24,7 +26,7 @@ tasks/<task-id>/
 │   └── app/                     # 项目惯例，按Dockerfile复制到/app
 │       ├── submission/          # starter及agent可编辑的算法文件
 │       ├── public/              # 或data/：允许开发使用的数据
-│       └── support/             # 允许公开的自测工具等
+│       └── support/             # 仅语法／格式／小型示例工具
 ├── tests/
 │   ├── Dockerfile               # separate verifier／judge镜像
 │   ├── test.sh                  # 固定评分入口，支持LOG_DIR
@@ -59,9 +61,9 @@ tasks/<task-id>/
 
 ## 4. 题面、环境和评分各负责什么
 
-`instruction.md`至少讲清问题、允许数据和工具、算法输入输出、允许状态、原始指标及方向、执行限额、提交路径、失败处理和可见反馈。写给agent的承诺须与本次实际设置一致；私有成员及标签不应出现在题面。
+`instruction.md`至少讲清问题、允许数据和工具、算法输入输出、允许状态、原始指标及方向、执行限额、提交路径、失败处理和可见反馈。写给agent的承诺须与实际设置一致；目标case哪些输入开发可见须先确定，不能默认全部隐藏或全部公开。完整checker及完整目标评分工具不得进入开发题面／工作区；因果标签权限继续按task约束执行。
 
-`environment/Dockerfile`准备开发端可见的依赖、starter和公开数据。`tests/Dockerfile`准备运行冻结候选所需的依赖、原生checker和可信数据。候选缺少的依赖不能靠评测端不记录地额外补齐；开发端和评测端的版本差异要有依据。
+`environment/Dockerfile`只准备获准的依赖、starter、数据及轻量示例检查，不复制完整checker、public_eval完整评分入口或完整分数日志。`tests/Dockerfile`准备运行冻结候选所需的依赖、原生checker和可信数据。候选缺少的依赖不能靠评测端不记录地额外补齐；开发端和评测端的版本差异要有依据。
 
 `tests/test.sh`及task评分程序负责：
 
@@ -100,24 +102,27 @@ exp run <task-id> --tasks-dir <任务父目录> --mode terminal --agent oracle
 
 不必为每个task实现submit／result协议或新judge；已有框架负责这些通用调用。研究其他配置时沿用现有CLI和配置，不在本说明里另填模型／资源／时长默认值。
 
-## 6. 同一个评分入口不自动构成公平数据隔离
+<a id="6-同一个评分入口不自动构成公平数据隔离"></a>
 
-原生in-loop与terminal使用同一个`test.sh`和评分镜像。**默认同一个脚本，并不自动给出public-development／public-selection／protected-feedback／final-test四角色，也不自动实现best-public-selection。**
+## 6. 同一个评分入口不自动落实评分访问政策
+
+原生in-loop与terminal使用同一个`test.sh`和评分镜像。第一阶段正好要求同case、同完整checker与执行合同，但这不自动证明开发端无法绕过n评分，也不自动证明截止文件已正确冻结。四角色隔离和best-public-selection是旧设计／第二阶段参考，不是第一阶段前置。
 
 按[公平设置C07–C12、C23–C25、C29–C33](fair-ranking.md)核对每个现有task：
 
-- 保护反馈和终评是否绑定了不同成员？谁决定当前阶段，agent能否自行选择final？
-- 公开selection是否真实执行、在T内完成，冻结的是否确是所选同一产物？
-- 评分代码相同的同时，评分目标／容差／反馈内容是否符合已选合同？
-- 候选能读取哪些物理输入和文件，能否通过共享目录、网络或反馈读到不允许的标签？
+- 同task所有n档是否绑定同一固定case、完整checker、目标／容差／资源／算法预算和反馈字段？
+- 开发镜像、依赖、共享路径和网络里是否仍可取得完整checker或等价完整目标评分？
+- 是否只允许语法、格式和小型示例检查，并禁止搜索原赛测评源码？
+- T内最终artifacts是否在截止正确收集并冻结，无修改是否保留starter？终复核是否不回流开发？
+- 候选的内部目标计算与向开发agent提供旁路完整评分是否确实分开；目标case哪些输入可见？
 
-如果本轮只用同一校准面板，可以直接小测并标明范围。要按既定正式协议比较，则先使用后端已有的可信面板／阶段绑定；确有缺口才改task入口，并验证。不能仅在文件夹里放两份split就声称完成隔离，也不因发现缺口立即新建一套调度或恢复层。
+同case是本轮研究设计，不因复用case而降为无效实验；结论明确限于该case演化。先用原生配置落实评分通道及artifacts收集，确有缺口才做最小task修改。域名黑名单需结合搜索工具、直连限制、本地副本和数据可见性核验；不能宣称仅开黑名单即封住完整评分旁路。
 
 ## 7. 公开GitHub与可信评测数据
 
 `environment/`复制到开发工作区的内容agent可见；separate模式中的`tests/`不出现在该开发工作区，但会进入评测镜像。**公开GitHub中的`tests/`依然公开，目录名不提供保密性。**
 
-本公开仓库可以保存题面、checker、来源与许可、下载／准备说明、split标识和必要摘要。真正隐藏的标签或新终评面板留在可信运行环境，由已有准备流程在构建／执行时提供。公开来源而仅在当前工作区留出的数据，应准确叫“工作区留出”，不能声称源数据保密。
+本公开仓库可保存获准题面、来源／许可、下载准备说明、case标识及摘要。用于第一阶段的完整checker留在可信评分侧；组织方已经公开的源码不能靠本仓库目录名变成秘密，应禁止开发搜索／下载并验收实际通道。目标case输入是否开发可见尚须确定；公开来源仅在工作区留出的数据不能声称源数据保密。
 
 `feedback`会回传agent；当前judge的`result()`不回传`details`。仍须核对日志和整个可读文件范围；仅采用separate模式不能证明候选在评测环境中无法读到任何测试文件。模板评分样例有把隐藏输入／expected值拼进feedback的写法，**不能照抄这一段**；能源task只输出已约定的安全反馈字段。此处是已发现的task整理检查项，本轮没有修改原模板。
 
@@ -127,15 +132,17 @@ exp run <task-id> --tasks-dir <任务父目录> --mode terminal --agent oracle
 |---|---|---|
 | GOC | 原生两阶段及原生输出路线，具体包入口待下一步核对 | 保留Code1→Code2及完整故障，核对artifacts、阶段预算与官方checker；本轮未逐文件验收其包 |
 | UC：`pglib-uc-rts-v1` | `/app/submission`；当前评分读取保存的固定实例schedules | 原生包结构可复用；算法benchmark需执行冻结源码产生新排程再validator |
-| RTE：`rte-maintenance-2020` | `/app/submission/solver.py`；评分程序实际执行solver | 复用现有solver＋checker；按小测／C+X／泛化用途补相应成员、时限或checkpoint |
+| RTE：`rte-maintenance-2020` | `/app/submission/solver.py`；评分程序实际执行solver | 已初选完整X04；移除开发端checker/public_eval，核计数评分及截止产物，可信端保留原checker |
 | L2RPN：`l2rpn-neurips2020-score` | `/app/submission`；`Controller(metadata).act(observation, simulate)` | 先统一动作／forecast／simulate权限和环境，再复用控制器wrapper／原生scorer |
 | HEFTCom：`heftcom2024-historical-v2` | `/app/submission/candidate.tar`含代码／模型／CSV，但现有评分只读取bids | 固定因果输入，在现有settlement前实际运行冻结预测交易代码，生成新日报价 |
+
+当前RTE `task.toml`声明verifier 1 CPU／4096 MB；可信runner还通过`prlimit --as=2147483648`限制候选进程地址空间为2 GiB。容器内存与候选进程地址空间不是同一限额，两者都不自动适用于完整X04正式实验；详见[X04配置](../protocol/rte-x04-configuration.md)。
 
 目录和artifacts只是接入形式。UC／HEFTCom的包即便附有源码，评分不执行源码就仍只能说明静态答案质量。后续先填公平设置，再决定这些最小task修改；本轮不把目录示例宣称为五个已交付的稳定运行包。
 
 ## 9. 轻量验收与源码依据
 
-一个可交付的个人小测task至少留下：文件／原生配置检查、baseline或oracle真实执行、候选算法在声明输入上运行、独立原始评分与失败记录、固定输入／seed重复核对。做保护反馈时再核对该模式实际调用及计数；正式比较再满足[公平排行§9](fair-ranking.md#9-排行发布的共同准入门槛)。这些是任务验收记录，不要求建设新的测试／报表平台。
+一个可交付的第一阶段task至少留下：文件／原生配置检查、baseline或oracle可信执行、固定高难完整case上的算法运行、独立原始评分与失败记录、固定seed重放及评分权限验收。做保护反馈时再核对该模式实际调用及计数；正式比较再满足[公平排行§9](fair-ranking.md#9-排行发布的共同准入门槛)。这些是任务验收记录，不要求建设新的测试／报表平台。
 
 下面路径均相对于核查的`eval-in-loop`源码；其访问权限与本公开仓库不同，不创建虚假的公开链接。
 
@@ -163,4 +170,4 @@ exp run <task-id> --tasks-dir <任务父目录> --mode terminal --agent oracle
 | `tasks/_template/tests/score.py` | `b893da32034a78bad82c9378b6c5f34e5da877354bd1e8a63e656ecee720da02` |
 | `tasks/_template/tests/reward_io.py` | `19200b9cc4688a3985a0eba8831732bf040e50718c486ae5cfa4134d0fbd7b2c` |
 
-本轮只读核对上述入口与示例，没有变更私有源码、上传竞赛数据或进行新模型实验。原生包结构已经确认，五任务按所选公平合同的完整实现与运行验收仍是后续工作。
+上表是原核查基线的只读快照，并非升级后版本的逐文件复核；此次政策同步未据此宣称新task已通过验收。原生包结构已经确认，五任务按所选公平合同的完整实现与运行验收仍是后续工作。

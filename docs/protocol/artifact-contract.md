@@ -1,5 +1,7 @@
 # 算法产物与记录契约
 
+> **当前第一阶段政策（2026-10-15）：以[决定0005](../decisions/0005-fixed-case-evolution-first.md)为准。** 每task固定一个高难完整case，同case开发、计n反馈与冻结复核；开发端禁止完整checker和本地完整目标评分，不设免费public-selection。下文四角色／独立留出、公开checker、best-public-selection等属于较早设计或第二阶段参考，不是本阶段默认。原生入口的实现与验收状态见当前决定和各任务卡§12。
+
 **状态：v0.1-design。** 本文件声明正式版本应采用的产物与记录语义，不表示相关接口或 schema 已实现。配合[评测协议](evaluation-protocol.md)与[研究契约](../benchmark-spec.md)使用。
 
 **2026-10-15实现进展：** [第三步基础层](../framework/architecture.md)已实现通用快照、摘要校验、账本、选择／冻结及可信本地算法ABI；[逐任务合同](../framework/task-adapters.md)细化下面的原则。本文件的全部生产清单、平台停止、任务checker和部署隔离尚未全面实现，状态仍为design。
