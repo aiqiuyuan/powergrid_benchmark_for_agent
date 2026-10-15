@@ -25,7 +25,8 @@
   },
   "candidate_contract": {
     "kind": "algorithm",
-    "executes_on_new_inputs": true,
+    "executes_frozen_source_on_provided_input": true,
+    "evaluation_input_policy": "same-fixed-case",
     "source_required": true,
     "dependency_lock_required": true,
     "static_answers_allowed": false,
@@ -34,17 +35,21 @@
     "candidate_reported_objective_or_bound_is_authoritative": false
   },
   "metrics": {
-    "raw": ["independent_total_cost", "feasibility", "trusted_reference_lower_bound", "incumbent_gap", "runtime_seconds", "peak_memory_gib"],
-    "objective_direction": "minimize",
-    "aggregate_policy": null,
-    "candidate_failure_score": null,
+    "raw": ["PAR2_seconds", "time_to_reference_quality_seconds", "target_hit_rate", "independent_total_cost", "feasibility", "trusted_reference_lower_bound", "incumbent_gap", "runtime_seconds", "peak_memory_gib"],
+    "primary_metric": "PAR2_seconds",
+    "primary_direction": "minimize",
+    "reward_direction": "maximize",
+    "aggregate_policy": "qualified-par2-affine-v1",
+    "failure_reward": 0,
     "infrastructure_failure_is_missing": true
   },
   "fairness_contract": {
     "preserve_original_uc_parameters": true,
     "independent_constraint_and_cost_validation_required": true,
     "solver_license_threads_and_resources_declared": true,
-    "system_and_date_group_split_required": true,
+    "system_and_date_group_split_required": false,
+    "system_and_date_group_split_required_for_future_generalization": true,
+    "current_stage": "fixed-case-algorithm-evolution",
     "public_library_does_not_supply_official_hidden_test_split": true,
     "algorithm_performance_and_agent_development_tables_separate": true
   },
@@ -58,18 +63,21 @@
   },
   "required_configuration_fields": ["development_seconds", "protected_feedback_budget", "model_profile", "repetitions", "development_resources", "feedback_resources", "final_resources", "per_instance_seconds", "final_build_seconds", "final_batch_seconds", "solver_license_profile", "solver_threads", "numerical_tolerances", "selection_policy", "aggregate_policy", "split_manifest", "extension_physics_version"],
   "configuration_values": {
-    "development_seconds": null,
+    "development_seconds": 43200,
     "protected_feedback_budget": null,
     "model_profile": null,
-    "repetitions": null,
+    "repetitions": 3,
     "per_instance_seconds": null,
-    "solver_license_profile": null
+    "solver_license_profile": "open-source-HiGHS-preparation",
+    "task_parameter_profile": "configs/unit-commitment-speed.design.json",
+    "active_execution_budget_status": "pending-case-and-same-platform-calibration"
   },
   "readiness": {
     "available_evidence": ["complete-milp-highs-reference", "independent-python-validator", "two-rts-and-small-derived-scuc-calibration-cases"],
     "baseline_candidates": [{"name": "UnitCommitment.jl-and-full-PGLib-MILP-HiGHS", "source_url": "https://anl-ceeesa.github.io/UnitCommitment.jl/0.4/guides/instances/", "status": "local-reference-exists-new-contract-certification-pending"}],
-    "missing_evidence": ["replace-static-schedule-terminal-grading-with-code-execution", "clean-new-instance-replay", "complete-constraint-fixtures", "audited-grouped-panel", "trusted-bound-and-aggregation-policy", "derived-scuc-physics-and-difficulty-certification"]
+    "missing_evidence": ["replace-static-schedule-terminal-grading-with-code-execution", "clean-fixed-case-replay", "complete-constraint-fixtures", "fixed-case-and-exposure-audit", "trusted-tight-reference-bounds", "same-platform-speed-and-memory-calibration", "feedback-counting-and-no-free-score-audit", "baseline-formulation-equivalence"],
+    "extension_missing_evidence": ["derived-scuc-physics-and-difficulty-certification"]
   },
-  "gates": ["task-binding-certification", "data-license-and-group-audit", "clean-julia-build", "constraint-and-cost-parity", "frozen-solver-new-input-replay", "timeout-with-and-without-incumbent", "same-platform-baselines", "target-concurrency-acceptance"],
-  "documentation": "docs/framework/task-adapters.md#4-uc与派生scuc运行源码后验排程"
+  "gates": ["task-binding-certification", "data-license-and-fixed-case-exposure-audit", "clean-julia-build", "constraint-and-cost-parity", "frozen-solver-fixed-case-replay", "timeout-with-and-without-incumbent", "same-platform-baselines", "tight-reference-and-target-attainability", "target-concurrency-acceptance"],
+  "documentation": "docs/task-cards/unit-commitment.md#13-文献对齐的研究目标与配置2026-10-15"
 }

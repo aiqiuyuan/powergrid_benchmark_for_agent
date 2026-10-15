@@ -35,6 +35,15 @@
 
 这些入口用于说明来源；本次规格提交未复制上游数据或 checker。正式数据与代码发布需分别记录上游版本、许可、归属及项目适配差异。
 
+2026-10-15补充的UC/SCUC一手论文如下；具体参数、原文定位和使用边界见[逐篇核对表](uc-scuc-literature-parameters-20261015.md)，研究结论见[UC卡第13节](../task-cards/unit-commitment.md#13-文献对齐的研究目标与配置2026-10-15)。
+
+| 编号 | 来源 | 用途 |
+|---|---|---|
+| P15 | [Knueven等：On Mixed-Integer Programming Formulations for the Unit Commitment Problem](https://optimization-online.org/wp-content/uploads/2018/11/6930.pdf) | formulation、精度与预算的原始计算实验 |
+| P16 | [Xavier等：Learning to Solve Large-Scale Security-Constrained Unit Commitment Problems](https://arxiv.org/pdf/1902.01697) | 学习辅助SCUC加速与质量保证 |
+| P17 | [Sugishita等：Primal heuristics for Dantzig-Wolfe decomposition for unit commitment](https://arxiv.org/pdf/2110.12531) | 达标/证明时间与限时质量两种协议 |
+| P18 | [Qin、Yu：Solve Large-scale Unit Commitment Problems by Physics-informed Graph Learning，v1](https://arxiv.org/html/2311.15216v1) | 固定时间内成本/gap比较与训练预算区别 |
+
 同日原赛背景补充见五张任务卡第8节。数据规模以明确的文件清点或原始规则为依据，历史榜单只作背景和基线线索，不把本地成绩插入旧榜；本次没有重算完整竞赛榜单或重新构建其隐藏测试集。
 
 ## 内部证据摘要索引

@@ -6,6 +6,8 @@
 
 **当前RTE以[决定0006](docs/decisions/0006-rte-abc-open-x15-protected.md)为准。** [新版配置与操作](docs/protocol/rte-abc-x15-configuration.md)、[原生任务包](task-packages/rte-maintenance-abc-x15-v1/README.md)说明数据、提交、分数、资源和冻结后工具。[决定0005](docs/decisions/0005-fixed-case-evolution-first.md)和[X04配置](docs/protocol/rte-x04-configuration.md)保留先前选择过程；其中RTE单例及禁止ABC本地评分条款已被覆盖。[公平比较清单](docs/framework/fair-ranking.md)已同步RTE例外，其他任务的设置继续逐项核实。
 
+**UC/SCUC新增文献对齐配置：** [task card §13](docs/task-cards/unit-commitment.md#13-文献对齐的研究目标与配置2026-10-15)汇总四篇论文、参数与结论。主任务评价达到统一参考质量的求解加速，准备目标为gap 0.1%、RTS/CA 300秒与FERC 600秒端到端；成本质量另报。[参数JSON](configs/unit-commitment-speed.design.json)及[计时/Reward合同](docs/protocol/unit-commitment-speed.md)保留固定case、12小时、n=0/1/3/5/10、每档3次政策。具体case、同机基线/参考、执行接线与资源校准未完成，`executable=false / release_ready=false`。
+
 **本轮研究设计已定：五task × n=0／1／3／5／10 × 三次独立开发，共75次；每次开发上限12小时，累计token不限且无累计预留截断。L2RPN主线恢复原赛动作范围，包括redispatch，在统一条件下重跑基线；375动作版本单列。** 模型、实际资源、逐例执行限额、其余case ID和成本校准仍未完成，尚未启动75次长实验。新主线先按task分别报告原始指标，不设置跨task总分。
 
 **当前状态：Benchmark `v0.1-design`；已有独立参考实现版本为`0.2.0`。更新：2026-10-15。** 本阶段研究政策已整理，五任务运行包尚未全部适配。此前RTE在历史A4校准数据上通过Harbor／真实模型n=0、n=1配对canary，验证过旧公共选择、计数反馈／ACK、共同截止及独立终评；它不证明新ABC／X15模式、并行资源或新版网络限制已经验收。现有参考代码保留，不作为个人侧必迁路线；没有发布正式能源榜单。
@@ -22,6 +24,7 @@
 |---|---|
 | 当前RTE如何开发、计n和做90分钟终评 | [决定0006](docs/decisions/0006-rte-abc-open-x15-protected.md)、[配置与操作](docs/protocol/rte-abc-x15-configuration.md)、[任务包](task-packages/rte-maintenance-abc-x15-v1/README.md) |
 | 其他任务第一阶段固定case政策及历史选择 | [研究决定0005](docs/decisions/0005-fixed-case-evolution-first.md)、五张task-card §12；RTE最新见§13 |
+| UC/SCUC的论文目标、精度/时间依据及实际配置 | [task card §13](docs/task-cards/unit-commitment.md#13-文献对齐的研究目标与配置2026-10-15)、[参数JSON](configs/unit-commitment-speed.design.json)、[逐篇原文核对](docs/evidence/uc-scuc-literature-parameters-20261015.md) |
 | 后续个人侧具体做什么、哪些框架建设停止 | [复用eval-in-loop的小规模测试设计](docs/decisions/0004-minimal-local-testing.md) |
 | 研究什么、为何选这五类任务、怎样组织比较 | [Benchmark 研究契约](docs/benchmark-spec.md) |
 | 已做实验用了哪些设置、得到什么结果、哪些问题需要修复 | [98 个预实验槽位的中文统计](docs/evidence/preliminary-experiments-20261013.md) |
