@@ -114,7 +114,8 @@
       "a4-pilot-original-checker-and-executable-solver",
       "public-c-x-inputs-and-final-target-tables",
       "historical-reference-preparation-start-is-not-completion",
-      "native-RTEAdapter-trusted-local-A07-A09-A08-A12-calibration"
+      "native-RTEAdapter-trusted-local-A07-A09-A08-A12-calibration",
+      "actual-Harbor-model-n0-n1-A07-A09-A08-A12-canary-checkpoint-feedback-ACK-hard-stop-final"
     ],
     "baseline_candidates": [
       {
@@ -133,8 +134,7 @@
       "clean-baseline-build-and-license-audit",
       "full-c-x-evaluation",
       "hardware-seed-and-checkpoint-semantic-audit",
-      "independent-agent-panel",
-      "real-model-feedback-roundtrip"
+      "independent-agent-panel"
     ]
   },
   "gates": [
@@ -152,7 +152,7 @@
   "prototype_integration": {
     "implemented": true,
     "module": "src/powergrid_bench/rte.py",
-    "scope": "trusted-local-original-A-set-calibration",
+    "scope": "trusted-local-and-scoped-Harbor-original-A-set-calibration",
     "certified": false,
     "original_c_x_reference_completed": false,
     "native_entrypoint": [
@@ -167,6 +167,13 @@
       "--time-limit",
       "--seed"
     ],
-    "integration_evidence": "docs/evidence/rte-lifecycle-acceptance-20261015.json"
+    "integration_evidence": "docs/evidence/rte-lifecycle-acceptance-20261015.json",
+    "cluster_canary_status": "passed-n0-n1-model-backed",
+    "cluster_canary_evidence": "docs/evidence/harbor-cluster-acceptance-20261015.json",
+    "cluster_completion_report": "docs/completion-step3-cluster-20261015.md",
+    "cluster_binding_location": "private-deployment-overlay-not-in-public-package",
+    "full_inflight_restart_certified": false,
+    "cross_node_sqlite_wal_certified": false,
+    "algorithm_improvement_demonstrated": false
   }
 }

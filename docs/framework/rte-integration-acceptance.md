@@ -2,7 +2,7 @@
 
 本轮新增的 [RTEAdapter](../../src/powergrid_bench/rte.py) 将完整算法快照、原生求解接口、独立校验和统一生命周期连接起来。适配器调用候选算法生成排程，再由固定版本的独立 RTE checker 检查约束和目标值。候选算法提供的自报分数不进入选择和排行。
 
-这份记录区分两种证据：真实 RTE 数据上的本地集成校准，以及实际 Harbor / Docker 运行的端到端验收。前一种已完成；后一种的进度和证据由 [Harbor 实验验收说明](harbor-live-acceptance.md) 记录。单独执行本适配器不能证明所有部署后端已经通过验收。
+这份记录区分真实 RTE 数据上的本地集成校准与实际 Harbor / Docker 端到端验收。**截至 2026-10-15，RTE 真实模型／Harbor n=0、n=1 canary 已全部通过。** 当前范围见[实际集群完成说明](../completion-step3-cluster-20261015.md)、[脱敏机器证据](../evidence/harbor-cluster-acceptance-20261015.json)与[Harbor 实验验收说明](harbor-live-acceptance.md)。这不是完整 RTE release、五任务认证或 benchmark 生产认证。
 
 ## 1. 已实现的提交与执行接口
 
@@ -57,6 +57,8 @@ python -E -s solver.py --instance instance.json --output schedule.txt \
 
 校准原始证据保留在本地工作目录的 `calibration-results.json`，包含完整算法快照标识、逐例输入哈希、约束结果和进程记录。私有上游源码、求解器、数据与原始内部路径没有作为这次新代码的一部分上传到公共仓库。
 
+后续实际集群两组采用相同 T=180 秒、每例 10 秒／seed=2020 的验收 profile，分别完成 5／8 次真实模型调用；n=0 的 protected 受理／完成／ACK 为 0／0／0，n=1 为 1／1／1。两组均在 deadline 前实际停止开发，选择已检查公共 checkpoint，冻结后在原数值镜像的独立 verifier 上重新执行 A12，均为 AC，原始目标均为 793.095889937107。两组选中的是未修改 starter；本次证明接口和生命周期，未证明算法提升或反馈效果。
+
 ## 4. 反馈隐私与失败分类
 
 `feedback_payload(result)` 将可信 evaluator 结果投影为固定的 `rte-aggregate-feedback-v1`：仅包含 `status`、`feasible`、`score`、`raw_objective` 和 schema 版本。候选 stdout、stderr、排程文本、逐例私有路径及任意候选控制的字符串留在控制器审计中，不能通过 protected feedback 返回开发 agent。
@@ -79,4 +81,6 @@ python -E -s solver.py --instance instance.json --output schedule.txt \
 
 原有私有 Harbor runner 只导出单个 `solver.py`，使用 `-I` 执行。它能够承载本次独立单文件基线校准；复杂多文件候选必须采用完整包挂载与相应导入接口，不能以本次单文件验收代替多文件后端认证。
 
-生命周期端到端验收还需要记录 `n=0`、`n=1`、重复提交、超额提交、迟到反馈、完整冻结、恢复及最终评分的联合证据，并在真实 Harbor / Docker 环境验证代码执行和后端清理。这些检查完成前，五个任务的 `release_ready` 与生产后端认证仍保持原来的未完成状态。
+实际 Harbor / Docker 已取得 `n=0`／`n=1`、公共选择、显式 ACK、实际容器停止、冻结身份与独立最终评分的联合证据，并在完成后用新进程重开记录核对原 n/T、冻结与 final job／attempt。该恢复检查只针对完成后的持久状态，**未认证开发中完整 Harbor／会话／Pod 重启**；跨节点 SQLite WAL、目标并发、实际超额／断流／丢回执和终评基础设施重试等故障演练仍待补齐。
+
+完整 C+X 面板、原赛时限语义、强基线同平台重评、新泛化面板和其他四任务的真实绑定仍按逐任务合同验收。五个任务的 `release_ready` 与 benchmark 生产认证不因这次单文件 RTE canary 自动改变。

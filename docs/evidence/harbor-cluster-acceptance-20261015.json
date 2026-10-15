@@ -1,0 +1,561 @@
+{
+  "schema_version": "harbor-cluster-acceptance-v1",
+  "date": "2026-10-15",
+  "collected_at": "2026-10-15T03:34:53.243101+00:00",
+  "status": "passed-scoped-rte-canary",
+  "scope": "real model + Harbor + independent native RTE checker + physical deadline on historically exposed calibration cases",
+  "benchmark_release_certified": false,
+  "official_ranking_certified": false,
+  "all_tasks_certified": false,
+  "full_inflight_harbor_session_restart_certified": false,
+  "cross_node_sqlite_wal_certified": false,
+  "target_concurrency_batch_certified": false,
+  "public_foundation_commit": "2ea86ad62240474ce3c0e26911b399549de1341f",
+  "private_upstream_baseline_commit": "2f998fee5ee4229c02271941e804c17f7a8e6eb5",
+  "private_frozen_runtime_manifest_sha256": "1ec2877d74356ee27f8f56f815dbf741ba75286a2d7b2560e8d4dd665d41251e",
+  "private_raw_evidence_sha256": "f529a92d6a8271526269104e0e473f922564bc7ae4c025a7ba918f8d5e4da686",
+  "private_final_capsule_sha256": "58b2ca7f685cf0c5d26a32d428330f6f9ab7b375dbcc8a731cb10fa1af365dce",
+  "private_integration_source_sha256": {
+    "acceptance_checks.py": "6e1435eda2dba3bf56b73fcd2894bc94dff0bf85f81f2690077cd8b874f3a4ac",
+    "agent_client.py": "a3c3bcadde129995298c81ce48d22f2b96a7eeb6e5da5c88fb9c70fa45942a0a",
+    "build_developer_image.py": "292f4c9b716227ee63b0774adc94ba33909bec86a03981a7de94a4ef8aaa7da9",
+    "controller.py": "5f1adb7b1d48357e4ba301f18ca81f1c323f0abdbd1b0a6576cd0327e52ca3c6",
+    "developer_image.py": "72c48d48424ae00d8d80e72cd816c9350f0a9d68f1cfe49e00a733078f5ab288",
+    "execute_launch.py": "3bfdec244bcaf826aed88c3b92dae677a8ca302bc6a3da1c3d58e782904fcc11",
+    "harbor_agent.py": "fa95e0c788f16d31dcba26656fe38330df9543987326b567a1bef9b52685085f",
+    "model_bridge.py": "fae497d9830183207d37c9c8e3e4a13dbb2c9840376c7cdcae3acf51ccb1cb12",
+    "model_gateway_host.py": "c0e1b8e5abf4a776ee5ba299ebeea1b7e267a017f789ae6e0f3abf6b0294e879",
+    "prepare_launch.py": "4db257f6f496c855d46ce6cc595f4fedf0d83e315a6a4e1352109a00e53bd067",
+    "runner_preflight.py": "3d68e142ebd167f5dffa667f8b399a24277af1183cc944c6df00bf574ca0e083",
+    "socket_paths.py": "99d4d530f3e0efb04be21dc118874cc805c24007a1bf21e44acd94565605a8b2",
+    "stage_capsule.py": "f13c85cd378c7eb97b100d88f074b7edab6341f12949e7e2b4720bb14ec11c7f",
+    "submit_cluster.py": "7e46e6e7f4bf143795bdf106b18be63f8ebf92b85fb2d16cea7ef1f58280732c",
+    "test_overlay.py": "3d276c2f1bbb928fbf9b8d8561daaaf375387e46fffceaa5c354f46e0076d58b"
+  },
+  "private_helper_source_sha256": {
+    "compat_reference.py": "31419b83029e01c27443034ded58c946b107e55c61b334b8eb68552f5fa76f3f",
+    "model_gateway.py": "5de119e5e9a742390af6c17c27c669858f1f79ac02a150b97f01e79324c9a12c",
+    "state.py": "283f07312f8176e87eedf3c40e9eb2106cc7d503b05fcc99f27664674e411d3e"
+  },
+  "acceptance_profile": {
+    "research_defaults": false,
+    "development_seconds": 180,
+    "feedback_budgets": [
+      0,
+      1
+    ],
+    "repetitions_each": 1,
+    "model_name": "bedrock/gpt-5.6-sol",
+    "required_response_model": "global.openai.gpt-5.6-sol",
+    "single_response_max_tokens": 8192,
+    "maximum_provider_attempts_per_request": 2,
+    "cumulative_token_cap": null,
+    "developer": {
+      "cpu": 2,
+      "memory_mib": 4096,
+      "network": "none"
+    },
+    "feedback_and_final": {
+      "cpu": 1,
+      "memory_mib": 4096,
+      "network": "none",
+      "seconds_per_case": 10,
+      "seed": 2020
+    },
+    "panel_roles": {
+      "development": "A_07",
+      "public_selection": "A_09",
+      "protected_feedback": "A_08",
+      "final_test": "A_12"
+    },
+    "all_cases_historically_exposed": true,
+    "panel_sha256": {
+      "development": "e4315fa768b618b42657e375eac33cabfae4e44a5c642eb410e5a73cbea6c3f1",
+      "public_selection": "010bb93fc03e83cba4e12e36a1695be7569e976897b0a2a0fea89393ad1de255",
+      "protected_feedback": "9abd5fb5501da85212ce4e06a863ba34d58575273192739259012c837c1af2e0",
+      "final_test": "8eb40c79522085eac347a5ff4f9d77b108caeaf226626170412d3a6a984fa131"
+    },
+    "starter_first_protocol_probe": true,
+    "algorithm_improvement_required": false
+  },
+  "runtime": {
+    "harbor": "0.20.0",
+    "host_python": "3.13.15 (main, Sep  1 2026, 00:09:11) [GCC 12.2.0]",
+    "numeric_python": "3.12.15 (main, Oct  6 2026, 02:02:31) [GCC 12.2.0]",
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "numerical_image_id": "sha256:fe086644606bb1efffe2fcb4ca1ffadae571e9c2929791df046e3be482eefad5",
+    "developer_image_id": "sha256:8aa99f36d80f0ddecd47425b480385d41fd88cdf539eed57247cfda849e8753c",
+    "developer_archive_sha256": "3954ea29c9d26fbbe942b1fe072f347b1b7bbcb2712077bf214cf8e386435f9f",
+    "developer_manifest_sha256": "e0ed506bded46844f7b46b1e3f42352271ab225830f38f81c3102f3b1a8c0a2a",
+    "procps_version": "2:4.0.2-3",
+    "claude_binary_sha256": "1e08503dbdf3c2cb0d706d32f3408277388d1c76ef108673e8fe42c1b322925b",
+    "separate_final_verifier_keeps_original_numeric_base": true,
+    "harbor_official_wheel_sha256": "4b7e48223aea2384cdb8c9eff35eaebd482fc9b1ec09f8193a121c47356ff19a",
+    "harbor_wheel_evidence_scope": "Separately downloaded official Harbor 0.20.0 wheel inspected for API/verifier behavior; this is not a measured digest of the installed cluster package."
+  },
+  "filesystem_preflight": {
+    "passed": true,
+    "sqlite_journal_mode": "wal",
+    "sqlite_quick_check": "ok",
+    "sqlite_writer_exclusion": true,
+    "flock_exclusion": true,
+    "scope": "same dedicated pod, independent processes on personal CFS",
+    "cross_node_wal_certified": false
+  },
+  "private_unit_tests": {
+    "passed": 23,
+    "failed": 0,
+    "independent_review": "approved"
+  },
+  "runs": [
+    {
+      "group": 0,
+      "run_id": "rte-live-23d35418179445d4a5c5e699babfefc2",
+      "cluster_job_identity_sha256": "eb2029e988d046be6c614d69c76a74a9eaa99752a3526749f89c9a1a06bf7e61",
+      "cluster_succeeded": true,
+      "passed": true,
+      "configuration_sha256": "b112d4e6e81e62ba1688944e9e81d99c4b3a79f078e6540de9b5a78ff08d5520",
+      "model": {
+        "successful_messages": 5,
+        "request_count": 5,
+        "failed_requests": 0,
+        "recorded_total_tokens_including_cached": 71614,
+        "token_accounting_scope": "provider usage totals per completed request including cache; no currency cost inference",
+        "cumulative_token_cap": null,
+        "token_reservations": false,
+        "single_response_max_tokens": 8192
+      },
+      "clock": {
+        "started_at": 1792034976.4897053,
+        "deadline_at": 1792035156.4897053,
+        "duration_seconds": 180
+      },
+      "cutoff": {
+        "reason": "deadline",
+        "actual_docker_finished_at": "2026-10-15T03:32:36.264519622Z",
+        "compute_finished_at": 1792035156.264519,
+        "before_deadline_seconds": 0.22518634796142578,
+        "exit_code": 137,
+        "running": false,
+        "paused": false,
+        "oom_killed": false
+      },
+      "feedback": {
+        "run_id": "rte-live-23d35418179445d4a5c5e699babfefc2",
+        "state": "complete",
+        "budget": 0,
+        "counted": 0,
+        "completed": 0,
+        "delivered": 0,
+        "active": 0,
+        "read_acknowledged": null
+      },
+      "protected_jobs": [],
+      "freeze": {
+        "freeze_receipt": {
+          "run_id": "rte-live-23d35418179445d4a5c5e699babfefc2",
+          "artifact_sha256": "2531e51d19319308ef4cbe75d689557003fa5ca2ea13c294e88eab5cc21c0785",
+          "manifest_sha256": "2531e51d19319308ef4cbe75d689557003fa5ca2ea13c294e88eab5cc21c0785",
+          "reason": "deadline",
+          "selection": {
+            "evidence_id": 1,
+            "run_id": "rte-live-23d35418179445d4a5c5e699babfefc2",
+            "artifact_sha256": "2531e51d19319308ef4cbe75d689557003fa5ca2ea13c294e88eab5cc21c0785",
+            "score": 1507.2847843137256,
+            "feasible": 1,
+            "status": "succeeded",
+            "completed_at": 1792035049.8881629
+          },
+          "schema_version": 1,
+          "frozen_at": 1792035156.5519397,
+          "deadline_at": 1792035156.4897053,
+          "context_sha256": "af93ef6cc0183abb059c96a77efb9643018223a1a29c95c110531c8b0b4971e1",
+          "selection_direction": "lower",
+          "selection_reason": "best_public_selection",
+          "feedback": {
+            "run_id": "rte-live-23d35418179445d4a5c5e699babfefc2",
+            "state": "freezing",
+            "budget": 0,
+            "counted": 0,
+            "completed": 0,
+            "delivered": 0,
+            "active": 0,
+            "read_acknowledged": null
+          },
+          "unfinished_job_ids": [],
+          "receipt_sha256": "c2eed15fe5e95aedde9a1932fa68fbdc67ddf762b0ce3388604243ee5c252afd"
+        },
+        "solver_sha256": "a83eb4f20bbf2e8a9faf89d6ea716e24bfdf3024df35574cbc9f52cc6784b08c",
+        "stopped_container_verified": true,
+        "native_algorithm_closure": [
+          "solver.py"
+        ],
+        "immutable_metadata_sha256": {
+          "candidate.json": "2b14c04e8a39b2df19e36f4dd29a3c731e8fb3a63524e6e5d9fea9970d08f1f3",
+          "requirements.lock": "4b81b6b6a549771115529e6900b9589835cdbfff0c6acf179aef53d283b744d5"
+        }
+      },
+      "selection_matches_starter": true,
+      "final": {
+        "job_id": "d6a87f9c-1192-4d91-b7c4-66c80fe3dee8",
+        "status": "succeeded",
+        "attempt": 1,
+        "completed_at": 1792035186.6525052,
+        "candidate_solver_sha256": "a83eb4f20bbf2e8a9faf89d6ea716e24bfdf3024df35574cbc9f52cc6784b08c",
+        "panel_sha256": "8eb40c79522085eac347a5ff4f9d77b108caeaf226626170412d3a6a984fa131",
+        "metric": {
+          "feasible_fraction": 1.0,
+          "mean_official_objective": 793.095889937107
+        },
+        "valid": true,
+        "secure_execution": true,
+        "case_verdicts": [
+          {
+            "case": "A_12",
+            "status": "AC",
+            "valid": true,
+            "objective": 793.095889937107
+          }
+        ]
+      },
+      "runtime_audit": {
+        "network": "none",
+        "memory": 4294967296,
+        "cpu": 2000000000,
+        "socket_mount_read_only": true,
+        "mounts": [
+          {
+            "destination": "/logs/verifier",
+            "writable": true
+          },
+          {
+            "destination": "/logs/agent",
+            "writable": true
+          },
+          {
+            "destination": "/logs/artifacts",
+            "writable": true
+          },
+          {
+            "destination": "/lifecycle-code",
+            "writable": false
+          },
+          {
+            "destination": "/lifecycle-service",
+            "writable": false
+          },
+          {
+            "destination": "/app/AGENTS.md",
+            "writable": false
+          },
+          {
+            "destination": "/app/CLAUDE.md",
+            "writable": false
+          }
+        ],
+        "private_controller_mounted": false,
+        "private_socket_directory_sha256": "30d2910464e2435ceb19d157862ed9f5fed0ce6b506c96d7baa621550a4455f9",
+        "short_private_socket_directory_used": true
+      },
+      "acceptance_gates": {
+        "require_deadline": true,
+        "deadline_exercised": true,
+        "docker_finished_before_deadline": true,
+        "checked_public_checkpoint_selected": true,
+        "requirements_met": true
+      },
+      "post_completion_reopen_audit": {
+        "passed": true,
+        "scope": "independent Python process reopening completed real-cluster CFS state; not in-flight Harbor session restart",
+        "started_at_unchanged": true,
+        "deadline_at_unchanged": true,
+        "duration_unchanged": true,
+        "expired_clock_restored": true,
+        "freeze_receipt_identical": true,
+        "artifact_verified": true,
+        "final_job_id_unchanged": true,
+        "attempt_unchanged": true,
+        "feedback_counts_unchanged": true,
+        "late_new_submission_rejected": true,
+        "full_harbor_restart_certified": false
+      },
+      "private_original_receipt_sha256": {
+        "submission-receipt.json": "439ed6b0b31ee9fbacca2ffafad06f5cf3b3db51aff01bf1f167f47a1ce309ed",
+        "baseline-public-selection.json": "ea0ac5547126d3acf53aaac584212adac25e12dc81cdc0d0894910bc8859827e",
+        "developer-runtime-audit.json": "d2290a4093efbf4433066aa7af8644952bbabf4908ff960e07cd25a30692dcad",
+        "development-clock.json": "3cda879a0ab83324a9936770bef69ecc6f7a7722666398959d4f63871649816d",
+        "development-cutoff.json": "43180db83a63075660a3b98332e688adadc7015653e508829c7690341d539eb4",
+        "model-usage.json": "ca1bee59aecbfff2f75a15934a728b1f1974b4b324c0bb56b786c006638f4853",
+        "acceptance-wait-for-deadline.json": "f241e0d202800e76fb1c23903be0865bec3ba6c30a9ad0e23fb4e8231250652a",
+        "publication-recovery.json": "9185690bd4bb4a2cc748edfeb6bb6dd3237e95fb4ec1f4f06a7928f5f331ad01",
+        "freeze-and-export.json": "514686ddcf5ace751e2f01152c1b35ffde0bafed24a2dd9bb3493548f538f117",
+        "final-dispatch.json": "cf326f0a3a9effac577b075590e4fea55a2021bafa39d1b2d6d43718489f1d54",
+        "live-acceptance.json": "d6ef8485e492943b6cd2799ec3bf05a82220eeeeb7b0fb14bccad2cc6ad17ae4",
+        "recovery-process-audit.json": "614f121e9073dd096a03d40e17f1b537a3c5b4c93b25316dc81255aa411e8e52"
+      }
+    },
+    {
+      "group": 1,
+      "run_id": "rte-live-84a4c9f50e7640799f08347bb4267856",
+      "cluster_job_identity_sha256": "d726a6188145788f8cdf4b3c1a30d61bd5f1ffaf978fb7b23f423ab5bb3ce92e",
+      "cluster_succeeded": true,
+      "passed": true,
+      "configuration_sha256": "d00800c21683441e500b3db450124bf0e912d6e0dd59fbe6d101f2daed7282c5",
+      "model": {
+        "successful_messages": 8,
+        "request_count": 8,
+        "failed_requests": 0,
+        "recorded_total_tokens_including_cached": 119583,
+        "token_accounting_scope": "provider usage totals per completed request including cache; no currency cost inference",
+        "cumulative_token_cap": null,
+        "token_reservations": false,
+        "single_response_max_tokens": 8192
+      },
+      "clock": {
+        "started_at": 1792034976.2103744,
+        "deadline_at": 1792035156.2103744,
+        "duration_seconds": 180
+      },
+      "cutoff": {
+        "reason": "deadline",
+        "actual_docker_finished_at": "2026-10-15T03:32:35.988430999Z",
+        "compute_finished_at": 1792035155.98843,
+        "before_deadline_seconds": 0.22194433212280273,
+        "exit_code": 137,
+        "running": false,
+        "paused": false,
+        "oom_killed": false
+      },
+      "feedback": {
+        "run_id": "rte-live-84a4c9f50e7640799f08347bb4267856",
+        "state": "complete",
+        "budget": 1,
+        "counted": 1,
+        "completed": 1,
+        "delivered": 1,
+        "active": 0,
+        "read_acknowledged": null
+      },
+      "protected_jobs": [
+        {
+          "job_id": "3a501e68-4819-4af2-b323-20cfbd62674d",
+          "status": "succeeded",
+          "attempt": 1,
+          "accepted_at": 1792034992.210468,
+          "completed_at": 1792034993.771761,
+          "delivered_at": 1792035013.921862,
+          "artifact_sha256": "2531e51d19319308ef4cbe75d689557003fa5ca2ea13c294e88eab5cc21c0785"
+        }
+      ],
+      "freeze": {
+        "freeze_receipt": {
+          "run_id": "rte-live-84a4c9f50e7640799f08347bb4267856",
+          "artifact_sha256": "2531e51d19319308ef4cbe75d689557003fa5ca2ea13c294e88eab5cc21c0785",
+          "manifest_sha256": "2531e51d19319308ef4cbe75d689557003fa5ca2ea13c294e88eab5cc21c0785",
+          "reason": "deadline",
+          "selection": {
+            "evidence_id": 1,
+            "run_id": "rte-live-84a4c9f50e7640799f08347bb4267856",
+            "artifact_sha256": "2531e51d19319308ef4cbe75d689557003fa5ca2ea13c294e88eab5cc21c0785",
+            "score": 1507.2847843137256,
+            "feasible": 1,
+            "status": "succeeded",
+            "completed_at": 1792034985.9971995
+          },
+          "schema_version": 1,
+          "frozen_at": 1792035156.2709863,
+          "deadline_at": 1792035156.2103744,
+          "context_sha256": "d02710353a783b7cfc75b490f22e25d0a78f7aa0e95f5d0da07333fde9aba4a3",
+          "selection_direction": "lower",
+          "selection_reason": "best_public_selection",
+          "feedback": {
+            "run_id": "rte-live-84a4c9f50e7640799f08347bb4267856",
+            "state": "freezing",
+            "budget": 1,
+            "counted": 1,
+            "completed": 1,
+            "delivered": 1,
+            "active": 0,
+            "read_acknowledged": null
+          },
+          "unfinished_job_ids": [],
+          "receipt_sha256": "33f145c9aab78940247b95fa4990db2c73a9b71a73621fe04ed0f4e7c4b04dd7"
+        },
+        "solver_sha256": "a83eb4f20bbf2e8a9faf89d6ea716e24bfdf3024df35574cbc9f52cc6784b08c",
+        "stopped_container_verified": true,
+        "native_algorithm_closure": [
+          "solver.py"
+        ],
+        "immutable_metadata_sha256": {
+          "candidate.json": "2b14c04e8a39b2df19e36f4dd29a3c731e8fb3a63524e6e5d9fea9970d08f1f3",
+          "requirements.lock": "4b81b6b6a549771115529e6900b9589835cdbfff0c6acf179aef53d283b744d5"
+        }
+      },
+      "selection_matches_starter": true,
+      "final": {
+        "job_id": "1a609ebe-d167-446b-bf27-29bd0a39d347",
+        "status": "succeeded",
+        "attempt": 1,
+        "completed_at": 1792035186.871757,
+        "candidate_solver_sha256": "a83eb4f20bbf2e8a9faf89d6ea716e24bfdf3024df35574cbc9f52cc6784b08c",
+        "panel_sha256": "8eb40c79522085eac347a5ff4f9d77b108caeaf226626170412d3a6a984fa131",
+        "metric": {
+          "feasible_fraction": 1.0,
+          "mean_official_objective": 793.095889937107
+        },
+        "valid": true,
+        "secure_execution": true,
+        "case_verdicts": [
+          {
+            "case": "A_12",
+            "status": "AC",
+            "valid": true,
+            "objective": 793.095889937107
+          }
+        ]
+      },
+      "runtime_audit": {
+        "network": "none",
+        "memory": 4294967296,
+        "cpu": 2000000000,
+        "socket_mount_read_only": true,
+        "mounts": [
+          {
+            "destination": "/lifecycle-service",
+            "writable": false
+          },
+          {
+            "destination": "/app/AGENTS.md",
+            "writable": false
+          },
+          {
+            "destination": "/logs/verifier",
+            "writable": true
+          },
+          {
+            "destination": "/logs/agent",
+            "writable": true
+          },
+          {
+            "destination": "/logs/artifacts",
+            "writable": true
+          },
+          {
+            "destination": "/app/CLAUDE.md",
+            "writable": false
+          },
+          {
+            "destination": "/lifecycle-code",
+            "writable": false
+          }
+        ],
+        "private_controller_mounted": false,
+        "private_socket_directory_sha256": "463d3d196eebd3da1d94b57d12787252c0b9be88ca65a37caae6ad2a844677e2",
+        "short_private_socket_directory_used": true
+      },
+      "acceptance_gates": {
+        "require_deadline": true,
+        "deadline_exercised": true,
+        "docker_finished_before_deadline": true,
+        "checked_public_checkpoint_selected": true,
+        "requirements_met": true
+      },
+      "post_completion_reopen_audit": {
+        "passed": true,
+        "scope": "independent Python process reopening completed real-cluster CFS state; not in-flight Harbor session restart",
+        "started_at_unchanged": true,
+        "deadline_at_unchanged": true,
+        "duration_unchanged": true,
+        "expired_clock_restored": true,
+        "freeze_receipt_identical": true,
+        "artifact_verified": true,
+        "final_job_id_unchanged": true,
+        "attempt_unchanged": true,
+        "feedback_counts_unchanged": true,
+        "late_new_submission_rejected": true,
+        "full_harbor_restart_certified": false
+      },
+      "private_original_receipt_sha256": {
+        "submission-receipt.json": "a22798ef7319e087c18eab834aae37b73a906b8d2a87d57e25189b35beab762f",
+        "baseline-public-selection.json": "780e7e4da1344a7e41378fed27042c2e13a95d19a2d1fcdbc50da0515629fb0e",
+        "developer-runtime-audit.json": "3ba230e56876741914543e831276bddf9aa7c15f8c5531a7cd427d84d6b50cc9",
+        "development-clock.json": "ac2c44bb57178c332e95ee84bdc101e95ece08c9dc6b2b5bc9c17b1e286f777c",
+        "development-cutoff.json": "4a072fed801ef4dac39ca665cfd5beb98dd2ee3bbdb35dd959983cb1277e60bb",
+        "model-usage.json": "0f7d5dfcb8f37cdf352344c00c4605614f21ef6960c081b82df656cea973548f",
+        "acceptance-wait-for-deadline.json": "f8c1b12dfcb3f729e5b27b7bc5fa23281e3293ff0e99d401c7dccd435b52f3c8",
+        "publication-recovery.json": "9185690bd4bb4a2cc748edfeb6bb6dd3237e95fb4ec1f4f06a7928f5f331ad01",
+        "freeze-and-export.json": "c8ea5f89c97769a2e6b710ecaf8b52bcbf0b9951a8e9f7d8453eb69db9d3fba5",
+        "final-dispatch.json": "567451550faee32d76e0af06365feea53857a41ae42b844e2a6354cba3739f97",
+        "live-acceptance.json": "fcaaebf3dd056e945db78dc4de4422c60d89848225cb02ce3cbe2df60296a9c9",
+        "recovery-process-audit.json": "614f121e9073dd096a03d40e17f1b537a3c5b4c93b25316dc81255aa411e8e52"
+      }
+    }
+  ],
+  "attempt_history": [
+    {
+      "label": "probe-v3-runtime",
+      "cluster_job_identity_sha256": "7a01f2af3f1d3801c236b57fe55bdfd992ef6d7541ca29ac24a0cf596f18bc4f",
+      "cluster_succeeded": true,
+      "cluster_failed": false,
+      "strict_acceptance_passed": null,
+      "real_model_messages": 0,
+      "reason": "runtime checks passed; missing developer ps/pgrep found"
+    },
+    {
+      "label": "developer-image-v1",
+      "cluster_job_identity_sha256": "42cf43b5f1b857a2297040b30c8123a347f50012ce53d791c1383d2f2ea988cd",
+      "cluster_succeeded": true,
+      "cluster_failed": false,
+      "strict_acceptance_passed": null,
+      "real_model_messages": 0,
+      "reason": "derived developer image built and verified offline"
+    },
+    {
+      "label": "n0-v4",
+      "cluster_job_identity_sha256": "a8f2d2637736510236908036d7d9685b1bd2044b1159ce9d13114a36c90a1190",
+      "cluster_succeeded": false,
+      "cluster_failed": true,
+      "strict_acceptance_passed": null,
+      "real_model_messages": 0,
+      "reason": "AF_UNIX path too long before any model request"
+    },
+    {
+      "label": "n0-v5",
+      "cluster_job_identity_sha256": "38ea2cb380395882d04f386b730624487c27c87f3b74fa3f4cea3285cfb58f41",
+      "cluster_succeeded": true,
+      "cluster_failed": false,
+      "strict_acceptance_passed": false,
+      "real_model_messages": 23,
+      "reason": "deadline and native final passed; no checked public checkpoint; strict acceptance false"
+    },
+    {
+      "label": "n1-v5",
+      "cluster_job_identity_sha256": "49014410366d1e8f63192ecece8ab6c13434b8e11f5cc5e51b48b6654acfea52",
+      "cluster_succeeded": true,
+      "cluster_failed": false,
+      "strict_acceptance_passed": false,
+      "real_model_messages": 34,
+      "reason": "deadline and native final passed; no checked public checkpoint or protected feedback; strict acceptance false"
+    },
+    {
+      "label": "n0-v6",
+      "cluster_job_identity_sha256": "eb2029e988d046be6c614d69c76a74a9eaa99752a3526749f89c9a1a06bf7e61",
+      "cluster_succeeded": true,
+      "cluster_failed": false,
+      "strict_acceptance_passed": true,
+      "real_model_messages": 5,
+      "reason": "strict acceptance passed"
+    },
+    {
+      "label": "n1-v6",
+      "cluster_job_identity_sha256": "d726a6188145788f8cdf4b3c1a30d61bd5f1ffaf978fb7b23f423ab5bb3ce92e",
+      "cluster_succeeded": true,
+      "cluster_failed": false,
+      "strict_acceptance_passed": true,
+      "real_model_messages": 8,
+      "reason": "strict acceptance passed"
+    }
+  ],
+  "publication_policy": "aggregate evidence and content hashes only; no credentials, private source, raw instances, model transcripts, host paths, endpoints or registry routes"
+}

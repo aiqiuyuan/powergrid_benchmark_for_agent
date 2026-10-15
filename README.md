@@ -2,7 +2,7 @@
 
 面向能源领域优化与 ML 的算法演化 Benchmark：在共同的开发时限内，让智能体构造可执行算法，通过受控评测反馈改进，再在独立留出数据上测试冻结算法。
 
-**当前状态：Benchmark `v0.1-design` + 基础框架 `0.2.0`。更新：2026-10-15。** 前两步的研究契约、任务卡与评测规范已完成。第三步新增统一实验生命周期的独立参考实现、配置校验、算法提交 ABI、持久账本、快照／冻结、恢复及可运行的低成本验收夹具。已增加 Unix socket broker 与 RTE 原生适配，并在真实题目上验收本地共同生命周期。五任务生产认证与实际 Harbor／模型闭环仍未通过；没有发布正式能源榜单。
+**当前状态：Benchmark `v0.1-design` + 基础框架 `0.2.0`。更新：2026-10-15。** 前两步的研究契约、任务卡与评测规范已完成。第三步新增统一实验生命周期的独立参考实现、配置校验、算法提交 ABI、持久账本、快照／冻结、恢复及可运行的低成本验收夹具。Unix socket broker 与 RTE 原生适配已经通过实际集群上的 **Harbor／真实模型 n=0、n=1 配对 canary 验收**，包括公共选择、受保护反馈／ACK、共同截止、产物冻结和独立终评。完整故障演练、五任务生产认证与目标并发仍待完成；没有发布正式能源榜单。
 
 三类模块已经整理为明确接口：**Configuration列出需决定的49个字段，数值保持待定；Task adapters逐任务明确可执行提交、公平排行路线和缺少条件；Reliability extensions把历史故障归入共同生命周期，并区分已有本地实现与外部部署验收。**
 
@@ -24,7 +24,8 @@
 | 哪些配置值需要决定，缺值为什么不能运行 | [Configuration字段与责任](docs/framework/configuration.md)、[待定模板](configs/experiment.template.json)、[机器字段目录](configs/configuration-catalog.json) |
 | 每个task怎么交算法，选择哪种排行、目前具备哪些条件 | [公平排行路线](docs/framework/fair-ranking.md)、[Task Adapter合同](docs/framework/task-adapters.md)、五张任务卡§10 |
 | 过去的失败如何变成统一保障与验收 | [可靠性保障层](docs/framework/reliability-layer.md)、[分层验收](docs/framework/acceptance.md) |
-| RTE真实题目、本地n=0/n=1生命周期和真实部署进度 | [本轮中文完成说明](docs/completion-step3-live-20261015.md)、[RTE适配](docs/framework/rte-integration-acceptance.md)、[Harbor验收](docs/framework/harbor-live-acceptance.md) |
+| 最新真实集群实验：设置、结果、修复与剩余边界 | [中文集群验收完成说明](docs/completion-step3-cluster-20261015.md)、[脱敏机器证据](docs/evidence/harbor-cluster-acceptance-20261015.json) |
+| RTE本地适配与Harbor部署合同 | [RTE适配](docs/framework/rte-integration-acceptance.md)、[Harbor验收](docs/framework/harbor-live-acceptance.md)、[relay恢复前历史说明](docs/completion-step3-live-20261015.md) |
 | 第三步实际完成与测试证据 | [第三步中文完成说明](docs/completion-step3-20261015.md)、[本地验收摘要](docs/evidence/framework-validation-20261015.json) |
 
 ## 安装和核对基础层
@@ -91,11 +92,13 @@ flowchart LR
 
 第三步已增加可验证的基础软件与五任务提交合同。真实 split 成员、资源和超时、允许依赖／求解器、基线参考值、反馈内容与归一化映射仍需实测后冻结；未定字段保持`null`。历史记录保留，新增实现和待接入工作见[第三步完成说明](docs/completion-step3-20261015.md)。
 
+2026-10-15实际RTE canary两组严格通过：n=0成功调用模型5次、保护反馈0次；n=1成功调用模型8次、保护反馈受理／完成／ACK均1次。两组均在T=180秒共同截止前实际停止Docker，冻结已检查的公共checkpoint，A12原生独立终评均为AC。两组均选择未修改starter；实例属于历史已暴露的校准面板，不能据此报告算法提升、反馈效果或未见泛化。恢复证据覆盖完成后独立进程重开账本；开发中完整会话／Pod恢复和跨节点SQLite WAL仍需另验。详情见[最新中文报告](docs/completion-step3-cluster-20261015.md)。
+
 ## 后续建设顺序
 
 1. **研究契约与任务范围：文档完成。** 固定研究对象、五个任务族、主线与扩展边界、比较单位和主要研究问题。
 2. **任务卡与统一评测契约：文档完成。** 整理现有证据，明确算法接口、四角色数据、预算、评分、产物与验收要求。
-3. **基础框架统一：合同、本地参考实现和RTE集成验收完成。** 已验证共同计时、反馈账本、产物冻结、打包校验、恢复及算法ABI；G1还需要真实Harbor／模型工具往返、硬停止和实际投递验收。
+3. **基础框架统一：合同、本地参考实现和RTE真实Harbor／模型主链路验收完成。** 已验证共同计时、反馈账本、实际反馈／ACK、容器停止、冻结与独立终评；G1其余故障矩阵、开发中完整中断恢复及部署认证继续推进。
 4. **任务包实现与校准。** 逐个任务构建真实切分、执行接口、基线、资源 profile 与固定评分。
 5. **批量认证与 release 冻结。** 清洁环境、恶意/无效产物、故障注入、目标并发、重放和跨任务批次全部验收。
 6. **正式研究。** 先做反馈预算与方法基线，再做智能体/演化结构消融及泛化分析；每次测试曝光有记录。

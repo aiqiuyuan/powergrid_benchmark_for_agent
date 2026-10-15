@@ -2,6 +2,10 @@
 
 这份说明规定如何把统一生命周期接入真实 coding-agent/Harbor 实验，以及什么证据足以证明接入成功。公开仓库的核心检查通过、真实 RTE solver 的本地运行通过、正式远程 Harbor 实验通过，分别是三个不同的状态。正式实验必须产生新的模型调用、Harbor 作业和验收回执，不能由历史结果替代。
 
+**2026-10-15 当前状态：RTE 的真实模型／Harbor n=0、n=1 canary 均已通过。** 两组使用同一 T=180 秒与验收 profile，分别完成 5／8 次真实模型调用；protected 受理／完成／ACK 分别为 0／0／0 和 1／1／1。两组均由 host deadline 停止、选择已检查的公共 checkpoint，并在原数值镜像的独立 verifier 上执行冻结算法，A12 均为 AC。详见[实际集群完成说明](../completion-step3-cluster-20261015.md)与[脱敏机器证据](../evidence/harbor-cluster-acceptance-20261015.json)。
+
+两组选中的都是未修改 starter；通过的是共同生命周期主链路，不是算法提升、完整五任务认证或 benchmark 生产认证。n=0 未调用 protected 接口，实际超额拒绝故障演练仍待补齐。恢复证据仅为完成后在新进程中重开持久记录；开发中的完整 Harbor／会话／Pod 重启、跨节点 SQLite WAL 和目标并发仍未认证。
+
 ## 验收对象
 
 本轮采用 RTE maintenance 的小规模 canary，比较 `n=0` 和 `n=1` 两个新作业。两组 T、模型、资源、运行时镜像、数据角色和种子必须相同。T 和运行资源作为本轮验收配置显式记录，不作为后续研究的默认值；研究配置模板继续保留待定字段。
@@ -73,10 +77,10 @@ developer 只能看到只读集成代码、socket 目录和被允许的 public d
 
 | 条件 | 判定证据 |
 |---|---|
-| 模型确实开发算法 | 至少一次成功的真实 `/v1/messages` 调用；不是 count_tokens 或 fake provider |
+| 真实模型参与开发流程 | 至少一次成功的真实 `/v1/messages` 调用；不是 count_tokens 或 fake provider；不据此断言算法已改进 |
 | n=0 语义成立 | counted=0、delivered=0 |
 | n=1 语义成立 | counted=1、completed=1、delivered=1；对应明确 job 和 ACK |
-| T 没有被重置 | 恢复前后的 started/deadline 完全一致；Docker FinishedAt 不超过截止时间 |
+| T 没有被重置 | 持久 started/deadline 不变；Docker FinishedAt 不超过截止时间；本次实际恢复证据限于完成后记录重开 |
 | 公共择优后冻结 | public selection 的可信分数、snapshot digest 和 freeze receipt |
 | 完整原生闭包 | 候选满足单 solver 契约；导出的 solver SHA 与冻结源一致 |
 | 独立终评 | final manifest SHA 与 A12 panel 一致；独立 checker 核对 solver SHA |
@@ -85,3 +89,5 @@ developer 只能看到只读集成代码、socket 目录和被允许的 public d
 最终至少收集 `developer-runtime-audit.json`、`development-clock.json`、`development-cutoff.json`、`model-usage.json`、`baseline-public-selection.json`、`freeze-and-export.json`、`final-dispatch.json`、`live-acceptance.json` 和 Harbor 原始结果。公开证据只收集脱敏汇总与身份校验；provider key、私有 profile、实例原文和内部部署路径不上传。
 
 只有真实新作业满足这些条件，才能写“Harbor 正式链路验收通过”。网络或运行环境阻塞时，应明确记录未提交或失败阶段。即使 canary 通过，五个 task 的正式 benchmark release、完整原赛 panel、硬件校准和研究重复实验仍分别验收。
+
+本次还采用 `require-deadline` 严格 canary：实际截止停止和公共 checkpoint 选择都是必需证据。模型先发布 starter、完成预算内反馈及 ACK，再由控制器保留原时钟等待截止；没有延长 T，也没有要求算法质量提升。正常框架的 baseline fallback 仍合法，但不能用它代替本次 checkpoint 验收。v4／v5 失败和原始状态继续保留；新 launcher 在持久写出 `passed=false` 回执后以非零状态退出。完整故障矩阵、开发中会话恢复和跨任务批次门槛见[总体验收说明](acceptance.md)。
