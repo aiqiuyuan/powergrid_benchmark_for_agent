@@ -1,6 +1,6 @@
 # PowerGym 配电网混合设备 Volt-Var 控制
 
-> 扩展家族，状态：`design / certification-pending / release_ready=false`。2026-10-15 已另行实现[真实34Bus canary 运行包](../../task-packages/powergym-volt-var-control-canary-v1/README.md)，完成完整24小时本地数值校准。Linux隔离与四组 n=0/1 原生生命周期状态见[运行记录](../experiments/distribution-canary-20261015.md)。本文保留正式家族的认证要求。
+> 扩展家族，状态：`design / certification-pending / release_ready=false`。2026-10-15 已另行实现[真实34Bus canary 运行包](../../task-packages/powergym-volt-var-control-canary-v1/README.md)，通过完整24小时本地校准与Linux完整仿真/候选隔离检查。四组 n=0/1 集群生命周期仍待执行，证据见[运行记录](../experiments/distribution-canary-20261015.md)。本文保留正式家族的认证要求。
 
 ## 1. 家族定位与演化对象
 

@@ -4,9 +4,9 @@
 
 | 角色 | 原生 task | 完整 episode | 状态 |
 |---|---|---|---|
-| MAPDN n=0 | `mapdn-voltage-control-canary-v1` | 480 × 3分钟 | 本地数值通过；Linux隔离与提交待验收 |
+| MAPDN n=0 | `mapdn-voltage-control-canary-v1` | 480 × 3分钟 | 本地及Linux完整仿真通过；集群提交被SSH阻断 |
 | MAPDN n=1 | 同上 | 同上 | 同上 |
-| PowerGym n=0 | `powergym-volt-var-control-canary-v1` | 24 × 1小时 | 本地数值通过；Linux隔离与提交待验收 |
+| PowerGym n=0 | `powergym-volt-var-control-canary-v1` | 24 × 1小时 | 本地及Linux完整仿真通过；集群提交被SSH阻断 |
 | PowerGym n=1 | 同上 | 同上 | 同上 |
 
 `n=0` 使用原生 `terminal`，没有过程 judge；`n=1` 使用 `eval-budget --n 1`。同题两组共享 case、起始策略、资源与评分入口，终评使用截止时唯一的 `controller.py`，并校验其 SHA256；不从历史反馈中挑最佳版本。已受理的候选失败计次并记0分，基础设施失败单独记录。
@@ -38,6 +38,10 @@ PowerGym 使用真实34Bus资产、固定文件顺序打包的 profile0、显式
 | PowerGym starter | `2e1770c370a9af7e26cf2301cb6091287e9339528fb347d4a4ced2cd855b0577` |
 
 ## 原生运行包与剩余验收
+
+2026-10-15，源码 `f0f3111911ea96d285331b06858cbce888a87b2e` 的 [GitHub Linux 验收](https://github.com/aiqiuyuan/powergrid_benchmark_for_agent/actions/runs/38726605525) 七项全部通过：Python3.11/3.12/3.13 基础检查、既有 RTE 检查、配电任务文件/IPC隔离探针、MAPDN真实480步和PowerGym真实24小时Docker检查。后两项包含候选失败、重放及物理约束；公开artifact只保留布尔验收，不发布完整目标轨迹。运行清单见[机器记录](verification/distribution-linux-20261015.json)。
+
+这证明上述代码在GitHub Linux环境通过验证，尚不证明目标集群内核、模型代理和Harbor反馈计数链路已经通过。本轮两张任务卡继续标记 `release_ready=false`；原生开发环境的直接网络旁路仍需正式认证。
 
 - [MAPDN canary 包](../../task-packages/mapdn-voltage-control-canary-v1/README.md)：真实 Pandapower runner、当前局部 JSON 观测、各 PV 私有进程、因果步序、实际损耗、同一评分入口。
 - [PowerGym canary 包](../../task-packages/powergym-volt-var-control-canary-v1/README.md)：真实 OpenDSS runner、设备动作校验、24小时损耗积分、硬末SOC与独立目录。

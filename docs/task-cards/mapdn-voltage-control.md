@@ -1,6 +1,6 @@
 # MAPDN：局部信息下的光伏逆变器电压控制
 
-> **任务 ID：`mapdn-voltage-control`。状态：`design / certification-pending / release_ready=false`。** 扩展家族尚未完成正式认证。另已实现[真实33节点 canary 运行包](../../task-packages/mapdn-voltage-control-canary-v1/README.md)，完成全天本地数值校准；Linux隔离与四组 n=0/1 原生生命周期状态见[运行记录](../experiments/distribution-canary-20261015.md)。它不自动加入原五任务 × 五档 n × 三次独立开发的75-run清单。
+> **任务 ID：`mapdn-voltage-control`。状态：`design / certification-pending / release_ready=false`。** 扩展家族尚未完成正式认证。另已实现[真实33节点 canary 运行包](../../task-packages/mapdn-voltage-control-canary-v1/README.md)，通过全天本地校准与Linux完整仿真/候选隔离检查；四组 n=0/1 集群生命周期仍待执行，证据见[运行记录](../experiments/distribution-canary-20261015.md)。它不自动加入原五任务 × 五档 n × 三次独立开发的75-run清单。
 
 ## 1. 研究定位
 
