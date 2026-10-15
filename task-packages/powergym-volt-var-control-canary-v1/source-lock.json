@@ -1,0 +1,19 @@
+{
+  "repository": "https://github.com/siemens/powergym",
+  "commit": "c9fc6d8357308a1f2bd2389474b56089c2a6bd78",
+  "files": {
+    "LICENSE": "c13e2006a80c298e0e2da49a415ae4561ca12456977625a22261addad616e125",
+    "systems/34Bus/Battery.csv": "5b3b5a610296719f38b096f1c8bb8265d2c345b9244b3fd9a428a5a1c2c9e8c1",
+    "systems/34Bus/IEEE34_BusXY.csv": "6e022bbb3adb3c7f29ccb7bbdee2013517ae55e19ad25cda815616c5d4a37958",
+    "systems/34Bus/IEEELineCodes.dss": "b54774e50861c034b35836d8f93fba29b8d25d9562c216162f0c6c46a8ab9dff",
+    "systems/34Bus/Run_IEEE34Mod1.dss": "86541ae96925b41aaf59b3dd16c0b88e437181f217d4db5228ab5844a85cc3cf",
+    "systems/34Bus/Run_IEEE34Mod2.dss": "d3490cc0294d5defc8d2806f31eeee9467818e82f53abe710d6259dbef6c06b4",
+    "systems/34Bus/ieee34Mod1.dss": "a8e2448e85112e47a3da69c1a0ba1fb48f5abf67d426f5fe77b47c921eceb5b5",
+    "systems/34Bus/ieee34Mod1_daily.dss": "6bd10e63f3a4bf95aaa3b673a16621acd01d3620d81c073a609ed4fe52d8b847",
+    "systems/34Bus/ieee34Mod2.dss": "d3d9c4acd3e67f818671dff48bf10a22527443392a959952883148d3490c906d",
+    "systems/34Bus/loadshape/LoadShape1.CSV": "2150f57d6c185483a1210e9010e121a50e509e94ac21adb028c55d8be60469c8",
+    "systems/34Bus/loadshape/LoadShape2.CSV": "981d3ff3f78f57edcfafacf437a4dcfda70d1ad99ea8f8a46928a75fbff43de0",
+    "systems/34Bus/loadshape/LoadShape3.CSV": "17a5a62491f1725e9dde94388bb5fcfe1fa429413fad43d977436e3d544f62be",
+    "systems/34Bus/nmsu_linecode2_ABC.txt": "e67da49c3977f70b62ae03e612c177a5f7a7bd20b10e6d224b93c45a334c0568"
+  }
+}

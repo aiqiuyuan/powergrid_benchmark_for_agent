@@ -1,6 +1,6 @@
 # PowerGym 配电网混合设备 Volt-Var 控制
 
-> 扩展家族，状态：`design / certification-pending / release_ready=false`。2026-10-15 已完成上游源码与数据打包逻辑核查；尚未安装锁定仿真环境、运行完整 case、校准参考方法或完成原生 task runner。本文不是可启动的正式实验配置。
+> 扩展家族，状态：`design / certification-pending / release_ready=false`。2026-10-15 已另行实现[真实34Bus canary 运行包](../../task-packages/powergym-volt-var-control-canary-v1/README.md)，通过完整24小时本地校准与Linux完整仿真/候选隔离检查。四组 n=0/1 集群生命周期仍待执行，证据见[运行记录](../experiments/distribution-canary-20261015.md)。本文保留正式家族的认证要求。
 
 ## 1. 家族定位与演化对象
 
@@ -8,7 +8,7 @@
 
 演化对象是可执行控制算法：电压滞环、设备优先级、候选动作筛选、坐标搜索、短视规划、SOC-aware 规则，或具有可追溯训练流程的策略。提交源码、参数、依赖和可选权重；截止后重新执行冻结算法，不接受以保存好的动作轨迹替代算法。默认推理阶段不调用在线 LLM。
 
-这是新增的**待验收扩展家族**，没有自动加入原五任务的 75 个正式开发 run。后续增加实验需另行冻结配置和启动清单；本次新增文档与基础合同不构成提交集群实验的授权。
+这是新增的**待验收扩展家族**，没有自动加入原五任务的75个正式开发run。用户已单独授权两题各一次 n=0/1 流程校准；正式比较仍需另行冻结配置和启动清单。
 
 ## 2. 上游版本与事实边界
 
@@ -134,4 +134,4 @@ native DSS 模式和直接算法模式必须区分。默认 `dss_act=False` 关�
 5. 走原生 task 生命周期短验：n=0 无完整目标过程反馈，正 n 计数、超额拒绝、失败计费、截止冻结、唯一 artifacts 同 case 复核；记录实际防旁路覆盖。
 6. 冻结模型/资源、seed、反馈 schema/精度、release 摘要和新扩展的运行清单后，才可进入正式开发比较。
 
-**本次没有运行上述 simulator / baseline / 集群验收，也没有新分数。** 基础合同通过本地 toy 检查也不能替代这些门槛。机器声明：[powergym-volt-var-control.json](../../manifests/task-adapters/powergym-volt-var-control.json)；接入说明：[distribution-control-integration.md](../framework/distribution-control-integration.md)。
+登记后的 canary 已补上真实后端与本地完整日基线，详见[流程校准记录](../experiments/distribution-canary-20261015.md)；Linux隔离、集群生命周期及正式扩展认证仍不能由这些本地数值替代。机器声明：[powergym-volt-var-control.json](../../manifests/task-adapters/powergym-volt-var-control.json)；接入说明：[distribution-control-integration.md](../framework/distribution-control-integration.md)。

@@ -1,5 +1,7 @@
 # 配电网扩展原生 task 包
 
+另有两套真实后端流程校准包：[MAPDN 33节点](mapdn-voltage-control-canary-v1/README.md)、[PowerGym 34Bus](powergym-volt-var-control-canary-v1/README.md)。两包已完成本地完整日数值校准，Linux隔离及集群 n=0/1 状态见[运行记录](../docs/experiments/distribution-canary-20261015.md)。它们保持 `release_ready=false`，不改变正式75-run清单。
+
 这里新增两套 **`design / certification-pending / release_ready=false`** 原生任务骨架：
 
 | 家族 | 公开 starter | 当前状态 |

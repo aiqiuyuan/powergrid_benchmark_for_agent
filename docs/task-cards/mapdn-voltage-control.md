@@ -1,6 +1,6 @@
 # MAPDN：局部信息下的光伏逆变器电压控制
 
-> **任务 ID：`mapdn-voltage-control`。状态：`design / certification-pending / release_ready=false`。** 本卡新增配电网控制扩展家族，登记任务合同和实现准备项；尚未提供真实 MAPDN 运行绑定、冻结目标轨迹或有效基线成绩。它不自动加入原五任务 × 五档 n × 三次独立开发的 75-run 清单。
+> **任务 ID：`mapdn-voltage-control`。状态：`design / certification-pending / release_ready=false`。** 扩展家族尚未完成正式认证。另已实现[真实33节点 canary 运行包](../../task-packages/mapdn-voltage-control-canary-v1/README.md)，通过全天本地校准与Linux完整仿真/候选隔离检查；四组 n=0/1 集群生命周期仍待执行，证据见[运行记录](../experiments/distribution-canary-20261015.md)。它不自动加入原五任务 × 五档 n × 三次独立开发的75-run清单。
 
 ## 1. 研究定位
 
@@ -113,4 +113,4 @@ MATPOWER/MIPS 有 BSD-3-Clause 许可和 GNU Octave 路径，不天然要求商�
 - 统一条件重跑强基线并测量 CPU、内存、加载、每步与全时域成本；冻结原始指标、排名与反馈 schema。
 - 使用实际后端验证 n=0、n=1、超额拒绝、候选错误计数、共同截止、唯一 artifact 冻结和同 case 独立复核。
 
-当前只有源码审计、任务声明、基础合同与[原生包骨架](../../task-packages/mapdn-voltage-control/README.md)；`.template` 的 case、资源与私有完整运行器尚未补齐，不能直接启动。**没有已认证 scorer、完整环境 smoke test、真实基线成绩或正式扩展 run**。[机器声明](../../manifests/task-adapters/mapdn-voltage-control.json)、[接入说明](../framework/distribution-control-integration.md)
+原[家族包骨架](../../task-packages/mapdn-voltage-control/README.md)继续保留待认证状态。新 canary 已补上真实运行器、冻结完整日、物理校准与评分入口，具体版本及证据见[流程校准记录](../experiments/distribution-canary-20261015.md)；不能将本地数值证据视为 Linux 隔离、集群生命周期或正式扩展认证。[机器声明](../../manifests/task-adapters/mapdn-voltage-control.json)、[接入说明](../framework/distribution-control-integration.md)

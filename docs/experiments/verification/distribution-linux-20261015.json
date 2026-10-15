@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "scope": "real-backend Linux workflow canary; not model experiment results",
+  "source_commit": "f0f3111911ea96d285331b06858cbce888a87b2e",
+  "workflow_run_id": 38726605525,
+  "workflow_url": "https://github.com/aiqiuyuan/powergrid_benchmark_for_agent/actions/runs/38726605525",
+  "workflow_conclusion": "success",
+  "jobs": {
+    "verify (3.11)": "success",
+    "verify (3.12)": "success",
+    "verify (3.13)": "success",
+    "rte-task-package": "success",
+    "distribution-sandbox": "success",
+    "mapdn-real-backend": "success",
+    "powergym-real-backend": "success"
+  },
+  "mapdn_complete_intervals": 480,
+  "powergym_complete_intervals": 24,
+  "candidate_linux_sandbox_checked": true,
+  "cluster_model_jobs_submitted": 0,
+  "cluster_runtime_acceptance": false,
+  "release_ready": false
+}

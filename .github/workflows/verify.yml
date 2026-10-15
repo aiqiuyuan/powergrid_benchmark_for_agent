@@ -23,8 +23,8 @@ jobs:
           python -m pip install '.[verification]'
       - name: Check formatting and static issues
         run: |
-          ruff check src tests task-packages/mapdn-voltage-control task-packages/powergym-volt-var-control
-          ruff format --check src tests task-packages/mapdn-voltage-control task-packages/powergym-volt-var-control
+          ruff check src tests task-packages/mapdn-voltage-control task-packages/powergym-volt-var-control task-packages/mapdn-voltage-control-canary-v1 task-packages/powergym-volt-var-control-canary-v1
+          ruff format --check src tests task-packages/mapdn-voltage-control task-packages/powergym-volt-var-control task-packages/mapdn-voltage-control-canary-v1 task-packages/powergym-volt-var-control-canary-v1
       - name: Verify contracts and lifecycle with coverage
         run: |
           coverage run --source=powergrid_bench -m unittest discover -s tests
@@ -62,3 +62,88 @@ jobs:
       - name: Verify real Linux UID, directory, and syscall restrictions
         run: |
           sudo "$(command -v python)" task-packages/rte-maintenance-abc-x15-v1/verification/probe_linux_sandbox.py --launcher /tmp/rte-exec-probe
+
+  distribution-sandbox:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build the distribution sandbox from the shared source
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libseccomp-dev
+          cmp task-packages/mapdn-voltage-control-canary-v1/images/exec_candidate.c task-packages/powergym-volt-var-control-canary-v1/images/exec_candidate.c
+          cc -Wall -Wextra -O2 task-packages/mapdn-voltage-control-canary-v1/images/exec_candidate.c -lseccomp -o /tmp/mapdn-exec
+          sudo install /tmp/mapdn-exec /usr/local/bin/mapdn-exec
+      - name: Verify real Linux cross-actor file and IPC isolation
+        run: |
+          sudo /usr/bin/python3 task-packages/mapdn-voltage-control-canary-v1/verification/probe_sandbox.py --output work/distribution-sandbox.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: distribution-linux-sandbox
+          path: work/distribution-sandbox.json
+
+  powergym-real-backend:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Prepare the pinned OpenDSS runtime and upstream case
+        run: |
+          python -m pip install .
+          python -m pip download --only-binary=:all: --require-hashes -r task-packages/powergym-volt-var-control-canary-v1/images/requirements.lock -d work/powergym-wheels
+          python task-packages/powergym-volt-var-control-canary-v1/stage.py --wheelhouse work/powergym-wheels
+          git clone https://github.com/siemens/powergym.git work/powergym-source
+          git -C work/powergym-source checkout --detach c9fc6d8357308a1f2bd2389474b56089c2a6bd78
+          python task-packages/powergym-volt-var-control-canary-v1/prepare.py --source work/powergym-source --output task-packages/powergym-volt-var-control-canary-v1/tests/data
+      - name: Build real numerical and verifier images
+        working-directory: task-packages/powergym-volt-var-control-canary-v1
+        run: |
+          docker build -f images/Dockerfile -t powergym-canary-runtime:1 .
+          docker build -t powergym-canary-verifier:1 tests
+      - name: Verify the full day, terminal SOC, failures and isolated replays
+        run: |
+          mkdir -p work/powergym-evidence
+          if ! docker run --rm --network none -v "$PWD/work/powergym-evidence:/evidence" powergym-canary-verifier:1 python /tests/_validation/validate_runtime.py --data /tests/data --secure --output /evidence/linux-numerical-receipt.json > work/powergym-evidence/private-validation.log 2>&1; then
+            python -c 'import json; from pathlib import Path; p=Path("work/powergym-evidence/linux-numerical-receipt.json"); r=json.loads(p.read_text()) if p.exists() else {}; print(json.dumps({k:r[k] for k in ("status","error_type","infrastructure_code","launcher_returncode","launcher_stderr_class") if k in r}))'
+            exit 1
+          fi
+          python -c 'import json; from pathlib import Path; r=json.loads(Path("work/powergym-evidence/linux-numerical-receipt.json").read_text()); assert r["status"] == "passed" and r["sandbox_validated"]; Path("work/powergym-evidence/acceptance.json").write_text(json.dumps({"linux_sandbox": True, "real_backend_complete_episode": True, "candidate_failures_checked": True, "terminal_soc_checked": True}))'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: powergym-linux-numerical
+          path: work/powergym-evidence/acceptance.json
+
+  mapdn-real-backend:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Prepare the pinned numerical runtime and complete source day
+        run: |
+          python -m pip download --only-binary=:all: --require-hashes -r task-packages/mapdn-voltage-control-canary-v1/images/requirements.lock -d work/mapdn-wheels
+          python -m pip install --no-index --find-links=work/mapdn-wheels --require-hashes -r task-packages/mapdn-voltage-control-canary-v1/images/requirements.lock
+          python task-packages/mapdn-voltage-control-canary-v1/prepare.py --output work/mapdn-raw
+          python task-packages/mapdn-voltage-control-canary-v1/freeze_case.py --raw work/mapdn-raw --output work/mapdn-case
+          python task-packages/mapdn-voltage-control-canary-v1/prepare_stage.py --case work/mapdn-case --wheels work/mapdn-wheels
+      - name: Build the real numerical and verifier images
+        working-directory: task-packages/mapdn-voltage-control-canary-v1
+        run: |
+          docker build -t mapdn-canary-runtime:1 images
+          docker build -t mapdn-canary-verifier:1 tests
+      - name: Verify all 480 intervals with isolated local actors
+        run: |
+          mkdir -p work/mapdn-evidence
+          docker run --rm --network none -v "$PWD/work/mapdn-evidence:/logs/verifier" mapdn-canary-verifier:1 python /tests/_validation/validate_runtime.py --case /tests/data --candidate /tests/_reference/controller.py --output /logs/verifier/acceptance.json
+          docker run --rm --network none -v "$PWD/task-packages/mapdn-voltage-control-canary-v1/environment/app/submission:/app/submission:ro" -v "$PWD/work/mapdn-evidence:/logs/verifier" mapdn-canary-verifier:1 /tests/test.sh
+          python -c 'import json; from pathlib import Path; r=json.loads(Path("work/mapdn-evidence/reward-details.json").read_text()); assert r["evaluation_completed"] and r["valid"] and r["details"]["completed_intervals"] == 480'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mapdn-linux-numerical
+          path: work/mapdn-evidence/acceptance.json
