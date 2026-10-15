@@ -1,0 +1,28 @@
+{
+  "schema": "distribution-canary-lock-v1",
+  "task_id": "mapdn-voltage-control-canary-v1",
+  "release_ready": false,
+  "status": "local-real-backend-passed-linux-sandbox-and-cluster-acceptance-pending",
+  "purpose": "n=0/1 integration canary; not a certified hard case or 12-hour scientific run",
+  "development_seconds": 600,
+  "process_feedback_n": [
+    0,
+    1
+  ],
+  "final_evaluation": "same frozen case, independent replay, no development feedback, no extra selection",
+  "metric_name": "mapdn33_canary_quality_v1",
+  "metric_direction": "higher",
+  "reward_formula": "0.8 * bus_time_compliance + 0.2 / (1 + actual_loss_mwh); invalid=0",
+  "case_id": "mapdn33-first-complete-day-causal-v1",
+  "case_manifest_sha256": "9c4a40c3c01a9f5e4a5d93a13ecad711abf09472856d4649cf504af8886b1386",
+  "case_files_sha256": {
+    "model.p": "b9452fa9896fc709258edd4cb7c431aec2ef348a090fd4184ada21dc821d3ef3",
+    "trajectory.json": "286ab6a3037b56d1435592c284e3705d78856c00e804ae030c60df0d52dae013"
+  },
+  "horizon": 480,
+  "interval_hours": 0.05,
+  "starter_sha256": "f20d2001116be460e9190e0a7b9e8f3473affd72699c15ce857e95d23c93afff",
+  "starter": "local proportional droop gain=1 after numerical stability correction; identical n=0/1 starter",
+  "source_lock_sha256": "64ef20b92b485f54f8560f01144ed76080dcc2b03a45b357203b77cb0820d347",
+  "sandbox": "Landlock ABI>=3 plus seccomp, unique actor UID/cwd; fail closed; Linux probes required before launch"
+}

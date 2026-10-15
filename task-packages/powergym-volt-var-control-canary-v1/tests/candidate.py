@@ -1,0 +1,174 @@
+"""Run a frozen controller in a separate restricted JSONL process."""
+
+from __future__ import annotations
+
+import hashlib
+import json
+import os
+import select
+import selectors
+import shutil
+import signal
+import subprocess
+import sys
+import tempfile
+import time
+from pathlib import Path
+
+
+class CandidateError(Exception):
+    """An accepted candidate failed; this is a completed zero-score evaluation."""
+
+    def __init__(self, code: str, source_sha256: str | None = None):
+        super().__init__(code)
+        self.code = code
+        self.source_sha256 = source_sha256
+
+
+def _limits():
+    import resource
+
+    resource.setrlimit(resource.RLIMIT_CPU, (10, 10))
+    resource.setrlimit(resource.RLIMIT_AS, (512 * 1024**2, 512 * 1024**2))
+    resource.setrlimit(resource.RLIMIT_FSIZE, (1024**2, 1024**2))
+    resource.setrlimit(resource.RLIMIT_CORE, (0, 0))
+    resource.setrlimit(resource.RLIMIT_NOFILE, (64, 64))
+
+
+class Candidate:
+    def __init__(self, controller: Path, metadata: dict, *, secure: bool = True):
+        if controller.is_symlink() or not controller.is_file():
+            raise CandidateError("invalid_artifact")
+        content = controller.read_bytes()
+        self.source_sha256 = hashlib.sha256(content).hexdigest()
+        if len(content) > 1_000_000:
+            raise CandidateError("artifact_too_large", self.source_sha256)
+        self.directory = Path(tempfile.mkdtemp(prefix="powergym-candidate-"))
+        self.process = None
+        self.selector = selectors.DefaultSelector()
+        self.buffer = b""
+        self.bridge_ready = False
+        try:
+            target = self.directory / "controller.py"
+            target.write_bytes(content)
+            bridge = Path(os.environ.get("POWERGYM_BRIDGE", "/usr/local/lib/controller_bridge.py"))
+            if secure:
+                if sys.platform != "linux" or os.geteuid() != 0:
+                    raise RuntimeError("secure evaluation requires the Linux root-owned verifier")
+                os.chown(self.directory, 65534, 65534)
+                os.chown(target, 65534, 65534)
+                command = [
+                    "setpriv",
+                    "--reuid=65534",
+                    "--regid=65534",
+                    "--clear-groups",
+                    "--no-new-privs",
+                    "/usr/local/bin/exec-candidate",
+                    sys.executable,
+                    "-I",
+                    "-u",
+                    str(bridge),
+                    str(target),
+                ]
+            else:
+                bridge = Path(__file__).resolve().parents[1] / "images/controller_bridge.py"
+                command = [sys.executable, "-I", "-u", str(bridge), str(target)]
+            self.process = subprocess.Popen(
+                command,
+                stdin=subprocess.PIPE,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.DEVNULL,
+                cwd=self.directory,
+                env={
+                    "PATH": "/usr/local/bin:/usr/bin:/bin",
+                    "HOME": str(self.directory),
+                    "OPENBLAS_NUM_THREADS": "1",
+                    "OMP_NUM_THREADS": "1",
+                },
+                start_new_session=True,
+                preexec_fn=_limits if secure else None,
+            )
+            self.selector.register(self.process.stdout, selectors.EVENT_READ)
+            os.set_blocking(self.process.stdin.fileno(), False)
+            self.deadline = time.monotonic() + 30.0
+            initialization_deadline = min(self.deadline, time.monotonic() + 5.0)
+            response = self.request({"metadata": metadata}, seconds=5.0)
+            if response != {"bridge_ready": True}:
+                raise RuntimeError("trusted candidate bridge did not initialize")
+            self.bridge_ready = True
+            response = self._receive(initialization_deadline)
+            if response != {"ready": True}:
+                raise CandidateError("candidate_initialization_protocol")
+        except BaseException as exc:
+            if isinstance(exc, CandidateError):
+                exc.source_sha256 = self.source_sha256
+            self.close()
+            raise
+
+    def _failure(self, code: str):
+        if not self.bridge_ready:
+            raise RuntimeError(f"trusted sandbox/bridge startup failed: {code}")
+        raise CandidateError(code, self.source_sha256)
+
+    def request(self, message: dict, *, seconds: float = 1.0) -> dict:
+        deadline = min(self.deadline, time.monotonic() + seconds)
+        payload = memoryview((json.dumps(message, allow_nan=False) + "\n").encode())
+        while payload:
+            remaining = deadline - time.monotonic()
+            if remaining <= 0 or not select.select([], [self.process.stdin], [], remaining)[1]:
+                self._failure("candidate_timeout")
+            try:
+                written = os.write(self.process.stdin.fileno(), payload)
+            except BlockingIOError:
+                continue
+            except BrokenPipeError:
+                self._failure("candidate_exit")
+            payload = payload[written:]
+        return self._receive(deadline)
+
+    def _receive(self, deadline: float) -> dict:
+        while True:
+            if b"\n" in self.buffer:
+                line, self.buffer = self.buffer.split(b"\n", 1)
+                try:
+                    response = json.loads(line)
+                except (ValueError, UnicodeError):
+                    self._failure("candidate_malformed_json")
+                if not isinstance(response, dict):
+                    self._failure("candidate_protocol")
+                return response
+            remaining = deadline - time.monotonic()
+            if remaining <= 0 or not self.selector.select(remaining):
+                self._failure("candidate_timeout")
+            data = os.read(self.process.stdout.fileno(), 4096)
+            if not data:
+                self._failure("candidate_exit")
+            self.buffer += data
+            if len(self.buffer) > 8192:
+                self._failure("candidate_output_limit")
+
+    def act(self, observation: dict) -> object:
+        response = self.request({"observation": observation})
+        if set(response) != {"action"}:
+            self._failure("candidate_protocol")
+        return response["action"]
+
+    def close(self) -> None:
+        if self.process is not None:
+            if self.process.poll() is None:
+                try:
+                    os.killpg(self.process.pid, signal.SIGKILL)
+                except ProcessLookupError:
+                    pass
+                except PermissionError:
+                    # macOS may report EPERM for an already-exited process group.
+                    # Do not mask a real inability to terminate a live candidate.
+                    if self.process.poll() is None:
+                        self.process.kill()
+            self.process.wait(timeout=5)
+            if self.process.stdin:
+                self.process.stdin.close()
+            if self.process.stdout:
+                self.process.stdout.close()
+        self.selector.close()
+        shutil.rmtree(self.directory)

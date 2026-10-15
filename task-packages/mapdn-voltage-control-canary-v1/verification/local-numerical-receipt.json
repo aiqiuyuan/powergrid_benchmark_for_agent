@@ -1,0 +1,101 @@
+{
+  "status": "local-numerical-passed",
+  "backend": "pandapower 3.3.0; Python 3.12 macOS ARM64",
+  "secure_execution": false,
+  "linux_sandbox_validated": false,
+  "formal_n_runs_submitted": false,
+  "case_manifest_sha256": "9c4a40c3c01a9f5e4a5d93a13ecad711abf09472856d4649cf504af8886b1386",
+  "source_and_case": "source-lock.json and canary-lock.json; raw data retained only in ignored trusted work",
+  "baseline": {
+    "zero_q": {
+      "valid": true,
+      "reward": 0.8335003025719395,
+      "completed_intervals": 480,
+      "pf_calls": 960,
+      "candidate_sha256": "5fd068de82d431a5d755aade5bfbb0def12570b442b28f507fad8c9ff21677ca",
+      "metrics": {
+        "all_bus_time_compliance": 0.70625,
+        "bus_time_compliance": 0.9287247474747474,
+        "actual_loss_mwh": 1.2094441574441126,
+        "voltage_violation_pu_hours": 0.3217604523628851,
+        "worst_undervoltage_pu": 0.015422006662124899,
+        "worst_overvoltage_pu": 0.0,
+        "max_power_balance_residual_mw": 2.2849134806435245e-09,
+        "q_effort_mvar_hours": 0.0
+      },
+      "wall_seconds": 9.395102333975956,
+      "peak_rss": 156860416,
+      "peak_rss_unit": "bytes",
+      "step_metrics_sha256": "75d7f2d8f3803337241dc886c7ed6eeff21e0c452edaae1c488115336064918f"
+    },
+    "droop": {
+      "valid": true,
+      "reward": 0.8757219416892467,
+      "completed_intervals": 480,
+      "pf_calls": 960,
+      "candidate_sha256": "f20d2001116be460e9190e0a7b9e8f3473affd72699c15ce857e95d23c93afff",
+      "metrics": {
+        "all_bus_time_compliance": 0.8708333333333333,
+        "bus_time_compliance": 0.9742424242424242,
+        "actual_loss_mwh": 1.0762394655177372,
+        "voltage_violation_pu_hours": 0.033042896654010744,
+        "worst_undervoltage_pu": 0.003992277520923571,
+        "worst_overvoltage_pu": 0.0,
+        "max_power_balance_residual_mw": 9.963388447609134e-10,
+        "q_effort_mvar_hours": 5.514188885579072
+      },
+      "wall_seconds": 9.538797791989055,
+      "peak_rss": 159580160,
+      "peak_rss_unit": "bytes",
+      "step_metrics_sha256": "77f34af2b3164ccb4e39ab271c32895fbcb9b3b95718ad64302deba1695ff64d"
+    },
+    "droop_replay": {
+      "valid": true,
+      "reward": 0.8757219416892467,
+      "completed_intervals": 480,
+      "pf_calls": 960,
+      "candidate_sha256": "f20d2001116be460e9190e0a7b9e8f3473affd72699c15ce857e95d23c93afff",
+      "metrics": {
+        "all_bus_time_compliance": 0.8708333333333333,
+        "bus_time_compliance": 0.9742424242424242,
+        "actual_loss_mwh": 1.0762394655177372,
+        "voltage_violation_pu_hours": 0.033042896654010744,
+        "worst_undervoltage_pu": 0.003992277520923571,
+        "worst_overvoltage_pu": 0.0,
+        "max_power_balance_residual_mw": 9.963388447609134e-10,
+        "q_effort_mvar_hours": 5.514188885579072
+      },
+      "wall_seconds": 9.670393750013318,
+      "peak_rss": 161497088,
+      "peak_rss_unit": "bytes",
+      "step_metrics_sha256": "77f34af2b3164ccb4e39ab271c32895fbcb9b3b95718ad64302deba1695ff64d"
+    }
+  },
+  "checks": {
+    "all_real_480_steps": true,
+    "exact_step_metric_replay": true,
+    "distinct_controller_physical_response": true,
+    "power_balance_crosscheck": true,
+    "invalid_candidate_zero_reward": true
+  },
+  "invalid_candidate": {
+    "valid": false,
+    "reward": 0.0,
+    "completed_intervals": 0,
+    "error": "CandidateError: controller closed its response channel",
+    "candidate_sha256": "0b14d7b51866b104d88c014aa49358c7db949f45446ce8da54061cbb1d7f40fb"
+  },
+  "optional_backend_tests": {
+    "passed": 7,
+    "skipped": 0
+  },
+  "offline_linux_wheels": {
+    "count": 23,
+    "require_hashes_offline_resolution": "passed"
+  },
+  "remaining_acceptance": [
+    "Linux build and Landlock/IPC negative probes",
+    "real secure 480-step Docker run and failure/replay acceptance",
+    "native framework n=0/1 experiment submission and independent final artifact reconciliation"
+  ]
+}

@@ -1,0 +1,179 @@
+{
+  "status": "passed",
+  "platform": "macOS-15.7.3-arm64-arm-64bit",
+  "python": "3.12.14",
+  "dependencies": {
+    "dss-python": "0.15.7",
+    "dss-python-backend": "0.14.5",
+    "numpy": "1.26.4",
+    "cffi": "2.1.1",
+    "pycparser": "3.11",
+    "typing_extensions": "4.16.0"
+  },
+  "sandbox_validated": false,
+  "starter": {
+    "case_id": "34Bus-explicit-order-profile-000-energy-neutral-v1",
+    "track": "powergym-energy-neutral-canary-v1",
+    "valid": true,
+    "evaluation_completed": true,
+    "error": null,
+    "reward": 0.034642922176222585,
+    "cost": 27.86592519283368,
+    "active_loss_kwh": 2750.212172734736,
+    "voltage_violation_pu_hours": 20.933894838280764,
+    "phase_time_compliance": 0.5662280701754386,
+    "min_voltage_pu": 0.9318537740666583,
+    "max_voltage_pu": 1.212462480448133,
+    "capacitor_switches": 0,
+    "tap_moves": 138,
+    "battery_throughput_kwh": 0.0,
+    "initial_soc": [
+      1.0,
+      1.0
+    ],
+    "final_soc": [
+      1.0,
+      1.0
+    ],
+    "terminal_energy_error_kwh": [
+      0.0,
+      0.0
+    ],
+    "completed_steps": 24,
+    "all_power_flows_converged": true,
+    "wall_seconds": 0.05432545795338228,
+    "candidate_sha256": "2e1770c370a9af7e26cf2301cb6091287e9339528fb347d4a4ced2cd855b0577",
+    "sandbox": "local-numerical-only"
+  },
+  "hold_idle": {
+    "case_id": "34Bus-explicit-order-profile-000-energy-neutral-v1",
+    "track": "powergym-energy-neutral-canary-v1",
+    "valid": true,
+    "evaluation_completed": true,
+    "error": null,
+    "reward": 0.013697896797816491,
+    "cost": 72.00390817365515,
+    "active_loss_kwh": 3548.8587868804266,
+    "voltage_violation_pu_hours": 68.45504938677472,
+    "phase_time_compliance": 0.2149122807017544,
+    "min_voltage_pu": 0.9754344786075962,
+    "max_voltage_pu": 1.2351501892268408,
+    "capacitor_switches": 0,
+    "tap_moves": 0,
+    "battery_throughput_kwh": 0.0,
+    "initial_soc": [
+      1.0,
+      1.0
+    ],
+    "final_soc": [
+      1.0,
+      1.0
+    ],
+    "terminal_energy_error_kwh": [
+      0.0,
+      0.0
+    ],
+    "completed_steps": 24,
+    "all_power_flows_converged": true,
+    "wall_seconds": 0.04291733301943168,
+    "candidate_sha256": "a0511bcc9e198cc8f6d9fc9d756c0288215e8f3a17c7771c0318610798545b8d",
+    "sandbox": "local-numerical-only"
+  },
+  "voltage_rule": {
+    "case_id": "34Bus-explicit-order-profile-000-energy-neutral-v1",
+    "track": "powergym-energy-neutral-canary-v1",
+    "valid": true,
+    "evaluation_completed": true,
+    "error": null,
+    "reward": 0.034642922176222585,
+    "cost": 27.86592519283368,
+    "active_loss_kwh": 2750.212172734736,
+    "voltage_violation_pu_hours": 20.933894838280764,
+    "phase_time_compliance": 0.5662280701754386,
+    "min_voltage_pu": 0.9318537740666583,
+    "max_voltage_pu": 1.212462480448133,
+    "capacitor_switches": 0,
+    "tap_moves": 138,
+    "battery_throughput_kwh": 0.0,
+    "initial_soc": [
+      1.0,
+      1.0
+    ],
+    "final_soc": [
+      1.0,
+      1.0
+    ],
+    "terminal_energy_error_kwh": [
+      0.0,
+      0.0
+    ],
+    "completed_steps": 24,
+    "all_power_flows_converged": true,
+    "wall_seconds": 0.04319437500089407,
+    "candidate_sha256": "699c0390cb150ac505d2261e885608184f3801abcc8332720b10f92e7d9c5d2d",
+    "sandbox": "local-numerical-only"
+  },
+  "drain_battery_rejected": {
+    "case_id": "34Bus-explicit-order-profile-000-energy-neutral-v1",
+    "track": "powergym-energy-neutral-canary-v1",
+    "valid": false,
+    "evaluation_completed": true,
+    "error": "terminal_energy_violation",
+    "reward": 0.0,
+    "cost": 94.75541058960285,
+    "active_loss_kwh": 4837.218318607293,
+    "voltage_violation_pu_hours": 89.91819227099555,
+    "phase_time_compliance": 0.17982456140350878,
+    "min_voltage_pu": 0.9754344786075962,
+    "max_voltage_pu": 1.5849257642226267,
+    "capacitor_switches": 0,
+    "tap_moves": 0,
+    "battery_throughput_kwh": 7995.88351343667,
+    "initial_soc": [
+      1.0,
+      1.0
+    ],
+    "final_soc": [
+      0.0025,
+      0.0
+    ],
+    "terminal_energy_error_kwh": [
+      3990.0,
+      4000.0
+    ],
+    "completed_steps": 24,
+    "all_power_flows_converged": true,
+    "wall_seconds": 0.04845900001237169,
+    "candidate_sha256": "cc78fbf4a16abe2a965a7ba769567c1b17847f816d8c435411a3f38e432520a5",
+    "sandbox": "local-numerical-only"
+  },
+  "invalid_action_rejected": true,
+  "candidate_failure_feedback": {
+    "timeout": {
+      "evaluation_completed": true,
+      "reward": 0,
+      "error": "candidate_timeout",
+      "candidate_sha256": "093dd53254a75ef64cf9a30b61fe4a36d4d48103f5cda591d42cca75c45b6736"
+    },
+    "crash": {
+      "evaluation_completed": true,
+      "reward": 0,
+      "error": "candidate_exit",
+      "candidate_sha256": "db3a8f374be19e96c656da8555b25e11b0d81af4fb0a2d177e37a2c2cfdf6c36"
+    },
+    "malformed_json": {
+      "evaluation_completed": true,
+      "reward": 0,
+      "error": "candidate_malformed_json",
+      "candidate_sha256": "fb60d785c372f57e31044ec296975df5df32fae8b0d3c4d76b2b55c04194d325"
+    },
+    "import_crash": {
+      "evaluation_completed": true,
+      "reward": 0,
+      "error": "candidate_exit",
+      "candidate_sha256": "31a027d460bc30b3a92d5a213d4b9c302d0a0210fffcf5a1bb66f48a4f1e51c8"
+    }
+  },
+  "parallel_replays_equal": true,
+  "explicit_load_row_and_tap_checks": true
+}
