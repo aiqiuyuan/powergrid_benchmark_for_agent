@@ -19,17 +19,18 @@
 | 公开task包测试 | 22通过；精确验证依赖，真实小型solver／官方checker／多进程，无需能源大数据 |
 | eval-in-loop原生静态契约 | 12项通过 |
 | 两agent × 五个n档静态计划 | 10份通过；T、次数、资源、超时、egress及关闭snapshot均核对，无真实模型请求 |
+| GitHub CI | Python3.11／3.12／3.13基础套件、RTE包和实际Linux权限／seccomp小例均通过；[运行记录](https://github.com/aiqiuyuan/powergrid_benchmark_for_agent/actions/runs/38714329430) |
 | 数据 | 60例源归档／结构／哈希与scale完成；开发45、保护15严格分开 |
 
-已增加真实Linux权限／seccomp小例探针并接入GitHub CI，执行结果以对应CI运行记录为准。以上本地进程集成使用非安全测试模式；静态seccomp规则检查不等于实际Linux隔离已验证。完整数据核验不等于完整规模求解成功。
+本地进程集成使用非安全测试模式；另外，GitHub Ubuntu上实际C启动器已验证UID／GID、8GiB地址空间、CPU绑定、目录权限及fork／网络／扩核拒绝。上述CI验证对应源码`3f10b4a9f944c2d3798ef430e13c7bc6ff4a2320`，未执行Docker／Harbor或完整X15。完整数据核验不等于完整规模求解成功。
 
 ## 当前不能声称已完成的部分
 
-尚未提交15核资源申请、12小时开发run或真实模型实验。完整X15并行资源峰值、checker耗时、候选8GiB上限、starter全例可行性和Linux隔离仍需部署验收。开发32GiB、verifier128GiB是初始试配；外层示例另含系统开销，不是已获批配额。
+尚未提交15核资源申请、12小时开发run或真实模型实验。完整X15并行资源峰值、checker耗时、候选8GiB上限、starter全例可行性和目标Harbor环境的Linux隔离仍需部署验收。开发32GiB、verifier128GiB是初始试配；外层示例另含系统开销，不是已获批配额。
 
 X原本公开且有既往使用记录；网络黑名单为尽力限制，正式研究须核验实际通道。当前已核查的Codex安装流程会访问被封禁GitHub域，须在构建／后端准备阶段预装CLI后启动；模型profile、CLI版本和实际镜像digest也须锁定。原生续跑余量和实际开发时长需统一记录，不把计划生成成功当端到端验收。
 
-现阶段状态是**可审查、可重建的任务包已准备，本地测试通过；正式运行认证待完成**，`release_ready=false`。下一步直接做Linux／Harbor小例与整X15资源验收，再冻结配置、提交RTE的15次正式开发实验；不新增实验平台。
+现阶段状态是**可审查、可重建的任务包已准备，本地测试与远端CI通过；正式运行认证待完成**，`release_ready=false`。下一步直接做Linux／Harbor小例与整X15资源验收，再冻结配置、提交RTE的15次正式开发实验；不新增实验平台。
 
 ## 文件入口
 

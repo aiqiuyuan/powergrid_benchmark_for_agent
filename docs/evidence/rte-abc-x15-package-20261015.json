@@ -77,10 +77,37 @@
       "claude-code"
     ],
     "static_model_endpoint": "invalid-placeholder-no-model-call",
-    "linux_sandbox_measured": false,
     "full_X15_energy_run": false,
     "cluster_jobs_submitted": 0,
-    "model_calls": 0
+    "model_calls": 0,
+    "target_harbor_sandbox_accepted": false,
+    "github_actions": {
+      "status": "passed",
+      "source_commit": "3f10b4a9f944c2d3798ef430e13c7bc6ff4a2320",
+      "workflow_url": "https://github.com/aiqiuyuan/powergrid_benchmark_for_agent/actions/runs/38714329430",
+      "jobs": [
+        "verify (3.11)",
+        "verify (3.12)",
+        "verify (3.13)",
+        "rte-task-package"
+      ],
+      "linux_probe": {
+        "passed": true,
+        "scope": "GitHub-hosted-Ubuntu-synthetic-candidate-real-C-launcher",
+        "checks": [
+          "UID-and-GID-drop",
+          "RLIMIT_AS-and-NPROC-and-CORE",
+          "single-CPU-affinity",
+          "own-input-output",
+          "output-parent-rename-denied",
+          "sched_setaffinity-EPERM",
+          "fork-EPERM",
+          "socket-EPERM",
+          "external-directory-unchanged"
+        ],
+        "Docker_Harbor_or_full_X15": false
+      }
+    }
   },
   "fixed_issues": [
     "parallel-workers-bound-to-same-CPU",
@@ -94,7 +121,7 @@
     "freeze-cli-unnecessary-numpy-dependency"
   ],
   "pending": [
-    "Linux-seccomp-permission-affinity-acceptance",
+    "target-Harbor-image-seccomp-permission-affinity-acceptance",
     "15-CPU-full-panel-resource-and-timeout-calibration",
     "starter-full-X15-feasibility",
     "runtime-network-and-mount-audit",
