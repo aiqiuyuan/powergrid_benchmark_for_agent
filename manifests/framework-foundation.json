@@ -2,7 +2,7 @@
   "schema_version": "foundation-status-v1",
   "package": "powergrid-benchmark-foundation",
   "version": "0.2.0",
-  "status": "local-reference-tested",
+  "status": "scoped-rte-harbor-model-canary-passed",
   "benchmark_release_ready": false,
   "research_configuration_values_decided": false,
   "configuration_field_count": 49,
@@ -37,9 +37,45 @@
   "target_concurrency_batch_certified": false,
   "validation_report": "docs/evidence/framework-validation-20261015.json",
   "completion_report": "docs/completion-step3-20261015.md",
-  "real_task_integration_scope": "trusted-local-rte-calibration-only",
+  "real_task_integration_scope": "trusted-local-and-scoped-Harbor-original-A-set-calibration",
   "protected_delivery_transport": "explicit-client-ACK-durable-receipt",
-  "real_model_acceptance_status": "blocked-remote-relay",
+  "real_model_acceptance_status": "passed-scoped-rte-n0-n1-canary",
   "additional_validation_report": "docs/evidence/rte-lifecycle-acceptance-20261015.json",
-  "additional_completion_report": "docs/completion-step3-live-20261015.md"
+  "additional_completion_report": "docs/completion-step3-live-20261015.md",
+  "latest_validation_report": "docs/evidence/harbor-cluster-acceptance-20261015.json",
+  "latest_completion_report": "docs/completion-step3-cluster-20261015.md",
+  "certification_scope_note": "Paired RTE model-backed Harbor canaries passed; broad certification flags remain false pending fault matrix, in-flight restart, hostile-candidate and target-concurrency acceptance.",
+  "scoped_cluster_acceptance": {
+    "task_id": "rte-maintenance",
+    "passed": true,
+    "protected_feedback_budgets": [
+      0,
+      1
+    ],
+    "successful_model_calls": [
+      5,
+      8
+    ],
+    "protected_accepted_completed_explicit_ack": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        1
+      ]
+    ],
+    "actual_container_stop_before_deadline": true,
+    "frozen_checkpoint_independent_final_passed": true,
+    "completed_state_reopen_audited": true,
+    "full_inflight_restart_certified": false,
+    "cross_node_sqlite_wal_certified": false,
+    "unchanged_starter_selected": true,
+    "algorithm_improvement_claim_allowed": false,
+    "configuration_is_acceptance_only": true,
+    "private_runtime_binding_included": false
+  }
 }

@@ -1,5 +1,7 @@
 # 第三步追加完成说明：真实题目集成与正式实验验收进度
 
+> **历史快照提示（2026-10-15 更新）：本文保留 relay 恢复前的交付状态。** 下文“远端尚未提交／连接阻塞”描述的是当时情况，不代表当前进度。随后 RTE 真实模型／Harbor n=0、n=1 canary 已通过，详见[实际集群完成说明](completion-step3-cluster-20261015.md)与[机器证据](evidence/harbor-cluster-acceptance-20261015.json)。两组均选择未修改 starter；完成后记录重开已检查，开发中完整会话／Pod 恢复、跨节点 WAL、完整五任务及 benchmark 生产认证仍未完成。本文历史正文不作回写。
+
 日期：2026-10-15。对应目标：**Consolidate the framework around one reliable experiment lifecycle**。
 
 本轮将三类模块的合同进一步落实到公开基础框架、真实 RTE 算法适配和私有 Harbor 接桥。真实 RTE 的本地 n=0/n=1 生命周期已经跑通；**实际远端 Harbor／模型实验尚未提交，因此第三步的生产验收尚未完成。** 四个已配置远端通道均在 relay／SSH 连接阶段失败，本机没有 Docker 或集群执行环境。本文区分已经取得的证据与仍需执行的检查。

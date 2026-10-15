@@ -131,3 +131,5 @@ v0.1的`Public development / Public selection / Protected feedback / Final test`
 | 发布条件 | 必需嵌套文件完备性、原checker parity、30例完整重评、15/90快照及seed语义、许可审计与独立泛化面板 |
 
 **就绪状态：`design / certification-pending / release_ready=false`。** 已准备/启动的重评不等于完成；旧A4验收也不替新冻结包签证。15/90分钟和原2 CPU/16 GB是历史协议参照，开发`T/n/资源/重复`仍不定值。详见[Adapter执行合同](../framework/task-adapters.md#5-rte风险目标求解与cx历史记录)与[机器声明](../../manifests/task-adapters/rte-maintenance.json)。
+
+**2026-10-15集成证据更新：** A07／A09／A08／A12校准面板已通过真实Harbor与模型的n=0、n=1配对canary，验证公共选择、受保护反馈／显式ACK、共同截止前容器停止、算法冻结与独立原checker终评。两组均选择未修改starter；T=180秒与每例10秒只用于接口验收，不是原赛15／90分钟复现或正式研究配置。完整C+X、强基线同平台重评、许可／随机化审计与新泛化面板仍待验收，任务认证状态保持不变。[中文结果与修复说明](../completion-step3-cluster-20261015.md)、[脱敏机器证据](../evidence/harbor-cluster-acceptance-20261015.json)。

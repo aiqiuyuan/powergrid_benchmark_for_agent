@@ -1,0 +1,48 @@
+{
+  "schema_version": "cluster-publication-validation-v1",
+  "date": "2026-10-15",
+  "status": "passed",
+  "scope": "public documentation/status/sanitized evidence; actual cluster proof separately hashed",
+  "public_runtime_basis_commit": "2ea86ad62240474ce3c0e26911b399549de1341f",
+  "package_version": "0.2.0",
+  "benchmark_release_certified": false,
+  "public_source_tests_and_research_configs_unchanged": true,
+  "current_local_test_run": {
+    "passed": 84,
+    "failed": 0,
+    "duration_seconds": 4.466,
+    "python": "3.12.14"
+  },
+  "unchanged_code_prior_coverage": {
+    "source_report": "framework-integration-validation-20261015.json",
+    "rounded_percent": 88,
+    "statements": 1576,
+    "missed": 191,
+    "rerun_this_publication": false
+  },
+  "private_overlay_tests": {
+    "passed": 23,
+    "failed": 0,
+    "independently_reviewed": true
+  },
+  "independent_publication_review": {
+    "decision": "approved",
+    "blocking_findings_remaining": 0
+  },
+  "repository_checks": {
+    "files": 73,
+    "markdown_files": 29,
+    "json_files": 17,
+    "relative_links": 255,
+    "anchors": 22,
+    "preserved_task_cards": 5
+  },
+  "historical_task_card_baseline": "9b20d75",
+  "privacy_scan": "passed",
+  "actual_evidence_and_private_source_hashes_verified": true,
+  "actual_live_claim_assertions": "passed",
+  "research_configuration_values_decided": false,
+  "configuration_fields": 49,
+  "new_remote_commit_and_ci": "verify after push; no prior CI result is attributed to an unpublished commit",
+  "errors": []
+}
