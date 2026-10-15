@@ -222,6 +222,8 @@ UC为核心、SCUC为扩展的家族定位已确定。当前缺口是固定case�
 
 已新增可信快照接收、独立验解、PAR2/Reward和失败处理代码，以及截止/崩溃/非法排程/链接文件/冻结源码/终评精度的本地回归。完整原始用例在macOS可信本地模式下从执行源码到达标快照约52.05秒、独立验解约0.03秒，成本由Python重新计算。它没有使用Linux隔离，不是目标集群速度结果。Linux启动器限制跨次可写缓存；目标内核必须支持Landlock ABI≥3，不支持时拒绝评分。
 
+[准备验收记录](../evidence/uc-speed-canary-local-20261015.json)区分本地功能、Linux CI与部署状态。[GitHub CI](https://github.com/aiqiuyuan/powergrid_benchmark_for_agent/actions/runs/38725368338)已通过新评分测试和实际Linux启动器编译/权限/线程/目录写限制探针；原有Python 3.11/3.12/3.13及RTE回归也通过。它不包含真实Julia容器或Harbor部署认证。
+
 **尚未提交n=0/1作业。** 当前集群登录入口断开或超时，且本地无Docker可代替完成容器验收。发布前仍须通过实际Julia/HiGHS容器运行、内存/OOM分类、无模型Harbor端到端测试、n=0无评分通道、n=1单次计数/幂等重试/取回、截止冻结与迟到反馈隔离，以及无累计token cap的真实模型API验收。历史带token cap的网关不能直接复用。现有原生计数器也不能自动证明全部新合同已满足。
 
 所有作业必须使用新CFS和新`fm-job --cluster dev`，不接受异常主机指纹，不修改历史冻结批次。准备档保持`executable=false`与空作业回执；本地测试通过、GitHub发布或Linux单项CI通过均不能写成实验已启动。流程小测及主实验科学校准通过后，才进入主实验。

@@ -1,0 +1,62 @@
+{
+  "date": "2026-10-15",
+  "status": "preparation-only-not-submitted",
+  "task_package": "pglib-uc-speed-canary-v1",
+  "development_model_calls": 0,
+  "local_functional_execution": {
+    "system": "macOS-arm64",
+    "julia": "1.10.11",
+    "highs": "1.15.1",
+    "secure_linux": false,
+    "target_cluster_calibration": false,
+    "feedback": {
+      "status": "qualified-hit",
+      "feasible": true,
+      "target_hit": true,
+      "penalized_seconds": 52.046,
+      "reference_gap": 9.9e-05,
+      "reward": 0.9132566666666666,
+      "failure_category": null
+    },
+    "execution": [
+      {
+        "candidate_wall_seconds": 52.067863249976654,
+        "checker_seconds": 0.028405749995727092,
+        "snapshots_received": 1,
+        "status": "OK"
+      }
+    ]
+  },
+  "verification": {
+    "foundation_tests": 84,
+    "uc_speed_tests": 17,
+    "foundation_coverage_percent": 88,
+    "build": "passed",
+    "ruff": "passed",
+    "independent_code_review": "no-unresolved-critical-or-high-for-preparation"
+  },
+  "linux_ci": {
+    "tested_head_sha": "eb7f8fe0a795cc228d5d52266a1492f9c405dc9a",
+    "run_id": 38725368338,
+    "url": "https://github.com/aiqiuyuan/powergrid_benchmark_for_agent/actions/runs/38725368338",
+    "uc_scoring_and_real_launcher": "passed",
+    "foundation_python_versions": [
+      "3.11",
+      "3.12",
+      "3.13"
+    ],
+    "rte_regression": "passed",
+    "certifies_julia_harbor_or_target_cluster": false
+  },
+  "deployment": {
+    "submitted": false,
+    "job_receipts": [],
+    "blockers": [
+      "verified-cluster-login",
+      "pinned-runtime-image-build",
+      "real-julia-highs-under-target-sandbox",
+      "native-budget-and-freeze-acceptance",
+      "time-only-model-bridge-and-real-api-acceptance"
+    ]
+  }
+}
