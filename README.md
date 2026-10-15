@@ -4,6 +4,8 @@
 
 **当前个人开发范围：直接复用 eval-in-loop 做小规模测试，只修阻断运行或导致错误结果的具体问题。** 原框架负责启动、Harbor、agent、反馈和既有记录；个人侧整理已有 task、原生配置和结果。独立基础包保留为参考，不要求迁移五任务、补齐49字段或完成生产故障矩阵才能小测。详见[精简设计决定](docs/decisions/0004-minimal-local-testing.md)。下文基础包与集群验收记录保留其原有适用范围。
 
+**当前工作重点：先定公平设置，再建设task。** [公平比较清单](docs/framework/fair-ranking.md)列出38项通用设置、五任务特殊项、已约定政策与待核对／待校准选择；[原生task包说明](docs/framework/native-task-package.md)明确提交目录、配置、评分入口和算法产物的区别。数值尚未代定，本次只更新文档；既有UC／HEFTCom评分仍需实际执行源码才能支持算法泛化比较。
+
 **当前状态：Benchmark `v0.1-design` + 基础框架 `0.2.0`。更新：2026-10-15。** 前两步的研究契约、任务卡与评测规范已完成。第三步新增统一实验生命周期的独立参考实现、配置校验、算法提交 ABI、持久账本、快照／冻结、恢复及可运行的低成本验收夹具。Unix socket broker 与 RTE 原生适配已经通过实际集群上的 **Harbor／真实模型 n=0、n=1 配对 canary 验收**，包括公共选择、受保护反馈／ACK、共同截止、产物冻结和独立终评。完整故障演练、五任务生产认证与目标并发仍待完成；没有发布正式能源榜单。
 
 三类模块已经整理为明确接口：**Configuration列出需决定的49个字段，数值保持待定；Task adapters逐任务明确可执行提交、公平排行路线和缺少条件；Reliability extensions把历史故障归入共同生命周期，并区分已有本地实现与外部部署验收。**
@@ -25,7 +27,9 @@
 | 这次完成了哪些工作、核查了什么 | [中文完成说明](docs/completion-20261014.md) |
 | 第三步如何拆分、哪些来自底座、哪些属于新基础层 | [统一生命周期与模块边界](docs/framework/architecture.md) |
 | 完整研究配置有哪些参考字段（个人小测沿用原生配置） | [Configuration字段与责任](docs/framework/configuration.md)、[待定模板](configs/experiment.template.json)、[机器字段目录](configs/configuration-catalog.json) |
-| 每个task怎么交算法，选择哪种排行、目前具备哪些条件 | [公平排行路线](docs/framework/fair-ranking.md)、[Task Adapter合同](docs/framework/task-adapters.md)、五张任务卡§10 |
+| 公平比较有哪些设置要决定、如何决定每task的最小实现 | [公平设置与五任务路线](docs/framework/fair-ranking.md)、[Task Adapter参考合同](docs/framework/task-adapters.md)、五张任务卡§10 |
+| 提交给eval-in-loop的task需要整理成什么目录与文件 | [原生task包、artifacts及评分入口](docs/framework/native-task-package.md) |
+| 本轮公平设置与task提交格式完成了什么、发现哪些未决问题 | [中文完成说明](docs/completion-task-settings-20261015.md) |
 | 过去的失败如何变成统一保障与验收 | [可靠性保障层](docs/framework/reliability-layer.md)、[分层验收](docs/framework/acceptance.md) |
 | 最新真实集群实验：设置、结果、修复与剩余边界 | [中文集群验收完成说明](docs/completion-step3-cluster-20261015.md)、[脱敏机器证据](docs/evidence/harbor-cluster-acceptance-20261015.json) |
 | RTE本地适配与Harbor部署合同 | [RTE适配](docs/framework/rte-integration-acceptance.md)、[Harbor验收](docs/framework/harbor-live-acceptance.md)、[relay恢复前历史说明](docs/completion-step3-live-20261015.md) |
