@@ -1,0 +1,204 @@
+{
+  "updated_at": "2026-10-15T10:57:32.118025+00:00",
+  "task": "rte-maintenance-abc-x15-v1",
+  "status": "blocked_relay_authentication",
+  "release_ready": false,
+  "formal_submissions": 0,
+  "server_job_ids": [],
+  "blocking_evidence": {
+    "error": "token invalid",
+    "stage": "relay authentication / SSH handshake",
+    "requires": "local relay reauthentication"
+  },
+  "configuration": {
+    "n": [
+      0,
+      1,
+      3,
+      5,
+      10
+    ],
+    "repetitions": 3,
+    "development_seconds": 43200,
+    "aggregate_token_limit": null,
+    "output_token_override": null,
+    "solver_seed": 2020,
+    "public_cases": 45,
+    "protected_cases": 15,
+    "feedback_seconds_per_case": 900,
+    "final_seconds_per_case": 5400,
+    "parallel_workers": 15,
+    "developer": {
+      "cpus": 2,
+      "memory_mb": 32768
+    },
+    "verifier": {
+      "cpus": 15,
+      "memory_mb": 131072
+    },
+    "candidate_address_space_bytes": 8589934592,
+    "pod": {
+      "cpus": 21,
+      "memory_mb": 172032
+    },
+    "resource_validation": "pending_real_full_panel"
+  },
+  "clients": {
+    "framework_commit": "c1fffbf839c449d7d35952da37664b5a67ea3df6",
+    "harbor": "0.20.0",
+    "claude_code": "2.1.280",
+    "claude_sha256": "1e08503dbdf3c2cb0d706d32f3408277388d1c76ef108673e8fe42c1b322925b",
+    "request_model": "bedrock/gpt-5.6-sol",
+    "expected_response_model": "global.openai.gpt-5.6-sol",
+    "model_validation_this_batch": "pending",
+    "thinking": false,
+    "prompt_caching": false
+  },
+  "checks": {
+    "public_portable_task": {
+      "passed": true,
+      "tests": 23,
+      "scope": "synthetic official-schema process/checker integration, not real X15"
+    },
+    "batch_local_tests": {
+      "passed": true,
+      "tests": 28,
+      "scope": "native plan, receipts, microtask fixtures, resource/freeze and full-panel gates; no server/model calls"
+    },
+    "source_review": {
+      "passed": true,
+      "scope": "task diagnostics, batch/runtime, full-panel gates, microtask/network probe and submission helpers",
+      "limitation": "sampling is not exhaustive; real server gates pending"
+    },
+    "server_full_panel": {
+      "passed": null,
+      "status": "not_started"
+    },
+    "native_n0_n1_canaries": {
+      "passed": null,
+      "status": "not_started"
+    },
+    "egress_probe": {
+      "passed": null,
+      "status": "not_started"
+    },
+    "private_framework_tests": {
+      "passed": true,
+      "tests": 547,
+      "skipped": 5,
+      "seconds": 43.25
+    }
+  },
+  "roles": [
+    {
+      "role": "n0-r1",
+      "n": 0,
+      "repeat": 1,
+      "status": "not_submitted",
+      "job_id": null
+    },
+    {
+      "role": "n1-r1",
+      "n": 1,
+      "repeat": 1,
+      "status": "not_submitted",
+      "job_id": null
+    },
+    {
+      "role": "n3-r1",
+      "n": 3,
+      "repeat": 1,
+      "status": "not_submitted",
+      "job_id": null
+    },
+    {
+      "role": "n5-r1",
+      "n": 5,
+      "repeat": 1,
+      "status": "not_submitted",
+      "job_id": null
+    },
+    {
+      "role": "n10-r1",
+      "n": 10,
+      "repeat": 1,
+      "status": "not_submitted",
+      "job_id": null
+    },
+    {
+      "role": "n0-r2",
+      "n": 0,
+      "repeat": 2,
+      "status": "not_submitted",
+      "job_id": null
+    },
+    {
+      "role": "n1-r2",
+      "n": 1,
+      "repeat": 2,
+      "status": "not_submitted",
+      "job_id": null
+    },
+    {
+      "role": "n3-r2",
+      "n": 3,
+      "repeat": 2,
+      "status": "not_submitted",
+      "job_id": null
+    },
+    {
+      "role": "n5-r2",
+      "n": 5,
+      "repeat": 2,
+      "status": "not_submitted",
+      "job_id": null
+    },
+    {
+      "role": "n10-r2",
+      "n": 10,
+      "repeat": 2,
+      "status": "not_submitted",
+      "job_id": null
+    },
+    {
+      "role": "n0-r3",
+      "n": 0,
+      "repeat": 3,
+      "status": "not_submitted",
+      "job_id": null
+    },
+    {
+      "role": "n1-r3",
+      "n": 1,
+      "repeat": 3,
+      "status": "not_submitted",
+      "job_id": null
+    },
+    {
+      "role": "n3-r3",
+      "n": 3,
+      "repeat": 3,
+      "status": "not_submitted",
+      "job_id": null
+    },
+    {
+      "role": "n5-r3",
+      "n": 5,
+      "repeat": 3,
+      "status": "not_submitted",
+      "job_id": null
+    },
+    {
+      "role": "n10-r3",
+      "n": 10,
+      "repeat": 3,
+      "status": "not_submitted",
+      "job_id": null
+    }
+  ],
+  "changed_source_sha256": {
+    "task-packages/rte-maintenance-abc-x15-v1/support/runner.py": "a3345bdefa459162b9e2159b58c92d6dd3e15d7660545571d953739c109a02c3",
+    "task-packages/rte-maintenance-abc-x15-v1/images/Dockerfile": "8ec08c644d27ea4b4cfa2d64623bfca5129e9d59b6abc5d67e9ce1d10353e6f6",
+    "task-packages/rte-maintenance-abc-x15-v1/verification/test_parallel.py": "360962a0560d59cf1dec5f08060fe136a2cad371b155b5598481c4e45bcba826"
+  }
+}

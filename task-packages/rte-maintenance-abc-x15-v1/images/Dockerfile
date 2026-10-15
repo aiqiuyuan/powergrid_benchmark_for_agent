@@ -1,6 +1,6 @@
 FROM python:3.12-slim-bookworm
 ARG PIP_INDEX_URL=https://pypi.org/simple
-RUN apt-get update && apt-get install -y --no-install-recommends gcc libc6-dev libseccomp-dev util-linux \
+RUN apt-get update && apt-get install -y --no-install-recommends gcc libc6-dev libseccomp-dev util-linux procps \
     && rm -rf /var/lib/apt/lists/*
 COPY requirements.txt /opt/rte-requirements.txt
 RUN pip install --no-cache-dir -r /opt/rte-requirements.txt
