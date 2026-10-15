@@ -4,6 +4,9 @@ from __future__ import annotations
 
 import importlib.util
 import io
+import os
+import subprocess
+import sys
 import tempfile
 import unittest
 import zipfile
@@ -97,6 +100,38 @@ class LocalBackendTests(unittest.TestCase):
             with self.subTest(value=invalid), self.assertRaises(self.runner.CandidateError):
                 self.runner.validate_action(invalid, 0.8)
         self.assertEqual(self.runner.validate_action([-0.8], 0.8), -0.8)
+
+    def test_special_fifo_snapshot_is_rejected_without_waiting_for_a_writer(self):
+        script = """import importlib.util,sys
+from pathlib import Path
+spec=importlib.util.spec_from_file_location('runner',sys.argv[1])
+module=importlib.util.module_from_spec(spec)
+spec.loader.exec_module(module)
+try:
+    module.candidate_bytes(Path(sys.argv[2]))
+except module.CandidateError:
+    sys.exit(0)
+sys.exit(1)
+"""
+        with tempfile.TemporaryDirectory() as temporary:
+            fifo = Path(temporary) / "controller.py"
+            os.mkfifo(fifo)
+            completed = subprocess.run(
+                [sys.executable, "-c", script, str(PACKAGE / "support/runner.py"), str(fifo)],
+                capture_output=True,
+                timeout=5,
+            )
+            self.assertEqual(completed.returncode, 0, completed.stderr.decode())
+
+    def test_snapshot_rejects_symlink_and_oversized_regular_file(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            regular = Path(temporary) / "oversized.py"
+            regular.write_bytes(b"#" * ((1 << 20) + 1))
+            symlink = Path(temporary) / "controller.py"
+            symlink.symlink_to(regular)
+            for path in (regular, symlink):
+                with self.subTest(path=path), self.assertRaises(self.runner.CandidateError):
+                    self.runner.candidate_bytes(path)
 
     def test_workers_keep_independent_instance_histories(self):
         code = b"""class Controller:

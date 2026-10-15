@@ -12,6 +12,11 @@
 #include <sys/syscall.h>
 #include <unistd.h>
 
+/* Bookworm ships Linux 6.1 UAPI headers; ABI 3 is checked at runtime below. */
+#ifndef LANDLOCK_ACCESS_FS_TRUNCATE
+#define LANDLOCK_ACCESS_FS_TRUNCATE (1ULL << 14)
+#endif
+
 static const __u64 fs_read = LANDLOCK_ACCESS_FS_EXECUTE |
     LANDLOCK_ACCESS_FS_READ_FILE | LANDLOCK_ACCESS_FS_READ_DIR;
 

@@ -31,6 +31,7 @@ CHILD_ENV = {
     "MKL_NUM_THREADS": "1",
 }
 METRIC = "mapdn33_canary_quality_v1"
+ACTOR_ADDRESS_SPACE_BYTES = 384 << 20
 
 
 class CandidateError(Exception):
@@ -44,7 +45,7 @@ def sha256(path: Path) -> str:
 
 def candidate_bytes(path: Path) -> bytes:
     try:
-        descriptor = os.open(path, os.O_RDONLY | os.O_NOFOLLOW)
+        descriptor = os.open(path, os.O_RDONLY | os.O_NOFOLLOW | os.O_NONBLOCK)
     except OSError as exc:
         raise CandidateError("controller.py is missing, unreadable or a symlink") from exc
     try:
@@ -103,7 +104,7 @@ class Actor:
                 f"--regid={uid}",
                 "--clear-groups",
                 "prlimit",
-                "--as=1073741824",
+                f"--as={ACTOR_ADDRESS_SPACE_BYTES}",
                 "--cpu=60",
                 "--fsize=65536",
                 "--nofile=32",

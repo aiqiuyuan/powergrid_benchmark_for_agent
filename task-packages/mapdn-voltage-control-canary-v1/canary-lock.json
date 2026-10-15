@@ -24,5 +24,8 @@
   "starter_sha256": "f20d2001116be460e9190e0a7b9e8f3473affd72699c15ce857e95d23c93afff",
   "starter": "local proportional droop gain=1 after numerical stability correction; identical n=0/1 starter",
   "source_lock_sha256": "64ef20b92b485f54f8560f01144ed76080dcc2b03a45b357203b77cb0820d347",
-  "sandbox": "Landlock ABI>=3 plus seccomp, unique actor UID/cwd; fail closed; Linux probes required before launch"
+  "sandbox": "Landlock ABI>=3 plus seccomp, unique actor UID/cwd; fail closed; Linux probes required before launch",
+  "actor_address_space_mib": 384,
+  "total_actor_address_space_mib": 2304,
+  "verifier_memory_mib": 4096
 }

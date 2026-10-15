@@ -9,6 +9,7 @@ import select
 import selectors
 import shutil
 import signal
+import stat
 import subprocess
 import sys
 import tempfile
@@ -25,6 +26,40 @@ class CandidateError(Exception):
         self.source_sha256 = source_sha256
 
 
+def candidate_bytes(path: Path) -> bytes:
+    """Open once without following links and bound reads before allocating bytes."""
+    maximum = 1_000_000
+    try:
+        descriptor = os.open(path, os.O_RDONLY | os.O_NOFOLLOW | os.O_NONBLOCK)
+    except OSError as exc:
+        raise CandidateError("invalid_artifact") from exc
+    try:
+        before = os.fstat(descriptor)
+        if not stat.S_ISREG(before.st_mode):
+            raise CandidateError("invalid_artifact")
+        if before.st_size > maximum:
+            raise CandidateError("artifact_too_large")
+        chunks = []
+        length = 0
+        while length <= maximum:
+            chunk = os.read(descriptor, maximum + 1 - length)
+            if not chunk:
+                break
+            chunks.append(chunk)
+            length += len(chunk)
+        if length > maximum:
+            raise CandidateError("artifact_too_large")
+        after = os.fstat(descriptor)
+        fields = ("st_dev", "st_ino", "st_size", "st_mtime_ns", "st_ctime_ns")
+        if length != before.st_size or any(getattr(before, f) != getattr(after, f) for f in fields):
+            raise CandidateError("artifact_changed")
+        return b"".join(chunks)
+    except OSError as exc:
+        raise CandidateError("invalid_artifact") from exc
+    finally:
+        os.close(descriptor)
+
+
 def _limits():
     import resource
 
@@ -37,12 +72,8 @@ def _limits():
 
 class Candidate:
     def __init__(self, controller: Path, metadata: dict, *, secure: bool = True):
-        if controller.is_symlink() or not controller.is_file():
-            raise CandidateError("invalid_artifact")
-        content = controller.read_bytes()
+        content = candidate_bytes(controller)
         self.source_sha256 = hashlib.sha256(content).hexdigest()
-        if len(content) > 1_000_000:
-            raise CandidateError("artifact_too_large", self.source_sha256)
         self.directory = Path(tempfile.mkdtemp(prefix="powergym-candidate-"))
         self.process = None
         self.selector = selectors.DefaultSelector()

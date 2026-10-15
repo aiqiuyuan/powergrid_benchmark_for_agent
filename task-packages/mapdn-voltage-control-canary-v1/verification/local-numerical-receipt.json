@@ -86,7 +86,7 @@
     "candidate_sha256": "0b14d7b51866b104d88c014aa49358c7db949f45446ce8da54061cbb1d7f40fb"
   },
   "optional_backend_tests": {
-    "passed": 7,
+    "passed": 9,
     "skipped": 0
   },
   "offline_linux_wheels": {
@@ -94,7 +94,7 @@
     "require_hashes_offline_resolution": "passed"
   },
   "remaining_acceptance": [
-    "Linux build and Landlock/IPC negative probes",
+    "Linux build, Landlock/IPC negative probes and 384MiB actor allocation rejection",
     "real secure 480-step Docker run and failure/replay acceptance",
     "native framework n=0/1 experiment submission and independent final artifact reconciliation"
   ]

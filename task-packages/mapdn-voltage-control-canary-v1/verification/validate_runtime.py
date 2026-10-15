@@ -65,6 +65,16 @@ def main() -> None:
         invalid = evaluate(invalid_path, args.case, secure=True)
         assert not invalid["valid"] and invalid["reward"] == 0
         receipt["checks"]["candidate_failure_zero_complete_episode_reward"] = True
+        oversized_path = temporary / "oversized.py"
+        oversized_path.write_text(
+            "class Controller:\n"
+            " def __init__(self, metadata): self.buffer = bytearray(512 * 1024 * 1024)\n"
+            " def act(self, observation): return [0.0]\n"
+        )
+        oversized = evaluate(oversized_path, args.case, secure=True)
+        assert not oversized["valid"] and oversized["reward"] == 0
+        assert oversized["completed_intervals"] == 0
+        receipt["checks"]["actor_memory_excess_rejected_without_scorer_oom"] = True
     receipt["status"] = "passed"
     args.output.write_text(json.dumps(receipt, indent=2) + "\n")
     print(json.dumps(receipt, indent=2))

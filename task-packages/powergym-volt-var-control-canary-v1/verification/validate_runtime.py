@@ -19,6 +19,7 @@ from unittest.mock import patch
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, os.environ.get("POWERGYM_TESTS_DIR", str(ROOT / "tests")))
 from backend import Backend, validate_action  # noqa: E402
+from candidate import CandidateError, candidate_bytes  # noqa: E402
 from runner import evaluate  # noqa: E402
 from score import write as write_feedback  # noqa: E402
 
@@ -101,6 +102,55 @@ def acceptance(data: Path, secure: bool) -> dict:
         assert not rejected["valid"] and rejected["reward"] == 0
         assert rejected["evaluation_completed"] and rejected["error"] == "invalid_action"
         invalid_rejected = True
+        huge = path / "oversized-sparse.py"
+        with huge.open("wb") as stream:
+            stream.truncate(1 << 40)
+        with patch(
+            "candidate.os.read", side_effect=AssertionError("oversized artifact was read")
+        ) as read_probe:
+            oversized = run_one(huge, data, secure)
+        assert read_probe.call_count == 0
+        assert oversized["evaluation_completed"] and not oversized["valid"]
+        assert oversized["reward"] == 0 and oversized["error"] == "artifact_too_large"
+        with patch.dict(os.environ, {"LOG_DIR": str(path / "oversized-feedback")}):
+            write_feedback(oversized)
+        oversized_feedback = json.loads(
+            (path / "oversized-feedback/reward-details.json").read_text()
+        )
+        assert oversized_feedback["evaluation_completed"] is True
+        assert oversized_feedback["error"] == "artifact_too_large"
+        oversized_receipt = {
+            "logical_bytes": huge.stat().st_size,
+            "read_calls": 0,
+            "error": "artifact_too_large",
+            "evaluation_completed": True,
+            "reward": oversized["reward"],
+        }
+        linked = path / "linked.py"
+        linked.symlink_to(starter)
+        try:
+            candidate_bytes(linked)
+        except CandidateError as exc:
+            assert exc.code == "invalid_artifact"
+        else:
+            raise AssertionError("symlink candidate was followed")
+        changing = path / "changing.py"
+        changing.write_bytes(b"first")
+        real_read = os.read
+
+        def change_during_read(descriptor, size):
+            content = real_read(descriptor, size)
+            if content:
+                changing.write_bytes(b"second")
+            return content
+
+        with patch("candidate.os.read", side_effect=change_during_read):
+            try:
+                candidate_bytes(changing)
+            except CandidateError as exc:
+                assert exc.code == "artifact_changed"
+            else:
+                raise AssertionError("candidate modification during freeze was accepted")
         failures = {}
         for name, source, expected_error in (
             ("timeout", TIMEOUT, "candidate_timeout"),
@@ -203,6 +253,8 @@ def acceptance(data: Path, secure: bool) -> dict:
         "drain_battery_rejected": compact(drained),
         "invalid_action_rejected": invalid_rejected,
         "candidate_failure_feedback": failures,
+        "oversized_sparse_artifact": oversized_receipt,
+        "symlink_and_modified_artifact_rejected": True,
         "parallel_replays_equal": True,
         "explicit_load_row_and_tap_checks": True,
     }

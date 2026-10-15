@@ -14,6 +14,6 @@
   "local_numerical_acceptance": "passed",
   "linux_sandbox_acceptance": "pending",
   "scoring_weights_calibration": "fixed workflow scales, not certified formal task metric",
-  "sandbox_launcher_source_sha256": "f191ffd3820a9d1fa1f84f0f28d4ba830cfafdcfd7a017df240f1a7c3ce88ed0",
+  "sandbox_launcher_source_sha256": "581b13ec463cc94d81b1a4a162795093b1fb41ad25417171314a351b1d9c73f5",
   "sandbox_requirements": "Linux Landlock ABI >=3, seccomp, distinct UID; local Mac numerical acceptance only"
 }
