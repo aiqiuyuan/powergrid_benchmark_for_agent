@@ -8,6 +8,8 @@
 
 **UC/SCUC新增文献对齐配置：** [task card §13](docs/task-cards/unit-commitment.md#13-文献对齐的研究目标与配置2026-10-15)汇总四篇论文、参数与结论。主任务评价达到统一参考质量的求解加速，准备目标为gap 0.1%、RTS/CA 300秒与FERC 600秒端到端；成本质量另报。[参数JSON](configs/unit-commitment-speed.design.json)及[计时/Reward合同](docs/protocol/unit-commitment-speed.md)保留固定case、12小时、n=0/1/3/5/10、每档3次政策。具体case、同机基线/参考、执行接线与资源校准未完成，`executable=false / release_ready=false`。
 
+主实验前的[n=0/1流程准备档](configs/unit-commitment-speed.canary.json)和[源码执行包](task-packages/pglib-uc-speed-canary-v1/README.md)已加入；完整原始用例的可信本地功能检查通过，容器、计数和模型接线仍待验收，尚未提交实验。
+
 **本轮研究设计已定：五task × n=0／1／3／5／10 × 三次独立开发，共75次；每次开发上限12小时，累计token不限且无累计预留截断。L2RPN主线恢复原赛动作范围，包括redispatch，在统一条件下重跑基线；375动作版本单列。** 模型、实际资源、逐例执行限额、其余case ID和成本校准仍未完成，尚未启动75次长实验。新主线先按task分别报告原始指标，不设置跨task总分。
 
 **当前状态：Benchmark `v0.1-design`；已有独立参考实现版本为`0.2.0`。更新：2026-10-15。** 本阶段研究政策已整理，五任务运行包尚未全部适配。此前RTE在历史A4校准数据上通过Harbor／真实模型n=0、n=1配对canary，验证过旧公共选择、计数反馈／ACK、共同截止及独立终评；它不证明新ABC／X15模式、并行资源或新版网络限制已经验收。现有参考代码保留，不作为个人侧必迁路线；没有发布正式能源榜单。

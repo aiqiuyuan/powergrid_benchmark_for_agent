@@ -62,3 +62,25 @@ jobs:
       - name: Verify real Linux UID, directory, and syscall restrictions
         run: |
           sudo "$(command -v python)" task-packages/rte-maintenance-abc-x15-v1/verification/probe_linux_sandbox.py --launcher /tmp/rte-exec-probe
+
+  uc-speed-preparation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify UC scoring and real local subprocess fixtures
+        run: |
+          python -m pip install ruff==0.17.0
+          ruff check task-packages/pglib-uc-speed-canary-v1
+          ruff format --check task-packages/pglib-uc-speed-canary-v1
+          python -m unittest discover -s task-packages/pglib-uc-speed-canary-v1/verification -v
+      - name: Build the UC launcher and check Linux restrictions
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libseccomp-dev
+          cc -Wall -Wextra -Werror task-packages/pglib-uc-speed-canary-v1/images/exec_candidate.c -lseccomp -o /tmp/uc-exec
+          sudo install /tmp/uc-exec /usr/local/bin/uc-exec
+          sudo "$(command -v python)" task-packages/pglib-uc-speed-canary-v1/verification/probe_linux_sandbox.py

@@ -1,0 +1,83 @@
+{
+  "schema_version": "uc-speed-native-canary-preparation-v1",
+  "status": "preparing-not-submitted",
+  "executable": false,
+  "release_ready": false,
+  "purpose": "paired-n0-n1-workflow-acceptance-before-main-study",
+  "task_package": "task-packages/pglib-uc-speed-canary-v1",
+  "main_parameter_profile": "configs/unit-commitment-speed.design.json",
+  "conditions": [
+    {"role": "uc-speed-n0-r1", "n": 0, "mode": "terminal"},
+    {"role": "uc-speed-n1-r1", "n": 1, "mode": "eval-budget"}
+  ],
+  "independent_development_repeats": 1,
+  "counts_as_main_experiment": false,
+  "development": {
+    "seconds": 43200,
+    "short_canary_duration_requested_but_not_selected": true,
+    "seed": 2026101501,
+    "model": "bedrock/gpt-5.6-sol",
+    "required_response_model": "global.openai.gpt-5.6-sol",
+    "cpus": 3,
+    "memory_mib": 8192,
+    "gpus": 0,
+    "aggregate_token_cap": null,
+    "token_reservation": false,
+    "output_token_override": null,
+    "free_full_target_scoring": false,
+    "network_mode": "no-network-model-and-judge-bridges-only",
+    "terminal_selection": "freeze-final-artifacts-at-deadline"
+  },
+  "pilot_case": {
+    "source_commit": "39a7f38cf4703de92f0291f0c873c2e98c789301",
+    "id": "rts_gmlc/2020-07-06.json",
+    "sha256": "2e68998a3c7849df2307780ab10de2147f21e71bf152d049015315c2b5ff7091",
+    "complete_original_horizon": true,
+    "role": "workflow-only-not-main-case-selection",
+    "reference_origin": "trusted-20261012-full-original-MILP-bound-and-verified-upper",
+    "reference_values_in_agent_package": false,
+    "target_input_in_agent_package": false,
+    "reference_gap_gate": 0.0001
+  },
+  "execution": {
+    "seconds": 300,
+    "target_gap_ratio": 0.001,
+    "cpus": 1,
+    "solver_threads": 1,
+    "memory_mib": 8192,
+    "gpus": 0,
+    "solver": "HiGHS-1.15.1",
+    "protected_replay_seeds": [0],
+    "terminal_replay_seeds": [0, 1, 2],
+    "feedback_job_timeout_seconds": 480,
+    "terminal_job_timeout_seconds": 1320,
+    "feedback_metric_precision": "rounded-penalty-3-decimals-and-derived-reward",
+    "terminal_metric_precision": "full-precision",
+    "fresh_source_snapshot_per_accepted_call": true,
+    "cross_replay_writes": "Landlock-ABI-at-least-3-output-directory-only",
+    "runtime_image_digest": null
+  },
+  "cluster": {
+    "name": "dev",
+    "gpus": 0,
+    "outer_job_cpus": 4,
+    "outer_job_memory": "20Gi",
+    "workspace": "/mnt/cfs_bj_fm/workspace/aiqiuyuan",
+    "cli": "/mnt/cfs_bj_fm/workspace/aiqiuyuan/.local/bin/fm-job",
+    "expected_cli_version": "20261013175109"
+  },
+  "readiness": {
+    "local_scoring_and_subprocess_fixtures": "passed",
+    "local_complete_uc_starter": "passed-trusted-local-only",
+    "linux_launcher": "pending-CI-and-target-kernel",
+    "pinned_runtime_image": "pending-build",
+    "real_julia_under_sandbox": "pending",
+    "native_terminal_and_feedback_acceptance": "pending",
+    "feedback_idempotency_and_count_audit": "pending",
+    "cutoff_freeze_and_no_late_feedback": "pending",
+    "candidate_oom_classification": "pending",
+    "actual_model_api_acceptance_without_token_cap": "pending",
+    "verified_cluster_login": "blocked-disconnected-or-timeout"
+  },
+  "submission_receipts": []
+}
