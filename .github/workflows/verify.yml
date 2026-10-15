@@ -107,7 +107,10 @@ jobs:
       - name: Verify the full day, terminal SOC, failures and isolated replays
         run: |
           mkdir -p work/powergym-evidence
-          docker run --rm --network none -v "$PWD/work/powergym-evidence:/evidence" powergym-canary-verifier:1 python /tests/_validation/validate_runtime.py --data /tests/data --secure --output /evidence/linux-numerical-receipt.json > work/powergym-evidence/private-validation.log 2>&1
+          if ! docker run --rm --network none -v "$PWD/work/powergym-evidence:/evidence" powergym-canary-verifier:1 python /tests/_validation/validate_runtime.py --data /tests/data --secure --output /evidence/linux-numerical-receipt.json > work/powergym-evidence/private-validation.log 2>&1; then
+            python -c 'import json; from pathlib import Path; p=Path("work/powergym-evidence/linux-numerical-receipt.json"); r=json.loads(p.read_text()) if p.exists() else {}; print(json.dumps({k:r[k] for k in ("status","error_type","infrastructure_code","launcher_returncode","launcher_stderr_class") if k in r}))'
+            exit 1
+          fi
           python -c 'import json; from pathlib import Path; r=json.loads(Path("work/powergym-evidence/linux-numerical-receipt.json").read_text()); assert r["status"] == "passed" and r["sandbox_validated"]; Path("work/powergym-evidence/acceptance.json").write_text(json.dumps({"linux_sandbox": True, "real_backend_complete_episode": True, "candidate_failures_checked": True, "terminal_soc_checked": True}))'
       - uses: actions/upload-artifact@v4
         with:

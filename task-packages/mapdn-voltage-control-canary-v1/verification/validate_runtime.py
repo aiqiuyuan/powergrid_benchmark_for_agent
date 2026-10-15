@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import subprocess
 import sys
 import tempfile
@@ -12,7 +13,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT.parent / "support"))
-from runner import evaluate  # noqa: E402
+from runner import evaluate, secure_readiness  # noqa: E402
 
 
 def main() -> None:
@@ -21,7 +22,12 @@ def main() -> None:
     parser.add_argument("--candidate", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
-    receipt = {"status": "failed", "secure_execution": True, "checks": {}}
+    receipt = {
+        "status": "failed",
+        "secure_execution": True,
+        "container_entrypoint_pid": os.getpid(),
+        "checks": {},
+    }
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(receipt) + "\n")
     with tempfile.TemporaryDirectory(prefix="mapdn-acceptance-") as temporary:
@@ -39,6 +45,8 @@ def main() -> None:
         if probe.returncode:
             raise RuntimeError("Linux filesystem/IPC negative probes did not pass")
         receipt["checks"]["filesystem_ipc_and_network_isolation"] = True
+        secure_readiness()
+        receipt["checks"]["sandbox_readiness_from_native_entrypoint"] = True
         droop = evaluate(args.candidate, args.case, secure=True)
         replay = evaluate(args.candidate, args.case, secure=True)
         zero_path = temporary / "zero.py"

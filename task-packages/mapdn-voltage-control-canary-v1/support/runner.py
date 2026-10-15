@@ -186,22 +186,37 @@ def secure_readiness() -> None:
         raise RuntimeError("candidate sandbox tools are missing")
     if not Path("/opt/mapdn/actor_worker.py").is_file():
         raise RuntimeError("public actor worker is missing")
-    probe = subprocess.run(
-        [
-            "setpriv",
-            "--no-new-privs",
-            "--reuid=64000",
-            "--regid=64000",
-            "--clear-groups",
-            "mapdn-exec",
-            "/usr/bin/true",
-        ],
-        env=CHILD_ENV,
-        capture_output=True,
-        timeout=5,
-    )
+    # The trusted caller may run from root-only /tests. The lowered UID must
+    # resolve "." while creating its Landlock domain, so probe from a fresh
+    # actor-owned directory without changing permissions on private judge files.
+    with tempfile.TemporaryDirectory(prefix="mapdn-readiness-") as temporary:
+        directory = Path(temporary)
+        directory.chmod(0o711)
+        work = directory / "work"
+        work.mkdir(mode=0o700)
+        os.chown(work, 64000, 64000)
+        probe = subprocess.run(
+            [
+                "setpriv",
+                "--no-new-privs",
+                "--reuid=64000",
+                "--regid=64000",
+                "--clear-groups",
+                "mapdn-exec",
+                "/usr/bin/true",
+            ],
+            cwd=work,
+            env=CHILD_ENV,
+            capture_output=True,
+            timeout=5,
+        )
     if probe.returncode:
-        raise RuntimeError("candidate sandbox readiness probe failed")
+        # The probe executes only trusted binaries, never a candidate or target.
+        diagnostic = probe.stderr.decode(errors="replace")[-512:].strip()
+        raise RuntimeError(
+            f"candidate sandbox readiness probe failed "
+            f"(returncode={probe.returncode}; diagnostic={diagnostic!r})"
+        )
 
 
 def local_observation(net, actor_id: int, step: int, timestamp: str) -> tuple[dict, dict]:

@@ -101,6 +101,29 @@ class LocalBackendTests(unittest.TestCase):
                 self.runner.validate_action(invalid, 0.8)
         self.assertEqual(self.runner.validate_action([-0.8], 0.8), -0.8)
 
+    def test_readiness_uses_actor_owned_working_directory_and_preserves_private_cwd(self):
+        original = Path.cwd()
+        ownership = []
+
+        def run(command, **kwargs):
+            work = kwargs["cwd"]
+            self.assertNotEqual(work, original)
+            self.assertEqual(work.stat().st_mode & 0o777, 0o700)
+            self.assertEqual(work.parent.stat().st_mode & 0o777, 0o711)
+            self.assertEqual(ownership, [(work, 64000, 64000)])
+            self.assertEqual(Path.cwd(), original)
+            return subprocess.CompletedProcess(command, 0, b"", b"")
+
+        with (
+            patch.object(self.runner.sys, "platform", "linux"),
+            patch.object(self.runner.os, "geteuid", return_value=0),
+            patch.object(self.runner.shutil, "which", return_value="/usr/bin/tool"),
+            patch.object(Path, "is_file", return_value=True),
+            patch.object(self.runner.os, "chown", side_effect=lambda *args: ownership.append(args)),
+            patch.object(self.runner.subprocess, "run", side_effect=run),
+        ):
+            self.runner.secure_readiness()
+
     def test_special_fifo_snapshot_is_rejected_without_waiting_for_a_writer(self):
         script = """import importlib.util,sys
 from pathlib import Path

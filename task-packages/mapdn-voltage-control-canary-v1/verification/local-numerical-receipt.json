@@ -86,7 +86,7 @@
     "candidate_sha256": "0b14d7b51866b104d88c014aa49358c7db949f45446ce8da54061cbb1d7f40fb"
   },
   "optional_backend_tests": {
-    "passed": 9,
+    "passed": 10,
     "skipped": 0
   },
   "offline_linux_wheels": {

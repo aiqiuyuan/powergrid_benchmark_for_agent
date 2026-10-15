@@ -75,7 +75,9 @@ int main(int argc, char **argv) {
     if (argc < 2) return 125;
     /* setpriv has already dropped UID. Prevent orphan candidates on worker death. */
     pid_t supervisor = getppid();
-    if (supervisor == 1 || prctl(PR_SET_PDEATHSIG, SIGKILL) < 0 || getppid() != supervisor)
+    /* A native Docker entrypoint is legitimately PID 1. Keep the death signal
+       and race check; rejecting that supervisor would reject every direct child. */
+    if (prctl(PR_SET_PDEATHSIG, SIGKILL) < 0 || getppid() != supervisor)
         return 125;
     if (restrict_files() < 0) {
         perror("distribution filesystem sandbox setup failed");

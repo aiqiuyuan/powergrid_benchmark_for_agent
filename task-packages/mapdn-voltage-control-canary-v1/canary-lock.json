@@ -27,5 +27,6 @@
   "sandbox": "Landlock ABI>=3 plus seccomp, unique actor UID/cwd; fail closed; Linux probes required before launch",
   "actor_address_space_mib": 384,
   "total_actor_address_space_mib": 2304,
-  "verifier_memory_mib": 4096
+  "verifier_memory_mib": 4096,
+  "sandbox_launcher_source_sha256": "67e8aafb5238c2dde61a6efa6d2716a2a52e0b40244a6b016fcde18b1bc6ffac"
 }

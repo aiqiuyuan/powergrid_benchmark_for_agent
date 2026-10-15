@@ -19,7 +19,7 @@ from unittest.mock import patch
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, os.environ.get("POWERGYM_TESTS_DIR", str(ROOT / "tests")))
 from backend import Backend, validate_action  # noqa: E402
-from candidate import CandidateError, candidate_bytes  # noqa: E402
+from candidate import CandidateError, SandboxSetupError, candidate_bytes  # noqa: E402
 from runner import evaluate  # noqa: E402
 from score import write as write_feedback  # noqa: E402
 
@@ -267,11 +267,29 @@ if __name__ == "__main__":
     parser.add_argument("--secure", action="store_true")
     parser.add_argument("--one", type=Path)
     args = parser.parse_args()
-    result = (
-        run_one(args.one, args.data.resolve(), args.secure)
-        if args.one
-        else acceptance(args.data.resolve(), args.secure)
-    )
+    try:
+        result = (
+            run_one(args.one, args.data.resolve(), args.secure)
+            if args.one
+            else acceptance(args.data.resolve(), args.secure)
+        )
+    except Exception as exc:
+        # CI may publish this finite diagnostic, never the private numerical log.
+        failure = {
+            "status": "failed",
+            "sandbox_validated": False,
+            "error_type": type(exc).__name__,
+        }
+        if isinstance(exc, SandboxSetupError):
+            failure.update(
+                infrastructure_code=exc.code,
+                launcher_returncode=exc.returncode,
+                launcher_stderr_class=exc.stderr_class,
+            )
+        if args.output:
+            args.output.write_text(json.dumps(failure) + "\n")
+        print(json.dumps(failure), file=sys.stderr)
+        raise
     output = json.dumps(result, indent=2, allow_nan=False) + "\n"
     if args.output:
         args.output.write_text(output)

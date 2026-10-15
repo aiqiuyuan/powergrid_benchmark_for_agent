@@ -26,6 +26,70 @@ class CandidateError(Exception):
         self.source_sha256 = source_sha256
 
 
+class SandboxSetupError(RuntimeError):
+    """A trusted preflight failed; fields contain no candidate or case content."""
+
+    def __init__(self, code: str, returncode: int | None = None, stderr_class: str = "none"):
+        self.code = code
+        self.returncode = returncode
+        self.stderr_class = stderr_class
+        super().__init__(
+            f"sandbox preflight failed: code={code}, returncode={returncode}, "
+            f"stderr_class={stderr_class}"
+        )
+
+
+def secure_readiness(directory: Path) -> None:
+    """Probe the launcher before importing candidate code; never expose raw stderr."""
+    if sys.platform != "linux" or os.geteuid() != 0:
+        raise SandboxSetupError("linux_root_required")
+    try:
+        result = subprocess.run(
+            [
+                "setpriv",
+                "--reuid=65534",
+                "--regid=65534",
+                "--clear-groups",
+                "--no-new-privs",
+                "/usr/local/bin/exec-candidate",
+                "/usr/bin/true",
+            ],
+            stdin=subprocess.DEVNULL,
+            capture_output=True,
+            cwd=directory,
+            env={"PATH": "/usr/local/bin:/usr/bin:/bin", "LANG": "C", "LC_ALL": "C"},
+            start_new_session=True,
+            preexec_fn=_limits,
+            timeout=5,
+            check=False,
+        )
+    except subprocess.TimeoutExpired as exc:
+        raise SandboxSetupError("launcher_timeout") from exc
+    except OSError as exc:
+        raise SandboxSetupError("launcher_unavailable") from exc
+    if result.returncode:
+        stages = (
+            (b"Landlock ABI", "landlock_abi_required"),
+            (b"distribution filesystem sandbox setup failed", "filesystem_setup_failed"),
+            (b"RTE sandbox setup failed", "seccomp_setup_failed"),
+            (b"RTE solver exec failed", "executable_setup_failed"),
+            (b"setpriv:", "uid_setup_failed"),
+        )
+        code = next((name for token, name in stages if token in result.stderr), "launcher_exit")
+        reasons = (
+            (b"Permission denied", "EACCES"),
+            (b"Operation not permitted", "EPERM"),
+            (b"Invalid argument", "EINVAL"),
+            (b"No such file", "ENOENT"),
+            (b"Function not implemented", "ENOSYS"),
+        )
+        stderr_class = next(
+            (name for token, name in reasons if token in result.stderr),
+            "other" if result.stderr else "none",
+        )
+        raise SandboxSetupError(code, result.returncode, stderr_class)
+
+
 def candidate_bytes(path: Path) -> bytes:
     """Open once without following links and bound reads before allocating bytes."""
     maximum = 1_000_000
@@ -88,6 +152,7 @@ class Candidate:
                     raise RuntimeError("secure evaluation requires the Linux root-owned verifier")
                 os.chown(self.directory, 65534, 65534)
                 os.chown(target, 65534, 65534)
+                secure_readiness(self.directory)
                 command = [
                     "setpriv",
                     "--reuid=65534",
