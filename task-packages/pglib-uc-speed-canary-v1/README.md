@@ -86,7 +86,7 @@ Linux root with `uc-exec` installed can additionally run
 private reads, forbidden `/tmp`/`/dev/shm` writes, and output writes. It does not
 certify Julia, container memory accounting, the model gateway or native Harbor.
 The ABI compatibility constant follows the Linux UAPI
-[v6.1 headers](https://raw.githubusercontent.com/torvalds/linux/v6.1/include/uapi/linux/landlock.h)
+[v6.2 headers](https://raw.githubusercontent.com/torvalds/linux/v6.2/include/uapi/linux/landlock.h)
 and requires runtime ABI 3; old headers must not silently weaken the restriction.
 
 The 2026-10-15 trusted local full-case run reached reference quality in about

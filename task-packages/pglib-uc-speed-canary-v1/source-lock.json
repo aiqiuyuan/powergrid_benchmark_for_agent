@@ -3,7 +3,7 @@
   "protocol": "uc-reference-quality-speed-v1-canary",
   "files": {
     "LICENSE-pglib-uc": "b5ececfa64eb67fd5b0e5c135624f0f9004b938d399150e644f9641b659e628c",
-    "README.md": "d9b7745dd072af36ada5ad043810a8dba9c3306ce98bfb5114c8180610a4757f",
+    "README.md": "2ebcd58204c8df059e9b634aee52f37820b3cf62ea4833b4b0d6fa86d8e757d6",
     "environment/Dockerfile": "a7d4ffba0988523cefa43c17a95d897f110eea6939b9dfa6ce3c5d36b1ca07ea",
     "environment/app/example-instance.json": "9219c36a2749b3e9b776c843d4768904afd1389cef27134168282ed4d5240327",
     "environment/app/submission/pglib_model.jl": "4b75a5eb5662830f40281f15aca68ced85a036995c29bb43f79e416a6698640f",
