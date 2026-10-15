@@ -125,3 +125,19 @@ Forecasting对每个半小时的10%、20%、…、90%九个发电量分位数计
 | 发布条件 | 替换静态bids终评、特征/标签available-at审计、组织方结算parity、UTC/DST与缺交fixture、独立期、因果强基线与批量验收 |
 
 **就绪状态：`design / certification-pending / release_ready=false`。** 旧±5000历史回测只作calibration；旧正n已用反馈期不能重称未触碰测试。训练截止具体日期、开发`T/n/模型/资源/重复`及训练/逐日时限保持待定。详见[Adapter执行合同](../framework/task-adapters.md#7-heftcom训练证据加逐日因果预测交易)与[机器声明](../../manifests/task-adapters/heftcom-forecast-trade.json)。
+
+
+## 11. 原题对齐与参数依据（2026-10-15）
+
+本节更新第1—10节保留的历史设置状态；下列是本轮设计决定，**不表示数据已补齐、task代码已修复、基线已重跑或新分数已生成**。共同研究设计已定为T=43200秒、n=0／1／3／5／10、每档3次独立开发、累计token不限；模型、实际资源、训练截止及其余执行限额仍须锁定或校准，详见[共同政策与取值依据](../protocol/task-alignment-and-calibration.md#2-四类取值依据与本轮已定设置)。
+
+| 旧差异／待明确项 | 本轮决定与依据 | 实际剩余工作 |
+|---|---|---|
+| 旧报价±5000 MWh及starter 2500上界 | 恢复每半小时0—1800 MWh，越界拒绝；保持原目标、MWh单位及原结算，累计GBP为主 | 同步checker、starter和公开评分；与组织方settlement对账，不静默clip答案 |
+| 旧按UTC自然日分组且只保留48行 | 恢复英国本地23:00至次日23:00市场日，时间戳为半小时起点；2024-03-31有46period | 重建period清单、NWP cutoff与角色成员；旧791／168／201天计数须重算，不能过滤夏令时特殊日 |
+| NWP按目标UTC日期截取；天气4h和历史1D滞后未经实际到达验证 | 按提交日09:20 UTC及对应市场日限定issue／available_at；未来真值仅在评分端 | 核天气、发电、价格的实际可见性，固定假设并披露，不能把1D默认当真实发布记录 |
+| 原赛可用DWD＋GFS格点、合法外部信息和在线更新 | 本地选择固定DWD聚合天气／日历、冻结权重、selection只选不拟合、逐市场日因果执行，明确为受限信息／学习变体 | 所有参考算法按相同输入与训练政策重训／执行；原队完整信息／在线更新历史收益只作历史参照 |
+| 附代码但只评静态bids，一次暴露整段test | 实际执行冻结特征／预测／交易流水线，逐日生成本次报价并独立结算 | 替换静态答案评分，核缺输出／数据缺失／fallback及逐日推理成本 |
+| 旧反馈与终评重合；本地标签止于2024-02-19 | 2024-02-20至05-19的90个原正式市场日仅为新终评候选；本地缺该期发电／价格标签，尚未就绪 | 取得官方标签并核修订和完整period，再做暴露与独立性审计；不将旧收益换算原榜名次 |
+
+详见[HEFTCom逐项决定](../protocol/task-alignment-and-calibration.md#8-heftcom原交易语义恢复信息和训练变体说清楚)及[校准和进入正式实验的条件](../protocol/task-alignment-and-calibration.md#10-怎样消除参数随意)。任务仍为`certification-pending / release_ready=false`。

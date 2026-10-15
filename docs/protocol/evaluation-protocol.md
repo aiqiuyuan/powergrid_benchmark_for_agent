@@ -4,6 +4,8 @@
 
 **制定日期：2026-10-14。** 预实验依据截至 2026-10-13 的[已核查记录](../evidence/preliminary-experiments-20261013.md)；本文件没有重新执行或改写历史实验。
 
+**2026-10-15本轮研究设计：** 五task各按n=0／1／3／5／10独立开发3次，共75个run；共同开发上限T=43200秒，不设累计token cap或累计token预留截断。模型、资源、面板和多数算法执行限额仍待核对／校准。逐题原题对齐、用户确认的L2RPN完整动作主线及剩余实现差额见[本轮对齐与校准协议](task-alignment-and-calibration.md)。这些设计决定不代表任务包已实现或正式实验已启动。
+
 本协议服务于[研究契约与任务范围](../benchmark-spec.md)：研究智能体和算法演化设计如何改善能源领域算法，同时区分开发期的自适应改进和冻结算法的最终泛化表现。五个任务族采用共同的实验语义，保留各自的物理约束、评分函数和计算成本。提交内容与留档要求见[产物契约](artifact-contract.md)。
 
 具体问题定义与校准计划见五张任务卡：[GOC SC-AC-OPF](../task-cards/goc-sc-ac-opf.md)、[UC/SCUC](../task-cards/unit-commitment.md)、[RTE maintenance](../task-cards/rte-maintenance.md)、[L2RPN](../task-cards/l2rpn-grid-control.md)、[HEFTCom](../task-cards/heftcom-forecast-trade.md)。
@@ -141,7 +143,7 @@ HEFTCom 当前使用的时间间隔可以作为校准起点，不能因为预实
 
 ### 6.1 默认选择政策
 
-默认 `selection_policy = best-public-selection`：选择开发截止前已完成公开 selection 评测的有效候选中分数最好的一份；并列按预先声明规则处理，建议优先较早受理的候选。所有 selection 计算发生在 `T` 内。冻结前必须把选中候选复制为不可变产物，并关联其已保存的 selection 记录。
+默认 `selection_policy = best-public-selection`：选择开发截止前已完成公开 selection 评测的有效候选中分数最好的一份；同分采用 `earliest-completed`，即选择较早完成公开 selection 评测的候选。此规则与[配置目录](../../configs/configuration-catalog.json)及独立参考实现一致，替代旧文字中“较早受理”的建议；各原生task仍须用实际选择记录验证。所有 selection 计算发生在 `T` 内。冻结前必须把选中候选复制为不可变产物，并关联其已保存的 selection 记录。
 
 如果没有新候选通过公开 selection，回退到预先发布的初始基线。不得在结束后额外给某组搜索最优 checkpoint。初始基线和回退规则对所有比较组一致。
 

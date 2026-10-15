@@ -109,3 +109,17 @@ UC为核心、SCUC为扩展的家族定位已确定。待定项是SCUC扩展的�
 | 发布条件 | 替换静态排程终评、clean新输入重放、完整约束fixture、系统/日期分组与暴露审计、难度/资源及强基线校准 |
 
 **就绪状态：`design / certification-pending / release_ready=false`。** UC当前首要实现缺口是运行源码后独立验解；SCUC还需单独认证派生安全范围。已有60秒/例和30分钟开发仍仅为预实验，不替新Configuration填值。详见[Adapter执行合同](../framework/task-adapters.md#4-uc与派生scuc运行源码后验排程)与[机器声明](../../manifests/task-adapters/unit-commitment.json)。
+
+
+## 11. 原题对齐与参数依据（2026-10-15）
+
+本节更新第1—10节保留的历史设置状态；下列是本轮设计决定，**不表示task代码已修复、基线已重跑或新分数已生成**。共同研究设计已定为T=43200秒、n=0／1／3／5／10、每档3次独立开发、累计token不限；模型、实际资源及其余执行限额仍须锁定或校准，详见[共同政策与取值依据](../protocol/task-alignment-and-calibration.md#2-四类取值依据与本轮已定设置)。
+
+| 旧差异／待明确项 | 本轮决定与依据 | 实际剩余工作 |
+|---|---|---|
+| 先导同时包含UC和本地派生安全约束 | 主线为固定版本PGLib-UC的完整原铜板UC；原初态、完整时域及全部原约束不改，DC SCUC独立扩展 | 核对原JSON与完整MILP／validator；不以SCUC可运行为UC主线的前提 |
+| grader只检查源码存在，实际读静态排程 | 必须先运行冻结solver，再由独立validator检查排程和重算原成本 | 评测环境接入现有Julia／HiGHS，验证新输入执行而非复用旧答案 |
+| 两个RTS日期已暴露，反馈与终评重合 | 首轮研究限定RTS同系统新日期；上游12日期的4／2／2／4方案仅为待审计候选，不是原赛划分 | 取得新增输入、冻结摘要、做整日期分组和暴露审计；公开文档不发布保护成员映射 |
+| 60秒、线程和容差曾按先导设置；参考未必最优 | 原始成本／可行性／时间为主；完整MILP／HiGHS同条件重跑，下界须有证据；旧数值仅作parity与成本校准起点 | 测加载、建模、求解、落盘及独立验解总成本，再锁定预算和容差，不把未证最优参考称optimality gap |
+
+详见[UC逐项决定](../protocol/task-alignment-and-calibration.md#5-uc原始pglib-uc主线派生scuc分开)及[校准和进入正式实验的条件](../protocol/task-alignment-and-calibration.md#10-怎样消除参数随意)。任务仍为`certification-pending / release_ready=false`，不存在可由本地成绩直接插入的官方竞赛榜。

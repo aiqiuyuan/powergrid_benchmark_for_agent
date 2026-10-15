@@ -120,3 +120,18 @@ v0.1优先统一动作与模拟限制，开发墙钟上限且**无累计token ca
 | 发布条件 | 同权限认证、原生terminal/reference parity、训练来源/许可、独立面板审计、统一资源与完整独立终评 |
 
 **就绪状态：`design / certification-pending / release_ready=false`。** 375动作和16/2048是旧先导值，新具体能力上限仍待校准；pure topology与redispatch可分别立赛道。旧20份较大方法比较策略缺独立终评的记录保留，不由本次设计补成已完成。详见[Adapter执行合同](../framework/task-adapters.md#6-l2rpn每步控制器与受控simulate)与[机器声明](../../manifests/task-adapters/l2rpn-grid-control.json)。
+
+
+## 11. 原题对齐与参数依据（2026-10-15）
+
+**用户已确认：主线恢复原赛动作范围，在统一条件下重跑基线。** 本节更新第1—10节保留的旧候选状态；375动作受限版保留为历史／校准／消融资产，不与完整动作版混榜。下列设计决定**尚未完成代码接入与新分数验证**。共同研究设计已定为T=43200秒、n=0／1／3／5／10、每档3次独立开发、累计token不限；模型、实际资源及其余执行限额仍须锁定或校准，详见[共同政策与取值依据](../protocol/task-alignment-and-calibration.md#2-四类取值依据与本轮已定设置)。
+
+| 旧差异／待明确项 | 本轮决定与依据 | 实际剩余工作 |
+|---|---|---|
+| 旧task仅set_bus／set_line_status，375库另裁剪拓扑 | 按原Starting Kit的TopologyAndDispatchAction恢复合法拓扑／线路／redispatch等原赛能力，不自动增加原赛没有的现代动作 | 将原动作范围接回候选和基线执行接口，统一合法性及信息合同 |
+| 旧比较给予公开方法更大动作／模拟能力 | 全部方法采用相同允许动作、simulate上限、信息、资源和计时规则；不要求实际用尽 | 原三队方法仅作披露的兼容适配并同合同重跑；375版PPO不能直接算作完整动作PPO |
+| 现代环境与原赛旧环境不同，scorer版本曾混用 | 保留锁定现代环境作现代重评，统一现代原生经济scorer及同环境reference；生存率辅助报告 | 核backend、热限值、冷却、forecast、对手及reference；不声称恢复原2020隐藏终测名次 |
+| 16／步、2048／episode及逐步时限没有原赛常数依据 | 仅作为旧配置候选，在完整动作路径测参考控制器质量、调用量和耗时后再定 | 用完整动作Greedy／搜索／成熟控制器校准；受限PPO成功不能证明完整动作成本 |
+| 小6／3／3已暴露；大四角色已有实际文件 | 144／48／24／96周面板为复用候选，先核来源组件分组、后续暴露及摘要 | 接通正n受保护反馈和独立终评；重审成员访问，不把本地留出称原赛隐藏24周 |
+
+详见[L2RPN逐项决定](../protocol/task-alignment-and-calibration.md#7-l2rpn恢复原赛动作范围现代环境同条件重跑)及[校准和进入正式实验的条件](../protocol/task-alignment-and-calibration.md#10-怎样消除参数随意)。任务仍为`certification-pending / release_ready=false`。

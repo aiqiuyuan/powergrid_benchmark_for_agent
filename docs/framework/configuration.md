@@ -2,9 +2,11 @@
 
 **个人小测范围更新（2026-10-15）：** 本页49字段是独立参考实现与完整研究配置的目录；原生eval-in-loop小测沿用现有配置，不要求先填写本模板或新增配置层。具体工作范围以[精简设计](../decisions/0004-minimal-local-testing.md)为准；下文校验规则仍适用于主动使用该参考实现的场景。
 
-**状态：字段目录和校验器已实现；正式研究参数仍待确定。** 用户要求本阶段先写清配置，不决定n、T、模型、资源和重复。配置字段以[config.py](../../src/powergrid_bench/config.py)为来源，机器目录是[configuration-catalog.json](../../configs/configuration-catalog.json)，模板是[experiment.template.json](../../configs/experiment.template.json)。安装及实际CLI入口见[README](../../README.md)。
+**本轮设置更新（2026-10-15）：** 用户后续已确定五task、n=0／1／3／5／10、每档3次独立开发、T=43200秒、累计token不限／无累计预留截断；L2RPN主线恢复原赛动作范围。模型、资源、实例执行预算等仍待实际核对／校准。取值与理由以[原题对齐与参数决定](../protocol/task-alignment-and-calibration.md)为准；没有为此新增配置层，也未将这些决定写成可直接执行的75项清单。
 
-## 1. 49个待决定字段，6项已约定政策
+**状态：字段目录和校验器已实现；模板继续保留为通用待填示例。** 本页初始阶段仅列字段，不代选研究数值；这一历史范围不覆盖上文用户后来明确的决定。配置字段以[config.py](../../src/powergrid_bench/config.py)为来源，机器目录是[configuration-catalog.json](../../configs/configuration-catalog.json)，模板是[experiment.template.json](../../configs/experiment.template.json)。安装及实际CLI入口见[README](../../README.md)。
+
+## 1. 49个参考字段，6项已约定政策
 
 模板有**49个可配置叶字段**，其值全部为`null`；非模型backend的4个model字段保留`null`且不要求填实，其他正式运行必需项仍须明确。`null`不代表沿用旧值、不限预算或零资源。准备脚本、预实验、测试fixture或部署环境中的默认值不能自动填进研究协议。
 

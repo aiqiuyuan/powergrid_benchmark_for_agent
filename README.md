@@ -4,11 +4,13 @@
 
 **当前个人开发范围：直接复用 eval-in-loop 做小规模测试，只修阻断运行或导致错误结果的具体问题。** 原框架负责启动、Harbor、agent、反馈和既有记录；个人侧整理已有 task、原生配置和结果。独立基础包保留为参考，不要求迁移五任务、补齐49字段或完成生产故障矩阵才能小测。详见[精简设计决定](docs/decisions/0004-minimal-local-testing.md)。下文基础包与集群验收记录保留其原有适用范围。
 
-**当前工作重点：先定公平设置，再建设task。** [公平比较清单](docs/framework/fair-ranking.md)列出38项通用设置、五任务特殊项、已约定政策与待核对／待校准选择；[原生task包说明](docs/framework/native-task-package.md)明确提交目录、配置、评分入口和算法产物的区别。数值尚未代定，本次只更新文档；既有UC／HEFTCom评分仍需实际执行源码才能支持算法泛化比较。
+**当前工作重点：先解决原题偏离和随意设置，再建设task。** [原题对齐与参数决定](docs/protocol/task-alignment-and-calibration.md)逐题写明恢复什么、保留什么本地变体、凭什么定值及还缺什么实测；[差异与成本审计](docs/evidence/task-alignment-audit-20261015.md)核对了实际代码、数据和旧测量。[公平比较清单](docs/framework/fair-ranking.md)仍是38项设置总目录，[原生task包说明](docs/framework/native-task-package.md)说明实际提交形式。既有UC／HEFTCom还需从静态答案评分改为执行冻结算法，不能把文档决定当作已经修复。
+
+**本轮研究设计已定：五task × n=0／1／3／5／10 × 三次独立开发，共75次；每次开发上限12小时，累计token不限且无累计预留截断。L2RPN主线恢复原赛动作范围，包括redispatch，在统一条件下重跑基线；375动作版本单列。** 模型、实际资源、逐例执行限额、最终成员和成本校准仍未完成，尚未启动75次长实验。新主线先按task分别报告原始指标，不设置跨task总分。
 
 **当前状态：Benchmark `v0.1-design` + 基础框架 `0.2.0`。更新：2026-10-15。** 前两步的研究契约、任务卡与评测规范已完成。第三步新增统一实验生命周期的独立参考实现、配置校验、算法提交 ABI、持久账本、快照／冻结、恢复及可运行的低成本验收夹具。Unix socket broker 与 RTE 原生适配已经通过实际集群上的 **Harbor／真实模型 n=0、n=1 配对 canary 验收**，包括公共选择、受保护反馈／ACK、共同截止、产物冻结和独立终评。完整故障演练、五任务生产认证与目标并发仍待完成；没有发布正式能源榜单。
 
-三类模块已经整理为明确接口：**Configuration列出需决定的49个字段，数值保持待定；Task adapters逐任务明确可执行提交、公平排行路线和缺少条件；Reliability extensions把历史故障归入共同生命周期，并区分已有本地实现与外部部署验收。**
+三类模块已经整理为明确接口：**Configuration保留49字段的参考目录和待填模板，本轮已定设计以上文为准；Task adapters逐任务明确可执行提交、公平排行路线和缺少条件；Reliability extensions把历史故障归入共同生命周期，并区分已有本地实现与外部部署验收。**
 
 ## 从哪里开始
 
@@ -28,6 +30,8 @@
 | 第三步如何拆分、哪些来自底座、哪些属于新基础层 | [统一生命周期与模块边界](docs/framework/architecture.md) |
 | 完整研究配置有哪些参考字段（个人小测沿用原生配置） | [Configuration字段与责任](docs/framework/configuration.md)、[待定模板](configs/experiment.template.json)、[机器字段目录](configs/configuration-catalog.json) |
 | 公平比较有哪些设置要决定、如何决定每task的最小实现 | [公平设置与五任务路线](docs/framework/fair-ranking.md)、[Task Adapter参考合同](docs/framework/task-adapters.md)、五张任务卡§10 |
+| 预实验偏离原题的地方如何处理、设置如何有依据地确定 | [逐题对齐与校准决定](docs/protocol/task-alignment-and-calibration.md)、[代码／数据／成本审计](docs/evidence/task-alignment-audit-20261015.md)、五张任务卡§11 |
+| 本轮确定了什么、哪些代码修复和实测尚未完成 | [原题对齐中文完成说明](docs/completion-task-alignment-20261015.md) |
 | 提交给eval-in-loop的task需要整理成什么目录与文件 | [原生task包、artifacts及评分入口](docs/framework/native-task-package.md) |
 | 本轮公平设置与task提交格式完成了什么、发现哪些未决问题 | [中文完成说明](docs/completion-task-settings-20261015.md) |
 | 过去的失败如何变成统一保障与验收 | [可靠性保障层](docs/framework/reliability-layer.md)、[分层验收](docs/framework/acceptance.md) |
@@ -93,7 +97,7 @@ flowchart LR
 - `n` 是受保护评测作业的受理上限。`n=0` 禁止受保护反馈，不等于不限次数；公开目标与 checker 可以使用。
 - 默认按开发截止前完成的公开 selection 选候选；截止后冻结，终评执行算法处理留出输入，并由独立 checker 评分。
 - 分开保存受理、完成和送达计数；原样重试、故障分类与恢复来源可以核对。
-- 同一任务内报告原始指标、有效性和资源；跨任务汇总先做预注册归一化，按任务族聚合。
+- 同一任务内报告原始指标、有效性和资源；本批不设跨任务总分。未来若汇总，先预注册归一化并按任务族聚合。
 
 ## 当前证据与完成边界
 
