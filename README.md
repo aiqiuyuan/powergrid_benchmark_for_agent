@@ -102,6 +102,8 @@ GOC 的 500/793/2000/2312 等规模属于同一任务族；UC 为核心，受限
 
 另已完成[PowerGym PPO / 整数SAC单seed pilot](docs/experiments/powergym-rl-pilot-20261016.md)：参照论文公开参数独立实现，在当前合同下各训练40,000步，并独立评测20k / 40k检查点。固定40k策略在8个留出日均未满足末能量条件，质量为0；失败与完整物理指标均保留。这是方法重实现及流程验证，原论文训练源码未公开、完整设置仍有缺口，不能标为原曲线数值复现。参数来源、实现假设及可复现性判断见[核验说明](docs/experiments/powergym-rl-paper-audit-20261016.md)，工具见[训练入口](tools/powergym_rl/README.md)。
 
+后续已按[决定0008](docs/decisions/0008-distribution-formal-fixed-cases.md)进入[两题正式固定案例扩展](docs/experiments/distribution-formal-20261016.md)：MAPDN33节点2月3日采用安全优先真实网损指标；PowerGym123Bus压力日采用软电压综合代价与双能量硬约束。两个新正式包已完成本地真实后端及独立代码审查，30角色矩阵的目标集群与原生验收正在进行，尚未宣布正式提交。
+
 ## 共同实验语义
 
 ```mermaid

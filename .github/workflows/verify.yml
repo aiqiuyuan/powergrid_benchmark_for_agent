@@ -23,8 +23,8 @@ jobs:
           python -m pip install '.[verification]'
       - name: Check formatting and static issues
         run: |
-          ruff check src tests task-packages/mapdn-voltage-control task-packages/powergym-volt-var-control task-packages/mapdn-voltage-control-canary-v1 task-packages/powergym-volt-var-control-canary-v1
-          ruff format --check src tests task-packages/mapdn-voltage-control task-packages/powergym-volt-var-control task-packages/mapdn-voltage-control-canary-v1 task-packages/powergym-volt-var-control-canary-v1
+          ruff check src tests task-packages/mapdn-voltage-control task-packages/powergym-volt-var-control task-packages/mapdn-voltage-control-canary-v1 task-packages/powergym-volt-var-control-canary-v1 task-packages/mapdn-voltage-control-formal-v1 task-packages/powergym-volt-var-control-formal-v1
+          ruff format --check src tests task-packages/mapdn-voltage-control task-packages/powergym-volt-var-control task-packages/mapdn-voltage-control-canary-v1 task-packages/powergym-volt-var-control-canary-v1 task-packages/mapdn-voltage-control-formal-v1 task-packages/powergym-volt-var-control-formal-v1
       - name: Verify contracts and lifecycle with coverage
         run: |
           coverage run --source=powergrid_bench -m unittest discover -s tests
