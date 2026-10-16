@@ -1,6 +1,6 @@
 # MAPDN：局部信息下的光伏逆变器电压控制
 
-> **任务 ID：`mapdn-voltage-control`。状态：`design / certification-pending / release_ready=false`。** 扩展家族尚未完成正式认证。另已实现[真实33节点 canary 运行包](../../task-packages/mapdn-voltage-control-canary-v1/README.md)，通过全天本地校准与Linux完整仿真/候选隔离检查；四组 n=0/1 集群生命周期仍待执行，证据见[运行记录](../experiments/distribution-canary-20261015.md)。它不自动加入原五任务 × 五档 n × 三次独立开发的75-run清单。
+> **任务 ID：`mapdn-voltage-control`。状态：`design / certification-pending / release_ready=false`。** 扩展家族尚未完成正式认证。另已实现[真实33节点 canary 运行包](../../task-packages/mapdn-voltage-control-canary-v1/README.md)，通过全天本地校准、GitHub Linux检查及2026-10-16目标集群真实后端/候选隔离验收。MAPDN n=0/1两组v2均已完成并通过原生审计，反馈受理/收集分别为0/0和1/1，最终校准质量分别为0.8972437326和0.8915242407；全网同时电压合规率均100%，实际网损分别为1.056688/1.185213 MWh，均完成480步。两题四组均已完成终评，其中PowerGym n=0因末能量违规记0分、原生审计未通过；其余三组通过。候选哈希与失败历史见[运行记录](../experiments/distribution-canary-20261015.md)。流程完成不代表正式严格n或扩展家族认证完成，也不自动加入原75-run清单。
 
 ## 1. 研究定位
 
@@ -14,10 +14,12 @@
 
 遵循[决定0005](../decisions/0005-fixed-case-evolution-first.md)：固定一个困难、完整、可重放的 case，开发反馈与截止后的独立复核使用同一个 case。结果解释为同 case 算法演化；跨 case 泛化留到第二阶段。
 
+本节表格是正式家族合同。当前流程canary另冻结33节点、2012-01-02完整480个间隔、600秒开发时限及每题各一次n=0/1，使用稳定低增益droop作为共同starter；该流程校准不替代正式选难例、强基线或严格n认证。
+
 | 项目 | 本任务合同 |
 |---|---|
 | case 单位 | 固定网络、完整运行时域、原始时间来源、外生负荷/PV 实现、初始无功和采样映射的完整轨迹；不是随机截取的若干相邻时间行 |
-| 选例准备 | 33 节点用于接口小例；141 节点作为研究选例候选；322 节点需先解决或排除模型导入兼容问题。最终网络、日期与时域尚未冻结 |
+| 正式选例准备 | 141 节点作为研究选例候选；322 节点需先解决或排除模型导入兼容问题。正式主case尚未冻结；流程canary已单独冻结33节点完整日 |
 | 完整性 | 若定义完整自然日，3 分钟采样应覆盖该日全部 480 个间隔；不能把上游默认 240 步随机片段直接称为完整日 |
 | 开发 T | 按当前阶段政策每 run 上限 43200 秒；不设累计 token cap 或累计 token 预留截断，记录实际用量 |
 | 过程 n | 完整目标评分只能通过框架计数作业；候选非法动作、超时或错误仍按已受理作业计 n。基础设施原样重试保留同一逻辑作业 |
@@ -63,20 +65,22 @@ q_{i,t}=a_{i,t}\sqrt{S_{i,\max}^{2}-P_{i,t}^{2}}.
 
 上游默认训练 reward 为电压 barrier 加 `0.1 × mean(abs(Q))`；Q 项是代理量，不能直接报告为真实网损。其 `total_line_loss` 仅求和 `res_line.pl_mw`，尚未覆盖变压器等其他损耗元件。可信侧需按实际网络元素计算总有功损耗，并与全网功率平衡交叉检查，特别核对多电压等级网络。[reward 源码](https://github.com/Future-Power-Networks/MAPDN/blob/6895f1f0630b112745a3f681d7685d454407f9cb/environments/var_voltage_control/voltage_control_env.py#L577-L626)
 
-建议先比较电压可行性，再在相同可行性合同下比较实际损耗；**最终排名规则、权重、失败分与反馈精度尚未冻结**。不能在看到正式结果后选择更有利的指标。候选自报 reward 或损耗不具权威性；基础设施失败应记录为缺失并按恢复政策处理，不编造算法分数。
+建议先比较电压可行性，再在相同可行性合同下比较实际损耗；**正式家族的最终排名规则、权重、失败分与反馈精度尚未冻结**。canary使用其运行包内预先固定的校准公式，不能外推为正式主指标。不能在看到正式结果后选择更有利的指标。候选自报 reward 或损耗不具权威性；基础设施失败应记录为缺失并按恢复政策处理，不编造算法分数。
 
 ## 5. 环境、数据与版本准备
 
 | 资源 | 已核查版本或准备要求 |
 |---|---|
 | MAPDN 源码 | `Future-Power-Networks/MAPDN@6895f1f0630b112745a3f681d7685d454407f9cb`，2026-05-10 提交 |
-| 上游依赖 | Python 3.10、Pandapower 3.3.0、Pandas 2.3.3、NumPy 2.2.6、Gym 0.26.2、PyTorch 2.9.0；是上游环境，尚未完成本 task 镜像验收 |
+| 上游依赖 | Python 3.10、Pandapower 3.3.0、Pandas 2.3.3、NumPy 2.2.6、Gym 0.26.2、PyTorch 2.9.0；该整套上游训练环境与canary独立运行镜像分别记录 |
 | 数据快照 | HF `hsvgbkhgbv/Multi-Agent-Power-Distribution-Networks@a41d8c269e402a827d36d9a153a4bce73a990e53` |
 | 电压控制数据 | `voltage_control_data.zip`：3,763,536,396 字节；LFS SHA-256 `002de887013e8a2dbd2d79e5b6e2ed2c00584f3cf1ae81947f986061cfd81de2` |
 | 传统控制数据 | `traditional_control_data.zip`：2,241,575,724 字节；LFS SHA-256 `467bc1c04611dbc9f66cae3d614cbc4e1c2936f5e78033bc6804da28e6ec7bc8` |
 | 运行输入 | `model.p`、`pv_active.csv`、`load_active.csv`、`load_reactive.csv`，分别记录解压文件哈希、原始时标、网络和设备映射 |
 
 上述压缩包大小与 SHA-256 来自公开元数据，**不是本仓库下载后的本地校验凭证**。准备时应显式选择网络，只在可信环境获取和核验数据；不要在包导入或普通测试中自动下载数 GB 文件。仓库基础包要求 Python ≥3.11，而上游环境为 Python 3.10，应使用隔离运行环境，不能直接假定二者已兼容。[依赖文件](https://github.com/Future-Power-Networks/MAPDN/blob/6895f1f0630b112745a3f681d7685d454407f9cb/environment.yml)、[锁定数据目录](https://huggingface.co/datasets/hsvgbkhgbv/Multi-Agent-Power-Distribution-Networks/tree/a41d8c269e402a827d36d9a153a4bce73a990e53)
+
+canary已获取并校验选定33节点的四个完整ZIP成员，保留CRC32、成员SHA256与case manifest，不宣称校验整份3.7GB压缩包。其Python3.12/Pandapower3.3.0运行依赖使用[独立离线锁](../../task-packages/mapdn-voltage-control-canary-v1/images/requirements.lock)，实际镜像ID、归档哈希和目标集群验收见[流程记录](../experiments/distribution-canary-20261015.md)。
 
 MAPDN 代码与 HF 数据卡声明 MIT；原始 UCI 用电数据标为 CC BY 4.0，Elia 历史 PV 数据列有独立 Open Data Licence。还需核对实际历史导出、改造网络、MATPOWER case 与 SimBench 来源的许可和署名，不能用顶层 MIT 抹去所有来源义务。数据与权重许可审计完成前不将完整数据重打包发布。[MAPDN LICENSE](https://github.com/Future-Power-Networks/MAPDN/blob/6895f1f0630b112745a3f681d7685d454407f9cb/LICENSE)、[UCI 来源](https://archive.ics.uci.edu/dataset/321/electricityloaddiagrams20112014)、[Elia 数据说明](https://opendata.elia.be/explore/dataset/ods032/)
 
@@ -89,7 +93,7 @@ MAPDN 代码与 HF 数据卡声明 MIT；原始 UCI 用电数据标为 CC BY 4.0
 5. **进程与目录隔离。** 输入只读，控制单元状态相互隔离，每作业独立工作目录；禁用共享绘图输出。不能复用会删除同名日志的训练驱动作为评测入口。
 6. **322 导入单独验收。** [上游 issue #51](https://github.com/Future-Power-Networks/MAPDN/issues/51)报告 Pandapower 3.3.0 读取该网络 pickle 时出现 `KeyError: 'type'`；这是未在本 task 重现的报告，不能既当作已修复，也不能当作数学难度证据。
 
-前期审计用提取的上游函数和替身验证过“未截断映射”和“239 次调用”的局部逻辑；未运行完整 Pandapower 环境。上述任务修复、实际数值影响与完整日重放仍需验收。
+前期审计仅用提取的上游函数和替身验证“未截断映射”和“239 次调用”的局部逻辑。后续canary已修正因果步序，并在真实Pandapower中完成33节点全天480步、动作边界、功率平衡、总损耗、重放和隔离检查；这些证据不自动覆盖141/322节点或原上游训练驱动。
 
 ## 7. 基线与难度校准
 
@@ -113,4 +117,4 @@ MATPOWER/MIPS 有 BSD-3-Clause 许可和 GNU Octave 路径，不天然要求商�
 - 统一条件重跑强基线并测量 CPU、内存、加载、每步与全时域成本；冻结原始指标、排名与反馈 schema。
 - 使用实际后端验证 n=0、n=1、超额拒绝、候选错误计数、共同截止、唯一 artifact 冻结和同 case 独立复核。
 
-原[家族包骨架](../../task-packages/mapdn-voltage-control/README.md)继续保留待认证状态。新 canary 已补上真实运行器、冻结完整日、物理校准与评分入口，具体版本及证据见[流程校准记录](../experiments/distribution-canary-20261015.md)；不能将本地数值证据视为 Linux 隔离、集群生命周期或正式扩展认证。[机器声明](../../manifests/task-adapters/mapdn-voltage-control.json)、[接入说明](../framework/distribution-control-integration.md)
+原[家族包骨架](../../task-packages/mapdn-voltage-control/README.md)继续保留待认证状态。新canary已有真实运行器、冻结完整日、物理校准、同一评分入口及目标集群Linux隔离验收；MAPDN n=0/1模型开发、反馈计数、截止候选哈希和同case终评已通过原生审计，但单次流程校准不替代正式扩展认证。首个旧版本n=0作业因Harbor参数类型在调用模型前失败，保留记录后用新准备版本完成；该失败、构造预检和环境验收均未冒充已完成实验。具体版本及证据见[流程校准记录](../experiments/distribution-canary-20261015.md)。[机器声明](../../manifests/task-adapters/mapdn-voltage-control.json)、[接入说明](../framework/distribution-control-integration.md)

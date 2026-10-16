@@ -1,6 +1,6 @@
 # PowerGym 配电网混合设备 Volt-Var 控制
 
-> 扩展家族，状态：`design / certification-pending / release_ready=false`。2026-10-15 已另行实现[真实34Bus canary 运行包](../../task-packages/powergym-volt-var-control-canary-v1/README.md)，通过完整24小时本地校准与Linux完整仿真/候选隔离检查。四组 n=0/1 集群生命周期仍待执行，证据见[运行记录](../experiments/distribution-canary-20261015.md)。本文保留正式家族的认证要求。
+> 扩展家族，状态：`design / certification-pending / release_ready=false`。已实现[真实34Bus canary 运行包](../../task-packages/powergym-volt-var-control-canary-v1/README.md)，通过完整24小时本地校准、GitHub Linux及目标集群后端/隔离验收。PowerGym v3两组均完成24步终评：n=0末能量偏差10 kWh超过固定1 kWh容差，候选无效、reward=0、原生审计未通过；n=1候选有效、reward=0.1405541997、原生审计通过。n=0候选失败保留，不按基础设施故障重提；早期v2模型前启动失败另列历史。两题四组终评流程均完成，三组原生审计通过，正式家族认证仍待完成。详见[运行记录](../experiments/distribution-canary-20261015.md)。
 
 ## 1. 家族定位与演化对象
 
@@ -30,6 +30,8 @@
 ## 3. 第一阶段：完整固定 case 与严格 n
 
 采用[决定 0005](../decisions/0005-fixed-case-evolution-first.md)：同一个完整 case 用于开发面向的目标、计数过程反馈和截止后的独立重执行。跨 case 泛化放到第二阶段。候选 case 是完整的一天及冻结的 feeder、负荷数组、初态、设备、动作和评分合同，不随机裁取一天中的若干时间行。
+
+下表描述正式扩展政策。流程canary已单独冻结34Bus、确定性打包的profile0、24个1小时间隔、600秒开发时限与每档一次n=0/1，采用电压滞环且电池idle的共同starter。canary的case与校准评分不代表正式主case或难度准入已通过。
 
 | 研究项 | 本扩展采用的政策 |
 |---|---|
@@ -62,7 +64,9 @@
 
 两轨均为提议版本，**尚未选择正式主轨**，不能混排。原生轨的 `_soc` 只是最后一步的 `soc_w × sum(|SOC_H−SOC_0|)` **软惩罚，没有硬终端等式**。vanilla 的 `soc_w=0`，允许终端能量下降，只收逐步正向放电代价。若新轨要求末 SOC 回到初值，应先校准再冻结容差与不可行处理，不在此随意写一个数值。[原生控制奖励](https://github.com/siemens/powergym/blob/c9fc6d8357308a1f2bd2389474b56089c2a6bd78/powergym/env.py#L337-L348)。
 
-上游电池是 Generator 加 Python 能量账本，不是 OpenDSS Storage：命令先按剩余容量投影，解潮流后用实际有功积分更新能量，再裁到容量内并四舍五入到整数 kWh。账本没有独立充放电效率。源码把 `pf` 标为 power factor，但实际设置 `kvar=kw/pf`；通常固定功率因数的幅值关系应为 `|Q|=|P|tan(acos(pf))`。这是需要物理验证的源码疑点，本次没有运行仿真证明其具体后果。不能未经说明把它修正后仍称原生复现。[命令与能量更新](https://github.com/siemens/powergym/blob/c9fc6d8357308a1f2bd2389474b56089c2a6bd78/powergym/circuit.py#L256-L318)、[pf 与投影](https://github.com/siemens/powergym/blob/c9fc6d8357308a1f2bd2389474b56089c2a6bd78/powergym/circuit.py#L775-L840)。
+当前canary已明确选用独立的energy-neutral适配合同：真实OpenDSS snapshot、显式逐时负荷、关闭自动设备控制，每台末能量距初能量不得超过1 kWh，违反时判无效；保留并披露上游整数kWh账本及Generator P/Q语义。它具有自己的预固定电压/实际损耗/操作成本校准公式，不能称为原Gym时序或reward逐位复现，也不能据此宣称正式物理适配主轨已认证。
+
+上游电池是 Generator 加 Python 能量账本，不是 OpenDSS Storage：命令先按剩余容量投影，解潮流后用实际有功积分更新能量，再裁到容量内并四舍五入到整数 kWh。账本没有独立充放电效率。源码把 `pf` 标为 power factor，但实际设置 `kvar=kw/pf`；通常固定功率因数的幅值关系应为 `|Q|=|P|tan(acos(pf))`。canary保留并实测其原有Generator语义，不将该实现解释为已校正的真实固定功率因数模型。不能未经说明把它修正后仍称原生复现。[命令与能量更新](https://github.com/siemens/powergym/blob/c9fc6d8357308a1f2bd2389474b56089c2a6bd78/powergym/circuit.py#L256-L318)、[pf 与投影](https://github.com/siemens/powergym/blob/c9fc6d8357308a1f2bd2389474b56089c2a6bd78/powergym/circuit.py#L775-L840)。
 
 ## 6. 信息、动作与执行接口
 
@@ -72,7 +76,7 @@
 
 原生分接头可直接跳任意合法档位，并以移动档数收费；若加入爬坡、最小驻留或操作次数硬限制，属于适配轨的新约束。检查器必须在写入设备前拒绝非有限、错误长度、非法类型或越界动作；不能靠投影悄悄修复后仍计作原合法动作。源码还在设置 Tap 时写入 `NumTaps=tapnum`，须用锁定后端验证分接头实际语义。[调压器 setter](https://github.com/siemens/powergym/blob/c9fc6d8357308a1f2bd2389474b56089c2a6bd78/powergym/circuit.py#L218-L254)。
 
-基础合同模块为 `powergrid_bench.distribution.powergym`，提供动作检查、保持当前设备且电池 idle 的动作构造及终端 SOC 容差判定；`powergrid_bench.distribution.profiles.pack_profiles` 接收显式有序的源 CSV，纯标准库打包并记录 raw hash、跨文件源行映射、未用尾行与 packed hash，不运行评分。完整范围与当前验收证据见[配电控制接入说明](../framework/distribution-control-integration.md)。它们不等于已接通的 OpenDSS runner、完整潮流仿真或完整目标评分服务。source 准备工具只向可信评分侧复制并核对上游版本，不把完整上游仓库装入开发镜像。原生接入目录为[task-packages/powergym-volt-var-control](../../task-packages/powergym-volt-var-control/)；机器声明中的 argv 是待实现模板，不能据此启动正式实验。
+基础合同模块为 `powergrid_bench.distribution.powergym`，提供动作检查、保持当前设备且电池 idle 的动作构造及终端 SOC 容差判定；`powergrid_bench.distribution.profiles.pack_profiles` 接收显式有序的源 CSV，纯标准库打包并记录 raw hash、跨文件源行映射、未用尾行与 packed hash，不运行评分。这些基础模块与[另行实现的真实OpenDSS canary runner](../../task-packages/powergym-volt-var-control-canary-v1/README.md)分别记录。source准备工具只向可信评分侧复制并核对上游版本，不把完整上游仓库装入开发镜像。正式家族[原接入骨架](../../task-packages/powergym-volt-var-control/)及其机器声明中的argv仍为待认证模板；不能与已可运行的canary混用。参见[配电控制接入说明](../framework/distribution-control-integration.md)。
 
 ## 7. 评分与实际有功网损
 
@@ -119,7 +123,7 @@ native DSS 模式和直接算法模式必须区分。默认 `dss_act=False` 关�
 
 ## 10. 依赖、并发与许可
 
-上游声明 Python 3.8；requirements 锁 pandas 1.2.4、dss_python 0.10.7、gym 0.18.0、imageio 2.9.0、matplotlib 3.4.3、networkx 2.5、numpy 1.22.0。后端是 `import dss` 的 `opendss.DSS` 全局对象。仓库的 Python ≥3.11 基础合同不能证明这套旧仿真依赖已兼容；原生运行应在独立锁定镜像中安装并做数值回归。镜像、DSS C 引擎和完整 transitive lock 尚未冻结。[依赖](https://github.com/siemens/powergym/blob/c9fc6d8357308a1f2bd2389474b56089c2a6bd78/requirements.txt#L1-L7)、[后端](https://github.com/siemens/powergym/blob/c9fc6d8357308a1f2bd2389474b56089c2a6bd78/powergym/circuit.py#L4-L19)。
+上游声明 Python 3.8；requirements 锁 pandas 1.2.4、dss_python 0.10.7、gym 0.18.0、imageio 2.9.0、matplotlib 3.4.3、networkx 2.5、numpy 1.22.0。后端是 `import dss` 的 `opendss.DSS` 全局对象。这套旧Gym环境的原生复现尚未认证。canary使用独立Python3.12镜像、dss_python0.15.7、dss_python_backend0.14.5及NumPy1.26.4，按[完整离线依赖锁](../../task-packages/powergym-volt-var-control-canary-v1/images/requirements.lock)构建，实际image ID和归档哈希已记录；其现代后端适配不能解释为旧Gym环境逐位兼容。[上游依赖](https://github.com/siemens/powergym/blob/c9fc6d8357308a1f2bd2389474b56089c2a6bd78/requirements.txt#L1-L7)、[上游后端](https://github.com/siemens/powergym/blob/c9fc6d8357308a1f2bd2389474b56089c2a6bd78/powergym/circuit.py#L4-L19)。
 
 `worker_idx` 仅区分 main/profile-selection DSS 文件；生成 CSV 与 scale.txt 仍共享，reset 会重写选择文件。不同 scale 并发及同进程多个全局 DSS Env 不可据此宣布安全。每 worker/run 采用独立进程与完整私有工作目录，生成后冻结 profile；验证串行/并行复核一致性。[worker 文件](https://github.com/siemens/powergym/blob/c9fc6d8357308a1f2bd2389474b56089c2a6bd78/powergym/env_register.py#L283-L314)、[共享写入](https://github.com/siemens/powergym/blob/c9fc6d8357308a1f2bd2389474b56089c2a6bd78/powergym/loadprofile.py#L184-L230)。
 
@@ -134,4 +138,4 @@ native DSS 模式和直接算法模式必须区分。默认 `dss_act=False` 关�
 5. 走原生 task 生命周期短验：n=0 无完整目标过程反馈，正 n 计数、超额拒绝、失败计费、截止冻结、唯一 artifacts 同 case 复核；记录实际防旁路覆盖。
 6. 冻结模型/资源、seed、反馈 schema/精度、release 摘要和新扩展的运行清单后，才可进入正式开发比较。
 
-登记后的 canary 已补上真实后端与本地完整日基线，详见[流程校准记录](../experiments/distribution-canary-20261015.md)；Linux隔离、集群生命周期及正式扩展认证仍不能由这些本地数值替代。机器声明：[powergym-volt-var-control.json](../../manifests/task-adapters/powergym-volt-var-control.json)；接入说明：[distribution-control-integration.md](../framework/distribution-control-integration.md)。
+登记后的canary已补上真实后端、完整日基线、串并行重放、末能量硬约束及目标集群Linux隔离验收，详见[流程校准记录](../experiments/distribution-canary-20261015.md)。PowerGym n=0/1均已有目标模型、反馈计数、最终候选哈希和同case终评回执，反馈受理/收集分别为0/0和1/1；n=0在完整终评后因末能量违规判0分，其原生审计未通过状态保留，n=1通过。来源许可、强基线、跨期设备贡献及正式严格n等扩展门槛继续保持待认证。机器声明：[powergym-volt-var-control.json](../../manifests/task-adapters/powergym-volt-var-control.json)；接入说明：[distribution-control-integration.md](../framework/distribution-control-integration.md)。
