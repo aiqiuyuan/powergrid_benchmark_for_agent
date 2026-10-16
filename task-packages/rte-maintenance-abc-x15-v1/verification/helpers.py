@@ -88,7 +88,7 @@ def synthetic_manifest(root: Path, cases: list[dict], *, seconds: float, workers
                 "workers": workers,
                 "checker_timeout_seconds": 1,
                 "staging_timeout_seconds": 1,
-                "address_space_bytes": 8 * 1024**3,
+                "address_space_bytes": 16 * 1024**3,
                 "seed": 2020,
                 "cases": rows,
             }

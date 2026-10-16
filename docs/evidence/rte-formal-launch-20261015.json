@@ -1,15 +1,26 @@
 {
-  "updated_at": "2026-10-15T10:57:32.118025+00:00",
+  "updated_at": "2026-10-16T08:25:05.780546+00:00",
   "task": "rte-maintenance-abc-x15-v1",
-  "status": "blocked_relay_authentication",
-  "release_ready": false,
-  "formal_submissions": 0,
-  "server_job_ids": [],
-  "blocking_evidence": {
-    "error": "token invalid",
-    "stage": "relay authentication / SSH handshake",
-    "requires": "local relay reauthentication"
-  },
+  "status": "formal_submitted_running_and_pending",
+  "release_ready": true,
+  "formal_submissions": 15,
+  "server_job_ids": [
+    "aqy-rtex15-n0-r1-20261016-161010",
+    "aqy-rtex15-n1-r1-20261016-161011",
+    "aqy-rtex15-n3-r1-20261016-161011",
+    "aqy-rtex15-n5-r1-20261016-161012",
+    "aqy-rtex15-n10-r1-20261016-161012",
+    "aqy-rtex15-n0-r2-20261016-161013",
+    "aqy-rtex15-n1-r2-20261016-161013",
+    "aqy-rtex15-n3-r2-20261016-161014",
+    "aqy-rtex15-n5-r2-20261016-161014",
+    "aqy-rtex15-n10-r2-20261016-161014",
+    "aqy-rtex15-n0-r3-20261016-161015",
+    "aqy-rtex15-n1-r3-20261016-161015",
+    "aqy-rtex15-n3-r3-20261016-161016",
+    "aqy-rtex15-n5-r3-20261016-161016",
+    "aqy-rtex15-n10-r3-20261016-161017"
+  ],
   "configuration": {
     "n": [
       0,
@@ -34,14 +45,34 @@
     },
     "verifier": {
       "cpus": 15,
-      "memory_mb": 131072
+      "memory_mb": 262144
     },
-    "candidate_address_space_bytes": 8589934592,
+    "candidate_address_space_bytes": 17179869184,
     "pod": {
       "cpus": 21,
-      "memory_mb": 172032
+      "memory_mb": 303104
     },
-    "resource_validation": "pending_real_full_panel"
+    "resource_validation": "passed_v5_real_panel_reused_for_v6_by_verified_lineage",
+    "outer_overhead": {
+      "cpus": 4,
+      "memory_mb": 8192
+    },
+    "shared_memory_mb": 8192,
+    "memory_peak_policy": "optional; unavailable is recorded explicitly; memory.current is not a kernel peak",
+    "required_resource_telemetry": [
+      "memory.current",
+      "memory.max",
+      "cpu.max",
+      "memory.events.oom",
+      "memory.events.oom_kill"
+    ],
+    "worker_infrastructure_seconds": 1200,
+    "staging_allowance_seconds": 120,
+    "checker_allowance_seconds": 180,
+    "checker_separate_hard_timeout": false,
+    "panel_runner_seconds": 1500,
+    "verifier_timeout_seconds": 1800,
+    "final_runner_seconds": 6300
   },
   "clients": {
     "framework_commit": "c1fffbf839c449d7d35952da37664b5a67ea3df6",
@@ -50,43 +81,249 @@
     "claude_sha256": "1e08503dbdf3c2cb0d706d32f3408277388d1c76ef108673e8fe42c1b322925b",
     "request_model": "bedrock/gpt-5.6-sol",
     "expected_response_model": "global.openai.gpt-5.6-sol",
-    "model_validation_this_batch": "pending",
+    "model_validation_this_batch": "v6 canaries observed expected response model; early available Claude transcript segments confirm expected model responses for the 6 running formal roles at 2026-10-16T08:19:00.070439+00:00",
     "thinking": false,
-    "prompt_caching": false
+    "prompt_caching": false,
+    "observed_response_model": "global.openai.gpt-5.6-sol",
+    "successful_tools_observed_v5": [
+      "Read",
+      "Bash"
+    ],
+    "successful_tools_observed_v6": [
+      "Read",
+      "Bash"
+    ]
   },
   "checks": {
     "public_portable_task": {
       "passed": true,
       "tests": 23,
-      "scope": "synthetic official-schema process/checker integration, not real X15"
+      "scope": "public synthetic official-schema process/checker integration; not real X15 or network acceptance"
     },
     "batch_local_tests": {
       "passed": true,
-      "tests": 28,
-      "scope": "native plan, receipts, microtask fixtures, resource/freeze and full-panel gates; no server/model calls"
+      "batch": "v6",
+      "tests": 61,
+      "subtests": 77,
+      "additional_gateway_regression_tests": 29,
+      "scope": "local fixtures, native plan, resource/freeze and reviewed network changes; capture tests do not execute actual CONNECT/TLS and do not certify live egress"
     },
     "source_review": {
       "passed": true,
-      "scope": "task diagnostics, batch/runtime, full-panel gates, microtask/network probe and submission helpers",
-      "limitation": "sampling is not exhaustive; real server gates pending"
+      "batch": "v6",
+      "status": "reviewed_and_frozen",
+      "prior_resource_configuration_review_passed": true,
+      "limitation": "local review or a prior snapshot does not certify v6 deployment",
+      "reviewed_network_difference_files": 5
     },
     "server_full_panel": {
-      "passed": null,
-      "status": "not_started"
+      "passed": true,
+      "batch": "v5",
+      "status": "completed",
+      "job_id": "aqy-rtex15-full-panel-20261016-152317",
+      "wall_seconds": 924.564532,
+      "verdict_counts": {
+        "AC": 8,
+        "RE": 2,
+        "TLE": 5
+      },
+      "aggregate": 0,
+      "starter_validity": 0,
+      "checker_cases": 8,
+      "candidate_memory_errors": 0,
+      "resource_observation": {
+        "valid_samples": 90,
+        "memory_current_sampled_max_bytes": 95561768960,
+        "memory_current_sampled_max_is_true_peak": false,
+        "memory_limit_bytes": 274877906944,
+        "cpu_quota_cpus": 15,
+        "oom": 0,
+        "oom_kill": 0,
+        "memory_peak": "unavailable",
+        "memory_peak_unavailable_samples": 90
+      },
+      "scope": "real original X15 resource acceptance donor v5; passed resource gate is not all-case solver validity or a formal research result"
     },
     "native_n0_n1_canaries": {
-      "passed": null,
-      "status": "not_started"
+      "passed": true,
+      "batch": "v6",
+      "status": "completed",
+      "n0_job_id": "aqy-rtex15-acceptance-n0-r1-20261016-154757",
+      "n1_job_id": "aqy-rtex15-acceptance-n1-r1-20261016-154758",
+      "prior_v5_result": {
+        "passed": false,
+        "batch": "v5",
+        "status": "functional_checks_observed_but_network_gate_failed",
+        "response_model": "global.openai.gpt-5.6-sol",
+        "successful_tools": [
+          "Read",
+          "Bash"
+        ],
+        "n0": {
+          "feedback_used": 0,
+          "feedback_collected": 0,
+          "terminal_feasible_cases": 15,
+          "terminal_case_count": 15
+        },
+        "n1": {
+          "feedback_used": 1,
+          "feedback_collected": 1,
+          "terminal_feasible_cases": 15,
+          "terminal_case_count": 15
+        },
+        "data_scope": "tiny synthetic official-schema acceptance fixtures; not original protected X15"
+      },
+      "scope": "real v6 native lifecycle and network acceptance using tiny synthetic official-schema cases; not original protected X15 or formal research scores",
+      "n0": {
+        "role": "acceptance-n0-r1",
+        "passed": true,
+        "response_models": [
+          "global.openai.gpt-5.6-sol"
+        ],
+        "model_messages": 14,
+        "feedback_used": 0,
+        "feedback_collected": 0,
+        "proxy_denied_routes": 14,
+        "direct_routes_denied": 14,
+        "pypi_allowed_routes": 1,
+        "model_egress_allowed_routes": 6,
+        "upstream_stream_errors": 0,
+        "exact_frozen_probe_bash_calls": 1,
+        "status": "completed",
+        "successful_tools": [
+          "Read",
+          "Bash"
+        ],
+        "terminal_ac_cases": 15,
+        "terminal_case_count": 15,
+        "api_errors": 0,
+        "model_egress_http_200": 6,
+        "proxy_parent_block_reason_verified": true,
+        "pypi_bytes_observed": true,
+        "probe_bash_output_matches_artifact": true,
+        "probe_sha256_matches_frozen_source": true,
+        "ledger": {
+          "exists": false
+        }
+      },
+      "n1": {
+        "role": "acceptance-n1-r1",
+        "passed": true,
+        "response_models": [
+          "global.openai.gpt-5.6-sol"
+        ],
+        "model_messages": 13,
+        "feedback_used": 1,
+        "feedback_collected": 1,
+        "proxy_denied_routes": 14,
+        "direct_routes_denied": 14,
+        "pypi_allowed_routes": 1,
+        "model_egress_allowed_routes": 6,
+        "upstream_stream_errors": 0,
+        "exact_frozen_probe_bash_calls": 1,
+        "status": "completed",
+        "successful_tools": [
+          "Read",
+          "Bash"
+        ],
+        "terminal_ac_cases": 15,
+        "terminal_case_count": 15,
+        "api_errors": 0,
+        "model_egress_http_200": 6,
+        "proxy_parent_block_reason_verified": true,
+        "pypi_bytes_observed": true,
+        "probe_bash_output_matches_artifact": true,
+        "probe_sha256_matches_frozen_source": true,
+        "ledger": {
+          "exists": true,
+          "done": 1,
+          "counted": 1,
+          "collected": 1,
+          "valid": true
+        }
+      },
+      "independent_operator_review_passed": true,
+      "operator_review_sha256": "a98023e106d3f773afa8872b78be75078ed6b73ae64eb02ad0f2bd448ce98825"
     },
     "egress_probe": {
-      "passed": null,
-      "status": "not_started"
+      "passed": true,
+      "batch": "v6",
+      "status": "completed",
+      "prior_v5_result": {
+        "passed": false,
+        "batch": "v5",
+        "proxy_denials": 14,
+        "direct_bypass_observed": true
+      },
+      "canaries": 2,
+      "proxy_denied_routes_per_canary": 14,
+      "direct_routes_denied_per_canary": 14,
+      "pypi_allowed_routes_per_canary": 1,
+      "model_egress_allowed_routes_per_canary": 6,
+      "independent_operator_review_passed": true,
+      "scope": "actual frozen probe Bash and artifact equality, parent block reasons, direct-close, package bytes and model egress routes verified; scoped to tested routes and this frozen batch"
     },
     "private_framework_tests": {
       "passed": true,
       "tests": 547,
       "skipped": 5,
-      "seconds": 43.25
+      "seconds": 43.25,
+      "scope": "historical framework reference; not current v6 acceptance"
+    },
+    "server_site_and_plan_preflight": {
+      "passed": true,
+      "scope": "historical migrated Site.load and selected native make_plan checks; no real model requests",
+      "batch": "v2"
+    },
+    "resource_acceptance_reuse": {
+      "passed": true,
+      "donor_batch": "v5",
+      "recipient_batch": "v6",
+      "new_real_full_panel_run": false,
+      "source_manifest_sha256": "b09b93de42f8bf35aa657d50fbb12b86cbddd0f68f19b1dd67573195c340264b",
+      "reuse_lineage_sha256": "ad6e8003b80b32527177dfed6855298e55266dac8cf7a9ee84d5811997f3d2de",
+      "small_files_sha256_matched": 50,
+      "large_raw_same_inode_and_size": 58,
+      "small_raw_byte_equal": 2,
+      "identical_sha256_components": [
+        "server-dataready",
+        "runtime-manifest",
+        "probe",
+        "server_acceptance",
+        "runtime_env"
+      ],
+      "runtime_archive_same_inode": true,
+      "reviewed_network_difference_files": 5,
+      "task_unchanged": true
+    },
+    "formal_launch": {
+      "passed": true,
+      "formal_submissions": 15,
+      "formal_finished": 0,
+      "phase_counts": {
+        "Running": 6,
+        "Pending": 9
+      },
+      "source_gate_binding_verified": true,
+      "required_anti_affinity_admitted": true,
+      "assigned_distinct_nodes": 6,
+      "pod_owner_uid_matches_job_verified": true,
+      "scope": "creation and observed placement/lifecycle only; final research results pending"
+    },
+    "formal_early_activity": {
+      "passed": true,
+      "observed_at": "2026-10-16T08:19:00.070439+00:00",
+      "roles": 6,
+      "development_seconds": 43200,
+      "lifecycle_phase": "harbor_running",
+      "response_model": "global.openai.gpt-5.6-sol",
+      "model_messages_per_role_range": [
+        43,
+        69
+      ],
+      "available_segment_api_errors": 0,
+      "available_segment_lifecycle_errors": 0,
+      "scope": "early activity only; no formal completion, final score or entire-run reliability assertion"
     }
   },
   "roles": [
@@ -94,111 +331,722 @@
       "role": "n0-r1",
       "n": 0,
       "repeat": 1,
-      "status": "not_submitted",
-      "job_id": null
+      "status": "running",
+      "job_id": "aqy-rtex15-n0-r1-20261016-161010",
+      "submitted_at": "2026-10-16T08:10:11.099120+00:00",
+      "pod_phase": "Running",
+      "lifecycle_phase": "harbor_running",
+      "error_type": null,
+      "cpu": 21,
+      "memory_gib": 296,
+      "required_anti_affinity_admitted": true,
+      "formal_finished": false
     },
     {
       "role": "n1-r1",
       "n": 1,
       "repeat": 1,
-      "status": "not_submitted",
-      "job_id": null
+      "status": "running",
+      "job_id": "aqy-rtex15-n1-r1-20261016-161011",
+      "submitted_at": "2026-10-16T08:10:11.493634+00:00",
+      "pod_phase": "Running",
+      "lifecycle_phase": "harbor_running",
+      "error_type": null,
+      "cpu": 21,
+      "memory_gib": 296,
+      "required_anti_affinity_admitted": true,
+      "formal_finished": false
     },
     {
       "role": "n3-r1",
       "n": 3,
       "repeat": 1,
-      "status": "not_submitted",
-      "job_id": null
+      "status": "running",
+      "job_id": "aqy-rtex15-n3-r1-20261016-161011",
+      "submitted_at": "2026-10-16T08:10:11.888066+00:00",
+      "pod_phase": "Running",
+      "lifecycle_phase": "harbor_running",
+      "error_type": null,
+      "cpu": 21,
+      "memory_gib": 296,
+      "required_anti_affinity_admitted": true,
+      "formal_finished": false
     },
     {
       "role": "n5-r1",
       "n": 5,
       "repeat": 1,
-      "status": "not_submitted",
-      "job_id": null
+      "status": "running",
+      "job_id": "aqy-rtex15-n5-r1-20261016-161012",
+      "submitted_at": "2026-10-16T08:10:12.342781+00:00",
+      "pod_phase": "Running",
+      "lifecycle_phase": "harbor_running",
+      "error_type": null,
+      "cpu": 21,
+      "memory_gib": 296,
+      "required_anti_affinity_admitted": true,
+      "formal_finished": false
     },
     {
       "role": "n10-r1",
       "n": 10,
       "repeat": 1,
-      "status": "not_submitted",
-      "job_id": null
+      "status": "running",
+      "job_id": "aqy-rtex15-n10-r1-20261016-161012",
+      "submitted_at": "2026-10-16T08:10:12.786136+00:00",
+      "pod_phase": "Running",
+      "lifecycle_phase": "harbor_running",
+      "error_type": null,
+      "cpu": 21,
+      "memory_gib": 296,
+      "required_anti_affinity_admitted": true,
+      "formal_finished": false
     },
     {
       "role": "n0-r2",
       "n": 0,
       "repeat": 2,
-      "status": "not_submitted",
-      "job_id": null
+      "status": "running",
+      "job_id": "aqy-rtex15-n0-r2-20261016-161013",
+      "submitted_at": "2026-10-16T08:10:13.219595+00:00",
+      "pod_phase": "Running",
+      "lifecycle_phase": "harbor_running",
+      "error_type": null,
+      "cpu": 21,
+      "memory_gib": 296,
+      "required_anti_affinity_admitted": true,
+      "formal_finished": false
     },
     {
       "role": "n1-r2",
       "n": 1,
       "repeat": 2,
-      "status": "not_submitted",
-      "job_id": null
+      "status": "pending",
+      "job_id": "aqy-rtex15-n1-r2-20261016-161013",
+      "submitted_at": "2026-10-16T08:10:13.739983+00:00",
+      "pod_phase": "Pending",
+      "lifecycle_phase": null,
+      "error_type": null,
+      "cpu": 21,
+      "memory_gib": 296,
+      "required_anti_affinity_admitted": true,
+      "formal_finished": false
     },
     {
       "role": "n3-r2",
       "n": 3,
       "repeat": 2,
-      "status": "not_submitted",
-      "job_id": null
+      "status": "pending",
+      "job_id": "aqy-rtex15-n3-r2-20261016-161014",
+      "submitted_at": "2026-10-16T08:10:14.221392+00:00",
+      "pod_phase": "Pending",
+      "lifecycle_phase": null,
+      "error_type": null,
+      "cpu": 21,
+      "memory_gib": 296,
+      "required_anti_affinity_admitted": true,
+      "formal_finished": false
     },
     {
       "role": "n5-r2",
       "n": 5,
       "repeat": 2,
-      "status": "not_submitted",
-      "job_id": null
+      "status": "pending",
+      "job_id": "aqy-rtex15-n5-r2-20261016-161014",
+      "submitted_at": "2026-10-16T08:10:14.707655+00:00",
+      "pod_phase": "Pending",
+      "lifecycle_phase": null,
+      "error_type": null,
+      "cpu": 21,
+      "memory_gib": 296,
+      "required_anti_affinity_admitted": true,
+      "formal_finished": false
     },
     {
       "role": "n10-r2",
       "n": 10,
       "repeat": 2,
-      "status": "not_submitted",
-      "job_id": null
+      "status": "pending",
+      "job_id": "aqy-rtex15-n10-r2-20261016-161014",
+      "submitted_at": "2026-10-16T08:10:15.096413+00:00",
+      "pod_phase": "Pending",
+      "lifecycle_phase": null,
+      "error_type": null,
+      "cpu": 21,
+      "memory_gib": 296,
+      "required_anti_affinity_admitted": true,
+      "formal_finished": false
     },
     {
       "role": "n0-r3",
       "n": 0,
       "repeat": 3,
-      "status": "not_submitted",
-      "job_id": null
+      "status": "pending",
+      "job_id": "aqy-rtex15-n0-r3-20261016-161015",
+      "submitted_at": "2026-10-16T08:10:15.512210+00:00",
+      "pod_phase": "Pending",
+      "lifecycle_phase": null,
+      "error_type": null,
+      "cpu": 21,
+      "memory_gib": 296,
+      "required_anti_affinity_admitted": true,
+      "formal_finished": false
     },
     {
       "role": "n1-r3",
       "n": 1,
       "repeat": 3,
-      "status": "not_submitted",
-      "job_id": null
+      "status": "pending",
+      "job_id": "aqy-rtex15-n1-r3-20261016-161015",
+      "submitted_at": "2026-10-16T08:10:15.921864+00:00",
+      "pod_phase": "Pending",
+      "lifecycle_phase": null,
+      "error_type": null,
+      "cpu": 21,
+      "memory_gib": 296,
+      "required_anti_affinity_admitted": true,
+      "formal_finished": false
     },
     {
       "role": "n3-r3",
       "n": 3,
       "repeat": 3,
-      "status": "not_submitted",
-      "job_id": null
+      "status": "pending",
+      "job_id": "aqy-rtex15-n3-r3-20261016-161016",
+      "submitted_at": "2026-10-16T08:10:16.569463+00:00",
+      "pod_phase": "Pending",
+      "lifecycle_phase": null,
+      "error_type": null,
+      "cpu": 21,
+      "memory_gib": 296,
+      "required_anti_affinity_admitted": true,
+      "formal_finished": false
     },
     {
       "role": "n5-r3",
       "n": 5,
       "repeat": 3,
-      "status": "not_submitted",
-      "job_id": null
+      "status": "pending",
+      "job_id": "aqy-rtex15-n5-r3-20261016-161016",
+      "submitted_at": "2026-10-16T08:10:17.058834+00:00",
+      "pod_phase": "Pending",
+      "lifecycle_phase": null,
+      "error_type": null,
+      "cpu": 21,
+      "memory_gib": 296,
+      "required_anti_affinity_admitted": true,
+      "formal_finished": false
     },
     {
       "role": "n10-r3",
       "n": 10,
       "repeat": 3,
-      "status": "not_submitted",
-      "job_id": null
+      "status": "pending",
+      "job_id": "aqy-rtex15-n10-r3-20261016-161017",
+      "submitted_at": "2026-10-16T08:10:17.564440+00:00",
+      "pod_phase": "Pending",
+      "lifecycle_phase": null,
+      "error_type": null,
+      "cpu": 21,
+      "memory_gib": 296,
+      "required_anti_affinity_admitted": true,
+      "formal_finished": false
     }
   ],
   "changed_source_sha256": {
-    "task-packages/rte-maintenance-abc-x15-v1/support/runner.py": "a3345bdefa459162b9e2159b58c92d6dd3e15d7660545571d953739c109a02c3",
     "task-packages/rte-maintenance-abc-x15-v1/images/Dockerfile": "8ec08c644d27ea4b4cfa2d64623bfca5129e9d59b6abc5d67e9ce1d10353e6f6",
-    "task-packages/rte-maintenance-abc-x15-v1/verification/test_parallel.py": "360962a0560d59cf1dec5f08060fe136a2cad371b155b5598481c4e45bcba826"
+    "task-packages/rte-maintenance-abc-x15-v1/prepare.py": "b190eaeaeb2fcb3df70f0bb3788314867b268a33dea8ed3cda0b616485b17fa5",
+    "task-packages/rte-maintenance-abc-x15-v1/support/runner.py": "9eef0411b87e691338a7fbe651b3a9aad92841e893ce24bd35021315cfc70596",
+    "task-packages/rte-maintenance-abc-x15-v1/task.toml": "c43860263fc7df7a563aa21eeac6393cc446ff0d0a20036c341a9d9713dc342d",
+    "task-packages/rte-maintenance-abc-x15-v1/verification/helpers.py": "0c583a58c5086b8cc4b6d20768e44726b2a7ecdc40cee53d8beaa8f1f0ebb931",
+    "task-packages/rte-maintenance-abc-x15-v1/verification/probe_linux_sandbox.py": "36894c326189a3d4dbd60e7633fb7ff539ca312dd896dfe50d6410cc28988b31",
+    "task-packages/rte-maintenance-abc-x15-v1/verification/test_metadata.py": "c746844bfe3473d8d8285da3d33995cf76d3cc5cd7276eacb2a0c38c1dcea39a",
+    "task-packages/rte-maintenance-abc-x15-v1/verification/test_parallel.py": "0c7163480fce10db8e2ebf1d1209ee9378343ac43a2833c23f024ddf414a4f9c",
+    "task-packages/rte-maintenance-abc-x15-v1/verification/test_task_behavior.py": "6b685133c92e3249c70a0a590e78e589ceb2aafd91b66831e862627067c42840"
+  },
+  "history": [
+    {
+      "at": "2026-10-15T10:57:32.118025+00:00",
+      "status": "blocked_relay_authentication",
+      "blocking_evidence": {
+        "error": "token invalid",
+        "stage": "relay authentication / SSH handshake",
+        "requires": "local relay reauthentication"
+      }
+    },
+    {
+      "date": "2026-10-16",
+      "status": "relay_restored_data_verified",
+      "formal_submissions": 0
+    },
+    {
+      "at": "2026-10-16T08:10:10.646961+00:00",
+      "status": "v6_launch_gate_passed_formal_jobs_created",
+      "formal_submissions": 15,
+      "observed_at": "2026-10-16T08:13:29.012064+00:00",
+      "phase_counts": {
+        "Running": 6,
+        "Pending": 9
+      },
+      "formal_finished": 0
+    }
+  ],
+  "batch": "rte2020-abc-x15-formal-20261016-v6",
+  "server_job_ids_scope": "formal_runs_only; actual acceptance jobs are listed separately",
+  "acceptance_attempts": [
+    {
+      "batch": "rte2020-abc-x15-formal-20261015",
+      "kind": "full_panel",
+      "job_id": "aqy-rtex15-full-panel-20261016-141216",
+      "status": "failed_before_docker",
+      "formal_run": false,
+      "passed": false,
+      "cause": "legacy model.max_output_tokens rejected by current Site schema"
+    },
+    {
+      "batch": "rte2020-abc-x15-formal-20261016-v2",
+      "kind": "full_panel",
+      "job_id": "aqy-rtex15-full-panel-20261016-141748",
+      "status": "failed_sandbox_probe",
+      "formal_run": false,
+      "passed": false,
+      "cause": "sandbox probe parent process ran through PID1 path"
+    },
+    {
+      "batch": "rte2020-abc-x15-formal-20261016-v3",
+      "kind": "full_panel",
+      "job_id": "aqy-rtex15-full-panel-20261016-143328",
+      "status": "failed_resource_acceptance",
+      "formal_run": false,
+      "passed": false,
+      "sandbox_probe_passed": true,
+      "verdict_counts": {
+        "AC": 7,
+        "RE": 8
+      },
+      "candidate_memory_errors": 3,
+      "resource_samples": 0,
+      "memory_peak": "unavailable",
+      "kernel": "5.15.0-72",
+      "candidate_address_space_bytes": 8589934592,
+      "verifier_memory_mb": 131072,
+      "pod_memory_mb": 172032,
+      "rejection_reasons": [
+        "candidate_memory_errors",
+        "missing_resource_samples"
+      ],
+      "public_scope": "aggregate diagnostics only; no per-X case results or stderr"
+    },
+    {
+      "batch": "rte2020-abc-x15-formal-20261016-v3",
+      "kind": "native_micro_n0",
+      "job_id": "aqy-rtex15-acceptance-n0-r1-20261016-143329",
+      "status": "failed_before_model",
+      "formal_run": false,
+      "passed": false,
+      "cause": "disallowed_tools list incorrectly encoded as stringified list"
+    },
+    {
+      "batch": "rte2020-abc-x15-formal-20261016-v3",
+      "kind": "native_micro_n1",
+      "job_id": "aqy-rtex15-acceptance-n1-r1-20261016-143329",
+      "status": "failed_before_model",
+      "formal_run": false,
+      "passed": false,
+      "cause": "disallowed_tools list incorrectly encoded as stringified list"
+    },
+    {
+      "batch": "rte2020-abc-x15-formal-20261016-v4",
+      "kind": "server_dry_run",
+      "job_id": null,
+      "status": "rejected_before_job_creation",
+      "formal_run": false,
+      "passed": false,
+      "cause": "required fm-job version/cluster deployment markers missing"
+    },
+    {
+      "batch": "rte2020-abc-x15-formal-20261016-v5",
+      "kind": "full_panel",
+      "job_id": "aqy-rtex15-full-panel-20261016-152317",
+      "status": "completed",
+      "formal_run": false,
+      "passed": true,
+      "cluster": "dev",
+      "cpu": 21,
+      "memory_gib": 296,
+      "resource_samples_observed": 90,
+      "memory_peak": "unavailable",
+      "final_receipt_pending": false,
+      "wall_seconds": 924.564532,
+      "verdict_counts": {
+        "AC": 8,
+        "RE": 2,
+        "TLE": 5
+      },
+      "aggregate": 0,
+      "starter_validity": 0,
+      "checker_cases": 8,
+      "candidate_memory_errors": 0,
+      "oom": 0,
+      "oom_kill": 0,
+      "memory_current_sampled_max_bytes": 95561768960,
+      "memory_current_sampled_max_is_true_peak": false,
+      "memory_peak_unavailable_samples": 90
+    },
+    {
+      "batch": "rte2020-abc-x15-formal-20261016-v5",
+      "kind": "native_micro_n0",
+      "job_id": "aqy-rtex15-acceptance-n0-r1-20261016-152513",
+      "status": "failed_network_gate",
+      "formal_run": false,
+      "passed": false,
+      "response_model": "global.openai.gpt-5.6-sol",
+      "successful_tools": [
+        "Read",
+        "Bash"
+      ],
+      "feedback_used": 0,
+      "feedback_collected": 0,
+      "terminal_feasible_cases": 15,
+      "terminal_case_count": 15,
+      "proxy_denials": 14,
+      "direct_bypass_observed": true
+    },
+    {
+      "batch": "rte2020-abc-x15-formal-20261016-v5",
+      "kind": "native_micro_n1",
+      "job_id": "aqy-rtex15-acceptance-n1-r1-20261016-152513",
+      "status": "failed_network_gate",
+      "formal_run": false,
+      "passed": false,
+      "response_model": "global.openai.gpt-5.6-sol",
+      "successful_tools": [
+        "Read",
+        "Bash"
+      ],
+      "feedback_used": 1,
+      "feedback_collected": 1,
+      "terminal_feasible_cases": 15,
+      "terminal_case_count": 15,
+      "proxy_denials": 14,
+      "direct_bypass_observed": true
+    },
+    {
+      "batch": "rte2020-abc-x15-formal-20261016-v6",
+      "kind": "native_micro_n0",
+      "job_id": "aqy-rtex15-acceptance-n0-r1-20261016-154757",
+      "status": "completed",
+      "formal_run": false,
+      "passed": true,
+      "source_frozen": true,
+      "response_models": [
+        "global.openai.gpt-5.6-sol"
+      ],
+      "model_messages": 14,
+      "successful_tools": [
+        "Read",
+        "Bash"
+      ],
+      "feedback_used": 0,
+      "feedback_collected": 0,
+      "terminal_ac_cases": 15,
+      "terminal_case_count": 15,
+      "proxy_denied_routes": 14,
+      "direct_routes_denied": 14,
+      "pypi_bytes_observed": true,
+      "model_egress_allowed_routes": 6,
+      "model_egress_http_200": 6,
+      "api_errors": 0,
+      "exact_frozen_probe_bash_calls": 1,
+      "probe_bash_output_matches_artifact": true,
+      "probe_sha256_matches_frozen_source": true,
+      "independent_operator_review_passed": true
+    },
+    {
+      "batch": "rte2020-abc-x15-formal-20261016-v6",
+      "kind": "native_micro_n1",
+      "job_id": "aqy-rtex15-acceptance-n1-r1-20261016-154758",
+      "status": "completed",
+      "formal_run": false,
+      "passed": true,
+      "source_frozen": true,
+      "response_models": [
+        "global.openai.gpt-5.6-sol"
+      ],
+      "model_messages": 13,
+      "successful_tools": [
+        "Read",
+        "Bash"
+      ],
+      "feedback_used": 1,
+      "feedback_collected": 1,
+      "terminal_ac_cases": 15,
+      "terminal_case_count": 15,
+      "proxy_denied_routes": 14,
+      "direct_routes_denied": 14,
+      "pypi_bytes_observed": true,
+      "model_egress_allowed_routes": 6,
+      "model_egress_http_200": 6,
+      "api_errors": 0,
+      "exact_frozen_probe_bash_calls": 1,
+      "probe_bash_output_matches_artifact": true,
+      "probe_sha256_matches_frozen_source": true,
+      "independent_operator_review_passed": true
+    }
+  ],
+  "data_staging": {
+    "passed": true,
+    "original_cases": 60,
+    "public_abc_cases": 45,
+    "protected_x_cases": 15,
+    "total_bytes": 23313374069,
+    "source_commit": "052def4d47271f913f89a68169083059732360f3",
+    "archives_verified": 5
+  },
+  "runtime": {
+    "image_id": "sha256:8914ca3a8bc7c12d5be7377b899b6dc555dddad24088a68e293019c9d06eecb9",
+    "archive_sha256": "df5cda6c13954cbdb66819689b24ab3d3e1e63f1be69f902e7a4b5d0cc1d9fcf",
+    "runtime_built": true,
+    "verifier_built": true,
+    "developer_built": true,
+    "scope": "runtime and container builds observed; v6 native canaries passed with source-bound resource receipt reuse; formal run results pending"
+  },
+  "source_frozen": true,
+  "acceptance_submissions": 10,
+  "full_panel_acceptance_submissions": 4,
+  "micro_acceptance_submissions": 6,
+  "network_change": {
+    "batch": "v6",
+    "status": "frozen_reviewed_actual_canaries_and_operator_passed",
+    "model_path": "existing native egress",
+    "new_broker": false,
+    "review_passed": true,
+    "actual_acceptance_passed": true,
+    "configured_default_network_internal": true,
+    "configured_egress_networks": [
+      "internal_default",
+      "outbound"
+    ],
+    "scope": "frozen v6 configuration and tested routes passed real canaries and independent operator checks; not a universal data-secrecy claim"
+  },
+  "batch_snapshots": [
+    {
+      "batch": "v4",
+      "source_manifest_sha256": null,
+      "source_manifest_sha256_prefix": "650cd",
+      "status": "server_dry_run_rejected_no_job"
+    },
+    {
+      "batch": "v5",
+      "source_manifest_sha256": null,
+      "source_manifest_sha256_prefix": "478626",
+      "status": "frozen_prior_snapshot_with_failed_network_gate"
+    },
+    {
+      "batch": "v6",
+      "source_manifest_sha256": "b09b93de42f8bf35aa657d50fbb12b86cbddd0f68f19b1dd67573195c340264b",
+      "status": "frozen_reviewed_launch_gate_passed_formal_jobs_created",
+      "files": 149
+    }
+  ],
+  "historical_local_checks": [
+    {
+      "batch": "v2",
+      "passed": true,
+      "tests": 35,
+      "subtests": 14,
+      "scope": "site schema compatibility and prior acceptance gates"
+    },
+    {
+      "batch": "v5",
+      "passed": true,
+      "tests": 55,
+      "subtests": 60,
+      "scope": "prior local resource/freeze, cgroup compatibility and panel gates; not live model or network acceptance"
+    }
+  ],
+  "source_hashes_scope": "current public portable task source bytes; separate from private source-manifest digests; refresh before publication if sources change",
+  "publication_pending": [
+    "public documentation review and publication"
+  ],
+  "observed_at": "2026-10-16T08:13:29.012064+00:00",
+  "release_ready_scope": "RTE v6 batch launch gate only; not benchmark-wide certification or completed research results",
+  "formal_finished": 0,
+  "formal_results_status": "pending_development_deadlines_and_frozen_5400_second_per_case_evaluation",
+  "formal_model_activity": {
+    "verified": true,
+    "observed_at": "2026-10-16T08:19:00.070439+00:00",
+    "roles_verified": 6,
+    "response_models": [
+      "global.openai.gpt-5.6-sol"
+    ],
+    "model_messages_per_role_min": 43,
+    "model_messages_per_role_max": 69,
+    "observed_api_error_events": 0,
+    "observed_lifecycle_errors": 0,
+    "scope": "early formal activity in available Claude transcript segments only; not completed runs or complete request totals",
+    "gateway_log_status": "not_retrieved",
+    "gateway_responses_200": null,
+    "gateway_projection_limitation": "source projection reports 0 because gateway logs are unavailable; this is not an observed zero-success request count or evidence of no model responses"
+  },
+  "historical_blocking_evidence": {
+    "latest_failed_network_batch": "v5",
+    "direct_bypass_observed": true,
+    "pending": [],
+    "resolved_by": "v6 completed native canaries and independent operator review"
+  },
+  "blocking_evidence": null,
+  "launch_evidence": {
+    "manifest_sha256": "b09b93de42f8bf35aa657d50fbb12b86cbddd0f68f19b1dd67573195c340264b",
+    "acceptance_sha256": "aaaf24331e2b03d171e5d00d795ca43c58e3b6983608cbd48becc8c7d62f81bf",
+    "operator_review_sha256": "a98023e106d3f773afa8872b78be75078ed6b73ae64eb02ad0f2bd448ce98825",
+    "full_panel_reuse_lineage_sha256": "ad6e8003b80b32527177dfed6855298e55266dac8cf7a9ee84d5811997f3d2de",
+    "acceptance_placement_sha256": "e0a1aba55493a201b7a7f374bd772021f50c1bbd4675caa077766ec89ac89df5",
+    "acceptance_created_at": "2026-10-16T08:10:10.646961+00:00",
+    "public_launch_record_sha256": "b57dfc94456420e5ef4cbc162e654f008b38d3326a545baddde4a87337e2498f",
+    "source_manifest_files": 149,
+    "gate_created_before_formal_jobs": true,
+    "gate_bound_to_source_manifest": true
+  },
+  "formal_launch_observation": {
+    "observed_at": "2026-10-16T08:13:29.012064+00:00",
+    "phase_counts": {
+      "Running": 6,
+      "Pending": 9
+    },
+    "distinct_assigned_nodes": 6,
+    "assigned_pods": 6,
+    "required_anti_affinity_admitted": true,
+    "pod_owner_uid_matches_job_verified": true,
+    "pod_cpu": 21,
+    "pod_memory_gib": 296,
+    "observed_error_count": 0,
+    "running_lifecycle_phase": "harbor_running",
+    "scope": "observation snapshot; no future completion or formal-model-response guarantee"
+  },
+  "early_formal_health": {
+    "observed_at": "2026-10-16T08:19:00.070439+00:00",
+    "source_record_sha256": "ae495eb66ad898f1cab9d665c79f569d692e4b0810b2971c4cbe801933e8b9e5",
+    "scope": "available Claude transcript segments at early formal check; not completed runs or full request accounting",
+    "roles": [
+      {
+        "role": "n0-r1",
+        "phase": "harbor_running",
+        "error_type": null,
+        "development_seconds": 43200,
+        "model_messages": 69,
+        "response_models": [
+          "global.openai.gpt-5.6-sol"
+        ],
+        "tool_call_counts": {
+          "Read": 25,
+          "Agent": 4,
+          "Bash": 17
+        },
+        "api_error_events": 0,
+        "upstream_stream_errors": 0,
+        "uninterpreted_gateway_projection_responses_200": 0,
+        "gateway_responses_200": null
+      },
+      {
+        "role": "n0-r2",
+        "phase": "harbor_running",
+        "error_type": null,
+        "development_seconds": 43200,
+        "model_messages": 47,
+        "response_models": [
+          "global.openai.gpt-5.6-sol"
+        ],
+        "tool_call_counts": {
+          "Read": 16,
+          "Bash": 12,
+          "Agent": 3
+        },
+        "api_error_events": 0,
+        "upstream_stream_errors": 0,
+        "uninterpreted_gateway_projection_responses_200": 0,
+        "gateway_responses_200": null
+      },
+      {
+        "role": "n1-r1",
+        "phase": "harbor_running",
+        "error_type": null,
+        "development_seconds": 43200,
+        "model_messages": 43,
+        "response_models": [
+          "global.openai.gpt-5.6-sol"
+        ],
+        "tool_call_counts": {
+          "Read": 16,
+          "Agent": 2,
+          "Bash": 7,
+          "ListAgents": 1
+        },
+        "api_error_events": 0,
+        "upstream_stream_errors": 0,
+        "uninterpreted_gateway_projection_responses_200": 0,
+        "gateway_responses_200": null
+      },
+      {
+        "role": "n10-r1",
+        "phase": "harbor_running",
+        "error_type": null,
+        "development_seconds": 43200,
+        "model_messages": 69,
+        "response_models": [
+          "global.openai.gpt-5.6-sol"
+        ],
+        "tool_call_counts": {
+          "Read": 21,
+          "Agent": 3,
+          "Bash": 22
+        },
+        "api_error_events": 0,
+        "upstream_stream_errors": 0,
+        "uninterpreted_gateway_projection_responses_200": 0,
+        "gateway_responses_200": null
+      },
+      {
+        "role": "n3-r1",
+        "phase": "harbor_running",
+        "error_type": null,
+        "development_seconds": 43200,
+        "model_messages": 68,
+        "response_models": [
+          "global.openai.gpt-5.6-sol"
+        ],
+        "tool_call_counts": {
+          "Read": 31,
+          "Bash": 13,
+          "Agent": 4,
+          "Skill": 1
+        },
+        "api_error_events": 0,
+        "upstream_stream_errors": 0,
+        "uninterpreted_gateway_projection_responses_200": 0,
+        "gateway_responses_200": null
+      },
+      {
+        "role": "n5-r1",
+        "phase": "harbor_running",
+        "error_type": null,
+        "development_seconds": 43200,
+        "model_messages": 62,
+        "response_models": [
+          "global.openai.gpt-5.6-sol"
+        ],
+        "tool_call_counts": {
+          "Read": 27,
+          "Bash": 13,
+          "Agent": 6
+        },
+        "api_error_events": 0,
+        "upstream_stream_errors": 0,
+        "uninterpreted_gateway_projection_responses_200": 0,
+        "gateway_responses_200": null
+      }
+    ],
+    "gateway_log_retrieved": false,
+    "gateway_projection_limitation": "uninterpreted projection zero must not be treated as zero actual successful responses; Claude model messages provide response evidence"
   }
 }

@@ -282,7 +282,7 @@ class ABCX15RunnerTests(unittest.TestCase):
                                       "candidate_stderr_tail", "staging_wall_seconds"):
                     self.assertNotIn(private_value, feedback)
 
-    def test_secure_commands_use_requested_distinct_cpu_and_eight_gib_limits(self) -> None:
+    def test_secure_commands_use_requested_distinct_cpu_and_sixteen_gib_limits(self) -> None:
         class ImmediateProcess:
             pid = 12345678
             returncode = 0
@@ -335,7 +335,7 @@ class ABCX15RunnerTests(unittest.TestCase):
         for command, cpu, uid in zip(commands, (2, 3), (64000, 64001)):
             self.assertEqual(command[command.index("taskset") + 2], str(cpu))
             self.assertIn(f"--reuid={uid}", command)
-            self.assertIn(f"--as={8 * 1024**3}", command)
+            self.assertIn(f"--as={16 * 1024**3}", command)
             self.assertIn("--time-limit", command)
         for slot, (mode, ownership_calls) in enumerate(permission_layouts):
             scratch = root / f"scratch-{slot}"
