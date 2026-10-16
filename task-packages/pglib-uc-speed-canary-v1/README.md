@@ -36,7 +36,9 @@ source review and input-variation probes remain required acceptance gates.
 
 Candidate execution has one CPU and an 8 GiB container memory cap. The launcher
 drops privileges, pins CPU affinity and restricts process creation, network and
-cross-replay writes. Landlock ABI >=3 is required; unsupported kernels fail closed.
+cross-replay writes. Landlock ABI >=1 is required. Mandatory seccomp guards
+also reject truncation, writable-file metadata changes, keyrings and POSIX message
+queues, including on older kernels; unsupported kernels fail closed.
 Julia runtime threads are allowed but share the one CPU. The supervisor freezes
 source once before all replays. Neither developer root nor candidate UID can
 write the trusted grader's private directories.
@@ -45,7 +47,8 @@ write the trusted grader's private directories.
 
 1. Build `images/Dockerfile` with its pinned Julia dependency manifest. Record the
    immutable runtime image identity and use it in both task Dockerfiles. The
-   current image tag is a preparation placeholder, not a frozen release digest.
+   task Dockerfiles pin the target runtime image identity. Import the verified
+   private archive before building them; it is not a publicly hosted image.
 2. Copy `support/` into the staged task's `tests/support/`. Copy the externally
    prepared private `instance.json` and reference `manifest.json` into
    `tests/data/`; never copy them into `environment/app/`.
@@ -87,7 +90,11 @@ private reads, forbidden `/tmp`/`/dev/shm` writes, and output writes. It does no
 certify Julia, container memory accounting, the model gateway or native Harbor.
 The ABI compatibility constant follows the Linux UAPI
 [v6.2 headers](https://raw.githubusercontent.com/torvalds/linux/v6.2/include/uapi/linux/landlock.h)
-and requires runtime ABI 3; old headers must not silently weaken the restriction.
+and enables REFER/TRUNCATE rules only when the runtime ABI supports them.
+The mandatory seccomp guards apply on every supported ABI. Julia uses its pinned
+bundled C++ library (`JULIA_PROBE_LIBSTDCXX=0`) to avoid its optional forking probe;
+candidate subprocess creation remains prohibited. Snapshot creation must use a
+fresh non-truncating temporary file and then rename it within the output directory.
 
 The 2026-10-15 trusted local full-case run reached reference quality in about
 52.05 seconds, with about 0.03 seconds of independent checking. It used macOS

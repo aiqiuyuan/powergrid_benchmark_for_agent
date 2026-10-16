@@ -30,7 +30,7 @@ function main()
                     "renewable" => renewable)
     mkpath(output)
     path = joinpath(output, "0001.json")
-    open(path * ".tmp", "w") do file
+    open(path * ".tmp"; write=true, create=true, truncate=false) do file
         JSON.print(file, schedule)
     end
     mv(path * ".tmp", path)

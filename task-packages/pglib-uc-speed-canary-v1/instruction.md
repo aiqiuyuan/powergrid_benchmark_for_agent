@@ -9,6 +9,12 @@ input path with an output directory, time limit and solver seed. Emit complete
 evaluation is available only through the framework when your feedback budget
 permits it. Internal model computations on synthetic examples are allowed.
 
+Create each temporary output file without truncation, for example
+`open(path; write=true, create=true, truncate=false) do io ... end`, then rename
+it within the same output directory. Use fresh unique filenames. Truncating
+opens (including the usual `open(path, "w")`), file truncation, file metadata
+changes and kernel keyrings are disabled by the sandbox on every kernel.
+
 The algorithm receives one CPU, one solver thread, 8 GiB, no network and 300
 seconds per replay, including startup, model building and output. Writes outside
 the supplied output directory are forbidden. Do not use static solutions,

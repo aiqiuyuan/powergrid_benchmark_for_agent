@@ -1,6 +1,6 @@
 FROM julia:1.10.11-bookworm
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    python3 bash tmux curl git ca-certificates procps gcc libseccomp-dev util-linux \
+    python3 bash tmux curl git ca-certificates procps gcc libc6-dev libseccomp-dev util-linux \
     && rm -rf /var/lib/apt/lists/*
 COPY Project.toml Manifest.toml /opt/uc-runtime/
 ENV JULIA_PROJECT=/opt/uc-runtime JULIA_DEPOT_PATH=/opt/julia-depot \

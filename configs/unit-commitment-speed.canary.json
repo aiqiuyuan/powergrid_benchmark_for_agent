@@ -1,6 +1,6 @@
 {
   "schema_version": "uc-speed-native-canary-preparation-v1",
-  "status": "preparing-not-submitted",
+  "status": "target-runtime-acceptance-in-progress",
   "executable": false,
   "release_ready": false,
   "purpose": "paired-n0-n1-workflow-acceptance-before-main-study",
@@ -22,7 +22,6 @@
   "counts_as_main_experiment": false,
   "development": {
     "seconds": 43200,
-    "short_canary_duration_requested_but_not_selected": true,
     "seed": 2026101501,
     "model": "bedrock/gpt-5.6-sol",
     "required_response_model": "global.openai.gpt-5.6-sol",
@@ -68,8 +67,8 @@
     "feedback_metric_precision": "rounded-penalty-3-decimals-and-derived-reward",
     "terminal_metric_precision": "full-precision",
     "fresh_source_snapshot_per_accepted_call": true,
-    "cross_replay_writes": "Landlock-ABI-at-least-3-output-directory-only",
-    "runtime_image_digest": null
+    "cross_replay_writes": "Landlock-ABI-at-least-1-output-only-plus-mandatory-seccomp-truncate-metadata-keyring-mqueue-guards",
+    "runtime_image_digest": "sha256:715175481737e1a48bea3a8170174590f289413413e5d05d2f6e2fe6c4e7d4c7"
   },
   "cluster": {
     "name": "dev",
@@ -83,15 +82,15 @@
   "readiness": {
     "local_scoring_and_subprocess_fixtures": "passed",
     "local_complete_uc_starter": "passed-trusted-local-only",
-    "linux_launcher": "passed-GitHub-CI-target-kernel-pending",
-    "pinned_runtime_image": "pending-build",
+    "linux_launcher": "passed-actual-dev-Linux5.15-LandlockABI1-negative-probes",
+    "pinned_runtime_image": "built-and-byte-verified-actual-Julia-gate-running",
     "real_julia_under_sandbox": "pending",
     "native_terminal_and_feedback_acceptance": "pending",
     "feedback_idempotency_and_count_audit": "pending",
     "cutoff_freeze_and_no_late_feedback": "pending",
     "candidate_oom_classification": "pending",
     "actual_model_api_acceptance_without_token_cap": "pending",
-    "verified_cluster_login": "blocked-disconnected-or-timeout",
+    "verified_cluster_login": "passed-existing-trusted-multiplex-new-CFS-new-CLI-dev",
     "linux_ci_evidence": "https://github.com/aiqiuyuan/powergrid_benchmark_for_agent/actions/runs/38725368338"
   },
   "submission_receipts": []

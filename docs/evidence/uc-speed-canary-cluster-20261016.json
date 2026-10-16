@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-16",
+  "status": "native-acceptance-in-progress",
+  "counts_as_main_experiment": false,
+  "kernel": "5.15.0-72-generic",
+  "landlock_abi": 1,
+  "runtime_image_id": "sha256:715175481737e1a48bea3a8170174590f289413413e5d05d2f6e2fe6c4e7d4c7",
+  "runtime_archive_sha256": "bb450a8aa6eb8f7af4e19259e20fdd704a2584ec805b957e35398deebe2f4575",
+  "frozen_deployment_manifest_sha256": "7196066e25d38e84e7358b8c2c9261d15f83690782bd41ad1544812aa829d738",
+  "secure_full_original_case": {
+    "passed": true,
+    "feasible": true,
+    "target_hit": true,
+    "penalized_seconds": 56.682674094918184,
+    "checker_seconds": 0.043554114061407745,
+    "cpus": 1,
+    "memory_gib": 8,
+    "network": "none"
+  },
+  "sandbox_negative_probes": "passed-actual-target-kernel",
+  "native_harbor": "in-progress",
+  "actual_model_api": "pending",
+  "canary_jobs": []
+}

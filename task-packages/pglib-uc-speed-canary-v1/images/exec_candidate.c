@@ -19,14 +19,14 @@
 static int restrict_writes(const char *output) {
     int abi = syscall(__NR_landlock_create_ruleset, NULL, 0,
                       LANDLOCK_CREATE_RULESET_VERSION);
-    /* ABI 3 closes O_TRUNC as well as ordinary write/create/rename channels. */
-    if (abi < 3) return -1;
+    if (abi < 1) return -1;
     __u64 access = LANDLOCK_ACCESS_FS_WRITE_FILE | LANDLOCK_ACCESS_FS_REMOVE_DIR |
         LANDLOCK_ACCESS_FS_REMOVE_FILE | LANDLOCK_ACCESS_FS_MAKE_CHAR |
         LANDLOCK_ACCESS_FS_MAKE_DIR | LANDLOCK_ACCESS_FS_MAKE_REG |
         LANDLOCK_ACCESS_FS_MAKE_SOCK | LANDLOCK_ACCESS_FS_MAKE_FIFO |
-        LANDLOCK_ACCESS_FS_MAKE_BLOCK | LANDLOCK_ACCESS_FS_MAKE_SYM |
-        LANDLOCK_ACCESS_FS_REFER | LANDLOCK_ACCESS_FS_TRUNCATE;
+        LANDLOCK_ACCESS_FS_MAKE_BLOCK | LANDLOCK_ACCESS_FS_MAKE_SYM;
+    if (abi >= 2) access |= LANDLOCK_ACCESS_FS_REFER;
+    if (abi >= 3) access |= LANDLOCK_ACCESS_FS_TRUNCATE;
     struct landlock_ruleset_attr rules = {.handled_access_fs = access};
     int fd = syscall(__NR_landlock_create_ruleset, &rules, sizeof(rules), 0);
     if (fd < 0) return -1;
@@ -55,13 +55,37 @@ int main(int argc, char **argv) {
         "pidfd_send_signal", "rt_sigqueueinfo", "rt_tgsigqueueinfo", "bpf",
         "mount", "setns", "shmget", "shmat", "shmdt", "shmctl", "semget",
         "semop", "semtimedop", "semctl", "msgget", "msgsnd", "msgrcv", "msgctl",
-        "io_uring_setup", "io_uring_register", "io_uring_enter", NULL
+        "io_uring_setup", "io_uring_register", "io_uring_enter",
+        "add_key", "request_key", "keyctl", "mq_open", "mq_unlink",
+        "mq_timedsend", "mq_timedreceive", "mq_notify", "mq_getsetattr",
+        "mq_timedsend_time64", "mq_timedreceive_time64", NULL
     };
     for (int i = 0; blocked[i]; ++i) {
         int call = seccomp_syscall_resolve_name(blocked[i]);
         if (call >= 0 && seccomp_rule_add(filter, SCMP_ACT_ERRNO(EPERM), call, 0) < 0)
             goto fail;
     }
+    /* ABI 1/2 do not mediate truncation. Deny all truncating opens and file
+       metadata mutation on every ABI; snapshots use fresh nontruncating files.
+       This also closes metadata-only cache channels in shared /tmp directories. */
+    const char *mutation[] = {
+        "creat", "truncate", "ftruncate", "fallocate", "chmod", "fchmod",
+        "fchmodat", "fchmodat2", "chown", "fchown", "lchown", "fchownat",
+        "utime", "utimes", "futimesat", "utimensat", "setxattr", "lsetxattr",
+        "fsetxattr", "removexattr", "lremovexattr", "fremovexattr", NULL
+    };
+    for (int i = 0; mutation[i]; ++i) {
+        int call = seccomp_syscall_resolve_name(mutation[i]);
+        if (call >= 0 && seccomp_rule_add(filter, SCMP_ACT_ERRNO(EPERM), call, 0) < 0)
+            goto fail;
+    }
+    if (seccomp_rule_add(filter, SCMP_ACT_ERRNO(EPERM), SCMP_SYS(open), 1,
+        SCMP_A1(SCMP_CMP_MASKED_EQ, O_TRUNC, O_TRUNC)) < 0) goto fail;
+    if (seccomp_rule_add(filter, SCMP_ACT_ERRNO(EPERM), SCMP_SYS(openat), 1,
+        SCMP_A2(SCMP_CMP_MASKED_EQ, O_TRUNC, O_TRUNC)) < 0) goto fail;
+    /* The flags are behind a pointer; fail closed rather than inspecting memory. */
+    if (seccomp_rule_add(filter, SCMP_ACT_ERRNO(ENOSYS), SCMP_SYS(openat2), 0) < 0)
+        goto fail;
     /* glibc falls back to clone only on ENOSYS, not on EPERM. */
     if (seccomp_rule_add(filter, SCMP_ACT_ERRNO(ENOSYS), SCMP_SYS(clone3), 0) < 0)
         goto fail;

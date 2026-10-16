@@ -29,6 +29,8 @@ CHILD_ENV = {
     "JULIA_NUM_THREADS": "1",
     "JULIA_NUM_GC_THREADS": "1",
     "JULIA_PKG_PRECOMPILE_AUTO": "0",
+    # Use the pinned bundled library; Julia's optional system probe forks.
+    "JULIA_PROBE_LIBSTDCXX": "0",
     "OPENBLAS_NUM_THREADS": "1",
     "OMP_NUM_THREADS": "1",
     "MKL_NUM_THREADS": "1",
