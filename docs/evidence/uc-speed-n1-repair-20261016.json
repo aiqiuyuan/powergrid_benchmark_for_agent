@@ -1,0 +1,110 @@
+{
+  "status": "native-acceptance-passed-model-tool-probe-in-progress",
+  "source_manifest_sha256": "23db34692c33bbb795c4fb2c654ceb328667556a39b31723f41452a9a59037e5",
+  "authorization": "rerun-n1-only",
+  "original_n0_job": "aqy-ucspeed-n0-r1-20261016-150046",
+  "original_n0_resubmitted": false,
+  "failed_n1_job": "aqy-ucspeed-n1-r1-20261016-150046",
+  "original_failure": {
+    "submitted_at_utc": "2026-10-16T08:34:35Z",
+    "collected_at_utc": "2026-10-16T08:34:44Z",
+    "error": "TypeError: TarFile.extractall() got an unexpected keyword argument 'filter'",
+    "counted": true,
+    "valid": false,
+    "reward": 0,
+    "task_evaluation_executed": false,
+    "scientific_disposition": "invalid-for-effective-feedback-comparison; retained-as-infrastructure-failure"
+  },
+  "local_regression": {
+    "archive_safety_tests": 3,
+    "feedback_gate_tests": 3,
+    "existing_runtime_cli_tests": 21,
+    "versioned_runtime_tests_total": 10,
+    "python_versions": [
+      "3.9.6",
+      "3.10.12",
+      "3.13"
+    ]
+  },
+  "code_review": "passed-no-blocking-findings",
+  "native_acceptance": {
+    "job": "aqy-ucspeed-acceptance-20261016-173419",
+    "created_at_utc": "2026-10-16T09:34:19.803136+00:00",
+    "checked_at_utc": "2026-10-16T09:46:22.563023+00:00",
+    "passed": true,
+    "manifest_sha256": "23db34692c33bbb795c4fb2c654ceb328667556a39b31723f41452a9a59037e5",
+    "counts_as_model_development": false,
+    "consumes_rerun_feedback_budget": false,
+    "protected_feedback": {
+      "id": 1,
+      "counted": true,
+      "state": "done",
+      "submitted_at": "2026-10-16T09:35:08Z",
+      "finished_at": "2026-10-16T09:37:18Z",
+      "collected_at": "2026-10-16T09:37:18Z",
+      "evaluation_completed": true,
+      "valid": true,
+      "reward": 0.7826616666666667,
+      "error": null,
+      "elapsed_sec": 130.6,
+      "metric_name": "uc_reference_quality_reward"
+    },
+    "transport": {
+      "passed": true,
+      "n": 1,
+      "idempotent_content_retry": true,
+      "over_budget_rejected": true,
+      "late_feedback_suppressed": true,
+      "feedback_evaluation_completed_and_feasible": true,
+      "network_mode": "none",
+      "stopped_before_final_snapshot": true
+    },
+    "terminal": {
+      "evaluation_completed": true,
+      "valid": true,
+      "error": null,
+      "reward": 0.8184617552844187,
+      "metric_name": "uc_reference_quality_reward",
+      "replay_seeds": [
+        0,
+        1,
+        2
+      ],
+      "replays": [
+        {
+          "feasible": true,
+          "target_hit": true,
+          "penalized_seconds": 113.83780200779438,
+          "reference_gap": 0.00009880726462764901,
+          "failure_category": null
+        },
+        {
+          "feasible": true,
+          "target_hit": true,
+          "penalized_seconds": 70.7901697717607,
+          "reference_gap": 0.00009880726461291591,
+          "failure_category": null
+        },
+        {
+          "feasible": true,
+          "target_hit": true,
+          "penalized_seconds": 142.14086870849133,
+          "reference_gap": 0.00009880726462777387,
+          "failure_category": null
+        }
+      ]
+    },
+    "feedback_calls": 1,
+    "feedback_collected": 1,
+    "feedback_evaluations_completed": 1,
+    "feedback_infrastructure_ok": true,
+    "crash_timeout_oom_cutoff": "passed-real-target-runtime"
+  },
+  "model_api_probe": {
+    "job": "aqy-ucspeed-api-smoke-20261016-174547",
+    "status": "in-progress",
+    "manifest_sha256": "23db34692c33bbb795c4fb2c654ceb328667556a39b31723f41452a9a59037e5"
+  },
+  "counts_as_main_experiment": false,
+  "main_study_release_ready": false
+}

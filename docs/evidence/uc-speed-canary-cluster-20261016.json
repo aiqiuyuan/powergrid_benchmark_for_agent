@@ -400,5 +400,13 @@
         "feedback_collected": 0
       }
     ]
+  },
+  "post_startup_audit": {
+    "checked_at_utc": "2026-10-16T09:22:06Z",
+    "original_n1_feedback_scoring_valid": false,
+    "historical_n1_acceptance_was_incomplete": true,
+    "reason": "The collected n1 result was a tarfile filter API infrastructure error before scoring. Historical transport counters and terminal baseline results remain recorded, but do not prove effective feedback.",
+    "replacement_evidence": "docs/evidence/uc-speed-n1-repair-20261016.json",
+    "original_n0_preserved": true
   }
 }
