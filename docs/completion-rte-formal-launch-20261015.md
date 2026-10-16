@@ -24,6 +24,8 @@ v6仅有5个已审网络相关源码／测试差异，task不变；149文件冻�
 
 公开task包23项测试通过；私有v6为61项测试／77项子测试，另有旧gateway29项回归。v5的55项／60项子测试、v2的35项／14项子测试保留为历史。capture测试不执行真实CONNECT／TLS，网络结论另以实际微型run与独立operator检查为据。启动gate SHA256为`aaaf24331e2b03d171e5d00d795ca43c58e3b6983608cbd48becc8c7d62f81bf`，绑定上述冻结源码；operator复核及验收部署位置证据摘要见机器记录。
 
+公开提交`67a1fbcaceaaae219cc45d6e5eeecdff366fe4aa`的[GitHub PR检查](https://github.com/aiqiuyuan/powergrid_benchmark_for_agent/actions/runs/38875115384)及[推送检查](https://github.com/aiqiuyuan/powergrid_benchmark_for_agent/actions/runs/38874915118)均已通过，覆盖Python3.11／3.12／3.13基础框架测试、portable RTE及真实Linux沙箱探针。后续补充此检查链接仅修改文档，不改变上述已验收任务源码或运行批次。
+
 ## 当前运行与后续结果
 
 16:13 Kubernetes快照的6个Running和9个Pending是观察状态，不承诺后续运行结果；Pending不计为完成或失败。16:19早期检查中，6组已运行角色均配置43200秒开发时间；可用Claude记录片段分别有43—69条assistant消息，模型均为`global.openai.gpt-5.6-sol`，未见API或生命周期错误。正式gateway日志尚未回收，投影中的HTTP200计数0不作无模型响应解释。接下来继续核对模型活动和反馈计数，按各run实际开发开始时刻执行12小时截止，冻结各自最终源码，再完成不回流的90分钟／例X15评分。构建、排队及截止后评分不等于开发T，Pod总存活时间可能超过12小时。
