@@ -34,3 +34,5 @@ observation 字段如下，功率单位为 MW/Mvar，角度为度：
 每 actor 单次响应限 1 秒（首次初始化 15 秒），累计 CPU 60 秒、地址空间 384 MiB。六个 actor 合计最多 2.25 GiB 地址空间，可信潮流进程与其共同使用 verifier 的 4 GiB 内存限额。完整运行器总时限 240 秒，外层 verifier 360 秒。禁止网络、子进程、跨单元读写以及读取可信数据。候选的 `stdout` 用于协议，不要直接打印到 stdout。
 
 `python /app/check_interface.py` 仅测试合成局部观测，不能提供目标成绩。n=0 没有完整目标过程反馈；n=1 只可通过框架申请一次完整反馈，候选错误同样消耗次数。截止时冻结唯一的 `controller.py`，未修改即保留 starter；随后在同 case 独立终评，终评分数不回流开发，也不计过程 n。不要下载原始目标数据、上游环境或 checker 重建免费评分。
+
+执行沙箱要求 Landlock ABI≥1。ABI 1/2 使用额外 seccomp 限制：禁止文件截断、`creat`、带 `O_TRUNC` 的打开方式及 `openat2`；私有工作目录可用 `open(path, "x")` 新建文件，或用追加模式写入，不能用 `"w"` 覆写。建议将历史保存在 Controller 实例中。ABI≥3 由 Landlock 直接保护截断操作；所有版本都禁止访问其他控制器目录、共享临时目录和可信数据。

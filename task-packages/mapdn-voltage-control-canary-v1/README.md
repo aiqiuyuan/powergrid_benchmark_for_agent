@@ -18,10 +18,10 @@ python prepare_stage.py --case /trusted/mapdn33-case --wheels /trusted/linux-cp3
 docker build -t mapdn-canary-runtime:1 images
 ```
 
-暂存工具将 `support/*.py` 拷贝到 `tests/support/`，将可信 case 的三个文件拷贝到 `tests/data/`。这些路径均为可信构建暂存，不向开发容器挂载；数据不提交 Git。environment/Dockerfile 只拷贝 app 中的公开 starter 和合成接口检查，并预装 Gateway 所需 procps。tests/Dockerfile 运行时把 `/tests` 设为 root-only，并使用 runtime 中公开可执行的 actor bridge、不同 UID、资源限制、Landlock ABI≥3 和 seccomp。Landlock 仅允许读取 Python 运行时与本 actor 源码、读写自身工作目录；不开放共享 `/tmp`、`/dev/shm` 或 `/proc`。seccomp 禁止网络、派生进程和 System V/POSIX IPC。子环境不继承私有环境变量。
+暂存工具将 `support/*.py` 拷贝到 `tests/support/`，将可信 case 的三个文件拷贝到 `tests/data/`。这些路径均为可信构建暂存，不向开发容器挂载；数据不提交 Git。environment/Dockerfile 只拷贝 app 中的公开 starter 和合成接口检查，并预装 Gateway 所需 procps。tests/Dockerfile 运行时把 `/tests` 设为 root-only，并使用 runtime 中公开可执行的 actor bridge、不同 UID、资源限制、Landlock ABI≥1 和 seccomp。Landlock 仅允许读取 Python 运行时与本 actor 源码、读写自身工作目录；不开放共享 `/tmp`、`/dev/shm` 或 `/proc`。seccomp 禁止网络、派生进程和 System V/POSIX IPC。子环境不继承私有环境变量。
 
 本地数值校准允许直接调用 `support.runner.evaluate(candidate, case_dir, secure=False)`；它明确输出 `secure_execution=false`，不算隔离验收。集群评分 `tests/score.py` 始终 `secure=True`，缺少 Linux root、seccomp 工具或公开 worker 会失败。根目录被保护后，受计数 feedback 只公开 aggregate；完整逐步记录只保留在可信进程返回值中。
 
-上线前必须在构建的 Linux runtime 中执行 `verification/probe_sandbox.py`，验证私有 cwd 的正例和共享文件、其他 actor、网络、System V IPC 的负例。要求 Landlock ABI≥3，低版本或不支持时拒绝执行，不能回落为普通不同 UID 子进程。Mac 数值验证不等于 Linux 隔离验收。
+上线前必须在构建的 Linux runtime 中执行 `verification/probe_sandbox.py`，验证私有 cwd 的正例和共享文件、其他 actor、网络、System V IPC 的负例。要求 Landlock ABI≥1，不支持时拒绝执行。ABI 1/2 额外禁止 truncate/ftruncate/creat、带 O_TRUNC 的 open/openat，以及 openat2；私有文件可独占新建或追加，禁止覆写。ABI≥3 使用原生截断权限。负例探针覆盖已有外部可写文件的多种截断入口及跨目录移动，CI 另编译强制 ABI1 profile 检查旧内核兼容分支；不能回落为普通不同 UID 子进程。Mac 数值验证不等于 Linux 隔离验收。
 
 运行器的 `pp.runpp` 参数固定为 Newton-Raphson、不启用 Numba、容差 1e-9 MVA、最多 30 次迭代。source CSV 的未排序列顺序与上游一致，网络索引写入 manifest。此适配修复上游混时标、239 次 step 与任意候选 RNG 改变外生噪声的问题，不复用论文旧数值。

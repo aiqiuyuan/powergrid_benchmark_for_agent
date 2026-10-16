@@ -78,10 +78,17 @@ jobs:
       - name: Verify real Linux cross-actor file and IPC isolation
         run: |
           sudo /usr/bin/python3 task-packages/mapdn-voltage-control-canary-v1/verification/probe_sandbox.py --output work/distribution-sandbox.json
+      - name: Verify the strict Landlock ABI 1 compatibility profile
+        run: |
+          cc -Wall -Wextra -O2 -DDISTRIBUTION_TEST_MAX_ABI=1 task-packages/mapdn-voltage-control-canary-v1/images/exec_candidate.c -lseccomp -o /tmp/mapdn-exec-abi1
+          sudo install /tmp/mapdn-exec-abi1 /usr/local/bin/mapdn-exec
+          sudo /usr/bin/python3 task-packages/mapdn-voltage-control-canary-v1/verification/probe_sandbox.py --legacy-truncation --output work/distribution-sandbox-abi1.json
       - uses: actions/upload-artifact@v4
         with:
           name: distribution-linux-sandbox
-          path: work/distribution-sandbox.json
+          path: |
+            work/distribution-sandbox.json
+            work/distribution-sandbox-abi1.json
 
   powergym-real-backend:
     runs-on: ubuntu-24.04
