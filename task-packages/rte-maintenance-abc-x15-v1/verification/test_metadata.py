@@ -72,7 +72,9 @@ class SourcePackageContractTests(unittest.TestCase):
         self.assertGreater(verifier["timeout_sec"], 900)
         self.assertLess(verifier["timeout_sec"], 15 * 900)
         self.assertGreaterEqual(verifier["environment"]["cpus"], 15)
-        self.assertGreaterEqual(verifier["environment"]["memory_mb"], 15 * 8192)
+        self.assertEqual(verifier["environment"]["memory_mb"], 262144)
+        self.assertGreaterEqual(verifier["environment"]["memory_mb"], 15 * 16384)
+        self.assertEqual(config["environment"]["memory_mb"], 32768)
         self.assertEqual(verifier["environment"]["network_mode"], "no-network")
 
     def test_freeze_cli_runs_without_third_party_site_packages(self) -> None:

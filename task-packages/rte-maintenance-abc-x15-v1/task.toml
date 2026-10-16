@@ -30,5 +30,5 @@ build_timeout_sec = 1800
 network_mode = "no-network"
 cpus = 15
 # Provisional provisioning, not measured RSS and not the original contest platform.
-memory_mb = 131072
+memory_mb = 262144
 storage_mb = 32768

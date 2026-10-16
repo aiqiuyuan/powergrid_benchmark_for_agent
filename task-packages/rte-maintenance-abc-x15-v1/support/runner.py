@@ -22,7 +22,7 @@ from official import check_solution, normalized_score, regular_bytes
 OUTPUT_LIMIT = 4 << 20
 CANDIDATE_LIMIT = 1 << 20
 STDERR_TAIL_LIMIT = 8 << 10
-MEMORY_LIMIT = 8 << 30  # RLIMIT_AS, not a measured resident-memory requirement.
+MEMORY_LIMIT = 16 << 30  # RLIMIT_AS, not a measured resident-memory requirement.
 CHILD_ENV = {"PATH": "/usr/local/bin:/usr/bin:/bin", "LANG": "C.UTF-8",
              "HOME": "/nonexistent", "OPENBLAS_NUM_THREADS": "1",
              "OMP_NUM_THREADS": "1", "MKL_NUM_THREADS": "1",
