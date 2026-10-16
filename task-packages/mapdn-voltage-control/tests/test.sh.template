@@ -1,0 +1,51 @@
+#!/bin/sh
+# NOT LAUNCHABLE until trusted release rendering pins the private verifier digest.
+# Neither the program path, interpreter, digest nor artifact root comes from a candidate.
+set -eu
+exec /usr/local/bin/python3 -I - <<'PY'
+import hashlib
+import os
+from pathlib import Path
+import re
+import sys
+
+
+def fail(message: str) -> None:
+    print(f"Infrastructure error: {message}", file=sys.stderr)
+    raise SystemExit(2)
+
+
+verifier = Path("/opt/powergrid-bench/private/mapdn-voltage-control/verify.py")
+expected_sha256 = "${PRIVATE_VERIFIER_SHA256}"
+if re.fullmatch(r"[0-9a-f]{64}", expected_sha256) is None:
+    fail("private verifier SHA-256 is not frozen")
+try:
+    if verifier.resolve(strict=True) != verifier or not verifier.is_file():
+        fail("private verifier must be a regular file at the fixed trusted path")
+    verified_source = verifier.read_bytes()
+except OSError:
+    fail("private verifier is unavailable")
+if hashlib.sha256(verified_source).hexdigest() != expected_sha256:
+    fail("private verifier SHA-256 mismatch")
+
+# LOG_DIR affects results only; it cannot select scoring code or target inputs.
+log_dir = Path(os.environ.get("LOG_DIR", "/logs/verifier"))
+try:
+    if not log_dir.is_absolute() or not log_dir.resolve().is_relative_to(Path("/logs")):
+        fail("LOG_DIR must resolve within /logs")
+    log_dir.mkdir(parents=True, exist_ok=True)
+except OSError:
+    fail("trusted result directory is unavailable")
+
+sys.argv = [
+    str(verifier),
+    "--artifact-root", "/app/submission",
+    "--log-dir", str(log_dir),
+]
+# Execute the exact verified bytes, avoiding a second read of a replaceable path.
+# The private verifier must validate its own release/data and isolate candidate code.
+exec(
+    compile(verified_source, str(verifier), "exec"),
+    {"__name__": "__main__", "__file__": str(verifier), "__package__": None},
+)
+PY

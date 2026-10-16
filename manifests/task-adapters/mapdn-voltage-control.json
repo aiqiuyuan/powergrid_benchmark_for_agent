@@ -1,0 +1,186 @@
+{
+  "schema_version": "1.0-design",
+  "task_id": "mapdn-voltage-control",
+  "status": "design",
+  "certification_status": "pending",
+  "release_ready": false,
+  "family_registration": {
+    "kind": "distribution-control-extension",
+    "core_five_task_cohort_member": false,
+    "core_75_run_matrix_changed": false,
+    "formal_extension_runs_scheduled": false
+  },
+  "selected_route": {
+    "id": "fixed-complete-case-local-information-volt-var-control",
+    "claim_scope": "new-benchmark-ranking",
+    "protocol_decision": "docs/decisions/0005-fixed-case-evolution-first.md",
+    "phase1_claim": "same-case-algorithm-evolution",
+    "phase2_cross_case_generalization_required_for_phase1": false,
+    "official_rank_claim_allowed": false,
+    "centralized_opf_reference_ranked_with_local_policies": false
+  },
+  "implementation": {
+    "binding_implemented_in_this_repository": false,
+    "argv": ["python3", "main.py", "--request", "{input}", "--output", "{output}"],
+    "argv_status": "proposed-candidate-entrypoint-not-a-shipped-mapdn-runner",
+    "input_schema": "task-request-v1-proposed",
+    "output_schema": "task-output-v1-proposed",
+    "foundation_module": "powergrid_bench.distribution.mapdn",
+    "foundation_module_is_complete_simulator": false,
+    "native_package_template": "task-packages/mapdn-voltage-control",
+    "native_package_launchable": false,
+    "controller_abi": "Controller(metadata).act(observation) -> flat-local-normalized-action-list",
+    "controller_private_state": "controller-instance-state",
+    "controller_transport": "trusted-per-controller-observation-and-private-state-proposed",
+    "native_outputs": ["normalized-reactive-command-per-inverter-per-interval"],
+    "state_policy": "private-controller-memory-within-fixed-trace-reset-between-jobs",
+    "upstream_environment_passed_to_candidate": false,
+    "all_controller_observations_passed_to_candidate": false,
+    "field_projection_proves_process_isolation": false,
+    "upstream_source_staged_to_development_image": false
+  },
+  "candidate_contract": {
+    "kind": "algorithm",
+    "executes_on_evaluator_supplied_observations": true,
+    "source_required": true,
+    "dependency_lock_required": true,
+    "weight_and_training_provenance_required": true,
+    "static_answer_trajectories_allowed": false,
+    "future_real_profiles_visible": false,
+    "global_state_visible_in_local_track": false,
+    "shared_runtime_controller_memory_allowed": false,
+    "shared_offline_policy_parameters_allowed": true,
+    "communication_allowed_without_separate_contract": false,
+    "online_llm_control_in_default_track": false,
+    "candidate_reported_objective_is_authoritative": false
+  },
+  "upstream_reference": {
+    "source_url": "https://github.com/Future-Power-Networks/MAPDN",
+    "source_commit": "6895f1f0630b112745a3f681d7685d454407f9cb",
+    "source_commit_date": "2026-05-10",
+    "paper_url": "https://arxiv.org/html/2110.14300",
+    "python": "3.10",
+    "pandapower": "3.3.0",
+    "pandas": "2.3.3",
+    "numpy": "2.2.6",
+    "gym": "0.26.2",
+    "torch": "2.9.0",
+    "source_runtime_versions_are_not_certified_benchmark_image": true,
+    "code_license": "MIT",
+    "case_inventory": [
+      {"name": "case33_3min_final", "loads": 32, "regions": 4, "inverters": 6, "role": "interface-smoke-candidate"},
+      {"name": "case141_3min_final", "loads": 84, "regions": 9, "inverters": 22, "role": "research-selection-candidate-not-frozen"},
+      {"name": "case322_3min_final", "loads": 337, "regions": 22, "inverters": 38, "role": "deferred-until-import-validation"}
+    ],
+    "unreproduced_compatibility_report": "https://github.com/Future-Power-Networks/MAPDN/issues/51",
+    "published_scores_are_current_baselines": false
+  },
+  "data_reference": {
+    "repository": "hsvgbkhgbv/Multi-Agent-Power-Distribution-Networks",
+    "revision": "a41d8c269e402a827d36d9a153a4bce73a990e53",
+    "repository_url": "https://huggingface.co/datasets/hsvgbkhgbv/Multi-Agent-Power-Distribution-Networks",
+    "dataset_card_license": "MIT",
+    "underlying_load_source_license": "CC-BY-4.0",
+    "historical_pv_and_network_provenance_audit_complete": false,
+    "automatic_download_on_import_or_unit_test": false,
+    "archive_hashes_locally_verified": false,
+    "archives": [
+      {
+        "filename": "voltage_control_data.zip",
+        "bytes_from_metadata": 3763536396,
+        "lfs_sha256": "002de887013e8a2dbd2d79e5b6e2ed2c00584f3cf1ae81947f986061cfd81de2"
+      },
+      {
+        "filename": "traditional_control_data.zip",
+        "bytes_from_metadata": 2241575724,
+        "lfs_sha256": "467bc1c04611dbc9f66cae3d614cbc4e1c2936f5e78033bc6804da28e6ec7bc8"
+      }
+    ],
+    "required_case_files": ["model.p", "pv_active.csv", "load_active.csv", "load_reactive.csv"]
+  },
+  "physical_contract": {
+    "proposed_main_mode": "distributed",
+    "distributed_actor_unit": "one-pv-inverter",
+    "decentralised_actor_unit": "one-control-region",
+    "normalized_command_mapping": "q_mvar = a * sqrt(s_max_mva^2 - pv_active_mw^2)",
+    "trusted_action_shape_finiteness_and_bounds_required": true,
+    "upstream_normalized_action_scales_are_reference_only": {"case33": 0.8, "case141": 0.6, "case322": 0.8},
+    "voltage_limits_reference_pu": [0.95, 1.05],
+    "all_lossy_elements_and_power_balance_check_required": true,
+    "q_proxy_is_actual_active_loss": false,
+    "line_only_loss_is_complete_network_loss": false,
+    "intertemporal_soc_or_ramp_constraints_present_upstream": false,
+    "local_history_structurally_required_claim": false
+  },
+  "phase1_policy": {
+    "fixed_case_id": null,
+    "fixed_complete_case_manifest_sha256": null,
+    "same_case_development_feedback_and_final": true,
+    "development_seconds": 43200,
+    "cumulative_token_cap": null,
+    "token_reservation": false,
+    "full_target_feedback_only_via_counted_framework_jobs": true,
+    "free_complete_target_local_evaluation_allowed": false,
+    "complete_target_checker_visible_to_development_agent": false,
+    "exact_complete_target_realization_visible_to_development_agent": false,
+    "toy_interface_checks_allowed": true,
+    "candidate_internal_physics_on_permitted_inputs_allowed": true,
+    "feedback_zero_means": "no-complete-target-process-feedback",
+    "selection": "freeze-final-artifact-at-deadline",
+    "free_public_selection_allowed": false,
+    "final_replay_returns_feedback_to_development": false,
+    "final_replay_consumes_process_n": false,
+    "final_replay_selects_candidates": false,
+    "extension_feedback_budget_grid": null,
+    "extension_independent_development_repetitions": null
+  },
+  "metrics": {
+    "raw": ["all_buses_compliant_interval_ratio", "bus_interval_voltage_violation_ratio", "maximum_undervoltage_pu", "maximum_overvoltage_pu", "active_network_loss_mwh", "reactive_power_usage", "invalid_actions", "power_flow_failures", "completed_intervals", "internal_power_flow_calls", "runtime_seconds", "peak_memory_gib"],
+    "objective_direction": "voltage-feasibility-first-loss-minimization-proposed",
+    "aggregate_policy": null,
+    "candidate_failure_score": null,
+    "infrastructure_failure_is_missing": true,
+    "loss_energy_uses_declared_interval_duration": true,
+    "training_reward_used_as_authoritative_physical_score": false
+  },
+  "fairness_contract": {
+    "same_mode_regions_information_and_communication_permissions": true,
+    "same_inverter_capacities_and_action_bounds": true,
+    "same_frozen_exogenous_realization_and_initial_q": true,
+    "same_control_and_internal_simulation_opportunities": true,
+    "same_solver_resources_limits_and_tolerances": true,
+    "evaluator_rng_independent_of_candidate_rng": true,
+    "centralized_full_information_reference_separate": true,
+    "historical_matlab_and_python_defaults_aligned_without_changes": false,
+    "algorithm_performance_and_agent_development_tables_separate": true
+  },
+  "required_configuration_fields": ["fixed_case_id", "complete_case_manifest_sha256", "exact_time_axis_and_scored_intervals", "target_data_visibility", "model_profile", "development_resources", "feedback_resources", "final_resources", "protected_feedback_budget", "independent_development_repetitions", "initialization_seconds", "per_step_seconds", "case_seconds", "mode", "observation_schema", "controller_isolation_profile", "communication_policy", "inverter_capacities", "action_bounds", "initial_q", "frozen_exogenous_realization", "private_rng_policy", "loss_element_inventory", "numerical_tolerances", "failure_policy", "aggregate_policy", "feedback_schema_and_precision", "runtime_image_digest", "scorer_version", "pretrained_weight_policy"],
+  "configuration_values": {
+    "fixed_case_id": null,
+    "protected_feedback_budget": null,
+    "model_profile": null,
+    "independent_development_repetitions": null,
+    "mode": null,
+    "initialization_seconds": null,
+    "per_step_seconds": null,
+    "case_seconds": null,
+    "aggregate_policy": null
+  },
+  "readiness": {
+    "available_evidence": ["pinned-upstream-source-audit", "dataset-revision-size-and-lfs-hash-metadata", "isolated-extracted-method-action-and-step-order-probes", "design-declaration-and-task-card"],
+    "full_mapdn_environment_executed": false,
+    "real_baseline_scores_available": false,
+    "baseline_candidates": [
+      {"name": "zero-reactive-power", "status": "same-case-runtime-pending"},
+      {"name": "single-shot-piecewise-droop", "status": "same-capability-runtime-pending"},
+      {"name": "tuned-local-droop", "status": "counted-tuning-and-runtime-pending"},
+      {"name": "local-affine-and-history-rules", "status": "implementation-and-runtime-pending"},
+      {"name": "MARL", "status": "weight-training-provenance-and-runtime-pending"},
+      {"name": "centralized-AC-OPF", "status": "separate-full-information-reference-pending"}
+    ],
+    "missing_evidence": ["downloaded-data-hash-and-license-verification", "fixed-complete-case-selection-and-difficulty", "clean-isolated-mapdn-runtime", "trusted-action-bounds", "causal-time-axis-and-exact-full-horizon", "transformer-inclusive-active-loss-and-energy-parity", "bounded-reset-and-non-exploitable-failure-policy", "read-count-independent-observation-history", "local-information-and-complete-target-score-isolation", "aligned-baseline-results-and-resource-calibration", "native-n0-n1-canaries-and-independent-frozen-replay"]
+  },
+  "gates": ["data-and-network-provenance", "fixed-complete-case-freeze", "runtime-import-and-source-fix-validation", "action-and-observation-contract", "active-network-loss-parity", "deterministic-full-trace-replay", "controller-and-score-isolation", "same-platform-strong-local-baselines", "difficulty-and-cost-calibration", "strict-counted-feedback-and-deadline-canary", "unique-artifact-independent-final-replay"],
+  "documentation": "docs/framework/distribution-control-integration.md",
+  "task_card": "docs/task-cards/mapdn-voltage-control.md"
+}

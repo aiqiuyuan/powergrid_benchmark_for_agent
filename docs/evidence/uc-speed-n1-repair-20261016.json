@@ -75,21 +75,21 @@
           "feasible": true,
           "target_hit": true,
           "penalized_seconds": 113.83780200779438,
-          "reference_gap": 0.00009880726462764901,
+          "reference_gap": 9.880726462764901e-05,
           "failure_category": null
         },
         {
           "feasible": true,
           "target_hit": true,
           "penalized_seconds": 70.7901697717607,
-          "reference_gap": 0.00009880726461291591,
+          "reference_gap": 9.880726461291591e-05,
           "failure_category": null
         },
         {
           "feasible": true,
           "target_hit": true,
           "penalized_seconds": 142.14086870849133,
-          "reference_gap": 0.00009880726462777387,
+          "reference_gap": 9.880726462777387e-05,
           "failure_category": null
         }
       ]
@@ -103,7 +103,14 @@
   "model_api_probe": {
     "job": "aqy-ucspeed-api-smoke-20261016-174547",
     "status": "in-progress",
-    "manifest_sha256": "23db34692c33bbb795c4fb2c654ceb328667556a39b31723f41452a9a59037e5"
+    "manifest_sha256": "23db34692c33bbb795c4fb2c654ceb328667556a39b31723f41452a9a59037e5",
+    "tool_marker_passed": true,
+    "terminal_status": "in-progress",
+    "successful_model_requests_at_marker_check": 3,
+    "response_model": "global.openai.gpt-5.6-sol",
+    "actual_recorded_tokens_at_marker_check": 39586,
+    "aggregate_token_cap": null,
+    "output_token_override": null
   },
   "counts_as_main_experiment": false,
   "main_study_release_ready": false

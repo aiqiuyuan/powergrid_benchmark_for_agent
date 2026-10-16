@@ -26,7 +26,7 @@ output = Path(output)
 assert os.getuid() == os.getgid() == 64000
 assert os.getgroups() == []
 assert os.sched_getaffinity(0) == {int(cpu)}
-assert resource.getrlimit(resource.RLIMIT_AS) == (8589934592, 8589934592)
+assert resource.getrlimit(resource.RLIMIT_AS) == (17179869184, 17179869184)
 assert resource.getrlimit(resource.RLIMIT_NPROC) == (32, 32)
 assert resource.getrlimit(resource.RLIMIT_CORE) == (0, 0)
 assert json.loads(Path(source).read_text()) == {"probe": "input"}
@@ -100,7 +100,7 @@ def main():
             "--regid=64000",
             "--clear-groups",
             "prlimit",
-            "--as=8589934592",
+            "--as=17179869184",
             "--nproc=32",
             "--core=0",
             "--",

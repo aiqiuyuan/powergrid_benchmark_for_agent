@@ -1,0 +1,8 @@
+{
+  "scope": "synthetic-interface-only-no-target-case",
+  "metadata": {"actor_id": "toy-pv", "pv_count": 2, "action_bound": 0.8},
+  "observations": [
+    {"pv_voltage_pu": [0.94, 1.06]},
+    {"pv_voltage_pu": [1.0, 0.99]}
+  ]
+}

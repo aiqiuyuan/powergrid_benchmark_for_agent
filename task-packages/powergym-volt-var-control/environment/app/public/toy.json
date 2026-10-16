@@ -1,0 +1,11 @@
+{
+  "scope": "synthetic-interface-only-no-target-case",
+  "metadata": {
+    "capacitor_count": 2, "regulator_count": 6, "battery_count": 2,
+    "continuous_batteries": false, "tap_max": 32, "battery_max": 32
+  },
+  "observations": [
+    {"capacitor_states": [1, 1], "regulator_taps": [32, 32, 32, 32, 32, 32]},
+    {"capacitor_states": [0, 1], "regulator_taps": [16, 17, 18, 19, 20, 21]}
+  ]
+}

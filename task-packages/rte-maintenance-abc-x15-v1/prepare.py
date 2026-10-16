@@ -161,7 +161,7 @@ def materialize(inventory_path: Path) -> dict:
                           "bytes": entry["bytes"], "scale": scale,
                           "group": case_id[0], "role": "protected_evaluation" if protected else "development"})
     common = {"protocol": PROTOCOL, "upstream_commit": COMMIT, "seconds_per_case": 900,
-              "seed": 2020, "address_space_bytes": 8 << 30,
+              "seed": 2020, "address_space_bytes": 16 << 30,
               "checker_timeout_seconds": 180, "staging_timeout_seconds": 120}
     public = dict(common, split="public_abc", workers=2,
                   cases=[c for c in all_cases if c["role"] == "development"])

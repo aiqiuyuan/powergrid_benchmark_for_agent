@@ -1,0 +1,32 @@
+# NOT LAUNCHABLE: trusted authoring must render every ${...} placeholder.
+# No case, resource calibration, private runner, or scorer certification is shipped.
+# Fixed complete case: ${FIXED_CASE_ID}; release SHA-256: ${TASK_RELEASE_SHA256}.
+schema_version = "1.3"
+artifacts = ["/app/submission"]
+
+[optimization]
+metric = "${METRIC_NAME}"
+direction = "${METRIC_DIRECTION}"
+
+[agent]
+timeout_sec = 43200
+
+[environment]
+build_timeout_sec = ${DEVELOPMENT_BUILD_TIMEOUT_SEC}
+cpus = ${DEVELOPMENT_CPUS}
+memory_mb = ${DEVELOPMENT_MEMORY_MB}
+storage_mb = ${DEVELOPMENT_STORAGE_MB}
+workdir = "/app"
+network_mode = "${DEVELOPMENT_NETWORK_MODE}"
+# Search/egress restrictions and actual shell/network coverage need acceptance.
+
+[verifier]
+environment_mode = "separate"
+timeout_sec = ${VERIFIER_TIMEOUT_SEC}
+
+[verifier.environment]
+build_timeout_sec = ${VERIFIER_BUILD_TIMEOUT_SEC}
+cpus = ${VERIFIER_CPUS}
+memory_mb = ${VERIFIER_MEMORY_MB}
+storage_mb = ${VERIFIER_STORAGE_MB}
+network_mode = "no-network"

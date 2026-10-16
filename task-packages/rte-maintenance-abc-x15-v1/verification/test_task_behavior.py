@@ -213,6 +213,9 @@ class ABCX15PreparationTests(unittest.TestCase):
                 self.assertEqual(lock["protected_count"], 15)
                 public_path = target / "environment/app/public/manifest.json"
                 protected_path = target / "tests/data/manifest.json"
+                for manifest_path in (public_path, protected_path):
+                    self.assertEqual(json.loads(manifest_path.read_text())["address_space_bytes"],
+                                     17179869184)
                 first = (digest(public_path), digest(protected_path))
                 prepare.materialize(inventory)
                 self.assertEqual((digest(public_path), digest(protected_path)), first)

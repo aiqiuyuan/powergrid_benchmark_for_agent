@@ -1,0 +1,19 @@
+{
+  "release_id": "powergym-energy-neutral-canary-v1",
+  "release_ready": false,
+  "purpose": "600-second n=0/1 workflow canary, one run each; not a certified 12-hour benchmark",
+  "source_commit": "c9fc6d8357308a1f2bd2389474b56089c2a6bd78",
+  "case_id": "34Bus-explicit-order-profile-000-energy-neutral-v1",
+  "case_sha256": "3b76c39e38dddb552ae4d53fd06838e5b5caa35cce5309f3ca611fa12cb2791f",
+  "starter_sha256": "2e1770c370a9af7e26cf2301cb6091287e9339528fb347d4a4ced2cd855b0577",
+  "starter": "voltage hysteresis, capacitor hold, battery idle; identical for n=0 and n=1",
+  "metric_name": "powergym_canary_quality",
+  "metric_direction": "higher",
+  "canary_development_timeout_sec": 600,
+  "verifier_timeout_sec": 120,
+  "local_numerical_acceptance": "passed",
+  "linux_sandbox_acceptance": "pending",
+  "scoring_weights_calibration": "fixed workflow scales, not certified formal task metric",
+  "sandbox_launcher_source_sha256": "409e9341b34b5798fcbb95185ea69b32eb678e9b499c352ed26e479e3ad7dbdf",
+  "sandbox_requirements": "Landlock ABI>=1 plus seccomp and unique actor UID/cwd; ABI1/2 deny all truncation/creat/O_TRUNC and openat2; fail closed; real Linux probes required"
+}

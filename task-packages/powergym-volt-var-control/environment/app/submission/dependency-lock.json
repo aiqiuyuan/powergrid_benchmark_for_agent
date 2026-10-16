@@ -1,0 +1,5 @@
+{
+  "scope": "stdlib-starter-only-not-simulator-lock",
+  "python": ">=3.11",
+  "dependencies": []
+}

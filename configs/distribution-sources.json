@@ -1,0 +1,61 @@
+{
+  "schema_version": "distribution-sources-v1",
+  "audit_date": "2026-10-15",
+  "scope": "trusted-preparation-only-not-a-development-data-bundle",
+  "tasks": {
+    "mapdn-voltage-control": {
+      "repository": "https://github.com/Future-Power-Networks/MAPDN",
+      "source_commit": "6895f1f0630b112745a3f681d7685d454407f9cb",
+      "upstream_runtime_reference": {
+        "python": "3.10",
+        "pandapower": "3.3.0",
+        "numpy": "2.2.6",
+        "pandas": "2.3.3",
+        "gym": "0.26.2",
+        "torch": "2.9.0",
+        "validated_lockfile": false
+      },
+      "dataset_repository": "https://huggingface.co/datasets/hsvgbkhgbv/Multi-Agent-Power-Distribution-Networks",
+      "dataset_commit": "a41d8c269e402a827d36d9a153a4bce73a990e53",
+      "archives": {
+        "voltage_control_data.zip": {
+          "size_bytes": 3763536396,
+          "sha256": "002de887013e8a2dbd2d79e5b6e2ed2c00584f3cf1ae81947f986061cfd81de2"
+        },
+        "traditional_control_data.zip": {
+          "size_bytes": 2241575724,
+          "sha256": "467bc1c04611dbc9f66cae3d614cbc4e1c2936f5e78033bc6804da28e6ec7bc8"
+        }
+      },
+      "archive_verification_status": "published-lfs-metadata-not-downloaded",
+      "selected_case": null,
+      "release_ready": false
+    },
+    "powergym-volt-var-control": {
+      "repository": "https://github.com/siemens/powergym",
+      "source_commit": "c9fc6d8357308a1f2bd2389474b56089c2a6bd78",
+      "upstream_runtime_reference": {
+        "python": "3.8",
+        "dss_python": "0.10.7",
+        "gym": "0.18.0",
+        "numpy": "1.22.0",
+        "pandas": "1.2.4",
+        "validated_lockfile": false
+      },
+      "required_files": {
+        "systems/34Bus/loadshape/LoadShape1.CSV": "2150f57d6c185483a1210e9010e121a50e509e94ac21adb028c55d8be60469c8",
+        "systems/34Bus/loadshape/LoadShape2.CSV": "981d3ff3f78f57edcfafacf437a4dcfda70d1ad99ea8f8a46928a75fbff43de0",
+        "systems/34Bus/loadshape/LoadShape3.CSV": "17a5a62491f1725e9dde94388bb5fcfe1fa429413fad43d977436e3d544f62be",
+        "systems/123Bus/loadshape/LoadShape1.CSV": "2150f57d6c185483a1210e9010e121a50e509e94ac21adb028c55d8be60469c8",
+        "systems/123Bus/loadshape/LoadShape2.CSV": "981d3ff3f78f57edcfafacf437a4dcfda70d1ad99ea8f8a46928a75fbff43de0",
+        "systems/123Bus/loadshape/LoadShape3.CSV": "17a5a62491f1725e9dde94388bb5fcfe1fa429413fad43d977436e3d544f62be",
+        "systems/13Bus/loadshape/LoadShape1.CSV": "2150f57d6c185483a1210e9010e121a50e509e94ac21adb028c55d8be60469c8",
+        "systems/13Bus/loadshape/LoadShape2.CSV": "981d3ff3f78f57edcfafacf437a4dcfda70d1ad99ea8f8a46928a75fbff43de0",
+        "systems/13Bus/loadshape/LoadShape3.CSV": "17a5a62491f1725e9dde94388bb5fcfe1fa429413fad43d977436e3d544f62be",
+        "systems/123Bus/loadshape/PaperLoadShape.csv": "14bebe07160de6e5e66621e7034b3a3bfb0a711b928b4834be1bf9abf79ffbc6"
+      },
+      "selected_case": null,
+      "release_ready": false
+    }
+  }
+}

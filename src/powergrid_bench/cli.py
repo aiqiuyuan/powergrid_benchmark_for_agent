@@ -7,6 +7,7 @@ from pathlib import Path
 from .adapters import AdapterError
 from .artifacts import ArtifactError
 from .config import TASKS, configuration_catalog, validate_configuration
+from .distribution.preparation import PreparationError, prepare_from_lock
 from .fixtures import run_fixture
 from .ledger import LedgerError
 
@@ -58,6 +59,14 @@ def main(argv: list[str] | None = None) -> int:
     )
     fixture.add_argument("--work-dir", required=True)
     fixture.add_argument("--trusted-local", action="store_true")
+    prepare = commands.add_parser(
+        "distribution-prepare", help="Stage pinned sources in a fresh trusted simulator workspace"
+    )
+    prepare.add_argument("lock")
+    prepare.add_argument("task_id")
+    prepare.add_argument("--source", required=True)
+    prepare.add_argument("--destination", required=True)
+    prepare.add_argument("--archive", action="append", default=[], metavar="NAME=PATH")
     args = parser.parse_args(argv)
     code = 0
     try:
@@ -73,9 +82,23 @@ def main(argv: list[str] | None = None) -> int:
             code = 0 if report["valid_design"] and not args.require_certified else 2
         elif args.command == "catalog":
             report = configuration_catalog()
+        elif args.command == "distribution-prepare":
+            archives = {}
+            for value in args.archive:
+                name, separator, path = value.partition("=")
+                if not separator or not name or not path or name in archives:
+                    raise PreparationError("Archives require distinct NAME=PATH entries")
+                archives[name] = path
+            report = prepare_from_lock(
+                args.lock,
+                args.task_id,
+                source=args.source,
+                destination=args.destination,
+                archives=archives,
+            )
         else:
             report = run_fixture(args.work_dir, trusted_local=args.trusted_local)
-    except (AdapterError, ArtifactError, LedgerError, OSError, ValueError) as error:
+    except (AdapterError, ArtifactError, LedgerError, OSError, ValueError, KeyError) as error:
         report, code = {"status": "error", "error": str(error)}, 2
     print(json.dumps(report, ensure_ascii=False, indent=2, allow_nan=False))
     return code

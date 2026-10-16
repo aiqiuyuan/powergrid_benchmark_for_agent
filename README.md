@@ -8,17 +8,19 @@
 
 **UC/SCUC新增文献对齐配置：** [task card §13](docs/task-cards/unit-commitment.md#13-文献对齐的研究目标与配置2026-10-15)汇总四篇论文、参数与结论。主任务评价达到统一参考质量的求解加速，准备目标为gap 0.1%、RTS/CA 300秒与FERC 600秒端到端；成本质量另报。[参数JSON](configs/unit-commitment-speed.design.json)及[计时/Reward合同](docs/protocol/unit-commitment-speed.md)保留固定case、12小时、n=0/1/3/5/10、每档3次政策。具体case、同机基线/参考、执行接线与资源校准未完成，`executable=false / release_ready=false`。
 
-主实验前的[n=0/1流程准备档](configs/unit-commitment-speed.canary.json)和[源码执行包](task-packages/pglib-uc-speed-canary-v1/README.md)已加入；完整原始用例的可信本地功能检查通过，容器、计数和模型接线仍待验收，尚未提交实验。
+主实验前的[n=0/1流程配置](configs/unit-commitment-speed.canary.json)与[源码执行包](task-packages/pglib-uc-speed-canary-v1/README.md)已部署。原n=1反馈因解压兼容错误未执行评分；按用户要求保留n=0，仅修复并重跑n=1。新版本真实反馈和三个终评回放均已通过，模型探针正在完成终评；[修复与重跑证据](docs/evidence/uc-speed-n1-repair-20261016.json)记录最终状态。UC主实验仍未启动。
 
-**本轮研究设计已定：五task × n=0／1／3／5／10 × 三次独立开发，共75次；每次开发上限12小时，累计token不限且无累计预留截断。L2RPN主线恢复原赛动作范围，包括redispatch，在统一条件下重跑基线；375动作版本单列。** 模型、实际资源、逐例执行限额、其余case ID和成本校准仍未完成，尚未启动75次长实验。新主线先按task分别报告原始指标，不设置跨task总分。
+**本轮研究设计已定：五task × n=0／1／3／5／10 × 三次独立开发，共75次；每次开发上限12小时，累计token不限且无累计预留截断。L2RPN主线恢复原赛动作范围，包括redispatch，在统一条件下重跑基线；375动作版本单列。** 本次已完成RTE启动门禁并提交15个正式run；其余任务的模型、实际资源、逐例执行限额、case ID和成本校准仍需逐项确定。正式研究结果尚未完成。新主线先按task分别报告原始指标，不设置跨task总分。
 
-**当前状态：Benchmark `v0.1-design`；已有独立参考实现版本为`0.2.0`。更新：2026-10-15。** 本阶段研究政策已整理，五任务运行包尚未全部适配。此前RTE在历史A4校准数据上通过Harbor／真实模型n=0、n=1配对canary，验证过旧公共选择、计数反馈／ACK、共同截止及独立终评；它不证明新ABC／X15模式、并行资源或新版网络限制已经验收。现有参考代码保留，不作为个人侧必迁路线；没有发布正式能源榜单。
+**当前状态：Benchmark `v0.1-design`；已有独立参考实现版本为`0.2.0`。更新：2026-10-16。** 本阶段研究政策已整理，五任务运行包尚未全部适配。此前RTE在历史A4校准数据上通过Harbor／真实模型n=0、n=1配对canary，验证过旧公共选择、计数反馈／ACK、共同截止及独立终评；它不证明新ABC／X15模式、并行资源或新版网络限制已经验收。现有参考代码保留，不作为个人侧必迁路线；没有发布正式能源榜单。
 
-**本地eval-in-loop已更新到`chufan_dev@c1fffbf`，保留原有改动及实验文件，完成必要兼容修复与本地测试／静态计划检查。** RTE X_04历史数据已独立核查；ABC／X15新任务的实际资源成本、隔离和集群运行仍待验收。详见[本轮完成说明](docs/completion-fixed-case-20261015.md)及[X_04配置草案](docs/protocol/rte-x04-configuration.md)。
+**本地eval-in-loop已更新到`chufan_dev@c1fffbf`，保留原有改动及实验文件，完成必要兼容修复与本地测试／静态计划检查。** RTE X_04历史数据已独立核查；ABC／X15已完成v5完整面板资源验收及v6真实微型生命周期／网络验收，正式批次现已提交；最终研究评分尚未完成。详见[本轮完成说明](docs/completion-fixed-case-20261015.md)及[X_04配置草案](docs/protocol/rte-x04-configuration.md)。
 
 三类模块已经整理为明确接口：**Configuration保留49字段的参考目录和待填模板，本轮已定设计以上文为准；Task adapters逐任务明确可执行提交、公平排行路线和缺少条件；Reliability extensions把历史故障归入共同生命周期，并区分已有本地实现与外部部署验收。**
 
 本轮ABC／X15任务包、数据准备、测试与实际完成边界见[中文完成说明](docs/completion-rte-abc-x15-20261015.md)。
+
+正式批次的15角色、固定客户端、启动前验收和提交状态见[运行配置](docs/experiments/rte-abc-x15-formal-20261015.md)与[最新中文工作说明](docs/completion-rte-formal-launch-20261015.md)。**RTE的15个正式run已于2026-10-16 16:10提交；16:13快照为6个Running、9个Pending排队，正式完成数仍为0。v6真实n=0／n=1微型验收均通过，已修复v5发现的直连旁路；完整X15资源凭据由v5经一致性核对复用。`release_ready=true`仅表示本次RTE启动门禁通过。** 设置为n=0／1／3／5／10各3次、开发12小时、反馈900秒／例和冻结后90分钟／例评分；候选地址空间16GiB，verifier15 CPU／256GiB，Pod21 CPU／296GiB。6个已运行Pod位于6个不同节点；16:19早期检查另从已回收的Claude记录片段确认这6组均有预期模型响应及Read／Bash等工具调用，未见API或生命周期错误。最终分数与研究结论仍待开发和截止后评分完成。
 
 ## 从哪里开始
 
@@ -72,7 +74,7 @@ PYTHONPATH=src python3 -m powergrid_bench.cli config-check configs/experiment.te
 PYTHONPATH=src python3 -m powergrid_bench.cli fixture-run --work-dir work/acceptance --trusted-local
 ```
 
-`config-check`默认允许审阅draft并列出未定字段；`--require-complete`会拒绝draft／缺值。`adapter-check`只核对设计声明，`--require-certified`会拒绝五个尚未认证的task。`executable=true`只表示配置填实，仍不是task或部署认证。
+`config-check`默认允许审阅draft并列出未定字段；`--require-complete`会拒绝draft／缺值。`adapter-check`只核对设计声明，`--require-certified`会拒绝全部七个尚未认证的task。`executable=true`只表示配置填实，仍不是task或部署认证。
 
 夹具实际执行小算法、独立checker、反馈、恢复、冻结和新输入终评；开发时钟使用注入的逻辑时间，数值只用于功能测试。它不访问模型服务、集群或能源数据。`--trusted-local`仅用于可信代码，不能作为恶意代码隔离措施。每次使用新工作目录，既有记录不会覆盖；证据保存在`report.json`和`ledger.sqlite3`。详情见[验收边界](docs/framework/acceptance.md)。
 
@@ -89,6 +91,17 @@ GitHub Actions已配置Python3.11／3.12／3.13的测试、80%覆盖率门槛、
 | [HEFTCom 预测与交易](docs/task-cards/heftcom-forecast-trade.md) | 时间序列ML、预测到决策、收益与风险 | 固定完整市场日／时段，保留因果信息；执行冻结流水线并恢复原结算 |
 
 GOC 的 500/793/2000/2312 等规模属于同一任务族；UC 为核心，受限 SCUC 适配为扩展。GOC30000 保留为压力测试，AHC024 保留为非能源框架测试，均不计入五个核心任务族。
+
+## 两个新增配电网扩展任务
+
+2026-10-15 按用户要求加入以下两题。**已交付卡片、设计声明、来源锁、基础合同代码、starter、小样例和原生 task 骨架；完整仿真运行器、正式难例及资源/基线校准仍待验收，均为 `release_ready=false`。** 它们尚未加入上面的五任务75-run计划。
+
+| 扩展任务 | 用途与基础接入 |
+|---|---|
+| [MAPDN 局部协同电压控制](docs/task-cards/mapdn-voltage-control.md) | 局部PV无功、droop与协同规则；校验无功能力和动作，区分真实有功损耗与reward代理 |
+| [PowerGym 混合设备 Volt/VAR 控制](docs/task-cards/powergym-volt-var-control.md) | 电容器、调压器与储能；校验混合动作和SOC，确定性打包负荷并隔离worker目录 |
+
+完成范围与验证见[中文完成说明](docs/completion-distribution-20261015.md)。接入方法见[配电网基础适配说明](docs/framework/distribution-control-integration.md)、[原生task骨架](task-packages/README.md)和[来源锁](configs/distribution-sources.json)。`distribution-prepare`将固定上游版本复制到可信评测准备目录，核对源文件摘要；它不生成开发数据包或执行潮流。公开starter只提供人工合成的接口自检，不含完整目标评分器。
 
 ## 共同实验语义
 
