@@ -49,6 +49,8 @@
 
 ## 4. 选例与完整性
 
+2026-10-16的[选例基础实验](../experiments/distribution-case-selection-20261016.md)已完成18个候选、4类基线、72条完整24步轨迹，动作及终态能量均有效。123Bus标准组在设备协调规则下的全部越界积分来自前两步，其后22步全网合规，主要反映初始化恢复；34Bus标准组仍有持续越界，保留作进一步强参照校准候选。当前搜索参照为全模型短视启发式，全部基线电池idle；本轮不认证储能跨期规划难度，不自动冻结唯一正式案例。
+
 优先在 34Bus / 123Bus 候选及预先声明的负荷尺度中，以同条件参考方法测可行性、控制质量、耗时和动态设备贡献，再选一个尽可能困难、完整且可运行的 case。不能按母线数量、原始 reward 大小或一次运行失败直接选“最难”，也不能先观察 n 效应再挑 case。123Bus 不自动比 34Bus 更难。
 
 **上游尺度名不是单变量变化：** `_sK` 将负荷乘 K，同时把 `soc_w` 乘 K²；`_soc` 除终端 SOC 代价外还改变放电权重。case manifest 必须保存所有实际权重，不能只写一个环境名。[34/123 配置](https://github.com/siemens/powergym/blob/c9fc6d8357308a1f2bd2389474b56089c2a6bd78/powergym/env_register.py#L96-L198)、[尺度解析](https://github.com/siemens/powergym/blob/c9fc6d8357308a1f2bd2389474b56089c2a6bd78/powergym/env_register.py#L262-L276)。

@@ -1,0 +1,4851 @@
+{
+  "candidate_isolation_certified_by_this_run": false,
+  "kind": "trusted-numerical-selection-evidence",
+  "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+  "release_ready": false,
+  "result_file_sha256": {
+    "results/123Bus-standard-p000-s1--canary_hysteresis.json": "793e702d10a31c55c24488b94bf7fd76b53c61941afe2266e846e14f4ed6404b",
+    "results/123Bus-standard-p000-s1--coordinated_voltage.json": "92cea75a9a6b5555f03c3a1f8726d8f3405527c6196dbb14ebc36d85cc89f13d",
+    "results/123Bus-standard-p000-s1--full_information_snapshot.json": "9449c22ae304fe23dfca936f792677bc076cf3fc3cf78c5191f89cc49ab22018",
+    "results/123Bus-standard-p000-s1--hold_idle.json": "4bf7e010e8e7eef76f970d9f16fc646dccea371d950da1c475a1f650e1c9d68f",
+    "results/123Bus-standard-p003-s1--canary_hysteresis.json": "e90876b6fdf368544d64b38eca1b6e5a13158f4c9fea1d433eff978c6ca69552",
+    "results/123Bus-standard-p003-s1--coordinated_voltage.json": "6f3b2e9136b6fba7eeeefdf77a5094bd051d8b8b6a763377a4b887b10a000913",
+    "results/123Bus-standard-p003-s1--full_information_snapshot.json": "a7853d00d6957358404db7999d174706c4b6390ea260f57cbc8727f4a9c49fca",
+    "results/123Bus-standard-p003-s1--hold_idle.json": "dc6d97e9a7bf87bcd7abfabe044225b62f6a3fa5bc051988666d8f50dc292a6a",
+    "results/123Bus-standard-p006-s1--canary_hysteresis.json": "6046d0185d2f45f1a4e53fd727044059577d6760e6dd542e6f31ae3e0dfcd6c0",
+    "results/123Bus-standard-p006-s1--coordinated_voltage.json": "70d8afc32919e652ab4fcbfd49623df13a0b6417f02005ea8b2aa377635f1632",
+    "results/123Bus-standard-p006-s1--full_information_snapshot.json": "20e3cfe5d9299ba5d31eb33d3831fc0d819c9ac8a94ce2cab046e8494b789582",
+    "results/123Bus-standard-p006-s1--hold_idle.json": "d46d8c4b6c986aea94969ea8f3d8774f460afedab53b62e0f12a883c823f114b",
+    "results/123Bus-standard-p009-s1--canary_hysteresis.json": "5498e0e9ea5e240c688cd30cf526768dc32dd64f2b8880f2e35e410c20ffa93e",
+    "results/123Bus-standard-p009-s1--coordinated_voltage.json": "0d8f4fd821ccf5b253327af85dcd75fe6b510a810c44e074c62cdff5aa1fbf9b",
+    "results/123Bus-standard-p009-s1--full_information_snapshot.json": "08cee34f8492aba86ab26b7897f0c8524279ff96b53391f05c0d13b0ea05709e",
+    "results/123Bus-standard-p009-s1--hold_idle.json": "6e19d2c842fa8085a32b3e3120bb69e67ef66bc656061baf2f9c90984b1e620b",
+    "results/123Bus-standard-p012-s1--canary_hysteresis.json": "c2538249f8d78bfb7abdb87c9ee4031b69bc6aace35de26efdb60c45af214c88",
+    "results/123Bus-standard-p012-s1--coordinated_voltage.json": "2df0075199c3f204f4ca3e9019997e8684161d13aefb1e51ad14e3523e1a1d72",
+    "results/123Bus-standard-p012-s1--full_information_snapshot.json": "5df7ab5221dd9d45f9228c0f2cca83133ce9ea77829f4f733f7999f14352e6df",
+    "results/123Bus-standard-p012-s1--hold_idle.json": "a7221827553c2351bd3cce5b9c0df042a93045d8542466e8029f30bd52d94ac8",
+    "results/123Bus-standard-p015-s1--canary_hysteresis.json": "4bf0ba8245f9742d4d0f2b7d00837faa230e17f3fbc815ba061c2998e6daeb96",
+    "results/123Bus-standard-p015-s1--coordinated_voltage.json": "8399e876fb8148ca18e4a48b7c4098757dfccd0623fbf0d0fc652098a099a148",
+    "results/123Bus-standard-p015-s1--full_information_snapshot.json": "6f8cade852f10057a0a06d942b1e0807204e58456afff132521f84264dbf6094",
+    "results/123Bus-standard-p015-s1--hold_idle.json": "f6f97361c22ef80a3f322804a28f834bd7b07f6d6ea3bcdeb614f44bd20702f0",
+    "results/123Bus-stress-p000-s2.5--canary_hysteresis.json": "725b37cda6c2bdcaef8ecbad401cc96588e4a5f4469a56e4744bbb8d18d3ff34",
+    "results/123Bus-stress-p000-s2.5--coordinated_voltage.json": "36751a109759060abf25cc0ea1d6117a0d87ba09894ad1527aa8e1736f7908b5",
+    "results/123Bus-stress-p000-s2.5--full_information_snapshot.json": "3082e48dd049ffa03747042b2436f09c11f308660ea8bba9df773ad7fe30cc0d",
+    "results/123Bus-stress-p000-s2.5--hold_idle.json": "143cfff5d7c7be3a20851229b1a05e0804f2fd4d5166a3963c1101c8b77c391e",
+    "results/123Bus-stress-p003-s2.5--canary_hysteresis.json": "7888484df19cc553057e8d78dd1ec4c8655997b302640c1a34f971a8c2c837bf",
+    "results/123Bus-stress-p003-s2.5--coordinated_voltage.json": "ab8aec7088ba2e31cec9c6b01533f3c3e3b4c0fd6706448929e4b33c2350ab4f",
+    "results/123Bus-stress-p003-s2.5--full_information_snapshot.json": "df855f21dca0d1e8777ed4563e2e05d26637709c152136847ffe1a15d336d509",
+    "results/123Bus-stress-p003-s2.5--hold_idle.json": "05b7cfecd7332f33ba8761832cca8c73bdf4a651fa2f571614c3df575106aef6",
+    "results/123Bus-stress-p006-s2.5--canary_hysteresis.json": "370c1af05cb6bd120e9aceb5fdc353c96820c24173aaf99bfad538aa248ed4f2",
+    "results/123Bus-stress-p006-s2.5--coordinated_voltage.json": "579370e177b6460b1cdab8f2526af2692a62948fd551c99e31cbbd999d3461be",
+    "results/123Bus-stress-p006-s2.5--full_information_snapshot.json": "cfa69152c37cc5c388015df0981bb0fa1f86354eb350fb5ad9d1deb2042a288f",
+    "results/123Bus-stress-p006-s2.5--hold_idle.json": "df69332e11509f680e711e6957a5dd636d4d4f92e0bd608cfaa93004482ce604",
+    "results/123Bus-stress-p009-s2.5--canary_hysteresis.json": "260005a56e6f07e1161557322163f09d358063531fdb581499e0f141d36e77cc",
+    "results/123Bus-stress-p009-s2.5--coordinated_voltage.json": "787211389c1285978376c7b149bb40b715fd934e3a025ea89a083505ff607c54",
+    "results/123Bus-stress-p009-s2.5--full_information_snapshot.json": "920f5bb8218412b326b56c615122bc9eb551546e5ced77891b95b9dbcdd5e2a5",
+    "results/123Bus-stress-p009-s2.5--hold_idle.json": "3bd55448a10a86edf10b8ed8aef966c61ba45d1bd56cd3669c7d5c85e53ad406",
+    "results/123Bus-stress-p012-s2.5--canary_hysteresis.json": "abec4b0db2cdff6cf4294a1571dd032c39262f9ab3000d35eebc9ec7c7872f3d",
+    "results/123Bus-stress-p012-s2.5--coordinated_voltage.json": "8fffdcf80ce9418e6314c73668ccbd6226ebf648fbe88930a32d4fc9bae7be36",
+    "results/123Bus-stress-p012-s2.5--full_information_snapshot.json": "bb2f2004f9915d3315dbfa2ffdd03c1910e8405f88f701eac950c922fe24414d",
+    "results/123Bus-stress-p012-s2.5--hold_idle.json": "0e882e3063eb713d7e080f3abb5b9796a4096a9daa6c9f6c7298ef605146a0c9",
+    "results/123Bus-stress-p015-s2.5--canary_hysteresis.json": "51ac2dca0b973d26bbda0df1cac26253b6da5da2b0ff79de345458500ae1c0e3",
+    "results/123Bus-stress-p015-s2.5--coordinated_voltage.json": "fd8e1b709f605a52c52436b35c9ba36ca59660c43cbe7c414d1210b861778b8a",
+    "results/123Bus-stress-p015-s2.5--full_information_snapshot.json": "08d1ae2ebb0b16adc4e1a90c2aa566eeb33370c344bda8f2e6c3d418b51cee4a",
+    "results/123Bus-stress-p015-s2.5--hold_idle.json": "afd05ae55d7a675c1f92bec9a614fa82617447d6478737df1d4fae6612f33dd1",
+    "results/34Bus-standard-p000-s1--canary_hysteresis.json": "72d96e6a1968b9a19fbb2291fbcc788df827cb4c5bcffd2c34ec63b2029a32f8",
+    "results/34Bus-standard-p000-s1--coordinated_voltage.json": "af7988d69c143b32bf10402adc15917d8b55c90dc874eac84485220adff7ba88",
+    "results/34Bus-standard-p000-s1--full_information_snapshot.json": "c25b3ea7f022fafbf434e37a1498af4e4ccbf2823eecc0e1f193d9abb2aa2b2e",
+    "results/34Bus-standard-p000-s1--hold_idle.json": "f1fd080f2bec6214770ca72284b9b7abc5353ec1fa4f75074df6fab583cad590",
+    "results/34Bus-standard-p003-s1--canary_hysteresis.json": "cb57fa948b3adda8a08f62f2ebc532a1dd6f4782f65ace36e0b9fbdc80b11695",
+    "results/34Bus-standard-p003-s1--coordinated_voltage.json": "ae523ae88715735e4d7cef7bfe9f0c29e75d295d0c3bdfdbb2501ed52f5b5558",
+    "results/34Bus-standard-p003-s1--full_information_snapshot.json": "9435b83ba0f422166a5d4254848956a200d154f95d5435f54ca1298a0a23deef",
+    "results/34Bus-standard-p003-s1--hold_idle.json": "756859b6a15561c6025a6ab7d0b6bed1e1b9f23077a8e6e08c2a8b8abd97bce3",
+    "results/34Bus-standard-p006-s1--canary_hysteresis.json": "8cf45c11ec97a089b1378a4c5ff1244f6a3c595d702697547508e0ca95956aa5",
+    "results/34Bus-standard-p006-s1--coordinated_voltage.json": "1b5aac952b96584ecf713a28cba014406651f8be6a6a2c59a10e965e6447bf6d",
+    "results/34Bus-standard-p006-s1--full_information_snapshot.json": "379ab21de5bb332b8aeba01263f1836d83dd911f74c782c0ea67265061359444",
+    "results/34Bus-standard-p006-s1--hold_idle.json": "0820b12392597dbc9b2af7e73a7adfeb7bfbea3c8ac6fee0e8a9cb23190c0864",
+    "results/34Bus-standard-p009-s1--canary_hysteresis.json": "84fd8be8d5ec391150c4664997207e4cc1fc23e7b608cbf1bda2cf43d405635c",
+    "results/34Bus-standard-p009-s1--coordinated_voltage.json": "71f41dd3294ee932fcde0c2756657eb86635d7853d2344b47fd12ebe730457b4",
+    "results/34Bus-standard-p009-s1--full_information_snapshot.json": "a70be0dc731b59317e162c3c8f099cbc8679456b1c0824e677847551d301659c",
+    "results/34Bus-standard-p009-s1--hold_idle.json": "c5c6843f6f0cada847482c5e14b0720777620f1c02409886f531ba8177e95c27",
+    "results/34Bus-standard-p012-s1--canary_hysteresis.json": "ecb6390ebb8dc9d280f4e77a83079847fc89619e0b65ca9ab2b5f63c4686ea00",
+    "results/34Bus-standard-p012-s1--coordinated_voltage.json": "23a1d66ec649a69c2799cc857eae2cced668acfdab73bee7af2dac059a54a661",
+    "results/34Bus-standard-p012-s1--full_information_snapshot.json": "6cb063780596008b236ff4da6d436bd59cf430acd838ec115bfb47f9751e1c38",
+    "results/34Bus-standard-p012-s1--hold_idle.json": "986536f61a28fccc9d704eacc80d43fc49f500e869c7d3f3ce4673aff770794e",
+    "results/34Bus-standard-p015-s1--canary_hysteresis.json": "204e47a55d08485b1e2f7beb234c3e0ab893a1228f308e63477d402ef88769b7",
+    "results/34Bus-standard-p015-s1--coordinated_voltage.json": "a8940c946ac3ce6e80060fd852c7fe759a7f4f4da7ea90bf51199701da9a4f7d",
+    "results/34Bus-standard-p015-s1--full_information_snapshot.json": "e343d8aa6d50cfe78723a807d450401b5b3942f558a36c43b6e672eac4c94a61",
+    "results/34Bus-standard-p015-s1--hold_idle.json": "ad860b03f4bbe29e6f83cd491b319897f4e395214004921d376b5740f53e8fd9"
+  },
+  "schema_version": 1,
+  "summary": {
+    "baselines": [
+      "hold_idle",
+      "canary_hysteresis",
+      "coordinated_voltage",
+      "full_information_snapshot"
+    ],
+    "dependencies": {
+      "dss-python": "0.15.7",
+      "dss-python-backend": "0.14.5",
+      "numpy": "1.26.4"
+    },
+    "implementation_sha256": {
+      "tools/distribution_selection/powergym_baselines/__init__.py": "6f11ed481703f91327075c09d059fb70d26279578160a3c039a9ff200ebfeb6d",
+      "tools/distribution_selection/powergym_baselines/backend.py": "b16e44db8f2a0235cca8294129da4a02082f1162e2fc69c18b1bdec695867df8",
+      "tools/distribution_selection/powergym_baselines/controllers.py": "98cb5797be00417b7b98366742e040d2b3071ad825484f1a3ff3cf574556d1ff",
+      "tools/distribution_selection/powergym_selection.py": "e2099e02a33d5291d97a9cbf77e1295341ee38307648df6c9d7f23eef44edcdd"
+    },
+    "interpretation": {
+      "battery_difficulty": "all baselines idle batteries; long-horizon storage control difficulty is not validated",
+      "paper_reward": "vanilla-weight diagnostic only; snapshot timing and hard terminal energy differ from paper protocol",
+      "pf_calls": "explicit snapshot Solve calls including initial solve and search; native DSS compile initialization is not instrumented",
+      "purpose": "trusted-side case selection; no cross-case generalization claim",
+      "ranking_groups": [
+        "network",
+        "group",
+        "permissions"
+      ]
+    },
+    "platform": "macOS-15.7.3-arm64-arm-64bit",
+    "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+    "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+    "python": "3.12.14",
+    "results": [
+      {
+        "active_loss_kwh": 3548.8587868804266,
+        "baseline": "hold_idle",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 72.00390817365515,
+        "canary_quality": 0.013697896797816491,
+        "capacitor_switches": 0,
+        "case_id": "34Bus-standard-p000-s1",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0
+        ],
+        "group": "standard",
+        "initial_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.2351501892268408,
+        "min_voltage_pu": 0.9754344786075962,
+        "network": "34Bus",
+        "paper_vanilla_reward_diagnostic": -70.79006869030258,
+        "permissions": "canary_observation_only_lagged_measurements",
+        "pf_calls": 25,
+        "phase_time_compliance": 0.2149122807017544,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 0,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 1.0,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 0,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 68.45504938677472,
+        "wall_seconds": 0.24816912499954924
+      },
+      {
+        "active_loss_kwh": 2750.212172734736,
+        "baseline": "canary_hysteresis",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 27.86592519283368,
+        "canary_quality": 0.034642922176222585,
+        "capacitor_switches": 0,
+        "case_id": "34Bus-standard-p000-s1",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0
+        ],
+        "group": "standard",
+        "initial_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.212462480448133,
+        "min_voltage_pu": 0.9318537740666583,
+        "network": "34Bus",
+        "paper_vanilla_reward_diagnostic": -27.23744827931089,
+        "permissions": "canary_observation_only_lagged_measurements",
+        "pf_calls": 25,
+        "phase_time_compliance": 0.5662280701754386,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 0,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 1.0,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 138,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 20.933894838280764,
+        "wall_seconds": 0.02271070802817121
+      },
+      {
+        "active_loss_kwh": 3062.218424109809,
+        "baseline": "coordinated_voltage",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 12.125630717749932,
+        "canary_quality": 0.07618681505702345,
+        "capacitor_switches": 2,
+        "case_id": "34Bus-standard-p000-s1",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0
+        ],
+        "group": "standard",
+        "initial_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.1559288832121426,
+        "min_voltage_pu": 0.9262624995397035,
+        "network": "34Bus",
+        "paper_vanilla_reward_diagnostic": -11.430931596449243,
+        "permissions": "canary_observation_only_lagged_measurements",
+        "pf_calls": 25,
+        "phase_time_compliance": 0.8109649122807018,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 0,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 1.0,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.125,
+        "tap_moves": 186,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 3.3664425966704252,
+        "wall_seconds": 0.01773904199944809
+      },
+      {
+        "active_loss_kwh": 2948.5411862244387,
+        "baseline": "full_information_snapshot",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 7.497114428496253,
+        "canary_quality": 0.11768701109241993,
+        "capacitor_switches": 4,
+        "case_id": "34Bus-standard-p000-s1",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0
+        ],
+        "group": "standard",
+        "initial_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.083641523039226,
+        "min_voltage_pu": 0.9445439148574108,
+        "network": "34Bus",
+        "paper_vanilla_reward_diagnostic": -6.851441240080872,
+        "permissions": "current_load_full_model_queries",
+        "pf_calls": 895,
+        "phase_time_compliance": 0.7973684210526316,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 0,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 1.0,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.16666666666666666,
+        "tap_moves": 48,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 2.9728156665142382,
+        "wall_seconds": 0.23722245800308883
+      },
+      {
+        "active_loss_kwh": 3333.3733663091134,
+        "baseline": "hold_idle",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 74.01356966363836,
+        "canary_quality": 0.013330921385077533,
+        "capacitor_switches": 0,
+        "case_id": "34Bus-standard-p003-s1",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0
+        ],
+        "group": "standard",
+        "initial_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.2328370064584904,
+        "min_voltage_pu": 0.9782800926406459,
+        "network": "34Bus",
+        "paper_vanilla_reward_diagnostic": -72.92667737361555,
+        "permissions": "canary_observation_only_lagged_measurements",
+        "pf_calls": 25,
+        "phase_time_compliance": 0.20833333333333334,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 3,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 1.0,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 0,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 70.68019629732925,
+        "wall_seconds": 0.0158784159575589
+      },
+      {
+        "active_loss_kwh": 2526.335350860965,
+        "baseline": "canary_hysteresis",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 25.361255489034207,
+        "canary_quality": 0.03793446030732419,
+        "capacitor_switches": 0,
+        "case_id": "34Bus-standard-p003-s1",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0
+        ],
+        "group": "standard",
+        "initial_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.2086594174885843,
+        "min_voltage_pu": 0.9394894403423638,
+        "network": "34Bus",
+        "paper_vanilla_reward_diagnostic": -24.850617483780795,
+        "permissions": "canary_observation_only_lagged_measurements",
+        "pf_calls": 25,
+        "phase_time_compliance": 0.5666666666666667,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 3,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 1.0,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 78,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 20.47128377453688,
+        "wall_seconds": 0.016032665967941284
+      },
+      {
+        "active_loss_kwh": 2740.675231137361,
+        "baseline": "coordinated_voltage",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 10.364295755361601,
+        "canary_quality": 0.08799489396676485,
+        "capacitor_switches": 2,
+        "case_id": "34Bus-standard-p003-s1",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0
+        ],
+        "group": "standard",
+        "initial_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.1525376063686785,
+        "min_voltage_pu": 0.9325191882671432,
+        "network": "34Bus",
+        "paper_vanilla_reward_diagnostic": -9.852867098796272,
+        "permissions": "canary_observation_only_lagged_measurements",
+        "pf_calls": 25,
+        "phase_time_compliance": 0.9114035087719298,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 3,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 1.0,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.25,
+        "tap_moves": 156,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 2.835741736345452,
+        "wall_seconds": 0.016553541994653642
+      },
+      {
+        "active_loss_kwh": 2779.666923146768,
+        "baseline": "full_information_snapshot",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 8.194017147604844,
+        "canary_quality": 0.10876638404579356,
+        "capacitor_switches": 4,
+        "case_id": "34Bus-standard-p003-s1",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0
+        ],
+        "group": "standard",
+        "initial_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.0875550099291245,
+        "min_voltage_pu": 0.948841744878664,
+        "network": "34Bus",
+        "paper_vanilla_reward_diagnostic": -7.649953421715238,
+        "permissions": "current_load_full_model_queries",
+        "pf_calls": 973,
+        "phase_time_compliance": 0.7728070175438596,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 3,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 1.0,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.4166666666666667,
+        "tap_moves": 51,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 3.7476835577914103,
+        "wall_seconds": 0.24916308297542855
+      },
+      {
+        "active_loss_kwh": 3482.252301048911,
+        "baseline": "hold_idle",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 72.87165047364529,
+        "canary_quality": 0.013536992792069314,
+        "capacitor_switches": 0,
+        "case_id": "34Bus-standard-p006-s1",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0
+        ],
+        "group": "standard",
+        "initial_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.2319453084957377,
+        "min_voltage_pu": 0.9768847809701192,
+        "network": "34Bus",
+        "paper_vanilla_reward_diagnostic": -71.70411250745421,
+        "permissions": "canary_observation_only_lagged_measurements",
+        "pf_calls": 25,
+        "phase_time_compliance": 0.21052631578947367,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 6,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 1.0,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 0,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 69.38939817259637,
+        "wall_seconds": 0.01646983396494761
+      },
+      {
+        "active_loss_kwh": 2683.1736577605843,
+        "baseline": "canary_hysteresis",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 26.42478002257614,
+        "canary_quality": 0.03646337360506804,
+        "capacitor_switches": 0,
+        "case_id": "34Bus-standard-p006-s1",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0
+        ],
+        "group": "standard",
+        "initial_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.2083929734675825,
+        "min_voltage_pu": 0.9343671535672508,
+        "network": "34Bus",
+        "paper_vanilla_reward_diagnostic": -25.839665870578738,
+        "permissions": "canary_observation_only_lagged_measurements",
+        "pf_calls": 25,
+        "phase_time_compliance": 0.5833333333333334,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 6,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 1.0,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 102,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 20.650697273906466,
+        "wall_seconds": 0.01704404200427234
+      },
+      {
+        "active_loss_kwh": 2959.794335306799,
+        "baseline": "coordinated_voltage",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 11.844064836144149,
+        "canary_quality": 0.07785697228699173,
+        "capacitor_switches": 2,
+        "case_id": "34Bus-standard-p006-s1",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0
+        ],
+        "group": "standard",
+        "initial_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.152275128503104,
+        "min_voltage_pu": 0.9258456161756832,
+        "network": "34Bus",
+        "paper_vanilla_reward_diagnostic": -11.214597671062764,
+        "permissions": "canary_observation_only_lagged_measurements",
+        "pf_calls": 25,
+        "phase_time_compliance": 0.8399122807017544,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 6,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 1.0,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.125,
+        "tap_moves": 186,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 3.1873008038676534,
+        "wall_seconds": 0.017230458033736795
+      },
+      {
+        "active_loss_kwh": 2982.1075236603133,
+        "baseline": "full_information_snapshot",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 8.539803087845542,
+        "canary_quality": 0.10482396657369988,
+        "capacitor_switches": 4,
+        "case_id": "34Bus-standard-p006-s1",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0
+        ],
+        "group": "standard",
+        "initial_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.0868913438819567,
+        "min_voltage_pu": 0.9398141159222395,
+        "network": "34Bus",
+        "paper_vanilla_reward_diagnostic": -7.899145015835846,
+        "permissions": "current_load_full_model_queries",
+        "pf_calls": 921,
+        "phase_time_compliance": 0.7456140350877193,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 6,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 1.0,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.20833333333333334,
+        "tap_moves": 46,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 4.042544049033713,
+        "wall_seconds": 0.2413632909883745
+      },
+      {
+        "active_loss_kwh": 3323.864521278678,
+        "baseline": "hold_idle",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 73.97081049589265,
+        "canary_quality": 0.013338524598914213,
+        "capacitor_switches": 0,
+        "case_id": "34Bus-standard-p009-s1",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0
+        ],
+        "group": "standard",
+        "initial_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.2309493800224327,
+        "min_voltage_pu": 0.979088552075722,
+        "network": "34Bus",
+        "paper_vanilla_reward_diagnostic": -72.89389280593426,
+        "permissions": "canary_observation_only_lagged_measurements",
+        "pf_calls": 25,
+        "phase_time_compliance": 0.20789473684210527,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 9,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 1.0,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 0,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 70.64694597461397,
+        "wall_seconds": 0.01599254203028977
+      },
+      {
+        "active_loss_kwh": 2516.508824301182,
+        "baseline": "canary_hysteresis",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 24.96628359681688,
+        "canary_quality": 0.03851147956046304,
+        "capacitor_switches": 0,
+        "case_id": "34Bus-standard-p009-s1",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0
+        ],
+        "group": "standard",
+        "initial_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.2070289164086678,
+        "min_voltage_pu": 0.9369497358248644,
+        "network": "34Bus",
+        "paper_vanilla_reward_diagnostic": -24.465497006061497,
+        "permissions": "canary_observation_only_lagged_measurements",
+        "pf_calls": 25,
+        "phase_time_compliance": 0.5456140350877193,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 9,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 1.0,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 84,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 19.904320227061152,
+        "wall_seconds": 0.015885875036474317
+      },
+      {
+        "active_loss_kwh": 2722.412831894959,
+        "baseline": "coordinated_voltage",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 10.189602535585095,
+        "canary_quality": 0.08936867925556846,
+        "capacitor_switches": 2,
+        "case_id": "34Bus-standard-p009-s1",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0
+        ],
+        "group": "standard",
+        "initial_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.1510821295034435,
+        "min_voltage_pu": 0.9291603282442682,
+        "network": "34Bus",
+        "paper_vanilla_reward_diagnostic": -9.694725149293925,
+        "permissions": "canary_observation_only_lagged_measurements",
+        "pf_calls": 25,
+        "phase_time_compliance": 0.9074561403508772,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 9,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 1.0,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.16666666666666666,
+        "tap_moves": 156,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 2.679310915811348,
+        "wall_seconds": 0.016146291978657246
+      },
+      {
+        "active_loss_kwh": 2801.003654068187,
+        "baseline": "full_information_snapshot",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 7.648748611613804,
+        "canary_quality": 0.11562366359650798,
+        "capacitor_switches": 2,
+        "case_id": "34Bus-standard-p009-s1",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0
+        ],
+        "group": "standard",
+        "initial_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.0861398686561106,
+        "min_voltage_pu": 0.9461070498491426,
+        "network": "34Bus",
+        "paper_vanilla_reward_diagnostic": -7.11705227132966,
+        "permissions": "current_load_full_model_queries",
+        "pf_calls": 921,
+        "phase_time_compliance": 0.8109649122807018,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 9,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 1.0,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.5833333333333334,
+        "tap_moves": 51,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 3.241684351485012,
+        "wall_seconds": 0.23837233299855143
+      },
+      {
+        "active_loss_kwh": 3370.939166588387,
+        "baseline": "hold_idle",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 74.93223865526981,
+        "canary_quality": 0.013169636740725785,
+        "capacitor_switches": 0,
+        "case_id": "34Bus-standard-p012-s1",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0
+        ],
+        "group": "standard",
+        "initial_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.2319564900179951,
+        "min_voltage_pu": 0.9798073964239176,
+        "network": "34Bus",
+        "paper_vanilla_reward_diagnostic": -73.85137610613428,
+        "permissions": "canary_observation_only_lagged_measurements",
+        "pf_calls": 25,
+        "phase_time_compliance": 0.20526315789473684,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 12,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 1.0,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 0,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 71.56129948868143,
+        "wall_seconds": 0.015908708970528096
+      },
+      {
+        "active_loss_kwh": 2581.7263327607484,
+        "baseline": "canary_hysteresis",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 26.886748983910714,
+        "canary_quality": 0.03585932517902861,
+        "capacitor_switches": 0,
+        "case_id": "34Bus-standard-p012-s1",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0
+        ],
+        "group": "standard",
+        "initial_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.208718671136791,
+        "min_voltage_pu": 0.9363432224392784,
+        "network": "34Bus",
+        "paper_vanilla_reward_diagnostic": -26.374362567991266,
+        "permissions": "canary_observation_only_lagged_measurements",
+        "pf_calls": 25,
+        "phase_time_compliance": 0.5403508771929825,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 12,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 1.0,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 102,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 21.214113560240875,
+        "wall_seconds": 0.016196666983887553
+      },
+      {
+        "active_loss_kwh": 2775.3267398329967,
+        "baseline": "coordinated_voltage",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 12.503379219384577,
+        "canary_quality": 0.07405553704397672,
+        "capacitor_switches": 2,
+        "case_id": "34Bus-standard-p012-s1",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0
+        ],
+        "group": "standard",
+        "initial_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.1526069937589438,
+        "min_voltage_pu": 0.907626185255938,
+        "network": "34Bus",
+        "paper_vanilla_reward_diagnostic": -11.990774656086582,
+        "permissions": "canary_observation_only_lagged_measurements",
+        "pf_calls": 25,
+        "phase_time_compliance": 0.8859649122807017,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 12,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 1.0,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.16666666666666666,
+        "tap_moves": 216,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 3.1219918734909724,
+        "wall_seconds": 0.016261500015389174
+      },
+      {
+        "active_loss_kwh": 2835.557738609639,
+        "baseline": "full_information_snapshot",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 8.258618421623323,
+        "canary_quality": 0.10800747524755092,
+        "capacitor_switches": 2,
+        "case_id": "34Bus-standard-p012-s1",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0
+        ],
+        "group": "standard",
+        "initial_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.0870000529529733,
+        "min_voltage_pu": 0.9375168489111574,
+        "network": "34Bus",
+        "paper_vanilla_reward_diagnostic": -7.716760672242145,
+        "permissions": "current_load_full_model_queries",
+        "pf_calls": 895,
+        "phase_time_compliance": 0.7605263157894737,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 12,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 1.0,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.25,
+        "tap_moves": 48,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 3.9079091678621687,
+        "wall_seconds": 0.23141054203733802
+      },
+      {
+        "active_loss_kwh": 3526.002142634724,
+        "baseline": "hold_idle",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 71.72047577464785,
+        "canary_quality": 0.013751285168965089,
+        "capacitor_switches": 0,
+        "case_id": "34Bus-standard-p015-s1",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0
+        ],
+        "group": "standard",
+        "initial_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.2316768648071812,
+        "min_voltage_pu": 0.9759786751530842,
+        "network": "34Bus",
+        "paper_vanilla_reward_diagnostic": -70.51762613053818,
+        "permissions": "canary_observation_only_lagged_measurements",
+        "pf_calls": 25,
+        "phase_time_compliance": 0.21359649122807017,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 15,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 1.0,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 0,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 68.19447363201313,
+        "wall_seconds": 0.016100042033940554
+      },
+      {
+        "active_loss_kwh": 2720.4515475641233,
+        "baseline": "canary_hysteresis",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 25.825069197784913,
+        "canary_quality": 0.03727856180451439,
+        "capacitor_switches": 0,
+        "case_id": "34Bus-standard-p015-s1",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0
+        ],
+        "group": "standard",
+        "initial_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.2099045424931814,
+        "min_voltage_pu": 0.9374949864435427,
+        "network": "34Bus",
+        "paper_vanilla_reward_diagnostic": -25.211207798389978,
+        "permissions": "canary_observation_only_lagged_measurements",
+        "pf_calls": 25,
+        "phase_time_compliance": 0.5793859649122807,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 15,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 1.0,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 102,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 20.0137085593117,
+        "wall_seconds": 0.01640162500552833
+      },
+      {
+        "active_loss_kwh": 3027.444457589384,
+        "baseline": "coordinated_voltage",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 11.977311244468002,
+        "canary_quality": 0.07705756463429837,
+        "capacitor_switches": 2,
+        "case_id": "34Bus-standard-p015-s1",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0
+        ],
+        "group": "standard",
+        "initial_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.1536468109795464,
+        "min_voltage_pu": 0.9217712027452578,
+        "network": "34Bus",
+        "paper_vanilla_reward_diagnostic": -11.308184203019382,
+        "permissions": "canary_observation_only_lagged_measurements",
+        "pf_calls": 25,
+        "phase_time_compliance": 0.8333333333333334,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 15,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 1.0,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.125,
+        "tap_moves": 186,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 3.2528970899089202,
+        "wall_seconds": 0.016380832996219397
+      },
+      {
+        "active_loss_kwh": 2940.94064296092,
+        "baseline": "full_information_snapshot",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 7.88772906895548,
+        "canary_quality": 0.11251468088659052,
+        "capacitor_switches": 4,
+        "case_id": "34Bus-standard-p015-s1",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0
+        ],
+        "group": "standard",
+        "initial_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.0869390567675499,
+        "min_voltage_pu": 0.9464536759705027,
+        "network": "34Bus",
+        "paper_vanilla_reward_diagnostic": -7.256695815690608,
+        "permissions": "current_load_full_model_queries",
+        "pf_calls": 973,
+        "phase_time_compliance": 0.8131578947368421,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 15,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 1.0,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.5,
+        "tap_moves": 51,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 3.280121759327893,
+        "wall_seconds": 0.25458441697992384
+      },
+      {
+        "active_loss_kwh": 1016.0392688692107,
+        "baseline": "hold_idle",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 287.53019569503834,
+        "canary_quality": 0.0034658417556301417,
+        "capacitor_switches": 0,
+        "case_id": "123Bus-standard-p000-s1",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "group": "standard",
+        "initial_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.2224608095937266,
+        "min_voltage_pu": 0.9999949970410053,
+        "network": "123Bus",
+        "paper_vanilla_reward_diagnostic": -290.51398806689633,
+        "permissions": "canary_observation_only_lagged_measurements",
+        "pf_calls": 25,
+        "phase_time_compliance": 0.01079136690647482,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 0,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 1.0,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 0,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 286.5141564261691,
+        "wall_seconds": 0.03819454100448638
+      },
+      {
+        "active_loss_kwh": 840.3897680678389,
+        "baseline": "canary_hysteresis",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 62.152188007300445,
+        "canary_quality": 0.015834764108005238,
+        "capacitor_switches": 0,
+        "case_id": "123Bus-standard-p000-s1",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "group": "standard",
+        "initial_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.2074139604429603,
+        "min_voltage_pu": 0.9932442958507283,
+        "network": "123Bus",
+        "paper_vanilla_reward_diagnostic": -65.14920274581812,
+        "permissions": "canary_observation_only_lagged_measurements",
+        "pf_calls": 25,
+        "phase_time_compliance": 0.6734112709832134,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 0,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 1.0,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.3333333333333333,
+        "tap_moves": 84,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 58.76634369377806,
+        "wall_seconds": 0.029001666989643127
+      },
+      {
+        "active_loss_kwh": 900.5154385805704,
+        "baseline": "coordinated_voltage",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 11.539366098393229,
+        "canary_quality": 0.07974884792048126,
+        "capacitor_switches": 3,
+        "case_id": "123Bus-standard-p000-s1",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "group": "standard",
+        "initial_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.1409471104065576,
+        "min_voltage_pu": 0.9779910151336495,
+        "network": "123Bus",
+        "paper_vanilla_reward_diagnostic": -14.839341036849307,
+        "permissions": "canary_observation_only_lagged_measurements",
+        "pf_calls": 25,
+        "phase_time_compliance": 0.9439448441247003,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 0,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 1.0,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.9166666666666666,
+        "tap_moves": 84,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 8.002487023449023,
+        "wall_seconds": 0.02880324999568984
+      },
+      {
+        "active_loss_kwh": 868.3656431214301,
+        "baseline": "full_information_snapshot",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 3.444361765763645,
+        "canary_quality": 0.22500418568608055,
+        "capacitor_switches": 1,
+        "case_id": "123Bus-standard-p000-s1",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "group": "standard",
+        "initial_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.0723953853106136,
+        "min_voltage_pu": 0.9687207059405888,
+        "network": "123Bus",
+        "paper_vanilla_reward_diagnostic": -6.664954720071172,
+        "permissions": "current_load_full_model_queries",
+        "pf_calls": 1057,
+        "phase_time_compliance": 0.9929556354916067,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 0,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 1.0,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.875,
+        "tap_moves": 75,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 0.272965819611912,
+        "wall_seconds": 0.5565093330224045
+      },
+      {
+        "active_loss_kwh": 1010.5251099543846,
+        "baseline": "hold_idle",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 291.286619047246,
+        "canary_quality": 0.003421299282394988,
+        "capacitor_switches": 0,
+        "case_id": "123Bus-standard-p003-s1",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "group": "standard",
+        "initial_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.2222084845870331,
+        "min_voltage_pu": 0.9999947118442021,
+        "network": "123Bus",
+        "paper_vanilla_reward_diagnostic": -294.2830379934136,
+        "permissions": "canary_observation_only_lagged_measurements",
+        "pf_calls": 25,
+        "phase_time_compliance": 0.01079136690647482,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 3,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 1.0,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 0,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 290.27609393729165,
+        "wall_seconds": 0.028225167014170438
+      },
+      {
+        "active_loss_kwh": 835.951714848643,
+        "baseline": "canary_hysteresis",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 63.151782953418866,
+        "canary_quality": 0.01558803129019981,
+        "capacitor_switches": 0,
+        "case_id": "123Bus-standard-p003-s1",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "group": "standard",
+        "initial_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.2068381252052773,
+        "min_voltage_pu": 0.9907470101855527,
+        "network": "123Bus",
+        "paper_vanilla_reward_diagnostic": -66.16141993100331,
+        "permissions": "canary_observation_only_lagged_measurements",
+        "pf_calls": 25,
+        "phase_time_compliance": 0.6701139088729017,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 3,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 1.0,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 84,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 59.77037669311568,
+        "wall_seconds": 0.02862916700541973
+      },
+      {
+        "active_loss_kwh": 891.4149582311932,
+        "baseline": "coordinated_voltage",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 11.561278632683706,
+        "canary_quality": 0.07960972996793965,
+        "capacitor_switches": 3,
+        "case_id": "123Bus-standard-p003-s1",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "group": "standard",
+        "initial_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.1405032750520658,
+        "min_voltage_pu": 0.9768359026880672,
+        "network": "123Bus",
+        "paper_vanilla_reward_diagnostic": -14.852700715470007,
+        "permissions": "canary_observation_only_lagged_measurements",
+        "pf_calls": 25,
+        "phase_time_compliance": 0.9433453237410072,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 3,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 1.0,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.9166666666666666,
+        "tap_moves": 84,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 8.033500038088876,
+        "wall_seconds": 0.02885258401511237
+      },
+      {
+        "active_loss_kwh": 861.391267193688,
+        "baseline": "full_information_snapshot",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 3.4308706142664738,
+        "canary_quality": 0.22568928029182567,
+        "capacitor_switches": 1,
+        "case_id": "123Bus-standard-p003-s1",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "group": "standard",
+        "initial_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.072562320722762,
+        "min_voltage_pu": 0.9676139153851401,
+        "network": "123Bus",
+        "paper_vanilla_reward_diagnostic": -6.650274684531591,
+        "permissions": "current_load_full_model_queries",
+        "pf_calls": 1057,
+        "phase_time_compliance": 0.9946043165467626,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 3,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 1.0,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.9166666666666666,
+        "tap_moves": 76,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 0.2361460137394522,
+        "wall_seconds": 0.5596670410013758
+      },
+      {
+        "active_loss_kwh": 1029.7715734268854,
+        "baseline": "hold_idle",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 290.41421944489724,
+        "canary_quality": 0.003431541542155555,
+        "capacitor_switches": 0,
+        "case_id": "123Bus-standard-p006-s1",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "group": "standard",
+        "initial_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.2233507139797686,
+        "min_voltage_pu": 0.9999948151619649,
+        "network": "123Bus",
+        "paper_vanilla_reward_diagnostic": -293.4212250696897,
+        "permissions": "canary_observation_only_lagged_measurements",
+        "pf_calls": 25,
+        "phase_time_compliance": 0.01079136690647482,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 6,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 1.0,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 0,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 289.38444787147034,
+        "wall_seconds": 0.0283141250256449
+      },
+      {
+        "active_loss_kwh": 852.376659060206,
+        "baseline": "canary_hysteresis",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 62.91244469464915,
+        "canary_quality": 0.01564640509023936,
+        "capacitor_switches": 0,
+        "case_id": "123Bus-standard-p006-s1",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "group": "standard",
+        "initial_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.2081439906245348,
+        "min_voltage_pu": 0.9907479883834279,
+        "network": "123Bus",
+        "paper_vanilla_reward_diagnostic": -65.93610452547243,
+        "permissions": "canary_observation_only_lagged_measurements",
+        "pf_calls": 25,
+        "phase_time_compliance": 0.668015587529976,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 6,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 1.0,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 84,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 59.5146134901344,
+        "wall_seconds": 0.0285525830113329
+      },
+      {
+        "active_loss_kwh": 907.6426835743836,
+        "baseline": "coordinated_voltage",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 11.627000304468286,
+        "canary_quality": 0.07919537308050373,
+        "capacitor_switches": 3,
+        "case_id": "123Bus-standard-p006-s1",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "group": "standard",
+        "initial_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.1414504647491528,
+        "min_voltage_pu": 0.9790495579470639,
+        "network": "123Bus",
+        "paper_vanilla_reward_diagnostic": -14.93206445986811,
+        "permissions": "canary_observation_only_lagged_measurements",
+        "pf_calls": 25,
+        "phase_time_compliance": 0.9437949640287769,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 6,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 1.0,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.9166666666666666,
+        "tap_moves": 84,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 8.082993984530265,
+        "wall_seconds": 0.04128558305092156
+      },
+      {
+        "active_loss_kwh": 877.8278546462301,
+        "baseline": "full_information_snapshot",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 3.4677632462697785,
+        "canary_quality": 0.22382564717029696,
+        "capacitor_switches": 1,
+        "case_id": "123Bus-standard-p006-s1",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "group": "standard",
+        "initial_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.0728140560244428,
+        "min_voltage_pu": 0.9648459778517889,
+        "network": "123Bus",
+        "paper_vanilla_reward_diagnostic": -6.7043230497655895,
+        "permissions": "current_load_full_model_queries",
+        "pf_calls": 1057,
+        "phase_time_compliance": 0.9943045563549161,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 6,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 1.0,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.875,
+        "tap_moves": 76,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 0.2566020582902151,
+        "wall_seconds": 0.5598862080369145
+      },
+      {
+        "active_loss_kwh": 1026.2946984650532,
+        "baseline": "hold_idle",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 290.8119024719234,
+        "canary_quality": 0.0034268650165707845,
+        "capacitor_switches": 0,
+        "case_id": "123Bus-standard-p009-s1",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "group": "standard",
+        "initial_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.2232498811764219,
+        "min_voltage_pu": 0.9999948962017527,
+        "network": "123Bus",
+        "paper_vanilla_reward_diagnostic": -293.83722690757605,
+        "permissions": "canary_observation_only_lagged_measurements",
+        "pf_calls": 25,
+        "phase_time_compliance": 0.01079136690647482,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 9,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 1.0,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 0,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 289.78560777345837,
+        "wall_seconds": 0.02852699998766184
+      },
+      {
+        "active_loss_kwh": 848.8177126108594,
+        "baseline": "canary_hysteresis",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 63.079259434188515,
+        "canary_quality": 0.015605673486708013,
+        "capacitor_switches": 0,
+        "case_id": "123Bus-standard-p009-s1",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "group": "standard",
+        "initial_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.208077539986095,
+        "min_voltage_pu": 0.9908340132940157,
+        "network": "123Bus",
+        "paper_vanilla_reward_diagnostic": -66.11924017164708,
+        "permissions": "canary_observation_only_lagged_measurements",
+        "pf_calls": 25,
+        "phase_time_compliance": 0.6689148681055156,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 9,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 1.0,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 84,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 59.68498717612311,
+        "wall_seconds": 0.02902658295352012
+      },
+      {
+        "active_loss_kwh": 905.8337650544786,
+        "baseline": "coordinated_voltage",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 11.593545538955466,
+        "canary_quality": 0.0794057556632254,
+        "capacitor_switches": 3,
+        "case_id": "123Bus-standard-p009-s1",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "group": "standard",
+        "initial_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.1415225425324225,
+        "min_voltage_pu": 0.9771248252446233,
+        "network": "123Bus",
+        "paper_vanilla_reward_diagnostic": -14.925756486294732,
+        "permissions": "canary_observation_only_lagged_measurements",
+        "pf_calls": 25,
+        "phase_time_compliance": 0.9439448441247003,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 9,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 1.0,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.9166666666666666,
+        "tap_moves": 84,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 8.051348137537351,
+        "wall_seconds": 0.029225416015833616
+      },
+      {
+        "active_loss_kwh": 875.0178098119468,
+        "baseline": "full_information_snapshot",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 3.4601416263493903,
+        "canary_quality": 0.2242081269554878,
+        "capacitor_switches": 1,
+        "case_id": "123Bus-standard-p009-s1",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "group": "standard",
+        "initial_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.0725241166567092,
+        "min_voltage_pu": 0.9678667653738924,
+        "network": "123Bus",
+        "paper_vanilla_reward_diagnostic": -6.719017843170007,
+        "permissions": "current_load_full_model_queries",
+        "pf_calls": 1057,
+        "phase_time_compliance": 0.9943045563549161,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 9,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 1.0,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.875,
+        "tap_moves": 76,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 0.25179048320411024,
+        "wall_seconds": 0.569711374992039
+      },
+      {
+        "active_loss_kwh": 1020.75966709814,
+        "baseline": "hold_idle",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 290.12842800562197,
+        "canary_quality": 0.0034349101764142697,
+        "capacitor_switches": 0,
+        "case_id": "123Bus-standard-p012-s1",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "group": "standard",
+        "initial_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.2235064550837567,
+        "min_voltage_pu": 0.9999948533691921,
+        "network": "123Bus",
+        "paper_vanilla_reward_diagnostic": -293.136735900371,
+        "permissions": "canary_observation_only_lagged_measurements",
+        "pf_calls": 25,
+        "phase_time_compliance": 0.01079136690647482,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 12,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 1.0,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 0,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 289.1076683385238,
+        "wall_seconds": 0.028764375019818544
+      },
+      {
+        "active_loss_kwh": 844.6599746172523,
+        "baseline": "canary_hysteresis",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 62.80441316961468,
+        "canary_quality": 0.015672897066565702,
+        "capacitor_switches": 0,
+        "case_id": "123Bus-standard-p012-s1",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "group": "standard",
+        "initial_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.2086238542101146,
+        "min_voltage_pu": 0.9920716844867684,
+        "network": "123Bus",
+        "paper_vanilla_reward_diagnostic": -65.8271625821733,
+        "permissions": "canary_observation_only_lagged_measurements",
+        "pf_calls": 25,
+        "phase_time_compliance": 0.6675659472422062,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 12,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 1.0,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.16666666666666666,
+        "tap_moves": 84,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 59.414298649542886,
+        "wall_seconds": 0.028864790976513177
+      },
+      {
+        "active_loss_kwh": 899.0702069699665,
+        "baseline": "coordinated_voltage",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 11.592447692712637,
+        "canary_quality": 0.07941267848813134,
+        "capacitor_switches": 3,
+        "case_id": "123Bus-standard-p012-s1",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "group": "standard",
+        "initial_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.1418967516902934,
+        "min_voltage_pu": 0.9768464820025058,
+        "network": "123Bus",
+        "paper_vanilla_reward_diagnostic": -14.899799794760613,
+        "permissions": "canary_observation_only_lagged_measurements",
+        "pf_calls": 25,
+        "phase_time_compliance": 0.9439448441247003,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 12,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 1.0,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.9166666666666666,
+        "tap_moves": 84,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 8.057013849379034,
+        "wall_seconds": 0.028748332988470793
+      },
+      {
+        "active_loss_kwh": 864.9696953480783,
+        "baseline": "full_information_snapshot",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 3.4909031536215336,
+        "canary_quality": 0.2226723591653462,
+        "capacitor_switches": 1,
+        "case_id": "123Bus-standard-p012-s1",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "group": "standard",
+        "initial_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.0725207906523422,
+        "min_voltage_pu": 0.9739004942059812,
+        "network": "123Bus",
+        "paper_vanilla_reward_diagnostic": -6.696013831063725,
+        "permissions": "current_load_full_model_queries",
+        "pf_calls": 1025,
+        "phase_time_compliance": 0.988009592326139,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 12,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 1.0,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.5833333333333334,
+        "tap_moves": 74,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 0.35320618554618255,
+        "wall_seconds": 0.5401018749689683
+      },
+      {
+        "active_loss_kwh": 1029.0348180360136,
+        "baseline": "hold_idle",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 289.7631192773229,
+        "canary_quality": 0.003439225726032413,
+        "capacitor_switches": 0,
+        "case_id": "123Bus-standard-p015-s1",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "group": "standard",
+        "initial_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.2238702825943526,
+        "min_voltage_pu": 0.9999948138289836,
+        "network": "123Bus",
+        "paper_vanilla_reward_diagnostic": -292.78164836330114,
+        "permissions": "canary_observation_only_lagged_measurements",
+        "pf_calls": 25,
+        "phase_time_compliance": 0.01079136690647482,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 15,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 1.0,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 0,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 288.7340844592869,
+        "wall_seconds": 0.044097375008277595
+      },
+      {
+        "active_loss_kwh": 851.4508566846033,
+        "baseline": "canary_hysteresis",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 63.09516393527166,
+        "canary_quality": 0.015601801112637433,
+        "capacitor_switches": 0,
+        "case_id": "123Bus-standard-p015-s1",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "group": "standard",
+        "initial_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.2083566674883444,
+        "min_voltage_pu": 0.9913925011925393,
+        "network": "123Bus",
+        "paper_vanilla_reward_diagnostic": -66.12988653828144,
+        "permissions": "canary_observation_only_lagged_measurements",
+        "pf_calls": 25,
+        "phase_time_compliance": 0.6698141486810552,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 15,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 1.0,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.20833333333333334,
+        "tap_moves": 84,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 59.69825853313251,
+        "wall_seconds": 0.028684541990514845
+      },
+      {
+        "active_loss_kwh": 909.5680940843441,
+        "baseline": "coordinated_voltage",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 11.654208662150012,
+        "canary_quality": 0.0790250917065323,
+        "capacitor_switches": 3,
+        "case_id": "123Bus-standard-p015-s1",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "group": "standard",
+        "initial_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.1416240375510338,
+        "min_voltage_pu": 0.9764028639606631,
+        "network": "123Bus",
+        "paper_vanilla_reward_diagnostic": -14.979221948167485,
+        "permissions": "canary_observation_only_lagged_measurements",
+        "pf_calls": 25,
+        "phase_time_compliance": 0.9439448441247003,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 15,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 1.0,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.9166666666666666,
+        "tap_moves": 84,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 8.108276931702031,
+        "wall_seconds": 0.02843712503090501
+      },
+      {
+        "active_loss_kwh": 878.0536979263501,
+        "baseline": "full_information_snapshot",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 3.4428187088203663,
+        "canary_quality": 0.22508233298259306,
+        "capacitor_switches": 1,
+        "case_id": "123Bus-standard-p015-s1",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "group": "standard",
+        "initial_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.0725062461004489,
+        "min_voltage_pu": 0.9671564176690671,
+        "network": "123Bus",
+        "paper_vanilla_reward_diagnostic": -6.694387675995981,
+        "permissions": "current_load_full_model_queries",
+        "pf_calls": 1057,
+        "phase_time_compliance": 0.9953537170263789,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 15,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 1.0,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.9166666666666666,
+        "tap_moves": 76,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 0.23143167756068284,
+        "wall_seconds": 0.5654182919533923
+      },
+      {
+        "active_loss_kwh": 5743.077161397382,
+        "baseline": "hold_idle",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 171.8967556210279,
+        "canary_quality": 0.005783798524200756,
+        "capacitor_switches": 0,
+        "case_id": "123Bus-stress-p000-s2.5",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "group": "stress",
+        "initial_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.1865226909512832,
+        "min_voltage_pu": 0.9925966084328987,
+        "network": "123Bus",
+        "paper_vanilla_reward_diagnostic": -175.70280274833493,
+        "permissions": "canary_observation_only_lagged_measurements",
+        "pf_calls": 25,
+        "phase_time_compliance": 0.29706235011990406,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 0,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 2.5,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 0,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 166.1536784596305,
+        "wall_seconds": 0.02872475003823638
+      },
+      {
+        "active_loss_kwh": 5288.536765245538,
+        "baseline": "canary_hysteresis",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 39.324971503862116,
+        "canary_quality": 0.024798529613448708,
+        "capacitor_switches": 0,
+        "case_id": "123Bus-stress-p000-s2.5",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "group": "stress",
+        "initial_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.17073831486364,
+        "min_voltage_pu": 0.9390172085307614,
+        "network": "123Bus",
+        "paper_vanilla_reward_diagnostic": -43.62877399643906,
+        "permissions": "canary_observation_only_lagged_measurements",
+        "pf_calls": 25,
+        "phase_time_compliance": 0.783273381294964,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 0,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 2.5,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.041666666666666664,
+        "tap_moves": 84,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 31.49098019316203,
+        "wall_seconds": 0.030849583039525896
+      },
+      {
+        "active_loss_kwh": 5854.883677306939,
+        "baseline": "coordinated_voltage",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 16.28781887377753,
+        "canary_quality": 0.05784419696326283,
+        "capacitor_switches": 3,
+        "case_id": "123Bus-stress-p000-s2.5",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "group": "stress",
+        "initial_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.1147226620846924,
+        "min_voltage_pu": 0.9344432966925755,
+        "network": "123Bus",
+        "paper_vanilla_reward_diagnostic": -21.13850272758348,
+        "permissions": "canary_observation_only_lagged_measurements",
+        "pf_calls": 25,
+        "phase_time_compliance": 0.9025779376498801,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 0,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 2.5,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.16666666666666666,
+        "tap_moves": 154,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 5.675359438894831,
+        "wall_seconds": 0.0318658750038594
+      },
+      {
+        "active_loss_kwh": 5497.877161831368,
+        "baseline": "full_information_snapshot",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 13.675254203950225,
+        "canary_quality": 0.0681419201400153,
+        "capacitor_switches": 4,
+        "case_id": "123Bus-stress-p000-s2.5",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "group": "stress",
+        "initial_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.0996119202089498,
+        "min_voltage_pu": 0.9346798865510985,
+        "network": "123Bus",
+        "paper_vanilla_reward_diagnostic": -18.320120604274777,
+        "permissions": "current_load_full_model_queries",
+        "pf_calls": 1022,
+        "phase_time_compliance": 0.9087230215827338,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 0,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 2.5,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 28,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 7.207680072421889,
+        "wall_seconds": 0.5639731669798493
+      },
+      {
+        "active_loss_kwh": 5688.990010457402,
+        "baseline": "hold_idle",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 180.2347635152445,
+        "canary_quality": 0.005517705216173305,
+        "capacitor_switches": 0,
+        "case_id": "123Bus-stress-p003-s2.5",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "group": "stress",
+        "initial_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.1858522348969935,
+        "min_voltage_pu": 0.9888044718847615,
+        "network": "123Bus",
+        "paper_vanilla_reward_diagnostic": -184.05966754656566,
+        "permissions": "canary_observation_only_lagged_measurements",
+        "pf_calls": 25,
+        "phase_time_compliance": 0.28507194244604317,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 3,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 2.5,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 0,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 174.54577350478712,
+        "wall_seconds": 0.030006540997419506
+      },
+      {
+        "active_loss_kwh": 5261.354915773047,
+        "baseline": "canary_hysteresis",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 43.44618246286779,
+        "canary_quality": 0.02249912016257959,
+        "capacitor_switches": 0,
+        "case_id": "123Bus-stress-p003-s2.5",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "group": "stress",
+        "initial_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.1692354594574252,
+        "min_voltage_pu": 0.933873973046437,
+        "network": "123Bus",
+        "paper_vanilla_reward_diagnostic": -47.789247711988196,
+        "permissions": "canary_observation_only_lagged_measurements",
+        "pf_calls": 25,
+        "phase_time_compliance": 0.7531474820143885,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 3,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 2.5,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 140,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 33.9424033046705,
+        "wall_seconds": 0.030952124972827733
+      },
+      {
+        "active_loss_kwh": 5398.21470560953,
+        "baseline": "coordinated_voltage",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 16.066855687508895,
+        "canary_quality": 0.05859310105562635,
+        "capacitor_switches": 4,
+        "case_id": "123Bus-stress-p003-s2.5",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "group": "stress",
+        "initial_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.115350463164053,
+        "min_voltage_pu": 0.9366706002520234,
+        "network": "123Bus",
+        "paper_vanilla_reward_diagnostic": -20.682290135614135,
+        "permissions": "canary_observation_only_lagged_measurements",
+        "pf_calls": 25,
+        "phase_time_compliance": 0.8998800959232613,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 3,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 2.5,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.25,
+        "tap_moves": 154,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 5.880762194020575,
+        "wall_seconds": 0.030960917007178068
+      },
+      {
+        "active_loss_kwh": 5404.365967479726,
+        "baseline": "full_information_snapshot",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 13.762007851186077,
+        "canary_quality": 0.0677414624135736,
+        "capacitor_switches": 3,
+        "case_id": "123Bus-stress-p003-s2.5",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "group": "stress",
+        "initial_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.1002888699674036,
+        "min_voltage_pu": 0.934333915249136,
+        "network": "123Bus",
+        "paper_vanilla_reward_diagnostic": -18.367776476787522,
+        "permissions": "current_load_full_model_queries",
+        "pf_calls": 1095,
+        "phase_time_compliance": 0.8919364508393285,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 3,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 2.5,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 34,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 7.23642976249423,
+        "wall_seconds": 0.623310458031483
+      },
+      {
+        "active_loss_kwh": 5808.555844192922,
+        "baseline": "hold_idle",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 178.5759901993875,
+        "canary_quality": 0.0055686731777988595,
+        "capacitor_switches": 0,
+        "case_id": "123Bus-stress-p006-s2.5",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "group": "stress",
+        "initial_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.1886283701625076,
+        "min_voltage_pu": 0.9860180375929379,
+        "network": "123Bus",
+        "paper_vanilla_reward_diagnostic": -182.3767312790985,
+        "permissions": "canary_observation_only_lagged_measurements",
+        "pf_calls": 25,
+        "phase_time_compliance": 0.29061750599520386,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 6,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 2.5,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 0,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 172.76743435519458,
+        "wall_seconds": 0.028894040966406465
+      },
+      {
+        "active_loss_kwh": 5361.547863483821,
+        "baseline": "canary_hysteresis",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 42.989378773350026,
+        "canary_quality": 0.022732760222697837,
+        "capacitor_switches": 0,
+        "case_id": "123Bus-stress-p006-s2.5",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "group": "stress",
+        "initial_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.1724342700227115,
+        "min_voltage_pu": 0.9298661120083165,
+        "network": "123Bus",
+        "paper_vanilla_reward_diagnostic": -47.315136975203075,
+        "permissions": "canary_observation_only_lagged_measurements",
+        "pf_calls": 25,
+        "phase_time_compliance": 0.7693345323741008,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 6,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 2.5,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 140,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 33.38540666744196,
+        "wall_seconds": 0.029327333031687886
+      },
+      {
+        "active_loss_kwh": 5520.32486661272,
+        "baseline": "coordinated_voltage",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 17.539547270079964,
+        "canary_quality": 0.0539387497133681,
+        "capacitor_switches": 8,
+        "case_id": "123Bus-stress-p006-s2.5",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "group": "stress",
+        "initial_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.1158722630373277,
+        "min_voltage_pu": 0.9304738744418274,
+        "network": "123Bus",
+        "paper_vanilla_reward_diagnostic": -22.159259744889418,
+        "permissions": "canary_observation_only_lagged_measurements",
+        "pf_calls": 25,
+        "phase_time_compliance": 0.9052757793764988,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 6,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 2.5,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.20833333333333334,
+        "tap_moves": 196,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 5.837404221649063,
+        "wall_seconds": 0.029293582949321717
+      },
+      {
+        "active_loss_kwh": 5521.014400317513,
+        "baseline": "full_information_snapshot",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 13.160123413318338,
+        "canary_quality": 0.07062085342133724,
+        "capacitor_switches": 3,
+        "case_id": "123Bus-stress-p006-s2.5",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "group": "stress",
+        "initial_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.100905182560631,
+        "min_voltage_pu": 0.921745595300818,
+        "network": "123Bus",
+        "paper_vanilla_reward_diagnostic": -17.793393568025174,
+        "permissions": "current_load_full_model_queries",
+        "pf_calls": 1047,
+        "phase_time_compliance": 0.8812949640287769,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 6,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 2.5,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 32,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 6.578502952394765,
+        "wall_seconds": 0.5654228340135887
+      },
+      {
+        "active_loss_kwh": 5789.09434452692,
+        "baseline": "hold_idle",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 179.0568209155915,
+        "canary_quality": 0.005553802377021797,
+        "capacitor_switches": 0,
+        "case_id": "123Bus-stress-p009-s2.5",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "group": "stress",
+        "initial_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.1881921300379983,
+        "min_voltage_pu": 0.9896334401828529,
+        "network": "123Bus",
+        "paper_vanilla_reward_diagnostic": -182.91804908707988,
+        "permissions": "canary_observation_only_lagged_measurements",
+        "pf_calls": 25,
+        "phase_time_compliance": 0.286121103117506,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 9,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 2.5,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 0,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 173.26772657106457,
+        "wall_seconds": 0.02886754198698327
+      },
+      {
+        "active_loss_kwh": 5348.558284023379,
+        "baseline": "canary_hysteresis",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 44.47349718144027,
+        "canary_quality": 0.021990831187009383,
+        "capacitor_switches": 0,
+        "case_id": "123Bus-stress-p009-s2.5",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "group": "stress",
+        "initial_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.1721270923661158,
+        "min_voltage_pu": 0.933950038413581,
+        "network": "123Bus",
+        "paper_vanilla_reward_diagnostic": -48.85942425959196,
+        "permissions": "canary_observation_only_lagged_measurements",
+        "pf_calls": 25,
+        "phase_time_compliance": 0.7573441247002398,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 9,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 2.5,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 154,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 34.45827223075023,
+        "wall_seconds": 0.03091412503272295
+      },
+      {
+        "active_loss_kwh": 5906.225541727947,
+        "baseline": "coordinated_voltage",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 18.370753174117603,
+        "canary_quality": 0.05162421879063322,
+        "capacitor_switches": 3,
+        "case_id": "123Bus-stress-p009-s2.5",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "group": "stress",
+        "initial_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.1151500443465023,
+        "min_voltage_pu": 0.9340518913642814,
+        "network": "123Bus",
+        "paper_vanilla_reward_diagnostic": -23.277107173130723,
+        "permissions": "canary_observation_only_lagged_measurements",
+        "pf_calls": 25,
+        "phase_time_compliance": 0.867505995203837,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 9,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 2.5,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.125,
+        "tap_moves": 147,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 7.919073086935109,
+        "wall_seconds": 0.030762791982851923
+      },
+      {
+        "active_loss_kwh": 5510.867528837373,
+        "baseline": "full_information_snapshot",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 14.279859424406668,
+        "canary_quality": 0.06544562827604881,
+        "capacitor_switches": 3,
+        "case_id": "123Bus-stress-p009-s2.5",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "group": "stress",
+        "initial_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.1000830066903622,
+        "min_voltage_pu": 0.9325910502199622,
+        "network": "123Bus",
+        "paper_vanilla_reward_diagnostic": -18.950308588107962,
+        "permissions": "current_load_full_model_queries",
+        "pf_calls": 1046,
+        "phase_time_compliance": 0.8821942446043165,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 9,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 2.5,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 30,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 7.768991895569295,
+        "wall_seconds": 0.5626356669818051
+      },
+      {
+        "active_loss_kwh": 5753.276548004165,
+        "baseline": "hold_idle",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 177.61192450987892,
+        "canary_quality": 0.0055987303353012725,
+        "capacitor_switches": 0,
+        "case_id": "123Bus-stress-p012-s2.5",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "group": "stress",
+        "initial_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.1886973995014836,
+        "min_voltage_pu": 0.9889624444157207,
+        "network": "123Bus",
+        "paper_vanilla_reward_diagnostic": -181.44385636709782,
+        "permissions": "canary_observation_only_lagged_measurements",
+        "pf_calls": 25,
+        "phase_time_compliance": 0.29406474820143885,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 12,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 2.5,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 0,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 171.85864796187477,
+        "wall_seconds": 0.02864083304302767
+      },
+      {
+        "active_loss_kwh": 5297.247264153051,
+        "baseline": "canary_hysteresis",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 42.69500747221966,
+        "canary_quality": 0.022885909806418466,
+        "capacitor_switches": 0,
+        "case_id": "123Bus-stress-p012-s2.5",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "group": "stress",
+        "initial_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.1733131928439118,
+        "min_voltage_pu": 0.9351267654911445,
+        "network": "123Bus",
+        "paper_vanilla_reward_diagnostic": -47.042630717669496,
+        "permissions": "canary_observation_only_lagged_measurements",
+        "pf_calls": 25,
+        "phase_time_compliance": 0.7685851318944844,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 12,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 2.5,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 126,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 33.57957838988479,
+        "wall_seconds": 0.02893595804926008
+      },
+      {
+        "active_loss_kwh": 5849.390926891665,
+        "baseline": "coordinated_voltage",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 17.572852993431244,
+        "canary_quality": 0.053842024181943136,
+        "capacitor_switches": 3,
+        "case_id": "123Bus-stress-p012-s2.5",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "group": "stress",
+        "initial_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.1157390410639274,
+        "min_voltage_pu": 0.9332369675142301,
+        "network": "123Bus",
+        "paper_vanilla_reward_diagnostic": -22.45396394310613,
+        "permissions": "canary_observation_only_lagged_measurements",
+        "pf_calls": 25,
+        "phase_time_compliance": 0.8919364508393285,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 12,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 2.5,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.125,
+        "tap_moves": 161,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 6.753765096842608,
+        "wall_seconds": 0.02898691699374467
+      },
+      {
+        "active_loss_kwh": 5465.180506503816,
+        "baseline": "full_information_snapshot",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 13.93429923147455,
+        "canary_quality": 0.06695995469894332,
+        "capacitor_switches": 3,
+        "case_id": "123Bus-stress-p012-s2.5",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "group": "stress",
+        "initial_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.0998644455027873,
+        "min_voltage_pu": 0.9349787672155205,
+        "network": "123Bus",
+        "paper_vanilla_reward_diagnostic": -18.56670557773274,
+        "permissions": "current_load_full_model_queries",
+        "pf_calls": 994,
+        "phase_time_compliance": 0.9012290167865707,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 12,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 2.5,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 29,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 7.499421755273765,
+        "wall_seconds": 0.5746477920329198
+      },
+      {
+        "active_loss_kwh": 5806.166251232828,
+        "baseline": "hold_idle",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 176.78109904261285,
+        "canary_quality": 0.005624894915068036,
+        "capacitor_switches": 0,
+        "case_id": "123Bus-stress-p015-s2.5",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "group": "stress",
+        "initial_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.18970973067975,
+        "min_voltage_pu": 0.9878840127196213,
+        "network": "123Bus",
+        "paper_vanilla_reward_diagnostic": -180.61281522268692,
+        "permissions": "canary_observation_only_lagged_measurements",
+        "pf_calls": 25,
+        "phase_time_compliance": 0.2886690647482014,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 15,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 2.5,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 0,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 170.97493279138,
+        "wall_seconds": 0.02836158301215619
+      },
+      {
+        "active_loss_kwh": 5360.285371393026,
+        "baseline": "canary_hysteresis",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 44.8598745795539,
+        "canary_quality": 0.021805554619764234,
+        "capacitor_switches": 0,
+        "case_id": "123Bus-stress-p015-s2.5",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "group": "stress",
+        "initial_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.1727170206028963,
+        "min_voltage_pu": 0.9334154869245883,
+        "network": "123Bus",
+        "paper_vanilla_reward_diagnostic": -49.19811152670713,
+        "permissions": "canary_observation_only_lagged_measurements",
+        "pf_calls": 25,
+        "phase_time_compliance": 0.7497002398081535,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 15,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 2.5,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 140,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 35.257164965736635,
+        "wall_seconds": 0.05180183402262628
+      },
+      {
+        "active_loss_kwh": 5921.386877088153,
+        "baseline": "coordinated_voltage",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 18.76529882111385,
+        "canary_quality": 0.050593720289812766,
+        "capacitor_switches": 3,
+        "case_id": "123Bus-stress-p015-s2.5",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "group": "stress",
+        "initial_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.1151736766553257,
+        "min_voltage_pu": 0.9304350172959639,
+        "network": "123Bus",
+        "paper_vanilla_reward_diagnostic": -23.634090737453374,
+        "permissions": "canary_observation_only_lagged_measurements",
+        "pf_calls": 25,
+        "phase_time_compliance": 0.8703537170263789,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 15,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 2.5,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.125,
+        "tap_moves": 161,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 7.8742149743287255,
+        "wall_seconds": 0.0297857080004178
+      },
+      {
+        "active_loss_kwh": 5505.664875470029,
+        "baseline": "full_information_snapshot",
+        "battery_throughput_kwh": 0.0,
+        "canary_cost": 14.08611379348327,
+        "canary_quality": 0.06628612336412104,
+        "capacitor_switches": 3,
+        "case_id": "123Bus-stress-p015-s2.5",
+        "completed_steps": 24,
+        "error": null,
+        "failed_pf_calls": 0,
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "final_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "group": "stress",
+        "initial_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "initial_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "max_voltage_pu": 1.1001134515506126,
+        "min_voltage_pu": 0.9320575152889983,
+        "network": "123Bus",
+        "paper_vanilla_reward_diagnostic": -18.70129195470264,
+        "permissions": "current_load_full_model_queries",
+        "pf_calls": 1071,
+        "phase_time_compliance": 0.8925359712230215,
+        "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+        "profile_index": 15,
+        "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+        "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+        "scale": 2.5,
+        "schema_version": "powergym-selection-result-v1",
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 32,
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "valid": true,
+        "voltage_violation_pu_hours": 7.519842857407179,
+        "wall_seconds": 0.573463249951601
+      }
+    ],
+    "run_lock_sha256": "5728c91246ab0647e99b401cfbece28abdb6a5674cdcdd09fa257af2f9e7339f",
+    "schema_version": "powergym-selection-results-v1",
+    "search_passes": 2
+  },
+  "summary_sha256": "0b0fceddf94b92558db4582af91acf0dd6494f9bcbd7707a5197d02bb244a885",
+  "temporal_diagnostics": [
+    {
+      "baseline": "canary_hysteresis",
+      "case_id": "123Bus-standard-p000-s1",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 0.3704262935679344,
+      "noncompliant_intervals_after_hour_two": 14,
+      "total_voltage_violation_pu_hours": 58.766343693778076
+    },
+    {
+      "baseline": "coordinated_voltage",
+      "case_id": "123Bus-standard-p000-s1",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 1.0,
+      "noncompliant_intervals_after_hour_two": 0,
+      "total_voltage_violation_pu_hours": 8.002487023449023
+    },
+    {
+      "baseline": "full_information_snapshot",
+      "case_id": "123Bus-standard-p000-s1",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 0.897025964067457,
+      "noncompliant_intervals_after_hour_two": 1,
+      "total_voltage_violation_pu_hours": 0.272965819611912
+    },
+    {
+      "baseline": "hold_idle",
+      "case_id": "123Bus-standard-p000-s1",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 0.08937093426060169,
+      "noncompliant_intervals_after_hour_two": 22,
+      "total_voltage_violation_pu_hours": 286.5141564261691
+    },
+    {
+      "baseline": "canary_hysteresis",
+      "case_id": "123Bus-standard-p003-s1",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 0.364838610804404,
+      "noncompliant_intervals_after_hour_two": 22,
+      "total_voltage_violation_pu_hours": 59.770376693115686
+    },
+    {
+      "baseline": "coordinated_voltage",
+      "case_id": "123Bus-standard-p003-s1",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 1.0,
+      "noncompliant_intervals_after_hour_two": 0,
+      "total_voltage_violation_pu_hours": 8.033500038088876
+    },
+    {
+      "baseline": "full_information_snapshot",
+      "case_id": "123Bus-standard-p003-s1",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 1.0,
+      "noncompliant_intervals_after_hour_two": 0,
+      "total_voltage_violation_pu_hours": 0.2361460137394522
+    },
+    {
+      "baseline": "hold_idle",
+      "case_id": "123Bus-standard-p003-s1",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 0.08835056991953466,
+      "noncompliant_intervals_after_hour_two": 22,
+      "total_voltage_violation_pu_hours": 290.2760939372917
+    },
+    {
+      "baseline": "canary_hysteresis",
+      "case_id": "123Bus-standard-p006-s1",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 0.36768977409319786,
+      "noncompliant_intervals_after_hour_two": 22,
+      "total_voltage_violation_pu_hours": 59.514613490134415
+    },
+    {
+      "baseline": "coordinated_voltage",
+      "case_id": "123Bus-standard-p006-s1",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 1.0,
+      "noncompliant_intervals_after_hour_two": 0,
+      "total_voltage_violation_pu_hours": 8.082993984530265
+    },
+    {
+      "baseline": "full_information_snapshot",
+      "case_id": "123Bus-standard-p006-s1",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 0.8872772308514845,
+      "noncompliant_intervals_after_hour_two": 1,
+      "total_voltage_violation_pu_hours": 0.2566020582902151
+    },
+    {
+      "baseline": "hold_idle",
+      "case_id": "123Bus-standard-p006-s1",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 0.08889325820625141,
+      "noncompliant_intervals_after_hour_two": 22,
+      "total_voltage_violation_pu_hours": 289.38444787147034
+    },
+    {
+      "baseline": "canary_hysteresis",
+      "case_id": "123Bus-standard-p009-s1",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 0.36602790312487754,
+      "noncompliant_intervals_after_hour_two": 22,
+      "total_voltage_violation_pu_hours": 59.684987176123116
+    },
+    {
+      "baseline": "coordinated_voltage",
+      "case_id": "123Bus-standard-p009-s1",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 1.0,
+      "noncompliant_intervals_after_hour_two": 0,
+      "total_voltage_violation_pu_hours": 8.051348137537351
+    },
+    {
+      "baseline": "full_information_snapshot",
+      "case_id": "123Bus-standard-p009-s1",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 0.8867599816110063,
+      "noncompliant_intervals_after_hour_two": 1,
+      "total_voltage_violation_pu_hours": 0.25179048320411024
+    },
+    {
+      "baseline": "hold_idle",
+      "case_id": "123Bus-standard-p009-s1",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 0.08863839972063457,
+      "noncompliant_intervals_after_hour_two": 22,
+      "total_voltage_violation_pu_hours": 289.7856077734584
+    },
+    {
+      "baseline": "canary_hysteresis",
+      "case_id": "123Bus-standard-p012-s1",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 0.3678014907799869,
+      "noncompliant_intervals_after_hour_two": 18,
+      "total_voltage_violation_pu_hours": 59.4142986495429
+    },
+    {
+      "baseline": "coordinated_voltage",
+      "case_id": "123Bus-standard-p012-s1",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 1.0,
+      "noncompliant_intervals_after_hour_two": 0,
+      "total_voltage_violation_pu_hours": 8.057013849379034
+    },
+    {
+      "baseline": "full_information_snapshot",
+      "case_id": "123Bus-standard-p012-s1",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 0.6806363158612336,
+      "noncompliant_intervals_after_hour_two": 8,
+      "total_voltage_violation_pu_hours": 0.35320618554618255
+    },
+    {
+      "baseline": "hold_idle",
+      "case_id": "123Bus-standard-p012-s1",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 0.08886897182207368,
+      "noncompliant_intervals_after_hour_two": 22,
+      "total_voltage_violation_pu_hours": 289.1076683385238
+    },
+    {
+      "baseline": "canary_hysteresis",
+      "case_id": "123Bus-standard-p015-s1",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 0.3671479405914323,
+      "noncompliant_intervals_after_hour_two": 17,
+      "total_voltage_violation_pu_hours": 59.69825853313251
+    },
+    {
+      "baseline": "coordinated_voltage",
+      "case_id": "123Bus-standard-p015-s1",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 1.0,
+      "noncompliant_intervals_after_hour_two": 0,
+      "total_voltage_violation_pu_hours": 8.108276931702031
+    },
+    {
+      "baseline": "full_information_snapshot",
+      "case_id": "123Bus-standard-p015-s1",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 1.0,
+      "noncompliant_intervals_after_hour_two": 0,
+      "total_voltage_violation_pu_hours": 0.23143167756068284
+    },
+    {
+      "baseline": "hold_idle",
+      "case_id": "123Bus-standard-p015-s1",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 0.08921866335214293,
+      "noncompliant_intervals_after_hour_two": 22,
+      "total_voltage_violation_pu_hours": 288.7340844592869
+    },
+    {
+      "baseline": "canary_hysteresis",
+      "case_id": "123Bus-stress-p000-s2.5",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 0.4476365511543987,
+      "noncompliant_intervals_after_hour_two": 21,
+      "total_voltage_violation_pu_hours": 31.49098019316203
+    },
+    {
+      "baseline": "coordinated_voltage",
+      "case_id": "123Bus-stress-p000-s2.5",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 0.5737136203383114,
+      "noncompliant_intervals_after_hour_two": 18,
+      "total_voltage_violation_pu_hours": 5.675359438894829
+    },
+    {
+      "baseline": "full_information_snapshot",
+      "case_id": "123Bus-stress-p000-s2.5",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 0.09697771593378783,
+      "noncompliant_intervals_after_hour_two": 22,
+      "total_voltage_violation_pu_hours": 7.207680072421891
+    },
+    {
+      "baseline": "hold_idle",
+      "case_id": "123Bus-stress-p000-s2.5",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 0.10606667109334979,
+      "noncompliant_intervals_after_hour_two": 22,
+      "total_voltage_violation_pu_hours": 166.15367845963047
+    },
+    {
+      "baseline": "canary_hysteresis",
+      "case_id": "123Bus-stress-p003-s2.5",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 0.41715085167552646,
+      "noncompliant_intervals_after_hour_two": 22,
+      "total_voltage_violation_pu_hours": 33.942403304670485
+    },
+    {
+      "baseline": "coordinated_voltage",
+      "case_id": "123Bus-stress-p003-s2.5",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 0.5542308694510878,
+      "noncompliant_intervals_after_hour_two": 16,
+      "total_voltage_violation_pu_hours": 5.880762194020575
+    },
+    {
+      "baseline": "full_information_snapshot",
+      "case_id": "123Bus-stress-p003-s2.5",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 0.0993517832913534,
+      "noncompliant_intervals_after_hour_two": 22,
+      "total_voltage_violation_pu_hours": 7.236429762494229
+    },
+    {
+      "baseline": "hold_idle",
+      "case_id": "123Bus-stress-p003-s2.5",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 0.10137604129905504,
+      "noncompliant_intervals_after_hour_two": 22,
+      "total_voltage_violation_pu_hours": 174.54577350478712
+    },
+    {
+      "baseline": "canary_hysteresis",
+      "case_id": "123Bus-stress-p006-s2.5",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 0.42967843090138896,
+      "noncompliant_intervals_after_hour_two": 22,
+      "total_voltage_violation_pu_hours": 33.38540666744197
+    },
+    {
+      "baseline": "coordinated_voltage",
+      "case_id": "123Bus-stress-p006-s2.5",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 0.5805850978555896,
+      "noncompliant_intervals_after_hour_two": 17,
+      "total_voltage_violation_pu_hours": 5.837404221649065
+    },
+    {
+      "baseline": "full_information_snapshot",
+      "case_id": "123Bus-stress-p006-s2.5",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 0.11320929038187637,
+      "noncompliant_intervals_after_hour_two": 22,
+      "total_voltage_violation_pu_hours": 6.578502952394766
+    },
+    {
+      "baseline": "hold_idle",
+      "case_id": "123Bus-stress-p006-s2.5",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 0.10349743808504483,
+      "noncompliant_intervals_after_hour_two": 22,
+      "total_voltage_violation_pu_hours": 172.76743435519458
+    },
+    {
+      "baseline": "canary_hysteresis",
+      "case_id": "123Bus-stress-p009-s2.5",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 0.41387112587449104,
+      "noncompliant_intervals_after_hour_two": 22,
+      "total_voltage_violation_pu_hours": 34.45827223075024
+    },
+    {
+      "baseline": "coordinated_voltage",
+      "case_id": "123Bus-stress-p009-s2.5",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 0.4219714766914346,
+      "noncompliant_intervals_after_hour_two": 19,
+      "total_voltage_violation_pu_hours": 7.919073086935111
+    },
+    {
+      "baseline": "full_information_snapshot",
+      "case_id": "123Bus-stress-p009-s2.5",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 0.08868364680935162,
+      "noncompliant_intervals_after_hour_two": 22,
+      "total_voltage_violation_pu_hours": 7.768991895569294
+    },
+    {
+      "baseline": "hold_idle",
+      "case_id": "123Bus-stress-p009-s2.5",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 0.1026918241565024,
+      "noncompliant_intervals_after_hour_two": 22,
+      "total_voltage_violation_pu_hours": 173.26772657106454
+    },
+    {
+      "baseline": "canary_hysteresis",
+      "case_id": "123Bus-stress-p012-s2.5",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 0.42493847215752223,
+      "noncompliant_intervals_after_hour_two": 22,
+      "total_voltage_violation_pu_hours": 33.57957838988479
+    },
+    {
+      "baseline": "coordinated_voltage",
+      "case_id": "123Bus-stress-p012-s2.5",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 0.496803535344175,
+      "noncompliant_intervals_after_hour_two": 19,
+      "total_voltage_violation_pu_hours": 6.753765096842608
+    },
+    {
+      "baseline": "full_information_snapshot",
+      "case_id": "123Bus-stress-p012-s2.5",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 0.09086720585849593,
+      "noncompliant_intervals_after_hour_two": 22,
+      "total_voltage_violation_pu_hours": 7.499421755273765
+    },
+    {
+      "baseline": "hold_idle",
+      "case_id": "123Bus-stress-p012-s2.5",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 0.10356108287654932,
+      "noncompliant_intervals_after_hour_two": 22,
+      "total_voltage_violation_pu_hours": 171.85864796187474
+    },
+    {
+      "baseline": "canary_hysteresis",
+      "case_id": "123Bus-stress-p015-s2.5",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 0.4088534088199104,
+      "noncompliant_intervals_after_hour_two": 22,
+      "total_voltage_violation_pu_hours": 35.25716496573663
+    },
+    {
+      "baseline": "coordinated_voltage",
+      "case_id": "123Bus-stress-p015-s2.5",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 0.43489588604519,
+      "noncompliant_intervals_after_hour_two": 19,
+      "total_voltage_violation_pu_hours": 7.874214974328725
+    },
+    {
+      "baseline": "full_information_snapshot",
+      "case_id": "123Bus-stress-p015-s2.5",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 0.09429140871242547,
+      "noncompliant_intervals_after_hour_two": 22,
+      "total_voltage_violation_pu_hours": 7.519842857407178
+    },
+    {
+      "baseline": "hold_idle",
+      "case_id": "123Bus-stress-p015-s2.5",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 0.10502949424334024,
+      "noncompliant_intervals_after_hour_two": 22,
+      "total_voltage_violation_pu_hours": 170.97493279137998
+    },
+    {
+      "baseline": "canary_hysteresis",
+      "case_id": "34Bus-standard-p000-s1",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 0.3136198882924579,
+      "noncompliant_intervals_after_hour_two": 22,
+      "total_voltage_violation_pu_hours": 20.933894838280764
+    },
+    {
+      "baseline": "coordinated_voltage",
+      "case_id": "34Bus-standard-p000-s1",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 0.7814038562207895,
+      "noncompliant_intervals_after_hour_two": 19,
+      "total_voltage_violation_pu_hours": 3.3664425966704243
+    },
+    {
+      "baseline": "full_information_snapshot",
+      "case_id": "34Bus-standard-p000-s1",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 0.27178555680975214,
+      "noncompliant_intervals_after_hour_two": 18,
+      "total_voltage_violation_pu_hours": 2.972815666514239
+    },
+    {
+      "baseline": "hold_idle",
+      "case_id": "34Bus-standard-p000-s1",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 0.10840434913066115,
+      "noncompliant_intervals_after_hour_two": 22,
+      "total_voltage_violation_pu_hours": 68.4550493867747
+    },
+    {
+      "baseline": "canary_hysteresis",
+      "case_id": "34Bus-standard-p003-s1",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 0.31157424745691126,
+      "noncompliant_intervals_after_hour_two": 22,
+      "total_voltage_violation_pu_hours": 20.471283774536875
+    },
+    {
+      "baseline": "coordinated_voltage",
+      "case_id": "34Bus-standard-p003-s1",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 0.8768567332397484,
+      "noncompliant_intervals_after_hour_two": 16,
+      "total_voltage_violation_pu_hours": 2.8357417363454527
+    },
+    {
+      "baseline": "full_information_snapshot",
+      "case_id": "34Bus-standard-p003-s1",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 0.25548199287248585,
+      "noncompliant_intervals_after_hour_two": 12,
+      "total_voltage_violation_pu_hours": 3.74768355779141
+    },
+    {
+      "baseline": "hold_idle",
+      "case_id": "34Bus-standard-p003-s1",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 0.10223619459959125,
+      "noncompliant_intervals_after_hour_two": 22,
+      "total_voltage_violation_pu_hours": 70.68019629732925
+    },
+    {
+      "baseline": "canary_hysteresis",
+      "case_id": "34Bus-standard-p006-s1",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 0.3084446943844067,
+      "noncompliant_intervals_after_hour_two": 22,
+      "total_voltage_violation_pu_hours": 20.650697273906466
+    },
+    {
+      "baseline": "coordinated_voltage",
+      "case_id": "34Bus-standard-p006-s1",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 0.7774887817368674,
+      "noncompliant_intervals_after_hour_two": 19,
+      "total_voltage_violation_pu_hours": 3.1873008038676534
+    },
+    {
+      "baseline": "full_information_snapshot",
+      "case_id": "34Bus-standard-p006-s1",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 0.23497624614823961,
+      "noncompliant_intervals_after_hour_two": 17,
+      "total_voltage_violation_pu_hours": 4.042544049033713
+    },
+    {
+      "baseline": "hold_idle",
+      "case_id": "34Bus-standard-p006-s1",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 0.10400950673416338,
+      "noncompliant_intervals_after_hour_two": 22,
+      "total_voltage_violation_pu_hours": 69.38939817259639
+    },
+    {
+      "baseline": "canary_hysteresis",
+      "case_id": "34Bus-standard-p009-s1",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 0.3172298736458586,
+      "noncompliant_intervals_after_hour_two": 22,
+      "total_voltage_violation_pu_hours": 19.90432022706115
+    },
+    {
+      "baseline": "coordinated_voltage",
+      "case_id": "34Bus-standard-p009-s1",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 0.909775256931791,
+      "noncompliant_intervals_after_hour_two": 18,
+      "total_voltage_violation_pu_hours": 2.6793109158113477
+    },
+    {
+      "baseline": "full_information_snapshot",
+      "case_id": "34Bus-standard-p009-s1",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 0.2832784768145139,
+      "noncompliant_intervals_after_hour_two": 8,
+      "total_voltage_violation_pu_hours": 3.2416843514850124
+    },
+    {
+      "baseline": "hold_idle",
+      "case_id": "34Bus-standard-p009-s1",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 0.1013392063801491,
+      "noncompliant_intervals_after_hour_two": 22,
+      "total_voltage_violation_pu_hours": 70.64694597461397
+    },
+    {
+      "baseline": "canary_hysteresis",
+      "case_id": "34Bus-standard-p012-s1",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 0.30186546399274183,
+      "noncompliant_intervals_after_hour_two": 22,
+      "total_voltage_violation_pu_hours": 21.214113560240875
+    },
+    {
+      "baseline": "coordinated_voltage",
+      "case_id": "34Bus-standard-p012-s1",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 0.8023183741440412,
+      "noncompliant_intervals_after_hour_two": 18,
+      "total_voltage_violation_pu_hours": 3.1219918734909724
+    },
+    {
+      "baseline": "full_information_snapshot",
+      "case_id": "34Bus-standard-p012-s1",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 0.25138906360629276,
+      "noncompliant_intervals_after_hour_two": 16,
+      "total_voltage_violation_pu_hours": 3.907909167862168
+    },
+    {
+      "baseline": "hold_idle",
+      "case_id": "34Bus-standard-p012-s1",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 0.1013472645140838,
+      "noncompliant_intervals_after_hour_two": 22,
+      "total_voltage_violation_pu_hours": 71.56129948868143
+    },
+    {
+      "baseline": "canary_hysteresis",
+      "case_id": "34Bus-standard-p015-s1",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 0.3223519775335194,
+      "noncompliant_intervals_after_hour_two": 22,
+      "total_voltage_violation_pu_hours": 20.013708559311695
+    },
+    {
+      "baseline": "coordinated_voltage",
+      "case_id": "34Bus-standard-p015-s1",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 0.7811199049675748,
+      "noncompliant_intervals_after_hour_two": 19,
+      "total_voltage_violation_pu_hours": 3.2528970899089202
+    },
+    {
+      "baseline": "full_information_snapshot",
+      "case_id": "34Bus-standard-p015-s1",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 0.30710261683011103,
+      "noncompliant_intervals_after_hour_two": 10,
+      "total_voltage_violation_pu_hours": 3.2801217593278924
+    },
+    {
+      "baseline": "hold_idle",
+      "case_id": "34Bus-standard-p015-s1",
+      "diagnostic_scope": "post-execution explanation only; not a changed score or pool rule",
+      "first_two_hours_share": 0.10707917754152307,
+      "noncompliant_intervals_after_hour_two": 22,
+      "total_voltage_violation_pu_hours": 68.19447363201313
+    }
+  ]
+}
