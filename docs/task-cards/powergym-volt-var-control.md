@@ -4,7 +4,7 @@
 
 ## 1. 家族定位与演化对象
 
-**2026-10-16正式扩展：** 已按[决定0008](../decisions/0008-distribution-formal-fixed-cases.md)冻结123Bus profile0、负荷倍率2.5完整24小时，新增[正式运行包](../../task-packages/powergym-volt-var-control-formal-v1/README.md)。电压、实际网损和操作次数构成软代价，末账面能量与实际功率积分各有±1kWh硬约束；共同starter升级为同信息coordinated策略。新包已通过本地9组参照轨迹对齐和独立代码审查。该决定收窄为固定案例软代价的n比较，不撤销之前“尚无全程电压可行的强储能挑战认证”的判断。实验规模、验收和提交状态见[正式实验记录](../experiments/distribution-formal-20261016.md)；其余早期待冻结描述以新协议为准。
+**2026-10-16正式扩展：** 已按[决定0008](../decisions/0008-distribution-formal-fixed-cases.md)冻结123Bus profile0、负荷倍率2.5完整24小时，新增[正式运行包](../../task-packages/powergym-volt-var-control-formal-v1/README.md)。电压、实际网损和操作次数构成软代价，末账面能量与实际功率积分各有±1kWh硬约束；共同starter升级为同信息coordinated策略。新包已通过本地9组参照轨迹对齐、集群runtime及本题n=0/1真实原生验收；共享执行框架另在MAPDN上完成60秒真实模型门禁，独立审查通过。**本题15个正式作业已确认受理，终评尚未完成。** 该决定收窄为固定案例软代价的n比较，不撤销之前“尚无全程电压可行的强储能挑战认证”的判断。实验规模、验收和提交状态见[正式实验记录](../experiments/distribution-formal-20261016.md)；其余早期待冻结描述以新协议为准。
 
 **家族 ID：`powergym-volt-var-control`。** 在配电网内联合控制电容器开关、调压器分接头和电池充放电，研究离散与连续动作的协调、设备操作代价、跨时段 SOC 管理以及电压与实际有功网损的权衡。它给现有 L2RPN 输电网拓扑控制增加不同的设备和能量约束，不以“又一个 RL 环境”作为加入理由。
 

@@ -89,7 +89,7 @@ GOC 的 500/793/2000/2312 等规模属于同一任务族；UC 为核心，受限
 
 ## 两个新增配电网扩展任务
 
-2026-10-15 按用户要求加入以下两题。**已交付卡片、设计声明、来源锁、基础合同代码、starter、小样例和原生 task 骨架；完整仿真运行器、正式难例及资源/基线校准仍待验收，均为 `release_ready=false`。** 它们尚未加入上面的五任务75-run计划。
+2026-10-15 按用户要求加入以下两题。**现已完成卡片、来源锁、真实仿真运行器、选例与强基线补充，并新增两个正式固定案例运行包。2026-10-16的目标集群及两题各n=0/1的四角色原生生命周期均已验收通过，共享执行框架另在MAPDN上通过60秒真实模型门禁。** 它们有独立的30-run正式扩展清单；家族层面的完整公开发布认证仍为 `release_ready=false`，本轮固定案例启动资格单列为 `formal_fixed_case_launch_ready=true`。
 
 | 扩展任务 | 用途与基础接入 |
 |---|---|
@@ -102,7 +102,7 @@ GOC 的 500/793/2000/2312 等规模属于同一任务族；UC 为核心，受限
 
 另已完成[PowerGym PPO / 整数SAC单seed pilot](docs/experiments/powergym-rl-pilot-20261016.md)：参照论文公开参数独立实现，在当前合同下各训练40,000步，并独立评测20k / 40k检查点。固定40k策略在8个留出日均未满足末能量条件，质量为0；失败与完整物理指标均保留。这是方法重实现及流程验证，原论文训练源码未公开、完整设置仍有缺口，不能标为原曲线数值复现。参数来源、实现假设及可复现性判断见[核验说明](docs/experiments/powergym-rl-paper-audit-20261016.md)，工具见[训练入口](tools/powergym_rl/README.md)。
 
-后续已按[决定0008](docs/decisions/0008-distribution-formal-fixed-cases.md)进入[两题正式固定案例扩展](docs/experiments/distribution-formal-20261016.md)：MAPDN33节点2月3日采用安全优先真实网损指标；PowerGym123Bus压力日采用软电压综合代价与双能量硬约束。两个新正式包已完成本地真实后端及独立代码审查，30角色矩阵的目标集群与原生验收正在进行，尚未宣布正式提交。
+后续已按[决定0008](docs/decisions/0008-distribution-formal-fixed-cases.md)进入[两题正式固定案例扩展](docs/experiments/distribution-formal-20261016.md)：MAPDN33节点2月3日采用安全优先真实网损指标；PowerGym123Bus压力日采用软电压综合代价与双能量硬约束。每题n=0/1/3/5/10、各3次独立开发，限时12小时且无累计token cap。v4已通过全部启动验收与独立审查，**30/30个正式作业于2026-10-16 21:24–21:25（UTC+8）确认受理**。实际提交清单、回执SHA及作业ID见[实验ledger](manifests/experiments/distribution-formal-20261016.json)，正式终评完成数仍为0。
 
 ## 共同实验语义
 

@@ -2,7 +2,7 @@
   "schema_version": "distribution-formal-experiment-ledger-v1",
   "experiment_id": "distribution-formal-20261016-v1",
   "recorded_date": "2026-10-16",
-  "current_status": "awaiting_cluster_acceptance",
+  "current_status": "formal_cohort_submitted",
   "release_ready": false,
   "protocol": {
     "path": "configs/distribution-formal-20261016.json",
@@ -51,10 +51,17 @@
     "final_policy": "Replay the single deadline-frozen candidate; never select the best candidate from feedback history"
   },
   "formal_submission": {
-    "submitted": 0,
-    "confirmed": 0,
+    "submitted": 30,
+    "confirmed": 30,
     "completed": 0,
-    "cohort_complete": false
+    "cohort_complete": false,
+    "submission_complete": true,
+    "checked_at": "2026-10-16T13:25:37.010899+00:00",
+    "cohort_submission_receipt_sha256": "d0af6312e656051801514103a033135f93fa3874a947c7ad2a9af5d7a7f660bc",
+    "submission_source_manifest_sha256": "fa3937726662b7aa1fd862796c7b8f4bda7600ec7385a0617d819dc676c1ef15",
+    "submission_matrix_sha256": "9df269980c0f307bd4805d086bf9cb6aba9aab21e76e894b6f0c73e1f24db442",
+    "submission_complete_semantics": "All 30 unique role submissions have confirmed durable job receipts",
+    "cohort_complete_semantics": "Research completion requires final evaluation of the cohort; successful submission does not establish completion"
   },
   "bootstrap_preparation": {
     "included_in_formal_run_count": false,
@@ -108,9 +115,9 @@
   },
   "launch_gates": {
     "local_real_backend_reference_alignment": "passed_with_scope_below",
-    "native_four_role_lifecycle_acceptance": "running",
-    "real_model_network_and_stop_acceptance": "not_run",
-    "final_source_manifest_sha256": "0505a78ff4b9eae1c19a72f7b531617cc07987bc774c2c24c3c4e53a37fcb9c8",
+    "native_four_role_lifecycle_acceptance": "passed_v4",
+    "real_model_network_and_stop_acceptance": "passed_v4",
+    "final_source_manifest_sha256": "fa3937726662b7aa1fd862796c7b8f4bda7600ec7385a0617d819dc676c1ef15",
     "final_runtime_image_receipts": [
       {
         "runtime_image": "mapdn-formal-runtime:1",
@@ -126,14 +133,222 @@
       }
     ],
     "target_cluster_runtime_acceptance": {
-      "status": "passed",
-      "receipt_sha256": "0cd871de7bb1bb604683e92adf03083d7b1269365912504bfd9083e88b68bb20"
+      "status": "passed_reused_with_v4_revalidated_exact_runtime_closure",
+      "receipt_sha256": "0cd871de7bb1bb604683e92adf03083d7b1269365912504bfd9083e88b68bb20",
+      "reused_from_preparation_version": "v2",
+      "native_or_model_acceptance_reused": false,
+      "exact_closure_revalidation_receipt_sha256": "cbc5c2686fe6b95c76834331375df3ea982504ca5f284086ce338d2e8e707df4"
     },
-    "target_cluster_protected_network_lifecycle_acceptance": "not_run",
+    "target_cluster_protected_network_lifecycle_acceptance": "passed_v4",
     "constructor_preflight": {
       "status": "passed",
+      "previous_v2": {
+        "status": "passed",
+        "actual_roles": 10,
+        "model_calls": 0
+      },
+      "previous_v3": {
+        "status": "passed",
+        "actual_roles": 10,
+        "model_calls": 0,
+        "receipt_sha256": "fb8ec36b00b0c47cea2f06948d91b7987c0d53fcf6fe28a631da2c9cc60c9944"
+      },
       "actual_roles": 10,
-      "model_calls": 0
+      "model_calls": 0,
+      "receipt_sha256": "fb8ec36b00b0c47cea2f06948d91b7987c0d53fcf6fe28a631da2c9cc60c9944",
+      "preparation_version": "v4",
+      "old_list_flag_shape_rejected": true
+    },
+    "previous_v2_source_manifest_sha256": "0505a78ff4b9eae1c19a72f7b531617cc07987bc774c2c24c3c4e53a37fcb9c8",
+    "previous_v3_source_manifest_sha256": "2a19dbb9851be851ab1c7e2460a77f529ef18eeca9a689d80c776a5973a262c9",
+    "native_acceptance": {
+      "preparation_version": "v4",
+      "passed": true,
+      "receipt_sha256": "e9b5267463c7e6fa0c628597865d3aa4582225751ab427c64ee3431f37b50d3a",
+      "completed_at": "2026-10-16T13:15:17.924863+00:00",
+      "role_count": 4,
+      "model_requests": 0,
+      "scope": "Four deterministic real Docker/Harbor short acceptance roles on the frozen fixed cases; these are not formal development results",
+      "actual_checks_passed": [
+        "deadline_artifact_equals_native_artifact_and_checker",
+        "native_terminal_verification_valid",
+        "actual_deadline_pause_precedes_late_writer",
+        "two_paused_copies_stable_after_late_writer_deadline",
+        "expected_early_return_or_watchdog_path",
+        "feedback_exact_accepted_and_collected_budget",
+        "n1_failure_zero_then_excess_rejected",
+        "n0_no_judge_or_submit",
+        "actual_http_https_target_and_direct_network_negative_checks",
+        "actual_private_and_host_paths_inaccessible",
+        "no_model_requests",
+        "native_exception_is_only_expected_timeout",
+        "protected_native_compose_boundary"
+      ],
+      "deterministic_short_roles": [
+        {
+          "task": "mapdn",
+          "n": 0,
+          "passed": true,
+          "audit_receipt_sha256": "4cf06ba868a94dbcb61e32ae4312a43e78248fdb5ea4d90c3b91b6c58023a1a5",
+          "development_seconds": 60,
+          "all_checks_passed": true,
+          "final_reward": 0.6763512272399992,
+          "candidate_sha256": "32a27727641ebc0af2b5a719e8eb9f5db59c4af1a8b1f53bfd4c932cafd35dd3",
+          "deadline_export_and_checker_hashes_equal": true,
+          "feedback": {
+            "feedback_budget": 0,
+            "feedback_used": 0,
+            "feedback_collected": 0
+          },
+          "feedback_invalid_zero_and_excess_rejection_checked": null,
+          "freeze_elapsed_seconds": 60.157932395115495,
+          "deadline_lateness_seconds": 0.15793239511549473,
+          "freeze_reason": "wall_clock_deadline",
+          "paused": true,
+          "developer_resumed": false,
+          "late_writer_marker_absent": true,
+          "two_paused_copies_stable": true,
+          "proxy_targets_denied": 8,
+          "direct_connections_blocked": 2,
+          "private_and_host_path_probes_blocked": 10,
+          "trusted_receipts_not_mounted": true,
+          "exception_type": null
+        },
+        {
+          "task": "mapdn",
+          "n": 1,
+          "passed": true,
+          "audit_receipt_sha256": "9d3cbd6a11beed1c0df9eb061ab0dab394956f502afbe8822fb09fef0df06d29",
+          "development_seconds": 60,
+          "all_checks_passed": true,
+          "final_reward": 0.6763512272399992,
+          "candidate_sha256": "d4d9c3fbc46104fd250eacd946be1f564883ab11c9918f853bc370145badb94b",
+          "deadline_export_and_checker_hashes_equal": true,
+          "feedback": {
+            "feedback_budget": 1,
+            "feedback_used": 1,
+            "feedback_collected": 1
+          },
+          "feedback_invalid_zero_and_excess_rejection_checked": true,
+          "freeze_elapsed_seconds": 60.13565303198993,
+          "deadline_lateness_seconds": 0.13565303198993206,
+          "freeze_reason": "wall_clock_deadline",
+          "paused": true,
+          "developer_resumed": false,
+          "late_writer_marker_absent": true,
+          "two_paused_copies_stable": true,
+          "proxy_targets_denied": 8,
+          "direct_connections_blocked": 2,
+          "private_and_host_path_probes_blocked": 10,
+          "trusted_receipts_not_mounted": true,
+          "exception_type": null
+        },
+        {
+          "task": "powergym",
+          "n": 0,
+          "passed": true,
+          "audit_receipt_sha256": "c88102e1a7d8293dbc9a2169521dd4024e5cb08c016cd357c5f3cc2dfd1b1a9d",
+          "development_seconds": 60,
+          "all_checks_passed": true,
+          "final_reward": 0.05784402165191499,
+          "candidate_sha256": "0af4a476bde5cd17ef14e3d1c715e075c13d9ba02d8130c17a8277ac16b89fc0",
+          "deadline_export_and_checker_hashes_equal": true,
+          "feedback": {
+            "feedback_budget": 0,
+            "feedback_used": 0,
+            "feedback_collected": 0
+          },
+          "feedback_invalid_zero_and_excess_rejection_checked": null,
+          "freeze_elapsed_seconds": 10.865632250905037,
+          "deadline_lateness_seconds": 0,
+          "freeze_reason": "agent_return_or_cancel",
+          "paused": true,
+          "developer_resumed": false,
+          "late_writer_marker_absent": true,
+          "two_paused_copies_stable": true,
+          "proxy_targets_denied": 8,
+          "direct_connections_blocked": 2,
+          "private_and_host_path_probes_blocked": 10,
+          "trusted_receipts_not_mounted": true,
+          "exception_type": null
+        },
+        {
+          "task": "powergym",
+          "n": 1,
+          "passed": true,
+          "audit_receipt_sha256": "33338771d3ed0f6283b69eb5044beb0d983bf712181cc7cf605cfa756c0aaac9",
+          "development_seconds": 60,
+          "all_checks_passed": true,
+          "final_reward": 0.05784402165191499,
+          "candidate_sha256": "fdd169864ca9622d25562f72e5d36b979a38f40bf87ba695c739a89191fd0b3e",
+          "deadline_export_and_checker_hashes_equal": true,
+          "feedback": {
+            "feedback_budget": 1,
+            "feedback_used": 1,
+            "feedback_collected": 1
+          },
+          "feedback_invalid_zero_and_excess_rejection_checked": true,
+          "freeze_elapsed_seconds": 60.15365105494857,
+          "deadline_lateness_seconds": 0.15365105494856834,
+          "freeze_reason": "wall_clock_deadline",
+          "paused": true,
+          "developer_resumed": false,
+          "late_writer_marker_absent": true,
+          "two_paused_copies_stable": true,
+          "proxy_targets_denied": 8,
+          "direct_connections_blocked": 2,
+          "private_and_host_path_probes_blocked": 10,
+          "trusted_receipts_not_mounted": true,
+          "exception_type": null
+        }
+      ]
+    },
+    "actual_model_acceptance": {
+      "preparation_version": "v4",
+      "passed": true,
+      "receipt_sha256": "cf5e0b69738168c7c782b73e136307ea6ae006b8a6eaf50b63d24f894b08899f",
+      "audit_receipt_sha256": "2763b2bc5e567e3a32cb9fcc8e04dfdb3b4f130b9279651788ddeae6dfd09906",
+      "network_receipt_sha256": "cf3c0115d0aa41423f4395723ab248f1afbee2fde7fc5168c3e3dc3f9be61300",
+      "deadline_receipt_sha256": "b8ac6721bd200a8ab3f1e4f0383cc3671b861c12ea90744b6c9a7dc6cda98f27",
+      "scope": "60-second actual model protected-network and deadline gate, MAPDN n0; excluded from the formal cohort",
+      "lifecycle_passed": true,
+      "evaluation_completed": true,
+      "candidate_feasible": true,
+      "reward": 0.6763512272399992,
+      "candidate_sha256": "3d4e70898f63429e97542f9bb45e37633f9d17c066183ba9f366e66b4e2863ca",
+      "frozen_export_and_checker_hashes_equal": true,
+      "response_models": [
+        "global.openai.gpt-5.6-sol"
+      ],
+      "api_error_events": 0,
+      "log_assistant_event_count": 53,
+      "usage_unique_message_count": 10,
+      "message_count_interpretation": "53 assistant log events include repeated or streaming entries; 10 message IDs remain after usage summarization; neither is asserted to equal the number of independent API calls",
+      "actual_api_request_count": null,
+      "provider_token_usage": {
+        "status": "unknown",
+        "actual_input_tokens": null,
+        "actual_output_tokens": null,
+        "actual_total_tokens": null,
+        "diagnostic_usage_fields": {
+          "input_tokens": 0,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "output_tokens": 0
+        },
+        "diagnostic_receipt_sha256": "69406027ad37438d31760431141fcbea4c904becfa30ddc3ddfbd1ba1cabc84e",
+        "interpretation": "All exposed token fields are zero, which does not establish zero actual usage; provider usage is unavailable"
+      },
+      "aggregate_token_cap": null,
+      "network_boundary_passed": true,
+      "trusted_receipts_outside_agent_mount": true,
+      "developer_paused": true,
+      "deadline_lateness_seconds": 0.1141455601900816,
+      "exception_type": "AgentTimeoutError",
+      "exception_interpretation": "AgentTimeoutError is the expected developer deadline; terminal verification and lifecycle both completed successfully",
+      "feedback_budget": 0,
+      "feedback_used": 0,
+      "feedback_collected": 0
     }
   },
   "local_validation": [
@@ -158,11 +373,25 @@
       ]
     },
     {
-      "suite": "private_formal_launcher",
+      "suite": "private_formal_launcher_v2_retained",
       "passed": 31,
       "source_sha256": "4b88289474aee8736152d0fbcf8254c4dacc90687cdde48f2573035577dd3c45",
-      "scope": "Matrix and cohort ordering, create-only/idempotent submission, budget accounting, deadline/source hashes, bounded snapshot and proxy rules, model-gate failure and permissions; external execution is stubbed",
+      "scope": "Historical 31-test launcher regression scope; retained alongside the failed v2 native attempt. External execution is stubbed.",
       "does_not_establish": "Actual cluster submissions or native Docker/Harbor/model acceptance"
+    },
+    {
+      "suite": "private_formal_launcher_v3",
+      "passed": 56,
+      "source_sha256": "d4ccbd9933dc73801dcdddb55362f72e5cf3a9b0490dfff583830215e49f992e",
+      "scope": "Prior launcher regressions plus build-only proxy isolation, actual standalone Compose config parsing and dollar-literal controls, separate stdout/stderr and process cleanup, trusted receipt/source reads, forged agent records, linked paths, and trusted mount rejection. Docker, Harbor and external calls are stubbed; Compose config parsing uses the actual standalone client.",
+      "does_not_establish": "Actual Docker build, target-cluster native lifecycle or real model acceptance"
+    },
+    {
+      "suite": "private_atomic_outputs_v3",
+      "passed": 6,
+      "source_sha256": "4821e6897d46649f6cb1c9b16c4cae29ee76b58c1f0f92492c1bee0384c78f88",
+      "scope": "Owner-only atomic output replacement, symlink and hardlink destination isolation, linked-parent and traversal rejection, failed-replace cleanup using actual local filesystem calls",
+      "does_not_establish": "Target-cluster mount isolation or native/model acceptance"
     },
     {
       "suite": "private_acceptance_helpers",
@@ -195,6 +424,13 @@
           "reason": "Requested test file was absent in the remote repository"
         }
       ]
+    },
+    {
+      "suite": "private_formal_launcher_v4",
+      "passed": 59,
+      "source_sha256": "a1503a4b6111ec03d6704e9b7dee23fca87b419ee08a1571320babd20d6901bc",
+      "scope": "Original56 regressions and full replay of actual v3 audit; exact8 required denied targets; malformed variants rejected",
+      "does_not_establish": "Actual v4 native or model acceptance"
     }
   ],
   "claim_boundaries": {
@@ -213,8 +449,26 @@
       "n": 0,
       "repeat": 1,
       "development_seconds": 43200,
-      "status": "not_submitted",
-      "submission_job_id": null
+      "status": "submitted",
+      "submission_job_id": "aqy-dist-f1-mapdn-n0-r1-20261016-212423",
+      "submission_confirmed": true,
+      "submission_receipt_sha256": "73a2240253ba2b7599e8022b6f93fb69eaf375e2366c7676f1f5a11d9674fc3c",
+      "cohort_submission_receipt_sha256": "d0af6312e656051801514103a033135f93fa3874a947c7ad2a9af5d7a7f660bc",
+      "submission_created_at": "2026-10-16T13:24:23.607464+00:00",
+      "startup_observation": {
+        "collected_at": "2026-10-16T13:25:18.976821+00:00",
+        "phase": "harbor_running",
+        "status_receipt_sha256": "0ce2f9036c5ab1c3ae309d099f7f3667c5098dc9849fd0905276ce607acee399",
+        "status_updated_at": "2026-10-16T13:24:58.242360+00:00",
+        "scope": "Harbor process and setup observation only; actual model development start is not established"
+      },
+      "latest_startup_observation": {
+        "collected_at": "2026-10-16T13:26:53.583069+00:00",
+        "phase": "harbor_running",
+        "status_receipt_sha256": "0ce2f9036c5ab1c3ae309d099f7f3667c5098dc9849fd0905276ce607acee399",
+        "status_updated_at": "2026-10-16T13:24:58.242360+00:00",
+        "scope": "Harbor process and setup observation only; actual model development start is not established"
+      }
     },
     {
       "role": "mapdn-n0-r2",
@@ -223,8 +477,26 @@
       "n": 0,
       "repeat": 2,
       "development_seconds": 43200,
-      "status": "not_submitted",
-      "submission_job_id": null
+      "status": "submitted",
+      "submission_job_id": "aqy-dist-f1-mapdn-n0-r2-20261016-212426",
+      "submission_confirmed": true,
+      "submission_receipt_sha256": "e2a940ffa1b878088e9237980e0138d8a3446433c40bef93e79819955ff227b2",
+      "cohort_submission_receipt_sha256": "d0af6312e656051801514103a033135f93fa3874a947c7ad2a9af5d7a7f660bc",
+      "submission_created_at": "2026-10-16T13:24:26.103203+00:00",
+      "startup_observation": {
+        "collected_at": "2026-10-16T13:25:18.976821+00:00",
+        "phase": "harbor_running",
+        "status_receipt_sha256": "002009f237bb628fe8b218c2bc7b6a3cbcdf248b7f73dd244ed6cae91970d0bc",
+        "status_updated_at": "2026-10-16T13:25:00.882205+00:00",
+        "scope": "Harbor process and setup observation only; actual model development start is not established"
+      },
+      "latest_startup_observation": {
+        "collected_at": "2026-10-16T13:26:53.583069+00:00",
+        "phase": "harbor_running",
+        "status_receipt_sha256": "002009f237bb628fe8b218c2bc7b6a3cbcdf248b7f73dd244ed6cae91970d0bc",
+        "status_updated_at": "2026-10-16T13:25:00.882205+00:00",
+        "scope": "Harbor process and setup observation only; actual model development start is not established"
+      }
     },
     {
       "role": "mapdn-n0-r3",
@@ -233,8 +505,26 @@
       "n": 0,
       "repeat": 3,
       "development_seconds": 43200,
-      "status": "not_submitted",
-      "submission_job_id": null
+      "status": "submitted",
+      "submission_job_id": "aqy-dist-f1-mapdn-n0-r3-20261016-212428",
+      "submission_confirmed": true,
+      "submission_receipt_sha256": "977fdafd53508bde20ef642d52cebff2340eced3f15efe9e97e9879eb40e8840",
+      "cohort_submission_receipt_sha256": "d0af6312e656051801514103a033135f93fa3874a947c7ad2a9af5d7a7f660bc",
+      "submission_created_at": "2026-10-16T13:24:28.611103+00:00",
+      "startup_observation": {
+        "collected_at": "2026-10-16T13:25:18.976821+00:00",
+        "phase": "harbor_running",
+        "status_receipt_sha256": "24085be9c2fdc93ee7833eee4522f57ce1217d8705f98197ccc887dab0db445a",
+        "status_updated_at": "2026-10-16T13:25:01.030050+00:00",
+        "scope": "Harbor process and setup observation only; actual model development start is not established"
+      },
+      "latest_startup_observation": {
+        "collected_at": "2026-10-16T13:26:53.583069+00:00",
+        "phase": "harbor_running",
+        "status_receipt_sha256": "24085be9c2fdc93ee7833eee4522f57ce1217d8705f98197ccc887dab0db445a",
+        "status_updated_at": "2026-10-16T13:25:01.030050+00:00",
+        "scope": "Harbor process and setup observation only; actual model development start is not established"
+      }
     },
     {
       "role": "mapdn-n1-r1",
@@ -243,8 +533,26 @@
       "n": 1,
       "repeat": 1,
       "development_seconds": 43200,
-      "status": "not_submitted",
-      "submission_job_id": null
+      "status": "submitted",
+      "submission_job_id": "aqy-dist-f1-mapdn-n1-r1-20261016-212431",
+      "submission_confirmed": true,
+      "submission_receipt_sha256": "1bc6900170fd4423e1ff31d249109d234f3d57dc1a60c3731ded18ab275754e0",
+      "cohort_submission_receipt_sha256": "d0af6312e656051801514103a033135f93fa3874a947c7ad2a9af5d7a7f660bc",
+      "submission_created_at": "2026-10-16T13:24:31.045460+00:00",
+      "startup_observation": {
+        "collected_at": "2026-10-16T13:25:18.976821+00:00",
+        "phase": "harbor_running",
+        "status_receipt_sha256": "11f487155d173873ef75efd2f2f53dc55afeb2f103d41d518651b4f666fbb193",
+        "status_updated_at": "2026-10-16T13:24:54.212718+00:00",
+        "scope": "Harbor process and setup observation only; actual model development start is not established"
+      },
+      "latest_startup_observation": {
+        "collected_at": "2026-10-16T13:26:53.583069+00:00",
+        "phase": "harbor_running",
+        "status_receipt_sha256": "11f487155d173873ef75efd2f2f53dc55afeb2f103d41d518651b4f666fbb193",
+        "status_updated_at": "2026-10-16T13:24:54.212718+00:00",
+        "scope": "Harbor process and setup observation only; actual model development start is not established"
+      }
     },
     {
       "role": "mapdn-n1-r2",
@@ -253,8 +561,26 @@
       "n": 1,
       "repeat": 2,
       "development_seconds": 43200,
-      "status": "not_submitted",
-      "submission_job_id": null
+      "status": "submitted",
+      "submission_job_id": "aqy-dist-f1-mapdn-n1-r2-20261016-212433",
+      "submission_confirmed": true,
+      "submission_receipt_sha256": "9b508f2cf8f179135df4b66a6b96c5206c5999909d8d9503c57a09787d6693c5",
+      "cohort_submission_receipt_sha256": "d0af6312e656051801514103a033135f93fa3874a947c7ad2a9af5d7a7f660bc",
+      "submission_created_at": "2026-10-16T13:24:33.558346+00:00",
+      "startup_observation": {
+        "collected_at": "2026-10-16T13:25:18.976821+00:00",
+        "phase": "harbor_running",
+        "status_receipt_sha256": "73714271dad0a67236294a4e672f72cf8ab90978e9cca297ea2247bf25079d53",
+        "status_updated_at": "2026-10-16T13:25:07.798282+00:00",
+        "scope": "Harbor process and setup observation only; actual model development start is not established"
+      },
+      "latest_startup_observation": {
+        "collected_at": "2026-10-16T13:26:53.583069+00:00",
+        "phase": "harbor_running",
+        "status_receipt_sha256": "73714271dad0a67236294a4e672f72cf8ab90978e9cca297ea2247bf25079d53",
+        "status_updated_at": "2026-10-16T13:25:07.798282+00:00",
+        "scope": "Harbor process and setup observation only; actual model development start is not established"
+      }
     },
     {
       "role": "mapdn-n1-r3",
@@ -263,8 +589,26 @@
       "n": 1,
       "repeat": 3,
       "development_seconds": 43200,
-      "status": "not_submitted",
-      "submission_job_id": null
+      "status": "submitted",
+      "submission_job_id": "aqy-dist-f1-mapdn-n1-r3-20261016-212436",
+      "submission_confirmed": true,
+      "submission_receipt_sha256": "1cea51e585f3581387f0d68afcfcdb8941c89f07ea3268ff1b0420059adcd479",
+      "cohort_submission_receipt_sha256": "d0af6312e656051801514103a033135f93fa3874a947c7ad2a9af5d7a7f660bc",
+      "submission_created_at": "2026-10-16T13:24:36.066147+00:00",
+      "startup_observation": {
+        "collected_at": "2026-10-16T13:25:18.976821+00:00",
+        "phase": "harbor_running",
+        "status_receipt_sha256": "4eb571c1200cf5eae31562591ed3b7982d102397b08f6c8b465068edca077d4d",
+        "status_updated_at": "2026-10-16T13:25:09.907773+00:00",
+        "scope": "Harbor process and setup observation only; actual model development start is not established"
+      },
+      "latest_startup_observation": {
+        "collected_at": "2026-10-16T13:26:53.583069+00:00",
+        "phase": "harbor_running",
+        "status_receipt_sha256": "4eb571c1200cf5eae31562591ed3b7982d102397b08f6c8b465068edca077d4d",
+        "status_updated_at": "2026-10-16T13:25:09.907773+00:00",
+        "scope": "Harbor process and setup observation only; actual model development start is not established"
+      }
     },
     {
       "role": "mapdn-n3-r1",
@@ -273,8 +617,12 @@
       "n": 3,
       "repeat": 1,
       "development_seconds": 43200,
-      "status": "not_submitted",
-      "submission_job_id": null
+      "status": "submitted",
+      "submission_job_id": "aqy-dist-f1-mapdn-n3-r1-20261016-212438",
+      "submission_confirmed": true,
+      "submission_receipt_sha256": "d52058d22fefdcf163a87f773e4b3508d4a740b87def4294a47a31c4332d28c0",
+      "cohort_submission_receipt_sha256": "d0af6312e656051801514103a033135f93fa3874a947c7ad2a9af5d7a7f660bc",
+      "submission_created_at": "2026-10-16T13:24:38.514327+00:00"
     },
     {
       "role": "mapdn-n3-r2",
@@ -283,8 +631,12 @@
       "n": 3,
       "repeat": 2,
       "development_seconds": 43200,
-      "status": "not_submitted",
-      "submission_job_id": null
+      "status": "submitted",
+      "submission_job_id": "aqy-dist-f1-mapdn-n3-r2-20261016-212441",
+      "submission_confirmed": true,
+      "submission_receipt_sha256": "7f8fa13892dd31fb37dfa79c6dc52d7defc90c19ca6541c2482041e346ae1144",
+      "cohort_submission_receipt_sha256": "d0af6312e656051801514103a033135f93fa3874a947c7ad2a9af5d7a7f660bc",
+      "submission_created_at": "2026-10-16T13:24:41.016068+00:00"
     },
     {
       "role": "mapdn-n3-r3",
@@ -293,8 +645,12 @@
       "n": 3,
       "repeat": 3,
       "development_seconds": 43200,
-      "status": "not_submitted",
-      "submission_job_id": null
+      "status": "submitted",
+      "submission_job_id": "aqy-dist-f1-mapdn-n3-r3-20261016-212443",
+      "submission_confirmed": true,
+      "submission_receipt_sha256": "5cddd186f9d9cac719ceaeba8b39397896c5f7d164d0f9ac424b8a90286b9a8c",
+      "cohort_submission_receipt_sha256": "d0af6312e656051801514103a033135f93fa3874a947c7ad2a9af5d7a7f660bc",
+      "submission_created_at": "2026-10-16T13:24:43.524820+00:00"
     },
     {
       "role": "mapdn-n5-r1",
@@ -303,8 +659,12 @@
       "n": 5,
       "repeat": 1,
       "development_seconds": 43200,
-      "status": "not_submitted",
-      "submission_job_id": null
+      "status": "submitted",
+      "submission_job_id": "aqy-dist-f1-mapdn-n5-r1-20261016-212445",
+      "submission_confirmed": true,
+      "submission_receipt_sha256": "bf0f0dc74369c3740953dca52bb6db0376be965a25a692ae577d85a89dc82937",
+      "cohort_submission_receipt_sha256": "d0af6312e656051801514103a033135f93fa3874a947c7ad2a9af5d7a7f660bc",
+      "submission_created_at": "2026-10-16T13:24:45.969390+00:00"
     },
     {
       "role": "mapdn-n5-r2",
@@ -313,8 +673,12 @@
       "n": 5,
       "repeat": 2,
       "development_seconds": 43200,
-      "status": "not_submitted",
-      "submission_job_id": null
+      "status": "submitted",
+      "submission_job_id": "aqy-dist-f1-mapdn-n5-r2-20261016-212448",
+      "submission_confirmed": true,
+      "submission_receipt_sha256": "0f60ed695b06edbc5a6bd1f0ed2996edae0fc05114e48d99389c68f3a55e6285",
+      "cohort_submission_receipt_sha256": "d0af6312e656051801514103a033135f93fa3874a947c7ad2a9af5d7a7f660bc",
+      "submission_created_at": "2026-10-16T13:24:48.459683+00:00"
     },
     {
       "role": "mapdn-n5-r3",
@@ -323,8 +687,12 @@
       "n": 5,
       "repeat": 3,
       "development_seconds": 43200,
-      "status": "not_submitted",
-      "submission_job_id": null
+      "status": "submitted",
+      "submission_job_id": "aqy-dist-f1-mapdn-n5-r3-20261016-212450",
+      "submission_confirmed": true,
+      "submission_receipt_sha256": "9c3123a75bb0cea37d0bae8a5ac8d2b1362f12a345d7d4750734ea51c9fdc2f2",
+      "cohort_submission_receipt_sha256": "d0af6312e656051801514103a033135f93fa3874a947c7ad2a9af5d7a7f660bc",
+      "submission_created_at": "2026-10-16T13:24:50.961544+00:00"
     },
     {
       "role": "mapdn-n10-r1",
@@ -333,8 +701,12 @@
       "n": 10,
       "repeat": 1,
       "development_seconds": 43200,
-      "status": "not_submitted",
-      "submission_job_id": null
+      "status": "submitted",
+      "submission_job_id": "aqy-dist-f1-mapdn-n10-r1-20261016-212453",
+      "submission_confirmed": true,
+      "submission_receipt_sha256": "86547894005d98c111e402683f134d4a253f971aa235f90c741dbea70bf58d36",
+      "cohort_submission_receipt_sha256": "d0af6312e656051801514103a033135f93fa3874a947c7ad2a9af5d7a7f660bc",
+      "submission_created_at": "2026-10-16T13:24:53.337877+00:00"
     },
     {
       "role": "mapdn-n10-r2",
@@ -343,8 +715,12 @@
       "n": 10,
       "repeat": 2,
       "development_seconds": 43200,
-      "status": "not_submitted",
-      "submission_job_id": null
+      "status": "submitted",
+      "submission_job_id": "aqy-dist-f1-mapdn-n10-r2-20261016-212455",
+      "submission_confirmed": true,
+      "submission_receipt_sha256": "ae160eff25d57dbbc7462d307b94a5f5f70363197fd81f012fa6ef5ffb1baee2",
+      "cohort_submission_receipt_sha256": "d0af6312e656051801514103a033135f93fa3874a947c7ad2a9af5d7a7f660bc",
+      "submission_created_at": "2026-10-16T13:24:55.827172+00:00"
     },
     {
       "role": "mapdn-n10-r3",
@@ -353,8 +729,12 @@
       "n": 10,
       "repeat": 3,
       "development_seconds": 43200,
-      "status": "not_submitted",
-      "submission_job_id": null
+      "status": "submitted",
+      "submission_job_id": "aqy-dist-f1-mapdn-n10-r3-20261016-212458",
+      "submission_confirmed": true,
+      "submission_receipt_sha256": "12a4a4640ff33bfdccfbcc7de0d9cf397b21a02859db280f1c34c84a47614e2c",
+      "cohort_submission_receipt_sha256": "d0af6312e656051801514103a033135f93fa3874a947c7ad2a9af5d7a7f660bc",
+      "submission_created_at": "2026-10-16T13:24:58.327162+00:00"
     },
     {
       "role": "powergym-n0-r1",
@@ -363,8 +743,12 @@
       "n": 0,
       "repeat": 1,
       "development_seconds": 43200,
-      "status": "not_submitted",
-      "submission_job_id": null
+      "status": "submitted",
+      "submission_job_id": "aqy-dist-f1-powergym-n0-r1-20261016-212500",
+      "submission_confirmed": true,
+      "submission_receipt_sha256": "f54f70cfe3ad8ac48b3fd9daabd497b123132453e104c526ac6fec4fbe755e3b",
+      "cohort_submission_receipt_sha256": "d0af6312e656051801514103a033135f93fa3874a947c7ad2a9af5d7a7f660bc",
+      "submission_created_at": "2026-10-16T13:25:00.788159+00:00"
     },
     {
       "role": "powergym-n0-r2",
@@ -373,8 +757,12 @@
       "n": 0,
       "repeat": 2,
       "development_seconds": 43200,
-      "status": "not_submitted",
-      "submission_job_id": null
+      "status": "submitted",
+      "submission_job_id": "aqy-dist-f1-powergym-n0-r2-20261016-212503",
+      "submission_confirmed": true,
+      "submission_receipt_sha256": "719d206d6e733752108f906ec7eb85151ae1df6f5725516f98b36b324aa59c8f",
+      "cohort_submission_receipt_sha256": "d0af6312e656051801514103a033135f93fa3874a947c7ad2a9af5d7a7f660bc",
+      "submission_created_at": "2026-10-16T13:25:03.266032+00:00"
     },
     {
       "role": "powergym-n0-r3",
@@ -383,8 +771,12 @@
       "n": 0,
       "repeat": 3,
       "development_seconds": 43200,
-      "status": "not_submitted",
-      "submission_job_id": null
+      "status": "submitted",
+      "submission_job_id": "aqy-dist-f1-powergym-n0-r3-20261016-212505",
+      "submission_confirmed": true,
+      "submission_receipt_sha256": "52dd923f731de1091badc809b5379c281c74ce4c6bac91415fe5f002019cde12",
+      "cohort_submission_receipt_sha256": "d0af6312e656051801514103a033135f93fa3874a947c7ad2a9af5d7a7f660bc",
+      "submission_created_at": "2026-10-16T13:25:05.736888+00:00"
     },
     {
       "role": "powergym-n1-r1",
@@ -393,8 +785,12 @@
       "n": 1,
       "repeat": 1,
       "development_seconds": 43200,
-      "status": "not_submitted",
-      "submission_job_id": null
+      "status": "submitted",
+      "submission_job_id": "aqy-dist-f1-powergym-n1-r1-20261016-212508",
+      "submission_confirmed": true,
+      "submission_receipt_sha256": "a5cf77e4ac73c37309da086ce93e81e5c4e0045edd05390ddd31048180ac2c40",
+      "cohort_submission_receipt_sha256": "d0af6312e656051801514103a033135f93fa3874a947c7ad2a9af5d7a7f660bc",
+      "submission_created_at": "2026-10-16T13:25:08.142945+00:00"
     },
     {
       "role": "powergym-n1-r2",
@@ -403,8 +799,12 @@
       "n": 1,
       "repeat": 2,
       "development_seconds": 43200,
-      "status": "not_submitted",
-      "submission_job_id": null
+      "status": "submitted",
+      "submission_job_id": "aqy-dist-f1-powergym-n1-r2-20261016-212510",
+      "submission_confirmed": true,
+      "submission_receipt_sha256": "2d6d1aaf9ae13b017b9eeb378608ae49cf835e224121563d9d33ef8a0ead2f4d",
+      "cohort_submission_receipt_sha256": "d0af6312e656051801514103a033135f93fa3874a947c7ad2a9af5d7a7f660bc",
+      "submission_created_at": "2026-10-16T13:25:10.589973+00:00"
     },
     {
       "role": "powergym-n1-r3",
@@ -413,8 +813,12 @@
       "n": 1,
       "repeat": 3,
       "development_seconds": 43200,
-      "status": "not_submitted",
-      "submission_job_id": null
+      "status": "submitted",
+      "submission_job_id": "aqy-dist-f1-powergym-n1-r3-20261016-212513",
+      "submission_confirmed": true,
+      "submission_receipt_sha256": "0097ecede11c23bd2565a9e4269bae6f1b7b3404860c63f72e11e11764e2a0d0",
+      "cohort_submission_receipt_sha256": "d0af6312e656051801514103a033135f93fa3874a947c7ad2a9af5d7a7f660bc",
+      "submission_created_at": "2026-10-16T13:25:13.042988+00:00"
     },
     {
       "role": "powergym-n3-r1",
@@ -423,8 +827,12 @@
       "n": 3,
       "repeat": 1,
       "development_seconds": 43200,
-      "status": "not_submitted",
-      "submission_job_id": null
+      "status": "submitted",
+      "submission_job_id": "aqy-dist-f1-powergym-n3-r1-20261016-212515",
+      "submission_confirmed": true,
+      "submission_receipt_sha256": "6e611ae47b0f20b0e00b13024baa57f0f3248da260d9fe42c93c9ad55a10df6d",
+      "cohort_submission_receipt_sha256": "d0af6312e656051801514103a033135f93fa3874a947c7ad2a9af5d7a7f660bc",
+      "submission_created_at": "2026-10-16T13:25:15.448057+00:00"
     },
     {
       "role": "powergym-n3-r2",
@@ -433,8 +841,12 @@
       "n": 3,
       "repeat": 2,
       "development_seconds": 43200,
-      "status": "not_submitted",
-      "submission_job_id": null
+      "status": "submitted",
+      "submission_job_id": "aqy-dist-f1-powergym-n3-r2-20261016-212517",
+      "submission_confirmed": true,
+      "submission_receipt_sha256": "e9ce7f4cd989767e95a8b06f22430c810a3a16aa877f3621d68e567c1c68ec52",
+      "cohort_submission_receipt_sha256": "d0af6312e656051801514103a033135f93fa3874a947c7ad2a9af5d7a7f660bc",
+      "submission_created_at": "2026-10-16T13:25:17.969978+00:00"
     },
     {
       "role": "powergym-n3-r3",
@@ -443,8 +855,12 @@
       "n": 3,
       "repeat": 3,
       "development_seconds": 43200,
-      "status": "not_submitted",
-      "submission_job_id": null
+      "status": "submitted",
+      "submission_job_id": "aqy-dist-f1-powergym-n3-r3-20261016-212520",
+      "submission_confirmed": true,
+      "submission_receipt_sha256": "71ee125974b310596489497a2b3d8e88db9d28dcf730ece7621897ed6f08cf32",
+      "cohort_submission_receipt_sha256": "d0af6312e656051801514103a033135f93fa3874a947c7ad2a9af5d7a7f660bc",
+      "submission_created_at": "2026-10-16T13:25:20.432561+00:00"
     },
     {
       "role": "powergym-n5-r1",
@@ -453,8 +869,12 @@
       "n": 5,
       "repeat": 1,
       "development_seconds": 43200,
-      "status": "not_submitted",
-      "submission_job_id": null
+      "status": "submitted",
+      "submission_job_id": "aqy-dist-f1-powergym-n5-r1-20261016-212522",
+      "submission_confirmed": true,
+      "submission_receipt_sha256": "cc14d01eb4ac29b8096ead0b86507efd4f03eb37ebd180bda20dc0b8d8b41ff1",
+      "cohort_submission_receipt_sha256": "d0af6312e656051801514103a033135f93fa3874a947c7ad2a9af5d7a7f660bc",
+      "submission_created_at": "2026-10-16T13:25:22.966461+00:00"
     },
     {
       "role": "powergym-n5-r2",
@@ -463,8 +883,12 @@
       "n": 5,
       "repeat": 2,
       "development_seconds": 43200,
-      "status": "not_submitted",
-      "submission_job_id": null
+      "status": "submitted",
+      "submission_job_id": "aqy-dist-f1-powergym-n5-r2-20261016-212525",
+      "submission_confirmed": true,
+      "submission_receipt_sha256": "3c04542cbfeed3b31991ab125e786da82796a2507a0ddb119226e3960c803f51",
+      "cohort_submission_receipt_sha256": "d0af6312e656051801514103a033135f93fa3874a947c7ad2a9af5d7a7f660bc",
+      "submission_created_at": "2026-10-16T13:25:25.484478+00:00"
     },
     {
       "role": "powergym-n5-r3",
@@ -473,8 +897,12 @@
       "n": 5,
       "repeat": 3,
       "development_seconds": 43200,
-      "status": "not_submitted",
-      "submission_job_id": null
+      "status": "submitted",
+      "submission_job_id": "aqy-dist-f1-powergym-n5-r3-20261016-212528",
+      "submission_confirmed": true,
+      "submission_receipt_sha256": "28bf075efdad043bcc134576c886e34b7b66b1daa50ccd8bca122300da309c2b",
+      "cohort_submission_receipt_sha256": "d0af6312e656051801514103a033135f93fa3874a947c7ad2a9af5d7a7f660bc",
+      "submission_created_at": "2026-10-16T13:25:28.002715+00:00"
     },
     {
       "role": "powergym-n10-r1",
@@ -483,8 +911,12 @@
       "n": 10,
       "repeat": 1,
       "development_seconds": 43200,
-      "status": "not_submitted",
-      "submission_job_id": null
+      "status": "submitted",
+      "submission_job_id": "aqy-dist-f1-powergym-n10-r1-20261016-212530",
+      "submission_confirmed": true,
+      "submission_receipt_sha256": "dfca047b10d149fe7c3f8abe74f8fff9bc029817a851378bc2a1829b392fdd90",
+      "cohort_submission_receipt_sha256": "d0af6312e656051801514103a033135f93fa3874a947c7ad2a9af5d7a7f660bc",
+      "submission_created_at": "2026-10-16T13:25:30.493775+00:00"
     },
     {
       "role": "powergym-n10-r2",
@@ -493,8 +925,12 @@
       "n": 10,
       "repeat": 2,
       "development_seconds": 43200,
-      "status": "not_submitted",
-      "submission_job_id": null
+      "status": "submitted",
+      "submission_job_id": "aqy-dist-f1-powergym-n10-r2-20261016-212532",
+      "submission_confirmed": true,
+      "submission_receipt_sha256": "5e69e902da7095eb761489d8ad96440855f2ec4d32f93472ef7a2a8388689549",
+      "cohort_submission_receipt_sha256": "d0af6312e656051801514103a033135f93fa3874a947c7ad2a9af5d7a7f660bc",
+      "submission_created_at": "2026-10-16T13:25:32.926673+00:00"
     },
     {
       "role": "powergym-n10-r3",
@@ -503,17 +939,209 @@
       "n": 10,
       "repeat": 3,
       "development_seconds": 43200,
-      "status": "not_submitted",
-      "submission_job_id": null
+      "status": "submitted",
+      "submission_job_id": "aqy-dist-f1-powergym-n10-r3-20261016-212535",
+      "submission_confirmed": true,
+      "submission_receipt_sha256": "44c62a6bc6c306ade0a4fb9db822a04a7e969e57c2ba3ddd753831fe872221df",
+      "cohort_submission_receipt_sha256": "d0af6312e656051801514103a033135f93fa3874a947c7ad2a9af5d7a7f660bc",
+      "submission_created_at": "2026-10-16T13:25:35.397541+00:00"
     }
   ],
-  "role_matrix_sha256": "3b2696e9e6260ae5ab705c69b7a0a316a4bd0f019c6c25eed4ce1d08021f7df5",
+  "role_matrix_sha256": "9df269980c0f307bd4805d086bf9cb6aba9aab21e76e894b6f0c73e1f24db442",
   "role_matrix_publication": "Only protocol-level role metadata is published; the generated execution matrix is identified by hash",
   "short_acceptance": {
-    "job_id": "aqy-dist-formal-accept-v2-20261016-202438",
+    "job_id": "aqy-dist-formal-accept-v4-20261016-210341",
     "confirmed": true,
+    "status": "passed",
+    "source_manifest_sha256": "fa3937726662b7aa1fd862796c7b8f4bda7600ec7385a0617d819dc676c1ef15",
     "formal_cohort_runs_submitted": 0,
-    "source_manifest_sha256": "0505a78ff4b9eae1c19a72f7b531617cc07987bc774c2c24c3c4e53a37fcb9c8",
-    "scope": "constructor, four deterministic native roles, then 60-second actual model gate; excluded from formal cohort"
+    "scope": "constructor then four native roles then actual model; excluded from formal cohort",
+    "preparation_version": "v4",
+    "evidence_collected_at": "2026-10-16T13:19:44.136911+00:00",
+    "evidence_bundle_sha256": "83c263794af202937798ccffc293c82a9d0a42d611acf84ec4dddf17b6222443",
+    "constructor_preflight_passed": true,
+    "native_acceptance_passed": true,
+    "model_acceptance_passed": true,
+    "native_acceptance_receipt_sha256": "e9b5267463c7e6fa0c628597865d3aa4582225751ab427c64ee3431f37b50d3a",
+    "model_acceptance_receipt_sha256": "cf5e0b69738168c7c782b73e136307ea6ae006b8a6eaf50b63d24f894b08899f"
+  },
+  "active_preparation_version": "v4",
+  "preparation_v3": {
+    "status": "failed_native_acceptance_retained",
+    "source_manifest_sha256": "2a19dbb9851be851ab1c7e2460a77f529ef18eeca9a689d80c776a5973a262c9",
+    "matrix_sha256": "014e990170aefa0f6858519f5a3455de93c4d71914c3aac93a21ebd8c387301a",
+    "preparation_freeze_receipt_sha256": "e1083cf751222c80d454bd2c4850c67553df888f4462bcd652934a319c543267",
+    "public_package_files_checked": 63,
+    "helper_files_checked": 20,
+    "changes": [
+      "Docker predefined build proxy arguments are confined to image construction; protected runtime proxy environment and networks are inspected",
+      "Compose machine stdout is captured independently from stderr and parsed without stripping warning prefixes",
+      "Evaluator-owned deadline, network and frozen-source records reside in host-only trial/trusted outside writable agent log mounts",
+      "Protected bind mounts cannot expose trusted evidence; host reads and atomic writes reject linked parent directories"
+    ],
+    "scientific_packages_changed": false,
+    "scientific_protocol_changed": false,
+    "runtime_reuse_scope": "Only the identical simulator runtime closure is reused: frozen framework, task, case, private runtime configuration, image archives and acceptance receipt are hash-checked again; launcher changes are frozen separately",
+    "runtime_acceptance_reused_with_exact_closure": true,
+    "runtime_acceptance_receipt_sha256": "0cd871de7bb1bb604683e92adf03083d7b1269365912504bfd9083e88b68bb20",
+    "independent_native_and_model_acceptance_required": true,
+    "native_acceptance_reusable": false,
+    "model_acceptance_reusable": false,
+    "native_acceptance_receipt_sha256": "acb842809ec1a83d1ad02f38ccbe46ee901e6b261ceb738b15bd3073d3f2fa02",
+    "native_failure_classification": "acceptance_aggregation_bug",
+    "constructor_preflight_passed": true,
+    "native_acceptance_passed": false,
+    "model_acceptance_started": false
+  },
+  "short_acceptance_history": [
+    {
+      "job_id": "aqy-dist-formal-accept-v2-20261016-202438",
+      "confirmed": true,
+      "formal_cohort_runs_submitted": 0,
+      "source_manifest_sha256": "0505a78ff4b9eae1c19a72f7b531617cc07987bc774c2c24c3c4e53a37fcb9c8",
+      "scope": "constructor, four deterministic native roles, then 60-second actual model gate; excluded from formal cohort",
+      "status": "failed",
+      "failure": {
+        "classification": "infrastructure",
+        "first_trial_error": "JSONDecodeError reading Compose config stdout",
+        "developer_run_entered_at": "2026-10-16T12:38:05Z",
+        "candidate_development_completed": false,
+        "model_gate_started": false,
+        "diagnostic_limit": "The original non-JSON stdout text was not retained; exact warning text is not established"
+      },
+      "role_matrix_sha256": "3b2696e9e6260ae5ab705c69b7a0a316a4bd0f019c6c25eed4ce1d08021f7df5"
+    },
+    {
+      "preparation_version": "v3",
+      "job_id": "aqy-dist-formal-accept-v3-20261016-205433",
+      "confirmed": true,
+      "status": "failed",
+      "formal_cohort_runs_submitted": 0,
+      "source_manifest_sha256": "2a19dbb9851be851ab1c7e2460a77f529ef18eeca9a689d80c776a5973a262c9",
+      "role_matrix_sha256": "014e990170aefa0f6858519f5a3455de93c4d71914c3aac93a21ebd8c387301a",
+      "scope": "New constructor, four deterministic native roles, then 60-second actual model gate; excluded from formal cohort",
+      "native_or_model_results_reused": false,
+      "native_acceptance_receipt_sha256": "acb842809ec1a83d1ad02f38ccbe46ee901e6b261ceb738b15bd3073d3f2fa02",
+      "evidence_bundle_sha256": "2137670c91e49541890f2d2d11f61affe5652a68768950b6c965076ccd77c043",
+      "constructor_preflight": {
+        "status": "passed",
+        "actual_roles": 10,
+        "model_calls": 0,
+        "receipt_sha256": "fb8ec36b00b0c47cea2f06948d91b7987c0d53fcf6fe28a631da2c9cc60c9944"
+      },
+      "completed_at": "2026-10-16T12:58:02.937347+00:00",
+      "failure": {
+        "classification": "acceptance_aggregation_bug",
+        "reason": "The v3 network summary required len(proxy_target_denied) == 4 although the developer probe emitted all eight intended targets, each blocked",
+        "actual_native_roles_completed": 1,
+        "required_native_roles": 4,
+        "remaining_native_roles_run": false,
+        "model_gate_started": false,
+        "failed_check": "actual_http_https_target_and_direct_network_negative_checks",
+        "candidate_development_completed": true,
+        "scientific_candidate_failure": false
+      },
+      "observed_first_role": {
+        "task": "mapdn",
+        "n": 0,
+        "native_terminal_verification_valid": true,
+        "final_reward": 0.6763512272399992,
+        "development_seconds": 60,
+        "freeze_elapsed_seconds": 60.147350545972586,
+        "deadline_lateness_seconds": 0.14735054597258568,
+        "deadline_artifact_equals_native_artifact_and_checker": true,
+        "candidate_sha256": "32a27727641ebc0af2b5a719e8eb9f5db59c4af1a8b1f53bfd4c932cafd35dd3",
+        "two_paused_copies_stable_after_late_writer_deadline": true,
+        "protected_native_compose_boundary": true,
+        "trusted_receipts_outside_agent_mount": true,
+        "private_and_host_paths_inaccessible": true,
+        "proxy_targets_observed": 8,
+        "proxy_targets_all_recorded_blocked": true,
+        "direct_connection_ports": [
+          80,
+          443
+        ],
+        "direct_connections_all_recorded_blocked": true,
+        "feedback_used": 0,
+        "feedback_collected": 0,
+        "model_requests": 0,
+        "interpretation": "This single deterministic short role is partial native evidence, not a four-role pass or a formal cohort result"
+      }
+    }
+  ],
+  "preparation_v4": {
+    "status": "all_launch_gates_passed",
+    "source_manifest_sha256": "fa3937726662b7aa1fd862796c7b8f4bda7600ec7385a0617d819dc676c1ef15",
+    "matrix_sha256": "9df269980c0f307bd4805d086bf9cb6aba9aab21e76e894b6f0c73e1f24db442",
+    "change_scope": "Correct only the native network summary: require exactly the eight intended proxy-denied target URLs as an exact set, each blocked; retain the existing two direct-connection checks",
+    "scientific_packages_changed": false,
+    "scientific_protocol_changed": false,
+    "previous_v3_failure_preserved": true,
+    "independent_constructor_native_and_model_acceptance_required": true,
+    "native_acceptance_reusable": false,
+    "model_acceptance_reusable": false,
+    "formal_cohort_runs_submitted": 0,
+    "job_id": "aqy-dist-formal-accept-v4-20261016-210341",
+    "runtime_reverified": true,
+    "runtime_acceptance_reused_with_exact_closure": true,
+    "preparation_freeze_receipt_sha256": "cbc5c2686fe6b95c76834331375df3ea982504ca5f284086ce338d2e8e707df4",
+    "public_package_files_checked": 63,
+    "helper_files_checked": 20,
+    "constructor_preflight_passed": true,
+    "native_acceptance_passed": true,
+    "model_acceptance_passed": true,
+    "independent_constructor_native_and_model_acceptance_completed": true
+  },
+  "formal_fixed_case_launch_ready": true,
+  "readiness_scope": {
+    "formal_fixed_case_launch_ready": "The frozen two-task, 30-role fixed-case cohort has passed its runtime, constructor, native and actual-model launch gates",
+    "release_ready": "Broad public benchmark release certification is separate and remains incomplete"
+  },
+  "initial_startup_snapshot": {
+    "collected_at": "2026-10-16T13:25:18.976821+00:00",
+    "receipt_sha256": "3778913f93fa1a19c62de5123aa790b06f732038151f696a3747c7b0ec9f4bd6",
+    "source_manifest_sha256": "fa3937726662b7aa1fd862796c7b8f4bda7600ec7385a0617d819dc676c1ef15",
+    "observed_roles": [
+      "mapdn-n0-r1",
+      "mapdn-n0-r2",
+      "mapdn-n0-r3",
+      "mapdn-n1-r1",
+      "mapdn-n1-r2",
+      "mapdn-n1-r3"
+    ],
+    "observed_role_count": 6,
+    "observed_phases": {
+      "harbor_running": 6
+    },
+    "other_roles_without_startup_observation": 24,
+    "interpretation": "harbor_running includes environment setup and does not establish actual model development start; the other 24 roles are only confirmed submitted in this initial snapshot",
+    "formal_terminal_evaluations_observed": 0
+  },
+  "latest_startup_snapshot": {
+    "collected_at": "2026-10-16T13:26:53.583069+00:00",
+    "receipt_sha256": "1a19122972d396b252b65f4b5dd6e78e711547bc32128f61e6d57c49ef1185ec",
+    "source_manifest_sha256": "fa3937726662b7aa1fd862796c7b8f4bda7600ec7385a0617d819dc676c1ef15",
+    "observed_roles": [
+      "mapdn-n0-r1",
+      "mapdn-n0-r2",
+      "mapdn-n0-r3",
+      "mapdn-n1-r1",
+      "mapdn-n1-r2",
+      "mapdn-n1-r3"
+    ],
+    "observed_role_count": 6,
+    "observed_phases": {
+      "harbor_running": 6
+    },
+    "failed_role_observations": 0,
+    "other_roles_without_startup_observation": 24,
+    "interpretation": "The six observed MAPDN roles remain harbor_running, which includes setup and does not establish actual model development start; no failed phase is observed among those six. The other 24 roles are only confirmed submitted by these startup snapshots.",
+    "formal_terminal_evaluations_observed": 0
+  },
+  "scheduler_observation": {
+    "receipt_sha256": "a7461929a5a338b7bd7817f3883bcc3543c2755431699bef9ba37a59a3724c6e",
+    "unique_formal_jobs": 30,
+    "reported_scheduler_state": "Running",
+    "scope": "Cluster job-list scheduling state only; does not establish container setup completion or actual model development start"
   }
 }
