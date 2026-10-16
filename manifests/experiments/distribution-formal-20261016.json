@@ -1,0 +1,519 @@
+{
+  "schema_version": "distribution-formal-experiment-ledger-v1",
+  "experiment_id": "distribution-formal-20261016-v1",
+  "recorded_date": "2026-10-16",
+  "current_status": "awaiting_cluster_acceptance",
+  "release_ready": false,
+  "protocol": {
+    "path": "configs/distribution-formal-20261016.json",
+    "sha256": "a2562a41f9c4bf89134b167b8496d2d20c1c1f1d3ed46c8d5855a4ebc5c67a2f"
+  },
+  "package_commit": "4ff98fe174da3dfb0b0df589bc5cecf2d830ba27",
+  "report": "docs/experiments/distribution-formal-20261016.md",
+  "design": {
+    "tasks": {
+      "mapdn": {
+        "package": "mapdn-voltage-control-formal-v1",
+        "case_id": "mapdn33-2012-02-03",
+        "intervals": 480,
+        "interval_hours": 0.05
+      },
+      "powergym": {
+        "package": "powergym-volt-var-control-formal-v1",
+        "case_id": "123Bus-stress-p000-s2.5",
+        "intervals": 24,
+        "interval_hours": 1.0
+      }
+    },
+    "n_grid": [
+      0,
+      1,
+      3,
+      5,
+      10
+    ],
+    "repetitions": [
+      1,
+      2,
+      3
+    ],
+    "run_count": 30,
+    "development_seconds": 43200,
+    "aggregate_token_cap": null,
+    "model": "global.openai.gpt-5.6-sol",
+    "client_version": "2.1.280",
+    "harbor_version": "0.20.0",
+    "cluster": "dev",
+    "gpus_per_run": 0,
+    "repetitions_semantics": "Independent development processes; provider sampling seed is unavailable and is not claimed controlled",
+    "case_policy": "The same complete fixed case is used for process feedback and final replay within each task",
+    "feedback_policy": "n is a maximum accepted process-evaluation count; unused budget is allowed; accepted candidate failures count and return zero",
+    "final_policy": "Replay the single deadline-frozen candidate; never select the best candidate from feedback history"
+  },
+  "formal_submission": {
+    "submitted": 0,
+    "confirmed": 0,
+    "completed": 0,
+    "cohort_complete": false
+  },
+  "bootstrap_preparation": {
+    "included_in_formal_run_count": false,
+    "v1": {
+      "job_id": "aqy-dist-formal-build-v1-20261016-200303",
+      "status": "retained_not_eligible_for_formal_launch",
+      "reason": "Inherited proxy allowed unintended single-label and numeric-IP destinations; preserve preparation evidence without activating this version",
+      "job_status": "Succeeded"
+    },
+    "v2": {
+      "job_id": "aqy-dist-formal-build-v2-20261016-200713",
+      "job_accepted": true,
+      "status": "runtime_acceptance_passed",
+      "interpretation": "The earlier queued observation is retained as history; the job subsequently started and completed real runtime acceptance. This is not native lifecycle or model-gate acceptance.",
+      "job_status": "Succeeded",
+      "pre_start_queue_observation": {
+        "observed_at": "2026-10-16T12:16:22.401013+00:00",
+        "job_list_status": "Running",
+        "container_log_status": "Unschedulable",
+        "container_started": false,
+        "runtime_acceptance_receipt_present": false,
+        "evidence_sha256": "ee937345ee04cc2d91d34ef17e571ba8a74f1508ca9c4a4b12baab7a6e986bcb"
+      },
+      "runtime_acceptance": {
+        "passed": true,
+        "receipt_sha256": "0cd871de7bb1bb604683e92adf03083d7b1269365912504bfd9083e88b68bb20",
+        "completed_at": "2026-10-16T12:19:47.248668+00:00",
+        "scope": "real-simulator formal fixed-case runtime acceptance",
+        "real_complete_case_tasks": [
+          "mapdn",
+          "powergym"
+        ],
+        "sandbox_negative_probe_tasks": [
+          "mapdn",
+          "powergym"
+        ],
+        "images": [
+          {
+            "runtime_image": "mapdn-formal-runtime:1",
+            "runtime_archive_sha256": "6b084d09bdd4777cc89e237fd1208af5a6a2331c8430f2751429bdfb3001aaba",
+            "runtime_image_id": "sha256:fe26b0b21614373b263e360b5c607c89b621d1c1e9cce760ed2a3fdde89aa7f1"
+          },
+          {
+            "runtime_image": "powergym-formal-runtime:1",
+            "runtime_archive_sha256": "969319e6ad5f9b5ed80ada5ae183fcd52b4bcb781813c7a09e476e1db93cfdca",
+            "runtime_image_id": "sha256:50b02cdac34b34da90a61cfedada1f6120bed1c93205651400b388514a0d3913"
+          }
+        ]
+      }
+    }
+  },
+  "launch_gates": {
+    "local_real_backend_reference_alignment": "passed_with_scope_below",
+    "native_four_role_lifecycle_acceptance": "running",
+    "real_model_network_and_stop_acceptance": "not_run",
+    "final_source_manifest_sha256": "0505a78ff4b9eae1c19a72f7b531617cc07987bc774c2c24c3c4e53a37fcb9c8",
+    "final_runtime_image_receipts": [
+      {
+        "runtime_image": "mapdn-formal-runtime:1",
+        "runtime_archive": "mapdn-runtime-image.tar",
+        "runtime_archive_sha256": "6b084d09bdd4777cc89e237fd1208af5a6a2331c8430f2751429bdfb3001aaba",
+        "runtime_image_id": "sha256:fe26b0b21614373b263e360b5c607c89b621d1c1e9cce760ed2a3fdde89aa7f1"
+      },
+      {
+        "runtime_image": "powergym-formal-runtime:1",
+        "runtime_archive": "powergym-runtime-image.tar",
+        "runtime_archive_sha256": "969319e6ad5f9b5ed80ada5ae183fcd52b4bcb781813c7a09e476e1db93cfdca",
+        "runtime_image_id": "sha256:50b02cdac34b34da90a61cfedada1f6120bed1c93205651400b388514a0d3913"
+      }
+    ],
+    "target_cluster_runtime_acceptance": {
+      "status": "passed",
+      "receipt_sha256": "0cd871de7bb1bb604683e92adf03083d7b1269365912504bfd9083e88b68bb20"
+    },
+    "target_cluster_protected_network_lifecycle_acceptance": "not_run",
+    "constructor_preflight": {
+      "status": "passed",
+      "actual_roles": 10,
+      "model_calls": 0
+    }
+  },
+  "local_validation": [
+    {
+      "suite": "formal_task_packages",
+      "passed": 18,
+      "breakdown": {
+        "mapdn": 11,
+        "powergym": 7
+      },
+      "scope": "Local unit and real-backend tests for the two new formal packages; includes full-case numerical reference alignment and invalid-candidate checks",
+      "does_not_establish": "Target-cluster Linux sandbox, Docker network isolation, actual Harbor lifecycle or model access",
+      "sources": [
+        {
+          "path": "tests/test_mapdn_formal.py",
+          "sha256": "e18517ba0a43e399d6a4ad21686478a3c32533d7541d9b11621921b0a61bd471"
+        },
+        {
+          "path": "tests/test_powergym_formal.py",
+          "sha256": "db50f423d548db248742b51a1d5a30ce38435fe93f22aa15b606073913959be3"
+        }
+      ]
+    },
+    {
+      "suite": "private_formal_launcher",
+      "passed": 31,
+      "source_sha256": "4b88289474aee8736152d0fbcf8254c4dacc90687cdde48f2573035577dd3c45",
+      "scope": "Matrix and cohort ordering, create-only/idempotent submission, budget accounting, deadline/source hashes, bounded snapshot and proxy rules, model-gate failure and permissions; external execution is stubbed",
+      "does_not_establish": "Actual cluster submissions or native Docker/Harbor/model acceptance"
+    },
+    {
+      "suite": "private_acceptance_helpers",
+      "passed": 7,
+      "source_sha256": "7c434f8bbe0cf0dbd1eb2fc1087916ef6fe49ea4a6174179b8893403dfeccd40",
+      "scope": "Development-base archive/metadata binding, durable create-only submission intent, uncertainty retention, acceptance stage order and failure stops using stubs",
+      "does_not_establish": "A completed target-cluster bootstrap or acceptance"
+    },
+    {
+      "suite": "frozen_framework_core",
+      "passed": 63,
+      "breakdown": {
+        "real_local_judge_and_cli": 21,
+        "stubbed_persistent_wrapper": 42
+      },
+      "receipt_sha256": "cfa9c6a7f78187123ffb161dc748e1a297fd5fcf327ecf357791c479a575a31d",
+      "log_sha256": "3d8e41d64d8ac137d4939807d8823e7d1186bc4a55734e64c52442110d0ddde7",
+      "frozen_files_checked_unchanged": 29,
+      "python_version": "3.12.14",
+      "pyyaml_version": "6.0.2",
+      "scope": "Actual local judge/CLI budget exhaustion, submission snapshots, concurrency rejection, crash counting, restart clock and ledger safety; persistent wrapper uses the upstream Harbor stub",
+      "does_not_establish": "Docker/native Harbor/live-model or cluster acceptance",
+      "not_run": [
+        {
+          "suite": "upstream_test_plan",
+          "reason": "Original task and site fixtures were not included in the frozen framework copy"
+        },
+        {
+          "suite": "upstream_test_live_stack",
+          "reason": "Requested test file was absent in the remote repository"
+        }
+      ]
+    }
+  ],
+  "claim_boundaries": {
+    "paper_score_reproduction": false,
+    "calendar_generalization": false,
+    "provider_sampling_seed_controlled": false,
+    "equal_budget_with_prior_rl_pilots": false,
+    "local_tests_are_cluster_acceptance": false,
+    "historical_cohorts_replaced": false
+  },
+  "roles": [
+    {
+      "role": "mapdn-n0-r1",
+      "task": "mapdn",
+      "package": "mapdn-voltage-control-formal-v1",
+      "n": 0,
+      "repeat": 1,
+      "development_seconds": 43200,
+      "status": "not_submitted",
+      "submission_job_id": null
+    },
+    {
+      "role": "mapdn-n0-r2",
+      "task": "mapdn",
+      "package": "mapdn-voltage-control-formal-v1",
+      "n": 0,
+      "repeat": 2,
+      "development_seconds": 43200,
+      "status": "not_submitted",
+      "submission_job_id": null
+    },
+    {
+      "role": "mapdn-n0-r3",
+      "task": "mapdn",
+      "package": "mapdn-voltage-control-formal-v1",
+      "n": 0,
+      "repeat": 3,
+      "development_seconds": 43200,
+      "status": "not_submitted",
+      "submission_job_id": null
+    },
+    {
+      "role": "mapdn-n1-r1",
+      "task": "mapdn",
+      "package": "mapdn-voltage-control-formal-v1",
+      "n": 1,
+      "repeat": 1,
+      "development_seconds": 43200,
+      "status": "not_submitted",
+      "submission_job_id": null
+    },
+    {
+      "role": "mapdn-n1-r2",
+      "task": "mapdn",
+      "package": "mapdn-voltage-control-formal-v1",
+      "n": 1,
+      "repeat": 2,
+      "development_seconds": 43200,
+      "status": "not_submitted",
+      "submission_job_id": null
+    },
+    {
+      "role": "mapdn-n1-r3",
+      "task": "mapdn",
+      "package": "mapdn-voltage-control-formal-v1",
+      "n": 1,
+      "repeat": 3,
+      "development_seconds": 43200,
+      "status": "not_submitted",
+      "submission_job_id": null
+    },
+    {
+      "role": "mapdn-n3-r1",
+      "task": "mapdn",
+      "package": "mapdn-voltage-control-formal-v1",
+      "n": 3,
+      "repeat": 1,
+      "development_seconds": 43200,
+      "status": "not_submitted",
+      "submission_job_id": null
+    },
+    {
+      "role": "mapdn-n3-r2",
+      "task": "mapdn",
+      "package": "mapdn-voltage-control-formal-v1",
+      "n": 3,
+      "repeat": 2,
+      "development_seconds": 43200,
+      "status": "not_submitted",
+      "submission_job_id": null
+    },
+    {
+      "role": "mapdn-n3-r3",
+      "task": "mapdn",
+      "package": "mapdn-voltage-control-formal-v1",
+      "n": 3,
+      "repeat": 3,
+      "development_seconds": 43200,
+      "status": "not_submitted",
+      "submission_job_id": null
+    },
+    {
+      "role": "mapdn-n5-r1",
+      "task": "mapdn",
+      "package": "mapdn-voltage-control-formal-v1",
+      "n": 5,
+      "repeat": 1,
+      "development_seconds": 43200,
+      "status": "not_submitted",
+      "submission_job_id": null
+    },
+    {
+      "role": "mapdn-n5-r2",
+      "task": "mapdn",
+      "package": "mapdn-voltage-control-formal-v1",
+      "n": 5,
+      "repeat": 2,
+      "development_seconds": 43200,
+      "status": "not_submitted",
+      "submission_job_id": null
+    },
+    {
+      "role": "mapdn-n5-r3",
+      "task": "mapdn",
+      "package": "mapdn-voltage-control-formal-v1",
+      "n": 5,
+      "repeat": 3,
+      "development_seconds": 43200,
+      "status": "not_submitted",
+      "submission_job_id": null
+    },
+    {
+      "role": "mapdn-n10-r1",
+      "task": "mapdn",
+      "package": "mapdn-voltage-control-formal-v1",
+      "n": 10,
+      "repeat": 1,
+      "development_seconds": 43200,
+      "status": "not_submitted",
+      "submission_job_id": null
+    },
+    {
+      "role": "mapdn-n10-r2",
+      "task": "mapdn",
+      "package": "mapdn-voltage-control-formal-v1",
+      "n": 10,
+      "repeat": 2,
+      "development_seconds": 43200,
+      "status": "not_submitted",
+      "submission_job_id": null
+    },
+    {
+      "role": "mapdn-n10-r3",
+      "task": "mapdn",
+      "package": "mapdn-voltage-control-formal-v1",
+      "n": 10,
+      "repeat": 3,
+      "development_seconds": 43200,
+      "status": "not_submitted",
+      "submission_job_id": null
+    },
+    {
+      "role": "powergym-n0-r1",
+      "task": "powergym",
+      "package": "powergym-volt-var-control-formal-v1",
+      "n": 0,
+      "repeat": 1,
+      "development_seconds": 43200,
+      "status": "not_submitted",
+      "submission_job_id": null
+    },
+    {
+      "role": "powergym-n0-r2",
+      "task": "powergym",
+      "package": "powergym-volt-var-control-formal-v1",
+      "n": 0,
+      "repeat": 2,
+      "development_seconds": 43200,
+      "status": "not_submitted",
+      "submission_job_id": null
+    },
+    {
+      "role": "powergym-n0-r3",
+      "task": "powergym",
+      "package": "powergym-volt-var-control-formal-v1",
+      "n": 0,
+      "repeat": 3,
+      "development_seconds": 43200,
+      "status": "not_submitted",
+      "submission_job_id": null
+    },
+    {
+      "role": "powergym-n1-r1",
+      "task": "powergym",
+      "package": "powergym-volt-var-control-formal-v1",
+      "n": 1,
+      "repeat": 1,
+      "development_seconds": 43200,
+      "status": "not_submitted",
+      "submission_job_id": null
+    },
+    {
+      "role": "powergym-n1-r2",
+      "task": "powergym",
+      "package": "powergym-volt-var-control-formal-v1",
+      "n": 1,
+      "repeat": 2,
+      "development_seconds": 43200,
+      "status": "not_submitted",
+      "submission_job_id": null
+    },
+    {
+      "role": "powergym-n1-r3",
+      "task": "powergym",
+      "package": "powergym-volt-var-control-formal-v1",
+      "n": 1,
+      "repeat": 3,
+      "development_seconds": 43200,
+      "status": "not_submitted",
+      "submission_job_id": null
+    },
+    {
+      "role": "powergym-n3-r1",
+      "task": "powergym",
+      "package": "powergym-volt-var-control-formal-v1",
+      "n": 3,
+      "repeat": 1,
+      "development_seconds": 43200,
+      "status": "not_submitted",
+      "submission_job_id": null
+    },
+    {
+      "role": "powergym-n3-r2",
+      "task": "powergym",
+      "package": "powergym-volt-var-control-formal-v1",
+      "n": 3,
+      "repeat": 2,
+      "development_seconds": 43200,
+      "status": "not_submitted",
+      "submission_job_id": null
+    },
+    {
+      "role": "powergym-n3-r3",
+      "task": "powergym",
+      "package": "powergym-volt-var-control-formal-v1",
+      "n": 3,
+      "repeat": 3,
+      "development_seconds": 43200,
+      "status": "not_submitted",
+      "submission_job_id": null
+    },
+    {
+      "role": "powergym-n5-r1",
+      "task": "powergym",
+      "package": "powergym-volt-var-control-formal-v1",
+      "n": 5,
+      "repeat": 1,
+      "development_seconds": 43200,
+      "status": "not_submitted",
+      "submission_job_id": null
+    },
+    {
+      "role": "powergym-n5-r2",
+      "task": "powergym",
+      "package": "powergym-volt-var-control-formal-v1",
+      "n": 5,
+      "repeat": 2,
+      "development_seconds": 43200,
+      "status": "not_submitted",
+      "submission_job_id": null
+    },
+    {
+      "role": "powergym-n5-r3",
+      "task": "powergym",
+      "package": "powergym-volt-var-control-formal-v1",
+      "n": 5,
+      "repeat": 3,
+      "development_seconds": 43200,
+      "status": "not_submitted",
+      "submission_job_id": null
+    },
+    {
+      "role": "powergym-n10-r1",
+      "task": "powergym",
+      "package": "powergym-volt-var-control-formal-v1",
+      "n": 10,
+      "repeat": 1,
+      "development_seconds": 43200,
+      "status": "not_submitted",
+      "submission_job_id": null
+    },
+    {
+      "role": "powergym-n10-r2",
+      "task": "powergym",
+      "package": "powergym-volt-var-control-formal-v1",
+      "n": 10,
+      "repeat": 2,
+      "development_seconds": 43200,
+      "status": "not_submitted",
+      "submission_job_id": null
+    },
+    {
+      "role": "powergym-n10-r3",
+      "task": "powergym",
+      "package": "powergym-volt-var-control-formal-v1",
+      "n": 10,
+      "repeat": 3,
+      "development_seconds": 43200,
+      "status": "not_submitted",
+      "submission_job_id": null
+    }
+  ],
+  "role_matrix_sha256": "3b2696e9e6260ae5ab705c69b7a0a316a4bd0f019c6c25eed4ce1d08021f7df5",
+  "role_matrix_publication": "Only protocol-level role metadata is published; the generated execution matrix is identified by hash",
+  "short_acceptance": {
+    "job_id": "aqy-dist-formal-accept-v2-20261016-202438",
+    "confirmed": true,
+    "formal_cohort_runs_submitted": 0,
+    "source_manifest_sha256": "0505a78ff4b9eae1c19a72f7b531617cc07987bc774c2c24c3c4e53a37fcb9c8",
+    "scope": "constructor, four deterministic native roles, then 60-second actual model gate; excluded from formal cohort"
+  }
+}
