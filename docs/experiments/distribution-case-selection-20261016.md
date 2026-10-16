@@ -1,5 +1,7 @@
 # MAPDN / PowerGym 正式选例基础实验
 
+> 后续更新：本页保留第一轮原始数字和当时判断。已完成的[强基线补充](distribution-baseline-qualification-20261016.md)使MAPDN四候选日局部控制CR均达100%，撤回原电压难度论据；PowerGym34Bus残差为上游微小越限，暂不冻结其正式主case。最新选例结论以补充报告为准。
+
 本批次以传统控制和物理搜索建立参照物，不运行新的 agent 演化。它独立于既有 n=0/1 canary，不覆盖历史案例、分数、配置或候选。实验协议见[冻结前置规则](../../configs/distribution-case-selection-20261016.json)。候选池按原始外生数据与固定索引构建，先保存池及哈希，再计算控制结果。
 
 ## 候选池

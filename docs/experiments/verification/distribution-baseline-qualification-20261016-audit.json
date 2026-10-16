@@ -1,0 +1,3639 @@
+{
+  "all_checks_passed": true,
+  "auditor": "qualification_review",
+  "conclusions": {
+    "mapdn": "All four candidates saturate voltage compliance under new one-step local memory and source-iterative controls. Retain 33 Feb3 only as a joint voltage-constraint/loss-reduction candidate, retract old fixed-gain voltage-gap difficulty claim; reference is full-information and not a certificate of locally attainable optimum.",
+    "powergym": "34Bus remaining strong-search noncompliance is confined to tiny sourcebus/800 upstream boundary excess, so strict CR cannot demonstrate substantive sustained feeder-control difficulty. 123Bus standard is saturated even by constant device settings. Separate 2.5x stress shows storage contribution but has no complete voltage-feasible reference. Do not freeze a formal mixed-device case from these results.",
+    "storage": "Net energy is accepted within a per-battery 1 kWh tolerance, not mathematically exact energy neutrality. Storage dispatch is searched on the fixed oracle-day-idle device plan."
+  },
+  "date": "2026-10-16",
+  "historical32_unchanged": true,
+  "mapdn": {
+    "attempts": 16,
+    "failures": 0,
+    "full_horizon": 16,
+    "pf_calls": 55346,
+    "records": [
+      {
+        "actual_loss_mwh": 2.21638948791572,
+        "case_id": "mapdn33-2012-01-02",
+        "full_horizon": true,
+        "marker_sha256": "9642c3f6338dc2769f26cb80dd2d7bdfc3e55a09eb0fc12ba10c47ef6cb438f9",
+        "path": "work/distribution-qualification-20261016/mapdn33-final/results/mapdn33-2012-01-02/one_step_integral_gain_1.json",
+        "pf_calls": 960,
+        "policy": {
+          "gain": 1.0,
+          "name": "one_step_integral"
+        },
+        "sha256": "7d943b1a1e4c3461af459658fc18e6606a3165e65616d511d9336759729dca73",
+        "simultaneous_compliance": 1.0,
+        "source_capped_intervals": 0,
+        "source_converged_intervals": 0,
+        "valid": true,
+        "wall_seconds": 9.470323708024807
+      },
+      {
+        "actual_loss_mwh": 2.2795828886387457,
+        "case_id": "mapdn33-2012-01-02",
+        "full_horizon": true,
+        "marker_sha256": "719765551972472ec9525c33bd43084195e7d09e0852636c9aa6e35f4e4d74a9",
+        "path": "work/distribution-qualification-20261016/mapdn33-final/results/mapdn33-2012-01-02/one_step_integral_gain_2.5.json",
+        "pf_calls": 960,
+        "policy": {
+          "gain": 2.5,
+          "name": "one_step_integral"
+        },
+        "sha256": "d6c9a5273de6f0c8daa41443ac55dec388e5e5cd41059b2e62b4c5502c964902",
+        "simultaneous_compliance": 1.0,
+        "source_capped_intervals": 0,
+        "source_converged_intervals": 0,
+        "valid": true,
+        "wall_seconds": 9.85407933400711
+      },
+      {
+        "actual_loss_mwh": 1.3472389712123598,
+        "case_id": "mapdn33-2012-01-02",
+        "full_horizon": true,
+        "marker_sha256": "41ba9693fc9b0c375609735e38236d3619d1091f8a577ef38edbe5fd8f4be711",
+        "path": "work/distribution-qualification-20261016/mapdn33-final/results/mapdn33-2012-01-02/one_step_relaxed.json",
+        "pf_calls": 960,
+        "policy": {
+          "name": "one_step_relaxed",
+          "relaxation": 0.1,
+          "slope_before_action_clipping": 20.0
+        },
+        "sha256": "40fd6f4c3a7552435001437e70bb1fb10eb6aa7b25cf638d619b2849b9d140dc",
+        "simultaneous_compliance": 1.0,
+        "source_capped_intervals": 0,
+        "source_converged_intervals": 0,
+        "valid": true,
+        "wall_seconds": 9.477090791973751
+      },
+      {
+        "actual_loss_mwh": 1.3471043354843821,
+        "case_id": "mapdn33-2012-01-02",
+        "full_horizon": true,
+        "marker_sha256": "f55b9cc469f41bc843e248d021e9abbf1ffcfcf1f57eee7cdd83af8fdc64feda",
+        "path": "work/distribution-qualification-20261016/mapdn33-final/results/mapdn33-2012-01-02/source_iterative_droop.json",
+        "pf_calls": 10515,
+        "policy": {
+          "cold_start_each_snapshot": true,
+          "max_iterations": 100,
+          "name": "source_iterative_droop",
+          "relaxation": 0.1,
+          "slope_before_action_clipping": 20.0,
+          "voltage_l2_tolerance": 0.0001
+        },
+        "sha256": "5885abcb12cf5839b600b3c268e8f508beb6094687878d94f44c5544ea905712",
+        "simultaneous_compliance": 1.0,
+        "source_capped_intervals": 0,
+        "source_converged_intervals": 480,
+        "valid": true,
+        "wall_seconds": 87.98676358297234
+      },
+      {
+        "actual_loss_mwh": 2.882598416598158,
+        "case_id": "mapdn33-2012-02-03",
+        "full_horizon": true,
+        "marker_sha256": "d3b2198c68b87a3b39b62506c6df610717da309398252372dac22e9b0be68212",
+        "path": "work/distribution-qualification-20261016/mapdn33-final/results/mapdn33-2012-02-03/one_step_integral_gain_1.json",
+        "pf_calls": 960,
+        "policy": {
+          "gain": 1.0,
+          "name": "one_step_integral"
+        },
+        "sha256": "7ed47f43c55855925edf7910dc3c9b57fe12e6e69b60e1f9952a3e2747b162c8",
+        "simultaneous_compliance": 1.0,
+        "source_capped_intervals": 0,
+        "source_converged_intervals": 0,
+        "valid": true,
+        "wall_seconds": 9.337484916963149
+      },
+      {
+        "actual_loss_mwh": 2.9529109055545812,
+        "case_id": "mapdn33-2012-02-03",
+        "full_horizon": true,
+        "marker_sha256": "aa519f2a5ca7ff4bced1eacbf9c18961256188bc160a00dcef6b8c5ade3f76be",
+        "path": "work/distribution-qualification-20261016/mapdn33-final/results/mapdn33-2012-02-03/one_step_integral_gain_2.5.json",
+        "pf_calls": 960,
+        "policy": {
+          "gain": 2.5,
+          "name": "one_step_integral"
+        },
+        "sha256": "6bec5ed9496f971a9d8526cf1cd43d963fd72c0377e674d4816aa439f80c328b",
+        "simultaneous_compliance": 1.0,
+        "source_capped_intervals": 0,
+        "source_converged_intervals": 0,
+        "valid": true,
+        "wall_seconds": 9.288747292011976
+      },
+      {
+        "actual_loss_mwh": 1.8352510375191953,
+        "case_id": "mapdn33-2012-02-03",
+        "full_horizon": true,
+        "marker_sha256": "e339872d77404af15b0f43fb4f160a96d0344080229fe2a46f43400ee5503d23",
+        "path": "work/distribution-qualification-20261016/mapdn33-final/results/mapdn33-2012-02-03/one_step_relaxed.json",
+        "pf_calls": 960,
+        "policy": {
+          "name": "one_step_relaxed",
+          "relaxation": 0.1,
+          "slope_before_action_clipping": 20.0
+        },
+        "sha256": "a05d074a9aaff969c5521baab2cbaab41bdcacf69f5357b58f899bb42f919842",
+        "simultaneous_compliance": 1.0,
+        "source_capped_intervals": 0,
+        "source_converged_intervals": 0,
+        "valid": true,
+        "wall_seconds": 9.356007541995496
+      },
+      {
+        "actual_loss_mwh": 1.8423457848222058,
+        "case_id": "mapdn33-2012-02-03",
+        "full_horizon": true,
+        "marker_sha256": "fdde4c9a7331a81a0dd3f8ed8f76853ba46d185c10c76ea13a78a2e0c3745130",
+        "path": "work/distribution-qualification-20261016/mapdn33-final/results/mapdn33-2012-02-03/source_iterative_droop.json",
+        "pf_calls": 12379,
+        "policy": {
+          "cold_start_each_snapshot": true,
+          "max_iterations": 100,
+          "name": "source_iterative_droop",
+          "relaxation": 0.1,
+          "slope_before_action_clipping": 20.0,
+          "voltage_l2_tolerance": 0.0001
+        },
+        "sha256": "5d52a39114d13479f2ef82de4491fe897f8ef4d0ad569c474334a136208211d9",
+        "simultaneous_compliance": 1.0,
+        "source_capped_intervals": 0,
+        "source_converged_intervals": 480,
+        "valid": true,
+        "wall_seconds": 106.86628754204139
+      },
+      {
+        "actual_loss_mwh": 8.349860789006291,
+        "case_id": "mapdn33-2014-05-28",
+        "full_horizon": true,
+        "marker_sha256": "df16d548e4a7d7ef4cb0c5ac02a1d614602f552c74c7751e7f493f23d04c7e6b",
+        "path": "work/distribution-qualification-20261016/mapdn33-final/results/mapdn33-2014-05-28/one_step_integral_gain_1.json",
+        "pf_calls": 960,
+        "policy": {
+          "gain": 1.0,
+          "name": "one_step_integral"
+        },
+        "sha256": "a41175024ba6c01fb558e7211d954e8cefed340786ee5647aaecdad3c5efc74d",
+        "simultaneous_compliance": 1.0,
+        "source_capped_intervals": 0,
+        "source_converged_intervals": 0,
+        "valid": true,
+        "wall_seconds": 10.956212916004006
+      },
+      {
+        "actual_loss_mwh": 8.459561249744423,
+        "case_id": "mapdn33-2014-05-28",
+        "full_horizon": true,
+        "marker_sha256": "25d3e929cc4b5c35eafb51e3039be459e09a8cc927e71f1bf12b7b70c600b8e9",
+        "path": "work/distribution-qualification-20261016/mapdn33-final/results/mapdn33-2014-05-28/one_step_integral_gain_2.5.json",
+        "pf_calls": 960,
+        "policy": {
+          "gain": 2.5,
+          "name": "one_step_integral"
+        },
+        "sha256": "f0dbd67f82efc57cb78ad81ca63046172076d27574563590f9159813fe8e5267",
+        "simultaneous_compliance": 1.0,
+        "source_capped_intervals": 0,
+        "source_converged_intervals": 0,
+        "valid": true,
+        "wall_seconds": 11.402955457975622
+      },
+      {
+        "actual_loss_mwh": 6.228831642131536,
+        "case_id": "mapdn33-2014-05-28",
+        "full_horizon": true,
+        "marker_sha256": "eee21e241b6568ceef421fec97b6277f89ca2819c782584c3f456d64de78e292",
+        "path": "work/distribution-qualification-20261016/mapdn33-final/results/mapdn33-2014-05-28/one_step_relaxed.json",
+        "pf_calls": 960,
+        "policy": {
+          "name": "one_step_relaxed",
+          "relaxation": 0.1,
+          "slope_before_action_clipping": 20.0
+        },
+        "sha256": "0560de850236ac675a0d7324ee4f54c3e41d161e4a76f9f82428e3825ed88d3a",
+        "simultaneous_compliance": 1.0,
+        "source_capped_intervals": 0,
+        "source_converged_intervals": 0,
+        "valid": true,
+        "wall_seconds": 9.844072416017298
+      },
+      {
+        "actual_loss_mwh": 6.239822997642906,
+        "case_id": "mapdn33-2014-05-28",
+        "full_horizon": true,
+        "marker_sha256": "1202d29018132cc9bb37b842efb9a7ae6129ca8ad6bcfd85df5160483660898e",
+        "path": "work/distribution-qualification-20261016/mapdn33-final/results/mapdn33-2014-05-28/source_iterative_droop.json",
+        "pf_calls": 11356,
+        "policy": {
+          "cold_start_each_snapshot": true,
+          "max_iterations": 100,
+          "name": "source_iterative_droop",
+          "relaxation": 0.1,
+          "slope_before_action_clipping": 20.0,
+          "voltage_l2_tolerance": 0.0001
+        },
+        "sha256": "66c70cb38c555847f22ef4567b374f60208d0b485a1691ea65376281e77d7063",
+        "simultaneous_compliance": 1.0,
+        "source_capped_intervals": 0,
+        "source_converged_intervals": 480,
+        "valid": true,
+        "wall_seconds": 100.52191012504045
+      },
+      {
+        "actual_loss_mwh": 93.14799855670977,
+        "case_id": "mapdn141-2012-07-01",
+        "full_horizon": true,
+        "marker_sha256": "3fc511b43579c5672e5e615116b38f71fb95b158557705505aee1436d1beffee",
+        "path": "work/distribution-qualification-20261016/mapdn141-final/results/mapdn141-2012-07-01/one_step_integral_gain_1.json",
+        "pf_calls": 960,
+        "policy": {
+          "gain": 1.0,
+          "name": "one_step_integral"
+        },
+        "sha256": "35d251692c8000db41c03942115a596b274fa0702012e97f9138f292429a7b70",
+        "simultaneous_compliance": 1.0,
+        "source_capped_intervals": 0,
+        "source_converged_intervals": 0,
+        "valid": true,
+        "wall_seconds": 14.15479416702874
+      },
+      {
+        "actual_loss_mwh": 93.23445128171004,
+        "case_id": "mapdn141-2012-07-01",
+        "full_horizon": true,
+        "marker_sha256": "041451f99a8ca87e6c0795ee3d67802bc1b224acfc757758af5835874be8e332",
+        "path": "work/distribution-qualification-20261016/mapdn141-final/results/mapdn141-2012-07-01/one_step_integral_gain_2.5.json",
+        "pf_calls": 960,
+        "policy": {
+          "gain": 2.5,
+          "name": "one_step_integral"
+        },
+        "sha256": "4dc21fed5ba5c83e03b78117fd2b9efbd4f604811ca6f5d2fb4b2771d2702643",
+        "simultaneous_compliance": 1.0,
+        "source_capped_intervals": 0,
+        "source_converged_intervals": 0,
+        "valid": true,
+        "wall_seconds": 14.381405625026673
+      },
+      {
+        "actual_loss_mwh": 79.85883552026684,
+        "case_id": "mapdn141-2012-07-01",
+        "full_horizon": true,
+        "marker_sha256": "6976cd2010f3ed21163b63daba2ca3c9371c2fcf871370060eec81d802621c6f",
+        "path": "work/distribution-qualification-20261016/mapdn141-final/results/mapdn141-2012-07-01/one_step_relaxed.json",
+        "pf_calls": 960,
+        "policy": {
+          "name": "one_step_relaxed",
+          "relaxation": 0.1,
+          "slope_before_action_clipping": 20.0
+        },
+        "sha256": "a17ddb3681de3003bad9129a2c3ec7cc5f5c27e25d4fdbf54e8c2ab734792d04",
+        "simultaneous_compliance": 1.0,
+        "source_capped_intervals": 0,
+        "source_converged_intervals": 0,
+        "valid": true,
+        "wall_seconds": 13.851775542018004
+      },
+      {
+        "actual_loss_mwh": 79.9737517146051,
+        "case_id": "mapdn141-2012-07-01",
+        "full_horizon": true,
+        "marker_sha256": "9c312376bca62f63713def7b6e7cadb508a245dc4b78de6aae83776b0353451a",
+        "path": "work/distribution-qualification-20261016/mapdn141-final/results/mapdn141-2012-07-01/source_iterative_droop.json",
+        "pf_calls": 9576,
+        "policy": {
+          "cold_start_each_snapshot": true,
+          "max_iterations": 100,
+          "name": "source_iterative_droop",
+          "relaxation": 0.1,
+          "slope_before_action_clipping": 20.0,
+          "voltage_l2_tolerance": 0.0001
+        },
+        "sha256": "568a4ce354fb18e585435c5e90717e119856c48c50ccba1cbe3b08983d611e8d",
+        "simultaneous_compliance": 1.0,
+        "source_capped_intervals": 0,
+        "source_converged_intervals": 480,
+        "valid": true,
+        "wall_seconds": 92.1975132090156
+      }
+    ],
+    "source_capped_intervals": 0,
+    "source_converged_intervals": 1920,
+    "valid": 16,
+    "wall_seconds_sum_not_elapsed": 518.9474241681164
+  },
+  "pools": {
+    "141": {
+      "model_matches": true,
+      "pool_sha256": "cd588e6edefe8dbbeaffdbd24aab806018fa5fdda857ef41338661e4aeca9d90",
+      "source_members_rehashed": [
+        {
+          "file": "load_active.csv",
+          "sha256": "ada3263018344eb33aeec12f8f16ceab6dc9b7d348adc66fc74b58f78ae364d4"
+        },
+        {
+          "file": "load_reactive.csv",
+          "sha256": "e55a62fa23f2dc51506e97b821bbc82e5c59bdfadc3d66d90f4304ba442b4fed"
+        },
+        {
+          "file": "model.p",
+          "sha256": "aa4b60b5535cac35c2938199267162e6d0bf3412c66a7c3e90a9cbfd63b8ed51"
+        },
+        {
+          "file": "pv_active.csv",
+          "sha256": "730fa5f0819190603cf96eaf17257390b9cb42be67b30a2e38cdec01db7c3cc2"
+        }
+      ]
+    },
+    "33": {
+      "model_matches": true,
+      "pool_sha256": "69843ffcb35df4fb5d518f15648e0fffd7a78dc68668795ee912c005c013aebc",
+      "source_members_rehashed": [
+        {
+          "file": "load_active.csv",
+          "sha256": "35c7657e886e46d8f2685540db1ee0ae327ec9446e21270217bbde190fc2365f"
+        },
+        {
+          "file": "load_reactive.csv",
+          "sha256": "0f296701a1f01be68cc63b19dc3787baa2883e101979dd5c5acc9e89b280cdc3"
+        },
+        {
+          "file": "model.p",
+          "sha256": "b9452fa9896fc709258edd4cb7c431aec2ef348a090fd4184ada21dc821d3ef3"
+        },
+        {
+          "file": "pv_active.csv",
+          "sha256": "a5d64f59e8e291f366768d601f16fe95662a5d25ccba86f21d31d04e940db9ef"
+        }
+      ]
+    },
+    "powergym": {
+      "all_asset_files_match": true,
+      "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+      "verified_asset_files": 53
+    }
+  },
+  "powergym": {
+    "attempts": 45,
+    "failures": 0,
+    "fresh_independent_audit_replay_pf_calls": 1125,
+    "full_horizon": 45,
+    "historical_default_calibration": [
+      {
+        "baseline": "canary_hysteresis",
+        "case_id": "123Bus-standard-p000-s1",
+        "historical_receipt": {
+          "marker_sha256": "62ac6457e76025313cb6f440a3c493443894e7fd30b0c5c6b69a81c280164e8d",
+          "path": "work/distribution-selection-20261016/powergym/results/123Bus-standard-p000-s1--canary_hysteresis.json",
+          "sha256": "793e702d10a31c55c24488b94bf7fd76b53c61941afe2266e846e14f4ed6404b"
+        },
+        "metrics": {
+          "active_loss_kwh": {
+            "deterministic": 840.3943241797207,
+            "difference": 0.0045561118818113755,
+            "historical_default": 840.3897680678389
+          },
+          "canary_quality": {
+            "deterministic": 0.015834744233256377,
+            "difference": -1.9874748860559954e-08,
+            "historical_default": 0.015834764108005238
+          },
+          "capacitor_switches": {
+            "deterministic": 0,
+            "difference": 0,
+            "historical_default": 0
+          },
+          "max_voltage_pu": {
+            "deterministic": 1.207413955011571,
+            "difference": -5.431389338284021e-09,
+            "historical_default": 1.2074139604429603
+          },
+          "min_voltage_pu": {
+            "deterministic": 0.9932441139620983,
+            "difference": -1.8188862993540056e-07,
+            "historical_default": 0.9932442958507283
+          },
+          "phase_time_compliance": {
+            "deterministic": 0.6734112709832134,
+            "difference": 0.0,
+            "historical_default": 0.6734112709832134
+          },
+          "simultaneous_compliance": {
+            "deterministic": 0.3333333333333333,
+            "difference": 0.0,
+            "historical_default": 0.3333333333333333
+          },
+          "tap_moves": {
+            "deterministic": 84,
+            "difference": 0,
+            "historical_default": 84
+          },
+          "voltage_violation_pu_hours": {
+            "deterministic": 58.766418402216225,
+            "difference": 7.470843816292927e-05,
+            "historical_default": 58.76634369377806
+          }
+        }
+      },
+      {
+        "baseline": "coordinated_voltage",
+        "case_id": "123Bus-standard-p000-s1",
+        "historical_receipt": {
+          "marker_sha256": "612d4875d61c7ef0f6ec5bdf2c8edc4bfe17c95e58c61ad9ab70b225c0eb6f04",
+          "path": "work/distribution-selection-20261016/powergym/results/123Bus-standard-p000-s1--coordinated_voltage.json",
+          "sha256": "92cea75a9a6b5555f03c3a1f8726d8f3405527c6196dbb14ebc36d85cc89f13d"
+        },
+        "metrics": {
+          "active_loss_kwh": {
+            "deterministic": 900.5216099578809,
+            "difference": 0.006171377310465687,
+            "historical_default": 900.5154385805704
+          },
+          "canary_quality": {
+            "deterministic": 0.07974881046375785,
+            "difference": -3.745672340349504e-08,
+            "historical_default": 0.07974884792048126
+          },
+          "capacitor_switches": {
+            "deterministic": 3,
+            "difference": 0,
+            "historical_default": 3
+          },
+          "max_voltage_pu": {
+            "deterministic": 1.140947109855554,
+            "difference": -5.510036871214652e-10,
+            "historical_default": 1.1409471104065576
+          },
+          "min_voltage_pu": {
+            "deterministic": 0.9779900326281583,
+            "difference": -9.82505491187169e-07,
+            "historical_default": 0.9779910151336495
+          },
+          "phase_time_compliance": {
+            "deterministic": 0.9439448441247003,
+            "difference": 0.0,
+            "historical_default": 0.9439448441247003
+          },
+          "simultaneous_compliance": {
+            "deterministic": 0.9166666666666666,
+            "difference": 0.0,
+            "historical_default": 0.9166666666666666
+          },
+          "tap_moves": {
+            "deterministic": 84,
+            "difference": 0,
+            "historical_default": 84
+          },
+          "voltage_violation_pu_hours": {
+            "deterministic": 8.002486741608681,
+            "difference": -2.818403412874204e-07,
+            "historical_default": 8.002487023449023
+          }
+        }
+      },
+      {
+        "baseline": "full_information_snapshot",
+        "case_id": "123Bus-standard-p000-s1",
+        "historical_receipt": {
+          "marker_sha256": "6308050cd9a817f9adcfffd90e9dadfddcd1da3c74912bbb5bde982975553476",
+          "path": "work/distribution-selection-20261016/powergym/results/123Bus-standard-p000-s1--full_information_snapshot.json",
+          "sha256": "9449c22ae304fe23dfca936f792677bc076cf3fc3cf78c5191f89cc49ab22018"
+        },
+        "metrics": {
+          "active_loss_kwh": {
+            "deterministic": 868.384805898883,
+            "difference": 0.019162777452834234,
+            "historical_default": 868.3656431214301
+          },
+          "canary_quality": {
+            "deterministic": 0.22500301824146604,
+            "difference": -1.1674446145082396e-06,
+            "historical_default": 0.22500418568608055
+          },
+          "capacitor_switches": {
+            "deterministic": 1,
+            "difference": 0,
+            "historical_default": 1
+          },
+          "max_voltage_pu": {
+            "deterministic": 1.0723955515680785,
+            "difference": 1.6625746490639415e-07,
+            "historical_default": 1.0723953853106136
+          },
+          "min_voltage_pu": {
+            "deterministic": 0.96872707680716,
+            "difference": 6.370866571181466e-06,
+            "historical_default": 0.9687207059405888
+          },
+          "phase_time_compliance": {
+            "deterministic": 0.9929556354916067,
+            "difference": 0.0,
+            "historical_default": 0.9929556354916067
+          },
+          "simultaneous_compliance": {
+            "deterministic": 0.875,
+            "difference": 0.0,
+            "historical_default": 0.875
+          },
+          "tap_moves": {
+            "deterministic": 75,
+            "difference": 0,
+            "historical_default": 75
+          },
+          "voltage_violation_pu_hours": {
+            "deterministic": 0.2729697167304945,
+            "difference": 3.8971185825076304e-06,
+            "historical_default": 0.272965819611912
+          }
+        }
+      },
+      {
+        "baseline": "hold_idle",
+        "case_id": "123Bus-standard-p000-s1",
+        "historical_receipt": {
+          "marker_sha256": "7ce7d1944010a2f8e18592b212912fd418af62aed83c117453a29d61fe89c643",
+          "path": "work/distribution-selection-20261016/powergym/results/123Bus-standard-p000-s1--hold_idle.json",
+          "sha256": "4bf7e010e8e7eef76f970d9f16fc646dccea371d950da1c475a1f650e1c9d68f"
+        },
+        "metrics": {
+          "active_loss_kwh": {
+            "deterministic": 1016.039321685563,
+            "difference": 5.281635230858228e-05,
+            "historical_default": 1016.0392688692107
+          },
+          "canary_quality": {
+            "deterministic": 0.0034658417134136817,
+            "difference": -4.2216459928551275e-11,
+            "historical_default": 0.0034658417556301417
+          },
+          "capacitor_switches": {
+            "deterministic": 0,
+            "difference": 0,
+            "historical_default": 0
+          },
+          "max_voltage_pu": {
+            "deterministic": 1.2224608243006625,
+            "difference": 1.4706935891339867e-08,
+            "historical_default": 1.2224608095937266
+          },
+          "min_voltage_pu": {
+            "deterministic": 0.99999499704238,
+            "difference": 1.3747891713933313e-12,
+            "historical_default": 0.9999949970410053
+          },
+          "phase_time_compliance": {
+            "deterministic": 0.01079136690647482,
+            "difference": 0.0,
+            "historical_default": 0.01079136690647482
+          },
+          "simultaneous_compliance": {
+            "deterministic": 0.0,
+            "difference": 0.0,
+            "historical_default": 0.0
+          },
+          "tap_moves": {
+            "deterministic": 0,
+            "difference": 0,
+            "historical_default": 0
+          },
+          "voltage_violation_pu_hours": {
+            "deterministic": 286.5141598878593,
+            "difference": 3.4616901984918513e-06,
+            "historical_default": 286.5141564261691
+          }
+        }
+      },
+      {
+        "baseline": "canary_hysteresis",
+        "case_id": "123Bus-stress-p000-s2.5",
+        "historical_receipt": {
+          "marker_sha256": "57b50069335a969a100ee3d7a563c8b792c03f12a32f266c514440873b36fdde",
+          "path": "work/distribution-selection-20261016/powergym/results/123Bus-stress-p000-s2.5--canary_hysteresis.json",
+          "sha256": "725b37cda6c2bdcaef8ecbad401cc96588e4a5f4469a56e4744bbb8d18d3ff34"
+        },
+        "metrics": {
+          "active_loss_kwh": {
+            "deterministic": 5288.594346510892,
+            "difference": 0.057581265354201605,
+            "historical_default": 5288.536765245538
+          },
+          "canary_quality": {
+            "deterministic": 0.0247983666859411,
+            "difference": -1.629275076069081e-07,
+            "historical_default": 0.024798529613448708
+          },
+          "capacitor_switches": {
+            "deterministic": 0,
+            "difference": 0,
+            "historical_default": 0
+          },
+          "max_voltage_pu": {
+            "deterministic": 1.1707385310376117,
+            "difference": 2.161739716122213e-07,
+            "historical_default": 1.17073831486364
+          },
+          "min_voltage_pu": {
+            "deterministic": 0.9390174686586304,
+            "difference": 2.6012786902285256e-07,
+            "historical_default": 0.9390172085307614
+          },
+          "phase_time_compliance": {
+            "deterministic": 0.7831235011990407,
+            "difference": -0.00014988009592331597,
+            "historical_default": 0.783273381294964
+          },
+          "simultaneous_compliance": {
+            "deterministic": 0.041666666666666664,
+            "difference": 0.0,
+            "historical_default": 0.041666666666666664
+          },
+          "tap_moves": {
+            "deterministic": 84,
+            "difference": 0,
+            "historical_default": 84
+          },
+          "voltage_violation_pu_hours": {
+            "deterministic": 31.49118755059948,
+            "difference": 0.00020735743744992874,
+            "historical_default": 31.49098019316203
+          }
+        }
+      },
+      {
+        "baseline": "coordinated_voltage",
+        "case_id": "123Bus-stress-p000-s2.5",
+        "historical_receipt": {
+          "marker_sha256": "23eeea7d26adb1c65f79ba23a30bee6d4175f9345a79c6b3b9ac0d1f04e07903",
+          "path": "work/distribution-selection-20261016/powergym/results/123Bus-stress-p000-s2.5--coordinated_voltage.json",
+          "sha256": "36751a109759060abf25cc0ea1d6117a0d87ba09894ad1527aa8e1736f7908b5"
+        },
+        "metrics": {
+          "active_loss_kwh": {
+            "deterministic": 5854.903548985061,
+            "difference": 0.019871678122399317,
+            "historical_default": 5854.883677306939
+          },
+          "canary_quality": {
+            "deterministic": 0.057844021683668784,
+            "difference": -1.7527959404739502e-07,
+            "historical_default": 0.05784419696326283
+          },
+          "capacitor_switches": {
+            "deterministic": 3,
+            "difference": 0,
+            "historical_default": 3
+          },
+          "max_voltage_pu": {
+            "deterministic": 1.1147225580959745,
+            "difference": -1.0398871785888275e-07,
+            "historical_default": 1.1147226620846924
+          },
+          "min_voltage_pu": {
+            "deterministic": 0.934439855411134,
+            "difference": -3.4412814415851756e-06,
+            "historical_default": 0.9344432966925755
+          },
+          "phase_time_compliance": {
+            "deterministic": 0.9025779376498801,
+            "difference": 0.0,
+            "historical_default": 0.9025779376498801
+          },
+          "simultaneous_compliance": {
+            "deterministic": 0.16666666666666666,
+            "difference": 0.0,
+            "historical_default": 0.16666666666666666
+          },
+          "tap_moves": {
+            "deterministic": 154,
+            "difference": 0,
+            "historical_default": 154
+          },
+          "voltage_violation_pu_hours": {
+            "deterministic": 5.675391952956601,
+            "difference": 3.2514061770072544e-05,
+            "historical_default": 5.675359438894831
+          }
+        }
+      },
+      {
+        "baseline": "full_information_snapshot",
+        "case_id": "123Bus-stress-p000-s2.5",
+        "historical_receipt": {
+          "marker_sha256": "694f7fe339cf8616974f8dd1ca1415e9a0180949c16fe78ce18e4995838d395f",
+          "path": "work/distribution-selection-20261016/powergym/results/123Bus-stress-p000-s2.5--full_information_snapshot.json",
+          "sha256": "3082e48dd049ffa03747042b2436f09c11f308660ea8bba9df773ad7fe30cc0d"
+        },
+        "metrics": {
+          "active_loss_kwh": {
+            "deterministic": 5497.912630803047,
+            "difference": 0.035468971679620154,
+            "historical_default": 5497.877161831368
+          },
+          "canary_quality": {
+            "deterministic": 0.06814657493797387,
+            "difference": 4.654797958567047e-06,
+            "historical_default": 0.0681419201400153
+          },
+          "capacitor_switches": {
+            "deterministic": 4,
+            "difference": 0,
+            "historical_default": 4
+          },
+          "max_voltage_pu": {
+            "deterministic": 1.0996131795452952,
+            "difference": 1.2593363454271866e-06,
+            "historical_default": 1.0996119202089498
+          },
+          "min_voltage_pu": {
+            "deterministic": 0.9346838070643169,
+            "difference": 3.92051321840281e-06,
+            "historical_default": 0.9346798865510985
+          },
+          "phase_time_compliance": {
+            "deterministic": 0.9087230215827338,
+            "difference": 0.0,
+            "historical_default": 0.9087230215827338
+          },
+          "simultaneous_compliance": {
+            "deterministic": 0.0,
+            "difference": 0.0,
+            "historical_default": 0.0
+          },
+          "tap_moves": {
+            "deterministic": 28,
+            "difference": 0,
+            "historical_default": 28
+          },
+          "voltage_violation_pu_hours": {
+            "deterministic": 7.206642200271877,
+            "difference": -0.0010378721500119426,
+            "historical_default": 7.207680072421889
+          }
+        }
+      },
+      {
+        "baseline": "hold_idle",
+        "case_id": "123Bus-stress-p000-s2.5",
+        "historical_receipt": {
+          "marker_sha256": "7e4fddb4ad2e1337942314ed3ab11e20bd850fa0ece1cfd5b53fa4187c500def",
+          "path": "work/distribution-selection-20261016/powergym/results/123Bus-stress-p000-s2.5--hold_idle.json",
+          "sha256": "143cfff5d7c7be3a20851229b1a05e0804f2fd4d5166a3963c1101c8b77c391e"
+        },
+        "metrics": {
+          "active_loss_kwh": {
+            "deterministic": 5743.06623838855,
+            "difference": -0.010923008831923653,
+            "historical_default": 5743.077161397382
+          },
+          "canary_quality": {
+            "deterministic": 0.005783794538675795,
+            "difference": -3.985524961273856e-09,
+            "historical_default": 0.005783798524200756
+          },
+          "capacitor_switches": {
+            "deterministic": 0,
+            "difference": 0,
+            "historical_default": 0
+          },
+          "max_voltage_pu": {
+            "deterministic": 1.1865226747505393,
+            "difference": -1.620074385755288e-08,
+            "historical_default": 1.1865226909512832
+          },
+          "min_voltage_pu": {
+            "deterministic": 0.9925951415869932,
+            "difference": -1.4668459054067995e-06,
+            "historical_default": 0.9925966084328987
+          },
+          "phase_time_compliance": {
+            "deterministic": 0.29706235011990406,
+            "difference": 0.0,
+            "historical_default": 0.29706235011990406
+          },
+          "simultaneous_compliance": {
+            "deterministic": 0.0,
+            "difference": 0.0,
+            "historical_default": 0.0
+          },
+          "tap_moves": {
+            "deterministic": 0,
+            "difference": 0,
+            "historical_default": 0
+          },
+          "voltage_violation_pu_hours": {
+            "deterministic": 166.15380852316736,
+            "difference": 0.00013006353685796057,
+            "historical_default": 166.1536784596305
+          }
+        }
+      },
+      {
+        "baseline": "canary_hysteresis",
+        "case_id": "34Bus-standard-p000-s1",
+        "historical_receipt": {
+          "marker_sha256": "47a8dabcfacb29dae5f49ae00935d13fb81cc4fb26b3c794a15d1c19c6943fd7",
+          "path": "work/distribution-selection-20261016/powergym/results/34Bus-standard-p000-s1--canary_hysteresis.json",
+          "sha256": "72d96e6a1968b9a19fbb2291fbcc788df827cb4c5bcffd2c34ec63b2029a32f8"
+        },
+        "metrics": {
+          "active_loss_kwh": {
+            "deterministic": 2750.227676290318,
+            "difference": 0.015503555581744877,
+            "historical_default": 2750.212172734736
+          },
+          "canary_quality": {
+            "deterministic": 0.034642850684174456,
+            "difference": -7.149204812872956e-08,
+            "historical_default": 0.034642922176222585
+          },
+          "capacitor_switches": {
+            "deterministic": 0,
+            "difference": 0,
+            "historical_default": 0
+          },
+          "max_voltage_pu": {
+            "deterministic": 1.2124623549242668,
+            "difference": -1.255238661901359e-07,
+            "historical_default": 1.212462480448133
+          },
+          "min_voltage_pu": {
+            "deterministic": 0.9318486344864664,
+            "difference": -5.139580191881876e-06,
+            "historical_default": 0.9318537740666583
+          },
+          "phase_time_compliance": {
+            "deterministic": 0.5662280701754386,
+            "difference": 0.0,
+            "historical_default": 0.5662280701754386
+          },
+          "simultaneous_compliance": {
+            "deterministic": 0.0,
+            "difference": 0.0,
+            "historical_default": 0.0
+          },
+          "tap_moves": {
+            "deterministic": 138,
+            "difference": 0,
+            "historical_default": 138
+          },
+          "voltage_violation_pu_hours": {
+            "deterministic": 20.933938904999344,
+            "difference": 4.4066718579927056e-05,
+            "historical_default": 20.933894838280764
+          }
+        }
+      },
+      {
+        "baseline": "coordinated_voltage",
+        "case_id": "34Bus-standard-p000-s1",
+        "historical_receipt": {
+          "marker_sha256": "7aa892f7f11dce8dd0e022f7aebd528cbe5f7e175e9e3fceb6b0a13c0104ad22",
+          "path": "work/distribution-selection-20261016/powergym/results/34Bus-standard-p000-s1--coordinated_voltage.json",
+          "sha256": "af7988d69c143b32bf10402adc15917d8b55c90dc874eac84485220adff7ba88"
+        },
+        "metrics": {
+          "active_loss_kwh": {
+            "deterministic": 3062.216195559753,
+            "difference": -0.0022285500558609783,
+            "historical_default": 3062.218424109809
+          },
+          "canary_quality": {
+            "deterministic": 0.07618647091818453,
+            "difference": -3.4413883891193375e-07,
+            "historical_default": 0.07618681505702345
+          },
+          "capacitor_switches": {
+            "deterministic": 2,
+            "difference": 0,
+            "historical_default": 2
+          },
+          "max_voltage_pu": {
+            "deterministic": 1.1559288806254284,
+            "difference": -2.5867141761892753e-09,
+            "historical_default": 1.1559288832121426
+          },
+          "min_voltage_pu": {
+            "deterministic": 0.9262524076989682,
+            "difference": -1.0091840735304558e-05,
+            "historical_default": 0.9262624995397035
+          },
+          "phase_time_compliance": {
+            "deterministic": 0.8109649122807018,
+            "difference": 0.0,
+            "historical_default": 0.8109649122807018
+          },
+          "simultaneous_compliance": {
+            "deterministic": 0.125,
+            "difference": 0.0,
+            "historical_default": 0.125
+          },
+          "tap_moves": {
+            "deterministic": 186,
+            "difference": 0,
+            "historical_default": 186
+          },
+          "voltage_violation_pu_hours": {
+            "deterministic": 3.366504114478283,
+            "difference": 6.151780785756955e-05,
+            "historical_default": 3.3664425966704252
+          }
+        }
+      },
+      {
+        "baseline": "full_information_snapshot",
+        "case_id": "34Bus-standard-p000-s1",
+        "historical_receipt": {
+          "marker_sha256": "5a072d8ef5e6e9484850ed19c21d4efab8635cbcdf9d395daa34d5d78d1db4de",
+          "path": "work/distribution-selection-20261016/powergym/results/34Bus-standard-p000-s1--full_information_snapshot.json",
+          "sha256": "c25b3ea7f022fafbf434e37a1498af4e4ccbf2823eecc0e1f193d9abb2aa2b2e"
+        },
+        "metrics": {
+          "active_loss_kwh": {
+            "deterministic": 2948.5966470388703,
+            "difference": 0.055460814431626204,
+            "historical_default": 2948.5411862244387
+          },
+          "canary_quality": {
+            "deterministic": 0.1176877897595648,
+            "difference": 7.786671448739568e-07,
+            "historical_default": 0.11768701109241993
+          },
+          "capacitor_switches": {
+            "deterministic": 4,
+            "difference": 0,
+            "historical_default": 4
+          },
+          "max_voltage_pu": {
+            "deterministic": 1.0836407566115134,
+            "difference": -7.664277126284702e-07,
+            "historical_default": 1.083641523039226
+          },
+          "min_voltage_pu": {
+            "deterministic": 0.9445412871213265,
+            "difference": -2.6277360843929287e-06,
+            "historical_default": 0.9445439148574108
+          },
+          "phase_time_compliance": {
+            "deterministic": 0.7973684210526316,
+            "difference": 0.0,
+            "historical_default": 0.7973684210526316
+          },
+          "simultaneous_compliance": {
+            "deterministic": 0.16666666666666666,
+            "difference": 0.0,
+            "historical_default": 0.16666666666666666
+          },
+          "tap_moves": {
+            "deterministic": 48,
+            "difference": 0,
+            "historical_default": 48
+          },
+          "voltage_violation_pu_hours": {
+            "deterministic": 2.9727039855613775,
+            "difference": -0.00011168095286073765,
+            "historical_default": 2.9728156665142382
+          }
+        }
+      },
+      {
+        "baseline": "hold_idle",
+        "case_id": "34Bus-standard-p000-s1",
+        "historical_receipt": {
+          "marker_sha256": "4a181f72f3ae7a7195cd9483ac70d3bc14de27aeeff48fdd61d69940429b3814",
+          "path": "work/distribution-selection-20261016/powergym/results/34Bus-standard-p000-s1--hold_idle.json",
+          "sha256": "f1fd080f2bec6214770ca72284b9b7abc5353ec1fa4f75074df6fab583cad590"
+        },
+        "metrics": {
+          "active_loss_kwh": {
+            "deterministic": 3548.860900790713,
+            "difference": 0.00211391028642538,
+            "historical_default": 3548.8587868804266
+          },
+          "canary_quality": {
+            "deterministic": 0.013697900430255918,
+            "difference": 3.632439427372902e-09,
+            "historical_default": 0.013697896797816491
+          },
+          "capacitor_switches": {
+            "deterministic": 0,
+            "difference": 0,
+            "historical_default": 0
+          },
+          "max_voltage_pu": {
+            "deterministic": 1.2351502019518394,
+            "difference": 1.2724998610380567e-08,
+            "historical_default": 1.2351501892268408
+          },
+          "min_voltage_pu": {
+            "deterministic": 0.9754344304388013,
+            "difference": -4.8168794952729854e-08,
+            "historical_default": 0.9754344786075962
+          },
+          "phase_time_compliance": {
+            "deterministic": 0.2149122807017544,
+            "difference": 0.0,
+            "historical_default": 0.2149122807017544
+          },
+          "simultaneous_compliance": {
+            "deterministic": 0.0,
+            "difference": 0.0,
+            "historical_default": 0.0
+          },
+          "tap_moves": {
+            "deterministic": 0,
+            "difference": 0,
+            "historical_default": 0
+          },
+          "voltage_violation_pu_hours": {
+            "deterministic": 68.45502791352716,
+            "difference": -2.1473247556969e-05,
+            "historical_default": 68.45504938677472
+          }
+        }
+      },
+      {
+        "baseline": "canary_hysteresis",
+        "case_id": "34Bus-standard-p006-s1",
+        "historical_receipt": {
+          "marker_sha256": "a0adb6fdf1d4222d06659327756781bb63f9de4223f2bd54f1e24fe6f88d8c84",
+          "path": "work/distribution-selection-20261016/powergym/results/34Bus-standard-p006-s1--canary_hysteresis.json",
+          "sha256": "8cf45c11ec97a089b1378a4c5ff1244f6a3c595d702697547508e0ca95956aa5"
+        },
+        "metrics": {
+          "active_loss_kwh": {
+            "deterministic": 2683.2067948870076,
+            "difference": 0.03313712642329847,
+            "historical_default": 2683.1736577605843
+          },
+          "canary_quality": {
+            "deterministic": 0.03646335648894987,
+            "difference": -1.711611816862524e-08,
+            "historical_default": 0.03646337360506804
+          },
+          "capacitor_switches": {
+            "deterministic": 0,
+            "difference": 0,
+            "historical_default": 0
+          },
+          "max_voltage_pu": {
+            "deterministic": 1.2083928492211007,
+            "difference": -1.2424648176967423e-07,
+            "historical_default": 1.2083929734675825
+          },
+          "min_voltage_pu": {
+            "deterministic": 0.9343535413587266,
+            "difference": -1.361220852413858e-05,
+            "historical_default": 0.9343671535672508
+          },
+          "phase_time_compliance": {
+            "deterministic": 0.5833333333333334,
+            "difference": 0.0,
+            "historical_default": 0.5833333333333334
+          },
+          "simultaneous_compliance": {
+            "deterministic": 0.0,
+            "difference": 0.0,
+            "historical_default": 0.0
+          },
+          "tap_moves": {
+            "deterministic": 102,
+            "difference": 0,
+            "historical_default": 102
+          },
+          "voltage_violation_pu_hours": {
+            "deterministic": 20.650677010136224,
+            "difference": -2.02637702422237e-05,
+            "historical_default": 20.650697273906466
+          }
+        }
+      },
+      {
+        "baseline": "coordinated_voltage",
+        "case_id": "34Bus-standard-p006-s1",
+        "historical_receipt": {
+          "marker_sha256": "9c901dccc22a1b7b39891f9d010a711914394aa90de3b71b854cc4d787ab345e",
+          "path": "work/distribution-selection-20261016/powergym/results/34Bus-standard-p006-s1--coordinated_voltage.json",
+          "sha256": "1b5aac952b96584ecf713a28cba014406651f8be6a6a2c59a10e965e6447bf6d"
+        },
+        "metrics": {
+          "active_loss_kwh": {
+            "deterministic": 2959.7715878066683,
+            "difference": -0.022747500130662957,
+            "historical_default": 2959.794335306799
+          },
+          "canary_quality": {
+            "deterministic": 0.07785669422574291,
+            "difference": -2.7806124881790684e-07,
+            "historical_default": 0.07785697228699173
+          },
+          "capacitor_switches": {
+            "deterministic": 2,
+            "difference": 0,
+            "historical_default": 2
+          },
+          "max_voltage_pu": {
+            "deterministic": 1.1522751259218762,
+            "difference": -2.5812278980907877e-09,
+            "historical_default": 1.152275128503104
+          },
+          "min_voltage_pu": {
+            "deterministic": 0.9258413362304899,
+            "difference": -4.279945193252921e-06,
+            "historical_default": 0.9258456161756832
+          },
+          "phase_time_compliance": {
+            "deterministic": 0.8399122807017544,
+            "difference": 0.0,
+            "historical_default": 0.8399122807017544
+          },
+          "simultaneous_compliance": {
+            "deterministic": 0.125,
+            "difference": 0.0,
+            "historical_default": 0.125
+          },
+          "tap_moves": {
+            "deterministic": 186,
+            "difference": 0,
+            "historical_default": 186
+          },
+          "voltage_violation_pu_hours": {
+            "deterministic": 3.187369423296251,
+            "difference": 6.861942859748282e-05,
+            "historical_default": 3.1873008038676534
+          }
+        }
+      },
+      {
+        "baseline": "full_information_snapshot",
+        "case_id": "34Bus-standard-p006-s1",
+        "historical_receipt": {
+          "marker_sha256": "47062ac167b4050a85b2d9018fe076f6d73dd052d36bead967d6646d8aebd76f",
+          "path": "work/distribution-selection-20261016/powergym/results/34Bus-standard-p006-s1--full_information_snapshot.json",
+          "sha256": "379ab21de5bb332b8aeba01263f1836d83dd911f74c782c0ea67265061359444"
+        },
+        "metrics": {
+          "active_loss_kwh": {
+            "deterministic": 2982.1722764324245,
+            "difference": 0.06475277211120556,
+            "historical_default": 2982.1075236603133
+          },
+          "canary_quality": {
+            "deterministic": 0.10482538357623988,
+            "difference": 1.4170025399995456e-06,
+            "historical_default": 0.10482396657369988
+          },
+          "capacitor_switches": {
+            "deterministic": 4,
+            "difference": 0,
+            "historical_default": 4
+          },
+          "max_voltage_pu": {
+            "deterministic": 1.0868907129480272,
+            "difference": -6.309339295462735e-07,
+            "historical_default": 1.0868913438819567
+          },
+          "min_voltage_pu": {
+            "deterministic": 0.939811950962128,
+            "difference": -2.1649601115170114e-06,
+            "historical_default": 0.9398141159222395
+          },
+          "phase_time_compliance": {
+            "deterministic": 0.7456140350877193,
+            "difference": 0.0,
+            "historical_default": 0.7456140350877193
+          },
+          "simultaneous_compliance": {
+            "deterministic": 0.20833333333333334,
+            "difference": 0.0,
+            "historical_default": 0.20833333333333334
+          },
+          "tap_moves": {
+            "deterministic": 46,
+            "difference": 0,
+            "historical_default": 46
+          },
+          "voltage_violation_pu_hours": {
+            "deterministic": 4.042350339660201,
+            "difference": -0.00019370937351137485,
+            "historical_default": 4.042544049033713
+          }
+        }
+      },
+      {
+        "baseline": "hold_idle",
+        "case_id": "34Bus-standard-p006-s1",
+        "historical_receipt": {
+          "marker_sha256": "bfed5bbab112870345e07d4faab3fffafdfe6fd715b713c6791d90cb3390512c",
+          "path": "work/distribution-selection-20261016/powergym/results/34Bus-standard-p006-s1--hold_idle.json",
+          "sha256": "0820b12392597dbc9b2af7e73a7adfeb7bfbea3c8ac6fee0e8a9cb23190c0864"
+        },
+        "metrics": {
+          "active_loss_kwh": {
+            "deterministic": 3482.253963428982,
+            "difference": 0.0016623800711386139,
+            "historical_default": 3482.252301048911
+          },
+          "canary_quality": {
+            "deterministic": 0.013536995745408512,
+            "difference": 2.953339198197291e-09,
+            "historical_default": 0.013536992792069314
+          },
+          "capacitor_switches": {
+            "deterministic": 0,
+            "difference": 0,
+            "historical_default": 0
+          },
+          "max_voltage_pu": {
+            "deterministic": 1.231945325329655,
+            "difference": 1.6833917371172902e-08,
+            "historical_default": 1.2319453084957377
+          },
+          "min_voltage_pu": {
+            "deterministic": 0.9768847177308133,
+            "difference": -6.323930590301785e-08,
+            "historical_default": 0.9768847809701192
+          },
+          "phase_time_compliance": {
+            "deterministic": 0.21052631578947367,
+            "difference": 0.0,
+            "historical_default": 0.21052631578947367
+          },
+          "simultaneous_compliance": {
+            "deterministic": 0.0,
+            "difference": 0.0,
+            "historical_default": 0.0
+          },
+          "tap_moves": {
+            "deterministic": 0,
+            "difference": 0,
+            "historical_default": 0
+          },
+          "voltage_violation_pu_hours": {
+            "deterministic": 69.38938039378655,
+            "difference": -1.7778809819901653e-05,
+            "historical_default": 69.38939817259637
+          }
+        }
+      },
+      {
+        "baseline": "canary_hysteresis",
+        "case_id": "34Bus-standard-p015-s1",
+        "historical_receipt": {
+          "marker_sha256": "c5d051416294b9b69927b8c6bf6c02a92c5101bec555ddb463653c425523b787",
+          "path": "work/distribution-selection-20261016/powergym/results/34Bus-standard-p015-s1--canary_hysteresis.json",
+          "sha256": "204e47a55d08485b1e2f7beb234c3e0ab893a1228f308e63477d402ef88769b7"
+        },
+        "metrics": {
+          "active_loss_kwh": {
+            "deterministic": 2720.458333884585,
+            "difference": 0.006786320461742434,
+            "historical_default": 2720.4515475641233
+          },
+          "canary_quality": {
+            "deterministic": 0.037278552067532486,
+            "difference": -9.73698190132044e-09,
+            "historical_default": 0.03727856180451439
+          },
+          "capacitor_switches": {
+            "deterministic": 0,
+            "difference": 0,
+            "historical_default": 0
+          },
+          "max_voltage_pu": {
+            "deterministic": 1.2099044132216166,
+            "difference": -1.2927156478603763e-07,
+            "historical_default": 1.2099045424931814
+          },
+          "min_voltage_pu": {
+            "deterministic": 0.9374901955260512,
+            "difference": -4.790917491503954e-06,
+            "historical_default": 0.9374949864435427
+          },
+          "phase_time_compliance": {
+            "deterministic": 0.5793859649122807,
+            "difference": 0.0,
+            "historical_default": 0.5793859649122807
+          },
+          "simultaneous_compliance": {
+            "deterministic": 0.0,
+            "difference": 0.0,
+            "historical_default": 0.0
+          },
+          "tap_moves": {
+            "deterministic": 102,
+            "difference": 0,
+            "historical_default": 102
+          },
+          "voltage_violation_pu_hours": {
+            "deterministic": 20.013708779572735,
+            "difference": 2.202610360768631e-07,
+            "historical_default": 20.0137085593117
+          }
+        }
+      },
+      {
+        "baseline": "coordinated_voltage",
+        "case_id": "34Bus-standard-p015-s1",
+        "historical_receipt": {
+          "marker_sha256": "7e346de411f5ef78535c3af554ab3c832deadbcd9aff6b67c23b45f23b572195",
+          "path": "work/distribution-selection-20261016/powergym/results/34Bus-standard-p015-s1--coordinated_voltage.json",
+          "sha256": "a8940c946ac3ce6e80060fd852c7fe759a7f4f4da7ea90bf51199701da9a4f7d"
+        },
+        "metrics": {
+          "active_loss_kwh": {
+            "deterministic": 3027.450508161757,
+            "difference": 0.006050572373169416,
+            "historical_default": 3027.444457589384
+          },
+          "canary_quality": {
+            "deterministic": 0.07705732884366011,
+            "difference": -2.3579063826439928e-07,
+            "historical_default": 0.07705756463429837
+          },
+          "capacitor_switches": {
+            "deterministic": 2,
+            "difference": 0,
+            "historical_default": 2
+          },
+          "max_voltage_pu": {
+            "deterministic": 1.153646808234,
+            "difference": -2.745546456850434e-09,
+            "historical_default": 1.1536468109795464
+          },
+          "min_voltage_pu": {
+            "deterministic": 0.9217814656722593,
+            "difference": 1.02629270014587e-05,
+            "historical_default": 0.9217712027452578
+          },
+          "phase_time_compliance": {
+            "deterministic": 0.8333333333333334,
+            "difference": 0.0,
+            "historical_default": 0.8333333333333334
+          },
+          "simultaneous_compliance": {
+            "deterministic": 0.125,
+            "difference": 0.0,
+            "historical_default": 0.125
+          },
+          "tap_moves": {
+            "deterministic": 186,
+            "difference": 0,
+            "historical_default": 186
+          },
+          "voltage_violation_pu_hours": {
+            "deterministic": 3.2529307491026023,
+            "difference": 3.365919368203407e-05,
+            "historical_default": 3.2528970899089202
+          }
+        }
+      },
+      {
+        "baseline": "full_information_snapshot",
+        "case_id": "34Bus-standard-p015-s1",
+        "historical_receipt": {
+          "marker_sha256": "ad31bab18bdfd1e631a32620ac9d8b6f3e08a008106045e7bc6ebdb36062d4c4",
+          "path": "work/distribution-selection-20261016/powergym/results/34Bus-standard-p015-s1--full_information_snapshot.json",
+          "sha256": "e343d8aa6d50cfe78723a807d450401b5b3942f558a36c43b6e672eac4c94a61"
+        },
+        "metrics": {
+          "active_loss_kwh": {
+            "deterministic": 2940.9940339981717,
+            "difference": 0.053391037251913076,
+            "historical_default": 2940.94064296092
+          },
+          "canary_quality": {
+            "deterministic": 0.11251552169136875,
+            "difference": 8.408047782321182e-07,
+            "historical_default": 0.11251468088659052
+          },
+          "capacitor_switches": {
+            "deterministic": 4,
+            "difference": 0,
+            "historical_default": 4
+          },
+          "max_voltage_pu": {
+            "deterministic": 1.0869386781162504,
+            "difference": -3.786512994263802e-07,
+            "historical_default": 1.0869390567675499
+          },
+          "min_voltage_pu": {
+            "deterministic": 0.9464514542071784,
+            "difference": -2.2217633243171164e-06,
+            "historical_default": 0.9464536759705027
+          },
+          "phase_time_compliance": {
+            "deterministic": 0.8131578947368421,
+            "difference": 0.0,
+            "historical_default": 0.8131578947368421
+          },
+          "simultaneous_compliance": {
+            "deterministic": 0.5,
+            "difference": 0.0,
+            "historical_default": 0.5
+          },
+          "tap_moves": {
+            "deterministic": 51,
+            "difference": 0,
+            "historical_default": 51
+          },
+          "voltage_violation_pu_hours": {
+            "deterministic": 3.2800019521646124,
+            "difference": -0.00011980716328041652,
+            "historical_default": 3.280121759327893
+          }
+        }
+      },
+      {
+        "baseline": "hold_idle",
+        "case_id": "34Bus-standard-p015-s1",
+        "historical_receipt": {
+          "marker_sha256": "40a1df245cbca1599c71ca18b790c5b258d22fe13acf2dafe7321ae306506922",
+          "path": "work/distribution-selection-20261016/powergym/results/34Bus-standard-p015-s1--hold_idle.json",
+          "sha256": "ad860b03f4bbe29e6f83cd491b319897f4e395214004921d376b5740f53e8fd9"
+        },
+        "metrics": {
+          "active_loss_kwh": {
+            "deterministic": 3526.0031629978466,
+            "difference": 0.0010203631227341248,
+            "historical_default": 3526.002142634724
+          },
+          "canary_quality": {
+            "deterministic": 0.013751286852363206,
+            "difference": 1.6833981170832901e-09,
+            "historical_default": 0.013751285168965089
+          },
+          "capacitor_switches": {
+            "deterministic": 0,
+            "difference": 0,
+            "historical_default": 0
+          },
+          "max_voltage_pu": {
+            "deterministic": 1.2316768668095934,
+            "difference": 2.0024122360240426e-09,
+            "historical_default": 1.2316768648071812
+          },
+          "min_voltage_pu": {
+            "deterministic": 0.9759786603733163,
+            "difference": -1.477976796504521e-08,
+            "historical_default": 0.9759786751530842
+          },
+          "phase_time_compliance": {
+            "deterministic": 0.21359649122807017,
+            "difference": 0.0,
+            "historical_default": 0.21359649122807017
+          },
+          "simultaneous_compliance": {
+            "deterministic": 0.0,
+            "difference": 0.0,
+            "historical_default": 0.0
+          },
+          "tap_moves": {
+            "deterministic": 0,
+            "difference": 0,
+            "historical_default": 0
+          },
+          "voltage_violation_pu_hours": {
+            "deterministic": 68.19446370939137,
+            "difference": -9.922621757141314e-06,
+            "historical_default": 68.19447363201313
+          }
+        }
+      }
+    ],
+    "matched_calibrations": 20,
+    "pf_calls": 162859,
+    "primary_references": 25,
+    "qualification_valid": 45,
+    "records": [
+      {
+        "active_loss_kwh": 797.2316300634301,
+        "actual_net_energy_kwh": [
+          6.925953144332198e-10,
+          0.0,
+          0.4988744938545686,
+          0.29005008466719673
+        ],
+        "baseline": "best_active_storage",
+        "capacitor_switches": 0,
+        "case_cumulative_pf_calls": 18068,
+        "case_cumulative_wall_seconds": 12.424527499999385,
+        "case_id": "123Bus-standard-p000-s1",
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          999.0,
+          999.0
+        ],
+        "fresh_audit_replay_exact_device_and_energy_rows": true,
+        "fresh_audit_replay_pf_calls": 25,
+        "full_horizon": true,
+        "marker_sha256": "866fc51b293e204cf5af680e66065780e06d50824e1b4e338344d7fc14c4fba4",
+        "path": "work/distribution-qualification-20261016/powergym-final/cases/123Bus-standard-p000-s1/best_active_storage.json",
+        "phase_pf_calls": 25,
+        "phase_time_compliance": 1.0,
+        "phase_wall_seconds": 0.03295625001192093,
+        "qualification_valid": true,
+        "sha256": "1b19e8e2803cdb9f1cc2c4e1c46d7c68a0983e95178ac0e6add6d36366955c69",
+        "simultaneous_compliance": 1.0,
+        "tap_moves": 92,
+        "throughput_kwh": 509.3598360451842,
+        "valid": true,
+        "voltage_violation_pu_hours": 0.0
+      },
+      {
+        "active_loss_kwh": 840.3943241797207,
+        "actual_net_energy_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "baseline": "canary_hysteresis",
+        "capacitor_switches": 0,
+        "case_cumulative_pf_calls": 18191,
+        "case_cumulative_wall_seconds": 12.598826957982965,
+        "case_id": "123Bus-standard-p000-s1",
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "fresh_audit_replay_exact_device_and_energy_rows": true,
+        "fresh_audit_replay_pf_calls": 25,
+        "full_horizon": true,
+        "marker_sha256": "62324efd82b43d251f474fb82a795dcc658ce55afbbfaa1a59b2f0a0d514ce63",
+        "path": "work/distribution-qualification-20261016/powergym-final/cases/123Bus-standard-p000-s1/canary_hysteresis.json",
+        "phase_pf_calls": 73,
+        "phase_time_compliance": 0.6734112709832134,
+        "phase_wall_seconds": 0.08187808404909447,
+        "qualification_valid": true,
+        "sha256": "a81e8424d438515f3c87aa875df9614d950f91821978b3a79721670b831e896c",
+        "simultaneous_compliance": 0.3333333333333333,
+        "tap_moves": 84,
+        "throughput_kwh": 0.0,
+        "valid": true,
+        "voltage_violation_pu_hours": 58.766418402216225
+      },
+      {
+        "active_loss_kwh": 900.5216099578809,
+        "actual_net_energy_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "baseline": "coordinated_voltage",
+        "capacitor_switches": 3,
+        "case_cumulative_pf_calls": 18264,
+        "case_cumulative_wall_seconds": 12.679525957966689,
+        "case_id": "123Bus-standard-p000-s1",
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "fresh_audit_replay_exact_device_and_energy_rows": true,
+        "fresh_audit_replay_pf_calls": 25,
+        "full_horizon": true,
+        "marker_sha256": "3e661e4e575ed9e75fd37ab5c48b87c13909493f41c7351c4cb529fe2c65cecd",
+        "path": "work/distribution-qualification-20261016/powergym-final/cases/123Bus-standard-p000-s1/coordinated_voltage.json",
+        "phase_pf_calls": 73,
+        "phase_time_compliance": 0.9439448441247003,
+        "phase_wall_seconds": 0.08069575001718476,
+        "qualification_valid": true,
+        "sha256": "ab3d25f84a0bd277c9c4d102e68eec1c0ebc87ec09eb7a867803d4ba6b5f022a",
+        "simultaneous_compliance": 0.9166666666666666,
+        "tap_moves": 84,
+        "throughput_kwh": 0.0,
+        "valid": true,
+        "voltage_violation_pu_hours": 8.002486741608681
+      },
+      {
+        "active_loss_kwh": 868.384805898883,
+        "actual_net_energy_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "baseline": "full_information_snapshot",
+        "capacitor_switches": 1,
+        "case_cumulative_pf_calls": 19370,
+        "case_cumulative_wall_seconds": 13.391614499967545,
+        "case_id": "123Bus-standard-p000-s1",
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "fresh_audit_replay_exact_device_and_energy_rows": true,
+        "fresh_audit_replay_pf_calls": 25,
+        "full_horizon": true,
+        "marker_sha256": "ce37d0c7baa2f6e3345aef7f12def038d5094332c184a6ccd6895c14026a72e3",
+        "path": "work/distribution-qualification-20261016/powergym-final/cases/123Bus-standard-p000-s1/full_information_snapshot.json",
+        "phase_pf_calls": 1106,
+        "phase_time_compliance": 0.9929556354916067,
+        "phase_wall_seconds": 0.7120863749878481,
+        "qualification_valid": true,
+        "sha256": "df1825f43abf23d6069515bf990fa7af9597bacb45c78f109e01fbc68b7c9463",
+        "simultaneous_compliance": 0.875,
+        "tap_moves": 75,
+        "throughput_kwh": 0.0,
+        "valid": true,
+        "voltage_violation_pu_hours": 0.2729697167304945
+      },
+      {
+        "active_loss_kwh": 1016.039321685563,
+        "actual_net_energy_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "baseline": "hold_idle",
+        "capacitor_switches": 0,
+        "case_cumulative_pf_calls": 18118,
+        "case_cumulative_wall_seconds": 12.516946832998656,
+        "case_id": "123Bus-standard-p000-s1",
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "fresh_audit_replay_exact_device_and_energy_rows": true,
+        "fresh_audit_replay_pf_calls": 25,
+        "full_horizon": true,
+        "marker_sha256": "6d32879e4cb8faa80ace2d76a6ed89e477554b7faa24f2e01f169db5c852ebb2",
+        "path": "work/distribution-qualification-20261016/powergym-final/cases/123Bus-standard-p000-s1/hold_idle.json",
+        "phase_pf_calls": 50,
+        "phase_time_compliance": 0.01079136690647482,
+        "phase_wall_seconds": 0.09241704101441428,
+        "qualification_valid": true,
+        "sha256": "5c7508298b89bb8eed2ff577e1bc4cb82587caebef41e40c9f1a34abadc4e0e8",
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 0,
+        "throughput_kwh": 0.0,
+        "valid": true,
+        "voltage_violation_pu_hours": 286.5141598878593
+      },
+      {
+        "active_loss_kwh": 798.7282999944706,
+        "actual_net_energy_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "baseline": "oracle_day_idle",
+        "capacitor_switches": 0,
+        "case_cumulative_pf_calls": 15338,
+        "case_cumulative_wall_seconds": 10.426103749952745,
+        "case_id": "123Bus-standard-p000-s1",
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "fresh_audit_replay_exact_device_and_energy_rows": true,
+        "fresh_audit_replay_pf_calls": 25,
+        "full_horizon": true,
+        "marker_sha256": "88adf3b8543d3c103daffdb09b3535398b39bf6d13bd2674284440e2b23baa31",
+        "path": "work/distribution-qualification-20261016/powergym-final/cases/123Bus-standard-p000-s1/oracle_day_idle.json",
+        "phase_pf_calls": 25,
+        "phase_time_compliance": 1.0,
+        "phase_wall_seconds": 0.5004301249864511,
+        "qualification_valid": true,
+        "sha256": "444e06e4c593060254cf06f1753f48d0ef95fbc943941bc6138eb0cb80632138",
+        "simultaneous_compliance": 1.0,
+        "tap_moves": 92,
+        "throughput_kwh": 0.0,
+        "valid": true,
+        "voltage_violation_pu_hours": 0.0
+      },
+      {
+        "active_loss_kwh": 797.2316300634301,
+        "actual_net_energy_kwh": [
+          6.925953144332198e-10,
+          0.0,
+          0.4988744938545686,
+          0.29005008466719673
+        ],
+        "baseline": "oracle_day_storage",
+        "capacitor_switches": 0,
+        "case_cumulative_pf_calls": 18043,
+        "case_cumulative_wall_seconds": 12.391569291008636,
+        "case_id": "123Bus-standard-p000-s1",
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          999.0,
+          999.0
+        ],
+        "fresh_audit_replay_exact_device_and_energy_rows": true,
+        "fresh_audit_replay_pf_calls": 25,
+        "full_horizon": true,
+        "marker_sha256": "0f4feb6c693c77c644d8f9b05c2a4be2d953a678e632b6583911f692853a2ced",
+        "path": "work/distribution-qualification-20261016/powergym-final/cases/123Bus-standard-p000-s1/oracle_day_storage.json",
+        "phase_pf_calls": 2705,
+        "phase_time_compliance": 1.0,
+        "phase_wall_seconds": 1.965463083004579,
+        "qualification_valid": true,
+        "sha256": "32701feaaace6b49f59ab3026c57f5c8d5c27e8ccc4f69005b75764a5f387681",
+        "simultaneous_compliance": 1.0,
+        "tap_moves": 92,
+        "throughput_kwh": 509.3598360451842,
+        "valid": true,
+        "voltage_violation_pu_hours": 0.0
+      },
+      {
+        "active_loss_kwh": 798.7282999944706,
+        "actual_net_energy_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "baseline": "static_day_idle",
+        "capacitor_switches": 0,
+        "case_cumulative_pf_calls": 15313,
+        "case_cumulative_wall_seconds": 9.925670625001658,
+        "case_id": "123Bus-standard-p000-s1",
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "fresh_audit_replay_exact_device_and_energy_rows": true,
+        "fresh_audit_replay_pf_calls": 25,
+        "full_horizon": true,
+        "marker_sha256": "be7cbab0dde53eb1aca5cf2d5ca0f97b3716a740c549038165318e771a125407",
+        "path": "work/distribution-qualification-20261016/powergym-final/cases/123Bus-standard-p000-s1/static_day_idle.json",
+        "phase_pf_calls": 4823,
+        "phase_time_compliance": 1.0,
+        "phase_wall_seconds": 3.3027532920241356,
+        "qualification_valid": true,
+        "sha256": "2a7eb0696cdf13fc69bca3a258d6b5e31d590a2d2f6571860ed7acbdedec4e1e",
+        "simultaneous_compliance": 1.0,
+        "tap_moves": 92,
+        "throughput_kwh": 0.0,
+        "valid": true,
+        "voltage_violation_pu_hours": 0.0
+      },
+      {
+        "active_loss_kwh": 797.3663353542561,
+        "actual_net_energy_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "baseline": "strong_current_idle",
+        "capacitor_switches": 0,
+        "case_cumulative_pf_calls": 10490,
+        "case_cumulative_wall_seconds": 6.622914790990762,
+        "case_id": "123Bus-standard-p000-s1",
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "fresh_audit_replay_exact_device_and_energy_rows": true,
+        "fresh_audit_replay_pf_calls": 25,
+        "full_horizon": true,
+        "marker_sha256": "03eb6aa93ecdc19c642adaf7ead9ee35ba7d4c8f605a26e0fb48c1c3690309fc",
+        "path": "work/distribution-qualification-20261016/powergym-final/cases/123Bus-standard-p000-s1/strong_current_idle.json",
+        "phase_pf_calls": 10490,
+        "phase_time_compliance": 1.0,
+        "phase_wall_seconds": 6.622914874984417,
+        "qualification_valid": true,
+        "sha256": "09e0176100278430c26d3512fa15c142eb5c335631a9b1a651531b5f846109c6",
+        "simultaneous_compliance": 1.0,
+        "tap_moves": 94,
+        "throughput_kwh": 0.0,
+        "valid": true,
+        "voltage_violation_pu_hours": 0.0
+      },
+      {
+        "active_loss_kwh": 5434.911608568717,
+        "actual_net_energy_kwh": [
+          -4.0801140244184353e-10,
+          0.0,
+          0.22528835667691283,
+          0.6715967828951328
+        ],
+        "baseline": "best_active_storage",
+        "capacitor_switches": 10,
+        "case_cumulative_pf_calls": 35610,
+        "case_cumulative_wall_seconds": 25.61177504103398,
+        "case_id": "123Bus-stress-p000-s2.5",
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          999.0,
+          999.0
+        ],
+        "fresh_audit_replay_exact_device_and_energy_rows": true,
+        "fresh_audit_replay_pf_calls": 25,
+        "full_horizon": true,
+        "marker_sha256": "5c9e1d312608c9848eab8264aff400c2e6c200a593b2cbd2c32acfc45762f2dd",
+        "path": "work/distribution-qualification-20261016/powergym-final/cases/123Bus-stress-p000-s2.5/best_active_storage.json",
+        "phase_pf_calls": 25,
+        "phase_time_compliance": 0.9979016786570744,
+        "phase_wall_seconds": 0.03314675000729039,
+        "qualification_valid": true,
+        "sha256": "29a94b1281d5387af3bc5bde6033fe03f97379ad94b9340f1ffec8e17825a2e7",
+        "simultaneous_compliance": 0.7916666666666666,
+        "tap_moves": 204,
+        "throughput_kwh": 413.8084450202481,
+        "valid": true,
+        "voltage_violation_pu_hours": 0.010344030486120315
+      },
+      {
+        "active_loss_kwh": 5288.594346510892,
+        "actual_net_energy_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "baseline": "canary_hysteresis",
+        "capacitor_switches": 0,
+        "case_cumulative_pf_calls": 35724,
+        "case_cumulative_wall_seconds": 25.747869000013452,
+        "case_id": "123Bus-stress-p000-s2.5",
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "fresh_audit_replay_exact_device_and_energy_rows": true,
+        "fresh_audit_replay_pf_calls": 25,
+        "full_horizon": true,
+        "marker_sha256": "f56e55278dc3f379391b98de18606adaf64ae412584fbd3f45a532ef39e1dc5b",
+        "path": "work/distribution-qualification-20261016/powergym-final/cases/123Bus-stress-p000-s2.5/canary_hysteresis.json",
+        "phase_pf_calls": 64,
+        "phase_time_compliance": 0.7831235011990407,
+        "phase_wall_seconds": 0.07375241600675508,
+        "qualification_valid": true,
+        "sha256": "b51b5b27d24ff621f987d79107a87d22c056e2ca29b1bb8d396bb4e5c2c72978",
+        "simultaneous_compliance": 0.041666666666666664,
+        "tap_moves": 84,
+        "throughput_kwh": 0.0,
+        "valid": true,
+        "voltage_violation_pu_hours": 31.49118755059948
+      },
+      {
+        "active_loss_kwh": 5854.903548985061,
+        "actual_net_energy_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "baseline": "coordinated_voltage",
+        "capacitor_switches": 3,
+        "case_cumulative_pf_calls": 35794,
+        "case_cumulative_wall_seconds": 25.825408041011542,
+        "case_id": "123Bus-stress-p000-s2.5",
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "fresh_audit_replay_exact_device_and_energy_rows": true,
+        "fresh_audit_replay_pf_calls": 25,
+        "full_horizon": true,
+        "marker_sha256": "35ed531c37ab508b2f9a782268721c052896b2cfe76734b136d4edd948a11da9",
+        "path": "work/distribution-qualification-20261016/powergym-final/cases/123Bus-stress-p000-s2.5/coordinated_voltage.json",
+        "phase_pf_calls": 70,
+        "phase_time_compliance": 0.9025779376498801,
+        "phase_wall_seconds": 0.07753695896826684,
+        "qualification_valid": true,
+        "sha256": "6699b04ac992b0ae6aaba5b1f9f7af19848b1154c0e0f9b9f7279b83facbedb8",
+        "simultaneous_compliance": 0.16666666666666666,
+        "tap_moves": 154,
+        "throughput_kwh": 0.0,
+        "valid": true,
+        "voltage_violation_pu_hours": 5.675391952956601
+      },
+      {
+        "active_loss_kwh": 5497.912630803047,
+        "actual_net_energy_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "baseline": "full_information_snapshot",
+        "capacitor_switches": 4,
+        "case_cumulative_pf_calls": 36865,
+        "case_cumulative_wall_seconds": 26.51515254098922,
+        "case_id": "123Bus-stress-p000-s2.5",
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "fresh_audit_replay_exact_device_and_energy_rows": true,
+        "fresh_audit_replay_pf_calls": 25,
+        "full_horizon": true,
+        "marker_sha256": "eae7e1ea08f0b5b40650916c33681aad653778e66e90f84aa44dad678c61926b",
+        "path": "work/distribution-qualification-20261016/powergym-final/cases/123Bus-stress-p000-s2.5/full_information_snapshot.json",
+        "phase_pf_calls": 1071,
+        "phase_time_compliance": 0.9087230215827338,
+        "phase_wall_seconds": 0.6897421249886975,
+        "qualification_valid": true,
+        "sha256": "d4b9126fe3645979dc2487085b54f05472d81bf013bf289c3e0e1971d4a2ba29",
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 28,
+        "throughput_kwh": 0.0,
+        "valid": true,
+        "voltage_violation_pu_hours": 7.206642200271877
+      },
+      {
+        "active_loss_kwh": 5743.06623838855,
+        "actual_net_energy_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "baseline": "hold_idle",
+        "capacitor_switches": 0,
+        "case_cumulative_pf_calls": 35660,
+        "case_cumulative_wall_seconds": 25.674114166002255,
+        "case_id": "123Bus-stress-p000-s2.5",
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "fresh_audit_replay_exact_device_and_energy_rows": true,
+        "fresh_audit_replay_pf_calls": 25,
+        "full_horizon": true,
+        "marker_sha256": "7ed6d99d01971a88c4ea0b46b12b698193c953d8e762a9576dd619e0f2fdc951",
+        "path": "work/distribution-qualification-20261016/powergym-final/cases/123Bus-stress-p000-s2.5/hold_idle.json",
+        "phase_pf_calls": 50,
+        "phase_time_compliance": 0.29706235011990406,
+        "phase_wall_seconds": 0.06233695801347494,
+        "qualification_valid": true,
+        "sha256": "3043636da833e41dcd4a4be5ba95baf4078ef5de1e1ab3ee234677514ef85c47",
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 0,
+        "throughput_kwh": 0.0,
+        "valid": true,
+        "voltage_violation_pu_hours": 166.15380852316736
+      },
+      {
+        "active_loss_kwh": 5437.008927222703,
+        "actual_net_energy_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "baseline": "oracle_day_idle",
+        "capacitor_switches": 10,
+        "case_cumulative_pf_calls": 32971,
+        "case_cumulative_wall_seconds": 23.778991458006203,
+        "case_id": "123Bus-stress-p000-s2.5",
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "fresh_audit_replay_exact_device_and_energy_rows": true,
+        "fresh_audit_replay_pf_calls": 25,
+        "full_horizon": true,
+        "marker_sha256": "26d03fafc467630bd53effdf587452315595d0fd10f3f4b76d4b10aa30d733df",
+        "path": "work/distribution-qualification-20261016/powergym-final/cases/123Bus-stress-p000-s2.5/oracle_day_idle.json",
+        "phase_pf_calls": 4034,
+        "phase_time_compliance": 0.997152278177458,
+        "phase_wall_seconds": 3.4826725000166334,
+        "qualification_valid": true,
+        "sha256": "dd7809b94837fd03a88788221928d7b31c88a1690ac699269a8fc9ce84ae2346",
+        "simultaneous_compliance": 0.75,
+        "tap_moves": 204,
+        "throughput_kwh": 0.0,
+        "valid": true,
+        "voltage_violation_pu_hours": 0.013011234795116233
+      },
+      {
+        "active_loss_kwh": 5434.911608568717,
+        "actual_net_energy_kwh": [
+          -4.0801140244184353e-10,
+          0.0,
+          0.22528835667691283,
+          0.6715967828951328
+        ],
+        "baseline": "oracle_day_storage",
+        "capacitor_switches": 10,
+        "case_cumulative_pf_calls": 35585,
+        "case_cumulative_wall_seconds": 25.578626541013364,
+        "case_id": "123Bus-stress-p000-s2.5",
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          999.0,
+          999.0
+        ],
+        "fresh_audit_replay_exact_device_and_energy_rows": true,
+        "fresh_audit_replay_pf_calls": 25,
+        "full_horizon": true,
+        "marker_sha256": "e6d048c362d8bfda1b677ca70f2403fb67afd1d3419290e27f591ad719fb20c1",
+        "path": "work/distribution-qualification-20261016/powergym-final/cases/123Bus-stress-p000-s2.5/oracle_day_storage.json",
+        "phase_pf_calls": 2614,
+        "phase_time_compliance": 0.9979016786570744,
+        "phase_wall_seconds": 1.7996331250178628,
+        "qualification_valid": true,
+        "sha256": "ebc0f1f312c187027e71951c2d8316f79c0eaf64464b66be4d6fe8bba4b89b1b",
+        "simultaneous_compliance": 0.7916666666666666,
+        "tap_moves": 204,
+        "throughput_kwh": 413.8084450202481,
+        "valid": true,
+        "voltage_violation_pu_hours": 0.010344030486120315
+      },
+      {
+        "active_loss_kwh": 5726.060279694887,
+        "actual_net_energy_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "baseline": "static_day_idle",
+        "capacitor_switches": 2,
+        "case_cumulative_pf_calls": 28937,
+        "case_cumulative_wall_seconds": 20.29631695803255,
+        "case_id": "123Bus-stress-p000-s2.5",
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "fresh_audit_replay_exact_device_and_energy_rows": true,
+        "fresh_audit_replay_pf_calls": 25,
+        "full_horizon": true,
+        "marker_sha256": "11aeea60e312254d651aec724e9a3458f4ea648a96f6c410f5205d44cbe5dd29",
+        "path": "work/distribution-qualification-20261016/powergym-final/cases/123Bus-stress-p000-s2.5/static_day_idle.json",
+        "phase_pf_calls": 10649,
+        "phase_time_compliance": 0.9560851318944844,
+        "phase_wall_seconds": 7.034231375029776,
+        "qualification_valid": true,
+        "sha256": "52e8fc4b69ca3ac34aa6042d7b60e0ca6d5a23a15b0ce0649253f9906fa6ab66",
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 98,
+        "throughput_kwh": 0.0,
+        "valid": true,
+        "voltage_violation_pu_hours": 0.803341338368387
+      },
+      {
+        "active_loss_kwh": 5452.366551411737,
+        "actual_net_energy_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "baseline": "strong_current_idle",
+        "capacitor_switches": 10,
+        "case_cumulative_pf_calls": 18288,
+        "case_cumulative_wall_seconds": 13.262083250039723,
+        "case_id": "123Bus-stress-p000-s2.5",
+        "final_energy_kwh": [
+          1000.0,
+          1000.0,
+          1000.0,
+          1000.0
+        ],
+        "fresh_audit_replay_exact_device_and_energy_rows": true,
+        "fresh_audit_replay_pf_calls": 25,
+        "full_horizon": true,
+        "marker_sha256": "d01e1687907ab26a6a6f6ca54c73f2a30e3314634d566ea6dda30fbaf52508bb",
+        "path": "work/distribution-qualification-20261016/powergym-final/cases/123Bus-stress-p000-s2.5/strong_current_idle.json",
+        "phase_pf_calls": 18288,
+        "phase_time_compliance": 0.9970023980815348,
+        "phase_wall_seconds": 13.26208333298564,
+        "qualification_valid": true,
+        "sha256": "c0fecfdab819ec23a264d453adb89cc8759267e89977664d3367787bbc92ba3c",
+        "simultaneous_compliance": 0.7083333333333334,
+        "tap_moves": 202,
+        "throughput_kwh": 0.0,
+        "valid": true,
+        "voltage_violation_pu_hours": 0.013096251689329264
+      },
+      {
+        "active_loss_kwh": 2633.2250525275836,
+        "actual_net_energy_kwh": [
+          0.0,
+          7.818528047209838e-10
+        ],
+        "baseline": "best_active_storage",
+        "capacitor_switches": 6,
+        "case_cumulative_pf_calls": 35163,
+        "case_cumulative_wall_seconds": 12.42049979197327,
+        "case_id": "34Bus-standard-p000-s1",
+        "final_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "fresh_audit_replay_exact_device_and_energy_rows": true,
+        "fresh_audit_replay_pf_calls": 25,
+        "full_horizon": true,
+        "marker_sha256": "a78beef27e41b8f17b4e78c49375ad0e42dcc6400b345b906f9016129d5f256e",
+        "path": "work/distribution-qualification-20261016/powergym-final/cases/34Bus-standard-p000-s1/best_active_storage.json",
+        "phase_pf_calls": 25,
+        "phase_time_compliance": 0.9798245614035088,
+        "phase_wall_seconds": 0.01872741599800065,
+        "qualification_valid": true,
+        "sha256": "9683d83ceaf2e5949fd125e0cbf7635d94e07ebcf89de6f2087aec640bc2b09a",
+        "simultaneous_compliance": 0.625,
+        "tap_moves": 195,
+        "throughput_kwh": 249.999999996414,
+        "valid": true,
+        "voltage_violation_pu_hours": 0.014880743091994275
+      },
+      {
+        "active_loss_kwh": 2750.227676290318,
+        "actual_net_energy_kwh": [
+          0.0,
+          0.0
+        ],
+        "baseline": "canary_hysteresis",
+        "capacitor_switches": 0,
+        "case_cumulative_pf_calls": 35286,
+        "case_cumulative_wall_seconds": 12.500181583978701,
+        "case_id": "34Bus-standard-p000-s1",
+        "final_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "fresh_audit_replay_exact_device_and_energy_rows": true,
+        "fresh_audit_replay_pf_calls": 25,
+        "full_horizon": true,
+        "marker_sha256": "4ef343b843e12234619bb1fd744a4d490b8609a3052567af6ea80f48101f4333",
+        "path": "work/distribution-qualification-20261016/powergym-final/cases/34Bus-standard-p000-s1/canary_hysteresis.json",
+        "phase_pf_calls": 73,
+        "phase_time_compliance": 0.5662280701754386,
+        "phase_wall_seconds": 0.0435209579882212,
+        "qualification_valid": true,
+        "sha256": "19bd7f5388d474e2b6e0e0c3f97a94a7280bb3f3eefbc729b3fad82782d6ad22",
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 138,
+        "throughput_kwh": 0.0,
+        "valid": true,
+        "voltage_violation_pu_hours": 20.933938904999344
+      },
+      {
+        "active_loss_kwh": 3062.216195559753,
+        "actual_net_energy_kwh": [
+          0.0,
+          0.0
+        ],
+        "baseline": "coordinated_voltage",
+        "capacitor_switches": 2,
+        "case_cumulative_pf_calls": 35354,
+        "case_cumulative_wall_seconds": 12.565585666976403,
+        "case_id": "34Bus-standard-p000-s1",
+        "final_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "fresh_audit_replay_exact_device_and_energy_rows": true,
+        "fresh_audit_replay_pf_calls": 25,
+        "full_horizon": true,
+        "marker_sha256": "34e4346079ae5389ccc7af4712c001a3820b9a4137bf8185b5c24813815de49a",
+        "path": "work/distribution-qualification-20261016/powergym-final/cases/34Bus-standard-p000-s1/coordinated_voltage.json",
+        "phase_pf_calls": 68,
+        "phase_time_compliance": 0.8109649122807018,
+        "phase_wall_seconds": 0.06540170800872147,
+        "qualification_valid": true,
+        "sha256": "5110f111dfbd6484f1c7285610c2eca5521ea5492845b7c3252388d83209ff0c",
+        "simultaneous_compliance": 0.125,
+        "tap_moves": 186,
+        "throughput_kwh": 0.0,
+        "valid": true,
+        "voltage_violation_pu_hours": 3.366504114478283
+      },
+      {
+        "active_loss_kwh": 2948.5966470388703,
+        "actual_net_energy_kwh": [
+          0.0,
+          0.0
+        ],
+        "baseline": "full_information_snapshot",
+        "capacitor_switches": 4,
+        "case_cumulative_pf_calls": 36298,
+        "case_cumulative_wall_seconds": 12.867461416986771,
+        "case_id": "34Bus-standard-p000-s1",
+        "final_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "fresh_audit_replay_exact_device_and_energy_rows": true,
+        "fresh_audit_replay_pf_calls": 25,
+        "full_horizon": true,
+        "marker_sha256": "d7500da0a93a65b0b51b9a5e09f28f953af1ca8c2560c951aa39acd5bd804952",
+        "path": "work/distribution-qualification-20261016/powergym-final/cases/34Bus-standard-p000-s1/full_information_snapshot.json",
+        "phase_pf_calls": 944,
+        "phase_time_compliance": 0.7973684210526316,
+        "phase_wall_seconds": 0.30187329195905477,
+        "qualification_valid": true,
+        "sha256": "10f043f99a89d9bbaa5f36348a9622c2be3ecb60934fcbb346e6dc52b590b3a3",
+        "simultaneous_compliance": 0.16666666666666666,
+        "tap_moves": 48,
+        "throughput_kwh": 0.0,
+        "valid": true,
+        "voltage_violation_pu_hours": 2.9727039855613775
+      },
+      {
+        "active_loss_kwh": 3548.860900790713,
+        "actual_net_energy_kwh": [
+          0.0,
+          0.0
+        ],
+        "baseline": "hold_idle",
+        "capacitor_switches": 0,
+        "case_cumulative_pf_calls": 35213,
+        "case_cumulative_wall_seconds": 12.45665804197779,
+        "case_id": "34Bus-standard-p000-s1",
+        "final_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "fresh_audit_replay_exact_device_and_energy_rows": true,
+        "fresh_audit_replay_pf_calls": 25,
+        "full_horizon": true,
+        "marker_sha256": "4f2a098d7d05bfd99e1f17927b13c64d89749aca051a66fa91ae27f9979c1537",
+        "path": "work/distribution-qualification-20261016/powergym-final/cases/34Bus-standard-p000-s1/hold_idle.json",
+        "phase_pf_calls": 50,
+        "phase_time_compliance": 0.2149122807017544,
+        "phase_wall_seconds": 0.03615624998928979,
+        "qualification_valid": true,
+        "sha256": "dbb2ca4a32954641408eb2cc909258a6efed33fe8ac3126597fdc24ea0af61e4",
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 0,
+        "throughput_kwh": 0.0,
+        "valid": true,
+        "voltage_violation_pu_hours": 68.45502791352716
+      },
+      {
+        "active_loss_kwh": 2653.1142969984235,
+        "actual_net_energy_kwh": [
+          0.0,
+          0.0
+        ],
+        "baseline": "oracle_day_idle",
+        "capacitor_switches": 6,
+        "case_cumulative_pf_calls": 34444,
+        "case_cumulative_wall_seconds": 12.159670666966122,
+        "case_id": "34Bus-standard-p000-s1",
+        "final_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "fresh_audit_replay_exact_device_and_energy_rows": true,
+        "fresh_audit_replay_pf_calls": 25,
+        "full_horizon": true,
+        "marker_sha256": "65e73ebbd71f230267c72be3d2fe0a936240c884ad87f62ac48db4ccc6c356a2",
+        "path": "work/distribution-qualification-20261016/powergym-final/cases/34Bus-standard-p000-s1/oracle_day_idle.json",
+        "phase_pf_calls": 674,
+        "phase_time_compliance": 0.9785087719298246,
+        "phase_wall_seconds": 0.845125249994453,
+        "qualification_valid": true,
+        "sha256": "4439d036ec4d946188149acee82676d2fc8461e475607a867ae284dce7f871f6",
+        "simultaneous_compliance": 0.625,
+        "tap_moves": 195,
+        "throughput_kwh": 0.0,
+        "valid": true,
+        "voltage_violation_pu_hours": 2.7213902302092308e-05
+      },
+      {
+        "active_loss_kwh": 2653.1142969984235,
+        "actual_net_energy_kwh": [
+          0.0,
+          0.0
+        ],
+        "baseline": "oracle_day_storage",
+        "capacitor_switches": 6,
+        "case_cumulative_pf_calls": 35138,
+        "case_cumulative_wall_seconds": 12.401770333992317,
+        "case_id": "34Bus-standard-p000-s1",
+        "final_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "fresh_audit_replay_exact_device_and_energy_rows": true,
+        "fresh_audit_replay_pf_calls": 25,
+        "full_horizon": true,
+        "marker_sha256": "86f5cce65e1915159007e9d1291b5a5bff83e864b863dc327533b506f65ba26e",
+        "path": "work/distribution-qualification-20261016/powergym-final/cases/34Bus-standard-p000-s1/oracle_day_storage.json",
+        "phase_pf_calls": 694,
+        "phase_time_compliance": 0.9785087719298246,
+        "phase_wall_seconds": 0.24209766602143645,
+        "qualification_valid": true,
+        "sha256": "c11d1d6fef087d52b8d133eb55ff0eb93149f1da271e2e7b01e534398c848dda",
+        "simultaneous_compliance": 0.625,
+        "tap_moves": 195,
+        "throughput_kwh": 0.0,
+        "valid": true,
+        "voltage_violation_pu_hours": 2.7213902302092308e-05
+      },
+      {
+        "active_loss_kwh": 2431.967801421928,
+        "actual_net_energy_kwh": [
+          0.0,
+          0.0
+        ],
+        "baseline": "static_day_idle",
+        "capacitor_switches": 0,
+        "case_cumulative_pf_calls": 33770,
+        "case_cumulative_wall_seconds": 11.314542458974756,
+        "case_id": "34Bus-standard-p000-s1",
+        "final_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "fresh_audit_replay_exact_device_and_energy_rows": true,
+        "fresh_audit_replay_pf_calls": 25,
+        "full_horizon": true,
+        "marker_sha256": "bb64c33df1e7bb86089f5840e3d7790863e6fca2867cc94f0a34deb613a1dba4",
+        "path": "work/distribution-qualification-20261016/powergym-final/cases/34Bus-standard-p000-s1/static_day_idle.json",
+        "phase_pf_calls": 17431,
+        "phase_time_compliance": 0.9407894736842105,
+        "phase_wall_seconds": 5.56860424997285,
+        "qualification_valid": true,
+        "sha256": "d4efc3c1bd0e95fdd7ad58676d11f494a1a98c913c50cefc83e063a701aeb03f",
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 82,
+        "throughput_kwh": 0.0,
+        "valid": true,
+        "voltage_violation_pu_hours": 0.5074029633712481
+      },
+      {
+        "active_loss_kwh": 2679.4499192672056,
+        "actual_net_energy_kwh": [
+          0.0,
+          0.0
+        ],
+        "baseline": "strong_current_idle",
+        "capacitor_switches": 6,
+        "case_cumulative_pf_calls": 16339,
+        "case_cumulative_wall_seconds": 5.745935583952814,
+        "case_id": "34Bus-standard-p000-s1",
+        "final_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "fresh_audit_replay_exact_device_and_energy_rows": true,
+        "fresh_audit_replay_pf_calls": 25,
+        "full_horizon": true,
+        "marker_sha256": "6213c84e8349ca1d90dd705e17e90b8d556ea16155c6a883c51718a08fdb00a4",
+        "path": "work/distribution-qualification-20261016/powergym-final/cases/34Bus-standard-p000-s1/strong_current_idle.json",
+        "phase_pf_calls": 16339,
+        "phase_time_compliance": 0.9785087719298246,
+        "phase_wall_seconds": 5.7459357919869944,
+        "qualification_valid": true,
+        "sha256": "daa88e6d8fac0166e58de4ea25fe4d0b8b8a482b717d2a30453bdc947db238ec",
+        "simultaneous_compliance": 0.625,
+        "tap_moves": 195,
+        "throughput_kwh": 0.0,
+        "valid": true,
+        "voltage_violation_pu_hours": 2.7213902302092308e-05
+      },
+      {
+        "active_loss_kwh": 2461.12408573063,
+        "actual_net_energy_kwh": [
+          0.0,
+          2.445148084007087e-09
+        ],
+        "baseline": "best_active_storage",
+        "capacitor_switches": 4,
+        "case_cumulative_pf_calls": 30177,
+        "case_cumulative_wall_seconds": 10.797235666017514,
+        "case_id": "34Bus-standard-p006-s1",
+        "final_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "fresh_audit_replay_exact_device_and_energy_rows": true,
+        "fresh_audit_replay_pf_calls": 25,
+        "full_horizon": true,
+        "marker_sha256": "0b6a018e546b57c2a6e0bc71146656e3b227cc0c47c43b370ff901f24a070232",
+        "path": "work/distribution-qualification-20261016/powergym-final/cases/34Bus-standard-p006-s1/best_active_storage.json",
+        "phase_pf_calls": 25,
+        "phase_time_compliance": 0.9868421052631579,
+        "phase_wall_seconds": 0.019185916986316442,
+        "qualification_valid": true,
+        "sha256": "6093971ca9d8410780c9fccf65118265527cf9ab568da64e5f33d622e248dabb",
+        "simultaneous_compliance": 0.625,
+        "tap_moves": 177,
+        "throughput_kwh": 249.99999999591077,
+        "valid": true,
+        "voltage_violation_pu_hours": 0.011568496600284472
+      },
+      {
+        "active_loss_kwh": 2683.2067948870076,
+        "actual_net_energy_kwh": [
+          0.0,
+          0.0
+        ],
+        "baseline": "canary_hysteresis",
+        "capacitor_switches": 0,
+        "case_cumulative_pf_calls": 30300,
+        "case_cumulative_wall_seconds": 10.8753910830128,
+        "case_id": "34Bus-standard-p006-s1",
+        "final_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "fresh_audit_replay_exact_device_and_energy_rows": true,
+        "fresh_audit_replay_pf_calls": 25,
+        "full_horizon": true,
+        "marker_sha256": "f5a0779dba4a881cd943bcad8601240691cda015923a67967e1d8006bd2dc2b2",
+        "path": "work/distribution-qualification-20261016/powergym-final/cases/34Bus-standard-p006-s1/canary_hysteresis.json",
+        "phase_pf_calls": 73,
+        "phase_time_compliance": 0.5833333333333334,
+        "phase_wall_seconds": 0.0431179580045864,
+        "qualification_valid": true,
+        "sha256": "c08cf63e9311ace34d20bf183ef759ca41af5541e8aa50fe47948e5a81f49978",
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 102,
+        "throughput_kwh": 0.0,
+        "valid": true,
+        "voltage_violation_pu_hours": 20.650677010136224
+      },
+      {
+        "active_loss_kwh": 2959.7715878066683,
+        "actual_net_energy_kwh": [
+          0.0,
+          0.0
+        ],
+        "baseline": "coordinated_voltage",
+        "capacitor_switches": 2,
+        "case_cumulative_pf_calls": 30368,
+        "case_cumulative_wall_seconds": 10.917268416029401,
+        "case_id": "34Bus-standard-p006-s1",
+        "final_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "fresh_audit_replay_exact_device_and_energy_rows": true,
+        "fresh_audit_replay_pf_calls": 25,
+        "full_horizon": true,
+        "marker_sha256": "cfd0b7f4845d3e17e5a60e3b3708fde9b7f4a06454d073ad1abe807f16dd5d8a",
+        "path": "work/distribution-qualification-20261016/powergym-final/cases/34Bus-standard-p006-s1/coordinated_voltage.json",
+        "phase_pf_calls": 68,
+        "phase_time_compliance": 0.8399122807017544,
+        "phase_wall_seconds": 0.04187529202317819,
+        "qualification_valid": true,
+        "sha256": "cb88c081a60dd65969e16c787df8f88cc00d08c83007d48e0d5463e6b2197049",
+        "simultaneous_compliance": 0.125,
+        "tap_moves": 186,
+        "throughput_kwh": 0.0,
+        "valid": true,
+        "voltage_violation_pu_hours": 3.187369423296251
+      },
+      {
+        "active_loss_kwh": 2982.1722764324245,
+        "actual_net_energy_kwh": [
+          0.0,
+          0.0
+        ],
+        "baseline": "full_information_snapshot",
+        "capacitor_switches": 4,
+        "case_cumulative_pf_calls": 31338,
+        "case_cumulative_wall_seconds": 11.232204583007842,
+        "case_id": "34Bus-standard-p006-s1",
+        "final_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "fresh_audit_replay_exact_device_and_energy_rows": true,
+        "fresh_audit_replay_pf_calls": 25,
+        "full_horizon": true,
+        "marker_sha256": "a5ad282325a3a5bae5b41502901e003a3590e1611fc5995a85e69fc6f245eeba",
+        "path": "work/distribution-qualification-20261016/powergym-final/cases/34Bus-standard-p006-s1/full_information_snapshot.json",
+        "phase_pf_calls": 970,
+        "phase_time_compliance": 0.7456140350877193,
+        "phase_wall_seconds": 0.3149340829695575,
+        "qualification_valid": true,
+        "sha256": "2a1482b1b78c062e94696b789a1ac29f7f3870447ac1e2b833a9de7aa41b84dc",
+        "simultaneous_compliance": 0.20833333333333334,
+        "tap_moves": 46,
+        "throughput_kwh": 0.0,
+        "valid": true,
+        "voltage_violation_pu_hours": 4.042350339660201
+      },
+      {
+        "active_loss_kwh": 3482.253963428982,
+        "actual_net_energy_kwh": [
+          0.0,
+          0.0
+        ],
+        "baseline": "hold_idle",
+        "capacitor_switches": 0,
+        "case_cumulative_pf_calls": 30227,
+        "case_cumulative_wall_seconds": 10.832271374994889,
+        "case_id": "34Bus-standard-p006-s1",
+        "final_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "fresh_audit_replay_exact_device_and_energy_rows": true,
+        "fresh_audit_replay_pf_calls": 25,
+        "full_horizon": true,
+        "marker_sha256": "0f851d5315e3ac0a43ef1e409857bb0de2ab33df4a2305add32f2ee43eb1cfe0",
+        "path": "work/distribution-qualification-20261016/powergym-final/cases/34Bus-standard-p006-s1/hold_idle.json",
+        "phase_pf_calls": 50,
+        "phase_time_compliance": 0.21052631578947367,
+        "phase_wall_seconds": 0.035033833992201835,
+        "qualification_valid": true,
+        "sha256": "84d0f95078c26798307bf249337987cf1ae8abeb15cdf3f03ec0d01cd9824852",
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 0,
+        "throughput_kwh": 0.0,
+        "valid": true,
+        "voltage_violation_pu_hours": 69.38938039378655
+      },
+      {
+        "active_loss_kwh": 2453.8203068381904,
+        "actual_net_energy_kwh": [
+          0.0,
+          0.0
+        ],
+        "baseline": "oracle_day_idle",
+        "capacitor_switches": 4,
+        "case_cumulative_pf_calls": 29477,
+        "case_cumulative_wall_seconds": 10.538030875031836,
+        "case_id": "34Bus-standard-p006-s1",
+        "final_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "fresh_audit_replay_exact_device_and_energy_rows": true,
+        "fresh_audit_replay_pf_calls": 25,
+        "full_horizon": true,
+        "marker_sha256": "eb38e77f9dffc385698d6f6d7ad7fdd5f0af3e68f0e91a6092d48d1753355b2e",
+        "path": "work/distribution-qualification-20261016/powergym-final/cases/34Bus-standard-p006-s1/oracle_day_idle.json",
+        "phase_pf_calls": 2386,
+        "phase_time_compliance": 0.9881578947368421,
+        "phase_wall_seconds": 1.391725542023778,
+        "qualification_valid": true,
+        "sha256": "b5fc67f2c52d7d429ddf1089b56f648cf8bfd661005172b534535ae47e455edd",
+        "simultaneous_compliance": 0.6666666666666666,
+        "tap_moves": 177,
+        "throughput_kwh": 0.0,
+        "valid": true,
+        "voltage_violation_pu_hours": 9.382815974845471e-06
+      },
+      {
+        "active_loss_kwh": 2453.8203068381904,
+        "actual_net_energy_kwh": [
+          0.0,
+          0.0
+        ],
+        "baseline": "oracle_day_storage",
+        "capacitor_switches": 4,
+        "case_cumulative_pf_calls": 30152,
+        "case_cumulative_wall_seconds": 10.778047375031747,
+        "case_id": "34Bus-standard-p006-s1",
+        "final_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "fresh_audit_replay_exact_device_and_energy_rows": true,
+        "fresh_audit_replay_pf_calls": 25,
+        "full_horizon": true,
+        "marker_sha256": "3f2d22fc1d9b5ea04cf5332e166c376d68a65c78784fe633fe4cc5fc77ca88fc",
+        "path": "work/distribution-qualification-20261016/powergym-final/cases/34Bus-standard-p006-s1/oracle_day_storage.json",
+        "phase_pf_calls": 675,
+        "phase_time_compliance": 0.9881578947368421,
+        "phase_wall_seconds": 0.24001412501093,
+        "qualification_valid": true,
+        "sha256": "9f7d55fe892d26e7221644e836c939560feb6fa4c11523d220b46ef1f1879f72",
+        "simultaneous_compliance": 0.6666666666666666,
+        "tap_moves": 177,
+        "throughput_kwh": 0.0,
+        "valid": true,
+        "voltage_violation_pu_hours": 9.382815974845471e-06
+      },
+      {
+        "active_loss_kwh": 2389.150411308376,
+        "actual_net_energy_kwh": [
+          0.0,
+          0.0
+        ],
+        "baseline": "static_day_idle",
+        "capacitor_switches": 0,
+        "case_cumulative_pf_calls": 27091,
+        "case_cumulative_wall_seconds": 9.146303125016857,
+        "case_id": "34Bus-standard-p006-s1",
+        "final_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "fresh_audit_replay_exact_device_and_energy_rows": true,
+        "fresh_audit_replay_pf_calls": 25,
+        "full_horizon": true,
+        "marker_sha256": "357204695f5537dd61721d25c6b38c8b4c67db936e8183682772cd59512dada1",
+        "path": "work/distribution-qualification-20261016/powergym-final/cases/34Bus-standard-p006-s1/static_day_idle.json",
+        "phase_pf_calls": 8489,
+        "phase_time_compliance": 0.9473684210526315,
+        "phase_wall_seconds": 2.6830592079786584,
+        "qualification_valid": true,
+        "sha256": "5679c10dab0d47110468c1e09fd9fe5d427e5bb37ac5c1550acbae876248c73b",
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 81,
+        "throughput_kwh": 0.0,
+        "valid": true,
+        "voltage_violation_pu_hours": 0.41045770382504354
+      },
+      {
+        "active_loss_kwh": 2481.7558511771185,
+        "actual_net_energy_kwh": [
+          0.0,
+          0.0
+        ],
+        "baseline": "strong_current_idle",
+        "capacitor_switches": 6,
+        "case_cumulative_pf_calls": 18602,
+        "case_cumulative_wall_seconds": 6.46324175002519,
+        "case_id": "34Bus-standard-p006-s1",
+        "final_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "fresh_audit_replay_exact_device_and_energy_rows": true,
+        "fresh_audit_replay_pf_calls": 25,
+        "full_horizon": true,
+        "marker_sha256": "a3943be9b86c217158d19a403513796a7797ec87befbe0b4e0121b6196307157",
+        "path": "work/distribution-qualification-20261016/powergym-final/cases/34Bus-standard-p006-s1/strong_current_idle.json",
+        "phase_pf_calls": 18602,
+        "phase_time_compliance": 0.9881578947368421,
+        "phase_wall_seconds": 6.463241791003384,
+        "qualification_valid": true,
+        "sha256": "70920f281c22ea7836d9bc4c19f095b8b68a2a3c0981c5c1a5ec1adcf4014e53",
+        "simultaneous_compliance": 0.6666666666666666,
+        "tap_moves": 177,
+        "throughput_kwh": 0.0,
+        "valid": true,
+        "voltage_violation_pu_hours": 9.382815974845471e-06
+      },
+      {
+        "active_loss_kwh": 2564.8270470847906,
+        "actual_net_energy_kwh": [
+          0.0,
+          1.1806235988842673e-09
+        ],
+        "baseline": "best_active_storage",
+        "capacitor_switches": 4,
+        "case_cumulative_pf_calls": 37776,
+        "case_cumulative_wall_seconds": 12.555568667012267,
+        "case_id": "34Bus-standard-p015-s1",
+        "final_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "fresh_audit_replay_exact_device_and_energy_rows": true,
+        "fresh_audit_replay_pf_calls": 25,
+        "full_horizon": true,
+        "marker_sha256": "9523508dc92e2b236959dfc4bc0261d8a58d3848242bf295f3be2c04f5b4b9b3",
+        "path": "work/distribution-qualification-20261016/powergym-final/cases/34Bus-standard-p015-s1/best_active_storage.json",
+        "phase_pf_calls": 25,
+        "phase_time_compliance": 0.9793859649122807,
+        "phase_wall_seconds": 0.019244209048338234,
+        "qualification_valid": true,
+        "sha256": "db1c080dab7b7541305b2f8b4ee89b4fd29e9d3fbb15564d50e5b4803b1199fd",
+        "simultaneous_compliance": 0.625,
+        "tap_moves": 183,
+        "throughput_kwh": 249.9999999967481,
+        "valid": true,
+        "voltage_violation_pu_hours": 0.021368630445467995
+      },
+      {
+        "active_loss_kwh": 2720.458333884585,
+        "actual_net_energy_kwh": [
+          0.0,
+          0.0
+        ],
+        "baseline": "canary_hysteresis",
+        "capacitor_switches": 0,
+        "case_cumulative_pf_calls": 37899,
+        "case_cumulative_wall_seconds": 12.633040209009778,
+        "case_id": "34Bus-standard-p015-s1",
+        "final_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "fresh_audit_replay_exact_device_and_energy_rows": true,
+        "fresh_audit_replay_pf_calls": 25,
+        "full_horizon": true,
+        "marker_sha256": "16c18eabcd17da0968409e51d6c3149741613b052b0b3c5eeb1af96506d04aef",
+        "path": "work/distribution-qualification-20261016/powergym-final/cases/34Bus-standard-p015-s1/canary_hysteresis.json",
+        "phase_pf_calls": 73,
+        "phase_time_compliance": 0.5793859649122807,
+        "phase_wall_seconds": 0.042880167020484805,
+        "qualification_valid": true,
+        "sha256": "1ef69579cc1b6a5d7c40e056a6217af2d42e29925666f4dd86cfc31499bb4f55",
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 102,
+        "throughput_kwh": 0.0,
+        "valid": true,
+        "voltage_violation_pu_hours": 20.013708779572735
+      },
+      {
+        "active_loss_kwh": 3027.450508161757,
+        "actual_net_energy_kwh": [
+          0.0,
+          0.0
+        ],
+        "baseline": "coordinated_voltage",
+        "capacitor_switches": 2,
+        "case_cumulative_pf_calls": 37966,
+        "case_cumulative_wall_seconds": 12.67472666699905,
+        "case_id": "34Bus-standard-p015-s1",
+        "final_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "fresh_audit_replay_exact_device_and_energy_rows": true,
+        "fresh_audit_replay_pf_calls": 25,
+        "full_horizon": true,
+        "marker_sha256": "80d16e6dd8c3d26554b6e4c34af4a3c9749aef29c6b9f78c897a1689641915b6",
+        "path": "work/distribution-qualification-20261016/powergym-final/cases/34Bus-standard-p015-s1/coordinated_voltage.json",
+        "phase_pf_calls": 67,
+        "phase_time_compliance": 0.8333333333333334,
+        "phase_wall_seconds": 0.041684625030029565,
+        "qualification_valid": true,
+        "sha256": "7ef63b7f1ebf9dd00204c8e54c8de63ac154c6bd9719c1a198f74bdf4d261344",
+        "simultaneous_compliance": 0.125,
+        "tap_moves": 186,
+        "throughput_kwh": 0.0,
+        "valid": true,
+        "voltage_violation_pu_hours": 3.2529307491026023
+      },
+      {
+        "active_loss_kwh": 2940.9940339981717,
+        "actual_net_energy_kwh": [
+          0.0,
+          0.0
+        ],
+        "baseline": "full_information_snapshot",
+        "capacitor_switches": 4,
+        "case_cumulative_pf_calls": 38988,
+        "case_cumulative_wall_seconds": 12.999591208994389,
+        "case_id": "34Bus-standard-p015-s1",
+        "final_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "fresh_audit_replay_exact_device_and_energy_rows": true,
+        "fresh_audit_replay_pf_calls": 25,
+        "full_horizon": true,
+        "marker_sha256": "fa74b47d5c36090015580bb1932e221ae24a2f595083f4d9358197b088a2263f",
+        "path": "work/distribution-qualification-20261016/powergym-final/cases/34Bus-standard-p015-s1/full_information_snapshot.json",
+        "phase_pf_calls": 1022,
+        "phase_time_compliance": 0.8131578947368421,
+        "phase_wall_seconds": 0.3248625000123866,
+        "qualification_valid": true,
+        "sha256": "150f103d6d1e6e993b93845078738b21af501987e24601601a44c2c65108ae3f",
+        "simultaneous_compliance": 0.5,
+        "tap_moves": 51,
+        "throughput_kwh": 0.0,
+        "valid": true,
+        "voltage_violation_pu_hours": 3.2800019521646124
+      },
+      {
+        "active_loss_kwh": 3526.0031629978466,
+        "actual_net_energy_kwh": [
+          0.0,
+          0.0
+        ],
+        "baseline": "hold_idle",
+        "capacitor_switches": 0,
+        "case_cumulative_pf_calls": 37826,
+        "case_cumulative_wall_seconds": 12.590157959028147,
+        "case_id": "34Bus-standard-p015-s1",
+        "final_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "fresh_audit_replay_exact_device_and_energy_rows": true,
+        "fresh_audit_replay_pf_calls": 25,
+        "full_horizon": true,
+        "marker_sha256": "2271cdf6a2d2e9c5aa90ff27547a784dbb8a5aee03f47e7e4bb7babe1ee4d670",
+        "path": "work/distribution-qualification-20261016/powergym-final/cases/34Bus-standard-p015-s1/hold_idle.json",
+        "phase_pf_calls": 50,
+        "phase_time_compliance": 0.21359649122807017,
+        "phase_wall_seconds": 0.034587333037052304,
+        "qualification_valid": true,
+        "sha256": "bc1e3d295bc7a31cbfa7397cd0d3b8d6ee6976dac5474bb512fa14bdb4b4a258",
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 0,
+        "throughput_kwh": 0.0,
+        "valid": true,
+        "voltage_violation_pu_hours": 68.19446370939137
+      },
+      {
+        "active_loss_kwh": 2580.063317034809,
+        "actual_net_energy_kwh": [
+          0.0,
+          0.0
+        ],
+        "baseline": "oracle_day_idle",
+        "capacitor_switches": 4,
+        "case_cumulative_pf_calls": 37060,
+        "case_cumulative_wall_seconds": 12.26251620898256,
+        "case_id": "34Bus-standard-p015-s1",
+        "final_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "fresh_audit_replay_exact_device_and_energy_rows": true,
+        "fresh_audit_replay_pf_calls": 25,
+        "full_horizon": true,
+        "marker_sha256": "9eb8c53246d44032f3f9030838a72ced5d4304e6156e93b54e5709ce22295f19",
+        "path": "work/distribution-qualification-20261016/powergym-final/cases/34Bus-standard-p015-s1/oracle_day_idle.json",
+        "phase_pf_calls": 841,
+        "phase_time_compliance": 0.9793859649122807,
+        "phase_wall_seconds": 0.8718432090245187,
+        "qualification_valid": true,
+        "sha256": "b93787f07c402fcc5da9b610ca616df21ecd067cdb090491a7d625e1b4a2c460",
+        "simultaneous_compliance": 0.6666666666666666,
+        "tap_moves": 183,
+        "throughput_kwh": 0.0,
+        "valid": true,
+        "voltage_violation_pu_hours": 2.4592694815472882e-05
+      },
+      {
+        "active_loss_kwh": 2580.063317034809,
+        "actual_net_energy_kwh": [
+          0.0,
+          0.0
+        ],
+        "baseline": "oracle_day_storage",
+        "capacitor_switches": 4,
+        "case_cumulative_pf_calls": 37751,
+        "case_cumulative_wall_seconds": 12.536322375002783,
+        "case_id": "34Bus-standard-p015-s1",
+        "final_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "fresh_audit_replay_exact_device_and_energy_rows": true,
+        "fresh_audit_replay_pf_calls": 25,
+        "full_horizon": true,
+        "marker_sha256": "b6f56cc3c821798066da672ce86153ba1f3c63627a691c57a0f919f7144b4d74",
+        "path": "work/distribution-qualification-20261016/powergym-final/cases/34Bus-standard-p015-s1/oracle_day_storage.json",
+        "phase_pf_calls": 691,
+        "phase_time_compliance": 0.9793859649122807,
+        "phase_wall_seconds": 0.27380391699261963,
+        "qualification_valid": true,
+        "sha256": "238baa4e37d4b653180ff3cda05c24fbdd027dd57498d674da271c0658c2e2d7",
+        "simultaneous_compliance": 0.6666666666666666,
+        "tap_moves": 183,
+        "throughput_kwh": 0.0,
+        "valid": true,
+        "voltage_violation_pu_hours": 2.4592694815472882e-05
+      },
+      {
+        "active_loss_kwh": 2424.229506774505,
+        "actual_net_energy_kwh": [
+          0.0,
+          0.0
+        ],
+        "baseline": "static_day_idle",
+        "capacitor_switches": 0,
+        "case_cumulative_pf_calls": 36219,
+        "case_cumulative_wall_seconds": 11.390670666994993,
+        "case_id": "34Bus-standard-p015-s1",
+        "final_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "fresh_audit_replay_exact_device_and_energy_rows": true,
+        "fresh_audit_replay_pf_calls": 25,
+        "full_horizon": true,
+        "marker_sha256": "3cbf443518a24ff57796088888979f464e47f38425f95f36466ffa60fcb4ecfc",
+        "path": "work/distribution-qualification-20261016/powergym-final/cases/34Bus-standard-p015-s1/static_day_idle.json",
+        "phase_pf_calls": 17337,
+        "phase_time_compliance": 0.9447368421052632,
+        "phase_wall_seconds": 5.458155959029682,
+        "qualification_valid": true,
+        "sha256": "7d6c143c15ccb23909fca9d4356a52d947198977fd54fcbc1e2a4f423fb3a1b5",
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 81,
+        "throughput_kwh": 0.0,
+        "valid": true,
+        "voltage_violation_pu_hours": 0.4455211758902359
+      },
+      {
+        "active_loss_kwh": 2605.604653368036,
+        "actual_net_energy_kwh": [
+          0.0,
+          0.0
+        ],
+        "baseline": "strong_current_idle",
+        "capacitor_switches": 6,
+        "case_cumulative_pf_calls": 18882,
+        "case_cumulative_wall_seconds": 5.932511208986398,
+        "case_id": "34Bus-standard-p015-s1",
+        "final_energy_kwh": [
+          4000.0,
+          4000.0
+        ],
+        "fresh_audit_replay_exact_device_and_energy_rows": true,
+        "fresh_audit_replay_pf_calls": 25,
+        "full_horizon": true,
+        "marker_sha256": "35c92a0468bd0c573f93cbcf364034f574941f5ff2763572a503ee17fa8b4d3f",
+        "path": "work/distribution-qualification-20261016/powergym-final/cases/34Bus-standard-p015-s1/strong_current_idle.json",
+        "phase_pf_calls": 18882,
+        "phase_time_compliance": 0.9793859649122807,
+        "phase_wall_seconds": 5.932511250022799,
+        "qualification_valid": true,
+        "sha256": "ce0f7ccce610df51b54e3967e6f73cc65bfb75a61c5c0af00151d3a071920aab",
+        "simultaneous_compliance": 0.6666666666666666,
+        "tap_moves": 183,
+        "throughput_kwh": 0.0,
+        "valid": true,
+        "voltage_violation_pu_hours": 2.4592694815472882e-05
+      }
+    ],
+    "upstream_boundary_diagnostics": [
+      {
+        "baseline": "strong_current_idle",
+        "case_id": "34Bus-standard-p000-s1",
+        "diagnostic_exclusion_is_not_a_changed_score": true,
+        "excess_buses_max_pu": {
+          "800": 2.8333918016265613e-06,
+          "sourcebus": 1.2299507532453902e-06
+        },
+        "maximum_excess_pu": 2.8333918016265613e-06,
+        "official_strict_all_bus_compliance": 0.625,
+        "remaining_feed_buses_all24_compliant": true
+      },
+      {
+        "baseline": "strong_current_idle",
+        "case_id": "34Bus-standard-p006-s1",
+        "diagnostic_exclusion_is_not_a_changed_score": true,
+        "excess_buses_max_pu": {
+          "800": 2.139783432886233e-06,
+          "sourcebus": 8.038633836360276e-07
+        },
+        "maximum_excess_pu": 2.139783432886233e-06,
+        "official_strict_all_bus_compliance": 0.6666666666666666,
+        "remaining_feed_buses_all24_compliant": true
+      },
+      {
+        "baseline": "strong_current_idle",
+        "case_id": "34Bus-standard-p015-s1",
+        "diagnostic_exclusion_is_not_a_changed_score": true,
+        "excess_buses_max_pu": {
+          "800": 2.6986125007955053e-06,
+          "sourcebus": 1.1422589230036806e-06
+        },
+        "maximum_excess_pu": 2.6986125007955053e-06,
+        "official_strict_all_bus_compliance": 0.6666666666666666,
+        "remaining_feed_buses_all24_compliant": true
+      }
+    ],
+    "valid": 45,
+    "wall_seconds_per_case_sum_not_elapsed": 77.00602424994577
+  },
+  "schema": "distribution-qualification-independent-audit-v1",
+  "scope": "Recorded aggregate metrics independently recomputed; all 45 PG schedules additionally replayed through fresh deterministic physical backends. No second complete MAPDN optimization/replay. Numerical trials here are post-run audit work, outside frozen experiment resource accounting.",
+  "source_freezes": {
+    "mapdn": {
+      "files": [
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "6615eed909cdd0a330fede915f63a6ee89088c5dd2e70bd3357f43cb02f75e3e",
+          "frozen_sha256": "6615eed909cdd0a330fede915f63a6ee89088c5dd2e70bd3357f43cb02f75e3e",
+          "path": "configs/distribution-baseline-qualification-20261016.json",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+          "frozen_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+          "path": "configs/distribution-case-selection-20261016.json",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "6f1e1881c7b78c9acffc82e7c174c34b6b26ba90f6eade14ce19ba6b5cc2ba7f",
+          "frozen_sha256": "6f1e1881c7b78c9acffc82e7c174c34b6b26ba90f6eade14ce19ba6b5cc2ba7f",
+          "path": "src/powergrid_bench/__init__.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "2704e2b2023f10ac4ed497aa58a1ffcbbcc23d2bf58b95a87f08ff38ae81f2d2",
+          "frozen_sha256": "2704e2b2023f10ac4ed497aa58a1ffcbbcc23d2bf58b95a87f08ff38ae81f2d2",
+          "path": "src/powergrid_bench/adapters.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "cd6cbe13d1980cad6dab7c8070a433c2b2f2542c9b29d69a6fdfd7552e891033",
+          "frozen_sha256": "cd6cbe13d1980cad6dab7c8070a433c2b2f2542c9b29d69a6fdfd7552e891033",
+          "path": "src/powergrid_bench/artifacts.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "59522c9c6caf710d35fe49fa09fe420424511d5292eb9c1570abcb7a53c9ed8c",
+          "frozen_sha256": "59522c9c6caf710d35fe49fa09fe420424511d5292eb9c1570abcb7a53c9ed8c",
+          "path": "src/powergrid_bench/broker.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "91cdf314aa0686f61c7ba6535df324dd273d7f76059d609fa8268c00efec2bbd",
+          "frozen_sha256": "91cdf314aa0686f61c7ba6535df324dd273d7f76059d609fa8268c00efec2bbd",
+          "path": "src/powergrid_bench/cli.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "a9a92af6c37026f77e1e058f995c9a86c62fc62d5c1da8dad84d740df899060a",
+          "frozen_sha256": "a9a92af6c37026f77e1e058f995c9a86c62fc62d5c1da8dad84d740df899060a",
+          "path": "src/powergrid_bench/clock.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "43030940592bf3f07ef5325c9e3640b873d970c7dd12c503735ac48a2fea91f4",
+          "frozen_sha256": "43030940592bf3f07ef5325c9e3640b873d970c7dd12c503735ac48a2fea91f4",
+          "path": "src/powergrid_bench/config.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "f8a69945e2bd36b069e4612a6ce36be08ada0bdf3dc93f09120fe9670e1a3cde",
+          "frozen_sha256": "f8a69945e2bd36b069e4612a6ce36be08ada0bdf3dc93f09120fe9670e1a3cde",
+          "path": "src/powergrid_bench/distribution/__init__.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "809e9e4557977a567b58dfde7a7e2554a18e3d5883b64155e2bd3a75f372af53",
+          "frozen_sha256": "809e9e4557977a567b58dfde7a7e2554a18e3d5883b64155e2bd3a75f372af53",
+          "path": "src/powergrid_bench/distribution/common.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "46157dc689f3638476c737d6b8e6e7a8cec81e92140ccfe8292190d55fc091bb",
+          "frozen_sha256": "46157dc689f3638476c737d6b8e6e7a8cec81e92140ccfe8292190d55fc091bb",
+          "path": "src/powergrid_bench/distribution/mapdn.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "b96563a4fac668bd0504dd3bf1fa1a00e76b5cd67ff9230ee394e37a62cb18e5",
+          "frozen_sha256": "b96563a4fac668bd0504dd3bf1fa1a00e76b5cd67ff9230ee394e37a62cb18e5",
+          "path": "src/powergrid_bench/distribution/powergym.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "22c53f334e410ac47ecd7ad2b6632086a58cc7035899227fa27166729103614c",
+          "frozen_sha256": "22c53f334e410ac47ecd7ad2b6632086a58cc7035899227fa27166729103614c",
+          "path": "src/powergrid_bench/distribution/preparation.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "bf2f7198982ab51c42b9409c2f49cf03575193d8fe87594cbd6e66b544f8faf6",
+          "frozen_sha256": "bf2f7198982ab51c42b9409c2f49cf03575193d8fe87594cbd6e66b544f8faf6",
+          "path": "src/powergrid_bench/distribution/profiles.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "2b6417d7e8db1badf627c0eebf19f9dd82cdc5a6032a34b368a0b5e652a86333",
+          "frozen_sha256": "2b6417d7e8db1badf627c0eebf19f9dd82cdc5a6032a34b368a0b5e652a86333",
+          "path": "src/powergrid_bench/fixtures.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "f66e809cb1c295a5259b9f5238c107cdbd5d60d2d364a86945752c7323fc2883",
+          "frozen_sha256": "f66e809cb1c295a5259b9f5238c107cdbd5d60d2d364a86945752c7323fc2883",
+          "path": "src/powergrid_bench/ledger.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "73cd905f07e9d9219a880bb046474326bcbd0c0cdd53c993fdb57210af7360a7",
+          "frozen_sha256": "73cd905f07e9d9219a880bb046474326bcbd0c0cdd53c993fdb57210af7360a7",
+          "path": "src/powergrid_bench/lifecycle.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "c5b0ea3b91d6d275eaa515a44ef104e0e8a9cb5771dd405149cfa2f65f0f0574",
+          "frozen_sha256": "c5b0ea3b91d6d275eaa515a44ef104e0e8a9cb5771dd405149cfa2f65f0f0574",
+          "path": "src/powergrid_bench/process.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "baea55f7c86e74e65fd11f421616bf53e24b3b115e62ab63ac678af0e613f7f5",
+          "frozen_sha256": "baea55f7c86e74e65fd11f421616bf53e24b3b115e62ab63ac678af0e613f7f5",
+          "path": "src/powergrid_bench/rte.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "f20d2001116be460e9190e0a7b9e8f3473affd72699c15ce857e95d23c93afff",
+          "frozen_sha256": "f20d2001116be460e9190e0a7b9e8f3473affd72699c15ce857e95d23c93afff",
+          "path": "task-packages/mapdn-voltage-control-canary-v1/environment/app/submission/controller.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "bd390bd5730cbd424a8dfda61fb00b8d3a3bb77f10ca3e6a1e0d640abb1c1628",
+          "frozen_sha256": "bd390bd5730cbd424a8dfda61fb00b8d3a3bb77f10ca3e6a1e0d640abb1c1628",
+          "path": "tests/test_mapdn_qualification.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "1549f9c9f4b0329f5225af5c00081d8b1bb60e6e300f3f6e28e32f310bc7f3cd",
+          "frozen_sha256": "1549f9c9f4b0329f5225af5c00081d8b1bb60e6e300f3f6e28e32f310bc7f3cd",
+          "path": "tools/distribution_qualification/mapdn_controllers.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "180b25b2dc7aef28153763a607654b86918b548d322500b52d0fe7075fe4596a",
+          "frozen_sha256": "180b25b2dc7aef28153763a607654b86918b548d322500b52d0fe7075fe4596a",
+          "path": "tools/distribution_qualification/mapdn_qualification.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "40f2a319ddb37133342e43dadecc267350a63bc0c0083291a95019670fb7f7fe",
+          "frozen_sha256": "40f2a319ddb37133342e43dadecc267350a63bc0c0083291a95019670fb7f7fe",
+          "path": "tools/distribution_qualification/mapdn_simulation.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "ae7962b70c83cb80210e8bcf314ccf94be5c37b25f3424803883bb23cef6e5d3",
+          "frozen_sha256": "ae7962b70c83cb80210e8bcf314ccf94be5c37b25f3424803883bb23cef6e5d3",
+          "path": "tools/distribution_selection/mapdn_baselines/__init__.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "fca6ae6ce4f3cb7f0f9151073949b15bb990dc40d88035e494b9c9109539eeab",
+          "frozen_sha256": "fca6ae6ce4f3cb7f0f9151073949b15bb990dc40d88035e494b9c9109539eeab",
+          "path": "tools/distribution_selection/mapdn_baselines/controllers.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "b753066abd47b1042d1d7e53764594a3a327ba98caea0d32388fce04fd9804ec",
+          "frozen_sha256": "b753066abd47b1042d1d7e53764594a3a327ba98caea0d32388fce04fd9804ec",
+          "path": "tools/distribution_selection/mapdn_baselines/reference.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "ab9d5acf906644bbbaf2daa422d9deaa6b57e27d90b328f0ec36b8a0015892c5",
+          "frozen_sha256": "ab9d5acf906644bbbaf2daa422d9deaa6b57e27d90b328f0ec36b8a0015892c5",
+          "path": "tools/distribution_selection/mapdn_baselines/simulation.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "803280f6f97b7d3ef92027c228f5f0be16b12e4b3cb646de6fb29f693566b621",
+          "frozen_sha256": "803280f6f97b7d3ef92027c228f5f0be16b12e4b3cb646de6fb29f693566b621",
+          "path": "tools/distribution_selection/mapdn_selection.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "6f11ed481703f91327075c09d059fb70d26279578160a3c039a9ff200ebfeb6d",
+          "frozen_sha256": "6f11ed481703f91327075c09d059fb70d26279578160a3c039a9ff200ebfeb6d",
+          "path": "tools/distribution_selection/powergym_baselines/__init__.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "b16e44db8f2a0235cca8294129da4a02082f1162e2fc69c18b1bdec695867df8",
+          "frozen_sha256": "b16e44db8f2a0235cca8294129da4a02082f1162e2fc69c18b1bdec695867df8",
+          "path": "tools/distribution_selection/powergym_baselines/backend.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "98cb5797be00417b7b98366742e040d2b3071ad825484f1a3ff3cf574556d1ff",
+          "frozen_sha256": "98cb5797be00417b7b98366742e040d2b3071ad825484f1a3ff3cf574556d1ff",
+          "path": "tools/distribution_selection/powergym_baselines/controllers.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "e2099e02a33d5291d97a9cbf77e1295341ee38307648df6c9d7f23eef44edcdd",
+          "frozen_sha256": "e2099e02a33d5291d97a9cbf77e1295341ee38307648df6c9d7f23eef44edcdd",
+          "path": "tools/distribution_selection/powergym_selection.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "14f24ee184c416e6df0200f327dab6dd8c01b115b3dd486fb659fd9e9c349c1b",
+          "frozen_sha256": "14f24ee184c416e6df0200f327dab6dd8c01b115b3dd486fb659fd9e9c349c1b",
+          "path": "tools/distribution_selection/runtime_cluster.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "ca7b7d19cb88e2368ddc9897a1ebe28a7c0f360ba58fce63cc840d8953138fa9",
+          "frozen_sha256": "ca7b7d19cb88e2368ddc9897a1ebe28a7c0f360ba58fce63cc840d8953138fa9",
+          "path": "tools/distribution_selection/runtime_fetch_mapdn141.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "e87857e818deb71a79a83fd3b02da7151f9480450069e437c469643288f65424",
+          "frozen_sha256": "e87857e818deb71a79a83fd3b02da7151f9480450069e437c469643288f65424",
+          "path": "tools/distribution_selection/runtime_tests.py",
+          "snapshot_matches": true
+        }
+      ],
+      "manifest_sha256": "2054b9820faa98838ab9c5a1f028cc0230b96c3c73212bbfedd9edbcb5b4d631",
+      "production_sources_unchanged": true
+    },
+    "powergym": {
+      "files": [
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "df22bc206b07a5cea0bcbfe0fa22570fb4761a1e018de3b7e4e5221bbd985991",
+          "frozen_sha256": "df22bc206b07a5cea0bcbfe0fa22570fb4761a1e018de3b7e4e5221bbd985991",
+          "path": "configs/distribution-baseline-qualification-20261016-numerics.json",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "6615eed909cdd0a330fede915f63a6ee89088c5dd2e70bd3357f43cb02f75e3e",
+          "frozen_sha256": "6615eed909cdd0a330fede915f63a6ee89088c5dd2e70bd3357f43cb02f75e3e",
+          "path": "configs/distribution-baseline-qualification-20261016.json",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+          "frozen_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+          "path": "configs/distribution-case-selection-20261016.json",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "6f1e1881c7b78c9acffc82e7c174c34b6b26ba90f6eade14ce19ba6b5cc2ba7f",
+          "frozen_sha256": "6f1e1881c7b78c9acffc82e7c174c34b6b26ba90f6eade14ce19ba6b5cc2ba7f",
+          "path": "src/powergrid_bench/__init__.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "2704e2b2023f10ac4ed497aa58a1ffcbbcc23d2bf58b95a87f08ff38ae81f2d2",
+          "frozen_sha256": "2704e2b2023f10ac4ed497aa58a1ffcbbcc23d2bf58b95a87f08ff38ae81f2d2",
+          "path": "src/powergrid_bench/adapters.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "cd6cbe13d1980cad6dab7c8070a433c2b2f2542c9b29d69a6fdfd7552e891033",
+          "frozen_sha256": "cd6cbe13d1980cad6dab7c8070a433c2b2f2542c9b29d69a6fdfd7552e891033",
+          "path": "src/powergrid_bench/artifacts.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "59522c9c6caf710d35fe49fa09fe420424511d5292eb9c1570abcb7a53c9ed8c",
+          "frozen_sha256": "59522c9c6caf710d35fe49fa09fe420424511d5292eb9c1570abcb7a53c9ed8c",
+          "path": "src/powergrid_bench/broker.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "91cdf314aa0686f61c7ba6535df324dd273d7f76059d609fa8268c00efec2bbd",
+          "frozen_sha256": "91cdf314aa0686f61c7ba6535df324dd273d7f76059d609fa8268c00efec2bbd",
+          "path": "src/powergrid_bench/cli.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "a9a92af6c37026f77e1e058f995c9a86c62fc62d5c1da8dad84d740df899060a",
+          "frozen_sha256": "a9a92af6c37026f77e1e058f995c9a86c62fc62d5c1da8dad84d740df899060a",
+          "path": "src/powergrid_bench/clock.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "43030940592bf3f07ef5325c9e3640b873d970c7dd12c503735ac48a2fea91f4",
+          "frozen_sha256": "43030940592bf3f07ef5325c9e3640b873d970c7dd12c503735ac48a2fea91f4",
+          "path": "src/powergrid_bench/config.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "f8a69945e2bd36b069e4612a6ce36be08ada0bdf3dc93f09120fe9670e1a3cde",
+          "frozen_sha256": "f8a69945e2bd36b069e4612a6ce36be08ada0bdf3dc93f09120fe9670e1a3cde",
+          "path": "src/powergrid_bench/distribution/__init__.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "809e9e4557977a567b58dfde7a7e2554a18e3d5883b64155e2bd3a75f372af53",
+          "frozen_sha256": "809e9e4557977a567b58dfde7a7e2554a18e3d5883b64155e2bd3a75f372af53",
+          "path": "src/powergrid_bench/distribution/common.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "46157dc689f3638476c737d6b8e6e7a8cec81e92140ccfe8292190d55fc091bb",
+          "frozen_sha256": "46157dc689f3638476c737d6b8e6e7a8cec81e92140ccfe8292190d55fc091bb",
+          "path": "src/powergrid_bench/distribution/mapdn.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "b96563a4fac668bd0504dd3bf1fa1a00e76b5cd67ff9230ee394e37a62cb18e5",
+          "frozen_sha256": "b96563a4fac668bd0504dd3bf1fa1a00e76b5cd67ff9230ee394e37a62cb18e5",
+          "path": "src/powergrid_bench/distribution/powergym.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "22c53f334e410ac47ecd7ad2b6632086a58cc7035899227fa27166729103614c",
+          "frozen_sha256": "22c53f334e410ac47ecd7ad2b6632086a58cc7035899227fa27166729103614c",
+          "path": "src/powergrid_bench/distribution/preparation.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "bf2f7198982ab51c42b9409c2f49cf03575193d8fe87594cbd6e66b544f8faf6",
+          "frozen_sha256": "bf2f7198982ab51c42b9409c2f49cf03575193d8fe87594cbd6e66b544f8faf6",
+          "path": "src/powergrid_bench/distribution/profiles.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "2b6417d7e8db1badf627c0eebf19f9dd82cdc5a6032a34b368a0b5e652a86333",
+          "frozen_sha256": "2b6417d7e8db1badf627c0eebf19f9dd82cdc5a6032a34b368a0b5e652a86333",
+          "path": "src/powergrid_bench/fixtures.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "f66e809cb1c295a5259b9f5238c107cdbd5d60d2d364a86945752c7323fc2883",
+          "frozen_sha256": "f66e809cb1c295a5259b9f5238c107cdbd5d60d2d364a86945752c7323fc2883",
+          "path": "src/powergrid_bench/ledger.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "73cd905f07e9d9219a880bb046474326bcbd0c0cdd53c993fdb57210af7360a7",
+          "frozen_sha256": "73cd905f07e9d9219a880bb046474326bcbd0c0cdd53c993fdb57210af7360a7",
+          "path": "src/powergrid_bench/lifecycle.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "c5b0ea3b91d6d275eaa515a44ef104e0e8a9cb5771dd405149cfa2f65f0f0574",
+          "frozen_sha256": "c5b0ea3b91d6d275eaa515a44ef104e0e8a9cb5771dd405149cfa2f65f0f0574",
+          "path": "src/powergrid_bench/process.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "baea55f7c86e74e65fd11f421616bf53e24b3b115e62ab63ac678af0e613f7f5",
+          "frozen_sha256": "baea55f7c86e74e65fd11f421616bf53e24b3b115e62ab63ac678af0e613f7f5",
+          "path": "src/powergrid_bench/rte.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "f20d2001116be460e9190e0a7b9e8f3473affd72699c15ce857e95d23c93afff",
+          "frozen_sha256": "f20d2001116be460e9190e0a7b9e8f3473affd72699c15ce857e95d23c93afff",
+          "path": "task-packages/mapdn-voltage-control-canary-v1/environment/app/submission/controller.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": true,
+          "current_matches_frozen": false,
+          "current_sha256": "57664e74e524f6b4d67c9e4c6e4ddca8021fb286909cae6931eff680ec088525",
+          "frozen_sha256": "71278939f9b4f7c8c7643384fe2e7296f4be0ae11a70359650ceb11cbdd2d0d8",
+          "path": "tests/test_powergym_qualification.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "9499badbc431087c5270405cfffacf44d751a8a053d39ce79177de8f6cb4d53e",
+          "frozen_sha256": "9499badbc431087c5270405cfffacf44d751a8a053d39ce79177de8f6cb4d53e",
+          "path": "tools/distribution_qualification/powergym_backend.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "59b6ea3ff9d3f7645c250c4925ebf2d91660db60e5e67e5518119cc7fa81b8c4",
+          "frozen_sha256": "59b6ea3ff9d3f7645c250c4925ebf2d91660db60e5e67e5518119cc7fa81b8c4",
+          "path": "tools/distribution_qualification/powergym_qualification.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "a2202ab0ddca79abe8297fedb63304a5f8f40772e8d015f535d5a43d00b953ec",
+          "frozen_sha256": "a2202ab0ddca79abe8297fedb63304a5f8f40772e8d015f535d5a43d00b953ec",
+          "path": "tools/distribution_qualification/powergym_search.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "ae7962b70c83cb80210e8bcf314ccf94be5c37b25f3424803883bb23cef6e5d3",
+          "frozen_sha256": "ae7962b70c83cb80210e8bcf314ccf94be5c37b25f3424803883bb23cef6e5d3",
+          "path": "tools/distribution_selection/mapdn_baselines/__init__.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "fca6ae6ce4f3cb7f0f9151073949b15bb990dc40d88035e494b9c9109539eeab",
+          "frozen_sha256": "fca6ae6ce4f3cb7f0f9151073949b15bb990dc40d88035e494b9c9109539eeab",
+          "path": "tools/distribution_selection/mapdn_baselines/controllers.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "b753066abd47b1042d1d7e53764594a3a327ba98caea0d32388fce04fd9804ec",
+          "frozen_sha256": "b753066abd47b1042d1d7e53764594a3a327ba98caea0d32388fce04fd9804ec",
+          "path": "tools/distribution_selection/mapdn_baselines/reference.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "ab9d5acf906644bbbaf2daa422d9deaa6b57e27d90b328f0ec36b8a0015892c5",
+          "frozen_sha256": "ab9d5acf906644bbbaf2daa422d9deaa6b57e27d90b328f0ec36b8a0015892c5",
+          "path": "tools/distribution_selection/mapdn_baselines/simulation.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "803280f6f97b7d3ef92027c228f5f0be16b12e4b3cb646de6fb29f693566b621",
+          "frozen_sha256": "803280f6f97b7d3ef92027c228f5f0be16b12e4b3cb646de6fb29f693566b621",
+          "path": "tools/distribution_selection/mapdn_selection.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "6f11ed481703f91327075c09d059fb70d26279578160a3c039a9ff200ebfeb6d",
+          "frozen_sha256": "6f11ed481703f91327075c09d059fb70d26279578160a3c039a9ff200ebfeb6d",
+          "path": "tools/distribution_selection/powergym_baselines/__init__.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "b16e44db8f2a0235cca8294129da4a02082f1162e2fc69c18b1bdec695867df8",
+          "frozen_sha256": "b16e44db8f2a0235cca8294129da4a02082f1162e2fc69c18b1bdec695867df8",
+          "path": "tools/distribution_selection/powergym_baselines/backend.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "98cb5797be00417b7b98366742e040d2b3071ad825484f1a3ff3cf574556d1ff",
+          "frozen_sha256": "98cb5797be00417b7b98366742e040d2b3071ad825484f1a3ff3cf574556d1ff",
+          "path": "tools/distribution_selection/powergym_baselines/controllers.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "e2099e02a33d5291d97a9cbf77e1295341ee38307648df6c9d7f23eef44edcdd",
+          "frozen_sha256": "e2099e02a33d5291d97a9cbf77e1295341ee38307648df6c9d7f23eef44edcdd",
+          "path": "tools/distribution_selection/powergym_selection.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "14f24ee184c416e6df0200f327dab6dd8c01b115b3dd486fb659fd9e9c349c1b",
+          "frozen_sha256": "14f24ee184c416e6df0200f327dab6dd8c01b115b3dd486fb659fd9e9c349c1b",
+          "path": "tools/distribution_selection/runtime_cluster.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "ca7b7d19cb88e2368ddc9897a1ebe28a7c0f360ba58fce63cc840d8953138fa9",
+          "frozen_sha256": "ca7b7d19cb88e2368ddc9897a1ebe28a7c0f360ba58fce63cc840d8953138fa9",
+          "path": "tools/distribution_selection/runtime_fetch_mapdn141.py",
+          "snapshot_matches": true
+        },
+        {
+          "accepted_post_execution_test_additions_only": false,
+          "current_matches_frozen": true,
+          "current_sha256": "e87857e818deb71a79a83fd3b02da7151f9480450069e437c469643288f65424",
+          "frozen_sha256": "e87857e818deb71a79a83fd3b02da7151f9480450069e437c469643288f65424",
+          "path": "tools/distribution_selection/runtime_tests.py",
+          "snapshot_matches": true
+        }
+      ],
+      "manifest_sha256": "25c8954d7709a3d48c06172b66273613ae14b648cc8d2e063e47481ef9bde96f",
+      "production_sources_unchanged": true
+    }
+  }
+}

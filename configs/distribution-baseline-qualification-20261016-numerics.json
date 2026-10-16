@@ -1,0 +1,36 @@
+{
+  "experiment_id": "distribution-baseline-qualification-20261016",
+  "interpretation": "Pre-execution solver initialization/precision amendment, not paper reproduction or alteration of historical score records; no changes to old32 frozen source files.",
+  "parent_protocol_sha256": "6615eed909cdd0a330fede915f63a6ee89088c5dd2e70bd3357f43cb02f75e3e",
+  "powergym": {
+    "backend_for_all_queries_and_final_replays": "same deterministic cold-start qualification backend",
+    "battery_rounding_epsilon_added": false,
+    "build_y_matrix_allocate_vi": true,
+    "build_y_matrix_option": 2,
+    "calibration_baselines": [
+      "hold_idle",
+      "canary_hysteresis",
+      "coordinated_voltage",
+      "full_information_snapshot"
+    ],
+    "calibration_cases": "same5 cases as parent protocol",
+    "calibration_snapshot_search_passes": 2,
+    "compare_default_and_deterministic_metrics_explicitly": true,
+    "generator_reactive_convention_changed": false,
+    "matched_calibration_budget": "include new calibration queries and final replays in the unchanged per-case200000PF/1800sec limit",
+    "reset_solution_initialized_before_each_solve": true,
+    "solve_sequence": [
+      "set all current loads and full device action with current energy",
+      "Solution.Tolerance=1e-10",
+      "Solution.BuildYMatrix(2,True)",
+      "YMatrix.SolutionInitialized=False",
+      "Solution.Solve()",
+      "verify convergence and measure original terminal power"
+    ],
+    "solver_tolerance": 1e-10,
+    "terminal_ledger_rule_changed": false
+  },
+  "reason": "Pre-run interleaved-query smoke reproduced warm-start-dependent actual Generator power and integer-energy rounding/projection divergence; final replay must match optimization queries.",
+  "schema_version": 1,
+  "stage": "powergym-numerical-determinism-and-matched-calibration-before-full-day-runs"
+}

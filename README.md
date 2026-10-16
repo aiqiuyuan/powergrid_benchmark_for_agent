@@ -98,7 +98,7 @@ GOC 的 500/793/2000/2312 等规模属于同一任务族；UC 为核心，受限
 
 完成范围与验证见[中文完成说明](docs/completion-distribution-20261015.md)。接入方法见[配电网基础适配说明](docs/framework/distribution-control-integration.md)、[原生task骨架](task-packages/README.md)和[来源锁](configs/distribution-sources.json)。`distribution-prepare`将固定上游版本复制到可信评测准备目录，核对源文件摘要；它不生成开发数据包或执行潮流。公开starter只提供人工合成的接口自检，不含完整目标评分器。
 
-2026-10-16已完成[正式选例基础实验](docs/experiments/distribution-case-selection-20261016.md)：30个候选、192次真实后端评测。MAPDN初选优先33节点2012-02-03，调参droop电压CR为69.17%、全信息OPF为100%；PowerGym保留34Bus候选继续校准强参照，暂未冻结唯一主case。报告含全部失败、物理指标、信息权限与[重放工具](tools/distribution_selection/README.md)。本轮不改写旧n=0/1记录，也不构成正式严格n认证。
+2026-10-16已完成[正式选例基础实验](docs/experiments/distribution-case-selection-20261016.md)及[强基线补充](docs/experiments/distribution-baseline-qualification-20261016.md)。补充16条MAPDN、45条PowerGym完整日：MAPDN强局部控制已使四候选日CR全部100%，33节点2012-02-03仅保留为安全约束下降损候选；PowerGym34Bus只剩上游边界微小越限、123Bus标准被静态设备解决，暂不冻结混合设备主case。报告保留旧结果、真实损耗、储能贡献、数值设置与信息权限；[补充工具](tools/distribution_qualification/README.md)可重放。本轮不改写旧n=0/1记录，也不构成正式严格n认证。
 
 ## 共同实验语义
 

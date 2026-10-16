@@ -1,0 +1,194 @@
+{
+  "agent_runs": 0,
+  "execution_platform": "trusted local macOS, existing pinned Python3.12 backend environments",
+  "experiment_id": "distribution-baseline-qualification-20261016",
+  "historical_mutation": false,
+  "mapdn": {
+    "case_ids": [
+      "mapdn33-2012-01-02",
+      "mapdn33-2012-02-03",
+      "mapdn33-2014-05-28",
+      "mapdn141-2012-07-01"
+    ],
+    "interval_hours": 0.05,
+    "intervals": 480,
+    "max_pf_calls_per_case_and_baseline": 50000,
+    "max_wall_seconds_per_case_and_baseline": 1800,
+    "normalized_action_bounds": {
+      "141": 0.6,
+      "33": 0.8
+    },
+    "one_step_integral": {
+      "gains": [
+        1.0,
+        2.5
+      ],
+      "permissions": "one legal current regional observation and one action per interval; separate private actor state"
+    },
+    "one_step_relaxed": {
+      "normalized_slope": 20.0,
+      "permissions": "one legal current regional observation and one action per interval; separate private actor state",
+      "relaxation": 0.1
+    },
+    "pool_sha256": {
+      "141": "cd588e6edefe8dbbeaffdbd24aab806018fa5fdda857ef41338661e4aeca9d90",
+      "33": "69843ffcb35df4fb5d518f15648e0fffd7a78dc68668795ee912c005c013aebc"
+    },
+    "report_inner_convergence_separately": true,
+    "source_iterative_droop": {
+      "claim": "source-aligned algorithm port adapted to frozen contract; not original MATLAB environment or paper score reproduction",
+      "initial_reactive_power_each_snapshot": "zero",
+      "last_action": "measure last solved action; final independent AC PF; never score unsolved final update",
+      "max_iterations": 100,
+      "native_saturation_bound": 1.0,
+      "normalized_slope": 20.0,
+      "permissions": "local PV voltage feedback repeated within fixed exogenous snapshot; more physical feedback opportunities than one-step control",
+      "pv_voltage_l2_stop": 0.0001,
+      "relaxation": 0.1,
+      "target_projection": "clip native normalized curve to frozen .8/.6 bound before relaxation; do not scale curve slope by bound"
+    },
+    "source_sha256": "c5b83ae69d94dd2dca9f644e34e7425317b413786ca33409b0f79da18e4eeb02",
+    "source_url": "https://raw.githubusercontent.com/Future-Power-Networks/MAPDN/6895f1f0630b112745a3f681d7685d454407f9cb/traditional_control/pf_droop_matpower_all.m"
+  },
+  "parent_protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+  "powergym": {
+    "baselines": [
+      "static_day_idle",
+      "strong_current_idle",
+      "oracle_day_idle",
+      "oracle_day_storage",
+      "best_active_storage"
+    ],
+    "best_active_storage": {
+      "require_nonzero_actual_throughput": true,
+      "retain_if_worse_than_idle": true,
+      "same_terminal_constraints": true
+    },
+    "case_ids": [
+      "34Bus-standard-p000-s1",
+      "34Bus-standard-p006-s1",
+      "34Bus-standard-p015-s1",
+      "123Bus-standard-p000-s1",
+      "123Bus-stress-p000-s2.5"
+    ],
+    "intervals": 24,
+    "max_pf_calls_per_case_all_baselines": 200000,
+    "max_wall_seconds_per_case_all_baselines": 1800,
+    "native_physics": "unchanged Generator Q=P/pf; actual terminal-power energy integration, clipping and integer-kWh rounding",
+    "no_global_optimum_claim": true,
+    "objective": {
+      "primary": "total bus-envelope voltage-violation integral rounded to 1e-10",
+      "report_all_compliance_and_physical_metrics": true,
+      "secondary": "original canary actual-loss and operation-cost terms"
+    },
+    "oracle_day_idle": {
+      "coordinate_rounds": 2,
+      "initial_plans": [
+        "strong_current_idle",
+        "static_day_idle"
+      ],
+      "permissions": "full-day load oracle; time-varying devices; battery idle",
+      "sweep_directions": [
+        "forward",
+        "reverse"
+      ]
+    },
+    "oracle_day_storage": {
+      "amplitudes_in_action_quanta": [
+        1,
+        4,
+        8,
+        16
+      ],
+      "free_optimum_may_idle": true,
+      "initial_device_plan": "oracle_day_idle",
+      "permissions": "full-day load oracle; paired discharge then charge; actual backend replay of complete trajectories",
+      "rounds_per_battery": 2,
+      "timepoints": [
+        0,
+        3,
+        6,
+        9,
+        12,
+        15,
+        18,
+        21,
+        23
+      ]
+    },
+    "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+    "static_day_idle": {
+      "permissions": "full-day load oracle; constant tap/cap state; battery idle"
+    },
+    "step_hours": 1.0,
+    "storage_audit_fields": [
+      "commanded_energy",
+      "actual_net_energy",
+      "actual_throughput",
+      "per_step_rounding_and_clipping_residual",
+      "initial_and_final_ledger_energy"
+    ],
+    "storage_reference_actual_net_energy_tolerance_kwh": 1.0,
+    "strong_current_idle": {
+      "coordinate_rounds": 2,
+      "enumerate_all_capacitor_combinations": true,
+      "permissions": "full current circuit and current load; no future load",
+      "retained_starts": 3,
+      "tap_options": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32
+      ],
+      "uniform_tap_starts": [
+        0,
+        8,
+        16,
+        24,
+        32
+      ]
+    },
+    "terminal_ledger_tolerance_kwh": 1.0
+  },
+  "purpose": "stronger non-agent reference controls and storage attribution before formal fixed-case qualification",
+  "reporting": {
+    "do_not_force_case_selection_if_strong_reference_is_missing": true,
+    "final_case_freeze_requires_separate_task_binding_and_execution_acceptance": true,
+    "never_compare_loss_gaps_at_unequal_voltage_compliance": true,
+    "paper_training_or_original_matlab_runtime_reproduction": false,
+    "physical_voltage_feasibility_separate_from_action_and_horizon_validity": true,
+    "record_full_horizon_failures_and_budget_exhaustion": true,
+    "same_information_methods_separate_from_inner_feedback_and_full_information_references": true,
+    "storage_credit_requires_comparison_against_same_device_plan_idle": true
+  },
+  "schema_version": 1
+}
