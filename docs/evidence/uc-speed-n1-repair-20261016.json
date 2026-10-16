@@ -1,5 +1,5 @@
 {
-  "status": "native-acceptance-passed-awaiting-cluster-access-for-rerun",
+  "status": "n1-rerun-submitted-and-startup-verified",
   "source_manifest_sha256": "23db34692c33bbb795c4fb2c654ceb328667556a39b31723f41452a9a59037e5",
   "authorization": "rerun-n1-only",
   "original_n0_job": "aqy-ucspeed-n0-r1-20261016-150046",
@@ -102,22 +102,116 @@
   },
   "model_api_probe": {
     "job": "aqy-ucspeed-api-smoke-20261016-174547",
-    "status": "in-progress",
+    "status": "passed",
     "manifest_sha256": "23db34692c33bbb795c4fb2c654ceb328667556a39b31723f41452a9a59037e5",
     "tool_marker_passed": true,
-    "terminal_status": "in-progress-at-last-readable-snapshot; completion-not-yet-confirmed",
+    "terminal_status": "passed-all-three-replays",
     "successful_model_requests_at_marker_check": 3,
     "response_model": "global.openai.gpt-5.6-sol",
     "actual_recorded_tokens_at_marker_check": 39586,
     "aggregate_token_cap": null,
-    "output_token_override": null
+    "output_token_override": null,
+    "completion_confirmed_at_utc": "2026-10-16T10:19:42.224600+00:00",
+    "completion": {
+      "passed": true,
+      "model_messages": 3,
+      "feedback_calls": 0,
+      "feedback_infrastructure_ok": true,
+      "exception_type": null,
+      "aggregate_token_cap": null,
+      "score": {
+        "evaluation_completed": true,
+        "valid": true,
+        "error": null,
+        "reward": 0.6936615972324378
+      },
+      "replays": [
+        {
+          "feasible": true,
+          "target_hit": true,
+          "penalized_seconds": 174.39564600400627,
+          "reference_gap": 9.880726462764901e-05,
+          "failure_category": null
+        },
+        {
+          "feasible": true,
+          "target_hit": true,
+          "penalized_seconds": 217.6014317125082,
+          "reference_gap": 9.880726461291591e-05,
+          "failure_category": null
+        },
+        {
+          "feasible": true,
+          "target_hit": true,
+          "penalized_seconds": 159.4120472650975,
+          "reference_gap": 9.880726462777387e-05,
+          "failure_category": null
+        }
+      ]
+    }
   },
   "counts_as_main_experiment": false,
   "main_study_release_ready": false,
   "rerun": {
-    "submitted": false,
-    "reason": "existing SSH relay session was lost after model tool acceptance; local relay internal hostname cannot resolve",
-    "original_n0_resubmitted": false
+    "submitted": true,
+    "receipt": {
+      "role": "n1-r1",
+      "n": 1,
+      "manifest_sha256": "23db34692c33bbb795c4fb2c654ceb328667556a39b31723f41452a9a59037e5",
+      "created_at": "2026-10-16T10:19:51.768238+00:00",
+      "prefix": "aqy-ucspeed-n1-r1",
+      "returncode": 0,
+      "jobs": [
+        "aqy-ucspeed-n1-r1-20261016-181951"
+      ],
+      "cluster": "dev",
+      "cpus": 4,
+      "memory": "20Gi",
+      "gpus": 0,
+      "counts_as_main_experiment": false
+    },
+    "startup": {
+      "verified": true,
+      "checked_at_utc": "2026-10-16T10:21:25.080541+00:00",
+      "phase": "model-development",
+      "pod_phase": "Running",
+      "pod_ready": true,
+      "pod_restarts": 0,
+      "pod_checked_at_utc": "2026-10-16T10:20:12.646721+00:00",
+      "development_cpus": 3,
+      "development_memory_bytes": 8589934592,
+      "network_mode": "none",
+      "provider_credentials_mounted": false,
+      "clock": {
+        "started_epoch": 1792146041.9848118,
+        "seconds": 43200,
+        "deadline_epoch": 1792189241.9848118
+      },
+      "development_started_beijing": "2026-10-16T18:20:41.984812+08:00",
+      "development_deadline_beijing": "2026-10-17T06:20:41.984812+08:00",
+      "model_usage": {
+        "states": {
+          "complete": 8,
+          "pending": 1
+        },
+        "successful_response_models": [
+          "global.openai.gpt-5.6-sol"
+        ],
+        "actual_recorded_tokens": 85720,
+        "aggregate_token_cap": null,
+        "token_reservation": false,
+        "output_token_override": null,
+        "latest_success_finished_elapsed": 40.219072103500366
+      },
+      "protected_feedback": {
+        "rows": 0,
+        "counted": 0,
+        "states": {}
+      },
+      "experiment_result_available": false
+    },
+    "original_n0_resubmitted": false,
+    "experiment_result_available": false
   },
   "public_integration_checks": {
     "uc_scoring_tests_passed": 17,
@@ -125,5 +219,17 @@
     "foundation_skipped": 7,
     "python": "3.13",
     "merge_review": "passed-UC-additions-only; all-main-README-and-CI-content-retained"
+  },
+  "historical_access_interruption": {
+    "resolved": true,
+    "restored_by_user_before_submission": true,
+    "effect": "submission delayed; no developer time or protected feedback consumed"
+  },
+  "original_n0_preservation": {
+    "job": "aqy-ucspeed-n0-r1-20261016-150046",
+    "source_manifest_sha256": "416db557ebddc2eb62abb12647a6b44a5bd40b34039bfa74b01d9b8b58cd5d55",
+    "all_frozen_source_hashes_unchanged": true,
+    "checked_at_utc": "2026-10-16T10:20:12.646721+00:00",
+    "phase_at_check": "model-development"
   }
 }

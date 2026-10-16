@@ -1,6 +1,6 @@
 {
   "schema_version": "uc-speed-native-canary-preparation-v1",
-  "status": "n1-repair-native-passed-awaiting-cluster-access-for-rerun",
+  "status": "n1-repair-rerun-submitted-and-startup-verified",
   "executable": true,
   "release_ready": false,
   "purpose": "paired-n0-n1-workflow-acceptance-before-main-study",
@@ -10,12 +10,16 @@
     {
       "role": "uc-speed-n0-r1",
       "n": 0,
-      "mode": "terminal"
+      "mode": "terminal",
+      "active_job": "aqy-ucspeed-n0-r1-20261016-150046",
+      "active_frozen_manifest_sha256": "416db557ebddc2eb62abb12647a6b44a5bd40b34039bfa74b01d9b8b58cd5d55"
     },
     {
       "role": "uc-speed-n1-r1",
       "n": 1,
-      "mode": "eval-budget"
+      "mode": "eval-budget",
+      "active_job": "aqy-ucspeed-n1-r1-20261016-181951",
+      "active_frozen_manifest_sha256": "23db34692c33bbb795c4fb2c654ceb328667556a39b31723f41452a9a59037e5"
     }
   ],
   "independent_development_repeats": 1,
@@ -94,9 +98,9 @@
     "feedback_idempotency_and_count_audit": "passed-native-single-call-content-retry-overbudget-and-collection",
     "cutoff_freeze_and_no_late_feedback": "passed-real-stop-before-snapshot-and-late-feedback-isolation",
     "candidate_oom_classification": "passed-real-cgroup-OOM",
-    "actual_model_api_acceptance_without_token_cap": "v3-passed; v4-model-tool-passed-terminal-replays-in-progress",
-    "verified_cluster_login": "passed-existing-trusted-multiplex-new-CFS-new-CLI-dev",
-    "linux_ci_evidence": "https://github.com/aiqiuyuan/powergrid_benchmark_for_agent/actions/runs/38863274301",
+    "actual_model_api_acceptance_without_token_cap": "v4-passed-fixed-model-tool-and-all-three-terminal-replays",
+    "verified_cluster_login": "restored-and-verified-before-n1-only-submission",
+    "linux_ci_evidence": "https://github.com/aiqiuyuan/powergrid_benchmark_for_agent/actions/runs/38884047148",
     "feedback_actual_scoring": "v3-invalidated; v4-passed-evaluation-completed-feasible-and-collected"
   },
   "submission_receipts": [
@@ -138,12 +142,33 @@
       "invalid_for_effective_feedback_comparison": true,
       "infrastructure_failure": "TypeError: TarFile.extractall() got an unexpected keyword argument 'filter'",
       "protected_evaluation_completed": false
+    },
+    {
+      "role": "n1-r1",
+      "n": 1,
+      "manifest_sha256": "23db34692c33bbb795c4fb2c654ceb328667556a39b31723f41452a9a59037e5",
+      "created_at": "2026-10-16T10:19:51.768238+00:00",
+      "prefix": "aqy-ucspeed-n1-r1",
+      "returncode": 0,
+      "jobs": [
+        "aqy-ucspeed-n1-r1-20261016-181951"
+      ],
+      "cluster": "dev",
+      "cpus": 4,
+      "memory": "20Gi",
+      "gpus": 0,
+      "counts_as_main_experiment": false,
+      "replaces_job": "aqy-ucspeed-n1-r1-20261016-150046",
+      "startup_verified": true,
+      "development_started_epoch": 1792146041.9848118,
+      "development_deadline_epoch": 1792189241.9848118,
+      "model_completed_requests_at_startup_check": 8
     }
   ],
   "frozen_deployment_manifest_sha256": "416db557ebddc2eb62abb12647a6b44a5bd40b34039bfa74b01d9b8b58cd5d55",
-  "canary_deployment_accepted": false,
+  "canary_deployment_accepted": true,
   "main_study_release_ready": false,
-  "startup_checked_at_utc": "2026-10-16T07:02:43Z",
+  "startup_checked_at_utc": "2026-10-16T10:21:25.080541+00:00",
   "recovery": {
     "authorized_scope": "rerun-n1-only; preserve-original-n0",
     "preparation": "uc-speed-canary-20261016-v4-n1fix",
@@ -166,11 +191,55 @@
       "replay-seeds"
     ],
     "native_acceptance_job": "aqy-ucspeed-acceptance-20261016-173419",
-    "status": "awaiting-cluster-access",
+    "status": "rerun-submitted-and-startup-verified",
     "main_study_release_ready": false,
     "native_acceptance_passed": true,
     "model_api_probe_job": "aqy-ucspeed-api-smoke-20261016-174547",
-    "new_n1_submitted": false,
-    "access_blocker": "SSH relay session lost; local relay internal hostname cannot resolve"
-  }
+    "new_n1_submitted": true,
+    "access_blocker": null,
+    "new_n1_job": "aqy-ucspeed-n1-r1-20261016-181951",
+    "model_api_probe_passed": true,
+    "startup": {
+      "verified": true,
+      "checked_at_utc": "2026-10-16T10:21:25.080541+00:00",
+      "phase": "model-development",
+      "pod_phase": "Running",
+      "pod_ready": true,
+      "pod_restarts": 0,
+      "pod_checked_at_utc": "2026-10-16T10:20:12.646721+00:00",
+      "development_cpus": 3,
+      "development_memory_bytes": 8589934592,
+      "network_mode": "none",
+      "provider_credentials_mounted": false,
+      "clock": {
+        "started_epoch": 1792146041.9848118,
+        "seconds": 43200,
+        "deadline_epoch": 1792189241.9848118
+      },
+      "development_started_beijing": "2026-10-16T18:20:41.984812+08:00",
+      "development_deadline_beijing": "2026-10-17T06:20:41.984812+08:00",
+      "model_usage": {
+        "states": {
+          "complete": 8,
+          "pending": 1
+        },
+        "successful_response_models": [
+          "global.openai.gpt-5.6-sol"
+        ],
+        "actual_recorded_tokens": 85720,
+        "aggregate_token_cap": null,
+        "token_reservation": false,
+        "output_token_override": null,
+        "latest_success_finished_elapsed": 40.219072103500366
+      },
+      "protected_feedback": {
+        "rows": 0,
+        "counted": 0,
+        "states": {}
+      },
+      "experiment_result_available": false
+    },
+    "original_v3_frozen_source_unchanged": true
+  },
+  "frozen_deployment_manifest_scope": "historical-original-pair; active source manifests are recorded per condition"
 }

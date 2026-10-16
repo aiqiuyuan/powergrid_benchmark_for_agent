@@ -8,7 +8,7 @@
 
 **UC/SCUC新增文献对齐配置：** [task card §13](docs/task-cards/unit-commitment.md#13-文献对齐的研究目标与配置2026-10-15)汇总四篇论文、参数与结论。主任务评价达到统一参考质量的求解加速，准备目标为gap 0.1%、RTS/CA 300秒与FERC 600秒端到端；成本质量另报。[参数JSON](configs/unit-commitment-speed.design.json)及[计时/Reward合同](docs/protocol/unit-commitment-speed.md)保留固定case、12小时、n=0/1/3/5/10、每档3次政策。具体case、同机基线/参考、执行接线与资源校准未完成，`executable=false / release_ready=false`。
 
-主实验前的[n=0/1流程配置](configs/unit-commitment-speed.canary.json)与[源码执行包](task-packages/pglib-uc-speed-canary-v1/README.md)已部署。原n=1反馈因解压兼容错误未执行评分；按用户要求保留n=0，仅修复并重跑n=1。新版本真实反馈和三个终评回放均已通过，模型工具探针已通过，探针终评与n=1重跑提交目前等待恢复集群连接；[修复与重跑证据](docs/evidence/uc-speed-n1-repair-20261016.json)记录最终状态。UC主实验仍未启动。
+主实验前的[n=0/1流程配置](configs/unit-commitment-speed.canary.json)与[源码执行包](task-packages/pglib-uc-speed-canary-v1/README.md)已部署。原n=1反馈因解压兼容错误未执行评分；按用户要求保留n=0，仅修复并重跑n=1。新版本真实反馈和三个终评回放均已通过，固定模型工具探针及其三个终评回放均通过，新的n=1重跑已于2026-10-16 18:19:51提交并核验启动；[修复与重跑证据](docs/evidence/uc-speed-n1-repair-20261016.json)记录最终状态。UC主实验仍未启动。
 
 **本轮研究设计已定：五task × n=0／1／3／5／10 × 三次独立开发，共75次；每次开发上限12小时，累计token不限且无累计预留截断。L2RPN主线恢复原赛动作范围，包括redispatch，在统一条件下重跑基线；375动作版本单列。** 本次已完成RTE启动门禁并提交15个正式run；其余任务的模型、实际资源、逐例执行限额、case ID和成本校准仍需逐项确定。正式研究结果尚未完成。新主线先按task分别报告原始指标，不设置跨task总分。
 
