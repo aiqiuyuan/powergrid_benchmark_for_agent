@@ -24,6 +24,8 @@
     "tests/test.sh": "aced7598c78540143de6a7a078c01cb8e118ced4cbb75a93069f5ab4bc5024ad",
     "verification/probe_linux_sandbox.py": "1868b42f6eb059307f4134deb63e0adb9e0bc9eaa51209761dd3fa2e9c520645",
     "verification/test_runner.py": "3960b7ebeea72802a8ee01cdb2f317e6a435fd7ba6e1eab90dbc8c732c2062b1",
-    "verification/test_scoring.py": "a3562a2de9f4cc08b512745b0b28954103435c4be09b6885e8dd412a8ff0ce19"
+    "verification/test_scoring.py": "a3562a2de9f4cc08b512745b0b28954103435c4be09b6885e8dd412a8ff0ce19",
+    "environment/docker-compose.yaml": "17ceef0a82e7dfb63d9f5ce974350f392dd8a323eac174ec69d28a90c7de8388",
+    "tests/docker-compose.yaml": "17ceef0a82e7dfb63d9f5ce974350f392dd8a323eac174ec69d28a90c7de8388"
   }
 }
