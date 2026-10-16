@@ -1,6 +1,6 @@
 {
   "schema_version": "uc-speed-native-canary-preparation-v1",
-  "status": "n1-repair-native-acceptance-passed-model-probe-in-progress",
+  "status": "n1-repair-native-passed-awaiting-cluster-access-for-rerun",
   "executable": true,
   "release_ready": false,
   "purpose": "paired-n0-n1-workflow-acceptance-before-main-study",
@@ -166,9 +166,11 @@
       "replay-seeds"
     ],
     "native_acceptance_job": "aqy-ucspeed-acceptance-20261016-173419",
-    "status": "native-acceptance-passed-model-tool-probe-in-progress",
+    "status": "awaiting-cluster-access",
     "main_study_release_ready": false,
     "native_acceptance_passed": true,
-    "model_api_probe_job": "aqy-ucspeed-api-smoke-20261016-174547"
+    "model_api_probe_job": "aqy-ucspeed-api-smoke-20261016-174547",
+    "new_n1_submitted": false,
+    "access_blocker": "SSH relay session lost; local relay internal hostname cannot resolve"
   }
 }

@@ -1,5 +1,5 @@
 {
-  "status": "native-acceptance-passed-model-tool-probe-in-progress",
+  "status": "native-acceptance-passed-awaiting-cluster-access-for-rerun",
   "source_manifest_sha256": "23db34692c33bbb795c4fb2c654ceb328667556a39b31723f41452a9a59037e5",
   "authorization": "rerun-n1-only",
   "original_n0_job": "aqy-ucspeed-n0-r1-20261016-150046",
@@ -105,7 +105,7 @@
     "status": "in-progress",
     "manifest_sha256": "23db34692c33bbb795c4fb2c654ceb328667556a39b31723f41452a9a59037e5",
     "tool_marker_passed": true,
-    "terminal_status": "in-progress",
+    "terminal_status": "in-progress-at-last-readable-snapshot; completion-not-yet-confirmed",
     "successful_model_requests_at_marker_check": 3,
     "response_model": "global.openai.gpt-5.6-sol",
     "actual_recorded_tokens_at_marker_check": 39586,
@@ -113,5 +113,17 @@
     "output_token_override": null
   },
   "counts_as_main_experiment": false,
-  "main_study_release_ready": false
+  "main_study_release_ready": false,
+  "rerun": {
+    "submitted": false,
+    "reason": "existing SSH relay session was lost after model tool acceptance; local relay internal hostname cannot resolve",
+    "original_n0_resubmitted": false
+  },
+  "public_integration_checks": {
+    "uc_scoring_tests_passed": 17,
+    "foundation_tests_run": 135,
+    "foundation_skipped": 7,
+    "python": "3.13",
+    "merge_review": "passed-UC-additions-only; all-main-README-and-CI-content-retained"
+  }
 }
