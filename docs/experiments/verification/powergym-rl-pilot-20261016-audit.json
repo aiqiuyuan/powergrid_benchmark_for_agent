@@ -1,0 +1,840 @@
+{
+  "all_checks_passed": true,
+  "audit_extra_pf_calls": {
+    "separate_from_execution": true,
+    "total": 13157,
+    "v1_failure_reproductions_and_saved_episode_fresh_replay": 10172,
+    "v2_checkpoint_restore_fresh8profile_evaluations_and_training_continuations": 2985
+  },
+  "audit_scope": {
+    "all_saved_raw_rows_metrics_actions_energy_reward_recomputed": true,
+    "fresh_physical_evaluation": "all 8 heldout profiles for independently restored20k/40k weights, both algorithms; compared with4 official checkpoint evaluations",
+    "full_trajectories_included": false,
+    "periodic_raw_rows_not_all_resolved_again_in_OpenDSS": true,
+    "weights_or_training_log_content_included": false
+  },
+  "data_split": {
+    "heldout_indices": [
+      1,
+      6,
+      8,
+      9,
+      12,
+      13,
+      14,
+      15
+    ],
+    "train_indices": [
+      0,
+      2,
+      3,
+      4,
+      5,
+      7,
+      10,
+      11
+    ]
+  },
+  "execution_pf_calls": {
+    "all_v1_v2_execution_total": 503074,
+    "replay_pf_is_subset_of_verification_not_added_again": true,
+    "v1_failed_training_runs": 16086,
+    "v2_four_additional_official_checkpoint_evaluations": 2404,
+    "v2_two_training_runs_including_periodic_final_extra_evaluation": 484584
+  },
+  "historical32_unchanged": true,
+  "pool_sha256": "76a5214df6a4c6b3e49e515351677f9444ef664d56116bbb5c1bc842db132225",
+  "private_full_audit_sha256": "459d6f3dd914dbcdd9907dd29c9a62f174ea12ffa4067a61d5c87c5c8b8d9d11",
+  "protocol_sha256": "5723897a68de49bd481a1c56aa55b42e1aa4a820f7c9e253bf42f2b0260f2416",
+  "runs": {
+    "ppo": {
+      "actual_training_rows": 40000,
+      "all_actions_projections_round_clip_and_metrics_match": true,
+      "checkpoint_restore": {
+        "20000": {
+          "all_official_metrics_exactly_match": true,
+          "audit_piece_sha256": "148b6a628328e44d76f86f4c35b71ee028da62542b5c51c6b4c51a3573ea656a",
+          "checkpoint_sha256": "97889680ec4e059b40d6175d34617f0f884495925be87954bf3c9538d9a29f70",
+          "evaluation_preserves_actor_and_rng": true,
+          "future_training_log_rows_exactly_reproduced": 480,
+          "gradient_steps": 3120,
+          "heldout_profiles": [
+            1,
+            6,
+            8,
+            9,
+            12,
+            13,
+            14,
+            15
+          ],
+          "mean_active_loss_kwh": 1704.3703560493257,
+          "mean_rl_paper_vanilla_return": -47.89437025198021,
+          "mean_voltage_violation_pu_hours": 40.15253742040061,
+          "official_evaluation_result_sha256": "325a772b13900b841ba32fe2a7f91ffa29d6f4eb63f43fec7bec22b632cf2c41",
+          "partial_episode_actions_replayed": 8,
+          "physical_episode_observation_exact": true,
+          "ppo_buffer_len": 32,
+          "ppo_trained_transitions": 19968,
+          "qualification_valid_count": 0,
+          "valid_count": 0,
+          "voltage_all_day_feasible_count": 0
+        },
+        "40000": {
+          "all_official_metrics_exactly_match": true,
+          "audit_piece_sha256": "5bf17119b9448e8397fdfdeec1ffc96ccb6ad6f9e2b68c2ef8c8ce7a26a89de5",
+          "checkpoint_sha256": "56d2bbdacc000cbeab81fd408a24926799375fb2888bfca3438a739afa102e34",
+          "evaluation_preserves_actor_and_rng": true,
+          "future_training_log_rows_exactly_reproduced": 0,
+          "gradient_steps": 6250,
+          "heldout_profiles": [
+            1,
+            6,
+            8,
+            9,
+            12,
+            13,
+            14,
+            15
+          ],
+          "mean_active_loss_kwh": 1987.2627922176239,
+          "mean_rl_paper_vanilla_return": -9.419387485330695,
+          "mean_voltage_violation_pu_hours": 2.7831217747934223,
+          "official_evaluation_result_sha256": "2e2cec160fa5011af27660cd12ea9a964e8046b55146f614a0cc2819813d3270",
+          "partial_episode_actions_replayed": 16,
+          "physical_episode_observation_exact": true,
+          "ppo_buffer_len": 0,
+          "ppo_trained_transitions": 40000,
+          "qualification_valid_count": 0,
+          "valid_count": 0,
+          "voltage_all_day_feasible_count": 0
+        }
+      },
+      "complete": true,
+      "elapsed_seconds": 276.3767465419951,
+      "fixed_final_extra_cases_separate_from_heldout_mean": [
+        {
+          "active_loss_kwh": 2009.71541294195,
+          "actual_net_energy_kwh": [
+            0.0,
+            2999.9999999784864
+          ],
+          "canary_quality": 0.0,
+          "capacitor_switches": 2,
+          "case_id": "34Bus-rl-standard-p006-s1",
+          "error": "terminal_energy_violation",
+          "final_energy_kwh": [
+            4000.0,
+            1000.0
+          ],
+          "phase_time_compliance": 0.8956140350877193,
+          "profile_index": 6,
+          "qualification_valid": false,
+          "rl_paper_vanilla_return": -9.478555620529796,
+          "simultaneous_compliance": 0.0,
+          "tap_moves": 93,
+          "terminal_energy_error_kwh": [
+            0.0,
+            3000.0
+          ],
+          "valid": false,
+          "voltage_violation_pu_hours": 2.829271068977134
+        },
+        {
+          "active_loss_kwh": 2052.5501358945708,
+          "actual_net_energy_kwh": [
+            0.0,
+            2999.999999981246
+          ],
+          "canary_quality": 0.0,
+          "capacitor_switches": 2,
+          "case_id": "34Bus-rl-standard-p015-s1",
+          "error": "terminal_energy_violation",
+          "final_energy_kwh": [
+            4000.0,
+            1000.0
+          ],
+          "phase_time_compliance": 0.8820175438596491,
+          "profile_index": 15,
+          "qualification_valid": false,
+          "rl_paper_vanilla_return": -9.808282060712447,
+          "simultaneous_compliance": 0.0,
+          "tap_moves": 93,
+          "terminal_energy_error_kwh": [
+            0.0,
+            3000.0
+          ],
+          "valid": false,
+          "voltage_violation_pu_hours": 3.1379003112173782
+        },
+        {
+          "active_loss_kwh": 2067.001061300098,
+          "actual_net_energy_kwh": [
+            0.0,
+            2999.999999978427
+          ],
+          "canary_quality": 0.0,
+          "capacitor_switches": 2,
+          "case_id": "34Bus-rl-standard-p000-s1",
+          "error": "terminal_energy_violation",
+          "final_energy_kwh": [
+            4000.0,
+            1000.0
+          ],
+          "phase_time_compliance": 0.887280701754386,
+          "profile_index": 0,
+          "qualification_valid": false,
+          "rl_paper_vanilla_return": -10.036073135251439,
+          "simultaneous_compliance": 0.0,
+          "tap_moves": 93,
+          "terminal_energy_error_kwh": [
+            0.0,
+            3000.0
+          ],
+          "valid": false,
+          "voltage_violation_pu_hours": 3.36047957856505
+        }
+      ],
+      "fixed_final_heldout_metrics": [
+        {
+          "active_loss_kwh": 2039.8683976464065,
+          "actual_net_energy_kwh": [
+            0.0,
+            2999.99999998132
+          ],
+          "canary_quality": 0.0,
+          "capacitor_switches": 2,
+          "case_id": "34Bus-rl-standard-p001-s1",
+          "error": "terminal_energy_violation",
+          "final_energy_kwh": [
+            4000.0,
+            1000.0
+          ],
+          "phase_time_compliance": 0.8850877192982456,
+          "profile_index": 1,
+          "qualification_valid": false,
+          "rl_paper_vanilla_return": -9.713440857911408,
+          "simultaneous_compliance": 0.0,
+          "tap_moves": 93,
+          "terminal_energy_error_kwh": [
+            0.0,
+            3000.0
+          ],
+          "valid": false,
+          "voltage_violation_pu_hours": 3.0531681233821124
+        },
+        {
+          "active_loss_kwh": 2009.71541294195,
+          "actual_net_energy_kwh": [
+            0.0,
+            2999.9999999784864
+          ],
+          "canary_quality": 0.0,
+          "capacitor_switches": 2,
+          "case_id": "34Bus-rl-standard-p006-s1",
+          "error": "terminal_energy_violation",
+          "final_energy_kwh": [
+            4000.0,
+            1000.0
+          ],
+          "phase_time_compliance": 0.8956140350877193,
+          "profile_index": 6,
+          "qualification_valid": false,
+          "rl_paper_vanilla_return": -9.478555620529796,
+          "simultaneous_compliance": 0.0,
+          "tap_moves": 93,
+          "terminal_energy_error_kwh": [
+            0.0,
+            3000.0
+          ],
+          "valid": false,
+          "voltage_violation_pu_hours": 2.829271068977134
+        },
+        {
+          "active_loss_kwh": 2129.7487277612854,
+          "actual_net_energy_kwh": [
+            0.0,
+            2999.9999999796596
+          ],
+          "canary_quality": 0.0,
+          "capacitor_switches": 2,
+          "case_id": "34Bus-rl-standard-p008-s1",
+          "error": "terminal_energy_violation",
+          "final_energy_kwh": [
+            4000.0,
+            1000.0
+          ],
+          "phase_time_compliance": 0.8802631578947369,
+          "profile_index": 8,
+          "qualification_valid": false,
+          "rl_paper_vanilla_return": -10.295925208736636,
+          "simultaneous_compliance": 0.0,
+          "tap_moves": 93,
+          "terminal_energy_error_kwh": [
+            0.0,
+            3000.0
+          ],
+          "valid": false,
+          "voltage_violation_pu_hours": 3.586629430421188
+        },
+        {
+          "active_loss_kwh": 1851.0748730208657,
+          "actual_net_energy_kwh": [
+            0.0,
+            2999.999999966739
+          ],
+          "canary_quality": 0.0,
+          "capacitor_switches": 2,
+          "case_id": "34Bus-rl-standard-p009-s1",
+          "error": "terminal_energy_violation",
+          "final_energy_kwh": [
+            4000.0,
+            1000.0
+          ],
+          "phase_time_compliance": 0.9105263157894737,
+          "profile_index": 9,
+          "qualification_valid": false,
+          "rl_paper_vanilla_return": -8.65241502309976,
+          "simultaneous_compliance": 0.0,
+          "tap_moves": 93,
+          "terminal_energy_error_kwh": [
+            0.0,
+            3000.0
+          ],
+          "valid": false,
+          "voltage_violation_pu_hours": 2.1013059174777777
+        },
+        {
+          "active_loss_kwh": 1893.5159064303152,
+          "actual_net_energy_kwh": [
+            0.0,
+            2999.999999977969
+          ],
+          "canary_quality": 0.0,
+          "capacitor_switches": 2,
+          "case_id": "34Bus-rl-standard-p012-s1",
+          "error": "terminal_energy_violation",
+          "final_energy_kwh": [
+            4000.0,
+            1000.0
+          ],
+          "phase_time_compliance": 0.9144736842105263,
+          "profile_index": 12,
+          "qualification_valid": false,
+          "rl_paper_vanilla_return": -8.80573627425451,
+          "simultaneous_compliance": 0.0,
+          "tap_moves": 93,
+          "terminal_energy_error_kwh": [
+            0.0,
+            3000.0
+          ],
+          "valid": false,
+          "voltage_violation_pu_hours": 2.2113859666883062
+        },
+        {
+          "active_loss_kwh": 1892.9419313093642,
+          "actual_net_energy_kwh": [
+            0.0,
+            2999.9999999776564
+          ],
+          "canary_quality": 0.0,
+          "capacitor_switches": 2,
+          "case_id": "34Bus-rl-standard-p013-s1",
+          "error": "terminal_energy_violation",
+          "final_energy_kwh": [
+            4000.0,
+            1000.0
+          ],
+          "phase_time_compliance": 0.9271929824561403,
+          "profile_index": 13,
+          "qualification_valid": false,
+          "rl_paper_vanilla_return": -8.794567275284336,
+          "simultaneous_compliance": 0.0,
+          "tap_moves": 93,
+          "terminal_energy_error_kwh": [
+            0.0,
+            3000.0
+          ],
+          "valid": false,
+          "voltage_violation_pu_hours": 2.196769295286197
+        },
+        {
+          "active_loss_kwh": 2028.6869527362337,
+          "actual_net_energy_kwh": [
+            0.0,
+            2999.999999977914
+          ],
+          "canary_quality": 0.0,
+          "capacitor_switches": 2,
+          "case_id": "34Bus-rl-standard-p014-s1",
+          "error": "terminal_energy_violation",
+          "final_energy_kwh": [
+            4000.0,
+            1000.0
+          ],
+          "phase_time_compliance": 0.887280701754386,
+          "profile_index": 14,
+          "qualification_valid": false,
+          "rl_paper_vanilla_return": -9.806177562116671,
+          "simultaneous_compliance": 0.0,
+          "tap_moves": 93,
+          "terminal_energy_error_kwh": [
+            0.0,
+            3000.0
+          ],
+          "valid": false,
+          "voltage_violation_pu_hours": 3.148544084897284
+        },
+        {
+          "active_loss_kwh": 2052.5501358945708,
+          "actual_net_energy_kwh": [
+            0.0,
+            2999.999999981246
+          ],
+          "canary_quality": 0.0,
+          "capacitor_switches": 2,
+          "case_id": "34Bus-rl-standard-p015-s1",
+          "error": "terminal_energy_violation",
+          "final_energy_kwh": [
+            4000.0,
+            1000.0
+          ],
+          "phase_time_compliance": 0.8820175438596491,
+          "profile_index": 15,
+          "qualification_valid": false,
+          "rl_paper_vanilla_return": -9.808282060712447,
+          "simultaneous_compliance": 0.0,
+          "tap_moves": 93,
+          "terminal_energy_error_kwh": [
+            0.0,
+            3000.0
+          ],
+          "valid": false,
+          "voltage_violation_pu_hours": 3.1379003112173782
+        }
+      ],
+      "fixed_final_mean_quality": 0.0,
+      "fixed_final_qualification_valid_count": 0,
+      "fixed_final_valid_count": 0,
+      "gradient_steps_final": 6250,
+      "logged_v1_prefix_identical_rows": 1108,
+      "old_none_diagnostic_episodes_preserved": 0,
+      "periodic_evaluation_count": 333,
+      "run_lock_sha256": "2eeccc135dc4e348b44916f9515a893089f21a16f5de2239ded185acc8d66edc",
+      "saved_episode_count": 2675,
+      "saved_raw_physical_rows_recomputed": 64200,
+      "separate_official_checkpoint_evaluation_pf_calls": 1202,
+      "summary_sha256": "bbb1d912fbb5c5d6e042b399e70cc6923bf9ddf0dc2c08c9d26f29daef695d2d",
+      "training_log_sha256": "fa6fc6ed12c697637468e0da2b2934d7b7192010ba82a69eba9530226ce4aefe",
+      "training_run_audit_sha256": "58653d2373ddd8fd52d849c9ec99f50090b9ad81bb123c59a610b5292a69c1fd",
+      "training_run_explicit_pf_calls": 242292
+    },
+    "sac": {
+      "actual_training_rows": 40000,
+      "all_actions_projections_round_clip_and_metrics_match": true,
+      "checkpoint_restore": {
+        "20000": {
+          "all_official_metrics_exactly_match": true,
+          "audit_piece_sha256": "d73e99e970baff34033000bf9b2c3e4a2e74cd0c2043ba2d864c90872063dca2",
+          "checkpoint_sha256": "e8ab4deb6ca847bce69f285a2c6f3a333e44cc577ba0c64824b23508a7bf393a",
+          "evaluation_preserves_actor_and_rng": true,
+          "future_training_log_rows_exactly_reproduced": 32,
+          "gradient_steps": 19001,
+          "heldout_profiles": [
+            1,
+            6,
+            8,
+            9,
+            12,
+            13,
+            14,
+            15
+          ],
+          "mean_active_loss_kwh": 2722.369160234139,
+          "mean_rl_paper_vanilla_return": -18.426849527382156,
+          "mean_voltage_violation_pu_hours": 6.35865355668167,
+          "official_evaluation_result_sha256": "b8444fbf5faba525507e581762686cf68c4961f58fb65918b143f468d9f53dc9",
+          "partial_episode_actions_replayed": 8,
+          "physical_episode_observation_exact": true,
+          "ppo_buffer_len": null,
+          "ppo_trained_transitions": null,
+          "qualification_valid_count": 8,
+          "valid_count": 8,
+          "voltage_all_day_feasible_count": 0
+        },
+        "40000": {
+          "all_official_metrics_exactly_match": true,
+          "audit_piece_sha256": "01be68649b8d0bc51b89e3c14645151f5ff63dd215be3023d4442e2330c40c2b",
+          "checkpoint_sha256": "7018e0301a50db302cf0d5735da1b7fc24500e5d57bb4648e0e79a2a4c488991",
+          "evaluation_preserves_actor_and_rng": true,
+          "future_training_log_rows_exactly_reproduced": 0,
+          "gradient_steps": 39001,
+          "heldout_profiles": [
+            1,
+            6,
+            8,
+            9,
+            12,
+            13,
+            14,
+            15
+          ],
+          "mean_active_loss_kwh": 2612.308194623979,
+          "mean_rl_paper_vanilla_return": -57.49484293210682,
+          "mean_voltage_violation_pu_hours": 21.905515430875216,
+          "official_evaluation_result_sha256": "990b6283422c6dca8db78095139299917a8640762dd85d3f0de15866879dd32a",
+          "partial_episode_actions_replayed": 16,
+          "physical_episode_observation_exact": true,
+          "ppo_buffer_len": null,
+          "ppo_trained_transitions": null,
+          "qualification_valid_count": 0,
+          "valid_count": 0,
+          "voltage_all_day_feasible_count": 0
+        }
+      },
+      "complete": true,
+      "elapsed_seconds": 679.5956301669939,
+      "fixed_final_extra_cases_separate_from_heldout_mean": [
+        {
+          "active_loss_kwh": 2629.5581552337085,
+          "actual_net_energy_kwh": [
+            670.2569140506386,
+            32.426830048454676
+          ],
+          "canary_quality": 0.0,
+          "capacitor_switches": 22,
+          "case_id": "34Bus-rl-standard-p006-s1",
+          "error": "terminal_energy_violation",
+          "final_energy_kwh": [
+            3329.0,
+            3969.0
+          ],
+          "phase_time_compliance": 0.6574561403508772,
+          "profile_index": 6,
+          "qualification_valid": false,
+          "rl_paper_vanilla_return": -57.86039368720496,
+          "simultaneous_compliance": 0.0,
+          "tap_moves": 990,
+          "terminal_energy_error_kwh": [
+            671.0,
+            31.0
+          ],
+          "valid": false,
+          "voltage_violation_pu_hours": 22.27587515531221
+        },
+        {
+          "active_loss_kwh": 2666.690103082278,
+          "actual_net_energy_kwh": [
+            668.8048737372918,
+            1.2187609759821
+          ],
+          "canary_quality": 0.0,
+          "capacitor_switches": 22,
+          "case_id": "34Bus-rl-standard-p015-s1",
+          "error": "terminal_energy_violation",
+          "final_energy_kwh": [
+            3331.0,
+            3999.0
+          ],
+          "phase_time_compliance": 0.6767543859649123,
+          "profile_index": 15,
+          "qualification_valid": false,
+          "rl_paper_vanilla_return": -57.565565282576735,
+          "simultaneous_compliance": 0.0,
+          "tap_moves": 990,
+          "terminal_energy_error_kwh": [
+            669.0,
+            1.0
+          ],
+          "valid": false,
+          "voltage_violation_pu_hours": 21.96799460722195
+        },
+        {
+          "active_loss_kwh": 2701.215907238651,
+          "actual_net_energy_kwh": [
+            726.0317541618399,
+            2.6294565145462627
+          ],
+          "canary_quality": 0.0,
+          "capacitor_switches": 22,
+          "case_id": "34Bus-rl-standard-p000-s1",
+          "error": "terminal_energy_violation",
+          "final_energy_kwh": [
+            3273.0,
+            3999.0
+          ],
+          "phase_time_compliance": 0.6557017543859649,
+          "profile_index": 0,
+          "qualification_valid": false,
+          "rl_paper_vanilla_return": -57.43947614722461,
+          "simultaneous_compliance": 0.0,
+          "tap_moves": 985,
+          "terminal_energy_error_kwh": [
+            727.0,
+            1.0
+          ],
+          "valid": false,
+          "voltage_violation_pu_hours": 21.845862518692684
+        }
+      ],
+      "fixed_final_heldout_metrics": [
+        {
+          "active_loss_kwh": 2658.988304528128,
+          "actual_net_energy_kwh": [
+            667.8592292442373,
+            1.2516841188813856
+          ],
+          "canary_quality": 0.0,
+          "capacitor_switches": 22,
+          "case_id": "34Bus-rl-standard-p001-s1",
+          "error": "terminal_energy_violation",
+          "final_energy_kwh": [
+            3332.0,
+            3998.0
+          ],
+          "phase_time_compliance": 0.6758771929824562,
+          "profile_index": 1,
+          "qualification_valid": false,
+          "rl_paper_vanilla_return": -57.55460706207633,
+          "simultaneous_compliance": 0.0,
+          "tap_moves": 990,
+          "terminal_energy_error_kwh": [
+            668.0,
+            2.0
+          ],
+          "valid": false,
+          "voltage_violation_pu_hours": 21.964959210299337
+        },
+        {
+          "active_loss_kwh": 2629.5581552337085,
+          "actual_net_energy_kwh": [
+            670.2569140506386,
+            32.426830048454676
+          ],
+          "canary_quality": 0.0,
+          "capacitor_switches": 22,
+          "case_id": "34Bus-rl-standard-p006-s1",
+          "error": "terminal_energy_violation",
+          "final_energy_kwh": [
+            3329.0,
+            3969.0
+          ],
+          "phase_time_compliance": 0.6574561403508772,
+          "profile_index": 6,
+          "qualification_valid": false,
+          "rl_paper_vanilla_return": -57.86039368720496,
+          "simultaneous_compliance": 0.0,
+          "tap_moves": 990,
+          "terminal_energy_error_kwh": [
+            671.0,
+            31.0
+          ],
+          "valid": false,
+          "voltage_violation_pu_hours": 22.27587515531221
+        },
+        {
+          "active_loss_kwh": 2759.9370610798214,
+          "actual_net_energy_kwh": [
+            722.2372550945713,
+            2.9561408975596137
+          ],
+          "canary_quality": 0.0,
+          "capacitor_switches": 22,
+          "case_id": "34Bus-rl-standard-p008-s1",
+          "error": "terminal_energy_violation",
+          "final_energy_kwh": [
+            3276.0,
+            3996.0
+          ],
+          "phase_time_compliance": 0.662719298245614,
+          "profile_index": 8,
+          "qualification_valid": false,
+          "rl_paper_vanilla_return": -57.59064447621576,
+          "simultaneous_compliance": 0.0,
+          "tap_moves": 989,
+          "terminal_energy_error_kwh": [
+            724.0,
+            4.0
+          ],
+          "valid": false,
+          "voltage_violation_pu_hours": 21.862127635630475
+        },
+        {
+          "active_loss_kwh": 2486.8412226894843,
+          "actual_net_energy_kwh": [
+            650.7272467637857,
+            0.9491945948084748
+          ],
+          "canary_quality": 0.0,
+          "capacitor_switches": 22,
+          "case_id": "34Bus-rl-standard-p009-s1",
+          "error": "terminal_energy_violation",
+          "final_energy_kwh": [
+            3348.0,
+            3999.0
+          ],
+          "phase_time_compliance": 0.6912280701754386,
+          "profile_index": 9,
+          "qualification_valid": false,
+          "rl_paper_vanilla_return": -56.832196634313235,
+          "simultaneous_compliance": 0.0,
+          "tap_moves": 990,
+          "terminal_energy_error_kwh": [
+            652.0,
+            1.0
+          ],
+          "valid": false,
+          "voltage_violation_pu_hours": 21.3263366255616
+        },
+        {
+          "active_loss_kwh": 2532.1505154082215,
+          "actual_net_energy_kwh": [
+            664.5105064951762,
+            0.9464689396045571
+          ],
+          "canary_quality": 0.0,
+          "capacitor_switches": 22,
+          "case_id": "34Bus-rl-standard-p012-s1",
+          "error": "terminal_energy_violation",
+          "final_energy_kwh": [
+            3334.0,
+            3999.0
+          ],
+          "phase_time_compliance": 0.668859649122807,
+          "profile_index": 12,
+          "qualification_valid": false,
+          "rl_paper_vanilla_return": -57.45728130471237,
+          "simultaneous_compliance": 0.0,
+          "tap_moves": 990,
+          "terminal_energy_error_kwh": [
+            666.0,
+            1.0
+          ],
+          "valid": false,
+          "voltage_violation_pu_hours": 21.898830180969497
+        },
+        {
+          "active_loss_kwh": 2512.5680893317735,
+          "actual_net_energy_kwh": [
+            663.83099438788,
+            32.12921700937112
+          ],
+          "canary_quality": 0.0,
+          "capacitor_switches": 22,
+          "case_id": "34Bus-rl-standard-p013-s1",
+          "error": "terminal_energy_violation",
+          "final_energy_kwh": [
+            3335.0,
+            3969.0
+          ],
+          "phase_time_compliance": 0.6789473684210526,
+          "profile_index": 13,
+          "qualification_valid": false,
+          "rl_paper_vanilla_return": -57.384640472128396,
+          "simultaneous_compliance": 0.0,
+          "tap_moves": 990,
+          "terminal_energy_error_kwh": [
+            665.0,
+            31.0
+          ],
+          "valid": false,
+          "voltage_violation_pu_hours": 21.831400687710453
+        },
+        {
+          "active_loss_kwh": 2651.7321056384185,
+          "actual_net_energy_kwh": [
+            669.6971368241044,
+            1.206004904393538
+          ],
+          "canary_quality": 0.0,
+          "capacitor_switches": 22,
+          "case_id": "34Bus-rl-standard-p014-s1",
+          "error": "terminal_energy_violation",
+          "final_energy_kwh": [
+            3329.0,
+            3999.0
+          ],
+          "phase_time_compliance": 0.6666666666666666,
+          "profile_index": 14,
+          "qualification_valid": false,
+          "rl_paper_vanilla_return": -57.71341453762676,
+          "simultaneous_compliance": 0.0,
+          "tap_moves": 990,
+          "terminal_energy_error_kwh": [
+            671.0,
+            1.0
+          ],
+          "valid": false,
+          "voltage_violation_pu_hours": 22.116599344296198
+        },
+        {
+          "active_loss_kwh": 2666.690103082278,
+          "actual_net_energy_kwh": [
+            668.8048737372918,
+            1.2187609759821
+          ],
+          "canary_quality": 0.0,
+          "capacitor_switches": 22,
+          "case_id": "34Bus-rl-standard-p015-s1",
+          "error": "terminal_energy_violation",
+          "final_energy_kwh": [
+            3331.0,
+            3999.0
+          ],
+          "phase_time_compliance": 0.6767543859649123,
+          "profile_index": 15,
+          "qualification_valid": false,
+          "rl_paper_vanilla_return": -57.565565282576735,
+          "simultaneous_compliance": 0.0,
+          "tap_moves": 990,
+          "terminal_energy_error_kwh": [
+            669.0,
+            1.0
+          ],
+          "valid": false,
+          "voltage_violation_pu_hours": 21.96799460722195
+        }
+      ],
+      "fixed_final_mean_quality": 0.0,
+      "fixed_final_qualification_valid_count": 0,
+      "fixed_final_valid_count": 0,
+      "gradient_steps_final": 39001,
+      "logged_v1_prefix_identical_rows": 1659,
+      "old_none_diagnostic_episodes_preserved": 16,
+      "periodic_evaluation_count": 333,
+      "run_lock_sha256": "49b389d3b2116821e895985c42b47db73e0376fd9a987067d12017ae9d7c334a",
+      "saved_episode_count": 2675,
+      "saved_raw_physical_rows_recomputed": 64200,
+      "separate_official_checkpoint_evaluation_pf_calls": 1202,
+      "summary_sha256": "dd6f507c701fc01f33038ed084f3dd6cc26e278d840399a909dfa3c6b15225e2",
+      "training_log_sha256": "d040360bd14500af3dd76c5ba836d286869cc5621f32f83d12f710cd1e2c6995",
+      "training_run_audit_sha256": "649339caabee3c3c54974e4e836bef1a81e3b0c6b7ac103d52edf3cc4d6258cc",
+      "training_run_explicit_pf_calls": 242292
+    }
+  },
+  "schema_version": "powergym-rl-independent-audit-compact-v2",
+  "scope": {
+    "benchmark_valid_excludes_voltage_feasibility": true,
+    "native_paper_score_reproduction": false,
+    "network": "34Bus",
+    "no_calendar_independence_claim": true,
+    "no_same_n_budget_ranking_claim": true,
+    "no_test_based_selection": true,
+    "seed": 0,
+    "training_steps_per_algorithm": 40000
+  },
+  "source_file_count": 48,
+  "source_freeze_sha256": "9415e1ecb7e5b47db4eab6f02283e6724e617e9cbb369193a51c35f4c35f3b60",
+  "v1_failure_audit_sha256": "ff08deeca8b2b1bc8cab4e14d46b2265b19cb246664015edfd4fb9990137431c",
+  "v1_snapshots_unchanged": true,
+  "validation_counts": {
+    "checkpoint_metadata_complete_equality_checks": 32,
+    "frozen_source_files_checked": 48,
+    "historical_source_files_checked": 32,
+    "independent_checkpoint_heldout_episodes": 32,
+    "official_checkpoint_eval_episodes": 32,
+    "training_log_rows_checked": 80000,
+    "v2_saved_episodes_recomputed": 5350,
+    "v2_saved_raw_physical_rows_recomputed": 128400
+  }
+}

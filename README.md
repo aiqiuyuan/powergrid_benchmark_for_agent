@@ -100,6 +100,8 @@ GOC 的 500/793/2000/2312 等规模属于同一任务族；UC 为核心，受限
 
 2026-10-16已完成[正式选例基础实验](docs/experiments/distribution-case-selection-20261016.md)及[强基线补充](docs/experiments/distribution-baseline-qualification-20261016.md)。补充16条MAPDN、45条PowerGym完整日：MAPDN强局部控制已使四候选日CR全部100%，33节点2012-02-03仅保留为安全约束下降损候选；PowerGym34Bus只剩上游边界微小越限、123Bus标准被静态设备解决，暂不冻结混合设备主case。报告保留旧结果、真实损耗、储能贡献、数值设置与信息权限；[补充工具](tools/distribution_qualification/README.md)可重放。本轮不改写旧n=0/1记录，也不构成正式严格n认证。
 
+另已完成[PowerGym PPO / 整数SAC单seed pilot](docs/experiments/powergym-rl-pilot-20261016.md)：参照论文公开参数独立实现，在当前合同下各训练40,000步，并独立评测20k / 40k检查点。固定40k策略在8个留出日均未满足末能量条件，质量为0；失败与完整物理指标均保留。这是方法重实现及流程验证，原论文训练源码未公开、完整设置仍有缺口，不能标为原曲线数值复现。参数来源、实现假设及可复现性判断见[核验说明](docs/experiments/powergym-rl-paper-audit-20261016.md)，工具见[训练入口](tools/powergym_rl/README.md)。
+
 ## 共同实验语义
 
 ```mermaid

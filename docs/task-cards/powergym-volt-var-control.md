@@ -123,7 +123,11 @@ DSS 日模式从 hour=0、stepsize=3600 开始；reset 用 SolveNoControl，后�
 
 native DSS 模式和直接算法模式必须区分。默认 `dss_act=False` 关闭自动控制；`dss_step()` 开启原 DSS 控制，但明确不控制电池。34/123 active daily 文件没有 CapControl，因此该参考主要是调压器自动控制、其余按初态/idle，而非全设备最优基线。直接动作赛道不得无意叠加自动控制。[ControlMode](https://github.com/siemens/powergym/blob/c9fc6d8357308a1f2bd2389474b56089c2a6bd78/powergym/circuit.py#L78-L100)、[dss_step](https://github.com/siemens/powergym/blob/c9fc6d8357308a1f2bd2389474b56089c2a6bd78/powergym/env.py#L513-L561)。
 
-论文比较 PPO、SAC、连续电池 SAC 和 random，但当前仓库没有对应训练代码或权重；维护者也明确说明未发布这些 agent。不能把外部通用 SAC 直接当原论文多离散/混合动作实现。论文随机 profile halves 与十 seed 的总表不是本固定 case 的基线分数，PowerGym 也没有可供本单日成绩插入的官方竞赛榜。[维护者确认](https://github.com/siemens/powergym/issues/4#issuecomment-1128028790)、[正式论文 §6.1](https://proceedings.mlr.press/v168/fan22a/fan22a.pdf)。
+本轮新增 PPO / 整数 SAC 的**独立方法重实现**，在当前冻结 benchmark 合同下重训。主要超参数参照[扩展版附录 Table 6，第19页](https://arxiv.org/pdf/2109.03970v3#page=19)；该表是 suggested hyperparameters，并非完整训练配置。论文未公开的网络 / 更新细节、初始化、warmup 等补齐项均显式记录为实现假设。整数 SAC 采用 straight-through Gumbel-Softmax 的整数重参数化，不能把通用连续 SAC 取整称为同一方法。完整来源、参数归属和合同差异见[论文复现来源核验](../experiments/powergym-rl-paper-audit-20261016.md)。
+
+**官方开源的是环境与数据；本次核验的官方仓库未见论文使用的 PPO / SAC 训练源码或权重。** [维护者在 issue #4 明确说明这些 agent 尚未发布](https://github.com/siemens/powergym/issues/4#issuecomment-1128028790)。本项目新增实现不是作者训练代码，也未恢复作者当时的 profile split、十个 seed 身份和完整运行设置。论文随机 profile halves 与十 seed 的总表不是本固定 case 的基线分数，PowerGym 也没有可供本单日成绩插入的官方竞赛榜。[正式论文 §6.1](https://proceedings.mlr.press/v168/fan22a/fan22a.pdf)。
+
+**原论文曲线尚未完成数值复现。** 当前物理执行、观测时序、硬末能量条件和评分与原环境存在差异，Figure 2 的 40k / 20k 计数歧义也未消除；这限制了可作出的复现结论，并不证明原结果无法复现。本轮已完成[34Bus、seed=0的PPO / 整数SAC各40k pilot](../experiments/powergym-rl-pilot-20261016.md)，20k / 40k检查点均独立评测；固定40k最终策略在8个留出案例均因末能量条件无效、quality=0，不能据此冻结正式主case或推断算法类别无效。首次奖励适配失败及纠正后重跑均保留。该额外算法参照不与正式 Famou n 轨道冒称同开发预算。
 
 校准应同时比较 static-only、no-battery 和 full-device 控制：若静态 tap/cap 已解决问题，或提升仅来自花掉初始能量，则尚不足以证明这个 case 测出了混合设备跨期控制。先报告该情况，再按预先规则选其他完整可运行候选，不削弱基线或观察 n 效应后再挑选。
 

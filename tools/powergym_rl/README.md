@@ -2,6 +2,8 @@
 
 本目录实现论文方法在当前冻结物理合同上的独立训练。它不依赖未公开的作者权重，也不宣称复现原Gym环境、论文分数、十seed统计或全部网络。已公开设置、实现假设和合同差异见[来源核验](../../docs/experiments/powergym-rl-paper-audit-20261016.md)；[v2 pilot协议](../../configs/powergym-rl-pilot-20261016-v2.json)分别标注论文参数与重实现假设。
 
+已完成[34Bus、seed0、每算法40k pilot及独立检查点评测](../../docs/experiments/powergym-rl-pilot-20261016.md)。两条固定40k最终策略均未满足8个留出日的末能量门槛，quality=0；结果和首次适配失败完整保留，不能据此将原论文的数值复现或正式选例认证标记为完成。
+
 PPO使用按设备分解的categorical策略和联合log probability。SAC用straight-through Gumbel-Softmax采样独立one-hot，再映射到每设备一个整数标量供critic使用；没有用普通连续SAC取整代替该方法。两者仅读取当前合法观测，无在线潮流搜索或未来负荷。新增实现未复制作者训练源码；继承物理与数据的上游版权见[第三方声明](../distribution_qualification/THIRD_PARTY_NOTICES.md)。
 
 ## 数据与训练
