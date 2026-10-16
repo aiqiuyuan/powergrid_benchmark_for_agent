@@ -41,3 +41,5 @@ python verification/validate_runtime.py --data tests/data --secure --output /tru
 上游代码/资产来自Siemens PowerGym提交
 `c9fc6d8357308a1f2bd2389474b56089c2a6bd78`，准备副本保留原MIT LICENSE。
 继承feeder和原始负荷CSV来源的完整独立许可仍是正式release的待验收项。
+
+候选执行要求 Landlock ABI≥1，配合独立 UID、私有目录和 seccomp。ABI 1/2 额外禁止文件截断、creat、带 O_TRUNC 的 open/openat，以及 openat2；私有文件只可独占新建或追加，建议将控制历史保存在实例内存。ABI≥3 使用 Landlock 原生截断权限。两题共享相同 launcher，目标集群必须实际通过跨目录文件、截断、网络和 IPC 负例探针。

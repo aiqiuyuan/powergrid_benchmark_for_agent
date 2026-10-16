@@ -1,0 +1,432 @@
+{
+  "schema_version": 1,
+  "as_of_date": "2026-10-16",
+  "scope": "real-backend target-cluster workflow canary; all four final evaluations completed, three native audits passed, one terminal-energy candidate failure retained",
+  "source_commit": "541fea788910a971eaaf371778f79aeda2dca005",
+  "github_linux": {
+    "workflow_run_id": 38861479324,
+    "workflow_url": "https://github.com/aiqiuyuan/powergrid_benchmark_for_agent/actions/runs/38861479324",
+    "conclusion": "success",
+    "jobs": {
+      "verify (3.11)": "success",
+      "verify (3.12)": "success",
+      "verify (3.13)": "success",
+      "rte-task-package": "success",
+      "distribution-sandbox": "success",
+      "mapdn-real-backend": "success",
+      "powergym-real-backend": "success"
+    }
+  },
+  "target_cluster_runtime": {
+    "cluster": "dev",
+    "bootstrap_job": "aqy-dist-build-r3-20261016-142843",
+    "passed": true,
+    "acceptance_sha256": "6dc486d560d47c5e98ddc23fac288a793c5f8e335a375c20ee7cb18fb011745c",
+    "host_kernel": "5.15.0-72-generic",
+    "runner_python_version": "3.13.15",
+    "simulator_python_series": "3.12",
+    "landlock_abi": 1,
+    "landlock_abi1_extra_seccomp_denials": [
+      "truncate",
+      "ftruncate",
+      "creat",
+      "open/openat with O_TRUNC",
+      "openat2"
+    ],
+    "sandbox_negative_probes": [
+      "mapdn",
+      "powergym"
+    ],
+    "powergym_secure_runtime_validation": true,
+    "real_complete_case_scores": [
+      "mapdn",
+      "powergym"
+    ],
+    "mapdn_complete_intervals": 480,
+    "powergym_complete_intervals": 24,
+    "storage_cleanup": {
+      "mounts_seen": 1,
+      "unmounts_completed": 1,
+      "filesystem_types": [
+        "ext4"
+      ]
+    },
+    "runtime_manifest_sha256": "09128d1ef1a9fe9777b848b9f438e6b3d89e30c07d6535baf74ff21d4950529d",
+    "runtime_source_closure_sha256": "7027b1fcdc83387ca0ef02f0477c90bac40890d4579efdf3627fa27c23a5328c",
+    "images": [
+      {
+        "runtime_image": "mapdn-canary-runtime:1",
+        "runtime_archive": "mapdn-runtime-image.tar",
+        "runtime_archive_sha256": "c4f08ec487e8e8dcb4556cb9e5503da2cee6facdccb8626e4cd34ff6be743a3a",
+        "runtime_image_id": "sha256:e1f30d331691e841a8dd97078a4e18a3e73309c2692130390d3126eb83cd8f69"
+      },
+      {
+        "runtime_image": "powergym-canary-runtime:1",
+        "runtime_archive": "powergym-runtime-image.tar",
+        "runtime_archive_sha256": "7f4cb4861f69a068473337e3b54b21d4205c2018bf328bae1654839f22e2aef4",
+        "runtime_image_id": "sha256:17e3121db9fb100d59e71c15d07b6a68cafed5af1076f5f5e2ea8e396bc0c595"
+      }
+    ]
+  },
+  "preparation_failures": [
+    {
+      "job": "aqy-dist-build-r1-20261016-140938",
+      "stage": "docker startup readiness",
+      "passed": false,
+      "error_type": "TimeoutExpired"
+    },
+    {
+      "job": "aqy-dist-build-r2-20261016-141736",
+      "stage": "sandbox acceptance",
+      "passed": false,
+      "reason": "Landlock ABI below the previous ABI>=3 requirement",
+      "cleanup_errno_name": "EBUSY"
+    }
+  ],
+  "constructor_preflight": {
+    "job": "aqy-dist-ctor-v2-20261016-144943",
+    "passed": true,
+    "roles_passed": [
+      "mapdn-n0",
+      "mapdn-n1",
+      "powergym-n0",
+      "powergym-n1"
+    ],
+    "legacy_list_disallowed_tools_rejected": true,
+    "model_calls": 0
+  },
+  "historical_development_attempts": [
+    {
+      "role": "mapdn-n0",
+      "job": "aqy-dist-mapdn-n0-r1-20261016-143345",
+      "status": "failed_before_model_call",
+      "model_calls": 0,
+      "reason": "Harbor 0.20 disallowed_tools requires str; previous configuration supplied list",
+      "completed_experiment": false
+    },
+    {
+      "role": "powergym-n0",
+      "task": "powergym-volt-var-control-canary-v1",
+      "n": 0,
+      "mode": "terminal",
+      "job": "aqy-dist-v2-powergym-n0-r1-20261016-150238",
+      "status": "failed_before_model_gate",
+      "model_start_confirmed": false,
+      "lifecycle_verified": false,
+      "submission_returncode": 0,
+      "phase": "failed",
+      "error_type": "FileNotFoundError",
+      "trial_exception_type": "RuntimeError",
+      "failure_class": "infrastructure",
+      "failure_stage": "container build/startup before model gate",
+      "gateway_receipt_present": false,
+      "trace_files": 0,
+      "final_audit_present": false,
+      "provider_usage": null,
+      "candidate_reward": null,
+      "completed_experiment": false
+    },
+    {
+      "role": "powergym-n1",
+      "task": "powergym-volt-var-control-canary-v1",
+      "n": 1,
+      "mode": "eval-budget",
+      "job": "aqy-dist-v2-powergym-n1-r1-20261016-150240",
+      "status": "failed_before_model_gate",
+      "model_start_confirmed": false,
+      "lifecycle_verified": false,
+      "submission_returncode": 0,
+      "phase": "failed",
+      "error_type": "FileNotFoundError",
+      "trial_exception_type": "RuntimeError",
+      "failure_class": "infrastructure",
+      "failure_stage": "container build/startup before model gate",
+      "gateway_receipt_present": false,
+      "trace_files": 0,
+      "final_audit_present": false,
+      "provider_usage": null,
+      "candidate_reward": null,
+      "completed_experiment": false
+    }
+  ],
+  "experiments": [
+    {
+      "role": "mapdn-n0",
+      "task": "mapdn-voltage-control-canary-v1",
+      "n": 0,
+      "mode": "terminal",
+      "job": "aqy-dist-v2-mapdn-n0-r1-20261016-145209",
+      "status": "completed",
+      "model_start_confirmed": true,
+      "submission_returncode": 0,
+      "model_gate": {
+        "gateway_receipt_present": true,
+        "assistant_records": 183,
+        "assistant_record_models": [
+          "global.openai.gpt-5.6-sol"
+        ],
+        "api_error_records": 0,
+        "record_count_is_not_independent_provider_call_count": true
+      },
+      "native_audit_passed": true,
+      "evaluation_completed": true,
+      "candidate_feasible": true,
+      "candidate_reward": 0.8972437326134053,
+      "candidate_sha256": "675e2781698507c247e0d24bcdd5277b21d781abde83dcdfa1dfba0068467250",
+      "checked_candidate_sha256": "675e2781698507c247e0d24bcdd5277b21d781abde83dcdfa1dfba0068467250",
+      "feedback_budget": 0,
+      "feedback_used": 0,
+      "feedback_collected": 0,
+      "final_audit_present": true,
+      "provider_usage": {
+        "status": "unconfirmed",
+        "tokens": null,
+        "deduplicated_messages": 57,
+        "provider_token_fields_reported_zero": true,
+        "zero_fields_establish_zero_consumption": false
+      },
+      "batch_name": "distribution-canary-20261016-r2",
+      "source_manifest_sha256": "85b45315cbac0ed37c990d82353b91a74cc8d96d2acf8ec8699e141d38c4c7a0",
+      "voltage_compliance_rate": 1.0,
+      "bus_time_compliance_rate": 1.0,
+      "actual_loss_mwh": 1.0566878155027704,
+      "completed_intervals": 480,
+      "secure_execution": true
+    },
+    {
+      "role": "mapdn-n1",
+      "task": "mapdn-voltage-control-canary-v1",
+      "n": 1,
+      "mode": "eval-budget",
+      "job": "aqy-dist-v2-mapdn-n1-r1-20261016-150237",
+      "status": "completed",
+      "model_start_confirmed": true,
+      "submission_returncode": 0,
+      "native_audit_passed": true,
+      "evaluation_completed": true,
+      "candidate_feasible": true,
+      "candidate_reward": 0.8915242407486476,
+      "candidate_sha256": "f27cb5a1b02c8744e498937384b04ef766683285e6d9d4ffbce1cb99c2448481",
+      "checked_candidate_sha256": "f27cb5a1b02c8744e498937384b04ef766683285e6d9d4ffbce1cb99c2448481",
+      "feedback_budget": 1,
+      "feedback_used": 1,
+      "feedback_collected": 1,
+      "final_audit_present": true,
+      "model_gate": {
+        "gateway_receipt_present": true,
+        "assistant_records": 157,
+        "assistant_record_models": [
+          "global.openai.gpt-5.6-sol"
+        ],
+        "api_error_records": 0,
+        "record_count_is_not_independent_provider_call_count": true
+      },
+      "provider_usage": {
+        "status": "unconfirmed",
+        "tokens": null,
+        "deduplicated_messages": 40,
+        "provider_token_fields_reported_zero": true,
+        "zero_fields_establish_zero_consumption": false
+      },
+      "batch_name": "distribution-canary-20261016-r2",
+      "source_manifest_sha256": "85b45315cbac0ed37c990d82353b91a74cc8d96d2acf8ec8699e141d38c4c7a0",
+      "voltage_compliance_rate": 1.0,
+      "bus_time_compliance_rate": 1.0,
+      "actual_loss_mwh": 1.1852134294045533,
+      "completed_intervals": 480,
+      "secure_execution": true
+    },
+    {
+      "role": "powergym-n0",
+      "task": "powergym-volt-var-control-canary-v1",
+      "n": 0,
+      "mode": "terminal",
+      "batch_name": "distribution-canary-20261016-r3",
+      "source_manifest_sha256": "bcef4727b53076b59a846b67df6a6f70250d49e328e4ae1b8bd14468c34f254e",
+      "job": "aqy-dist-v3-powergym-n0-r1-20261016-154559",
+      "status": "completed_invalid_candidate",
+      "submission_returncode": 0,
+      "model_start_confirmed": true,
+      "final_audit_present": true,
+      "provider_usage": {
+        "status": "unconfirmed",
+        "tokens": null,
+        "usage_receipt_scope": "available_claude-code.txt_segments",
+        "usage_receipt_model_messages": 22,
+        "reported_provider_usage": {
+          "input_tokens": 0,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "output_tokens": 0
+        },
+        "zero_fields_establish_zero_consumption": false,
+        "deduplicated_messages": 22
+      },
+      "candidate_reward": 0,
+      "entry_phase": "failed",
+      "native_audit_passed": false,
+      "evaluation_completed": true,
+      "candidate_feasible": false,
+      "candidate_sha256": "125d0053acf6370205f0c1cfa7db5e02d9228777f24940e5cafba47e5fc1f32b",
+      "checked_candidate_sha256": "125d0053acf6370205f0c1cfa7db5e02d9228777f24940e5cafba47e5fc1f32b",
+      "completed_intervals": 24,
+      "feedback_budget": 0,
+      "feedback_used": 0,
+      "feedback_collected": 0,
+      "actual_loss_kwh": 2850.9477808772126,
+      "phase_time_compliance_rate": 0.8219298245614035,
+      "final_soc": [
+        0.9975,
+        1.0
+      ],
+      "terminal_energy_error_kwh": [
+        10,
+        0
+      ],
+      "terminal_energy_tolerance_kwh": 1,
+      "tap_moves": 158,
+      "capacitor_switches": 0,
+      "model_gate": {
+        "gateway_receipt_present": true,
+        "assistant_records": 64,
+        "assistant_record_models": [
+          "global.openai.gpt-5.6-sol"
+        ],
+        "api_error_records": 0,
+        "record_count_is_not_independent_provider_call_count": true
+      },
+      "failure_class": "candidate",
+      "verifier_error": "terminal_energy_violation",
+      "exception_type": "AgentTimeoutError",
+      "exception_context": "600-second development deadline",
+      "resubmitted_as_infrastructure_failure": false
+    },
+    {
+      "role": "powergym-n1",
+      "task": "powergym-volt-var-control-canary-v1",
+      "n": 1,
+      "mode": "eval-budget",
+      "batch_name": "distribution-canary-20261016-r3",
+      "source_manifest_sha256": "bcef4727b53076b59a846b67df6a6f70250d49e328e4ae1b8bd14468c34f254e",
+      "job": "aqy-dist-v3-powergym-n1-r1-20261016-154601",
+      "status": "completed",
+      "submission_returncode": 0,
+      "model_start_confirmed": true,
+      "final_audit_present": true,
+      "provider_usage": {
+        "status": "unconfirmed",
+        "tokens": null,
+        "usage_receipt_scope": "available_claude-code.txt_segments",
+        "usage_receipt_model_messages": 2,
+        "reported_provider_usage": {
+          "input_tokens": 0,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "output_tokens": 0
+        },
+        "zero_fields_establish_zero_consumption": false,
+        "deduplicated_messages": 2
+      },
+      "candidate_reward": 0.1405541996994321,
+      "entry_phase": "completed",
+      "native_audit_passed": true,
+      "evaluation_completed": true,
+      "candidate_feasible": true,
+      "candidate_sha256": "73b9578c63e7097c2bd2e96dd959832f5d6c342e9e9469883ae1bbe2b010a1fe",
+      "checked_candidate_sha256": "73b9578c63e7097c2bd2e96dd959832f5d6c342e9e9469883ae1bbe2b010a1fe",
+      "completed_intervals": 24,
+      "feedback_budget": 1,
+      "feedback_used": 1,
+      "feedback_collected": 1,
+      "actual_loss_kwh": 2356.9993627724575,
+      "phase_time_compliance_rate": 0.9508771929824561,
+      "final_soc": [
+        1.0,
+        1.0
+      ],
+      "terminal_energy_error_kwh": [
+        0,
+        0
+      ],
+      "terminal_energy_tolerance_kwh": 1,
+      "tap_moves": 90,
+      "capacitor_switches": 0,
+      "model_gate": {
+        "gateway_receipt_present": true,
+        "assistant_records": 7,
+        "assistant_record_models": [
+          "global.openai.gpt-5.6-sol"
+        ],
+        "api_error_records": 0,
+        "record_count_is_not_independent_provider_call_count": true
+      }
+    }
+  ],
+  "completed_model_experiments": 4,
+  "strict_n_certified": false,
+  "release_ready": false,
+  "full_four_role_workflow_completed": true,
+  "original_v2_batch": {
+    "name": "distribution-canary-20261016-r2",
+    "source_manifest_sha256": "85b45315cbac0ed37c990d82353b91a74cc8d96d2acf8ec8699e141d38c4c7a0",
+    "runtime_acceptance_reused_with_same_runtime_and_private_configuration_hashes": true,
+    "development_seconds": 600,
+    "cumulative_token_cap": null,
+    "target_model": "global.openai.gpt-5.6-sol",
+    "cluster": "dev",
+    "gpus_per_role": 0,
+    "task_resources": {
+      "mapdn": {
+        "cpus": 8,
+        "memory_gib": 16
+      },
+      "powergym": {
+        "cpus": 6,
+        "memory_gib": 12
+      }
+    }
+  },
+  "powergym_retry_batch": {
+    "name": "distribution-canary-20261016-r3",
+    "source_manifest_sha256": "bcef4727b53076b59a846b67df6a6f70250d49e328e4ae1b8bd14468c34f254e",
+    "status": "final_evaluations_completed_one_invalid_candidate",
+    "new_model_submission_receipt_confirmed": true,
+    "jobs": [
+      "aqy-dist-v3-powergym-n0-r1-20261016-154559",
+      "aqy-dist-v3-powergym-n1-r1-20261016-154601"
+    ],
+    "development_seconds": 600,
+    "cumulative_token_cap": null,
+    "target_model": "global.openai.gpt-5.6-sol",
+    "cluster": "dev",
+    "cpus_per_role": 6,
+    "memory_gib_per_role": 12,
+    "gpus_per_role": 0,
+    "runtime_acceptance_sha256": "6dc486d560d47c5e98ddc23fac288a793c5f8e335a375c20ee7cb18fb011745c",
+    "original_runtime_acceptance_unchanged": true,
+    "development_base": {
+      "cache_job": "aqy-dist-base-v3-r1-20261016-152617",
+      "cache_passed": true,
+      "image_tag": "python:3.12.14-slim-bookworm",
+      "image_id": "sha256:febd0be41adb897a0ab8f1f1c693d8912669ea60c4940e076e9946b60e210ef0",
+      "source_repo_digest": "python@sha256:392307d22300de8b5986851a12d9176dfc0fc073e65bf6523ebd7dcbeb23564e",
+      "archive_name": "python-development-base.tar",
+      "archive_sha256": "88bbc6a984de1cbaf65290d9d4b6cd26919674d2e15f1653b08c4ce28c7806f5"
+    },
+    "completed_mapdn_v2_runs_repeated": false
+  },
+  "current_experiment_jobs_submitted": 4,
+  "completed_valid_model_experiments": 3,
+  "all_four_native_audits_passed": false,
+  "native_audit_passed_roles": [
+    "mapdn-n0",
+    "mapdn-n1",
+    "powergym-n1"
+  ],
+  "final_evaluation_completed_roles": [
+    "mapdn-n0",
+    "mapdn-n1",
+    "powergym-n0",
+    "powergym-n1"
+  ]
+}
