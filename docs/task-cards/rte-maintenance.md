@@ -1,6 +1,6 @@
 # RTE 检修排程
 
-> 状态：旧版4实例接入先导可运行；新增批暴露任务包缺失，修复验收未在快照中完成。v0.1的独立四角色数据划分为拟定。历史证据截止北京时间 2026-10-13 23:32；修复准备核对至 23:38。
+> 当前状态（2026-10-17）：ABC45开放开发／X15受保护反馈的v2任务已通过真实验收，n=0／1／3／5／10各三次共15组新实验已提交，运行状态见[本轮中文说明](../completion-rte-feedback-v2-launch-20261017.md)。本卡§1–12保留历史探索与原赛资料；当前协议以§13和[反馈v2协议](../protocol/rte-feedback-v2.md)为准。尚无本批正式研究结果。
 
 ## 1. 家族定位与研究能力
 
@@ -170,12 +170,12 @@ v0.1的`Public development / Public selection / Protected feedback / Final test`
 
 完整依据、资源差异和待定项见[X04配置确认与最小验收](../protocol/rte-x04-configuration.md)，政策见[固定case算法演化决定](../decisions/0005-fixed-case-evolution-first.md)。本次没有运行新基线或产生新分数，状态仍为`certification-pending / release_ready=false`。
 
-## 13. 当前任务包：ABC开放、X15受保护反馈（2026-10-15）
+## 13. 当前任务包：ABC开放、X15受保护反馈v2（2026-10-17）
 
 **本节覆盖§12及此前与新划分冲突的研究政策；原赛资料与历史实验记录保留。** A／B／C共45个完整实例开放开发，允许官方checker本地评分；X15仅放在评测端，过程每例900秒、15路并行，完整面板每次受理计一次n。开发T=12小时、n=0／1／3／5／10、各三次独立开发，累计token不限。
 
-提交通用`solver.py`。截止冻结唯一最终源码，随后在同一X15上独立运行每例5400秒档，不回流、不占过程n。X是有限反馈的自适应评测面板；不称独立未见测试。该版本不再以X04单例作为开发／反馈／终评全集，也不再禁止ABC完整自测。
+提交通用`solver.py`。截止冻结唯一最终源码，以原生900秒终验为权威主成绩，同一冻结源码另运行每例5400秒补充档；两档不回流、不占过程n，不自动恢复历史最高反馈版本。X是有限反馈的自适应评测面板；不称独立未见测试。该版本不再以X04单例作为开发／反馈／终评全集，也不再禁止ABC完整自测。
 
-资源为开发端2 CPU、评测端15 CPU，内存／存储采用显式初始配额待实测。完整原始输入、官方checker及逐例哈希固定；n只改变受保护反馈机会，不能随n改变实例或资源。过程reward保留严格全15例有效规则与输入归一化；原始F、有效率与失败结果均保存，不直接宣称原赛完整榜。
+资源为开发端2 CPU／32GiB、评测端15 CPU／256GiB，每候选单核／16GiB地址空间，外层21 CPU／296GiB；完整工业X15的900秒资源与Linux沙箱门禁已通过。完整原始输入、官方checker及逐例哈希固定；n只改变受保护反馈机会，不能随n改变实例或资源。v2按可行例数k优先、固定15分母质量Q次之，框架标量为`(k+Q)/16`；返回完整15例状态、有效目标及风险分项、约束类别、时间与RSS等白名单诊断。失败例目标为null、质量贡献0；部分可行的完整评测不再被整体归零。
 
-来源与数据准备、命令、反馈字段、最终评测和验收边界见[新版配置](../protocol/rte-abc-x15-configuration.md)，政策见[决定0006](../decisions/0006-rte-abc-open-x15-protected.md)。新源码包见[原生task目录](../../task-packages/rte-maintenance-abc-x15-v1/README.md)。正式认证仍待Linux／Harbor、整套X并行资源与网络隔离验收，`release_ready=false`。
+当前入口为[反馈v2协议](../protocol/rte-feedback-v2.md)、[v2原生task目录](../../task-packages/rte-maintenance-abc-x15-v2/README.md)与[真实验收及15组启动说明](../completion-rte-feedback-v2-launch-20261017.md)。[v1配置](../protocol/rte-abc-x15-configuration.md)、[决定0006](../decisions/0006-rte-abc-open-x15-protected.md)及旧任务包保留作为历史记录。启动验收不代表12小时正式结果已完成，也不等于五任务benchmark、强基线同平台重评、许可和泛化审计全部完成；总体发布认证仍待后续验收。
