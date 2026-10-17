@@ -1,0 +1,1227 @@
+{
+  "scope": "Original immutable v6 attempts; read-only trajectory/code analysis. No candidates executed. Two audit-blocked developed attempts currently lack final5400 reports.",
+  "sample_caution": "Incomplete unpaired small samples; no causal claim that feedback harms performance.",
+  "provenance": {
+    "source_batch": "rte2020-abc-x15-formal-20261016-v6",
+    "parent_trajectory_dedup": "tool_use_id within each top-level session; nested subagent sessions excluded from parent counts",
+    "wait_metric": "Sum of timestamp differences for direct parent Bash result calls, not total lost compute; background work/subagents may continue and TaskOutput waits excluded",
+    "public_eval_metric": "Commands mentioning public_eval.py, not number of completed evaluation runs",
+    "candidate_content_hash": "SHA256(app/submission/solver.py + NUL + sourcebytes + NUL) first16 hex; reproduces native judge archive content hash for single-file artifact",
+    "source_access": "Private original experiment evidence was inspected read-only. Public release contains panel aggregates, hashes and derived timing counts only; no candidate source, raw trajectory, protected inputs or per-case scores."
+  },
+  "summary": {
+    "developed_attempts": 10,
+    "final_reports": 8,
+    "protected_feedback_calls": 33,
+    "zero_scalar_feedback_calls": 32,
+    "positive_scalar_feedback_calls": 1,
+    "all_feedback_collected": true,
+    "all_feedback_evaluations_error_free": true,
+    "all_final_sources_differ_from_accepted_feedback_sources": true,
+    "groups": [
+      {
+        "n": 0,
+        "completed": 2,
+        "mean_score_5400": 0.22158316227861763,
+        "sample_std_score_5400": 0.001024446962634526,
+        "mean_feasible_cases_900": 10.5
+      },
+      {
+        "n": 1,
+        "completed": 2,
+        "mean_score_5400": 0.22050580810346992,
+        "sample_std_score_5400": 0.00011609128602653961,
+        "mean_feasible_cases_900": 12.5
+      },
+      {
+        "n": 3,
+        "completed": 1,
+        "mean_score_5400": 0.2146229243015415,
+        "sample_std_score_5400": null,
+        "mean_feasible_cases_900": 14
+      },
+      {
+        "n": 5,
+        "completed": 1,
+        "mean_score_5400": 0.21779855847302268,
+        "sample_std_score_5400": null,
+        "mean_feasible_cases_900": 14
+      },
+      {
+        "n": 10,
+        "completed": 2,
+        "mean_score_5400": 0.21217711991709942,
+        "sample_std_score_5400": 0.004020172919094772,
+        "mean_feasible_cases_900": 12.5
+      }
+    ],
+    "n0_vs_n1_mean_relative_score_gap": 0.004885831282240627
+  },
+  "runs": [
+    {
+      "role": "n0-r1",
+      "n": 0,
+      "repetition": 1,
+      "development_seconds": 43200.265284,
+      "terminal_900": {
+        "score": 0.0,
+        "feasible_cases": 10,
+        "case_count": 15,
+        "status_counts": {
+          "AC": 10,
+          "RE": 2,
+          "TLE": 3
+        },
+        "candidate_sha256": "6fc6d03491111cbf466eeb97652b1e8e463a3a34775140cb66f80e5b4025174d"
+      },
+      "final_5400": {
+        "score": 0.22230755567286248,
+        "validity": 1.0,
+        "feasible_cases": 15,
+        "case_count": 15,
+        "mean_candidate_wall_seconds": 3592.6927594984572,
+        "mean_official_objective": 28161.206764016722,
+        "mean_risk": 20110.98624872882,
+        "mean_excess": 36211.427279304626,
+        "max_peak_rss_gib": 14.016292572021484,
+        "candidate_sha256": "6fc6d03491111cbf466eeb97652b1e8e463a3a34775140cb66f80e5b4025174d"
+      },
+      "candidate_source_lines": 5295,
+      "candidate_sha256": "6fc6d03491111cbf466eeb97652b1e8e463a3a34775140cb66f80e5b4025174d",
+      "final_upload_content_sha256_16": "48e2c80cb9653ee6",
+      "feedback_count": 0,
+      "feedback": [],
+      "final_matches_feedback_ids": [],
+      "unique_feedback_content_count": 0,
+      "hours_after_last_collected_feedback": null,
+      "sum_direct_parent_bash_result_call_seconds": 0,
+      "direct_parent_bash_result_calls": 0,
+      "parent_commands_mentioning_public_eval_py": 86,
+      "parent_tool_call_counts": {
+        "Read": 213,
+        "Agent": 8,
+        "Bash": 366,
+        "SendMessage": 21,
+        "ListAgents": 31,
+        "TaskStop": 3,
+        "ScheduleWakeup": 2,
+        "Edit": 232,
+        "Write": 2,
+        "Skill": 2
+      }
+    },
+    {
+      "role": "n0-r2",
+      "n": 0,
+      "repetition": 2,
+      "development_seconds": 41490.114738,
+      "terminal_900": {
+        "score": 0.0,
+        "feasible_cases": 11,
+        "case_count": 15,
+        "status_counts": {
+          "AC": 11,
+          "RE": 4
+        },
+        "candidate_sha256": "e0c0d6af800a08516681b3d234fa3d1606642064aee3c58386f27a06efdabe22"
+      },
+      "final_5400": {
+        "score": 0.2208587688843728,
+        "validity": 1.0,
+        "feasible_cases": 15,
+        "case_count": 15,
+        "mean_candidate_wall_seconds": 2178.5736639107267,
+        "mean_official_objective": 28324.140688547574,
+        "mean_risk": 19835.783719547544,
+        "mean_excess": 36812.4976575476,
+        "max_peak_rss_gib": 8.903251647949219,
+        "candidate_sha256": "e0c0d6af800a08516681b3d234fa3d1606642064aee3c58386f27a06efdabe22"
+      },
+      "candidate_source_lines": 4923,
+      "candidate_sha256": "e0c0d6af800a08516681b3d234fa3d1606642064aee3c58386f27a06efdabe22",
+      "final_upload_content_sha256_16": "fe7e1a176de8b4b8",
+      "feedback_count": 0,
+      "feedback": [],
+      "final_matches_feedback_ids": [],
+      "unique_feedback_content_count": 0,
+      "hours_after_last_collected_feedback": null,
+      "sum_direct_parent_bash_result_call_seconds": 0,
+      "direct_parent_bash_result_calls": 0,
+      "parent_commands_mentioning_public_eval_py": 152,
+      "parent_tool_call_counts": {
+        "Read": 276,
+        "Bash": 352,
+        "Agent": 18,
+        "ListAgents": 15,
+        "SendMessage": 20,
+        "Edit": 186,
+        "TaskStop": 4
+      }
+    },
+    {
+      "role": "n0-r3",
+      "n": 0,
+      "repetition": 3,
+      "development_seconds": 43200.235858,
+      "terminal_900": {
+        "score": 0.0,
+        "feasible_cases": 12,
+        "case_count": 15,
+        "status_counts": {
+          "AC": 12,
+          "RE": 3
+        },
+        "candidate_sha256": "6af6e80d2bdcfb26cce17ab602d034a6846784db1bcbea1eb9f73089fa7bca5b"
+      },
+      "final_5400": null,
+      "candidate_source_lines": 5095,
+      "candidate_sha256": "6af6e80d2bdcfb26cce17ab602d034a6846784db1bcbea1eb9f73089fa7bca5b",
+      "final_upload_content_sha256_16": "a6f7efc5c92eb2c7",
+      "feedback_count": 0,
+      "feedback": [],
+      "final_matches_feedback_ids": [],
+      "unique_feedback_content_count": 0,
+      "hours_after_last_collected_feedback": null,
+      "sum_direct_parent_bash_result_call_seconds": 0,
+      "direct_parent_bash_result_calls": 0,
+      "parent_commands_mentioning_public_eval_py": 118,
+      "parent_tool_call_counts": {
+        "Read": 43,
+        "Agent": 8,
+        "Bash": 213,
+        "ListAgents": 10,
+        "SendMessage": 7,
+        "TaskStop": 21,
+        "Edit": 100
+      }
+    },
+    {
+      "role": "n1-r1",
+      "n": 1,
+      "repetition": 1,
+      "development_seconds": 43200.192674,
+      "terminal_900": {
+        "score": 0.0,
+        "feasible_cases": 13,
+        "case_count": 15,
+        "status_counts": {
+          "AC": 13,
+          "TLE": 2
+        },
+        "candidate_sha256": "9ddde5f3c116c56c060762e835c8d29377af95260eb6fac59fef3e3e6dcfb840"
+      },
+      "final_5400": {
+        "score": 0.22058789703905596,
+        "validity": 1.0,
+        "feasible_cases": 15,
+        "case_count": 15,
+        "mean_candidate_wall_seconds": 2041.2550402396669,
+        "mean_official_objective": 28428.940037010587,
+        "mean_risk": 19758.740808360413,
+        "mean_excess": 37099.13926566076,
+        "max_peak_rss_gib": 9.69620132446289,
+        "candidate_sha256": "9ddde5f3c116c56c060762e835c8d29377af95260eb6fac59fef3e3e6dcfb840"
+      },
+      "candidate_source_lines": 4920,
+      "candidate_sha256": "9ddde5f3c116c56c060762e835c8d29377af95260eb6fac59fef3e3e6dcfb840",
+      "final_upload_content_sha256_16": "2b8ce6d2d3d78b4f",
+      "feedback_count": 1,
+      "feedback": [
+        {
+          "id": 1,
+          "submitted_after_sec": 20372.8,
+          "elapsed_sec": 933.5,
+          "submitted_at": "2026-10-16T13:57:21Z",
+          "finished_at": "2026-10-16T14:12:54Z",
+          "collected_at": "2026-10-16T14:12:54Z",
+          "reward": 0.0,
+          "valid": false,
+          "feasible_cases": 13,
+          "case_count": 15,
+          "status_counts": {
+            "AC": 13,
+            "TLE": 2
+          },
+          "feedback_shown": "normalized_score=0; feasible_fraction=0.867; verdicts={'AC': 13, 'TLE': 2}; constraint_errors={}",
+          "upload_content_sha256_16": "1bf29b496e4eec0b",
+          "candidate_sha256": "76e8443b9a5e5a36b82d6bf82bbfbbfa52c5605804535a184318504211a9d51a",
+          "error_present": false
+        }
+      ],
+      "final_matches_feedback_ids": [],
+      "unique_feedback_content_count": 1,
+      "hours_after_last_collected_feedback": 6.083111400833333,
+      "sum_direct_parent_bash_result_call_seconds": 600.348,
+      "direct_parent_bash_result_calls": 1,
+      "parent_commands_mentioning_public_eval_py": 142,
+      "parent_tool_call_counts": {
+        "Read": 165,
+        "Agent": 10,
+        "Bash": 393,
+        "ListAgents": 9,
+        "SendMessage": 10,
+        "Edit": 220,
+        "TaskStop": 5,
+        "Write": 4,
+        "Skill": 3
+      }
+    },
+    {
+      "role": "n1-r2",
+      "n": 1,
+      "repetition": 2,
+      "development_seconds": 41752.299064,
+      "terminal_900": {
+        "score": 0.0,
+        "feasible_cases": 12,
+        "case_count": 15,
+        "status_counts": {
+          "AC": 12,
+          "RE": 3
+        },
+        "candidate_sha256": "c211d4e9273e398fa6ddf919be5ac5a81f8719e6edd3b8292cabaaa9f545f24b"
+      },
+      "final_5400": {
+        "score": 0.2204237191678839,
+        "validity": 1.0,
+        "feasible_cases": 15,
+        "case_count": 15,
+        "mean_candidate_wall_seconds": 2585.824936311405,
+        "mean_official_objective": 28406.89830569838,
+        "mean_risk": 19753.7750821075,
+        "mean_excess": 37060.02152928926,
+        "max_peak_rss_gib": 8.866531372070312,
+        "candidate_sha256": "c211d4e9273e398fa6ddf919be5ac5a81f8719e6edd3b8292cabaaa9f545f24b"
+      },
+      "candidate_source_lines": 4955,
+      "candidate_sha256": "c211d4e9273e398fa6ddf919be5ac5a81f8719e6edd3b8292cabaaa9f545f24b",
+      "final_upload_content_sha256_16": "8d63857d129cb5e8",
+      "feedback_count": 1,
+      "feedback": [
+        {
+          "id": 1,
+          "submitted_after_sec": 27052.1,
+          "elapsed_sec": 916.6,
+          "submitted_at": "2026-10-16T16:28:53Z",
+          "finished_at": "2026-10-16T16:44:10Z",
+          "collected_at": "2026-10-16T16:44:10Z",
+          "reward": 0.0,
+          "valid": false,
+          "feasible_cases": 13,
+          "case_count": 15,
+          "status_counts": {
+            "AC": 13,
+            "RE": 1,
+            "TLE": 1
+          },
+          "feedback_shown": "normalized_score=0; feasible_fraction=0.867; verdicts={'AC': 13, 'RE': 1, 'TLE': 1}; constraint_errors={}",
+          "upload_content_sha256_16": "51e3acdc18c877ba",
+          "candidate_sha256": "37a5239723ff102b537f18ff60a0be75fe81cdaa3bfcfdfdbb491be33fba0212",
+          "error_present": false
+        }
+      ],
+      "final_matches_feedback_ids": [],
+      "unique_feedback_content_count": 1,
+      "hours_after_last_collected_feedback": 3.8304545819444447,
+      "sum_direct_parent_bash_result_call_seconds": 0,
+      "direct_parent_bash_result_calls": 0,
+      "parent_commands_mentioning_public_eval_py": 63,
+      "parent_tool_call_counts": {
+        "Read": 79,
+        "Bash": 265,
+        "Agent": 8,
+        "ListAgents": 12,
+        "SendMessage": 9,
+        "Edit": 155,
+        "TaskStop": 2,
+        "Write": 5,
+        "Skill": 3
+      }
+    },
+    {
+      "role": "n10-r1",
+      "n": 10,
+      "repetition": 1,
+      "development_seconds": 42091.048041,
+      "terminal_900": {
+        "score": 0.0,
+        "feasible_cases": 14,
+        "case_count": 15,
+        "status_counts": {
+          "AC": 14,
+          "RE": 1
+        },
+        "candidate_sha256": "05c33fe9e1620f24021e06543ca863e08e69d2ec23c6ec48632081aaae400e8b"
+      },
+      "final_5400": {
+        "score": 0.21501981144973387,
+        "validity": 1.0,
+        "feasible_cases": 15,
+        "case_count": 15,
+        "mean_candidate_wall_seconds": 3508.8033731689056,
+        "mean_official_objective": 29500.401249143048,
+        "mean_risk": 19195.177803233244,
+        "mean_excess": 39805.62469505285,
+        "max_peak_rss_gib": 4.293430328369141,
+        "candidate_sha256": "05c33fe9e1620f24021e06543ca863e08e69d2ec23c6ec48632081aaae400e8b"
+      },
+      "candidate_source_lines": 5475,
+      "candidate_sha256": "05c33fe9e1620f24021e06543ca863e08e69d2ec23c6ec48632081aaae400e8b",
+      "final_upload_content_sha256_16": "6daf1c3fe265a6ce",
+      "feedback_count": 10,
+      "feedback": [
+        {
+          "id": 1,
+          "submitted_after_sec": 48.0,
+          "elapsed_sec": 925.6,
+          "submitted_at": "2026-10-16T08:18:16Z",
+          "finished_at": "2026-10-16T08:33:42Z",
+          "collected_at": "2026-10-16T08:33:42Z",
+          "reward": 0.0,
+          "valid": false,
+          "feasible_cases": 9,
+          "case_count": 15,
+          "status_counts": {
+            "AC": 9,
+            "RE": 2,
+            "TLE": 4
+          },
+          "feedback_shown": "normalized_score=0; feasible_fraction=0.600; verdicts={'AC': 9, 'RE': 2, 'TLE': 4}; constraint_errors={}",
+          "upload_content_sha256_16": "d44ccc9f2312e663",
+          "candidate_sha256": "ed51f16524846e40ba7f6b51ef3158a2081e41fa1def51b2fd21fcbbf4b7f86d",
+          "error_present": false
+        },
+        {
+          "id": 2,
+          "submitted_after_sec": 1052.0,
+          "elapsed_sec": 940.3,
+          "submitted_at": "2026-10-16T08:35:00Z",
+          "finished_at": "2026-10-16T08:50:41Z",
+          "collected_at": "2026-10-16T08:50:41Z",
+          "reward": 0.0,
+          "valid": false,
+          "feasible_cases": 12,
+          "case_count": 15,
+          "status_counts": {
+            "AC": 12,
+            "RE": 1,
+            "TLE": 2
+          },
+          "feedback_shown": "normalized_score=0; feasible_fraction=0.800; verdicts={'AC': 12, 'RE': 1, 'TLE': 2}; constraint_errors={}",
+          "upload_content_sha256_16": "21330b781cccd3ca",
+          "candidate_sha256": "3ec4d2bc38e3452407be29ebb1a050685154dcc6731ac37e596df142947299f9",
+          "error_present": false
+        },
+        {
+          "id": 3,
+          "submitted_after_sec": 2035.4,
+          "elapsed_sec": 927.5,
+          "submitted_at": "2026-10-16T08:51:24Z",
+          "finished_at": "2026-10-16T09:06:51Z",
+          "collected_at": "2026-10-16T09:06:51Z",
+          "reward": 0.0,
+          "valid": false,
+          "feasible_cases": 13,
+          "case_count": 15,
+          "status_counts": {
+            "AC": 13,
+            "RE": 1,
+            "TLE": 1
+          },
+          "feedback_shown": "normalized_score=0; feasible_fraction=0.867; verdicts={'AC': 13, 'RE': 1, 'TLE': 1}; constraint_errors={}",
+          "upload_content_sha256_16": "751a667eb7335ed8",
+          "candidate_sha256": "b155d5f4b91f48a5c68cbf97df0f2d4f6435253767391026bc1cdc4d9f66717d",
+          "error_present": false
+        },
+        {
+          "id": 4,
+          "submitted_after_sec": 3051.2,
+          "elapsed_sec": 927.5,
+          "submitted_at": "2026-10-16T09:08:19Z",
+          "finished_at": "2026-10-16T09:23:47Z",
+          "collected_at": "2026-10-16T09:23:47Z",
+          "reward": 0.0,
+          "valid": false,
+          "feasible_cases": 12,
+          "case_count": 15,
+          "status_counts": {
+            "AC": 12,
+            "RE": 2,
+            "TLE": 1
+          },
+          "feedback_shown": "normalized_score=0; feasible_fraction=0.800; verdicts={'AC': 12, 'RE': 2, 'TLE': 1}; constraint_errors={}",
+          "upload_content_sha256_16": "fe0bfb21c36aba64",
+          "candidate_sha256": "77821473fcf3d51524a7ed2e31ba90b95bdecc306eed07d9298c24010b4d5ace",
+          "error_present": false
+        },
+        {
+          "id": 5,
+          "submitted_after_sec": 4125.5,
+          "elapsed_sec": 939.4,
+          "submitted_at": "2026-10-16T09:26:14Z",
+          "finished_at": "2026-10-16T09:41:53Z",
+          "collected_at": "2026-10-16T09:41:53Z",
+          "reward": 0.0,
+          "valid": false,
+          "feasible_cases": 14,
+          "case_count": 15,
+          "status_counts": {
+            "AC": 14,
+            "RE": 1
+          },
+          "feedback_shown": "normalized_score=0; feasible_fraction=0.933; verdicts={'AC': 14, 'RE': 1}; constraint_errors={}",
+          "upload_content_sha256_16": "43c11923b646dc66",
+          "candidate_sha256": "f61a178239102a1d89fff7c0f6a776d7cbdedcdaca015b027119e0f8d2f3c0a4",
+          "error_present": false
+        },
+        {
+          "id": 6,
+          "submitted_after_sec": 5140.8,
+          "elapsed_sec": 895.4,
+          "submitted_at": "2026-10-16T09:43:09Z",
+          "finished_at": "2026-10-16T09:58:05Z",
+          "collected_at": "2026-10-16T09:58:05Z",
+          "reward": 0.0,
+          "valid": false,
+          "feasible_cases": 14,
+          "case_count": 15,
+          "status_counts": {
+            "AC": 14,
+            "RE": 1
+          },
+          "feedback_shown": "normalized_score=0; feasible_fraction=0.933; verdicts={'AC': 14, 'RE': 1}; constraint_errors={}",
+          "upload_content_sha256_16": "ac312b3079f9f5a7",
+          "candidate_sha256": "6bd74130bef88c25a14d66dcecd673fa2314080366b492d66a0f15ea1b92538c",
+          "error_present": false
+        },
+        {
+          "id": 7,
+          "submitted_after_sec": 6090.6,
+          "elapsed_sec": 881.1,
+          "submitted_at": "2026-10-16T09:58:59Z",
+          "finished_at": "2026-10-16T10:13:40Z",
+          "collected_at": "2026-10-16T10:13:40Z",
+          "reward": 0.0,
+          "valid": false,
+          "feasible_cases": 12,
+          "case_count": 15,
+          "status_counts": {
+            "AC": 12,
+            "RE": 3
+          },
+          "feedback_shown": "normalized_score=0; feasible_fraction=0.800; verdicts={'AC': 12, 'RE': 3}; constraint_errors={}",
+          "upload_content_sha256_16": "65abe95c93664f62",
+          "candidate_sha256": "81448a3fb87e6de137e83a4bec9699ce67b6430a207fa4ba21ca76067e8a488d",
+          "error_present": false
+        },
+        {
+          "id": 8,
+          "submitted_after_sec": 8480.2,
+          "elapsed_sec": 894.8,
+          "submitted_at": "2026-10-16T10:38:48Z",
+          "finished_at": "2026-10-16T10:53:43Z",
+          "collected_at": "2026-10-16T10:54:31Z",
+          "reward": 0.0,
+          "valid": false,
+          "feasible_cases": 14,
+          "case_count": 15,
+          "status_counts": {
+            "AC": 14,
+            "RE": 1
+          },
+          "feedback_shown": "normalized_score=0; feasible_fraction=0.933; verdicts={'AC': 14, 'RE': 1}; constraint_errors={}",
+          "upload_content_sha256_16": "664835ffa1359820",
+          "candidate_sha256": "3351f4f311587b4c24da3747fe89f16f40b5f81e22e7fce15841d8520093540a",
+          "error_present": false
+        },
+        {
+          "id": 9,
+          "submitted_after_sec": 9531.0,
+          "elapsed_sec": 901.0,
+          "submitted_at": "2026-10-16T10:56:19Z",
+          "finished_at": "2026-10-16T11:11:20Z",
+          "collected_at": "2026-10-16T11:12:16Z",
+          "reward": 0.21105613651611274,
+          "valid": true,
+          "feasible_cases": 15,
+          "case_count": 15,
+          "status_counts": {
+            "AC": 15
+          },
+          "feedback_shown": "normalized_score=0.211056136516; feasible_fraction=1.000; verdicts={'AC': 15}; constraint_errors={}; mean_official_objective=30824.6857083; mean_risk=18571.9658972; mean_excess=43077.4055195",
+          "upload_content_sha256_16": "ad424545b25be4cb",
+          "candidate_sha256": "4d16a3b54e2d68ec3ccae9a4a01d37a081b48e7455744a4cc41bdff1cf37bee8",
+          "error_present": false
+        },
+        {
+          "id": 10,
+          "submitted_after_sec": 13522.9,
+          "elapsed_sec": 899.7,
+          "submitted_at": "2026-10-16T12:02:51Z",
+          "finished_at": "2026-10-16T12:17:51Z",
+          "collected_at": "2026-10-16T12:17:51Z",
+          "reward": 0.0,
+          "valid": false,
+          "feasible_cases": 14,
+          "case_count": 15,
+          "status_counts": {
+            "AC": 14,
+            "RE": 1
+          },
+          "feedback_shown": "normalized_score=0; feasible_fraction=0.933; verdicts={'AC': 14, 'RE': 1}; constraint_errors={}",
+          "upload_content_sha256_16": "7abfe706eed9a5bf",
+          "candidate_sha256": "624f22540050b7719d755d0d7101a825cc77810199b602b5f45ef5a2b14048ab",
+          "error_present": false
+        }
+      ],
+      "final_matches_feedback_ids": [],
+      "unique_feedback_content_count": 10,
+      "hours_after_last_collected_feedback": 7.687168723888889,
+      "sum_direct_parent_bash_result_call_seconds": 6104.240999999999,
+      "direct_parent_bash_result_calls": 19,
+      "parent_commands_mentioning_public_eval_py": 117,
+      "parent_tool_call_counts": {
+        "Read": 133,
+        "Agent": 15,
+        "Bash": 361,
+        "SendMessage": 8,
+        "TaskStop": 3,
+        "Edit": 180,
+        "ListAgents": 11,
+        "Skill": 1
+      }
+    },
+    {
+      "role": "n10-r2",
+      "n": 10,
+      "repetition": 2,
+      "development_seconds": 42374.667308,
+      "terminal_900": {
+        "score": 0.0,
+        "feasible_cases": 11,
+        "case_count": 15,
+        "status_counts": {
+          "AC": 11,
+          "RE": 3,
+          "TLE": 1
+        },
+        "candidate_sha256": "a0877e8a8e4fa915c7714528fa427088a0fafe73f4d838f74d7bcea015e41451"
+      },
+      "final_5400": {
+        "score": 0.209334428384465,
+        "validity": 1.0,
+        "feasible_cases": 15,
+        "case_count": 15,
+        "mean_candidate_wall_seconds": 600.3379262585271,
+        "mean_official_objective": 30944.32260774018,
+        "mean_risk": 19659.669598703724,
+        "mean_excess": 42228.97561677664,
+        "max_peak_rss_gib": 4.412837982177734,
+        "candidate_sha256": "a0877e8a8e4fa915c7714528fa427088a0fafe73f4d838f74d7bcea015e41451"
+      },
+      "candidate_source_lines": 5425,
+      "candidate_sha256": "a0877e8a8e4fa915c7714528fa427088a0fafe73f4d838f74d7bcea015e41451",
+      "final_upload_content_sha256_16": "08d02bceec725ebd",
+      "feedback_count": 10,
+      "feedback": [
+        {
+          "id": 1,
+          "submitted_after_sec": 79.5,
+          "elapsed_sec": 913.4,
+          "submitted_at": "2026-10-16T08:56:19Z",
+          "finished_at": "2026-10-16T09:11:33Z",
+          "collected_at": "2026-10-16T09:11:39Z",
+          "reward": 0.0,
+          "valid": false,
+          "feasible_cases": 7,
+          "case_count": 15,
+          "status_counts": {
+            "AC": 7,
+            "RE": 2,
+            "TLE": 6
+          },
+          "feedback_shown": "normalized_score=0; feasible_fraction=0.467; verdicts={'AC': 7, 'RE': 2, 'TLE': 6}; constraint_errors={}",
+          "upload_content_sha256_16": "d44ccc9f2312e663",
+          "candidate_sha256": "ed51f16524846e40ba7f6b51ef3158a2081e41fa1def51b2fd21fcbbf4b7f86d",
+          "error_present": false
+        },
+        {
+          "id": 2,
+          "submitted_after_sec": 1376.3,
+          "elapsed_sec": 928.8,
+          "submitted_at": "2026-10-16T09:17:56Z",
+          "finished_at": "2026-10-16T09:33:25Z",
+          "collected_at": "2026-10-16T09:43:35Z",
+          "reward": 0.0,
+          "valid": false,
+          "feasible_cases": 12,
+          "case_count": 15,
+          "status_counts": {
+            "AC": 12,
+            "RE": 3
+          },
+          "feedback_shown": "normalized_score=0; feasible_fraction=0.800; verdicts={'AC': 12, 'RE': 3}; constraint_errors={}",
+          "upload_content_sha256_16": "17ef5a5bbedde0ad",
+          "candidate_sha256": "964856bbf66ba986a60a40f1ef388d39c9966ff0ab4b2f411c18d00429249342",
+          "error_present": false
+        },
+        {
+          "id": 3,
+          "submitted_after_sec": 2927.5,
+          "elapsed_sec": 930.3,
+          "submitted_at": "2026-10-16T09:43:47Z",
+          "finished_at": "2026-10-16T09:59:17Z",
+          "collected_at": "2026-10-16T10:02:34Z",
+          "reward": 0.0,
+          "valid": false,
+          "feasible_cases": 10,
+          "case_count": 15,
+          "status_counts": {
+            "AC": 10,
+            "RE": 2,
+            "TLE": 3
+          },
+          "feedback_shown": "normalized_score=0; feasible_fraction=0.667; verdicts={'AC': 10, 'RE': 2, 'TLE': 3}; constraint_errors={}",
+          "upload_content_sha256_16": "c47d198ff22024c6",
+          "candidate_sha256": "077d99e4cb3399f4bf1b9a3b2b21b5014071c0b47d3480c780560afe0835800c",
+          "error_present": false
+        },
+        {
+          "id": 4,
+          "submitted_after_sec": 4418.0,
+          "elapsed_sec": 935.3,
+          "submitted_at": "2026-10-16T10:08:38Z",
+          "finished_at": "2026-10-16T10:24:13Z",
+          "collected_at": "2026-10-16T10:28:09Z",
+          "reward": 0.0,
+          "valid": false,
+          "feasible_cases": 12,
+          "case_count": 15,
+          "status_counts": {
+            "AC": 12,
+            "TLE": 3
+          },
+          "feedback_shown": "normalized_score=0; feasible_fraction=0.800; verdicts={'AC': 12, 'TLE': 3}; constraint_errors={}",
+          "upload_content_sha256_16": "6096f7e1917ddc24",
+          "candidate_sha256": "b58926b115de8f8e5e895bcd619ded5e3ad68bcac7d99fcc756b4953650a2113",
+          "error_present": false
+        },
+        {
+          "id": 5,
+          "submitted_after_sec": 5627.0,
+          "elapsed_sec": 903.8,
+          "submitted_at": "2026-10-16T10:28:47Z",
+          "finished_at": "2026-10-16T10:43:50Z",
+          "collected_at": "2026-10-16T10:46:00Z",
+          "reward": 0.0,
+          "valid": false,
+          "feasible_cases": 11,
+          "case_count": 15,
+          "status_counts": {
+            "AC": 11,
+            "TLE": 3,
+            "RE": 1
+          },
+          "feedback_shown": "normalized_score=0; feasible_fraction=0.733; verdicts={'AC': 11, 'RE': 1, 'TLE': 3}; constraint_errors={}",
+          "upload_content_sha256_16": "fd0e6c3c9b83e1d1",
+          "candidate_sha256": "907787684f2669707875ff870e41a28cde5a74b1cd5f21eba284045a05577968",
+          "error_present": false
+        },
+        {
+          "id": 6,
+          "submitted_after_sec": 6675.1,
+          "elapsed_sec": 903.5,
+          "submitted_at": "2026-10-16T10:46:15Z",
+          "finished_at": "2026-10-16T11:01:18Z",
+          "collected_at": "2026-10-16T11:01:58Z",
+          "reward": 0.0,
+          "valid": false,
+          "feasible_cases": 11,
+          "case_count": 15,
+          "status_counts": {
+            "AC": 11,
+            "RE": 3,
+            "TLE": 1
+          },
+          "feedback_shown": "normalized_score=0; feasible_fraction=0.733; verdicts={'AC': 11, 'RE': 3, 'TLE': 1}; constraint_errors={}",
+          "upload_content_sha256_16": "b165e0fcefe4bd6c",
+          "candidate_sha256": "ec4064dbc03d3f7ee4d266fa1c4a3863e558c80d75df9552975f26cddaa23a68",
+          "error_present": false
+        },
+        {
+          "id": 7,
+          "submitted_after_sec": 7739.9,
+          "elapsed_sec": 903.1,
+          "submitted_at": "2026-10-16T11:03:59Z",
+          "finished_at": "2026-10-16T11:19:03Z",
+          "collected_at": "2026-10-16T11:22:28Z",
+          "reward": 0.0,
+          "valid": false,
+          "feasible_cases": 11,
+          "case_count": 15,
+          "status_counts": {
+            "AC": 11,
+            "RE": 3,
+            "TLE": 1
+          },
+          "feedback_shown": "normalized_score=0; feasible_fraction=0.733; verdicts={'AC': 11, 'RE': 3, 'TLE': 1}; constraint_errors={}",
+          "upload_content_sha256_16": "a8cc3c547d4d1aad",
+          "candidate_sha256": "f4f5542c110470608b6bed57c34befdcedeeda0b29f6a3623e2c70755fb944dc",
+          "error_present": false
+        },
+        {
+          "id": 8,
+          "submitted_after_sec": 10585.3,
+          "elapsed_sec": 869.5,
+          "submitted_at": "2026-10-16T11:51:25Z",
+          "finished_at": "2026-10-16T12:05:54Z",
+          "collected_at": "2026-10-16T12:05:54Z",
+          "reward": 0.0,
+          "valid": false,
+          "feasible_cases": 12,
+          "case_count": 15,
+          "status_counts": {
+            "AC": 12,
+            "RE": 3
+          },
+          "feedback_shown": "normalized_score=0; feasible_fraction=0.800; verdicts={'AC': 12, 'RE': 3}; constraint_errors={}",
+          "upload_content_sha256_16": "daec61d795650d6d",
+          "candidate_sha256": "dc8fe1c37c39189a3bf5dff1b21a06c07e36ba46ac08bf1596e5cb48d9121bd2",
+          "error_present": false
+        },
+        {
+          "id": 9,
+          "submitted_after_sec": 13735.6,
+          "elapsed_sec": 864.3,
+          "submitted_at": "2026-10-16T12:43:55Z",
+          "finished_at": "2026-10-16T12:58:19Z",
+          "collected_at": "2026-10-16T12:58:19Z",
+          "reward": 0.0,
+          "valid": false,
+          "feasible_cases": 10,
+          "case_count": 15,
+          "status_counts": {
+            "AC": 10,
+            "RE": 5
+          },
+          "feedback_shown": "normalized_score=0; feasible_fraction=0.667; verdicts={'AC': 10, 'RE': 5}; constraint_errors={}",
+          "upload_content_sha256_16": "e08d6a731ab19b88",
+          "candidate_sha256": "15e1800dd069c39f6beef61635b25c4bcbb6f793c2d500e5fc254bd9732acae7",
+          "error_present": false
+        },
+        {
+          "id": 10,
+          "submitted_after_sec": 18326.1,
+          "elapsed_sec": 902.3,
+          "submitted_at": "2026-10-16T14:00:26Z",
+          "finished_at": "2026-10-16T14:15:28Z",
+          "collected_at": "2026-10-16T14:15:28Z",
+          "reward": 0.0,
+          "valid": false,
+          "feasible_cases": 10,
+          "case_count": 15,
+          "status_counts": {
+            "AC": 10,
+            "RE": 4,
+            "TLE": 1
+          },
+          "feedback_shown": "normalized_score=0; feasible_fraction=0.667; verdicts={'AC': 10, 'RE': 4, 'TLE': 1}; constraint_errors={}",
+          "upload_content_sha256_16": "8b0ebe42da2a3cb3",
+          "candidate_sha256": "5c25b9890dc3fb3f9d5c04324e506dd777647c6c0742db52c0e1fb2454960bd4",
+          "error_present": false
+        }
+      ],
+      "final_matches_feedback_ids": [],
+      "unique_feedback_content_count": 10,
+      "hours_after_last_collected_feedback": 6.4310283083333335,
+      "sum_direct_parent_bash_result_call_seconds": 1084.295,
+      "direct_parent_bash_result_calls": 12,
+      "parent_commands_mentioning_public_eval_py": 140,
+      "parent_tool_call_counts": {
+        "Read": 201,
+        "Bash": 534,
+        "Agent": 18,
+        "Edit": 280,
+        "ListAgents": 13,
+        "SendMessage": 9,
+        "TaskStop": 10,
+        "Skill": 4,
+        "Write": 6
+      }
+    },
+    {
+      "role": "n3-r1",
+      "n": 3,
+      "repetition": 1,
+      "development_seconds": 42448.616842,
+      "terminal_900": {
+        "score": 0.0,
+        "feasible_cases": 14,
+        "case_count": 15,
+        "status_counts": {
+          "AC": 14,
+          "RE": 1
+        },
+        "candidate_sha256": "92067407f505694112b7d6551dec2157930177f1648b72cc98a804bb5c846a5f"
+      },
+      "final_5400": {
+        "score": 0.2146229243015415,
+        "validity": 1.0,
+        "feasible_cases": 15,
+        "case_count": 15,
+        "mean_candidate_wall_seconds": 900.4128531888127,
+        "mean_official_objective": 30237.963913506454,
+        "mean_risk": 20117.234903200468,
+        "mean_excess": 40358.69292381244,
+        "max_peak_rss_gib": 4.577167510986328,
+        "candidate_sha256": "92067407f505694112b7d6551dec2157930177f1648b72cc98a804bb5c846a5f"
+      },
+      "candidate_source_lines": 5440,
+      "candidate_sha256": "92067407f505694112b7d6551dec2157930177f1648b72cc98a804bb5c846a5f",
+      "final_upload_content_sha256_16": "d6d6863637268385",
+      "feedback_count": 3,
+      "feedback": [
+        {
+          "id": 1,
+          "submitted_after_sec": 2508.3,
+          "elapsed_sec": 903.5,
+          "submitted_at": "2026-10-16T08:59:28Z",
+          "finished_at": "2026-10-16T09:14:32Z",
+          "collected_at": "2026-10-16T09:15:33Z",
+          "reward": 0.0,
+          "valid": false,
+          "feasible_cases": 11,
+          "case_count": 15,
+          "status_counts": {
+            "AC": 11,
+            "RE": 3,
+            "TLE": 1
+          },
+          "feedback_shown": "normalized_score=0; feasible_fraction=0.733; verdicts={'AC': 11, 'RE': 3, 'TLE': 1}; constraint_errors={}",
+          "upload_content_sha256_16": "00efc07e2d2e8d36",
+          "candidate_sha256": "cd33675ba932c941316849aa8974ce6cf7af99c9d1ef632dfb41adc44ff7cdb0",
+          "error_present": false
+        },
+        {
+          "id": 2,
+          "submitted_after_sec": 3484.8,
+          "elapsed_sec": 903.6,
+          "submitted_at": "2026-10-16T09:15:45Z",
+          "finished_at": "2026-10-16T09:30:48Z",
+          "collected_at": "2026-10-16T09:30:58Z",
+          "reward": 0.0,
+          "valid": false,
+          "feasible_cases": 13,
+          "case_count": 15,
+          "status_counts": {
+            "AC": 13,
+            "RE": 1,
+            "TLE": 1
+          },
+          "feedback_shown": "normalized_score=0; feasible_fraction=0.867; verdicts={'AC': 13, 'RE': 1, 'TLE': 1}; constraint_errors={}",
+          "upload_content_sha256_16": "8e63062003577d95",
+          "candidate_sha256": "9e16733ee5084a215957dc3f5aa4e9a4f036cdf6df84c22bce29ca13920f6329",
+          "error_present": false
+        },
+        {
+          "id": 3,
+          "submitted_after_sec": 11497.5,
+          "elapsed_sec": 894.3,
+          "submitted_at": "2026-10-16T11:29:18Z",
+          "finished_at": "2026-10-16T11:44:12Z",
+          "collected_at": "2026-10-16T11:44:12Z",
+          "reward": 0.0,
+          "valid": false,
+          "feasible_cases": 13,
+          "case_count": 15,
+          "status_counts": {
+            "AC": 13,
+            "RE": 2
+          },
+          "feedback_shown": "normalized_score=0; feasible_fraction=0.867; verdicts={'AC': 13, 'RE': 2}; constraint_errors={}",
+          "upload_content_sha256_16": "36a5ec702aaf6ff3",
+          "candidate_sha256": "84ed9210a809414356905e72c0c7a7f7b36e8fa587e262490f24033f76fc2c8c",
+          "error_present": false
+        }
+      ],
+      "final_matches_feedback_ids": [],
+      "unique_feedback_content_count": 3,
+      "hours_after_last_collected_feedback": 8.350630213333334,
+      "sum_direct_parent_bash_result_call_seconds": 10.730999999999998,
+      "direct_parent_bash_result_calls": 5,
+      "parent_commands_mentioning_public_eval_py": 58,
+      "parent_tool_call_counts": {
+        "Read": 123,
+        "Bash": 401,
+        "Agent": 14,
+        "ListAgents": 13,
+        "SendMessage": 9,
+        "Edit": 152,
+        "TaskStop": 7,
+        "Skill": 4
+      }
+    },
+    {
+      "role": "n3-r3",
+      "n": 3,
+      "repetition": 3,
+      "development_seconds": 43060.867553,
+      "terminal_900": {
+        "score": 0.0,
+        "feasible_cases": 14,
+        "case_count": 15,
+        "status_counts": {
+          "AC": 14,
+          "RE": 1
+        },
+        "candidate_sha256": "a6e1d9348e4b0c52a7683b24fa424abd025f78fa59bf97c8ef31e85fe510fbc9"
+      },
+      "final_5400": null,
+      "candidate_source_lines": 4910,
+      "candidate_sha256": "a6e1d9348e4b0c52a7683b24fa424abd025f78fa59bf97c8ef31e85fe510fbc9",
+      "final_upload_content_sha256_16": "7a087707c928fc96",
+      "feedback_count": 3,
+      "feedback": [
+        {
+          "id": 1,
+          "submitted_after_sec": 1297.0,
+          "elapsed_sec": 939.1,
+          "submitted_at": "2026-10-16T10:24:32Z",
+          "finished_at": "2026-10-16T10:40:11Z",
+          "collected_at": "2026-10-16T11:00:33Z",
+          "reward": 0.0,
+          "valid": false,
+          "feasible_cases": 13,
+          "case_count": 15,
+          "status_counts": {
+            "AC": 13,
+            "RE": 1,
+            "TLE": 1
+          },
+          "feedback_shown": "normalized_score=0; feasible_fraction=0.867; verdicts={'AC': 13, 'RE': 1, 'TLE': 1}; constraint_errors={}",
+          "upload_content_sha256_16": "c28bfa2c33732700",
+          "candidate_sha256": "05e19eb11774f0d0c5a5a3cbe37b4f5f4193b3ff1f8ef04f77faed02776e757f",
+          "error_present": false
+        },
+        {
+          "id": 2,
+          "submitted_after_sec": 3704.5,
+          "elapsed_sec": 918.0,
+          "submitted_at": "2026-10-16T11:04:39Z",
+          "finished_at": "2026-10-16T11:19:57Z",
+          "collected_at": "2026-10-16T11:29:57Z",
+          "reward": 0.0,
+          "valid": false,
+          "feasible_cases": 12,
+          "case_count": 15,
+          "status_counts": {
+            "AC": 12,
+            "RE": 2,
+            "TLE": 1
+          },
+          "feedback_shown": "normalized_score=0; feasible_fraction=0.800; verdicts={'AC': 12, 'RE': 2, 'TLE': 1}; constraint_errors={}",
+          "upload_content_sha256_16": "2598de9029aea511",
+          "candidate_sha256": "3c15229c918f3e1e30c683056213ae5ea9b36125ecf01ccb25e498e2233e4ae6",
+          "error_present": false
+        },
+        {
+          "id": 3,
+          "submitted_after_sec": 13976.7,
+          "elapsed_sec": 933.7,
+          "submitted_at": "2026-10-16T13:55:51Z",
+          "finished_at": "2026-10-16T14:11:25Z",
+          "collected_at": "2026-10-16T14:11:25Z",
+          "reward": 0.0,
+          "valid": false,
+          "feasible_cases": 13,
+          "case_count": 15,
+          "status_counts": {
+            "AC": 13,
+            "TLE": 1,
+            "RE": 1
+          },
+          "feedback_shown": "normalized_score=0; feasible_fraction=0.867; verdicts={'AC': 13, 'RE': 1, 'TLE': 1}; constraint_errors={}",
+          "upload_content_sha256_16": "049aa00ca90125c2",
+          "candidate_sha256": "a2685f5785fa92748eb61e8d7c0ec096df59eee7f05c85c71d002aab17d0c525",
+          "error_present": false
+        }
+      ],
+      "final_matches_feedback_ids": [],
+      "unique_feedback_content_count": 3,
+      "hours_after_last_collected_feedback": 7.820993593611112,
+      "sum_direct_parent_bash_result_call_seconds": 606.927,
+      "direct_parent_bash_result_calls": 4,
+      "parent_commands_mentioning_public_eval_py": 41,
+      "parent_tool_call_counts": {
+        "Read": 99,
+        "Bash": 267,
+        "Agent": 15,
+        "ListAgents": 37,
+        "Edit": 178,
+        "TaskStop": 6,
+        "SendMessage": 8,
+        "Skill": 3,
+        "Write": 4
+      }
+    },
+    {
+      "role": "n5-r1",
+      "n": 5,
+      "repetition": 1,
+      "development_seconds": 42335.957591,
+      "terminal_900": {
+        "score": 0.0,
+        "feasible_cases": 14,
+        "case_count": 15,
+        "status_counts": {
+          "AC": 14,
+          "RE": 1
+        },
+        "candidate_sha256": "4fd8869064aeb0f999fb335bbea2481ff4da5de0a50eb6a06fc1821eb4b4b998"
+      },
+      "final_5400": {
+        "score": 0.21779855847302268,
+        "validity": 1.0,
+        "feasible_cases": 15,
+        "case_count": 15,
+        "mean_candidate_wall_seconds": 1809.8928516849876,
+        "mean_official_objective": 28924.299303867658,
+        "mean_risk": 19569.705844381086,
+        "mean_excess": 38278.89276335423,
+        "max_peak_rss_gib": 4.4703369140625,
+        "candidate_sha256": "4fd8869064aeb0f999fb335bbea2481ff4da5de0a50eb6a06fc1821eb4b4b998"
+      },
+      "candidate_source_lines": 5519,
+      "candidate_sha256": "4fd8869064aeb0f999fb335bbea2481ff4da5de0a50eb6a06fc1821eb4b4b998",
+      "final_upload_content_sha256_16": "4d9ea620141d1de2",
+      "feedback_count": 5,
+      "feedback": [
+        {
+          "id": 1,
+          "submitted_after_sec": 516.5,
+          "elapsed_sec": 911.5,
+          "submitted_at": "2026-10-16T08:26:32Z",
+          "finished_at": "2026-10-16T08:41:43Z",
+          "collected_at": "2026-10-16T08:44:15Z",
+          "reward": 0.0,
+          "valid": false,
+          "feasible_cases": 9,
+          "case_count": 15,
+          "status_counts": {
+            "AC": 9,
+            "RE": 2,
+            "TLE": 4
+          },
+          "feedback_shown": "normalized_score=0; feasible_fraction=0.600; verdicts={'AC': 9, 'RE': 2, 'TLE': 4}; constraint_errors={}",
+          "upload_content_sha256_16": "d44ccc9f2312e663",
+          "candidate_sha256": "ed51f16524846e40ba7f6b51ef3158a2081e41fa1def51b2fd21fcbbf4b7f86d",
+          "error_present": false
+        },
+        {
+          "id": 2,
+          "submitted_after_sec": 1590.9,
+          "elapsed_sec": 914.8,
+          "submitted_at": "2026-10-16T08:44:26Z",
+          "finished_at": "2026-10-16T08:59:41Z",
+          "collected_at": "2026-10-16T09:31:33Z",
+          "reward": 0.0,
+          "valid": false,
+          "feasible_cases": 11,
+          "case_count": 15,
+          "status_counts": {
+            "AC": 11,
+            "RE": 2,
+            "TLE": 2
+          },
+          "feedback_shown": "normalized_score=0; feasible_fraction=0.733; verdicts={'AC': 11, 'RE': 2, 'TLE': 2}; constraint_errors={}",
+          "upload_content_sha256_16": "a12611d248c951d0",
+          "candidate_sha256": "2d17b1ced31744eebebb773a12d023cf9bd866295dc87dd25a91f1bc636f681a",
+          "error_present": false
+        },
+        {
+          "id": 3,
+          "submitted_after_sec": 5519.5,
+          "elapsed_sec": 915.6,
+          "submitted_at": "2026-10-16T09:49:55Z",
+          "finished_at": "2026-10-16T10:05:10Z",
+          "collected_at": "2026-10-16T10:05:10Z",
+          "reward": 0.0,
+          "valid": false,
+          "feasible_cases": 12,
+          "case_count": 15,
+          "status_counts": {
+            "AC": 12,
+            "RE": 3
+          },
+          "feedback_shown": "normalized_score=0; feasible_fraction=0.800; verdicts={'AC': 12, 'RE': 3}; constraint_errors={}",
+          "upload_content_sha256_16": "cbe30c1cee456369",
+          "candidate_sha256": "298660a45405016c1aa63e40b6cfa78a65bf8ccea508fb2fc0955eea4c60b4f1",
+          "error_present": false
+        },
+        {
+          "id": 4,
+          "submitted_after_sec": 6445.0,
+          "elapsed_sec": 913.0,
+          "submitted_at": "2026-10-16T10:05:20Z",
+          "finished_at": "2026-10-16T10:20:33Z",
+          "collected_at": "2026-10-16T10:20:47Z",
+          "reward": 0.0,
+          "valid": false,
+          "feasible_cases": 13,
+          "case_count": 15,
+          "status_counts": {
+            "AC": 13,
+            "RE": 1,
+            "TLE": 1
+          },
+          "feedback_shown": "normalized_score=0; feasible_fraction=0.867; verdicts={'AC': 13, 'RE': 1, 'TLE': 1}; constraint_errors={}",
+          "upload_content_sha256_16": "358353206d5ffb1c",
+          "candidate_sha256": "3167cf99157459adf4920d0c149d066dc4aed8b61d8bd1a491d59bde5854f36c",
+          "error_present": false
+        },
+        {
+          "id": 5,
+          "submitted_after_sec": 14964.4,
+          "elapsed_sec": 892.8,
+          "submitted_at": "2026-10-16T12:27:19Z",
+          "finished_at": "2026-10-16T12:42:12Z",
+          "collected_at": "2026-10-16T12:43:04Z",
+          "reward": 0.0,
+          "valid": false,
+          "feasible_cases": 14,
+          "case_count": 15,
+          "status_counts": {
+            "AC": 14,
+            "RE": 1
+          },
+          "feedback_shown": "normalized_score=0; feasible_fraction=0.933; verdicts={'AC': 14, 'RE': 1}; constraint_errors={}",
+          "upload_content_sha256_16": "5c159080716aab3a",
+          "candidate_sha256": "5b1b0ddafd92b6d5c5dd609d119ca0d3fe6b5fe44731fa9f55d9be8b4ec4f11f",
+          "error_present": false
+        }
+      ],
+      "final_matches_feedback_ids": [],
+      "unique_feedback_content_count": 5,
+      "hours_after_last_collected_feedback": 7.342338071944444,
+      "sum_direct_parent_bash_result_call_seconds": 48.494,
+      "direct_parent_bash_result_calls": 21,
+      "parent_commands_mentioning_public_eval_py": 135,
+      "parent_tool_call_counts": {
+        "Read": 218,
+        "Bash": 460,
+        "Agent": 20,
+        "ListAgents": 33,
+        "SendMessage": 15,
+        "Edit": 272,
+        "TaskStop": 3
+      }
+    }
+  ],
+  "snapshot": {
+    "original_batch": "rte2020-abc-x15-formal-20261016-v6",
+    "status_observed_at_utc": "2026-10-17T04:14:15.213994+00:00",
+    "analysis_date": "2026-10-17",
+    "snapshot_is_historical": true,
+    "interpretation": "This analysis describes the original eight-completed/ten-developed snapshot. Later supplemental assessments, recovery attempts and reruns must be reported separately; no new-run launch is asserted here."
+  }
+}
