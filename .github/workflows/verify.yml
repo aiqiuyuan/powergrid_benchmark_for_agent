@@ -43,6 +43,9 @@ jobs:
   rte-task-package:
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    strategy:
+      matrix:
+        task: [rte-maintenance-abc-x15-v1, rte-maintenance-abc-x15-v2]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -53,15 +56,15 @@ jobs:
           python -m pip install numpy==2.2.6 scipy==1.15.3 ijson==3.4.0.post0
       - name: Verify portable RTE task with synthetic official-schema cases
         run: |
-          python -m unittest discover -s task-packages/rte-maintenance-abc-x15-v1/verification -v
+          python -m unittest discover -s task-packages/${{ matrix.task }}/verification -v
       - name: Build the real Linux RTE sandbox launcher
         run: |
           sudo apt-get update
           sudo apt-get install -y libseccomp-dev
-          cc task-packages/rte-maintenance-abc-x15-v1/images/exec_candidate.c -lseccomp -o /tmp/rte-exec-probe
+          cc task-packages/${{ matrix.task }}/images/exec_candidate.c -lseccomp -o /tmp/rte-exec-probe
       - name: Verify real Linux UID, directory, and syscall restrictions
         run: |
-          sudo "$(command -v python)" task-packages/rte-maintenance-abc-x15-v1/verification/probe_linux_sandbox.py --launcher /tmp/rte-exec-probe
+          sudo "$(command -v python)" task-packages/${{ matrix.task }}/verification/probe_linux_sandbox.py --launcher /tmp/rte-exec-probe
 
   distribution-sandbox:
     runs-on: ubuntu-24.04

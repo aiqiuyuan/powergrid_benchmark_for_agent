@@ -1,0 +1,51 @@
+{
+  "repository": "https://github.com/rte-france/challenge-roadef-2020",
+  "source_commit": "052def4d47271f913f89a68169083059732360f3",
+  "archives": [
+    {
+      "key": "A",
+      "filename": "A_set.7z",
+      "url": "https://raw.githubusercontent.com/rte-france/challenge-roadef-2020/052def4d47271f913f89a68169083059732360f3/A_set.7z",
+      "bytes": 15970700,
+      "sha256": "2e46b38a743a17b92622acc3d68a35f368ec06bdcdd1d449c31478a30187e6e4",
+      "git_blob_sha1": "d1a1f17ed53b68cb261d23663f9fca35f6bc2f2d",
+      "verified_against_pinned_tree": true
+    },
+    {
+      "key": "B",
+      "filename": "B_set.7z",
+      "url": "https://raw.githubusercontent.com/rte-france/challenge-roadef-2020/052def4d47271f913f89a68169083059732360f3/B_set.7z",
+      "bytes": 87039633,
+      "sha256": "cf7deb90a8a789e48496f10e5583424ebf8da46a25c820ed28c76af50bb91137",
+      "git_blob_sha1": "08cfad14f6cb7258f9761c888850264e6bb4f67e",
+      "verified_against_pinned_tree": true
+    },
+    {
+      "key": "C",
+      "filename": "C_compact.7z",
+      "url": "https://raw.githubusercontent.com/rte-france/challenge-roadef-2020/052def4d47271f913f89a68169083059732360f3/C_compact.7z",
+      "bytes": 97185510,
+      "sha256": "fc80ca911ae8b13a6f2d92b34203e5ab039add881a2ea16febaf40643a20ebe6",
+      "git_blob_sha1": "b229e599f99867801f2c00c1ac8906bd4f7034d0",
+      "verified_against_pinned_tree": true
+    },
+    {
+      "key": "X1",
+      "filename": "X_compact_1_1.7z",
+      "url": "https://raw.githubusercontent.com/rte-france/challenge-roadef-2020/052def4d47271f913f89a68169083059732360f3/X_compact_1_1.7z",
+      "bytes": 70110208,
+      "sha256": "9d16aae54446127d46e873b536880249c1c6ae4c90cabd40c789c373afa1d570",
+      "git_blob_sha1": "a668b897727233491c0e66d6e4ce95be4b7e0d4f",
+      "verified_against_pinned_tree": true
+    },
+    {
+      "key": "X2",
+      "filename": "X_compact_1_2.7z",
+      "url": "https://raw.githubusercontent.com/rte-france/challenge-roadef-2020/052def4d47271f913f89a68169083059732360f3/X_compact_1_2.7z",
+      "bytes": 63969009,
+      "sha256": "05bf7c7b9da03fcb968a9a198d49c0cce1ff1b96f65fcf672c0ad4a105f2063f",
+      "git_blob_sha1": "a79c1ecd2a56a783596778fb95668014b0181ed3",
+      "verified_against_pinned_tree": true
+    }
+  ]
+}

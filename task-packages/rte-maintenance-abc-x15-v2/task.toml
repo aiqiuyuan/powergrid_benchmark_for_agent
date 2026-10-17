@@ -1,0 +1,34 @@
+schema_version = "1.3"
+artifacts = ["/app/submission/solver.py"]
+
+[optimization]
+metric = "rte_x15_coverage_quality_900_v2"
+direction = "higher"
+
+[agent]
+timeout_sec = 43200
+
+[verifier]
+environment_mode = "separate"
+timeout_sec = 1800
+
+[environment]
+build_timeout_sec = 1800
+cpus = 2
+memory_mb = 32768
+storage_mb = 32768
+workdir = "/app"
+network_mode = "public"
+
+# Requires the experiment's egress gateway to be enabled. Domain blocks are best effort.
+[environment.egress]
+mode = "allow"
+block = ["github.com", "api.github.com", "raw.githubusercontent.com", "objects.githubusercontent.com", "roadef.org", "www.roadef.org", "challenge-roadef-2020.rte-france.com"]
+
+[verifier.environment]
+build_timeout_sec = 1800
+network_mode = "no-network"
+cpus = 15
+# Provisional provisioning, not measured RSS and not the original contest platform.
+memory_mb = 262144
+storage_mb = 32768
