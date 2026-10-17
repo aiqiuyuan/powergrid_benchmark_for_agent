@@ -1,0 +1,163 @@
+{
+  "record_type": "rte_recovery_readiness_and_user_hold",
+  "observed_at": "2026-10-17T04:35:22.074952+00:00",
+  "scope": "Original v1 evidence preserved. Recovery preparation and no-model calibration completed; all seven formal recovery submissions deferred by user while defining feedback v2.",
+  "original_batch": {
+    "slots": 15,
+    "completed_5400": 8,
+    "missing": 7,
+    "active": 0,
+    "completed_scores": [
+      {
+        "role": "n0-r1",
+        "n": 0,
+        "score_5400": 0.22230755567286248,
+        "feasible_cases_900": 10
+      },
+      {
+        "role": "n0-r2",
+        "n": 0,
+        "score_5400": 0.2208587688843728,
+        "feasible_cases_900": 11
+      },
+      {
+        "role": "n1-r1",
+        "n": 1,
+        "score_5400": 0.22058789703905596,
+        "feasible_cases_900": 13
+      },
+      {
+        "role": "n1-r2",
+        "n": 1,
+        "score_5400": 0.2204237191678839,
+        "feasible_cases_900": 12
+      },
+      {
+        "role": "n10-r1",
+        "n": 10,
+        "score_5400": 0.21501981144973387,
+        "feasible_cases_900": 14
+      },
+      {
+        "role": "n10-r2",
+        "n": 10,
+        "score_5400": 0.209334428384465,
+        "feasible_cases_900": 11
+      },
+      {
+        "role": "n3-r1",
+        "n": 3,
+        "score_5400": 0.2146229243015415,
+        "feasible_cases_900": 14
+      },
+      {
+        "role": "n5-r1",
+        "n": 5,
+        "score_5400": 0.21779855847302268,
+        "feasible_cases_900": 14
+      }
+    ]
+  },
+  "recovery_submission_status": {
+    "formal_submitted": 0,
+    "fresh_roles": [
+      "n1-r3",
+      "n3-r2",
+      "n5-r2",
+      "n5-r3",
+      "n10-r3"
+    ],
+    "final_only_roles": [
+      "n0-r3",
+      "n3-r3"
+    ],
+    "state": "deferred_by_user",
+    "development_resumed": false,
+    "extra_feedback_provided": false
+  },
+  "scientific_settings": {
+    "developer_cpu": 2,
+    "developer_memory_gib": 32,
+    "verifier_cpu": 15,
+    "verifier_memory_gib": 256,
+    "outer_cpu": 21,
+    "outer_memory_gib": 296,
+    "development_upper_bound_seconds": 43200,
+    "native_persistence_verifier_margin_seconds": 1800,
+    "feedback_seconds_per_case": 900,
+    "frozen_supplementary_seconds_per_case": 5400,
+    "token_cap": null
+  },
+  "deployment_changes": {
+    "ephemeral_request_gib": 128,
+    "ephemeral_limit_gib": 256,
+    "docker_emptydir_limit_gib": 224,
+    "known_disk_pressure_node_excluded": true,
+    "original_node_anti_affinity_preserved": true
+  },
+  "developer_oom_policy": {
+    "revision": "developer-oom-completed-native-v1",
+    "prepared_not_yet_used_in_formal_recovery": true,
+    "preserve_original_failure_and_oom_events": true,
+    "resources_increased": false,
+    "does_not_prevent_memory_limit_hits": true,
+    "developer_only_completed_native_lifecycle_exception": true,
+    "all_other_native_gates_required": true,
+    "native_budget_timeout_exception_remains_allowed": true,
+    "cgroup_group_oom_rejected": true,
+    "reviewed_original_developer_oom_kill_counts": {
+      "n0-r3": 4,
+      "n3-r3": 1
+    }
+  },
+  "calibration": {
+    "passed": true,
+    "started_at": "2026-10-17T04:28:35.609782+00:00",
+    "finished_at": "2026-10-17T04:34:15.999208+00:00",
+    "pod_phase": "Succeeded",
+    "model_started": false,
+    "model_credentials_loaded": false,
+    "measured_docker_bytes": 47257112576,
+    "measured_docker_gib": 44.01161575317383,
+    "measurement_scope": "Snapshots after runtime load and real developer/verifier image builds; not a 12-hour development peak.",
+    "disk_preflight_passed": true,
+    "inner_cgroups": {
+      "developer": {
+        "cpu.max": "200000 100000",
+        "memory.max": "34359738368",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0"
+      },
+      "verifier": {
+        "cpu.max": "1500000 100000",
+        "memory.max": "274877906944",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0"
+      }
+    },
+    "outer_limits_observed_via_kubernetes_api": true,
+    "outer_cgroup_readable": false,
+    "source_lock_sha256": "9246c39cc8b1eb0f360e1a312dcb87053ff5699efb171dfe1392e7e445e51c6d",
+    "original_source_manifest_sha256": "b09b93de42f8bf35aa657d50fbb12b86cbddd0f68f19b1dd67573195c340264b",
+    "disk_policy_sha256": "64b157a031ea2809b643ed79be3d024d2e7c9720d7f8a257b9fc578794394672",
+    "completed_probe_job_deleted_after_evidence_capture": true,
+    "probe_job_deleted_at": "2026-10-17T04:38:43.493472+00:00"
+  },
+  "verification": {
+    "focused_tests_passed": 16,
+    "local_python": "3.12",
+    "submission_host_python": "3.10",
+    "independent_code_review": "approved",
+    "publication_check_status": "passed",
+    "public_files_checked": 8,
+    "relative_links_checked": 122
+  },
+  "v2_decisions": {
+    "primary_seconds_per_case": 900,
+    "supplementary_seconds_per_case": 5400,
+    "ranking_aggregation": "lexicographic_feasible_count_then_fixed_denominator_quality",
+    "implemented": false,
+    "formal_runs_submitted": 0,
+    "mix_v1_v2_for_causal_comparison": false,
+    "scalar_encoding": "(feasible_count + sum(valid_case_normalized_quality)/15) / 16"
+  },
+  "public_scope": "Panel aggregates, resource limits and hashes only; no protected input, per-case outcomes, candidate source, raw trajectory, host endpoint or credentials."
+}
