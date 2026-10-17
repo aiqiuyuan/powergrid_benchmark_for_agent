@@ -1,8 +1,8 @@
 # 每个任务如何建立公平排行
 
-**2026-10-17后续决定：** 原v1批次与任务包保持原样，七组缺失结果的补跑暂缓；反馈v2已确定每例900秒为主评测、5400秒为补充。v2排行及信息内容见[反馈v2协议设计](../protocol/rte-feedback-v2.md)（尚未上线）。下文具体可执行设置仍描述v1，不作为v2已实现的证据。
+**2026-10-17当前RTE：反馈v2已经实现并完成本批独立验收，完整15组已于13:19:59–13:20:05（Asia/Shanghai）重新提交。** 900秒为主评测、5400秒为补充；先比可行例数k、相同k比固定分母质量Q，并返回完整15例结构化诊断。当前启动状态与证据见[中文记录](../completion-rte-feedback-v2-launch-20261017.md)、[脱敏证据](../evidence/rte-feedback-v2-launch-20261017.json)及[反馈v2协议](../protocol/rte-feedback-v2.md)。提交不代表12小时开发或研究评测已经完成。原v1七组补跑继续暂缓，旧成绩单独保留。
 
-**RTE后续决定（2026-10-15）：** 当前RTE采用ABC45开放开发、X15隔离反馈，900秒／例、评测端15 CPU并行；冻结后5400秒／例评测且不回流。ABC允许官方checker本地自测，n仅统计完整X面板受理次数。RTE以[决定0006](../decisions/0006-rte-abc-open-x15-protected.md)和[新配置](../protocol/rte-abc-x15-configuration.md)为准；下文X04单例及禁止全部本地评分条款保留为被覆盖的历史设计，其他任务不受此例外影响。
+**RTE数据边界：** ABC45完整输入、官方checker及本地自测开放；X15留在可信评测端，每次完整面板受理计一次n。当前执行[决定0006](../decisions/0006-rte-abc-open-x15-protected.md)的ABC／X边界及[反馈v2](../protocol/rte-feedback-v2.md)的评分政策；下文X04单例、禁止全部本地评分及旧v1全板归零条款只保留历史适用范围，其他任务不受RTE例外影响。
 
 **状态：2026-10-15，第一阶段受控反馈算法演化。用户已确定五task、n=0／1／3／5／10、每档3次独立开发、T=43200秒及累计token不限。RTE采用上述ABC／X15设计；其他四task优先选择高难度完整case，同case开发、计数反馈及冻结复核。独立未见泛化留到第二阶段。模型、资源、case和大部分算法执行限额仍待核对／校准，尚无正式公平榜。** 本文件落实[《电网算法演化 Benchmark 的原赛可比性与公平排行说明》](https://chatgpt.com/space/page_949f304b2f68819191df113e9be1b7d9)的建议。该Page的访问权限可能与GitHub不同；下文保留独立可读的决定和公开一手来源，不依赖读者能打开Page。
 
@@ -128,7 +128,7 @@
 |---|---|---|---|
 | [GOC](../task-cards/goc-sc-ac-opf.md) | 固定高难公开合成case，完整Code1/Code2与全部故障，同case演化 | 同场景`J`和可核对的合成division结果独立列；不复原工业终赛总榜 | 尚不可。完整输出基础已有；面板、统一资源与全故障重放待落实；强基线覆盖另列限制 |
 | [UC/SCUC](../task-cards/unit-commitment.md) | 固定高难完整PGLib-UC实例上的算法演化；派生SCUC独立扩展 | UC没有官方原赛榜；仅报告固定版本实例的统一重跑 | 尚不可。MILP与独立validator已有；当前终评仍须改成执行源码，新切分未认证 |
-| [RTE](../task-cards/rte-maintenance.md) | ABC45开放开发，X15受保护反馈；900秒过程、5400秒冻结后 | 官方checker与原始F；固定资源并披露差异，不宣称原赛总榜 | 新版本任务准备中；完整X并行／真实模型／网络隔离仍须验收 |
+| [RTE](../task-cards/rte-maintenance.md) | ABC45开放开发，X15受保护反馈；900秒过程／主评测，5400秒补充 | 官方checker与原始F；新榜按k优先、同覆盖比Q，不宣称原赛总榜 | v2独立门禁已通过，完整15组已重新提交；12小时研究结果尚待 |
 | [L2RPN](../task-cards/l2rpn-grid-control.md) | 固定高难完整episode，恢复原赛动作含redispatch；同case同权限重跑 | 三支领先方法的旧24周公开重评单独保留；375动作受限版本另列 | 尚不可。代码/权重与兼容适配已取得；完整动作路径、能力合同与新面板未认证 |
 | [HEFTCom](../task-cards/heftcom-forecast-trade.md) | 固定高难因果重放case，保留原交易边界／市场日／结算；时段范围待定 | 官方逐日提交归档可重算历史输出；固定权重与DWD聚合输入为明确本地变体 | 尚不可。旧数据／starter已有；市场日切分需修正，正式期标签缺失，因果执行与settlement parity未完成 |
 
@@ -185,18 +185,19 @@ UC主线保留锁定版本PGLib-UC的原始参数、完整时间窗口和铜板U
 | 设置 | 本轮约定 | 实现与比较边界 |
 |---|---|---|
 | 数据 | 固定官方版本，ABC45公开开发、X15隔离评测 | 原字节／完整情景／逐例哈希；不裁规模，不称X从未公开 |
-| 过程反馈 | 每例900秒，15实例并行、统一汇总 | 一次完整面板计一次n；不提前逐例回传；ABC自测不计n |
-| 冻结后评测 | 同一最终源码、同一X15，每例5400秒独立启动 | 不回流，不占过程n；不是独立未见泛化，也不是同轨迹checkpoint |
-| 资源 | 开发2 CPU／32GiB，评测15 CPU／256GiB，每例单CPU／16GiB地址空间，BLAS／OpenMP默认线程数1 | 加4 CPU／8GiB系统余量，外层21 CPU／296GiB；shm8GiB。2026-10-16 v5真实完整X15资源门禁通过，v6经来源一致性复用；正式15个run已提交，最终结果待完成。旧实验保留原资源记录；见[实验记录](../experiments/rte-abc-x15-formal-20261015.md)与[中文说明](../completion-rte-formal-launch-20261015.md) |
-| 分数 | 官方原目标F、有效率与失败；全15有效才平均输入归一化q | reward不是原赛积分，不平均成功子集 |
-| 提交 | 单个通用solver.py，原生artifacts截止冻结 | 固定starter／依赖／seed，90分钟不能选历史最佳源码 |
+| 过程反馈 | 每例900秒，15实例并行；完整15例结构化JSON含目标／状态／约束及资源诊断 | 一次完整面板计一次n；整板完成后一次性回传；ABC自测不计n |
+| 截止主评测 | 同一截止源码、X15每例900秒，原生终验为权威 | 不回流；不重复跑900秒再取高分 |
+| 补充评测 | 同一冻结源码、X15每例5400秒独立启动 | 不回流，不占过程n，不选优；不是独立未见泛化或同轨迹checkpoint |
+| 资源 | 开发2 CPU／32GiB，评测15 CPU／256GiB，每例单CPU／16GiB地址空间，BLAS／OpenMP默认线程数1 | 外层21 CPU／296GiB，shm8GiB；v2当前完整工业X15、Linux沙箱及90条资源采样门禁已通过。磁盘与健康节点约束见[本轮记录](../completion-rte-feedback-v2-launch-20261017.md)，不以历史v5／v6凭据替代 |
+| 分数 | 官方F／风险分解不变；可行数k优先，同覆盖比Q=sum(valid q)/15；reward=(k+Q)/16 | 无效目标null、质量贡献0；完整部分可行允许正reward；不是原赛积分或v1分数 |
+| 提交 | 单个通用solver.py，原生artifacts截止工作区冻结 | 固定starter／依赖／seed；不自动回滚历史最好反馈，5400秒不能选源码 |
 | 权限 | ABC允许完整checker，X及旧结果不进入开发端 | 现有黑名单／搜索开关不能单独证明隔离；正式运行需检查挂载和实际网络 |
 
 原赛C＋X30例和15／90分钟排行榜继续作为历史参照。当前只评X15，单核候选、现代依赖及数据可见性均需披露；不能授予原赛总榜名次。逐例F15／F90可并列原表，但执行预算、seed及平台差异必须同时给出。[原赛规则](https://github.com/rte-france/challenge-roadef-2020/blob/master/Challenge_Rules.pdf)、[原赛结果](https://roadef.org/challenge/2020/en/finalresult.php)。
 
 S34和S56仍是待认证强基线候选，需核验Gurobi、OpenMP、许可、版本及同条件资源后重跑；本次任务准备不声称已复现。[S34](https://github.com/mbmv7/rc)、[S56](https://github.com/FranciscoParrenoTorres/Roadef2020)。旧A组真实模型canary仅证明历史接入范围，不能替代本版整X15并行及数据隔离验收。
 
-完整资源、接口和剩余条件见[新配置](../protocol/rte-abc-x15-configuration.md)及[任务包](../../task-packages/rte-maintenance-abc-x15-v1/README.md)。
+当前资源、接口与实际验收见[配置](../protocol/rte-abc-x15-configuration.md)、[v2任务包](../../task-packages/rte-maintenance-abc-x15-v2/README.md)及[本轮记录](../completion-rte-feedback-v2-launch-20261017.md)。旧v1完整面板门槛与启动细节保留为历史记录，不适用于当前新榜。
 
 ## 7. L2RPN：先认证相同能力
 

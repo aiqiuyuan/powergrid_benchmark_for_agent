@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+environment/app/public/*.json
+tests/data/*.json
+environment/app/support/
+tests/support/
+tests/offline/
+environment/app/problem.md
+environment/app/prompt.md
+private-final/
+frozen/
