@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "experiment_id": "distribution-formal-20261016-v1",
+  "research_question": "Effect of protected complete-case feedback budget on fixed-case algorithm development",
+  "selection_evidence": "docs/experiments/distribution-baseline-qualification-20261016.md",
+  "development_seconds": 43200,
+  "aggregate_token_cap": null,
+  "provider_usage": "record actual reported usage; missing or zero-filled fields are unknown",
+  "n_grid": [0, 1, 3, 5, 10],
+  "repetitions": [1, 2, 3],
+  "run_count": 30,
+  "model": "global.openai.gpt-5.6-sol",
+  "client_version": "2.1.280",
+  "harbor_version": "0.20.0",
+  "cluster": "dev",
+  "gpus_per_run": 0,
+  "repetitions_semantics": "independent development processes; provider sampling seed is unavailable and is not claimed controlled",
+  "case_policy": "one identical complete case for development feedback and final evaluation per task; no calendar generalization claim",
+  "feedback_policy": {
+    "n_is": "maximum accepted complete-case process evaluations; final replay is separate",
+    "n_zero": "terminal mode, no process judge",
+    "accepted_candidate_failure": "counts and returns zero reward",
+    "infrastructure_failure": "record separately; retry only the same evaluation identity",
+    "excess_requests": "reject before evaluation",
+    "unused_budget": "allowed; report accepted and collected counts",
+    "public_checks": "interface and synthetic toy checks only; no real target trajectory or free target score",
+    "feedback_precision": "aggregate metrics and reward as emitted by the frozen scorer; no trajectories"
+  },
+  "final_policy": "one controller.py at the wall-clock deadline, artifact hash verified in independent terminal replay; never select best feedback history",
+  "tasks": {
+    "mapdn": {
+      "package": "mapdn-voltage-control-formal-v1",
+      "case_id": "mapdn33-2012-02-03",
+      "intervals": 480,
+      "interval_hours": 0.05,
+      "voltage_bounds_pu": [0.95, 1.05],
+      "voltage_tolerance_pu": 1e-9,
+      "information": "one current regional observation per PV per interval; private actor history; no shared state or extra simulator calls",
+      "metric": "mapdn33_formal_quality_v1",
+      "invalid_reward": 0.0,
+      "quality": "if all bus-time voltage points comply: 0.5+0.5/(1+actual_active_loss_MWh); otherwise 0.5*bus_time_compliance",
+      "reference_roles": {
+        "local_one_step_relaxed": "same-information reference and common starter",
+        "source_iterative_droop": "additional within-snapshot physical feedback reference",
+        "full_information_ac_opf": "privileged network-information reference; no global optimality claim"
+      },
+      "outer_cpus": 8,
+      "outer_memory_mb": 16384
+    },
+    "powergym": {
+      "package": "powergym-volt-var-control-formal-v1",
+      "case_id": "123Bus-stress-p000-s2.5",
+      "intervals": 24,
+      "interval_hours": 1.0,
+      "load_scale": 2.5,
+      "voltage_bounds_pu": [0.95, 1.05],
+      "information": "causal device states, previous completed-hour bus-phase voltages and battery actual power; initial observation uses hour0 initial state; no load trajectory or simulator query",
+      "metric": "powergym_formal_quality",
+      "invalid_reward": 0.0,
+      "quality": "1/(1+bus_envelope_voltage_violation_pu_hours+actual_active_loss_kWh/1000+(capacitor_switches+tap_moves)/33)",
+      "voltage_feasibility": "soft cost, separately report compliance; not a hard candidate-validity gate",
+      "hard_validity": ["finite in-range integer device actions", "all 24 steps converge", "per-battery absolute terminal ledger deviation <=1kWh", "per-battery absolute actual terminal-power integral <=1kWh"],
+      "numerics": "OpenDSS tolerance1e-10, BuildYMatrix(2,True), SolutionInitialized=False for every query; original Generator Q=P/pf; Python round integer-kWh ledger",
+      "reference_roles": {
+        "coordinated_voltage": "same-information executable reference and common starter",
+        "hysteresis_idle": "same-information executable reference",
+        "strong_current_idle": "privileged current load and circuit optimization reference",
+        "oracle_day_idle": "privileged full-day device reference",
+        "oracle_day_storage": "privileged full-day storage reference, fixed device plan; no joint global optimality claim"
+      },
+      "outer_cpus": 6,
+      "outer_memory_mb": 12288
+    }
+  },
+  "release_gate": "exact new package real-backend reference alignment, target-cluster sandbox/runtime acceptance, native lifecycle and source/image/config freeze before submission",
+  "historical_results": "preserved; this 30-run extension is separate from the original 75-run cohort and 600-second canaries"
+}

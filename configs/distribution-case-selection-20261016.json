@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "experiment_id": "distribution-case-selection-20261016",
+  "purpose": "non-agent baseline experiments for fixed-case qualification",
+  "historical_canary_mutation": false,
+  "agent_runs": 0,
+  "mapdn": {
+    "networks": [33, 141],
+    "interval_minutes": 3,
+    "intervals": 480,
+    "noise": false,
+    "candidate_rules": [
+      "first complete day in each quarter of earliest complete data year",
+      "complete day with greatest integrated active demand in entire source",
+      "complete day with greatest integrated PV active energy in entire source"
+    ],
+    "ties": "earliest source date",
+    "deduplicate_dates": true,
+    "local_baselines": ["zero_q", "starter_droop", "fixed_grid_droop"],
+    "reference": "full-information AC OPF on shortlisted complete days",
+    "local_action_bounds": {"33": 0.8, "141": 0.6},
+    "full_day_reference_required_for_final_qualification": true
+  },
+  "powergym": {
+    "networks": ["34Bus", "123Bus"],
+    "interval_hours": 1,
+    "intervals": 24,
+    "candidate_rule": "six evenly spaced profile indices including first and last, deduplicated",
+    "standard_load_scale": 1,
+    "separate_stress_track": {"network": "123Bus", "load_scale": 2.5},
+    "terminal_energy_tolerance_kwh": 1,
+    "local_baselines": ["hold_idle", "starter_hysteresis", "coordinated_voltage_rule"],
+    "reference": "current-snapshot full-model coordinate search, battery idle",
+    "storage_planning_difficulty_certified": false
+  },
+  "reporting": {
+    "physical_metrics_before_calibration_quality": true,
+    "full_network_simultaneous_voltage_compliance": true,
+    "bus_or_phase_time_voltage_compliance": true,
+    "actual_active_loss_energy": true,
+    "operation_counts_and_terminal_energy": true,
+    "wall_seconds_and_powerflow_calls": true,
+    "baseline_candidate_errors_recorded_separately_from_infrastructure_errors": true,
+    "paper_reproduction_claim": false,
+    "full_information_references_separate": true,
+    "per_case_droop_tuning_is_offline_reference": true
+  },
+  "selection": {
+    "eligibility": [
+      "complete source provenance and full horizon",
+      "physical convergence and valid actions for at least one declared reference",
+      "runtime compatible with target evaluation constraints",
+      "no terminal-energy violation for PowerGym"
+    ],
+    "shortlist_order": [
+      "standard and stress tracks remain separate",
+      "remaining voltage-control gap after stronger causal baseline",
+      "actual-loss gap to reference at comparable voltage compliance",
+      "runtime and action cost as explicit tie-break evidence"
+    ],
+    "do_not_force_a_winner_when_reference_is_missing_or_pool_is_saturated": true,
+    "final_case_requires_separate_frozen_task_and_strict_n_acceptance": true
+  }
+}

@@ -1,0 +1,4692 @@
+{
+  "candidate_isolation_certified_by_this_run": false,
+  "counts": {
+    "complete24": 45,
+    "explicit_pf_calls": 162859,
+    "qualification_valid": 45,
+    "records": 45,
+    "valid": 45,
+    "voltage_feasible": 5,
+    "wall_seconds_case_sum": 77.00602424994577
+  },
+  "failures": [],
+  "kind": "trusted-numerical-qualification-evidence",
+  "matched_default_vs_cold_start": [
+    {
+      "baseline": "hold_idle",
+      "case_id": "34Bus-standard-p000-s1",
+      "cold_start_qualification": {
+        "active_loss_kwh": 3548.860900790713,
+        "canary_quality": 0.013697900430255918,
+        "capacitor_switches": 0,
+        "phase_time_compliance": 0.2149122807017544,
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 0,
+        "voltage_violation_pu_hours": 68.45502791352716
+      },
+      "default_original": {
+        "active_loss_kwh": 3548.8587868804266,
+        "canary_quality": 0.013697896797816491,
+        "capacitor_switches": 0,
+        "phase_time_compliance": 0.2149122807017544,
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 0,
+        "voltage_violation_pu_hours": 68.45504938677472
+      },
+      "difference_new_minus_old": {
+        "active_loss_kwh": 0.00211391028642538,
+        "canary_quality": 3.632439427372902e-09,
+        "capacitor_switches": 0,
+        "phase_time_compliance": 0.0,
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 0,
+        "voltage_violation_pu_hours": -2.1473247556969e-05
+      }
+    },
+    {
+      "baseline": "canary_hysteresis",
+      "case_id": "34Bus-standard-p000-s1",
+      "cold_start_qualification": {
+        "active_loss_kwh": 2750.227676290318,
+        "canary_quality": 0.034642850684174456,
+        "capacitor_switches": 0,
+        "phase_time_compliance": 0.5662280701754386,
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 138,
+        "voltage_violation_pu_hours": 20.933938904999344
+      },
+      "default_original": {
+        "active_loss_kwh": 2750.212172734736,
+        "canary_quality": 0.034642922176222585,
+        "capacitor_switches": 0,
+        "phase_time_compliance": 0.5662280701754386,
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 138,
+        "voltage_violation_pu_hours": 20.933894838280764
+      },
+      "difference_new_minus_old": {
+        "active_loss_kwh": 0.015503555581744877,
+        "canary_quality": -7.149204812872956e-08,
+        "capacitor_switches": 0,
+        "phase_time_compliance": 0.0,
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 0,
+        "voltage_violation_pu_hours": 4.4066718579927056e-05
+      }
+    },
+    {
+      "baseline": "coordinated_voltage",
+      "case_id": "34Bus-standard-p000-s1",
+      "cold_start_qualification": {
+        "active_loss_kwh": 3062.216195559753,
+        "canary_quality": 0.07618647091818453,
+        "capacitor_switches": 2,
+        "phase_time_compliance": 0.8109649122807018,
+        "simultaneous_compliance": 0.125,
+        "tap_moves": 186,
+        "voltage_violation_pu_hours": 3.366504114478283
+      },
+      "default_original": {
+        "active_loss_kwh": 3062.218424109809,
+        "canary_quality": 0.07618681505702345,
+        "capacitor_switches": 2,
+        "phase_time_compliance": 0.8109649122807018,
+        "simultaneous_compliance": 0.125,
+        "tap_moves": 186,
+        "voltage_violation_pu_hours": 3.3664425966704252
+      },
+      "difference_new_minus_old": {
+        "active_loss_kwh": -0.0022285500558609783,
+        "canary_quality": -3.4413883891193375e-07,
+        "capacitor_switches": 0,
+        "phase_time_compliance": 0.0,
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 0,
+        "voltage_violation_pu_hours": 6.151780785756955e-05
+      }
+    },
+    {
+      "baseline": "full_information_snapshot",
+      "case_id": "34Bus-standard-p000-s1",
+      "cold_start_qualification": {
+        "active_loss_kwh": 2948.5966470388703,
+        "canary_quality": 0.1176877897595648,
+        "capacitor_switches": 4,
+        "phase_time_compliance": 0.7973684210526316,
+        "simultaneous_compliance": 0.16666666666666666,
+        "tap_moves": 48,
+        "voltage_violation_pu_hours": 2.9727039855613775
+      },
+      "default_original": {
+        "active_loss_kwh": 2948.5411862244387,
+        "canary_quality": 0.11768701109241993,
+        "capacitor_switches": 4,
+        "phase_time_compliance": 0.7973684210526316,
+        "simultaneous_compliance": 0.16666666666666666,
+        "tap_moves": 48,
+        "voltage_violation_pu_hours": 2.9728156665142382
+      },
+      "difference_new_minus_old": {
+        "active_loss_kwh": 0.055460814431626204,
+        "canary_quality": 7.786671448739568e-07,
+        "capacitor_switches": 0,
+        "phase_time_compliance": 0.0,
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 0,
+        "voltage_violation_pu_hours": -0.00011168095286073765
+      }
+    },
+    {
+      "baseline": "hold_idle",
+      "case_id": "34Bus-standard-p006-s1",
+      "cold_start_qualification": {
+        "active_loss_kwh": 3482.253963428982,
+        "canary_quality": 0.013536995745408512,
+        "capacitor_switches": 0,
+        "phase_time_compliance": 0.21052631578947367,
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 0,
+        "voltage_violation_pu_hours": 69.38938039378655
+      },
+      "default_original": {
+        "active_loss_kwh": 3482.252301048911,
+        "canary_quality": 0.013536992792069314,
+        "capacitor_switches": 0,
+        "phase_time_compliance": 0.21052631578947367,
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 0,
+        "voltage_violation_pu_hours": 69.38939817259637
+      },
+      "difference_new_minus_old": {
+        "active_loss_kwh": 0.0016623800711386139,
+        "canary_quality": 2.953339198197291e-09,
+        "capacitor_switches": 0,
+        "phase_time_compliance": 0.0,
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 0,
+        "voltage_violation_pu_hours": -1.7778809819901653e-05
+      }
+    },
+    {
+      "baseline": "canary_hysteresis",
+      "case_id": "34Bus-standard-p006-s1",
+      "cold_start_qualification": {
+        "active_loss_kwh": 2683.2067948870076,
+        "canary_quality": 0.03646335648894987,
+        "capacitor_switches": 0,
+        "phase_time_compliance": 0.5833333333333334,
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 102,
+        "voltage_violation_pu_hours": 20.650677010136224
+      },
+      "default_original": {
+        "active_loss_kwh": 2683.1736577605843,
+        "canary_quality": 0.03646337360506804,
+        "capacitor_switches": 0,
+        "phase_time_compliance": 0.5833333333333334,
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 102,
+        "voltage_violation_pu_hours": 20.650697273906466
+      },
+      "difference_new_minus_old": {
+        "active_loss_kwh": 0.03313712642329847,
+        "canary_quality": -1.711611816862524e-08,
+        "capacitor_switches": 0,
+        "phase_time_compliance": 0.0,
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 0,
+        "voltage_violation_pu_hours": -2.02637702422237e-05
+      }
+    },
+    {
+      "baseline": "coordinated_voltage",
+      "case_id": "34Bus-standard-p006-s1",
+      "cold_start_qualification": {
+        "active_loss_kwh": 2959.7715878066683,
+        "canary_quality": 0.07785669422574291,
+        "capacitor_switches": 2,
+        "phase_time_compliance": 0.8399122807017544,
+        "simultaneous_compliance": 0.125,
+        "tap_moves": 186,
+        "voltage_violation_pu_hours": 3.187369423296251
+      },
+      "default_original": {
+        "active_loss_kwh": 2959.794335306799,
+        "canary_quality": 0.07785697228699173,
+        "capacitor_switches": 2,
+        "phase_time_compliance": 0.8399122807017544,
+        "simultaneous_compliance": 0.125,
+        "tap_moves": 186,
+        "voltage_violation_pu_hours": 3.1873008038676534
+      },
+      "difference_new_minus_old": {
+        "active_loss_kwh": -0.022747500130662957,
+        "canary_quality": -2.7806124881790684e-07,
+        "capacitor_switches": 0,
+        "phase_time_compliance": 0.0,
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 0,
+        "voltage_violation_pu_hours": 6.861942859748282e-05
+      }
+    },
+    {
+      "baseline": "full_information_snapshot",
+      "case_id": "34Bus-standard-p006-s1",
+      "cold_start_qualification": {
+        "active_loss_kwh": 2982.1722764324245,
+        "canary_quality": 0.10482538357623988,
+        "capacitor_switches": 4,
+        "phase_time_compliance": 0.7456140350877193,
+        "simultaneous_compliance": 0.20833333333333334,
+        "tap_moves": 46,
+        "voltage_violation_pu_hours": 4.042350339660201
+      },
+      "default_original": {
+        "active_loss_kwh": 2982.1075236603133,
+        "canary_quality": 0.10482396657369988,
+        "capacitor_switches": 4,
+        "phase_time_compliance": 0.7456140350877193,
+        "simultaneous_compliance": 0.20833333333333334,
+        "tap_moves": 46,
+        "voltage_violation_pu_hours": 4.042544049033713
+      },
+      "difference_new_minus_old": {
+        "active_loss_kwh": 0.06475277211120556,
+        "canary_quality": 1.4170025399995456e-06,
+        "capacitor_switches": 0,
+        "phase_time_compliance": 0.0,
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 0,
+        "voltage_violation_pu_hours": -0.00019370937351137485
+      }
+    },
+    {
+      "baseline": "hold_idle",
+      "case_id": "34Bus-standard-p015-s1",
+      "cold_start_qualification": {
+        "active_loss_kwh": 3526.0031629978466,
+        "canary_quality": 0.013751286852363206,
+        "capacitor_switches": 0,
+        "phase_time_compliance": 0.21359649122807017,
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 0,
+        "voltage_violation_pu_hours": 68.19446370939137
+      },
+      "default_original": {
+        "active_loss_kwh": 3526.002142634724,
+        "canary_quality": 0.013751285168965089,
+        "capacitor_switches": 0,
+        "phase_time_compliance": 0.21359649122807017,
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 0,
+        "voltage_violation_pu_hours": 68.19447363201313
+      },
+      "difference_new_minus_old": {
+        "active_loss_kwh": 0.0010203631227341248,
+        "canary_quality": 1.6833981170832901e-09,
+        "capacitor_switches": 0,
+        "phase_time_compliance": 0.0,
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 0,
+        "voltage_violation_pu_hours": -9.922621757141314e-06
+      }
+    },
+    {
+      "baseline": "canary_hysteresis",
+      "case_id": "34Bus-standard-p015-s1",
+      "cold_start_qualification": {
+        "active_loss_kwh": 2720.458333884585,
+        "canary_quality": 0.037278552067532486,
+        "capacitor_switches": 0,
+        "phase_time_compliance": 0.5793859649122807,
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 102,
+        "voltage_violation_pu_hours": 20.013708779572735
+      },
+      "default_original": {
+        "active_loss_kwh": 2720.4515475641233,
+        "canary_quality": 0.03727856180451439,
+        "capacitor_switches": 0,
+        "phase_time_compliance": 0.5793859649122807,
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 102,
+        "voltage_violation_pu_hours": 20.0137085593117
+      },
+      "difference_new_minus_old": {
+        "active_loss_kwh": 0.006786320461742434,
+        "canary_quality": -9.73698190132044e-09,
+        "capacitor_switches": 0,
+        "phase_time_compliance": 0.0,
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 0,
+        "voltage_violation_pu_hours": 2.202610360768631e-07
+      }
+    },
+    {
+      "baseline": "coordinated_voltage",
+      "case_id": "34Bus-standard-p015-s1",
+      "cold_start_qualification": {
+        "active_loss_kwh": 3027.450508161757,
+        "canary_quality": 0.07705732884366011,
+        "capacitor_switches": 2,
+        "phase_time_compliance": 0.8333333333333334,
+        "simultaneous_compliance": 0.125,
+        "tap_moves": 186,
+        "voltage_violation_pu_hours": 3.2529307491026023
+      },
+      "default_original": {
+        "active_loss_kwh": 3027.444457589384,
+        "canary_quality": 0.07705756463429837,
+        "capacitor_switches": 2,
+        "phase_time_compliance": 0.8333333333333334,
+        "simultaneous_compliance": 0.125,
+        "tap_moves": 186,
+        "voltage_violation_pu_hours": 3.2528970899089202
+      },
+      "difference_new_minus_old": {
+        "active_loss_kwh": 0.006050572373169416,
+        "canary_quality": -2.3579063826439928e-07,
+        "capacitor_switches": 0,
+        "phase_time_compliance": 0.0,
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 0,
+        "voltage_violation_pu_hours": 3.365919368203407e-05
+      }
+    },
+    {
+      "baseline": "full_information_snapshot",
+      "case_id": "34Bus-standard-p015-s1",
+      "cold_start_qualification": {
+        "active_loss_kwh": 2940.9940339981717,
+        "canary_quality": 0.11251552169136875,
+        "capacitor_switches": 4,
+        "phase_time_compliance": 0.8131578947368421,
+        "simultaneous_compliance": 0.5,
+        "tap_moves": 51,
+        "voltage_violation_pu_hours": 3.2800019521646124
+      },
+      "default_original": {
+        "active_loss_kwh": 2940.94064296092,
+        "canary_quality": 0.11251468088659052,
+        "capacitor_switches": 4,
+        "phase_time_compliance": 0.8131578947368421,
+        "simultaneous_compliance": 0.5,
+        "tap_moves": 51,
+        "voltage_violation_pu_hours": 3.280121759327893
+      },
+      "difference_new_minus_old": {
+        "active_loss_kwh": 0.053391037251913076,
+        "canary_quality": 8.408047782321182e-07,
+        "capacitor_switches": 0,
+        "phase_time_compliance": 0.0,
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 0,
+        "voltage_violation_pu_hours": -0.00011980716328041652
+      }
+    },
+    {
+      "baseline": "hold_idle",
+      "case_id": "123Bus-standard-p000-s1",
+      "cold_start_qualification": {
+        "active_loss_kwh": 1016.039321685563,
+        "canary_quality": 0.0034658417134136817,
+        "capacitor_switches": 0,
+        "phase_time_compliance": 0.01079136690647482,
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 0,
+        "voltage_violation_pu_hours": 286.5141598878593
+      },
+      "default_original": {
+        "active_loss_kwh": 1016.0392688692107,
+        "canary_quality": 0.0034658417556301417,
+        "capacitor_switches": 0,
+        "phase_time_compliance": 0.01079136690647482,
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 0,
+        "voltage_violation_pu_hours": 286.5141564261691
+      },
+      "difference_new_minus_old": {
+        "active_loss_kwh": 5.281635230858228e-05,
+        "canary_quality": -4.2216459928551275e-11,
+        "capacitor_switches": 0,
+        "phase_time_compliance": 0.0,
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 0,
+        "voltage_violation_pu_hours": 3.4616901984918513e-06
+      }
+    },
+    {
+      "baseline": "canary_hysteresis",
+      "case_id": "123Bus-standard-p000-s1",
+      "cold_start_qualification": {
+        "active_loss_kwh": 840.3943241797207,
+        "canary_quality": 0.015834744233256377,
+        "capacitor_switches": 0,
+        "phase_time_compliance": 0.6734112709832134,
+        "simultaneous_compliance": 0.3333333333333333,
+        "tap_moves": 84,
+        "voltage_violation_pu_hours": 58.766418402216225
+      },
+      "default_original": {
+        "active_loss_kwh": 840.3897680678389,
+        "canary_quality": 0.015834764108005238,
+        "capacitor_switches": 0,
+        "phase_time_compliance": 0.6734112709832134,
+        "simultaneous_compliance": 0.3333333333333333,
+        "tap_moves": 84,
+        "voltage_violation_pu_hours": 58.76634369377806
+      },
+      "difference_new_minus_old": {
+        "active_loss_kwh": 0.0045561118818113755,
+        "canary_quality": -1.9874748860559954e-08,
+        "capacitor_switches": 0,
+        "phase_time_compliance": 0.0,
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 0,
+        "voltage_violation_pu_hours": 7.470843816292927e-05
+      }
+    },
+    {
+      "baseline": "coordinated_voltage",
+      "case_id": "123Bus-standard-p000-s1",
+      "cold_start_qualification": {
+        "active_loss_kwh": 900.5216099578809,
+        "canary_quality": 0.07974881046375785,
+        "capacitor_switches": 3,
+        "phase_time_compliance": 0.9439448441247003,
+        "simultaneous_compliance": 0.9166666666666666,
+        "tap_moves": 84,
+        "voltage_violation_pu_hours": 8.002486741608681
+      },
+      "default_original": {
+        "active_loss_kwh": 900.5154385805704,
+        "canary_quality": 0.07974884792048126,
+        "capacitor_switches": 3,
+        "phase_time_compliance": 0.9439448441247003,
+        "simultaneous_compliance": 0.9166666666666666,
+        "tap_moves": 84,
+        "voltage_violation_pu_hours": 8.002487023449023
+      },
+      "difference_new_minus_old": {
+        "active_loss_kwh": 0.006171377310465687,
+        "canary_quality": -3.745672340349504e-08,
+        "capacitor_switches": 0,
+        "phase_time_compliance": 0.0,
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 0,
+        "voltage_violation_pu_hours": -2.818403412874204e-07
+      }
+    },
+    {
+      "baseline": "full_information_snapshot",
+      "case_id": "123Bus-standard-p000-s1",
+      "cold_start_qualification": {
+        "active_loss_kwh": 868.384805898883,
+        "canary_quality": 0.22500301824146604,
+        "capacitor_switches": 1,
+        "phase_time_compliance": 0.9929556354916067,
+        "simultaneous_compliance": 0.875,
+        "tap_moves": 75,
+        "voltage_violation_pu_hours": 0.2729697167304945
+      },
+      "default_original": {
+        "active_loss_kwh": 868.3656431214301,
+        "canary_quality": 0.22500418568608055,
+        "capacitor_switches": 1,
+        "phase_time_compliance": 0.9929556354916067,
+        "simultaneous_compliance": 0.875,
+        "tap_moves": 75,
+        "voltage_violation_pu_hours": 0.272965819611912
+      },
+      "difference_new_minus_old": {
+        "active_loss_kwh": 0.019162777452834234,
+        "canary_quality": -1.1674446145082396e-06,
+        "capacitor_switches": 0,
+        "phase_time_compliance": 0.0,
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 0,
+        "voltage_violation_pu_hours": 3.8971185825076304e-06
+      }
+    },
+    {
+      "baseline": "hold_idle",
+      "case_id": "123Bus-stress-p000-s2.5",
+      "cold_start_qualification": {
+        "active_loss_kwh": 5743.06623838855,
+        "canary_quality": 0.005783794538675795,
+        "capacitor_switches": 0,
+        "phase_time_compliance": 0.29706235011990406,
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 0,
+        "voltage_violation_pu_hours": 166.15380852316736
+      },
+      "default_original": {
+        "active_loss_kwh": 5743.077161397382,
+        "canary_quality": 0.005783798524200756,
+        "capacitor_switches": 0,
+        "phase_time_compliance": 0.29706235011990406,
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 0,
+        "voltage_violation_pu_hours": 166.1536784596305
+      },
+      "difference_new_minus_old": {
+        "active_loss_kwh": -0.010923008831923653,
+        "canary_quality": -3.985524961273856e-09,
+        "capacitor_switches": 0,
+        "phase_time_compliance": 0.0,
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 0,
+        "voltage_violation_pu_hours": 0.00013006353685796057
+      }
+    },
+    {
+      "baseline": "canary_hysteresis",
+      "case_id": "123Bus-stress-p000-s2.5",
+      "cold_start_qualification": {
+        "active_loss_kwh": 5288.594346510892,
+        "canary_quality": 0.0247983666859411,
+        "capacitor_switches": 0,
+        "phase_time_compliance": 0.7831235011990407,
+        "simultaneous_compliance": 0.041666666666666664,
+        "tap_moves": 84,
+        "voltage_violation_pu_hours": 31.49118755059948
+      },
+      "default_original": {
+        "active_loss_kwh": 5288.536765245538,
+        "canary_quality": 0.024798529613448708,
+        "capacitor_switches": 0,
+        "phase_time_compliance": 0.783273381294964,
+        "simultaneous_compliance": 0.041666666666666664,
+        "tap_moves": 84,
+        "voltage_violation_pu_hours": 31.49098019316203
+      },
+      "difference_new_minus_old": {
+        "active_loss_kwh": 0.057581265354201605,
+        "canary_quality": -1.629275076069081e-07,
+        "capacitor_switches": 0,
+        "phase_time_compliance": -0.00014988009592331597,
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 0,
+        "voltage_violation_pu_hours": 0.00020735743744992874
+      }
+    },
+    {
+      "baseline": "coordinated_voltage",
+      "case_id": "123Bus-stress-p000-s2.5",
+      "cold_start_qualification": {
+        "active_loss_kwh": 5854.903548985061,
+        "canary_quality": 0.057844021683668784,
+        "capacitor_switches": 3,
+        "phase_time_compliance": 0.9025779376498801,
+        "simultaneous_compliance": 0.16666666666666666,
+        "tap_moves": 154,
+        "voltage_violation_pu_hours": 5.675391952956601
+      },
+      "default_original": {
+        "active_loss_kwh": 5854.883677306939,
+        "canary_quality": 0.05784419696326283,
+        "capacitor_switches": 3,
+        "phase_time_compliance": 0.9025779376498801,
+        "simultaneous_compliance": 0.16666666666666666,
+        "tap_moves": 154,
+        "voltage_violation_pu_hours": 5.675359438894831
+      },
+      "difference_new_minus_old": {
+        "active_loss_kwh": 0.019871678122399317,
+        "canary_quality": -1.7527959404739502e-07,
+        "capacitor_switches": 0,
+        "phase_time_compliance": 0.0,
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 0,
+        "voltage_violation_pu_hours": 3.2514061770072544e-05
+      }
+    },
+    {
+      "baseline": "full_information_snapshot",
+      "case_id": "123Bus-stress-p000-s2.5",
+      "cold_start_qualification": {
+        "active_loss_kwh": 5497.912630803047,
+        "canary_quality": 0.06814657493797387,
+        "capacitor_switches": 4,
+        "phase_time_compliance": 0.9087230215827338,
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 28,
+        "voltage_violation_pu_hours": 7.206642200271877
+      },
+      "default_original": {
+        "active_loss_kwh": 5497.877161831368,
+        "canary_quality": 0.0681419201400153,
+        "capacitor_switches": 4,
+        "phase_time_compliance": 0.9087230215827338,
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 28,
+        "voltage_violation_pu_hours": 7.207680072421889
+      },
+      "difference_new_minus_old": {
+        "active_loss_kwh": 0.035468971679620154,
+        "canary_quality": 4.654797958567047e-06,
+        "capacitor_switches": 0,
+        "phase_time_compliance": 0.0,
+        "simultaneous_compliance": 0.0,
+        "tap_moves": 0,
+        "voltage_violation_pu_hours": -0.0010378721500119426
+      }
+    }
+  ],
+  "release_ready": false,
+  "result_file_sha256": {
+    "powergym-final/cases/123Bus-standard-p000-s1/best_active_storage.json": "1b19e8e2803cdb9f1cc2c4e1c46d7c68a0983e95178ac0e6add6d36366955c69",
+    "powergym-final/cases/123Bus-standard-p000-s1/canary_hysteresis.json": "a81e8424d438515f3c87aa875df9614d950f91821978b3a79721670b831e896c",
+    "powergym-final/cases/123Bus-standard-p000-s1/coordinated_voltage.json": "ab3d25f84a0bd277c9c4d102e68eec1c0ebc87ec09eb7a867803d4ba6b5f022a",
+    "powergym-final/cases/123Bus-standard-p000-s1/full_information_snapshot.json": "df1825f43abf23d6069515bf990fa7af9597bacb45c78f109e01fbc68b7c9463",
+    "powergym-final/cases/123Bus-standard-p000-s1/hold_idle.json": "5c7508298b89bb8eed2ff577e1bc4cb82587caebef41e40c9f1a34abadc4e0e8",
+    "powergym-final/cases/123Bus-standard-p000-s1/oracle_day_idle.json": "444e06e4c593060254cf06f1753f48d0ef95fbc943941bc6138eb0cb80632138",
+    "powergym-final/cases/123Bus-standard-p000-s1/oracle_day_storage.json": "32701feaaace6b49f59ab3026c57f5c8d5c27e8ccc4f69005b75764a5f387681",
+    "powergym-final/cases/123Bus-standard-p000-s1/static_day_idle.json": "2a7eb0696cdf13fc69bca3a258d6b5e31d590a2d2f6571860ed7acbdedec4e1e",
+    "powergym-final/cases/123Bus-standard-p000-s1/strong_current_idle.json": "09e0176100278430c26d3512fa15c142eb5c335631a9b1a651531b5f846109c6",
+    "powergym-final/cases/123Bus-stress-p000-s2.5/best_active_storage.json": "29a94b1281d5387af3bc5bde6033fe03f97379ad94b9340f1ffec8e17825a2e7",
+    "powergym-final/cases/123Bus-stress-p000-s2.5/canary_hysteresis.json": "b51b5b27d24ff621f987d79107a87d22c056e2ca29b1bb8d396bb4e5c2c72978",
+    "powergym-final/cases/123Bus-stress-p000-s2.5/coordinated_voltage.json": "6699b04ac992b0ae6aaba5b1f9f7af19848b1154c0e0f9b9f7279b83facbedb8",
+    "powergym-final/cases/123Bus-stress-p000-s2.5/full_information_snapshot.json": "d4b9126fe3645979dc2487085b54f05472d81bf013bf289c3e0e1971d4a2ba29",
+    "powergym-final/cases/123Bus-stress-p000-s2.5/hold_idle.json": "3043636da833e41dcd4a4be5ba95baf4078ef5de1e1ab3ee234677514ef85c47",
+    "powergym-final/cases/123Bus-stress-p000-s2.5/oracle_day_idle.json": "dd7809b94837fd03a88788221928d7b31c88a1690ac699269a8fc9ce84ae2346",
+    "powergym-final/cases/123Bus-stress-p000-s2.5/oracle_day_storage.json": "ebc0f1f312c187027e71951c2d8316f79c0eaf64464b66be4d6fe8bba4b89b1b",
+    "powergym-final/cases/123Bus-stress-p000-s2.5/static_day_idle.json": "52e8fc4b69ca3ac34aa6042d7b60e0ca6d5a23a15b0ce0649253f9906fa6ab66",
+    "powergym-final/cases/123Bus-stress-p000-s2.5/strong_current_idle.json": "c0fecfdab819ec23a264d453adb89cc8759267e89977664d3367787bbc92ba3c",
+    "powergym-final/cases/34Bus-standard-p000-s1/best_active_storage.json": "9683d83ceaf2e5949fd125e0cbf7635d94e07ebcf89de6f2087aec640bc2b09a",
+    "powergym-final/cases/34Bus-standard-p000-s1/canary_hysteresis.json": "19bd7f5388d474e2b6e0e0c3f97a94a7280bb3f3eefbc729b3fad82782d6ad22",
+    "powergym-final/cases/34Bus-standard-p000-s1/coordinated_voltage.json": "5110f111dfbd6484f1c7285610c2eca5521ea5492845b7c3252388d83209ff0c",
+    "powergym-final/cases/34Bus-standard-p000-s1/full_information_snapshot.json": "10f043f99a89d9bbaa5f36348a9622c2be3ecb60934fcbb346e6dc52b590b3a3",
+    "powergym-final/cases/34Bus-standard-p000-s1/hold_idle.json": "dbb2ca4a32954641408eb2cc909258a6efed33fe8ac3126597fdc24ea0af61e4",
+    "powergym-final/cases/34Bus-standard-p000-s1/oracle_day_idle.json": "4439d036ec4d946188149acee82676d2fc8461e475607a867ae284dce7f871f6",
+    "powergym-final/cases/34Bus-standard-p000-s1/oracle_day_storage.json": "c11d1d6fef087d52b8d133eb55ff0eb93149f1da271e2e7b01e534398c848dda",
+    "powergym-final/cases/34Bus-standard-p000-s1/static_day_idle.json": "d4efc3c1bd0e95fdd7ad58676d11f494a1a98c913c50cefc83e063a701aeb03f",
+    "powergym-final/cases/34Bus-standard-p000-s1/strong_current_idle.json": "daa88e6d8fac0166e58de4ea25fe4d0b8b8a482b717d2a30453bdc947db238ec",
+    "powergym-final/cases/34Bus-standard-p006-s1/best_active_storage.json": "6093971ca9d8410780c9fccf65118265527cf9ab568da64e5f33d622e248dabb",
+    "powergym-final/cases/34Bus-standard-p006-s1/canary_hysteresis.json": "c08cf63e9311ace34d20bf183ef759ca41af5541e8aa50fe47948e5a81f49978",
+    "powergym-final/cases/34Bus-standard-p006-s1/coordinated_voltage.json": "cb88c081a60dd65969e16c787df8f88cc00d08c83007d48e0d5463e6b2197049",
+    "powergym-final/cases/34Bus-standard-p006-s1/full_information_snapshot.json": "2a1482b1b78c062e94696b789a1ac29f7f3870447ac1e2b833a9de7aa41b84dc",
+    "powergym-final/cases/34Bus-standard-p006-s1/hold_idle.json": "84d0f95078c26798307bf249337987cf1ae8abeb15cdf3f03ec0d01cd9824852",
+    "powergym-final/cases/34Bus-standard-p006-s1/oracle_day_idle.json": "b5fc67f2c52d7d429ddf1089b56f648cf8bfd661005172b534535ae47e455edd",
+    "powergym-final/cases/34Bus-standard-p006-s1/oracle_day_storage.json": "9f7d55fe892d26e7221644e836c939560feb6fa4c11523d220b46ef1f1879f72",
+    "powergym-final/cases/34Bus-standard-p006-s1/static_day_idle.json": "5679c10dab0d47110468c1e09fd9fe5d427e5bb37ac5c1550acbae876248c73b",
+    "powergym-final/cases/34Bus-standard-p006-s1/strong_current_idle.json": "70920f281c22ea7836d9bc4c19f095b8b68a2a3c0981c5c1a5ec1adcf4014e53",
+    "powergym-final/cases/34Bus-standard-p015-s1/best_active_storage.json": "db1c080dab7b7541305b2f8b4ee89b4fd29e9d3fbb15564d50e5b4803b1199fd",
+    "powergym-final/cases/34Bus-standard-p015-s1/canary_hysteresis.json": "1ef69579cc1b6a5d7c40e056a6217af2d42e29925666f4dd86cfc31499bb4f55",
+    "powergym-final/cases/34Bus-standard-p015-s1/coordinated_voltage.json": "7ef63b7f1ebf9dd00204c8e54c8de63ac154c6bd9719c1a198f74bdf4d261344",
+    "powergym-final/cases/34Bus-standard-p015-s1/full_information_snapshot.json": "150f103d6d1e6e993b93845078738b21af501987e24601601a44c2c65108ae3f",
+    "powergym-final/cases/34Bus-standard-p015-s1/hold_idle.json": "bc1e3d295bc7a31cbfa7397cd0d3b8d6ee6976dac5474bb512fa14bdb4b4a258",
+    "powergym-final/cases/34Bus-standard-p015-s1/oracle_day_idle.json": "b93787f07c402fcc5da9b610ca616df21ecd067cdb090491a7d625e1b4a2c460",
+    "powergym-final/cases/34Bus-standard-p015-s1/oracle_day_storage.json": "238baa4e37d4b653180ff3cda05c24fbdd027dd57498d674da271c0658c2e2d7",
+    "powergym-final/cases/34Bus-standard-p015-s1/static_day_idle.json": "7d6c143c15ccb23909fca9d4356a52d947198977fd54fcbc1e2a4f423fb3a1b5",
+    "powergym-final/cases/34Bus-standard-p015-s1/strong_current_idle.json": "ce0f7ccce610df51b54e3967e6f73cc65bfb75a61c5c0af00151d3a071920aab"
+  },
+  "results": [
+    {
+      "active_loss_kwh": 2679.4499192672056,
+      "actual_net_energy_kwh": [
+        0.0,
+        0.0
+      ],
+      "actual_throughput_kwh": [
+        0.0,
+        0.0
+      ],
+      "baseline": "strong_current_idle",
+      "battery_throughput_kwh": 0.0,
+      "canary_cost": 8.7703862240786,
+      "canary_quality": 0.10235009927607089,
+      "capacitor_switches": 6,
+      "case_cumulative_pf_calls": 16339,
+      "case_cumulative_wall_seconds": 5.745935583952814,
+      "case_id": "34Bus-standard-p000-s1",
+      "clipping_residual_kwh": [
+        0.0,
+        0.0
+      ],
+      "commanded_net_energy_kwh": [
+        0.0,
+        0.0
+      ],
+      "commanded_throughput_kwh": [
+        0.0,
+        0.0
+      ],
+      "completed_steps": 24,
+      "error": null,
+      "failed_replay_pf_calls": 0,
+      "final_energy_kwh": [
+        4000.0,
+        4000.0
+      ],
+      "group": "standard",
+      "initial_energy_kwh": [
+        4000.0,
+        4000.0
+      ],
+      "max_voltage_pu": 1.0500028333918017,
+      "min_voltage_pu": 0.9500446904916641,
+      "network": "34Bus",
+      "no_global_optimum_claim": true,
+      "nonzero_actual_throughput": false,
+      "paper_vanilla_reward_diagnostic": -8.238607263529067,
+      "permissions": "full current circuit and current load; no future load",
+      "phase_pf_calls": 16339,
+      "phase_time_compliance": 0.9785087719298246,
+      "phase_wall_seconds": 5.7459357919869944,
+      "physical_voltage_feasible": false,
+      "profile_index": 0,
+      "qualification_valid": true,
+      "replay_pf_calls": 25,
+      "rounding_residual_kwh": [
+        0.0,
+        0.0
+      ],
+      "run_lock_sha256": "06fb4a05bd2859b7a3dbdf830b828cb9d5bfa884d55477a6513aff39622413bc",
+      "scale": 1.0,
+      "schema_version": "powergym-qualification-result-v1",
+      "search_diagnostics": {
+        "cache_hits": 24,
+        "case_cumulative_pf_calls": 16339,
+        "case_cumulative_wall_seconds": 5.74593641696265,
+        "failed_pf_calls": 0,
+        "query_requests": 16337
+      },
+      "simultaneous_compliance": 0.625,
+      "tap_moves": 195,
+      "terminal_energy_error_kwh": [
+        0.0,
+        0.0
+      ],
+      "valid": true,
+      "voltage_violation_pu_hours": 2.7213902302092308e-05
+    },
+    {
+      "active_loss_kwh": 2431.967801421928,
+      "actual_net_energy_kwh": [
+        0.0,
+        0.0
+      ],
+      "actual_throughput_kwh": [
+        0.0,
+        0.0
+      ],
+      "baseline": "static_day_idle",
+      "battery_throughput_kwh": 0.0,
+      "canary_cost": 5.424219249641661,
+      "canary_quality": 0.15566093888464025,
+      "capacitor_switches": 0,
+      "case_cumulative_pf_calls": 33770,
+      "case_cumulative_wall_seconds": 11.314542458974756,
+      "case_id": "34Bus-standard-p000-s1",
+      "clipping_residual_kwh": [
+        0.0,
+        0.0
+      ],
+      "commanded_net_energy_kwh": [
+        0.0,
+        0.0
+      ],
+      "commanded_throughput_kwh": [
+        0.0,
+        0.0
+      ],
+      "completed_steps": 24,
+      "error": null,
+      "failed_replay_pf_calls": 0,
+      "final_energy_kwh": [
+        4000.0,
+        4000.0
+      ],
+      "group": "standard",
+      "initial_energy_kwh": [
+        4000.0,
+        4000.0
+      ],
+      "max_voltage_pu": 1.0527291337720484,
+      "min_voltage_pu": 0.9022311469186531,
+      "network": "34Bus",
+      "no_global_optimum_claim": true,
+      "nonzero_actual_throughput": false,
+      "paper_vanilla_reward_diagnostic": -5.012707579171067,
+      "permissions": "full-day load oracle; constant tap/cap state; battery idle",
+      "phase_pf_calls": 17431,
+      "phase_time_compliance": 0.9407894736842105,
+      "phase_wall_seconds": 5.56860424997285,
+      "physical_voltage_feasible": false,
+      "profile_index": 0,
+      "qualification_valid": true,
+      "replay_pf_calls": 25,
+      "rounding_residual_kwh": [
+        0.0,
+        0.0
+      ],
+      "run_lock_sha256": "06fb4a05bd2859b7a3dbdf830b828cb9d5bfa884d55477a6513aff39622413bc",
+      "scale": 1.0,
+      "schema_version": "powergym-qualification-result-v1",
+      "search_diagnostics": {
+        "cache_hits": 15114,
+        "case_cumulative_pf_calls": 33770,
+        "case_cumulative_wall_seconds": 11.31454324995866,
+        "failed_pf_calls": 0,
+        "query_requests": 48833
+      },
+      "simultaneous_compliance": 0.0,
+      "tap_moves": 82,
+      "terminal_energy_error_kwh": [
+        0.0,
+        0.0
+      ],
+      "valid": true,
+      "voltage_violation_pu_hours": 0.5074029633712481
+    },
+    {
+      "active_loss_kwh": 2653.1142969984235,
+      "actual_net_energy_kwh": [
+        0.0,
+        0.0
+      ],
+      "actual_throughput_kwh": [
+        0.0,
+        0.0
+      ],
+      "baseline": "oracle_day_idle",
+      "battery_throughput_kwh": 0.0,
+      "canary_cost": 8.744050601809818,
+      "canary_quality": 0.10262672484626305,
+      "capacitor_switches": 6,
+      "case_cumulative_pf_calls": 34444,
+      "case_cumulative_wall_seconds": 12.159670666966122,
+      "case_id": "34Bus-standard-p000-s1",
+      "clipping_residual_kwh": [
+        0.0,
+        0.0
+      ],
+      "commanded_net_energy_kwh": [
+        0.0,
+        0.0
+      ],
+      "commanded_throughput_kwh": [
+        0.0,
+        0.0
+      ],
+      "completed_steps": 24,
+      "error": null,
+      "failed_replay_pf_calls": 0,
+      "final_energy_kwh": [
+        4000.0,
+        4000.0
+      ],
+      "group": "standard",
+      "initial_energy_kwh": [
+        4000.0,
+        4000.0
+      ],
+      "max_voltage_pu": 1.0500028333918017,
+      "min_voltage_pu": 0.9500446904916641,
+      "network": "34Bus",
+      "no_global_optimum_claim": true,
+      "nonzero_actual_throughput": false,
+      "paper_vanilla_reward_diagnostic": -8.22145225435055,
+      "permissions": "full-day load oracle; time-varying devices; battery idle",
+      "phase_pf_calls": 674,
+      "phase_time_compliance": 0.9785087719298246,
+      "phase_wall_seconds": 0.845125249994453,
+      "physical_voltage_feasible": false,
+      "profile_index": 0,
+      "qualification_valid": true,
+      "replay_pf_calls": 25,
+      "rounding_residual_kwh": [
+        0.0,
+        0.0
+      ],
+      "run_lock_sha256": "06fb4a05bd2859b7a3dbdf830b828cb9d5bfa884d55477a6513aff39622413bc",
+      "scale": 1.0,
+      "schema_version": "powergym-qualification-result-v1",
+      "search_diagnostics": {
+        "cache_hits": 247241,
+        "case_cumulative_pf_calls": 34444,
+        "case_cumulative_wall_seconds": 12.159671125002205,
+        "failed_pf_calls": 0,
+        "query_requests": 281609
+      },
+      "simultaneous_compliance": 0.625,
+      "tap_moves": 195,
+      "terminal_energy_error_kwh": [
+        0.0,
+        0.0
+      ],
+      "valid": true,
+      "voltage_violation_pu_hours": 2.7213902302092308e-05
+    },
+    {
+      "active_loss_kwh": 2653.1142969984235,
+      "actual_net_energy_kwh": [
+        0.0,
+        0.0
+      ],
+      "actual_throughput_kwh": [
+        0.0,
+        0.0
+      ],
+      "baseline": "oracle_day_storage",
+      "battery_throughput_kwh": 0.0,
+      "canary_cost": 8.744050601809818,
+      "canary_quality": 0.10262672484626305,
+      "capacitor_switches": 6,
+      "case_cumulative_pf_calls": 35138,
+      "case_cumulative_wall_seconds": 12.401770333992317,
+      "case_id": "34Bus-standard-p000-s1",
+      "clipping_residual_kwh": [
+        0.0,
+        0.0
+      ],
+      "commanded_net_energy_kwh": [
+        0.0,
+        0.0
+      ],
+      "commanded_throughput_kwh": [
+        0.0,
+        0.0
+      ],
+      "completed_steps": 24,
+      "error": null,
+      "failed_replay_pf_calls": 0,
+      "final_energy_kwh": [
+        4000.0,
+        4000.0
+      ],
+      "group": "standard",
+      "initial_energy_kwh": [
+        4000.0,
+        4000.0
+      ],
+      "max_voltage_pu": 1.0500028333918017,
+      "min_voltage_pu": 0.9500446904916641,
+      "network": "34Bus",
+      "no_global_optimum_claim": true,
+      "nonzero_actual_throughput": false,
+      "paper_vanilla_reward_diagnostic": -8.22145225435055,
+      "permissions": "full-day load oracle; paired discharge then charge; actual backend replay of complete trajectories",
+      "phase_pf_calls": 694,
+      "phase_time_compliance": 0.9785087719298246,
+      "phase_wall_seconds": 0.24209766602143645,
+      "physical_voltage_feasible": false,
+      "profile_index": 0,
+      "qualification_valid": true,
+      "replay_pf_calls": 25,
+      "rounding_residual_kwh": [
+        0.0,
+        0.0
+      ],
+      "run_lock_sha256": "06fb4a05bd2859b7a3dbdf830b828cb9d5bfa884d55477a6513aff39622413bc",
+      "scale": 1.0,
+      "schema_version": "powergym-qualification-result-v1",
+      "search_diagnostics": {
+        "cache_hits": 253556,
+        "case_cumulative_pf_calls": 35138,
+        "case_cumulative_wall_seconds": 12.401770833996125,
+        "failed_pf_calls": 0,
+        "query_requests": 288593
+      },
+      "simultaneous_compliance": 0.625,
+      "tap_moves": 195,
+      "terminal_energy_error_kwh": [
+        0.0,
+        0.0
+      ],
+      "valid": true,
+      "voltage_violation_pu_hours": 2.7213902302092308e-05
+    },
+    {
+      "active_loss_kwh": 2633.2250525275836,
+      "actual_net_energy_kwh": [
+        0.0,
+        7.818528047209838e-10
+      ],
+      "actual_throughput_kwh": [
+        0.0,
+        249.999999996414
+      ],
+      "baseline": "best_active_storage",
+      "battery_throughput_kwh": 249.999999996414,
+      "canary_cost": 8.739014886528668,
+      "canary_quality": 0.10267978965544385,
+      "capacitor_switches": 6,
+      "case_cumulative_pf_calls": 35163,
+      "case_cumulative_wall_seconds": 12.42049979197327,
+      "case_id": "34Bus-standard-p000-s1",
+      "clipping_residual_kwh": [
+        0.0,
+        0.0
+      ],
+      "commanded_net_energy_kwh": [
+        0.0,
+        0.0
+      ],
+      "commanded_throughput_kwh": [
+        0.0,
+        250.0
+      ],
+      "completed_steps": 24,
+      "error": null,
+      "failed_replay_pf_calls": 0,
+      "final_energy_kwh": [
+        4000.0,
+        4000.0
+      ],
+      "group": "standard",
+      "initial_energy_kwh": [
+        4000.0,
+        4000.0
+      ],
+      "max_voltage_pu": 1.0500028333918017,
+      "min_voltage_pu": 0.9351446211279854,
+      "network": "34Bus",
+      "no_global_optimum_claim": true,
+      "nonzero_actual_throughput": true,
+      "paper_vanilla_reward_diagnostic": -8.301423570694183,
+      "permissions": "full-day load oracle; paired discharge then charge; actual backend replay of complete trajectories",
+      "phase_pf_calls": 25,
+      "phase_time_compliance": 0.9798245614035088,
+      "phase_wall_seconds": 0.01872741599800065,
+      "physical_voltage_feasible": false,
+      "profile_index": 0,
+      "qualification_valid": true,
+      "replay_pf_calls": 25,
+      "rounding_residual_kwh": [
+        0.0,
+        7.817106961738318e-10
+      ],
+      "run_lock_sha256": "06fb4a05bd2859b7a3dbdf830b828cb9d5bfa884d55477a6513aff39622413bc",
+      "scale": 1.0,
+      "schema_version": "powergym-qualification-result-v1",
+      "search_diagnostics": {
+        "cache_hits": 253580,
+        "case_cumulative_pf_calls": 35163,
+        "case_cumulative_wall_seconds": 12.420500208972953,
+        "failed_pf_calls": 0,
+        "query_requests": 288617
+      },
+      "simultaneous_compliance": 0.625,
+      "tap_moves": 195,
+      "terminal_energy_error_kwh": [
+        0.0,
+        0.0
+      ],
+      "valid": true,
+      "voltage_violation_pu_hours": 0.014880743091994275
+    },
+    {
+      "active_loss_kwh": 3548.860900790713,
+      "actual_net_energy_kwh": [
+        0.0,
+        0.0
+      ],
+      "actual_throughput_kwh": [
+        0.0,
+        0.0
+      ],
+      "baseline": "hold_idle",
+      "battery_throughput_kwh": 0.0,
+      "canary_cost": 72.00388881431788,
+      "canary_quality": 0.013697900430255918,
+      "capacitor_switches": 0,
+      "case_cumulative_pf_calls": 35213,
+      "case_cumulative_wall_seconds": 12.45665804197779,
+      "case_id": "34Bus-standard-p000-s1",
+      "clipping_residual_kwh": [
+        0.0,
+        0.0
+      ],
+      "commanded_net_energy_kwh": [
+        0.0,
+        0.0
+      ],
+      "commanded_throughput_kwh": [
+        0.0,
+        0.0
+      ],
+      "completed_steps": 24,
+      "error": null,
+      "failed_replay_pf_calls": 0,
+      "final_energy_kwh": [
+        4000.0,
+        4000.0
+      ],
+      "group": "standard",
+      "initial_energy_kwh": [
+        4000.0,
+        4000.0
+      ],
+      "matched_numerical_calibration": true,
+      "max_voltage_pu": 1.2351502019518394,
+      "min_voltage_pu": 0.9754344304388013,
+      "network": "34Bus",
+      "no_global_optimum_claim": true,
+      "nonzero_actual_throughput": false,
+      "paper_vanilla_reward_diagnostic": -70.79004787042545,
+      "permissions": "canary lagged observation only",
+      "phase_pf_calls": 50,
+      "phase_time_compliance": 0.2149122807017544,
+      "phase_wall_seconds": 0.03615624998928979,
+      "physical_voltage_feasible": false,
+      "profile_index": 0,
+      "qualification_valid": true,
+      "replay_pf_calls": 25,
+      "rounding_residual_kwh": [
+        0.0,
+        0.0
+      ],
+      "run_lock_sha256": "06fb4a05bd2859b7a3dbdf830b828cb9d5bfa884d55477a6513aff39622413bc",
+      "scale": 1.0,
+      "schema_version": "powergym-qualification-result-v1",
+      "search_diagnostics": {
+        "cache_hits": 253604,
+        "case_cumulative_pf_calls": 35213,
+        "case_cumulative_wall_seconds": 12.456658666953444,
+        "failed_pf_calls": 0,
+        "query_requests": 288641
+      },
+      "simultaneous_compliance": 0.0,
+      "tap_moves": 0,
+      "terminal_energy_error_kwh": [
+        0.0,
+        0.0
+      ],
+      "valid": true,
+      "voltage_violation_pu_hours": 68.45502791352716
+    },
+    {
+      "active_loss_kwh": 2750.227676290318,
+      "actual_net_energy_kwh": [
+        0.0,
+        0.0
+      ],
+      "actual_throughput_kwh": [
+        0.0,
+        0.0
+      ],
+      "baseline": "canary_hysteresis",
+      "battery_throughput_kwh": 0.0,
+      "canary_cost": 27.865984763107846,
+      "canary_quality": 0.034642850684174456,
+      "capacitor_switches": 0,
+      "case_cumulative_pf_calls": 35286,
+      "case_cumulative_wall_seconds": 12.500181583978701,
+      "case_id": "34Bus-standard-p000-s1",
+      "clipping_residual_kwh": [
+        0.0,
+        0.0
+      ],
+      "commanded_net_energy_kwh": [
+        0.0,
+        0.0
+      ],
+      "commanded_throughput_kwh": [
+        0.0,
+        0.0
+      ],
+      "completed_steps": 24,
+      "error": null,
+      "failed_replay_pf_calls": 0,
+      "final_energy_kwh": [
+        4000.0,
+        4000.0
+      ],
+      "group": "standard",
+      "initial_energy_kwh": [
+        4000.0,
+        4000.0
+      ],
+      "matched_numerical_calibration": true,
+      "max_voltage_pu": 1.2124623549242668,
+      "min_voltage_pu": 0.9318486344864664,
+      "network": "34Bus",
+      "no_global_optimum_claim": true,
+      "nonzero_actual_throughput": false,
+      "paper_vanilla_reward_diagnostic": -27.23749788906654,
+      "permissions": "canary lagged observation only",
+      "phase_pf_calls": 73,
+      "phase_time_compliance": 0.5662280701754386,
+      "phase_wall_seconds": 0.0435209579882212,
+      "physical_voltage_feasible": false,
+      "profile_index": 0,
+      "qualification_valid": true,
+      "replay_pf_calls": 25,
+      "rounding_residual_kwh": [
+        0.0,
+        0.0
+      ],
+      "run_lock_sha256": "06fb4a05bd2859b7a3dbdf830b828cb9d5bfa884d55477a6513aff39622413bc",
+      "scale": 1.0,
+      "schema_version": "powergym-qualification-result-v1",
+      "search_diagnostics": {
+        "cache_hits": 253605,
+        "case_cumulative_pf_calls": 35286,
+        "case_cumulative_wall_seconds": 12.500182083982509,
+        "failed_pf_calls": 0,
+        "query_requests": 288665
+      },
+      "simultaneous_compliance": 0.0,
+      "tap_moves": 138,
+      "terminal_energy_error_kwh": [
+        0.0,
+        0.0
+      ],
+      "valid": true,
+      "voltage_violation_pu_hours": 20.933938904999344
+    },
+    {
+      "active_loss_kwh": 3062.216195559753,
+      "actual_net_energy_kwh": [
+        0.0,
+        0.0
+      ],
+      "actual_throughput_kwh": [
+        0.0,
+        0.0
+      ],
+      "baseline": "coordinated_voltage",
+      "battery_throughput_kwh": 0.0,
+      "canary_cost": 12.125690007007734,
+      "canary_quality": 0.07618647091818453,
+      "capacitor_switches": 2,
+      "case_cumulative_pf_calls": 35354,
+      "case_cumulative_wall_seconds": 12.565585666976403,
+      "case_id": "34Bus-standard-p000-s1",
+      "clipping_residual_kwh": [
+        0.0,
+        0.0
+      ],
+      "commanded_net_energy_kwh": [
+        0.0,
+        0.0
+      ],
+      "commanded_throughput_kwh": [
+        0.0,
+        0.0
+      ],
+      "completed_steps": 24,
+      "error": null,
+      "failed_replay_pf_calls": 0,
+      "final_energy_kwh": [
+        4000.0,
+        4000.0
+      ],
+      "group": "standard",
+      "initial_energy_kwh": [
+        4000.0,
+        4000.0
+      ],
+      "matched_numerical_calibration": true,
+      "max_voltage_pu": 1.1559288806254284,
+      "min_voltage_pu": 0.9262524076989682,
+      "network": "34Bus",
+      "no_global_optimum_claim": true,
+      "nonzero_actual_throughput": false,
+      "paper_vanilla_reward_diagnostic": -11.430995486866202,
+      "permissions": "canary lagged observation only",
+      "phase_pf_calls": 68,
+      "phase_time_compliance": 0.8109649122807018,
+      "phase_wall_seconds": 0.06540170800872147,
+      "physical_voltage_feasible": false,
+      "profile_index": 0,
+      "qualification_valid": true,
+      "replay_pf_calls": 25,
+      "rounding_residual_kwh": [
+        0.0,
+        0.0
+      ],
+      "run_lock_sha256": "06fb4a05bd2859b7a3dbdf830b828cb9d5bfa884d55477a6513aff39622413bc",
+      "scale": 1.0,
+      "schema_version": "powergym-qualification-result-v1",
+      "search_diagnostics": {
+        "cache_hits": 253611,
+        "case_cumulative_pf_calls": 35354,
+        "case_cumulative_wall_seconds": 12.56558616698021,
+        "failed_pf_calls": 0,
+        "query_requests": 288689
+      },
+      "simultaneous_compliance": 0.125,
+      "tap_moves": 186,
+      "terminal_energy_error_kwh": [
+        0.0,
+        0.0
+      ],
+      "valid": true,
+      "voltage_violation_pu_hours": 3.366504114478283
+    },
+    {
+      "active_loss_kwh": 2948.5966470388703,
+      "actual_net_energy_kwh": [
+        0.0,
+        0.0
+      ],
+      "actual_throughput_kwh": [
+        0.0,
+        0.0
+      ],
+      "baseline": "full_information_snapshot",
+      "battery_throughput_kwh": 0.0,
+      "canary_cost": 7.497058208357824,
+      "canary_quality": 0.1176877897595648,
+      "capacitor_switches": 4,
+      "case_cumulative_pf_calls": 36298,
+      "case_cumulative_wall_seconds": 12.867461416986771,
+      "case_id": "34Bus-standard-p000-s1",
+      "clipping_residual_kwh": [
+        0.0,
+        0.0
+      ],
+      "commanded_net_energy_kwh": [
+        0.0,
+        0.0
+      ],
+      "commanded_throughput_kwh": [
+        0.0,
+        0.0
+      ],
+      "completed_steps": 24,
+      "error": null,
+      "failed_replay_pf_calls": 0,
+      "final_energy_kwh": [
+        4000.0,
+        4000.0
+      ],
+      "group": "standard",
+      "initial_energy_kwh": [
+        4000.0,
+        4000.0
+      ],
+      "matched_numerical_calibration": true,
+      "max_voltage_pu": 1.0836407566115134,
+      "min_voltage_pu": 0.9445412871213265,
+      "network": "34Bus",
+      "no_global_optimum_claim": true,
+      "nonzero_actual_throughput": false,
+      "paper_vanilla_reward_diagnostic": -6.851356328025427,
+      "permissions": "current load and full circuit; no future load",
+      "phase_pf_calls": 944,
+      "phase_time_compliance": 0.7973684210526316,
+      "phase_wall_seconds": 0.30187329195905477,
+      "physical_voltage_feasible": false,
+      "profile_index": 0,
+      "qualification_valid": true,
+      "replay_pf_calls": 25,
+      "rounding_residual_kwh": [
+        0.0,
+        0.0
+      ],
+      "run_lock_sha256": "06fb4a05bd2859b7a3dbdf830b828cb9d5bfa884d55477a6513aff39622413bc",
+      "scale": 1.0,
+      "schema_version": "powergym-qualification-result-v1",
+      "search_diagnostics": {
+        "cache_hits": 253611,
+        "case_cumulative_pf_calls": 36298,
+        "case_cumulative_wall_seconds": 12.867461833986454,
+        "failed_pf_calls": 0,
+        "query_requests": 288713
+      },
+      "simultaneous_compliance": 0.16666666666666666,
+      "tap_moves": 48,
+      "terminal_energy_error_kwh": [
+        0.0,
+        0.0
+      ],
+      "valid": true,
+      "voltage_violation_pu_hours": 2.9727039855613775
+    },
+    {
+      "active_loss_kwh": 2481.7558511771185,
+      "actual_net_energy_kwh": [
+        0.0,
+        0.0
+      ],
+      "actual_throughput_kwh": [
+        0.0,
+        0.0
+      ],
+      "baseline": "strong_current_idle",
+      "battery_throughput_kwh": 0.0,
+      "canary_cost": 8.02721977944764,
+      "canary_quality": 0.1107760777328929,
+      "capacitor_switches": 6,
+      "case_cumulative_pf_calls": 18602,
+      "case_cumulative_wall_seconds": 6.46324175002519,
+      "case_id": "34Bus-standard-p006-s1",
+      "clipping_residual_kwh": [
+        0.0,
+        0.0
+      ],
+      "commanded_net_energy_kwh": [
+        0.0,
+        0.0
+      ],
+      "commanded_throughput_kwh": [
+        0.0,
+        0.0
+      ],
+      "completed_steps": 24,
+      "error": null,
+      "failed_replay_pf_calls": 0,
+      "final_energy_kwh": [
+        4000.0,
+        4000.0
+      ],
+      "group": "standard",
+      "initial_energy_kwh": [
+        4000.0,
+        4000.0
+      ],
+      "max_voltage_pu": 1.050002139783433,
+      "min_voltage_pu": 0.950038211334177,
+      "network": "34Bus",
+      "no_global_optimum_claim": true,
+      "nonzero_actual_throughput": false,
+      "paper_vanilla_reward_diagnostic": -7.554897247663013,
+      "permissions": "full current circuit and current load; no future load",
+      "phase_pf_calls": 18602,
+      "phase_time_compliance": 0.9881578947368421,
+      "phase_wall_seconds": 6.463241791003384,
+      "physical_voltage_feasible": false,
+      "profile_index": 6,
+      "qualification_valid": true,
+      "replay_pf_calls": 25,
+      "rounding_residual_kwh": [
+        0.0,
+        0.0
+      ],
+      "run_lock_sha256": "06fb4a05bd2859b7a3dbdf830b828cb9d5bfa884d55477a6513aff39622413bc",
+      "scale": 1.0,
+      "schema_version": "powergym-qualification-result-v1",
+      "search_diagnostics": {
+        "cache_hits": 24,
+        "case_cumulative_pf_calls": 18602,
+        "case_cumulative_wall_seconds": 6.463242166035343,
+        "failed_pf_calls": 0,
+        "query_requests": 18600
+      },
+      "simultaneous_compliance": 0.6666666666666666,
+      "tap_moves": 177,
+      "terminal_energy_error_kwh": [
+        0.0,
+        0.0
+      ],
+      "valid": true,
+      "voltage_violation_pu_hours": 9.382815974845471e-06
+    },
+    {
+      "active_loss_kwh": 2389.150411308376,
+      "actual_net_energy_kwh": [
+        0.0,
+        0.0
+      ],
+      "actual_throughput_kwh": [
+        0.0,
+        0.0
+      ],
+      "baseline": "static_day_idle",
+      "battery_throughput_kwh": 0.0,
+      "canary_cost": 5.254153569678874,
+      "canary_quality": 0.15989373923406008,
+      "capacitor_switches": 0,
+      "case_cumulative_pf_calls": 27091,
+      "case_cumulative_wall_seconds": 9.146303125016857,
+      "case_id": "34Bus-standard-p006-s1",
+      "clipping_residual_kwh": [
+        0.0,
+        0.0
+      ],
+      "commanded_net_energy_kwh": [
+        0.0,
+        0.0
+      ],
+      "commanded_throughput_kwh": [
+        0.0,
+        0.0
+      ],
+      "completed_steps": 24,
+      "error": null,
+      "failed_replay_pf_calls": 0,
+      "final_energy_kwh": [
+        4000.0,
+        4000.0
+      ],
+      "group": "standard",
+      "initial_energy_kwh": [
+        4000.0,
+        4000.0
+      ],
+      "max_voltage_pu": 1.0514658273348456,
+      "min_voltage_pu": 0.9049565292252119,
+      "network": "34Bus",
+      "no_global_optimum_claim": true,
+      "nonzero_actual_throughput": false,
+      "paper_vanilla_reward_diagnostic": -4.868496163237568,
+      "permissions": "full-day load oracle; constant tap/cap state; battery idle",
+      "phase_pf_calls": 8489,
+      "phase_time_compliance": 0.9473684210526315,
+      "phase_wall_seconds": 2.6830592079786584,
+      "physical_voltage_feasible": false,
+      "profile_index": 6,
+      "qualification_valid": true,
+      "replay_pf_calls": 25,
+      "rounding_residual_kwh": [
+        0.0,
+        0.0
+      ],
+      "run_lock_sha256": "06fb4a05bd2859b7a3dbdf830b828cb9d5bfa884d55477a6513aff39622413bc",
+      "scale": 1.0,
+      "schema_version": "powergym-qualification-result-v1",
+      "search_diagnostics": {
+        "cache_hits": 24056,
+        "case_cumulative_pf_calls": 27091,
+        "case_cumulative_wall_seconds": 9.146303582994733,
+        "failed_pf_calls": 0,
+        "query_requests": 51096
+      },
+      "simultaneous_compliance": 0.0,
+      "tap_moves": 81,
+      "terminal_energy_error_kwh": [
+        0.0,
+        0.0
+      ],
+      "valid": true,
+      "voltage_violation_pu_hours": 0.41045770382504354
+    },
+    {
+      "active_loss_kwh": 2453.8203068381904,
+      "actual_net_energy_kwh": [
+        0.0,
+        0.0
+      ],
+      "actual_throughput_kwh": [
+        0.0,
+        0.0
+      ],
+      "baseline": "oracle_day_idle",
+      "battery_throughput_kwh": 0.0,
+      "canary_cost": 7.93867817450265,
+      "canary_quality": 0.11187336432499319,
+      "capacitor_switches": 4,
+      "case_cumulative_pf_calls": 29477,
+      "case_cumulative_wall_seconds": 10.538030875031836,
+      "case_id": "34Bus-standard-p006-s1",
+      "clipping_residual_kwh": [
+        0.0,
+        0.0
+      ],
+      "commanded_net_energy_kwh": [
+        0.0,
+        0.0
+      ],
+      "commanded_throughput_kwh": [
+        0.0,
+        0.0
+      ],
+      "completed_steps": 24,
+      "error": null,
+      "failed_replay_pf_calls": 0,
+      "final_energy_kwh": [
+        4000.0,
+        4000.0
+      ],
+      "group": "standard",
+      "initial_energy_kwh": [
+        4000.0,
+        4000.0
+      ],
+      "max_voltage_pu": 1.050002139783433,
+      "min_voltage_pu": 0.950038211334177,
+      "network": "34Bus",
+      "no_global_optimum_claim": true,
+      "nonzero_actual_throughput": false,
+      "paper_vanilla_reward_diagnostic": -7.478246133606317,
+      "permissions": "full-day load oracle; time-varying devices; battery idle",
+      "phase_pf_calls": 2386,
+      "phase_time_compliance": 0.9881578947368421,
+      "phase_wall_seconds": 1.391725542023778,
+      "physical_voltage_feasible": false,
+      "profile_index": 6,
+      "qualification_valid": true,
+      "replay_pf_calls": 25,
+      "rounding_residual_kwh": [
+        0.0,
+        0.0
+      ],
+      "run_lock_sha256": "06fb4a05bd2859b7a3dbdf830b828cb9d5bfa884d55477a6513aff39622413bc",
+      "scale": 1.0,
+      "schema_version": "powergym-qualification-result-v1",
+      "search_diagnostics": {
+        "cache_hits": 254471,
+        "case_cumulative_pf_calls": 29477,
+        "case_cumulative_wall_seconds": 10.538031416013837,
+        "failed_pf_calls": 0,
+        "query_requests": 283872
+      },
+      "simultaneous_compliance": 0.6666666666666666,
+      "tap_moves": 177,
+      "terminal_energy_error_kwh": [
+        0.0,
+        0.0
+      ],
+      "valid": true,
+      "voltage_violation_pu_hours": 9.382815974845471e-06
+    },
+    {
+      "active_loss_kwh": 2453.8203068381904,
+      "actual_net_energy_kwh": [
+        0.0,
+        0.0
+      ],
+      "actual_throughput_kwh": [
+        0.0,
+        0.0
+      ],
+      "baseline": "oracle_day_storage",
+      "battery_throughput_kwh": 0.0,
+      "canary_cost": 7.93867817450265,
+      "canary_quality": 0.11187336432499319,
+      "capacitor_switches": 4,
+      "case_cumulative_pf_calls": 30152,
+      "case_cumulative_wall_seconds": 10.778047375031747,
+      "case_id": "34Bus-standard-p006-s1",
+      "clipping_residual_kwh": [
+        0.0,
+        0.0
+      ],
+      "commanded_net_energy_kwh": [
+        0.0,
+        0.0
+      ],
+      "commanded_throughput_kwh": [
+        0.0,
+        0.0
+      ],
+      "completed_steps": 24,
+      "error": null,
+      "failed_replay_pf_calls": 0,
+      "final_energy_kwh": [
+        4000.0,
+        4000.0
+      ],
+      "group": "standard",
+      "initial_energy_kwh": [
+        4000.0,
+        4000.0
+      ],
+      "max_voltage_pu": 1.050002139783433,
+      "min_voltage_pu": 0.950038211334177,
+      "network": "34Bus",
+      "no_global_optimum_claim": true,
+      "nonzero_actual_throughput": false,
+      "paper_vanilla_reward_diagnostic": -7.478246133606317,
+      "permissions": "full-day load oracle; paired discharge then charge; actual backend replay of complete trajectories",
+      "phase_pf_calls": 675,
+      "phase_time_compliance": 0.9881578947368421,
+      "phase_wall_seconds": 0.24001412501093,
+      "physical_voltage_feasible": false,
+      "profile_index": 6,
+      "qualification_valid": true,
+      "replay_pf_calls": 25,
+      "rounding_residual_kwh": [
+        0.0,
+        0.0
+      ],
+      "run_lock_sha256": "06fb4a05bd2859b7a3dbdf830b828cb9d5bfa884d55477a6513aff39622413bc",
+      "scale": 1.0,
+      "schema_version": "powergym-qualification-result-v1",
+      "search_diagnostics": {
+        "cache_hits": 260805,
+        "case_cumulative_pf_calls": 30152,
+        "case_cumulative_wall_seconds": 10.778047833009623,
+        "failed_pf_calls": 0,
+        "query_requests": 290856
+      },
+      "simultaneous_compliance": 0.6666666666666666,
+      "tap_moves": 177,
+      "terminal_energy_error_kwh": [
+        0.0,
+        0.0
+      ],
+      "valid": true,
+      "voltage_violation_pu_hours": 9.382815974845471e-06
+    },
+    {
+      "active_loss_kwh": 2461.12408573063,
+      "actual_net_energy_kwh": [
+        0.0,
+        2.445148084007087e-09
+      ],
+      "actual_throughput_kwh": [
+        0.0,
+        249.99999999591077
+      ],
+      "baseline": "best_active_storage",
+      "battery_throughput_kwh": 249.99999999591077,
+      "canary_cost": 7.957541067179399,
+      "canary_quality": 0.11163778011177856,
+      "capacitor_switches": 4,
+      "case_cumulative_pf_calls": 30177,
+      "case_cumulative_wall_seconds": 10.797235666017514,
+      "case_id": "34Bus-standard-p006-s1",
+      "clipping_residual_kwh": [
+        0.0,
+        0.0
+      ],
+      "commanded_net_energy_kwh": [
+        0.0,
+        0.0
+      ],
+      "commanded_throughput_kwh": [
+        0.0,
+        250.0
+      ],
+      "completed_steps": 24,
+      "error": null,
+      "failed_replay_pf_calls": 0,
+      "final_energy_kwh": [
+        4000.0,
+        4000.0
+      ],
+      "group": "standard",
+      "initial_energy_kwh": [
+        4000.0,
+        4000.0
+      ],
+      "max_voltage_pu": 1.050002139783433,
+      "min_voltage_pu": 0.9384408862156903,
+      "network": "34Bus",
+      "no_global_optimum_claim": true,
+      "nonzero_actual_throughput": true,
+      "paper_vanilla_reward_diagnostic": -7.56770104010158,
+      "permissions": "full-day load oracle; paired discharge then charge; actual backend replay of complete trajectories",
+      "phase_pf_calls": 25,
+      "phase_time_compliance": 0.9868421052631579,
+      "phase_wall_seconds": 0.019185916986316442,
+      "physical_voltage_feasible": false,
+      "profile_index": 6,
+      "qualification_valid": true,
+      "replay_pf_calls": 25,
+      "rounding_residual_kwh": [
+        0.0,
+        2.4451765057165176e-09
+      ],
+      "run_lock_sha256": "06fb4a05bd2859b7a3dbdf830b828cb9d5bfa884d55477a6513aff39622413bc",
+      "scale": 1.0,
+      "schema_version": "powergym-qualification-result-v1",
+      "search_diagnostics": {
+        "cache_hits": 260829,
+        "case_cumulative_pf_calls": 30177,
+        "case_cumulative_wall_seconds": 10.797236040991265,
+        "failed_pf_calls": 0,
+        "query_requests": 290880
+      },
+      "simultaneous_compliance": 0.625,
+      "tap_moves": 177,
+      "terminal_energy_error_kwh": [
+        0.0,
+        0.0
+      ],
+      "valid": true,
+      "voltage_violation_pu_hours": 0.011568496600284472
+    },
+    {
+      "active_loss_kwh": 3482.253963428982,
+      "actual_net_energy_kwh": [
+        0.0,
+        0.0
+      ],
+      "actual_throughput_kwh": [
+        0.0,
+        0.0
+      ],
+      "baseline": "hold_idle",
+      "battery_throughput_kwh": 0.0,
+      "canary_cost": 72.87163435721554,
+      "canary_quality": 0.013536995745408512,
+      "capacitor_switches": 0,
+      "case_cumulative_pf_calls": 30227,
+      "case_cumulative_wall_seconds": 10.832271374994889,
+      "case_id": "34Bus-standard-p006-s1",
+      "clipping_residual_kwh": [
+        0.0,
+        0.0
+      ],
+      "commanded_net_energy_kwh": [
+        0.0,
+        0.0
+      ],
+      "commanded_throughput_kwh": [
+        0.0,
+        0.0
+      ],
+      "completed_steps": 24,
+      "error": null,
+      "failed_replay_pf_calls": 0,
+      "final_energy_kwh": [
+        4000.0,
+        4000.0
+      ],
+      "group": "standard",
+      "initial_energy_kwh": [
+        4000.0,
+        4000.0
+      ],
+      "matched_numerical_calibration": true,
+      "max_voltage_pu": 1.231945325329655,
+      "min_voltage_pu": 0.9768847177308133,
+      "network": "34Bus",
+      "no_global_optimum_claim": true,
+      "nonzero_actual_throughput": false,
+      "paper_vanilla_reward_diagnostic": -71.70409524586526,
+      "permissions": "canary lagged observation only",
+      "phase_pf_calls": 50,
+      "phase_time_compliance": 0.21052631578947367,
+      "phase_wall_seconds": 0.035033833992201835,
+      "physical_voltage_feasible": false,
+      "profile_index": 6,
+      "qualification_valid": true,
+      "replay_pf_calls": 25,
+      "rounding_residual_kwh": [
+        0.0,
+        0.0
+      ],
+      "run_lock_sha256": "06fb4a05bd2859b7a3dbdf830b828cb9d5bfa884d55477a6513aff39622413bc",
+      "scale": 1.0,
+      "schema_version": "powergym-qualification-result-v1",
+      "search_diagnostics": {
+        "cache_hits": 260853,
+        "case_cumulative_pf_calls": 30227,
+        "case_cumulative_wall_seconds": 10.832271666033193,
+        "failed_pf_calls": 0,
+        "query_requests": 290904
+      },
+      "simultaneous_compliance": 0.0,
+      "tap_moves": 0,
+      "terminal_energy_error_kwh": [
+        0.0,
+        0.0
+      ],
+      "valid": true,
+      "voltage_violation_pu_hours": 69.38938039378655
+    },
+    {
+      "active_loss_kwh": 2683.2067948870076,
+      "actual_net_energy_kwh": [
+        0.0,
+        0.0
+      ],
+      "actual_throughput_kwh": [
+        0.0,
+        0.0
+      ],
+      "baseline": "canary_hysteresis",
+      "battery_throughput_kwh": 0.0,
+      "canary_cost": 26.42479289593232,
+      "canary_quality": 0.03646335648894987,
+      "capacitor_switches": 0,
+      "case_cumulative_pf_calls": 30300,
+      "case_cumulative_wall_seconds": 10.8753910830128,
+      "case_id": "34Bus-standard-p006-s1",
+      "clipping_residual_kwh": [
+        0.0,
+        0.0
+      ],
+      "commanded_net_energy_kwh": [
+        0.0,
+        0.0
+      ],
+      "commanded_throughput_kwh": [
+        0.0,
+        0.0
+      ],
+      "completed_steps": 24,
+      "error": null,
+      "failed_replay_pf_calls": 0,
+      "final_energy_kwh": [
+        4000.0,
+        4000.0
+      ],
+      "group": "standard",
+      "initial_energy_kwh": [
+        4000.0,
+        4000.0
+      ],
+      "matched_numerical_calibration": true,
+      "max_voltage_pu": 1.2083928492211007,
+      "min_voltage_pu": 0.9343535413587266,
+      "network": "34Bus",
+      "no_global_optimum_claim": true,
+      "nonzero_actual_throughput": false,
+      "paper_vanilla_reward_diagnostic": -25.839658330355906,
+      "permissions": "canary lagged observation only",
+      "phase_pf_calls": 73,
+      "phase_time_compliance": 0.5833333333333334,
+      "phase_wall_seconds": 0.0431179580045864,
+      "physical_voltage_feasible": false,
+      "profile_index": 6,
+      "qualification_valid": true,
+      "replay_pf_calls": 25,
+      "rounding_residual_kwh": [
+        0.0,
+        0.0
+      ],
+      "run_lock_sha256": "06fb4a05bd2859b7a3dbdf830b828cb9d5bfa884d55477a6513aff39622413bc",
+      "scale": 1.0,
+      "schema_version": "powergym-qualification-result-v1",
+      "search_diagnostics": {
+        "cache_hits": 260854,
+        "case_cumulative_pf_calls": 30300,
+        "case_cumulative_wall_seconds": 10.875391500012483,
+        "failed_pf_calls": 0,
+        "query_requests": 290928
+      },
+      "simultaneous_compliance": 0.0,
+      "tap_moves": 102,
+      "terminal_energy_error_kwh": [
+        0.0,
+        0.0
+      ],
+      "valid": true,
+      "voltage_violation_pu_hours": 20.650677010136224
+    },
+    {
+      "active_loss_kwh": 2959.7715878066683,
+      "actual_net_energy_kwh": [
+        0.0,
+        0.0
+      ],
+      "actual_throughput_kwh": [
+        0.0,
+        0.0
+      ],
+      "baseline": "coordinated_voltage",
+      "battery_throughput_kwh": 0.0,
+      "canary_cost": 11.844110708072616,
+      "canary_quality": 0.07785669422574291,
+      "capacitor_switches": 2,
+      "case_cumulative_pf_calls": 30368,
+      "case_cumulative_wall_seconds": 10.917268416029401,
+      "case_id": "34Bus-standard-p006-s1",
+      "clipping_residual_kwh": [
+        0.0,
+        0.0
+      ],
+      "commanded_net_energy_kwh": [
+        0.0,
+        0.0
+      ],
+      "commanded_throughput_kwh": [
+        0.0,
+        0.0
+      ],
+      "completed_steps": 24,
+      "error": null,
+      "failed_replay_pf_calls": 0,
+      "final_energy_kwh": [
+        4000.0,
+        4000.0
+      ],
+      "group": "standard",
+      "initial_energy_kwh": [
+        4000.0,
+        4000.0
+      ],
+      "matched_numerical_calibration": true,
+      "max_voltage_pu": 1.1522751259218762,
+      "min_voltage_pu": 0.9258413362304899,
+      "network": "34Bus",
+      "no_global_optimum_claim": true,
+      "nonzero_actual_throughput": false,
+      "paper_vanilla_reward_diagnostic": -11.214659074704727,
+      "permissions": "canary lagged observation only",
+      "phase_pf_calls": 68,
+      "phase_time_compliance": 0.8399122807017544,
+      "phase_wall_seconds": 0.04187529202317819,
+      "physical_voltage_feasible": false,
+      "profile_index": 6,
+      "qualification_valid": true,
+      "replay_pf_calls": 25,
+      "rounding_residual_kwh": [
+        0.0,
+        0.0
+      ],
+      "run_lock_sha256": "06fb4a05bd2859b7a3dbdf830b828cb9d5bfa884d55477a6513aff39622413bc",
+      "scale": 1.0,
+      "schema_version": "powergym-qualification-result-v1",
+      "search_diagnostics": {
+        "cache_hits": 260860,
+        "case_cumulative_pf_calls": 30368,
+        "case_cumulative_wall_seconds": 10.917268874996807,
+        "failed_pf_calls": 0,
+        "query_requests": 290952
+      },
+      "simultaneous_compliance": 0.125,
+      "tap_moves": 186,
+      "terminal_energy_error_kwh": [
+        0.0,
+        0.0
+      ],
+      "valid": true,
+      "voltage_violation_pu_hours": 3.187369423296251
+    },
+    {
+      "active_loss_kwh": 2982.1722764324245,
+      "actual_net_energy_kwh": [
+        0.0,
+        0.0
+      ],
+      "actual_throughput_kwh": [
+        0.0,
+        0.0
+      ],
+      "baseline": "full_information_snapshot",
+      "battery_throughput_kwh": 0.0,
+      "canary_cost": 8.53967413124414,
+      "canary_quality": 0.10482538357623988,
+      "capacitor_switches": 4,
+      "case_cumulative_pf_calls": 31338,
+      "case_cumulative_wall_seconds": 11.232204583007842,
+      "case_id": "34Bus-standard-p006-s1",
+      "clipping_residual_kwh": [
+        0.0,
+        0.0
+      ],
+      "commanded_net_energy_kwh": [
+        0.0,
+        0.0
+      ],
+      "commanded_throughput_kwh": [
+        0.0,
+        0.0
+      ],
+      "completed_steps": 24,
+      "error": null,
+      "failed_replay_pf_calls": 0,
+      "final_energy_kwh": [
+        4000.0,
+        4000.0
+      ],
+      "group": "standard",
+      "initial_energy_kwh": [
+        4000.0,
+        4000.0
+      ],
+      "matched_numerical_calibration": true,
+      "max_voltage_pu": 1.0868907129480272,
+      "min_voltage_pu": 0.939811950962128,
+      "network": "34Bus",
+      "no_global_optimum_claim": true,
+      "nonzero_actual_throughput": false,
+      "paper_vanilla_reward_diagnostic": -7.898982779287124,
+      "permissions": "current load and full circuit; no future load",
+      "phase_pf_calls": 970,
+      "phase_time_compliance": 0.7456140350877193,
+      "phase_wall_seconds": 0.3149340829695575,
+      "physical_voltage_feasible": false,
+      "profile_index": 6,
+      "qualification_valid": true,
+      "replay_pf_calls": 25,
+      "rounding_residual_kwh": [
+        0.0,
+        0.0
+      ],
+      "run_lock_sha256": "06fb4a05bd2859b7a3dbdf830b828cb9d5bfa884d55477a6513aff39622413bc",
+      "scale": 1.0,
+      "schema_version": "powergym-qualification-result-v1",
+      "search_diagnostics": {
+        "cache_hits": 260860,
+        "case_cumulative_pf_calls": 31338,
+        "case_cumulative_wall_seconds": 11.232204875035677,
+        "failed_pf_calls": 0,
+        "query_requests": 290976
+      },
+      "simultaneous_compliance": 0.20833333333333334,
+      "tap_moves": 46,
+      "terminal_energy_error_kwh": [
+        0.0,
+        0.0
+      ],
+      "valid": true,
+      "voltage_violation_pu_hours": 4.042350339660201
+    },
+    {
+      "active_loss_kwh": 2605.604653368036,
+      "actual_net_energy_kwh": [
+        0.0,
+        0.0
+      ],
+      "actual_throughput_kwh": [
+        0.0,
+        0.0
+      ],
+      "baseline": "strong_current_idle",
+      "battery_throughput_kwh": 0.0,
+      "canary_cost": 8.332901973335579,
+      "canary_quality": 0.10714780920843638,
+      "capacitor_switches": 6,
+      "case_cumulative_pf_calls": 18882,
+      "case_cumulative_wall_seconds": 5.932511208986398,
+      "case_id": "34Bus-standard-p015-s1",
+      "clipping_residual_kwh": [
+        0.0,
+        0.0
+      ],
+      "commanded_net_energy_kwh": [
+        0.0,
+        0.0
+      ],
+      "commanded_throughput_kwh": [
+        0.0,
+        0.0
+      ],
+      "completed_steps": 24,
+      "error": null,
+      "failed_replay_pf_calls": 0,
+      "final_energy_kwh": [
+        4000.0,
+        4000.0
+      ],
+      "group": "standard",
+      "initial_energy_kwh": [
+        4000.0,
+        4000.0
+      ],
+      "max_voltage_pu": 1.0500026986125008,
+      "min_voltage_pu": 0.9500048754248044,
+      "network": "34Bus",
+      "no_global_optimum_claim": true,
+      "nonzero_actual_throughput": false,
+      "paper_vanilla_reward_diagnostic": -7.836506847664393,
+      "permissions": "full current circuit and current load; no future load",
+      "phase_pf_calls": 18882,
+      "phase_time_compliance": 0.9793859649122807,
+      "phase_wall_seconds": 5.932511250022799,
+      "physical_voltage_feasible": false,
+      "profile_index": 15,
+      "qualification_valid": true,
+      "replay_pf_calls": 25,
+      "rounding_residual_kwh": [
+        0.0,
+        0.0
+      ],
+      "run_lock_sha256": "06fb4a05bd2859b7a3dbdf830b828cb9d5bfa884d55477a6513aff39622413bc",
+      "scale": 1.0,
+      "schema_version": "powergym-qualification-result-v1",
+      "search_diagnostics": {
+        "cache_hits": 24,
+        "case_cumulative_pf_calls": 18882,
+        "case_cumulative_wall_seconds": 5.9325128750060685,
+        "failed_pf_calls": 0,
+        "query_requests": 18880
+      },
+      "simultaneous_compliance": 0.6666666666666666,
+      "tap_moves": 183,
+      "terminal_energy_error_kwh": [
+        0.0,
+        0.0
+      ],
+      "valid": true,
+      "voltage_violation_pu_hours": 2.4592694815472882e-05
+    },
+    {
+      "active_loss_kwh": 2424.229506774505,
+      "actual_net_energy_kwh": [
+        0.0,
+        0.0
+      ],
+      "actual_throughput_kwh": [
+        0.0,
+        0.0
+      ],
+      "baseline": "static_day_idle",
+      "battery_throughput_kwh": 0.0,
+      "canary_cost": 5.324296137210196,
+      "canary_quality": 0.15812036285212996,
+      "capacitor_switches": 0,
+      "case_cumulative_pf_calls": 36219,
+      "case_cumulative_wall_seconds": 11.390670666994993,
+      "case_id": "34Bus-standard-p015-s1",
+      "clipping_residual_kwh": [
+        0.0,
+        0.0
+      ],
+      "commanded_net_energy_kwh": [
+        0.0,
+        0.0
+      ],
+      "commanded_throughput_kwh": [
+        0.0,
+        0.0
+      ],
+      "completed_steps": 24,
+      "error": null,
+      "failed_replay_pf_calls": 0,
+      "final_energy_kwh": [
+        4000.0,
+        4000.0
+      ],
+      "group": "standard",
+      "initial_energy_kwh": [
+        4000.0,
+        4000.0
+      ],
+      "max_voltage_pu": 1.0516542622507496,
+      "min_voltage_pu": 0.9088201349949381,
+      "network": "34Bus",
+      "no_global_optimum_claim": true,
+      "nonzero_actual_throughput": false,
+      "paper_vanilla_reward_diagnostic": -4.91482785550837,
+      "permissions": "full-day load oracle; constant tap/cap state; battery idle",
+      "phase_pf_calls": 17337,
+      "phase_time_compliance": 0.9447368421052632,
+      "phase_wall_seconds": 5.458155959029682,
+      "physical_voltage_feasible": false,
+      "profile_index": 15,
+      "qualification_valid": true,
+      "replay_pf_calls": 25,
+      "rounding_residual_kwh": [
+        0.0,
+        0.0
+      ],
+      "run_lock_sha256": "06fb4a05bd2859b7a3dbdf830b828cb9d5bfa884d55477a6513aff39622413bc",
+      "scale": 1.0,
+      "schema_version": "powergym-qualification-result-v1",
+      "search_diagnostics": {
+        "cache_hits": 15208,
+        "case_cumulative_pf_calls": 36219,
+        "case_cumulative_wall_seconds": 11.390671125031076,
+        "failed_pf_calls": 0,
+        "query_requests": 51376
+      },
+      "simultaneous_compliance": 0.0,
+      "tap_moves": 81,
+      "terminal_energy_error_kwh": [
+        0.0,
+        0.0
+      ],
+      "valid": true,
+      "voltage_violation_pu_hours": 0.4455211758902359
+    },
+    {
+      "active_loss_kwh": 2580.063317034809,
+      "actual_net_energy_kwh": [
+        0.0,
+        0.0
+      ],
+      "actual_throughput_kwh": [
+        0.0,
+        0.0
+      ],
+      "baseline": "oracle_day_idle",
+      "battery_throughput_kwh": 0.0,
+      "canary_cost": 8.246754576396292,
+      "canary_quality": 0.10814605186479674,
+      "capacitor_switches": 4,
+      "case_cumulative_pf_calls": 37060,
+      "case_cumulative_wall_seconds": 12.26251620898256,
+      "case_id": "34Bus-standard-p015-s1",
+      "clipping_residual_kwh": [
+        0.0,
+        0.0
+      ],
+      "commanded_net_energy_kwh": [
+        0.0,
+        0.0
+      ],
+      "commanded_throughput_kwh": [
+        0.0,
+        0.0
+      ],
+      "completed_steps": 24,
+      "error": null,
+      "failed_replay_pf_calls": 0,
+      "final_energy_kwh": [
+        4000.0,
+        4000.0
+      ],
+      "group": "standard",
+      "initial_energy_kwh": [
+        4000.0,
+        4000.0
+      ],
+      "max_voltage_pu": 1.0500026986125008,
+      "min_voltage_pu": 0.9500048754248044,
+      "network": "34Bus",
+      "no_global_optimum_claim": true,
+      "nonzero_actual_throughput": false,
+      "paper_vanilla_reward_diagnostic": -7.759197713624772,
+      "permissions": "full-day load oracle; time-varying devices; battery idle",
+      "phase_pf_calls": 841,
+      "phase_time_compliance": 0.9793859649122807,
+      "phase_wall_seconds": 0.8718432090245187,
+      "physical_voltage_feasible": false,
+      "profile_index": 15,
+      "qualification_valid": true,
+      "replay_pf_calls": 25,
+      "rounding_residual_kwh": [
+        0.0,
+        0.0
+      ],
+      "run_lock_sha256": "06fb4a05bd2859b7a3dbdf830b828cb9d5bfa884d55477a6513aff39622413bc",
+      "scale": 1.0,
+      "schema_version": "powergym-qualification-result-v1",
+      "search_diagnostics": {
+        "cache_hits": 247168,
+        "case_cumulative_pf_calls": 37060,
+        "case_cumulative_wall_seconds": 12.262516667018645,
+        "failed_pf_calls": 0,
+        "query_requests": 284152
+      },
+      "simultaneous_compliance": 0.6666666666666666,
+      "tap_moves": 183,
+      "terminal_energy_error_kwh": [
+        0.0,
+        0.0
+      ],
+      "valid": true,
+      "voltage_violation_pu_hours": 2.4592694815472882e-05
+    },
+    {
+      "active_loss_kwh": 2580.063317034809,
+      "actual_net_energy_kwh": [
+        0.0,
+        0.0
+      ],
+      "actual_throughput_kwh": [
+        0.0,
+        0.0
+      ],
+      "baseline": "oracle_day_storage",
+      "battery_throughput_kwh": 0.0,
+      "canary_cost": 8.246754576396292,
+      "canary_quality": 0.10814605186479674,
+      "capacitor_switches": 4,
+      "case_cumulative_pf_calls": 37751,
+      "case_cumulative_wall_seconds": 12.536322375002783,
+      "case_id": "34Bus-standard-p015-s1",
+      "clipping_residual_kwh": [
+        0.0,
+        0.0
+      ],
+      "commanded_net_energy_kwh": [
+        0.0,
+        0.0
+      ],
+      "commanded_throughput_kwh": [
+        0.0,
+        0.0
+      ],
+      "completed_steps": 24,
+      "error": null,
+      "failed_replay_pf_calls": 0,
+      "final_energy_kwh": [
+        4000.0,
+        4000.0
+      ],
+      "group": "standard",
+      "initial_energy_kwh": [
+        4000.0,
+        4000.0
+      ],
+      "max_voltage_pu": 1.0500026986125008,
+      "min_voltage_pu": 0.9500048754248044,
+      "network": "34Bus",
+      "no_global_optimum_claim": true,
+      "nonzero_actual_throughput": false,
+      "paper_vanilla_reward_diagnostic": -7.759197713624772,
+      "permissions": "full-day load oracle; paired discharge then charge; actual backend replay of complete trajectories",
+      "phase_pf_calls": 691,
+      "phase_time_compliance": 0.9793859649122807,
+      "phase_wall_seconds": 0.27380391699261963,
+      "physical_voltage_feasible": false,
+      "profile_index": 15,
+      "qualification_valid": true,
+      "replay_pf_calls": 25,
+      "rounding_residual_kwh": [
+        0.0,
+        0.0
+      ],
+      "run_lock_sha256": "06fb4a05bd2859b7a3dbdf830b828cb9d5bfa884d55477a6513aff39622413bc",
+      "scale": 1.0,
+      "schema_version": "powergym-qualification-result-v1",
+      "search_diagnostics": {
+        "cache_hits": 253486,
+        "case_cumulative_pf_calls": 37751,
+        "case_cumulative_wall_seconds": 12.536322792002466,
+        "failed_pf_calls": 0,
+        "query_requests": 291136
+      },
+      "simultaneous_compliance": 0.6666666666666666,
+      "tap_moves": 183,
+      "terminal_energy_error_kwh": [
+        0.0,
+        0.0
+      ],
+      "valid": true,
+      "voltage_violation_pu_hours": 2.4592694815472882e-05
+    },
+    {
+      "active_loss_kwh": 2564.8270470847906,
+      "actual_net_energy_kwh": [
+        0.0,
+        1.1806235988842673e-09
+      ],
+      "actual_throughput_kwh": [
+        0.0,
+        249.9999999967481
+      ],
+      "baseline": "best_active_storage",
+      "battery_throughput_kwh": 249.9999999967481,
+      "canary_cost": 8.252862344196926,
+      "canary_quality": 0.10807466520099754,
+      "capacitor_switches": 4,
+      "case_cumulative_pf_calls": 37776,
+      "case_cumulative_wall_seconds": 12.555568667012267,
+      "case_id": "34Bus-standard-p015-s1",
+      "clipping_residual_kwh": [
+        0.0,
+        0.0
+      ],
+      "commanded_net_energy_kwh": [
+        0.0,
+        0.0
+      ],
+      "commanded_throughput_kwh": [
+        0.0,
+        250.0
+      ],
+      "completed_steps": 24,
+      "error": null,
+      "failed_replay_pf_calls": 0,
+      "final_energy_kwh": [
+        4000.0,
+        4000.0
+      ],
+      "group": "standard",
+      "initial_energy_kwh": [
+        4000.0,
+        4000.0
+      ],
+      "max_voltage_pu": 1.0527880849633373,
+      "min_voltage_pu": 0.936831589370459,
+      "network": "34Bus",
+      "no_global_optimum_claim": true,
+      "nonzero_actual_throughput": true,
+      "paper_vanilla_reward_diagnostic": -7.847796974031656,
+      "permissions": "full-day load oracle; paired discharge then charge; actual backend replay of complete trajectories",
+      "phase_pf_calls": 25,
+      "phase_time_compliance": 0.9793859649122807,
+      "phase_wall_seconds": 0.019244209048338234,
+      "physical_voltage_feasible": false,
+      "profile_index": 15,
+      "qualification_valid": true,
+      "replay_pf_calls": 25,
+      "rounding_residual_kwh": [
+        0.0,
+        1.1809788702521473e-09
+      ],
+      "run_lock_sha256": "06fb4a05bd2859b7a3dbdf830b828cb9d5bfa884d55477a6513aff39622413bc",
+      "scale": 1.0,
+      "schema_version": "powergym-qualification-result-v1",
+      "search_diagnostics": {
+        "cache_hits": 253510,
+        "case_cumulative_pf_calls": 37776,
+        "case_cumulative_wall_seconds": 12.555569041986018,
+        "failed_pf_calls": 0,
+        "query_requests": 291160
+      },
+      "simultaneous_compliance": 0.625,
+      "tap_moves": 183,
+      "terminal_energy_error_kwh": [
+        0.0,
+        0.0
+      ],
+      "valid": true,
+      "voltage_violation_pu_hours": 0.021368630445467995
+    },
+    {
+      "active_loss_kwh": 3526.0031629978466,
+      "actual_net_energy_kwh": [
+        0.0,
+        0.0
+      ],
+      "actual_throughput_kwh": [
+        0.0,
+        0.0
+      ],
+      "baseline": "hold_idle",
+      "battery_throughput_kwh": 0.0,
+      "canary_cost": 71.72046687238922,
+      "canary_quality": 0.013751286852363206,
+      "capacitor_switches": 0,
+      "case_cumulative_pf_calls": 37826,
+      "case_cumulative_wall_seconds": 12.590157959028147,
+      "case_id": "34Bus-standard-p015-s1",
+      "clipping_residual_kwh": [
+        0.0,
+        0.0
+      ],
+      "commanded_net_energy_kwh": [
+        0.0,
+        0.0
+      ],
+      "commanded_throughput_kwh": [
+        0.0,
+        0.0
+      ],
+      "completed_steps": 24,
+      "error": null,
+      "failed_replay_pf_calls": 0,
+      "final_energy_kwh": [
+        4000.0,
+        4000.0
+      ],
+      "group": "standard",
+      "initial_energy_kwh": [
+        4000.0,
+        4000.0
+      ],
+      "matched_numerical_calibration": true,
+      "max_voltage_pu": 1.2316768668095934,
+      "min_voltage_pu": 0.9759786603733163,
+      "network": "34Bus",
+      "no_global_optimum_claim": true,
+      "nonzero_actual_throughput": false,
+      "paper_vanilla_reward_diagnostic": -70.51761651986813,
+      "permissions": "canary lagged observation only",
+      "phase_pf_calls": 50,
+      "phase_time_compliance": 0.21359649122807017,
+      "phase_wall_seconds": 0.034587333037052304,
+      "physical_voltage_feasible": false,
+      "profile_index": 15,
+      "qualification_valid": true,
+      "replay_pf_calls": 25,
+      "rounding_residual_kwh": [
+        0.0,
+        0.0
+      ],
+      "run_lock_sha256": "06fb4a05bd2859b7a3dbdf830b828cb9d5bfa884d55477a6513aff39622413bc",
+      "scale": 1.0,
+      "schema_version": "powergym-qualification-result-v1",
+      "search_diagnostics": {
+        "cache_hits": 253534,
+        "case_cumulative_pf_calls": 37826,
+        "case_cumulative_wall_seconds": 12.590158334001899,
+        "failed_pf_calls": 0,
+        "query_requests": 291184
+      },
+      "simultaneous_compliance": 0.0,
+      "tap_moves": 0,
+      "terminal_energy_error_kwh": [
+        0.0,
+        0.0
+      ],
+      "valid": true,
+      "voltage_violation_pu_hours": 68.19446370939137
+    },
+    {
+      "active_loss_kwh": 2720.458333884585,
+      "actual_net_energy_kwh": [
+        0.0,
+        0.0
+      ],
+      "actual_throughput_kwh": [
+        0.0,
+        0.0
+      ],
+      "baseline": "canary_hysteresis",
+      "battery_throughput_kwh": 0.0,
+      "canary_cost": 25.82507620436641,
+      "canary_quality": 0.037278552067532486,
+      "capacitor_switches": 0,
+      "case_cumulative_pf_calls": 37899,
+      "case_cumulative_wall_seconds": 12.633040209009778,
+      "case_id": "34Bus-standard-p015-s1",
+      "clipping_residual_kwh": [
+        0.0,
+        0.0
+      ],
+      "commanded_net_energy_kwh": [
+        0.0,
+        0.0
+      ],
+      "commanded_throughput_kwh": [
+        0.0,
+        0.0
+      ],
+      "completed_steps": 24,
+      "error": null,
+      "failed_replay_pf_calls": 0,
+      "final_energy_kwh": [
+        4000.0,
+        4000.0
+      ],
+      "group": "standard",
+      "initial_energy_kwh": [
+        4000.0,
+        4000.0
+      ],
+      "matched_numerical_calibration": true,
+      "max_voltage_pu": 1.2099044132216166,
+      "min_voltage_pu": 0.9374901955260512,
+      "network": "34Bus",
+      "no_global_optimum_claim": true,
+      "nonzero_actual_throughput": false,
+      "paper_vanilla_reward_diagnostic": -25.211210349495246,
+      "permissions": "canary lagged observation only",
+      "phase_pf_calls": 73,
+      "phase_time_compliance": 0.5793859649122807,
+      "phase_wall_seconds": 0.042880167020484805,
+      "physical_voltage_feasible": false,
+      "profile_index": 15,
+      "qualification_valid": true,
+      "replay_pf_calls": 25,
+      "rounding_residual_kwh": [
+        0.0,
+        0.0
+      ],
+      "run_lock_sha256": "06fb4a05bd2859b7a3dbdf830b828cb9d5bfa884d55477a6513aff39622413bc",
+      "scale": 1.0,
+      "schema_version": "powergym-qualification-result-v1",
+      "search_diagnostics": {
+        "cache_hits": 253535,
+        "case_cumulative_pf_calls": 37899,
+        "case_cumulative_wall_seconds": 12.633040499989875,
+        "failed_pf_calls": 0,
+        "query_requests": 291208
+      },
+      "simultaneous_compliance": 0.0,
+      "tap_moves": 102,
+      "terminal_energy_error_kwh": [
+        0.0,
+        0.0
+      ],
+      "valid": true,
+      "voltage_violation_pu_hours": 20.013708779572735
+    },
+    {
+      "active_loss_kwh": 3027.450508161757,
+      "actual_net_energy_kwh": [
+        0.0,
+        0.0
+      ],
+      "actual_throughput_kwh": [
+        0.0,
+        0.0
+      ],
+      "baseline": "coordinated_voltage",
+      "battery_throughput_kwh": 0.0,
+      "canary_cost": 11.977350954234057,
+      "canary_quality": 0.07705732884366011,
+      "capacitor_switches": 2,
+      "case_cumulative_pf_calls": 37966,
+      "case_cumulative_wall_seconds": 12.67472666699905,
+      "case_id": "34Bus-standard-p015-s1",
+      "clipping_residual_kwh": [
+        0.0,
+        0.0
+      ],
+      "commanded_net_energy_kwh": [
+        0.0,
+        0.0
+      ],
+      "commanded_throughput_kwh": [
+        0.0,
+        0.0
+      ],
+      "completed_steps": 24,
+      "error": null,
+      "failed_replay_pf_calls": 0,
+      "final_energy_kwh": [
+        4000.0,
+        4000.0
+      ],
+      "group": "standard",
+      "initial_energy_kwh": [
+        4000.0,
+        4000.0
+      ],
+      "matched_numerical_calibration": true,
+      "max_voltage_pu": 1.153646808234,
+      "min_voltage_pu": 0.9217814656722593,
+      "network": "34Bus",
+      "no_global_optimum_claim": true,
+      "nonzero_actual_throughput": false,
+      "paper_vanilla_reward_diagnostic": -11.308221815938888,
+      "permissions": "canary lagged observation only",
+      "phase_pf_calls": 67,
+      "phase_time_compliance": 0.8333333333333334,
+      "phase_wall_seconds": 0.041684625030029565,
+      "physical_voltage_feasible": false,
+      "profile_index": 15,
+      "qualification_valid": true,
+      "replay_pf_calls": 25,
+      "rounding_residual_kwh": [
+        0.0,
+        0.0
+      ],
+      "run_lock_sha256": "06fb4a05bd2859b7a3dbdf830b828cb9d5bfa884d55477a6513aff39622413bc",
+      "scale": 1.0,
+      "schema_version": "powergym-qualification-result-v1",
+      "search_diagnostics": {
+        "cache_hits": 253542,
+        "case_cumulative_pf_calls": 37966,
+        "case_cumulative_wall_seconds": 12.674727000005078,
+        "failed_pf_calls": 0,
+        "query_requests": 291232
+      },
+      "simultaneous_compliance": 0.125,
+      "tap_moves": 186,
+      "terminal_energy_error_kwh": [
+        0.0,
+        0.0
+      ],
+      "valid": true,
+      "voltage_violation_pu_hours": 3.2529307491026023
+    },
+    {
+      "active_loss_kwh": 2940.9940339981717,
+      "actual_net_energy_kwh": [
+        0.0,
+        0.0
+      ],
+      "actual_throughput_kwh": [
+        0.0,
+        0.0
+      ],
+      "baseline": "full_information_snapshot",
+      "battery_throughput_kwh": 0.0,
+      "canary_cost": 7.887662652829451,
+      "canary_quality": 0.11251552169136875,
+      "capacitor_switches": 4,
+      "case_cumulative_pf_calls": 38988,
+      "case_cumulative_wall_seconds": 12.999591208994389,
+      "case_id": "34Bus-standard-p015-s1",
+      "clipping_residual_kwh": [
+        0.0,
+        0.0
+      ],
+      "commanded_net_energy_kwh": [
+        0.0,
+        0.0
+      ],
+      "commanded_throughput_kwh": [
+        0.0,
+        0.0
+      ],
+      "completed_steps": 24,
+      "error": null,
+      "failed_replay_pf_calls": 0,
+      "final_energy_kwh": [
+        4000.0,
+        4000.0
+      ],
+      "group": "standard",
+      "initial_energy_kwh": [
+        4000.0,
+        4000.0
+      ],
+      "matched_numerical_calibration": true,
+      "max_voltage_pu": 1.0869386781162504,
+      "min_voltage_pu": 0.9464514542071784,
+      "network": "34Bus",
+      "no_global_optimum_claim": true,
+      "nonzero_actual_throughput": false,
+      "paper_vanilla_reward_diagnostic": -7.256601789623623,
+      "permissions": "current load and full circuit; no future load",
+      "phase_pf_calls": 1022,
+      "phase_time_compliance": 0.8131578947368421,
+      "phase_wall_seconds": 0.3248625000123866,
+      "physical_voltage_feasible": false,
+      "profile_index": 15,
+      "qualification_valid": true,
+      "replay_pf_calls": 25,
+      "rounding_residual_kwh": [
+        0.0,
+        0.0
+      ],
+      "run_lock_sha256": "06fb4a05bd2859b7a3dbdf830b828cb9d5bfa884d55477a6513aff39622413bc",
+      "scale": 1.0,
+      "schema_version": "powergym-qualification-result-v1",
+      "search_diagnostics": {
+        "cache_hits": 253542,
+        "case_cumulative_pf_calls": 38988,
+        "case_cumulative_wall_seconds": 12.999591667030472,
+        "failed_pf_calls": 0,
+        "query_requests": 291256
+      },
+      "simultaneous_compliance": 0.5,
+      "tap_moves": 51,
+      "terminal_energy_error_kwh": [
+        0.0,
+        0.0
+      ],
+      "valid": true,
+      "voltage_violation_pu_hours": 3.2800019521646124
+    },
+    {
+      "active_loss_kwh": 797.3663353542561,
+      "actual_net_energy_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "actual_throughput_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "baseline": "strong_current_idle",
+      "battery_throughput_kwh": 0.0,
+      "canary_cost": 3.645851183839105,
+      "canary_quality": 0.21524580974064883,
+      "capacitor_switches": 0,
+      "case_cumulative_pf_calls": 10490,
+      "case_cumulative_wall_seconds": 6.622914790990762,
+      "case_id": "123Bus-standard-p000-s1",
+      "clipping_residual_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "commanded_net_energy_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "commanded_throughput_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "completed_steps": 24,
+      "error": null,
+      "failed_replay_pf_calls": 0,
+      "final_energy_kwh": [
+        1000.0,
+        1000.0,
+        1000.0,
+        1000.0
+      ],
+      "group": "standard",
+      "initial_energy_kwh": [
+        1000.0,
+        1000.0,
+        1000.0,
+        1000.0
+      ],
+      "max_voltage_pu": 1.04989669017135,
+      "min_voltage_pu": 0.9999951316018539,
+      "network": "123Bus",
+      "no_global_optimum_claim": true,
+      "nonzero_actual_throughput": false,
+      "paper_vanilla_reward_diagnostic": -6.567827900863921,
+      "permissions": "full current circuit and current load; no future load",
+      "phase_pf_calls": 10490,
+      "phase_time_compliance": 1.0,
+      "phase_wall_seconds": 6.622914874984417,
+      "physical_voltage_feasible": true,
+      "profile_index": 0,
+      "qualification_valid": true,
+      "replay_pf_calls": 25,
+      "rounding_residual_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "run_lock_sha256": "06fb4a05bd2859b7a3dbdf830b828cb9d5bfa884d55477a6513aff39622413bc",
+      "scale": 1.0,
+      "schema_version": "powergym-qualification-result-v1",
+      "search_diagnostics": {
+        "cache_hits": 24,
+        "case_cumulative_pf_calls": 10490,
+        "case_cumulative_wall_seconds": 6.622915249958169,
+        "failed_pf_calls": 0,
+        "query_requests": 10488
+      },
+      "simultaneous_compliance": 1.0,
+      "tap_moves": 94,
+      "terminal_energy_error_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "valid": true,
+      "voltage_violation_pu_hours": 0.0
+    },
+    {
+      "active_loss_kwh": 798.7282999944706,
+      "actual_net_energy_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "actual_throughput_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "baseline": "static_day_idle",
+      "battery_throughput_kwh": 0.0,
+      "canary_cost": 3.5866070878732588,
+      "canary_quality": 0.21802608787745215,
+      "capacitor_switches": 0,
+      "case_cumulative_pf_calls": 15313,
+      "case_cumulative_wall_seconds": 9.925670625001658,
+      "case_id": "123Bus-standard-p000-s1",
+      "clipping_residual_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "commanded_net_energy_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "commanded_throughput_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "completed_steps": 24,
+      "error": null,
+      "failed_replay_pf_calls": 0,
+      "final_energy_kwh": [
+        1000.0,
+        1000.0,
+        1000.0,
+        1000.0
+      ],
+      "group": "standard",
+      "initial_energy_kwh": [
+        1000.0,
+        1000.0,
+        1000.0,
+        1000.0
+      ],
+      "max_voltage_pu": 1.0490717372861815,
+      "min_voltage_pu": 0.9999951330312317,
+      "network": "123Bus",
+      "no_global_optimum_claim": true,
+      "nonzero_actual_throughput": false,
+      "paper_vanilla_reward_diagnostic": -6.510206927681446,
+      "permissions": "full-day load oracle; constant tap/cap state; battery idle",
+      "phase_pf_calls": 4823,
+      "phase_time_compliance": 1.0,
+      "phase_wall_seconds": 3.3027532920241356,
+      "physical_voltage_feasible": true,
+      "profile_index": 0,
+      "qualification_valid": true,
+      "replay_pf_calls": 25,
+      "rounding_residual_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "run_lock_sha256": "06fb4a05bd2859b7a3dbdf830b828cb9d5bfa884d55477a6513aff39622413bc",
+      "scale": 1.0,
+      "schema_version": "powergym-qualification-result-v1",
+      "search_diagnostics": {
+        "cache_hits": 34922,
+        "case_cumulative_pf_calls": 15313,
+        "case_cumulative_wall_seconds": 9.925671125005465,
+        "failed_pf_calls": 0,
+        "query_requests": 50184
+      },
+      "simultaneous_compliance": 1.0,
+      "tap_moves": 92,
+      "terminal_energy_error_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "valid": true,
+      "voltage_violation_pu_hours": 0.0
+    },
+    {
+      "active_loss_kwh": 798.7282999944706,
+      "actual_net_energy_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "actual_throughput_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "baseline": "oracle_day_idle",
+      "battery_throughput_kwh": 0.0,
+      "canary_cost": 3.5866070878732588,
+      "canary_quality": 0.21802608787745215,
+      "capacitor_switches": 0,
+      "case_cumulative_pf_calls": 15338,
+      "case_cumulative_wall_seconds": 10.426103749952745,
+      "case_id": "123Bus-standard-p000-s1",
+      "clipping_residual_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "commanded_net_energy_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "commanded_throughput_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "completed_steps": 24,
+      "error": null,
+      "failed_replay_pf_calls": 0,
+      "final_energy_kwh": [
+        1000.0,
+        1000.0,
+        1000.0,
+        1000.0
+      ],
+      "group": "standard",
+      "initial_energy_kwh": [
+        1000.0,
+        1000.0,
+        1000.0,
+        1000.0
+      ],
+      "max_voltage_pu": 1.0490717372861815,
+      "min_voltage_pu": 0.9999951330312317,
+      "network": "123Bus",
+      "no_global_optimum_claim": true,
+      "nonzero_actual_throughput": false,
+      "paper_vanilla_reward_diagnostic": -6.510206927681446,
+      "permissions": "full-day load oracle; time-varying devices; battery idle",
+      "phase_pf_calls": 25,
+      "phase_time_compliance": 1.0,
+      "phase_wall_seconds": 0.5004301249864511,
+      "physical_voltage_feasible": true,
+      "profile_index": 0,
+      "qualification_valid": true,
+      "replay_pf_calls": 25,
+      "rounding_residual_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "run_lock_sha256": "06fb4a05bd2859b7a3dbdf830b828cb9d5bfa884d55477a6513aff39622413bc",
+      "scale": 1.0,
+      "schema_version": "powergym-qualification-result-v1",
+      "search_diagnostics": {
+        "cache_hits": 172658,
+        "case_cumulative_pf_calls": 15338,
+        "case_cumulative_wall_seconds": 10.426104374986608,
+        "failed_pf_calls": 0,
+        "query_requests": 187920
+      },
+      "simultaneous_compliance": 1.0,
+      "tap_moves": 92,
+      "terminal_energy_error_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "valid": true,
+      "voltage_violation_pu_hours": 0.0
+    },
+    {
+      "active_loss_kwh": 797.2316300634301,
+      "actual_net_energy_kwh": [
+        6.925953144332198e-10,
+        0.0,
+        0.4988744938545686,
+        0.29005008466719673
+      ],
+      "actual_throughput_kwh": [
+        49.999999999482895,
+        0.0,
+        295.7206043649702,
+        163.6392316807311
+      ],
+      "baseline": "oracle_day_storage",
+      "battery_throughput_kwh": 509.3598360451842,
+      "canary_cost": 3.585110417942218,
+      "canary_quality": 0.21809725586691467,
+      "capacitor_switches": 0,
+      "case_cumulative_pf_calls": 18043,
+      "case_cumulative_wall_seconds": 12.391569291008636,
+      "case_id": "123Bus-standard-p000-s1",
+      "clipping_residual_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "commanded_net_energy_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "commanded_throughput_kwh": [
+        50.0,
+        0.0,
+        112.5,
+        62.5
+      ],
+      "completed_steps": 24,
+      "error": null,
+      "failed_replay_pf_calls": 0,
+      "final_energy_kwh": [
+        1000.0,
+        1000.0,
+        999.0,
+        999.0
+      ],
+      "group": "standard",
+      "initial_energy_kwh": [
+        1000.0,
+        1000.0,
+        1000.0,
+        1000.0
+      ],
+      "max_voltage_pu": 1.0490717372861815,
+      "min_voltage_pu": 0.999995146931077,
+      "network": "123Bus",
+      "no_global_optimum_claim": true,
+      "nonzero_actual_throughput": true,
+      "paper_vanilla_reward_diagnostic": -6.748506772519325,
+      "permissions": "full-day load oracle; paired discharge then charge; actual backend replay of complete trajectories",
+      "phase_pf_calls": 2705,
+      "phase_time_compliance": 1.0,
+      "phase_wall_seconds": 1.965463083004579,
+      "physical_voltage_feasible": true,
+      "profile_index": 0,
+      "qualification_valid": true,
+      "replay_pf_calls": 25,
+      "rounding_residual_kwh": [
+        6.924665285623632e-10,
+        0.0,
+        -0.5011255061453994,
+        -0.7099499153327997
+      ],
+      "run_lock_sha256": "06fb4a05bd2859b7a3dbdf830b828cb9d5bfa884d55477a6513aff39622413bc",
+      "scale": 1.0,
+      "schema_version": "powergym-qualification-result-v1",
+      "search_diagnostics": {
+        "cache_hits": 197074,
+        "case_cumulative_pf_calls": 18043,
+        "case_cumulative_wall_seconds": 12.391569665982388,
+        "failed_pf_calls": 0,
+        "query_requests": 215016
+      },
+      "simultaneous_compliance": 1.0,
+      "tap_moves": 92,
+      "terminal_energy_error_kwh": [
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ],
+      "valid": true,
+      "voltage_violation_pu_hours": 0.0
+    },
+    {
+      "active_loss_kwh": 797.2316300634301,
+      "actual_net_energy_kwh": [
+        6.925953144332198e-10,
+        0.0,
+        0.4988744938545686,
+        0.29005008466719673
+      ],
+      "actual_throughput_kwh": [
+        49.999999999482895,
+        0.0,
+        295.7206043649702,
+        163.6392316807311
+      ],
+      "baseline": "best_active_storage",
+      "battery_throughput_kwh": 509.3598360451842,
+      "canary_cost": 3.585110417942218,
+      "canary_quality": 0.21809725586691467,
+      "capacitor_switches": 0,
+      "case_cumulative_pf_calls": 18068,
+      "case_cumulative_wall_seconds": 12.424527499999385,
+      "case_id": "123Bus-standard-p000-s1",
+      "clipping_residual_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "commanded_net_energy_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "commanded_throughput_kwh": [
+        50.0,
+        0.0,
+        112.5,
+        62.5
+      ],
+      "completed_steps": 24,
+      "error": null,
+      "failed_replay_pf_calls": 0,
+      "final_energy_kwh": [
+        1000.0,
+        1000.0,
+        999.0,
+        999.0
+      ],
+      "group": "standard",
+      "initial_energy_kwh": [
+        1000.0,
+        1000.0,
+        1000.0,
+        1000.0
+      ],
+      "max_voltage_pu": 1.0490717372861815,
+      "min_voltage_pu": 0.999995146931077,
+      "network": "123Bus",
+      "no_global_optimum_claim": true,
+      "nonzero_actual_throughput": true,
+      "paper_vanilla_reward_diagnostic": -6.748506772519325,
+      "permissions": "full-day load oracle; paired discharge then charge; actual backend replay of complete trajectories",
+      "phase_pf_calls": 25,
+      "phase_time_compliance": 1.0,
+      "phase_wall_seconds": 0.03295625001192093,
+      "physical_voltage_feasible": true,
+      "profile_index": 0,
+      "qualification_valid": true,
+      "replay_pf_calls": 25,
+      "rounding_residual_kwh": [
+        6.924665285623632e-10,
+        0.0,
+        -0.5011255061453994,
+        -0.7099499153327997
+      ],
+      "run_lock_sha256": "06fb4a05bd2859b7a3dbdf830b828cb9d5bfa884d55477a6513aff39622413bc",
+      "scale": 1.0,
+      "schema_version": "powergym-qualification-result-v1",
+      "search_diagnostics": {
+        "cache_hits": 197098,
+        "case_cumulative_pf_calls": 18068,
+        "case_cumulative_wall_seconds": 12.424528000003193,
+        "failed_pf_calls": 0,
+        "query_requests": 215040
+      },
+      "simultaneous_compliance": 1.0,
+      "tap_moves": 92,
+      "terminal_energy_error_kwh": [
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ],
+      "valid": true,
+      "voltage_violation_pu_hours": 0.0
+    },
+    {
+      "active_loss_kwh": 1016.039321685563,
+      "actual_net_energy_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "actual_throughput_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "baseline": "hold_idle",
+      "battery_throughput_kwh": 0.0,
+      "canary_cost": 287.5301992095449,
+      "canary_quality": 0.0034658417134136817,
+      "capacitor_switches": 0,
+      "case_cumulative_pf_calls": 18118,
+      "case_cumulative_wall_seconds": 12.516946832998656,
+      "case_id": "123Bus-standard-p000-s1",
+      "clipping_residual_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "commanded_net_energy_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "commanded_throughput_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "completed_steps": 24,
+      "error": null,
+      "failed_replay_pf_calls": 0,
+      "final_energy_kwh": [
+        1000.0,
+        1000.0,
+        1000.0,
+        1000.0
+      ],
+      "group": "standard",
+      "initial_energy_kwh": [
+        1000.0,
+        1000.0,
+        1000.0,
+        1000.0
+      ],
+      "matched_numerical_calibration": true,
+      "max_voltage_pu": 1.2224608243006625,
+      "min_voltage_pu": 0.99999499704238,
+      "network": "123Bus",
+      "no_global_optimum_claim": true,
+      "nonzero_actual_throughput": false,
+      "paper_vanilla_reward_diagnostic": -290.5139916298263,
+      "permissions": "canary lagged observation only",
+      "phase_pf_calls": 50,
+      "phase_time_compliance": 0.01079136690647482,
+      "phase_wall_seconds": 0.09241704101441428,
+      "physical_voltage_feasible": false,
+      "profile_index": 0,
+      "qualification_valid": true,
+      "replay_pf_calls": 25,
+      "rounding_residual_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "run_lock_sha256": "06fb4a05bd2859b7a3dbdf830b828cb9d5bfa884d55477a6513aff39622413bc",
+      "scale": 1.0,
+      "schema_version": "powergym-qualification-result-v1",
+      "search_diagnostics": {
+        "cache_hits": 197122,
+        "case_cumulative_pf_calls": 18118,
+        "case_cumulative_wall_seconds": 12.516947249998339,
+        "failed_pf_calls": 0,
+        "query_requests": 215064
+      },
+      "simultaneous_compliance": 0.0,
+      "tap_moves": 0,
+      "terminal_energy_error_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "valid": true,
+      "voltage_violation_pu_hours": 286.5141598878593
+    },
+    {
+      "active_loss_kwh": 840.3943241797207,
+      "actual_net_energy_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "actual_throughput_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "baseline": "canary_hysteresis",
+      "battery_throughput_kwh": 0.0,
+      "canary_cost": 62.15226727185049,
+      "canary_quality": 0.015834744233256377,
+      "capacitor_switches": 0,
+      "case_cumulative_pf_calls": 18191,
+      "case_cumulative_wall_seconds": 12.598826957982965,
+      "case_id": "123Bus-standard-p000-s1",
+      "clipping_residual_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "commanded_net_energy_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "commanded_throughput_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "completed_steps": 24,
+      "error": null,
+      "failed_replay_pf_calls": 0,
+      "final_energy_kwh": [
+        1000.0,
+        1000.0,
+        1000.0,
+        1000.0
+      ],
+      "group": "standard",
+      "initial_energy_kwh": [
+        1000.0,
+        1000.0,
+        1000.0,
+        1000.0
+      ],
+      "matched_numerical_calibration": true,
+      "max_voltage_pu": 1.207413955011571,
+      "min_voltage_pu": 0.9932441139620983,
+      "network": "123Bus",
+      "no_global_optimum_claim": true,
+      "nonzero_actual_throughput": false,
+      "paper_vanilla_reward_diagnostic": -65.14929040850656,
+      "permissions": "canary lagged observation only",
+      "phase_pf_calls": 73,
+      "phase_time_compliance": 0.6734112709832134,
+      "phase_wall_seconds": 0.08187808404909447,
+      "physical_voltage_feasible": false,
+      "profile_index": 0,
+      "qualification_valid": true,
+      "replay_pf_calls": 25,
+      "rounding_residual_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "run_lock_sha256": "06fb4a05bd2859b7a3dbdf830b828cb9d5bfa884d55477a6513aff39622413bc",
+      "scale": 1.0,
+      "schema_version": "powergym-qualification-result-v1",
+      "search_diagnostics": {
+        "cache_hits": 197123,
+        "case_cumulative_pf_calls": 18191,
+        "case_cumulative_wall_seconds": 12.598827499954496,
+        "failed_pf_calls": 0,
+        "query_requests": 215088
+      },
+      "simultaneous_compliance": 0.3333333333333333,
+      "tap_moves": 84,
+      "terminal_energy_error_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "valid": true,
+      "voltage_violation_pu_hours": 58.766418402216225
+    },
+    {
+      "active_loss_kwh": 900.5216099578809,
+      "actual_net_energy_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "actual_throughput_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "baseline": "coordinated_voltage",
+      "battery_throughput_kwh": 0.0,
+      "canary_cost": 11.539371987930199,
+      "canary_quality": 0.07974881046375785,
+      "capacitor_switches": 3,
+      "case_cumulative_pf_calls": 18264,
+      "case_cumulative_wall_seconds": 12.679525957966689,
+      "case_id": "123Bus-standard-p000-s1",
+      "clipping_residual_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "commanded_net_energy_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "commanded_throughput_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "completed_steps": 24,
+      "error": null,
+      "failed_replay_pf_calls": 0,
+      "final_energy_kwh": [
+        1000.0,
+        1000.0,
+        1000.0,
+        1000.0
+      ],
+      "group": "standard",
+      "initial_energy_kwh": [
+        1000.0,
+        1000.0,
+        1000.0,
+        1000.0
+      ],
+      "matched_numerical_calibration": true,
+      "max_voltage_pu": 1.140947109855554,
+      "min_voltage_pu": 0.9779900326281583,
+      "network": "123Bus",
+      "no_global_optimum_claim": true,
+      "nonzero_actual_throughput": false,
+      "paper_vanilla_reward_diagnostic": -14.839359129658435,
+      "permissions": "canary lagged observation only",
+      "phase_pf_calls": 73,
+      "phase_time_compliance": 0.9439448441247003,
+      "phase_wall_seconds": 0.08069575001718476,
+      "physical_voltage_feasible": false,
+      "profile_index": 0,
+      "qualification_valid": true,
+      "replay_pf_calls": 25,
+      "rounding_residual_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "run_lock_sha256": "06fb4a05bd2859b7a3dbdf830b828cb9d5bfa884d55477a6513aff39622413bc",
+      "scale": 1.0,
+      "schema_version": "powergym-qualification-result-v1",
+      "search_diagnostics": {
+        "cache_hits": 197124,
+        "case_cumulative_pf_calls": 18264,
+        "case_cumulative_wall_seconds": 12.679526374966372,
+        "failed_pf_calls": 0,
+        "query_requests": 215112
+      },
+      "simultaneous_compliance": 0.9166666666666666,
+      "tap_moves": 84,
+      "terminal_energy_error_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "valid": true,
+      "voltage_violation_pu_hours": 8.002486741608681
+    },
+    {
+      "active_loss_kwh": 868.384805898883,
+      "actual_net_energy_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "actual_throughput_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "baseline": "full_information_snapshot",
+      "battery_throughput_kwh": 0.0,
+      "canary_cost": 3.4443848256596805,
+      "canary_quality": 0.22500301824146604,
+      "capacitor_switches": 1,
+      "case_cumulative_pf_calls": 19370,
+      "case_cumulative_wall_seconds": 13.391614499967545,
+      "case_id": "123Bus-standard-p000-s1",
+      "clipping_residual_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "commanded_net_energy_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "commanded_throughput_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "completed_steps": 24,
+      "error": null,
+      "failed_replay_pf_calls": 0,
+      "final_energy_kwh": [
+        1000.0,
+        1000.0,
+        1000.0,
+        1000.0
+      ],
+      "group": "standard",
+      "initial_energy_kwh": [
+        1000.0,
+        1000.0,
+        1000.0,
+        1000.0
+      ],
+      "matched_numerical_calibration": true,
+      "max_voltage_pu": 1.0723955515680785,
+      "min_voltage_pu": 0.96872707680716,
+      "network": "123Bus",
+      "no_global_optimum_claim": true,
+      "nonzero_actual_throughput": false,
+      "paper_vanilla_reward_diagnostic": -6.664997180215378,
+      "permissions": "current load and full circuit; no future load",
+      "phase_pf_calls": 1106,
+      "phase_time_compliance": 0.9929556354916067,
+      "phase_wall_seconds": 0.7120863749878481,
+      "physical_voltage_feasible": false,
+      "profile_index": 0,
+      "qualification_valid": true,
+      "replay_pf_calls": 25,
+      "rounding_residual_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "run_lock_sha256": "06fb4a05bd2859b7a3dbdf830b828cb9d5bfa884d55477a6513aff39622413bc",
+      "scale": 1.0,
+      "schema_version": "powergym-qualification-result-v1",
+      "search_diagnostics": {
+        "cache_hits": 197124,
+        "case_cumulative_pf_calls": 19370,
+        "case_cumulative_wall_seconds": 13.391614915977698,
+        "failed_pf_calls": 0,
+        "query_requests": 215136
+      },
+      "simultaneous_compliance": 0.875,
+      "tap_moves": 75,
+      "terminal_energy_error_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "valid": true,
+      "voltage_violation_pu_hours": 0.2729697167304945
+    },
+    {
+      "active_loss_kwh": 5452.366551411737,
+      "actual_net_energy_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "actual_throughput_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "baseline": "strong_current_idle",
+      "battery_throughput_kwh": 0.0,
+      "canary_cost": 11.889705227343491,
+      "canary_quality": 0.07758129316089064,
+      "capacitor_switches": 10,
+      "case_cumulative_pf_calls": 18288,
+      "case_cumulative_wall_seconds": 13.262083250039723,
+      "case_id": "123Bus-stress-p000-s2.5",
+      "clipping_residual_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "commanded_net_energy_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "commanded_throughput_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "completed_steps": 24,
+      "error": null,
+      "failed_replay_pf_calls": 0,
+      "final_energy_kwh": [
+        1000.0,
+        1000.0,
+        1000.0,
+        1000.0
+      ],
+      "group": "stress",
+      "initial_energy_kwh": [
+        1000.0,
+        1000.0,
+        1000.0,
+        1000.0
+      ],
+      "max_voltage_pu": 1.0499934585274455,
+      "min_voltage_pu": 0.9469302058593865,
+      "network": "123Bus",
+      "no_global_optimum_claim": true,
+      "nonzero_actual_throughput": false,
+      "paper_vanilla_reward_diagnostic": -16.553249491724127,
+      "permissions": "full current circuit and current load; no future load",
+      "phase_pf_calls": 18288,
+      "phase_time_compliance": 0.9970023980815348,
+      "phase_wall_seconds": 13.26208333298564,
+      "physical_voltage_feasible": false,
+      "profile_index": 0,
+      "qualification_valid": true,
+      "replay_pf_calls": 25,
+      "rounding_residual_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "run_lock_sha256": "06fb4a05bd2859b7a3dbdf830b828cb9d5bfa884d55477a6513aff39622413bc",
+      "scale": 2.5,
+      "schema_version": "powergym-qualification-result-v1",
+      "search_diagnostics": {
+        "cache_hits": 24,
+        "case_cumulative_pf_calls": 18288,
+        "case_cumulative_wall_seconds": 13.262083832989447,
+        "failed_pf_calls": 0,
+        "query_requests": 18286
+      },
+      "simultaneous_compliance": 0.7083333333333334,
+      "tap_moves": 202,
+      "terminal_energy_error_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "valid": true,
+      "voltage_violation_pu_hours": 0.013096251689329264
+    },
+    {
+      "active_loss_kwh": 5726.060279694887,
+      "actual_net_energy_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "actual_throughput_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "baseline": "static_day_idle",
+      "battery_throughput_kwh": 0.0,
+      "canary_cost": 9.559704648366305,
+      "canary_quality": 0.09469961834157078,
+      "capacitor_switches": 2,
+      "case_cumulative_pf_calls": 28937,
+      "case_cumulative_wall_seconds": 20.29631695803255,
+      "case_id": "123Bus-stress-p000-s2.5",
+      "clipping_residual_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "commanded_net_energy_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "commanded_throughput_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "completed_steps": 24,
+      "error": null,
+      "failed_replay_pf_calls": 0,
+      "final_energy_kwh": [
+        1000.0,
+        1000.0,
+        1000.0,
+        1000.0
+      ],
+      "group": "stress",
+      "initial_energy_kwh": [
+        1000.0,
+        1000.0,
+        1000.0,
+        1000.0
+      ],
+      "max_voltage_pu": 1.056234364427079,
+      "min_voltage_pu": 0.9413930819879278,
+      "network": "123Bus",
+      "no_global_optimum_claim": true,
+      "nonzero_actual_throughput": false,
+      "paper_vanilla_reward_diagnostic": -14.351333763972187,
+      "permissions": "full-day load oracle; constant tap/cap state; battery idle",
+      "phase_pf_calls": 10649,
+      "phase_time_compliance": 0.9560851318944844,
+      "phase_wall_seconds": 7.034231375029776,
+      "physical_voltage_feasible": false,
+      "profile_index": 0,
+      "qualification_valid": true,
+      "replay_pf_calls": 25,
+      "rounding_residual_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "run_lock_sha256": "06fb4a05bd2859b7a3dbdf830b828cb9d5bfa884d55477a6513aff39622413bc",
+      "scale": 2.5,
+      "schema_version": "powergym-qualification-result-v1",
+      "search_diagnostics": {
+        "cache_hits": 29096,
+        "case_cumulative_pf_calls": 28937,
+        "case_cumulative_wall_seconds": 20.29631737503223,
+        "failed_pf_calls": 0,
+        "query_requests": 57982
+      },
+      "simultaneous_compliance": 0.0,
+      "tap_moves": 98,
+      "terminal_energy_error_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "valid": true,
+      "voltage_violation_pu_hours": 0.803341338368387
+    },
+    {
+      "active_loss_kwh": 5437.008927222703,
+      "actual_net_energy_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "actual_throughput_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "baseline": "oracle_day_idle",
+      "battery_throughput_kwh": 0.0,
+      "canary_cost": 11.934868646866304,
+      "canary_quality": 0.07731041012482699,
+      "capacitor_switches": 10,
+      "case_cumulative_pf_calls": 32971,
+      "case_cumulative_wall_seconds": 23.778991458006203,
+      "case_id": "123Bus-stress-p000-s2.5",
+      "clipping_residual_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "commanded_net_energy_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "commanded_throughput_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "completed_steps": 24,
+      "error": null,
+      "failed_replay_pf_calls": 0,
+      "final_energy_kwh": [
+        1000.0,
+        1000.0,
+        1000.0,
+        1000.0
+      ],
+      "group": "stress",
+      "initial_energy_kwh": [
+        1000.0,
+        1000.0,
+        1000.0,
+        1000.0
+      ],
+      "max_voltage_pu": 1.049996860019794,
+      "min_voltage_pu": 0.9469302058593865,
+      "network": "123Bus",
+      "no_global_optimum_claim": true,
+      "nonzero_actual_throughput": false,
+      "paper_vanilla_reward_diagnostic": -16.601998025752376,
+      "permissions": "full-day load oracle; time-varying devices; battery idle",
+      "phase_pf_calls": 4034,
+      "phase_time_compliance": 0.997152278177458,
+      "phase_wall_seconds": 3.4826725000166334,
+      "physical_voltage_feasible": false,
+      "profile_index": 0,
+      "qualification_valid": true,
+      "replay_pf_calls": 25,
+      "rounding_residual_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "run_lock_sha256": "06fb4a05bd2859b7a3dbdf830b828cb9d5bfa884d55477a6513aff39622413bc",
+      "scale": 2.5,
+      "schema_version": "powergym-qualification-result-v1",
+      "search_diagnostics": {
+        "cache_hits": 300487,
+        "case_cumulative_pf_calls": 32971,
+        "case_cumulative_wall_seconds": 23.778991833038162,
+        "failed_pf_calls": 0,
+        "query_requests": 333382
+      },
+      "simultaneous_compliance": 0.75,
+      "tap_moves": 204,
+      "terminal_energy_error_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "valid": true,
+      "voltage_violation_pu_hours": 0.013011234795116233
+    },
+    {
+      "active_loss_kwh": 5434.911608568717,
+      "actual_net_energy_kwh": [
+        -4.0801140244184353e-10,
+        0.0,
+        0.22528835667691283,
+        0.6715967828951328
+      ],
+      "actual_throughput_kwh": [
+        100.00000000190444,
+        0.0,
+        155.1764218510708,
+        158.6320231672728
+      ],
+      "baseline": "oracle_day_storage",
+      "battery_throughput_kwh": 413.8084450202481,
+      "canary_cost": 11.930104123903323,
+      "canary_quality": 0.077338897693124,
+      "capacitor_switches": 10,
+      "case_cumulative_pf_calls": 35585,
+      "case_cumulative_wall_seconds": 25.578626541013364,
+      "case_id": "123Bus-stress-p000-s2.5",
+      "clipping_residual_kwh": [
+        -1.156195139628835e-09,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "commanded_net_energy_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "commanded_throughput_kwh": [
+        100.0,
+        0.0,
+        62.5,
+        62.5
+      ],
+      "completed_steps": 24,
+      "error": null,
+      "failed_replay_pf_calls": 0,
+      "final_energy_kwh": [
+        1000.0,
+        1000.0,
+        999.0,
+        999.0
+      ],
+      "group": "stress",
+      "initial_energy_kwh": [
+        1000.0,
+        1000.0,
+        1000.0,
+        1000.0
+      ],
+      "max_voltage_pu": 1.049996860019794,
+      "min_voltage_pu": 0.9469302058593865,
+      "network": "123Bus",
+      "no_global_optimum_claim": true,
+      "nonzero_actual_throughput": true,
+      "paper_vanilla_reward_diagnostic": -16.840512386289603,
+      "permissions": "full-day load oracle; paired discharge then charge; actual backend replay of complete trajectories",
+      "phase_pf_calls": 2614,
+      "phase_time_compliance": 0.9979016786570744,
+      "phase_wall_seconds": 1.7996331250178628,
+      "physical_voltage_feasible": false,
+      "profile_index": 0,
+      "qualification_valid": true,
+      "replay_pf_calls": 25,
+      "rounding_residual_kwh": [
+        7.482867658836767e-10,
+        0.0,
+        -0.7747116433230303,
+        -0.32840321710500575
+      ],
+      "run_lock_sha256": "06fb4a05bd2859b7a3dbdf830b828cb9d5bfa884d55477a6513aff39622413bc",
+      "scale": 2.5,
+      "schema_version": "powergym-qualification-result-v1",
+      "search_diagnostics": {
+        "cache_hits": 324970,
+        "case_cumulative_pf_calls": 35585,
+        "case_cumulative_wall_seconds": 25.5786268330412,
+        "failed_pf_calls": 0,
+        "query_requests": 360454
+      },
+      "simultaneous_compliance": 0.7916666666666666,
+      "tap_moves": 204,
+      "terminal_energy_error_kwh": [
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ],
+      "valid": true,
+      "voltage_violation_pu_hours": 0.010344030486120315
+    },
+    {
+      "active_loss_kwh": 5434.911608568717,
+      "actual_net_energy_kwh": [
+        -4.0801140244184353e-10,
+        0.0,
+        0.22528835667691283,
+        0.6715967828951328
+      ],
+      "actual_throughput_kwh": [
+        100.00000000190444,
+        0.0,
+        155.1764218510708,
+        158.6320231672728
+      ],
+      "baseline": "best_active_storage",
+      "battery_throughput_kwh": 413.8084450202481,
+      "canary_cost": 11.930104123903323,
+      "canary_quality": 0.077338897693124,
+      "capacitor_switches": 10,
+      "case_cumulative_pf_calls": 35610,
+      "case_cumulative_wall_seconds": 25.61177504103398,
+      "case_id": "123Bus-stress-p000-s2.5",
+      "clipping_residual_kwh": [
+        -1.156195139628835e-09,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "commanded_net_energy_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "commanded_throughput_kwh": [
+        100.0,
+        0.0,
+        62.5,
+        62.5
+      ],
+      "completed_steps": 24,
+      "error": null,
+      "failed_replay_pf_calls": 0,
+      "final_energy_kwh": [
+        1000.0,
+        1000.0,
+        999.0,
+        999.0
+      ],
+      "group": "stress",
+      "initial_energy_kwh": [
+        1000.0,
+        1000.0,
+        1000.0,
+        1000.0
+      ],
+      "max_voltage_pu": 1.049996860019794,
+      "min_voltage_pu": 0.9469302058593865,
+      "network": "123Bus",
+      "no_global_optimum_claim": true,
+      "nonzero_actual_throughput": true,
+      "paper_vanilla_reward_diagnostic": -16.840512386289603,
+      "permissions": "full-day load oracle; paired discharge then charge; actual backend replay of complete trajectories",
+      "phase_pf_calls": 25,
+      "phase_time_compliance": 0.9979016786570744,
+      "phase_wall_seconds": 0.03314675000729039,
+      "physical_voltage_feasible": false,
+      "profile_index": 0,
+      "qualification_valid": true,
+      "replay_pf_calls": 25,
+      "rounding_residual_kwh": [
+        7.482867658836767e-10,
+        0.0,
+        -0.7747116433230303,
+        -0.32840321710500575
+      ],
+      "run_lock_sha256": "06fb4a05bd2859b7a3dbdf830b828cb9d5bfa884d55477a6513aff39622413bc",
+      "scale": 2.5,
+      "schema_version": "powergym-qualification-result-v1",
+      "search_diagnostics": {
+        "cache_hits": 324994,
+        "case_cumulative_pf_calls": 35610,
+        "case_cumulative_wall_seconds": 25.611775500001386,
+        "failed_pf_calls": 0,
+        "query_requests": 360478
+      },
+      "simultaneous_compliance": 0.7916666666666666,
+      "tap_moves": 204,
+      "terminal_energy_error_kwh": [
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ],
+      "valid": true,
+      "voltage_violation_pu_hours": 0.010344030486120315
+    },
+    {
+      "active_loss_kwh": 5743.06623838855,
+      "actual_net_energy_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "actual_throughput_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "baseline": "hold_idle",
+      "battery_throughput_kwh": 0.0,
+      "canary_cost": 171.89687476155592,
+      "canary_quality": 0.005783794538675795,
+      "capacitor_switches": 0,
+      "case_cumulative_pf_calls": 35660,
+      "case_cumulative_wall_seconds": 25.674114166002255,
+      "case_id": "123Bus-stress-p000-s2.5",
+      "clipping_residual_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "commanded_net_energy_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "commanded_throughput_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "completed_steps": 24,
+      "error": null,
+      "failed_replay_pf_calls": 0,
+      "final_energy_kwh": [
+        1000.0,
+        1000.0,
+        1000.0,
+        1000.0
+      ],
+      "group": "stress",
+      "initial_energy_kwh": [
+        1000.0,
+        1000.0,
+        1000.0,
+        1000.0
+      ],
+      "matched_numerical_calibration": true,
+      "max_voltage_pu": 1.1865226747505393,
+      "min_voltage_pu": 0.9925951415869932,
+      "network": "123Bus",
+      "no_global_optimum_claim": true,
+      "nonzero_actual_throughput": false,
+      "paper_vanilla_reward_diagnostic": -175.7029220090909,
+      "permissions": "canary lagged observation only",
+      "phase_pf_calls": 50,
+      "phase_time_compliance": 0.29706235011990406,
+      "phase_wall_seconds": 0.06233695801347494,
+      "physical_voltage_feasible": false,
+      "profile_index": 0,
+      "qualification_valid": true,
+      "replay_pf_calls": 25,
+      "rounding_residual_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "run_lock_sha256": "06fb4a05bd2859b7a3dbdf830b828cb9d5bfa884d55477a6513aff39622413bc",
+      "scale": 2.5,
+      "schema_version": "powergym-qualification-result-v1",
+      "search_diagnostics": {
+        "cache_hits": 325018,
+        "case_cumulative_pf_calls": 35660,
+        "case_cumulative_wall_seconds": 25.674114541034214,
+        "failed_pf_calls": 0,
+        "query_requests": 360502
+      },
+      "simultaneous_compliance": 0.0,
+      "tap_moves": 0,
+      "terminal_energy_error_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "valid": true,
+      "voltage_violation_pu_hours": 166.15380852316736
+    },
+    {
+      "active_loss_kwh": 5288.594346510892,
+      "actual_net_energy_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "actual_throughput_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "baseline": "canary_hysteresis",
+      "battery_throughput_kwh": 0.0,
+      "canary_cost": 39.32523644256492,
+      "canary_quality": 0.0247983666859411,
+      "capacitor_switches": 0,
+      "case_cumulative_pf_calls": 35724,
+      "case_cumulative_wall_seconds": 25.747869000013452,
+      "case_id": "123Bus-stress-p000-s2.5",
+      "clipping_residual_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "commanded_net_energy_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "commanded_throughput_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "completed_steps": 24,
+      "error": null,
+      "failed_replay_pf_calls": 0,
+      "final_energy_kwh": [
+        1000.0,
+        1000.0,
+        1000.0,
+        1000.0
+      ],
+      "group": "stress",
+      "initial_energy_kwh": [
+        1000.0,
+        1000.0,
+        1000.0,
+        1000.0
+      ],
+      "matched_numerical_calibration": true,
+      "max_voltage_pu": 1.1707385310376117,
+      "min_voltage_pu": 0.9390174686586304,
+      "network": "123Bus",
+      "no_global_optimum_claim": true,
+      "nonzero_actual_throughput": false,
+      "paper_vanilla_reward_diagnostic": -43.629053947979216,
+      "permissions": "canary lagged observation only",
+      "phase_pf_calls": 64,
+      "phase_time_compliance": 0.7831235011990407,
+      "phase_wall_seconds": 0.07375241600675508,
+      "physical_voltage_feasible": false,
+      "profile_index": 0,
+      "qualification_valid": true,
+      "replay_pf_calls": 25,
+      "rounding_residual_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "run_lock_sha256": "06fb4a05bd2859b7a3dbdf830b828cb9d5bfa884d55477a6513aff39622413bc",
+      "scale": 2.5,
+      "schema_version": "powergym-qualification-result-v1",
+      "search_diagnostics": {
+        "cache_hits": 325028,
+        "case_cumulative_pf_calls": 35724,
+        "case_cumulative_wall_seconds": 25.747869416023605,
+        "failed_pf_calls": 0,
+        "query_requests": 360526
+      },
+      "simultaneous_compliance": 0.041666666666666664,
+      "tap_moves": 84,
+      "terminal_energy_error_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "valid": true,
+      "voltage_violation_pu_hours": 31.49118755059948
+    },
+    {
+      "active_loss_kwh": 5854.903548985061,
+      "actual_net_energy_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "actual_throughput_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "baseline": "coordinated_voltage",
+      "battery_throughput_kwh": 0.0,
+      "canary_cost": 16.28787125951742,
+      "canary_quality": 0.057844021683668784,
+      "capacitor_switches": 3,
+      "case_cumulative_pf_calls": 35794,
+      "case_cumulative_wall_seconds": 25.825408041011542,
+      "case_id": "123Bus-stress-p000-s2.5",
+      "clipping_residual_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "commanded_net_energy_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "commanded_throughput_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "completed_steps": 24,
+      "error": null,
+      "failed_replay_pf_calls": 0,
+      "final_energy_kwh": [
+        1000.0,
+        1000.0,
+        1000.0,
+        1000.0
+      ],
+      "group": "stress",
+      "initial_energy_kwh": [
+        1000.0,
+        1000.0,
+        1000.0,
+        1000.0
+      ],
+      "matched_numerical_calibration": true,
+      "max_voltage_pu": 1.1147225580959745,
+      "min_voltage_pu": 0.934439855411134,
+      "network": "123Bus",
+      "no_global_optimum_claim": true,
+      "nonzero_actual_throughput": false,
+      "paper_vanilla_reward_diagnostic": -21.13856830120768,
+      "permissions": "canary lagged observation only",
+      "phase_pf_calls": 70,
+      "phase_time_compliance": 0.9025779376498801,
+      "phase_wall_seconds": 0.07753695896826684,
+      "physical_voltage_feasible": false,
+      "profile_index": 0,
+      "qualification_valid": true,
+      "replay_pf_calls": 25,
+      "rounding_residual_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "run_lock_sha256": "06fb4a05bd2859b7a3dbdf830b828cb9d5bfa884d55477a6513aff39622413bc",
+      "scale": 2.5,
+      "schema_version": "powergym-qualification-result-v1",
+      "search_diagnostics": {
+        "cache_hits": 325032,
+        "case_cumulative_pf_calls": 35794,
+        "case_cumulative_wall_seconds": 25.825408500037156,
+        "failed_pf_calls": 0,
+        "query_requests": 360550
+      },
+      "simultaneous_compliance": 0.16666666666666666,
+      "tap_moves": 154,
+      "terminal_energy_error_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "valid": true,
+      "voltage_violation_pu_hours": 5.675391952956601
+    },
+    {
+      "active_loss_kwh": 5497.912630803047,
+      "actual_net_energy_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "actual_throughput_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "baseline": "full_information_snapshot",
+      "battery_throughput_kwh": 0.0,
+      "canary_cost": 13.674251800771895,
+      "canary_quality": 0.06814657493797387,
+      "capacitor_switches": 4,
+      "case_cumulative_pf_calls": 36865,
+      "case_cumulative_wall_seconds": 26.51515254098922,
+      "case_id": "123Bus-stress-p000-s2.5",
+      "clipping_residual_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "commanded_net_energy_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "commanded_throughput_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "completed_steps": 24,
+      "error": null,
+      "failed_replay_pf_calls": 0,
+      "final_energy_kwh": [
+        1000.0,
+        1000.0,
+        1000.0,
+        1000.0
+      ],
+      "group": "stress",
+      "initial_energy_kwh": [
+        1000.0,
+        1000.0,
+        1000.0,
+        1000.0
+      ],
+      "matched_numerical_calibration": true,
+      "max_voltage_pu": 1.0996131795452952,
+      "min_voltage_pu": 0.9346838070643169,
+      "network": "123Bus",
+      "no_global_optimum_claim": true,
+      "nonzero_actual_throughput": false,
+      "paper_vanilla_reward_diagnostic": -18.31911576316647,
+      "permissions": "current load and full circuit; no future load",
+      "phase_pf_calls": 1071,
+      "phase_time_compliance": 0.9087230215827338,
+      "phase_wall_seconds": 0.6897421249886975,
+      "physical_voltage_feasible": false,
+      "profile_index": 0,
+      "qualification_valid": true,
+      "replay_pf_calls": 25,
+      "rounding_residual_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "run_lock_sha256": "06fb4a05bd2859b7a3dbdf830b828cb9d5bfa884d55477a6513aff39622413bc",
+      "scale": 2.5,
+      "schema_version": "powergym-qualification-result-v1",
+      "search_diagnostics": {
+        "cache_hits": 325032,
+        "case_cumulative_pf_calls": 36865,
+        "case_cumulative_wall_seconds": 26.515152833017055,
+        "failed_pf_calls": 0,
+        "query_requests": 360574
+      },
+      "simultaneous_compliance": 0.0,
+      "tap_moves": 28,
+      "terminal_energy_error_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "valid": true,
+      "voltage_violation_pu_hours": 7.206642200271877
+    }
+  ],
+  "run_lock": {
+    "baselines": [
+      "static_day_idle",
+      "strong_current_idle",
+      "oracle_day_idle",
+      "oracle_day_storage",
+      "best_active_storage",
+      "hold_idle",
+      "canary_hysteresis",
+      "coordinated_voltage",
+      "full_information_snapshot"
+    ],
+    "case_ids": [
+      "34Bus-standard-p000-s1",
+      "34Bus-standard-p006-s1",
+      "34Bus-standard-p015-s1",
+      "123Bus-standard-p000-s1",
+      "123Bus-stress-p000-s2.5"
+    ],
+    "implementation_sha256": {
+      "src/powergrid_bench/distribution/profiles.py": "bf2f7198982ab51c42b9409c2f49cf03575193d8fe87594cbd6e66b544f8faf6",
+      "tools/distribution_qualification/powergym_backend.py": "9499badbc431087c5270405cfffacf44d751a8a053d39ce79177de8f6cb4d53e",
+      "tools/distribution_qualification/powergym_qualification.py": "59b6ea3ff9d3f7645c250c4925ebf2d91660db60e5e67e5518119cc7fa81b8c4",
+      "tools/distribution_qualification/powergym_search.py": "a2202ab0ddca79abe8297fedb63304a5f8f40772e8d015f535d5a43d00b953ec",
+      "tools/distribution_selection/powergym_baselines/backend.py": "b16e44db8f2a0235cca8294129da4a02082f1162e2fc69c18b1bdec695867df8",
+      "tools/distribution_selection/powergym_baselines/controllers.py": "98cb5797be00417b7b98366742e040d2b3071ad825484f1a3ff3cf574556d1ff",
+      "tools/distribution_selection/powergym_selection.py": "e2099e02a33d5291d97a9cbf77e1295341ee38307648df6c9d7f23eef44edcdd"
+    },
+    "max_pf_calls_per_case_all_baselines": 200000,
+    "max_wall_seconds_per_case_all_baselines": 1800,
+    "numerics": {
+      "backend_for_all_queries_and_final_replays": "same deterministic cold-start qualification backend",
+      "battery_rounding_epsilon_added": false,
+      "build_y_matrix_allocate_vi": true,
+      "build_y_matrix_option": 2,
+      "calibration_baselines": [
+        "hold_idle",
+        "canary_hysteresis",
+        "coordinated_voltage",
+        "full_information_snapshot"
+      ],
+      "calibration_cases": "same5 cases as parent protocol",
+      "calibration_snapshot_search_passes": 2,
+      "compare_default_and_deterministic_metrics_explicitly": true,
+      "generator_reactive_convention_changed": false,
+      "matched_calibration_budget": "include new calibration queries and final replays in the unchanged per-case200000PF/1800sec limit",
+      "reset_solution_initialized_before_each_solve": true,
+      "solve_sequence": [
+        "set all current loads and full device action with current energy",
+        "Solution.Tolerance=1e-10",
+        "Solution.BuildYMatrix(2,True)",
+        "YMatrix.SolutionInitialized=False",
+        "Solution.Solve()",
+        "verify convergence and measure original terminal power"
+      ],
+      "solver_tolerance": 1e-10,
+      "terminal_ledger_rule_changed": false
+    },
+    "numerics_sha256": "df22bc206b07a5cea0bcbfe0fa22570fb4761a1e018de3b7e4e5221bbd985991",
+    "parameters": {
+      "actual_net_energy_tolerance_kwh": 1.0,
+      "battery_amplitudes": [
+        1,
+        4,
+        8,
+        16
+      ],
+      "battery_coordinate_passes": 2,
+      "battery_slots": [
+        0,
+        3,
+        6,
+        9,
+        12,
+        15,
+        18,
+        21,
+        23
+      ],
+      "current_coordinate_passes": 2,
+      "day_coordinate_passes": 2,
+      "retained_starts": 3,
+      "static_coordinate_passes": 2,
+      "static_search_inherits_current_multistart_and_full_tap_grid": true,
+      "uniform_tap_starts": [
+        0,
+        8,
+        16,
+        24,
+        32
+      ]
+    },
+    "pool_sha256": "3d00cb75ec844506ce685f649de563f81087e1802040b8a91e5c72d3e9c7d24c",
+    "protocol_sha256": "6615eed909cdd0a330fede915f63a6ee89088c5dd2e70bd3357f43cb02f75e3e",
+    "runtime": {
+      "dependencies": {
+        "dss-python": "0.15.7",
+        "dss-python-backend": "0.14.5",
+        "numpy": "1.26.4"
+      },
+      "platform": "macOS-15.7.3-arm64-arm-64bit",
+      "python": "3.12.14"
+    },
+    "schema_version": "powergym-qualification-run-v1"
+  },
+  "run_lock_sha256": "06fb4a05bd2859b7a3dbdf830b828cb9d5bfa884d55477a6513aff39622413bc",
+  "schema_version": 1
+}

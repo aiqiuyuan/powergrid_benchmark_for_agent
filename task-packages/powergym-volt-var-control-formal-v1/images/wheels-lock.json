@@ -1,0 +1,12 @@
+{
+  "platform": "linux-amd64",
+  "python": "3.12",
+  "files": {
+    "cffi-2.1.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl": "c1453022f490d2459a11819d83ad1d586e9ff65a12ac3e705ffebd46d3685dcf",
+    "dss_python-0.15.7-py3-none-any.whl": "86359b60e103f5ff038adabb3af424e97857cf98d5c43a042d08795d3ba2dd3d",
+    "dss_python_backend-0.14.5-cp37-abi3-manylinux_2_28_x86_64.whl": "ac31301222f58f148c145847fa08bfcea934b4ea1097e5788d164d4dcf0a09d1",
+    "numpy-1.26.4-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl": "675d61ffbfa78604709862923189bad94014bef562cc35cf61d3a07bba02a7ed",
+    "pycparser-3.11-py3-none-any.whl": "51d5a8ba2be0bbe440b99d2112604c95bbbc3c2748a64260186c541e1729cd80",
+    "typing_extensions-4.16.0-py3-none-any.whl": "481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8"
+  }
+}

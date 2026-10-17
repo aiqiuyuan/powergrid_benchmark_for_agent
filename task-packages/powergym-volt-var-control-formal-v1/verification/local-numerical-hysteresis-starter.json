@@ -1,0 +1,403 @@
+{
+  "status": "passed",
+  "platform": "macOS-15.7.3-arm64-arm-64bit",
+  "python": "3.12.14",
+  "dependencies": {
+    "dss-python": "0.15.7",
+    "dss-python-backend": "0.14.5",
+    "numpy": "1.26.4",
+    "cffi": "2.1.1",
+    "pycparser": "3.11",
+    "typing_extensions": "4.16.0"
+  },
+  "sandbox_validated": false,
+  "starter": {
+    "valid": true,
+    "evaluation_completed": true,
+    "error": null,
+    "reward": 0.0247983666859411,
+    "cost": 39.32523644256492,
+    "completed_steps": 24,
+    "all_power_flows_converged": true,
+    "active_loss_kwh": 5288.594346510892,
+    "voltage_violation_pu_hours": 31.49118755059948,
+    "phase_time_compliance": 0.7831235011990407,
+    "simultaneous_compliance": 0.041666666666666664,
+    "physical_voltage_feasible": false,
+    "min_voltage_pu": 0.9390174686586304,
+    "max_voltage_pu": 1.1707385310376117,
+    "capacitor_switches": 0,
+    "tap_moves": 84,
+    "initial_energy_kwh": [
+      1000.0,
+      1000.0,
+      1000.0,
+      1000.0
+    ],
+    "final_energy_kwh": [
+      1000.0,
+      1000.0,
+      1000.0,
+      1000.0
+    ],
+    "initial_soc": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "final_soc": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "terminal_energy_error_kwh": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "ledger_terminal_energy_valid": true,
+    "actual_terminal_energy_valid": true,
+    "actual_net_energy_kwh": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "actual_throughput_kwh": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "battery_throughput_kwh": 0.0,
+    "commanded_net_energy_kwh": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "rounding_residual_kwh": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "clipping_residual_kwh": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "case_id": "123Bus-stress-p000-s2.5",
+    "track": "powergym-formal-stress-energy-neutral-v1",
+    "wall_seconds": 0.22849424998275936,
+    "candidate_sha256": "2e1770c370a9af7e26cf2301cb6091287e9339528fb347d4a4ced2cd855b0577",
+    "sandbox": "local-numerical-only",
+    "pf_calls": 25,
+    "failed_pf_calls": 0
+  },
+  "hold_idle": {
+    "valid": true,
+    "evaluation_completed": true,
+    "error": null,
+    "reward": 0.005783794538675795,
+    "cost": 171.89687476155592,
+    "completed_steps": 24,
+    "all_power_flows_converged": true,
+    "active_loss_kwh": 5743.06623838855,
+    "voltage_violation_pu_hours": 166.15380852316736,
+    "phase_time_compliance": 0.29706235011990406,
+    "simultaneous_compliance": 0.0,
+    "physical_voltage_feasible": false,
+    "min_voltage_pu": 0.9925951415869932,
+    "max_voltage_pu": 1.1865226747505393,
+    "capacitor_switches": 0,
+    "tap_moves": 0,
+    "initial_energy_kwh": [
+      1000.0,
+      1000.0,
+      1000.0,
+      1000.0
+    ],
+    "final_energy_kwh": [
+      1000.0,
+      1000.0,
+      1000.0,
+      1000.0
+    ],
+    "initial_soc": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "final_soc": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "terminal_energy_error_kwh": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "ledger_terminal_energy_valid": true,
+    "actual_terminal_energy_valid": true,
+    "actual_net_energy_kwh": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "actual_throughput_kwh": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "battery_throughput_kwh": 0.0,
+    "commanded_net_energy_kwh": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "rounding_residual_kwh": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "clipping_residual_kwh": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "case_id": "123Bus-stress-p000-s2.5",
+    "track": "powergym-formal-stress-energy-neutral-v1",
+    "wall_seconds": 0.05971733300248161,
+    "candidate_sha256": "fa5c2b84963475652b14a4b766c865fa501b706517b5423bfc2ae9d18127fe00",
+    "sandbox": "local-numerical-only",
+    "pf_calls": 25,
+    "failed_pf_calls": 0
+  },
+  "voltage_rule": {
+    "valid": true,
+    "evaluation_completed": true,
+    "error": null,
+    "reward": 0.0247983666859411,
+    "cost": 39.32523644256492,
+    "completed_steps": 24,
+    "all_power_flows_converged": true,
+    "active_loss_kwh": 5288.594346510892,
+    "voltage_violation_pu_hours": 31.49118755059948,
+    "phase_time_compliance": 0.7831235011990407,
+    "simultaneous_compliance": 0.041666666666666664,
+    "physical_voltage_feasible": false,
+    "min_voltage_pu": 0.9390174686586304,
+    "max_voltage_pu": 1.1707385310376117,
+    "capacitor_switches": 0,
+    "tap_moves": 84,
+    "initial_energy_kwh": [
+      1000.0,
+      1000.0,
+      1000.0,
+      1000.0
+    ],
+    "final_energy_kwh": [
+      1000.0,
+      1000.0,
+      1000.0,
+      1000.0
+    ],
+    "initial_soc": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "final_soc": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "terminal_energy_error_kwh": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "ledger_terminal_energy_valid": true,
+    "actual_terminal_energy_valid": true,
+    "actual_net_energy_kwh": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "actual_throughput_kwh": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "battery_throughput_kwh": 0.0,
+    "commanded_net_energy_kwh": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "rounding_residual_kwh": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "clipping_residual_kwh": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "case_id": "123Bus-stress-p000-s2.5",
+    "track": "powergym-formal-stress-energy-neutral-v1",
+    "wall_seconds": 0.05894470895873383,
+    "candidate_sha256": "5caea8766140562e225bd88f20e5761846abc83d6789296dfc7b6529f443988c",
+    "sandbox": "local-numerical-only",
+    "pf_calls": 25,
+    "failed_pf_calls": 0
+  },
+  "drain_battery_rejected": {
+    "valid": false,
+    "evaluation_completed": true,
+    "error": "terminal_energy_violation",
+    "reward": 0.0,
+    "cost": 177.95777128654524,
+    "completed_steps": 24,
+    "all_power_flows_converged": true,
+    "active_loss_kwh": 5486.276397688475,
+    "voltage_violation_pu_hours": 172.47149488885677,
+    "phase_time_compliance": 0.2555455635491607,
+    "simultaneous_compliance": 0.0,
+    "physical_voltage_feasible": false,
+    "min_voltage_pu": 0.9925951415869932,
+    "max_voltage_pu": 1.202890909418048,
+    "capacitor_switches": 0,
+    "tap_moves": 0,
+    "initial_energy_kwh": [
+      1000.0,
+      1000.0,
+      1000.0,
+      1000.0
+    ],
+    "final_energy_kwh": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "initial_soc": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "final_soc": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "terminal_energy_error_kwh": [
+      1000.0,
+      1000.0,
+      1000.0,
+      1000.0
+    ],
+    "ledger_terminal_energy_valid": false,
+    "actual_terminal_energy_valid": false,
+    "actual_net_energy_kwh": [
+      1005.2688722048503,
+      1002.2716384193077,
+      1042.8155448128693,
+      1052.4725069503775
+    ],
+    "actual_throughput_kwh": [
+      1005.2688722048503,
+      1002.2716384193077,
+      1042.8155448128693,
+      1052.4725069503775
+    ],
+    "battery_throughput_kwh": 4102.828562387404,
+    "commanded_net_energy_kwh": [
+      875.0,
+      887.5,
+      300.0,
+      300.0
+    ],
+    "rounding_residual_kwh": [
+      -0.6513154188780845,
+      -0.7951032881466915,
+      0.014435655111981305,
+      0.4265519538043918
+    ],
+    "clipping_residual_kwh": [
+      5.920187623728296,
+      3.0667417074543692,
+      42.80110915775725,
+      52.04595499657319
+    ],
+    "case_id": "123Bus-stress-p000-s2.5",
+    "track": "powergym-formal-stress-energy-neutral-v1",
+    "wall_seconds": 0.17917091702111065,
+    "candidate_sha256": "81c81cd3b02d94218ef093f3412bb0c4c42a6e4cd38319761cc45ca70e97cf94",
+    "sandbox": "local-numerical-only",
+    "pf_calls": 25,
+    "failed_pf_calls": 0
+  },
+  "invalid_action_rejected": true,
+  "candidate_failure_feedback": {
+    "timeout": {
+      "evaluation_completed": true,
+      "reward": 0,
+      "error": "candidate_timeout",
+      "candidate_sha256": "093dd53254a75ef64cf9a30b61fe4a36d4d48103f5cda591d42cca75c45b6736"
+    },
+    "crash": {
+      "evaluation_completed": true,
+      "reward": 0,
+      "error": "candidate_exit",
+      "candidate_sha256": "db3a8f374be19e96c656da8555b25e11b0d81af4fb0a2d177e37a2c2cfdf6c36"
+    },
+    "malformed_json": {
+      "evaluation_completed": true,
+      "reward": 0,
+      "error": "candidate_malformed_json",
+      "candidate_sha256": "e046a1de8a96698e86c2bec0e9b8489431f4dbc71eccc0106a5aee5b28368fde"
+    },
+    "import_crash": {
+      "evaluation_completed": true,
+      "reward": 0,
+      "error": "candidate_exit",
+      "candidate_sha256": "31a027d460bc30b3a92d5a213d4b9c302d0a0210fffcf5a1bb66f48a4f1e51c8"
+    }
+  },
+  "oversized_sparse_artifact": {
+    "logical_bytes": 1099511627776,
+    "read_calls": 0,
+    "error": "artifact_too_large",
+    "evaluation_completed": true,
+    "reward": 0.0
+  },
+  "symlink_and_modified_artifact_rejected": true,
+  "parallel_replays_equal": true,
+  "explicit_load_row_and_tap_checks": true
+}

@@ -1,0 +1,68 @@
+{
+  "schema": "mapdn-formal-source-lock-v1",
+  "repository": "https://github.com/Future-Power-Networks/MAPDN",
+  "source_commit": "6895f1f0630b112745a3f681d7685d454407f9cb",
+  "dataset_repository": "https://huggingface.co/datasets/hsvgbkhgbv/Multi-Agent-Power-Distribution-Networks",
+  "dataset_commit": "a41d8c269e402a827d36d9a153a4bce73a990e53",
+  "archive": {
+    "published": {
+      "size_bytes": 3763536396,
+      "sha256": "002de887013e8a2dbd2d79e5b6e2ed2c00584f3cf1ae81947f986061cfd81de2"
+    },
+    "whole_archive_downloaded": false,
+    "whole_archive_sha256_verified": false,
+    "verified_members": {
+      "model.p": {
+        "member": "voltage_control_data/case33_3min_final/model.p",
+        "method": 8,
+        "crc32": 847197210,
+        "compressed_size": 12116,
+        "size": 39024,
+        "offset": 297041790,
+        "sha256": "b9452fa9896fc709258edd4cb7c431aec2ef348a090fd4184ada21dc821d3ef3",
+        "dataset_commit": "a41d8c269e402a827d36d9a153a4bce73a990e53",
+        "verification": "complete-member-crc32-and-local-sha256; archive-sha256-not-verified"
+      },
+      "pv_active.csv": {
+        "member": "voltage_control_data/case33_3min_final/pv_active.csv",
+        "method": 8,
+        "crc32": 2651992851,
+        "compressed_size": 14551800,
+        "size": 54296160,
+        "offset": 282489860,
+        "sha256": "a5d64f59e8e291f366768d601f16fe95662a5d25ccba86f21d31d04e940db9ef",
+        "dataset_commit": "a41d8c269e402a827d36d9a153a4bce73a990e53",
+        "verification": "complete-member-crc32-and-local-sha256; archive-sha256-not-verified"
+      },
+      "load_active.csv": {
+        "member": "voltage_control_data/case33_3min_final/load_active.csv",
+        "method": 8,
+        "crc32": 3616394099,
+        "compressed_size": 128113520,
+        "size": 351655119,
+        "offset": 184,
+        "sha256": "35c7657e886e46d8f2685540db1ee0ae327ec9446e21270217bbde190fc2365f",
+        "dataset_commit": "a41d8c269e402a827d36d9a153a4bce73a990e53",
+        "verification": "complete-member-crc32-and-local-sha256; archive-sha256-not-verified"
+      },
+      "load_reactive.csv": {
+        "member": "voltage_control_data/case33_3min_final/load_reactive.csv",
+        "method": 8,
+        "crc32": 1862577025,
+        "compressed_size": 154375890,
+        "size": 356496345,
+        "offset": 128113836,
+        "sha256": "0f296701a1f01be68cc63b19dc3787baa2883e101979dd5c5acc9e89b280cdc3",
+        "dataset_commit": "a41d8c269e402a827d36d9a153a4bce73a990e53",
+        "verification": "complete-member-crc32-and-local-sha256; archive-sha256-not-verified"
+      }
+    }
+  },
+  "data_use": "trusted-private-evaluation-only; preserve MAPDN/UCI/Elia source attribution; no public raw-data redistribution",
+  "adaptation": "causal direct Pandapower runner; not upstream Env step reproduction",
+  "python_reference": "3.12.14-linux-amd64",
+  "requirements_sha256": "1bfc3cb9f27fc96af68785acbe79e9daa2603835f221fe8e22f0973bd7ceba16",
+  "wheel_lock_sha256": "c4e972d884e5330110a20b76cef552b8d020abb1031a3f04d8cd6a30e561a70d",
+  "selection_pool_sha256": "69843ffcb35df4fb5d518f15648e0fffd7a78dc68668795ee912c005c013aebc",
+  "qualified_case_id": "mapdn33-2012-02-03"
+}
