@@ -1,0 +1,345 @@
+{
+  "schema_version": "uc-speed-native-canary-preparation-v1",
+  "status": "paired-canary-finished-with-n0-finalization-failure",
+  "executable": true,
+  "release_ready": false,
+  "purpose": "paired-n0-n1-workflow-acceptance-before-main-study",
+  "task_package": "task-packages/pglib-uc-speed-canary-v1",
+  "main_parameter_profile": "configs/unit-commitment-speed.design.json",
+  "conditions": [
+    {
+      "role": "uc-speed-n0-r1",
+      "n": 0,
+      "mode": "terminal",
+      "active_job": "aqy-ucspeed-n0-r1-20261016-150046",
+      "active_frozen_manifest_sha256": "416db557ebddc2eb62abb12647a6b44a5bd40b34039bfa74b01d9b8b58cd5d55"
+    },
+    {
+      "role": "uc-speed-n1-r1",
+      "n": 1,
+      "mode": "eval-budget",
+      "active_job": "aqy-ucspeed-n1-r1-20261016-181951",
+      "active_frozen_manifest_sha256": "23db34692c33bbb795c4fb2c654ceb328667556a39b31723f41452a9a59037e5"
+    }
+  ],
+  "independent_development_repeats": 1,
+  "counts_as_main_experiment": false,
+  "development": {
+    "seconds": 43200,
+    "seed": 2026101501,
+    "model": "bedrock/gpt-5.6-sol",
+    "required_response_model": "global.openai.gpt-5.6-sol",
+    "cpus": 3,
+    "memory_mib": 8192,
+    "gpus": 0,
+    "aggregate_token_cap": null,
+    "token_reservation": false,
+    "output_token_override": null,
+    "free_full_target_scoring": false,
+    "network_mode": "no-network-model-and-judge-bridges-only",
+    "terminal_selection": "freeze-final-artifacts-at-deadline",
+    "seed_role": "paired-repeat-identifier; provider LLM sampling is not verifiably seeded",
+    "provider_sampling": "provider-default-temperature-unset; no shared-randomness guarantee"
+  },
+  "pilot_case": {
+    "source_commit": "39a7f38cf4703de92f0291f0c873c2e98c789301",
+    "id": "rts_gmlc/2020-07-06.json",
+    "sha256": "2e68998a3c7849df2307780ab10de2147f21e71bf152d049015315c2b5ff7091",
+    "complete_original_horizon": true,
+    "role": "workflow-only-not-main-case-selection",
+    "reference_origin": "trusted-20261012-full-original-MILP-bound-and-verified-upper",
+    "reference_values_in_agent_package": false,
+    "target_input_in_agent_package": false,
+    "reference_gap_gate": 0.0001
+  },
+  "execution": {
+    "seconds": 300,
+    "target_gap_ratio": 0.001,
+    "cpus": 1,
+    "solver_threads": 1,
+    "memory_mib": 8192,
+    "gpus": 0,
+    "solver": "HiGHS-1.15.1",
+    "protected_replay_seeds": [
+      0
+    ],
+    "terminal_replay_seeds": [
+      0,
+      1,
+      2
+    ],
+    "feedback_job_timeout_seconds": 480,
+    "terminal_job_timeout_seconds": 1320,
+    "feedback_metric_precision": "rounded-penalty-3-decimals-and-derived-reward",
+    "terminal_metric_precision": "full-precision",
+    "fresh_source_snapshot_per_accepted_call": true,
+    "cross_replay_writes": "Landlock-ABI-at-least-1-output-only-plus-mandatory-seccomp-truncate-metadata-keyring-mqueue-guards",
+    "runtime_image_digest": "sha256:715175481737e1a48bea3a8170174590f289413413e5d05d2f6e2fe6c4e7d4c7",
+    "runtime_image_identity_kind": "local-Docker-image-ID; byte-verified private archive, not a registry manifest digest"
+  },
+  "cluster": {
+    "name": "dev",
+    "gpus": 0,
+    "outer_job_cpus": 4,
+    "outer_job_memory": "20Gi",
+    "workspace": "/mnt/cfs_bj_fm/workspace/aiqiuyuan",
+    "cli": "/mnt/cfs_bj_fm/workspace/aiqiuyuan/.local/bin/fm-job",
+    "expected_cli_version": "20261013175109",
+    "harbor_version": "0.20.0",
+    "runner_image": "iregistry.baidu-int.com/wuchufan/tb-runner-dind@sha256:39b8159e18fabe9c662f34dd02e85269b58253ab4cc3ae1b0b05e917d810644b"
+  },
+  "readiness": {
+    "local_scoring_and_subprocess_fixtures": "passed",
+    "local_complete_uc_starter": "passed-trusted-local-only",
+    "linux_launcher": "passed-actual-dev-Linux5.15-LandlockABI1-negative-probes",
+    "pinned_runtime_image": "passed-image-and-archive-SHA-verified",
+    "real_julia_under_sandbox": "passed-complete-original-case",
+    "native_terminal_and_feedback_acceptance": "v4-passed-real-n1-feedback-scoring-and-three-terminal-replays",
+    "feedback_idempotency_and_count_audit": "passed-native-single-call-content-retry-overbudget-and-collection",
+    "cutoff_freeze_and_no_late_feedback": "passed-real-stop-before-snapshot-and-late-feedback-isolation",
+    "candidate_oom_classification": "passed-real-cgroup-OOM",
+    "actual_model_api_acceptance_without_token_cap": "v4-passed-fixed-model-tool-and-all-three-terminal-replays",
+    "verified_cluster_login": "restored-and-verified-before-n1-only-submission",
+    "linux_ci_evidence": "https://github.com/aiqiuyuan/powergrid_benchmark_for_agent/actions/runs/38884047148",
+    "feedback_actual_scoring": "v3-invalidated; v4-passed-evaluation-completed-feasible-and-collected",
+    "historical_n0_hard_deadline_finalization": "failed-without-final-score; n0-not-rerun"
+  },
+  "submission_receipts": [
+    {
+      "n": 0,
+      "role": "n0-r1",
+      "created_at": "2026-10-16T07:00:46.631923+00:00",
+      "jobs": [
+        "aqy-ucspeed-n0-r1-20261016-150046"
+      ],
+      "cluster": "dev",
+      "cpus": 4,
+      "memory": "20Gi",
+      "gpus": 0,
+      "manifest_sha256": "416db557ebddc2eb62abb12647a6b44a5bd40b34039bfa74b01d9b8b58cd5d55",
+      "counts_as_main_experiment": false,
+      "startup_verified": true,
+      "development_started_epoch": 1792134090.920929,
+      "development_deadline_epoch": 1792177290.920929,
+      "model_completed_requests_at_startup_check": 12
+    },
+    {
+      "n": 1,
+      "role": "n1-r1",
+      "created_at": "2026-10-16T07:00:46.900088+00:00",
+      "jobs": [
+        "aqy-ucspeed-n1-r1-20261016-150046"
+      ],
+      "cluster": "dev",
+      "cpus": 4,
+      "memory": "20Gi",
+      "gpus": 0,
+      "manifest_sha256": "416db557ebddc2eb62abb12647a6b44a5bd40b34039bfa74b01d9b8b58cd5d55",
+      "counts_as_main_experiment": false,
+      "startup_verified": true,
+      "development_started_epoch": 1792134090.8635275,
+      "development_deadline_epoch": 1792177290.8635275,
+      "model_completed_requests_at_startup_check": 14,
+      "invalid_for_effective_feedback_comparison": true,
+      "infrastructure_failure": "TypeError: TarFile.extractall() got an unexpected keyword argument 'filter'",
+      "protected_evaluation_completed": false
+    },
+    {
+      "role": "n1-r1",
+      "n": 1,
+      "manifest_sha256": "23db34692c33bbb795c4fb2c654ceb328667556a39b31723f41452a9a59037e5",
+      "created_at": "2026-10-16T10:19:51.768238+00:00",
+      "prefix": "aqy-ucspeed-n1-r1",
+      "returncode": 0,
+      "jobs": [
+        "aqy-ucspeed-n1-r1-20261016-181951"
+      ],
+      "cluster": "dev",
+      "cpus": 4,
+      "memory": "20Gi",
+      "gpus": 0,
+      "counts_as_main_experiment": false,
+      "replaces_job": "aqy-ucspeed-n1-r1-20261016-150046",
+      "startup_verified": true,
+      "development_started_epoch": 1792146041.9848118,
+      "development_deadline_epoch": 1792189241.9848118,
+      "model_completed_requests_at_startup_check": 8
+    }
+  ],
+  "frozen_deployment_manifest_sha256": "416db557ebddc2eb62abb12647a6b44a5bd40b34039bfa74b01d9b8b58cd5d55",
+  "canary_deployment_accepted": true,
+  "main_study_release_ready": false,
+  "startup_checked_at_utc": "2026-10-16T10:21:25.080541+00:00",
+  "recovery": {
+    "authorized_scope": "rerun-n1-only; preserve-original-n0",
+    "preparation": "uc-speed-canary-20261016-v4-n1fix",
+    "frozen_manifest_sha256": "23db34692c33bbb795c4fb2c654ceb328667556a39b31723f41452a9a59037e5",
+    "original_n0_job": "aqy-ucspeed-n0-r1-20261016-150046",
+    "original_n0_resubmitted": false,
+    "replaces_failed_n1_job": "aqy-ucspeed-n1-r1-20261016-150046",
+    "changes": [
+      "safe-regular-source-extraction-without-tarfile-filter-api",
+      "reject-collected-infrastructure-errors-in-feedback-acceptance",
+      "n1-only-submission-entrypoints"
+    ],
+    "unchanged": [
+      "task-input",
+      "scoring-contract",
+      "model",
+      "43200-second-development-limit",
+      "no-cumulative-token-cap",
+      "candidate-runtime-image",
+      "replay-seeds"
+    ],
+    "native_acceptance_job": "aqy-ucspeed-acceptance-20261016-173419",
+    "status": "rerun-submitted-and-startup-verified",
+    "main_study_release_ready": false,
+    "native_acceptance_passed": true,
+    "model_api_probe_job": "aqy-ucspeed-api-smoke-20261016-174547",
+    "new_n1_submitted": true,
+    "access_blocker": null,
+    "new_n1_job": "aqy-ucspeed-n1-r1-20261016-181951",
+    "model_api_probe_passed": true,
+    "startup": {
+      "verified": true,
+      "checked_at_utc": "2026-10-16T10:21:25.080541+00:00",
+      "phase": "model-development",
+      "pod_phase": "Running",
+      "pod_ready": true,
+      "pod_restarts": 0,
+      "pod_checked_at_utc": "2026-10-16T10:20:12.646721+00:00",
+      "development_cpus": 3,
+      "development_memory_bytes": 8589934592,
+      "network_mode": "none",
+      "provider_credentials_mounted": false,
+      "clock": {
+        "started_epoch": 1792146041.9848118,
+        "seconds": 43200,
+        "deadline_epoch": 1792189241.9848118
+      },
+      "development_started_beijing": "2026-10-16T18:20:41.984812+08:00",
+      "development_deadline_beijing": "2026-10-17T06:20:41.984812+08:00",
+      "model_usage": {
+        "states": {
+          "complete": 8,
+          "pending": 1
+        },
+        "successful_response_models": [
+          "global.openai.gpt-5.6-sol"
+        ],
+        "actual_recorded_tokens": 85720,
+        "aggregate_token_cap": null,
+        "token_reservation": false,
+        "output_token_override": null,
+        "latest_success_finished_elapsed": 40.219072103500366
+      },
+      "protected_feedback": {
+        "rows": 0,
+        "counted": 0,
+        "states": {}
+      },
+      "experiment_result_available": false
+    },
+    "original_v3_frozen_source_unchanged": true
+  },
+  "frozen_deployment_manifest_scope": "historical-original-pair; active source manifests are recorded per condition",
+  "completion_checked_at_utc": "2026-10-17T04:12:00.797220+00:00",
+  "completion_results": [
+    {
+      "n": 0,
+      "passed": false,
+      "completed_record_at_utc": "2026-10-16T19:01:46.529070+00:00",
+      "final_score": null,
+      "evaluation_completed": false,
+      "exception_type": "RuntimeError",
+      "feedback_calls": 0,
+      "model_messages": 1909,
+      "counts_as_main_experiment": false,
+      "failure_stage": "framework-deadline-finalization-before-scoring",
+      "exception_message": "Container exceeded hard competition cutoff",
+      "certified_pre_cutoff_source_exists": false,
+      "rerun_requested": false,
+      "algorithmic_zero": false
+    },
+    {
+      "n": 1,
+      "passed": true,
+      "completed_record_at_utc": "2026-10-16T22:32:50.617568+00:00",
+      "final_score": 0.8594457102583126,
+      "evaluation_completed": true,
+      "exception_type": null,
+      "feedback_calls": 1,
+      "model_messages": 2053,
+      "counts_as_main_experiment": false,
+      "feasible_replays": 3,
+      "target_hit_replays": 3,
+      "mean_penalized_seconds": 84.33257384501242
+    }
+  ],
+  "paired_canary_comparison_accepted": false,
+  "cutoff_repair": {
+    "preparation": "uc-speed-canary-20261017-v5-cutoff",
+    "status": "prepared-synthetic-Docker-and-Harbor-transfer-accepted; no-developer-rerun",
+    "development_seconds": 43200,
+    "stop_reserve_seconds": 15,
+    "aggregate_token_cap": null,
+    "feedback_budgets": [
+      0,
+      1
+    ],
+    "candidate_freeze": "pause-and-confirm-before-monotonic-deadline; bounded-pre-KILL-snapshot",
+    "terminal_source": "trusted-host-published-read-only-/app/final-submission",
+    "feedback_source": "live-/app/submission",
+    "terminal_provenance_gate": "grader-received-hashes-equal-certified-freeze-hashes",
+    "late_freeze_oom_or_failed_stop": "invalid; retain-audit-before-raising",
+    "local_preparation_tests_passed": 40,
+    "existing_numeric_tests_passed": 17,
+    "independent_code_review": "approved-no-critical-or-high-findings",
+    "native_probe_source_sha256": "c70a409d58e755cd642347f320bb32b4f1fd79c32151f3ab97f696fc8c0e8904",
+    "native_acceptance_scope": "synthetic-Docker-and-Harbor-transfer-only; no-model-UC-solver-or-protected-scoring",
+    "developer_runs_submitted": 0,
+    "historical_sources_or_results_modified": false,
+    "main_study_release_ready": false,
+    "native_acceptance_checked_at_utc": "2026-10-17T04:37:00.158997+00:00",
+    "native_acceptance": {
+      "checked_at_utc": "2026-10-17T04:37:00.158997+00:00",
+      "job": "aqy-uc-cutoff-probe-c70a409d-20261017-123352",
+      "source_sha256": "c70a409d58e755cd642347f320bb32b4f1fd79c32151f3ab97f696fc8c0e8904",
+      "passed": true,
+      "docker_trials": 3,
+      "model_calls": 0,
+      "protected_evaluations": 0,
+      "freeze_elapsed_seconds": [
+        6.035399428976234,
+        6.033631737984251,
+        6.043417501961812
+      ],
+      "cleanup_elapsed_seconds": [
+        11.509226489986759,
+        27.77164603199344,
+        6.1872358020045795
+      ],
+      "injected_pre_kill_delay_seconds": [
+        0,
+        12,
+        0
+      ],
+      "harbor_transfer": {
+        "passed": true,
+        "harbor_version": "0.20.0",
+        "scope": "Synthetic transfer hash check; no UC solver, model or protected score",
+        "verified_manifest": {
+          "solver.jl": {
+            "size": 3,
+            "sha256": "6d976934be74941fba578b143ba964eded443d10384e3f3d62a1ba7b4d339df8"
+          }
+        },
+        "freeze_elapsed_seconds": 6.046105146000627,
+        "cleanup_elapsed_seconds": 18.291437129024416,
+        "live_source_unchanged_after_stop": false
+      },
+      "harbor_trial_exception": null,
+      "counts_as_experiment": false
+    }
+  }
+}

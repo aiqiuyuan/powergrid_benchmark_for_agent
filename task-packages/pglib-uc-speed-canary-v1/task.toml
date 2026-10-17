@@ -1,0 +1,28 @@
+schema_version = "1.3"
+artifacts = ["/app/submission"]
+
+[optimization]
+metric = "uc_reference_quality_reward"
+direction = "higher"
+
+[agent]
+timeout_sec = 43200
+
+[verifier]
+environment_mode = "separate"
+timeout_sec = 1320
+
+[environment]
+build_timeout_sec = 1800
+cpus = 3
+memory_mb = 8192
+storage_mb = 8192
+workdir = "/app"
+network_mode = "no-network"
+
+[verifier.environment]
+build_timeout_sec = 1800
+network_mode = "no-network"
+cpus = 1
+memory_mb = 8192
+storage_mb = 8192

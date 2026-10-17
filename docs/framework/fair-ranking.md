@@ -162,6 +162,8 @@ UC主线保留锁定版本PGLib-UC的原始参数、完整时间窗口和铜板U
 
 完整MILP/HiGHS参考是最低强基线基础；可以纳入不同建模、启发式或求解器，但必须锁定solver许可赛道、线程、资源、预处理和停止条件。未知最优实例报告有效incumbent及可信参考下界，不能把60秒参考解称为最优。用于排名的成本映射、有效率、时间与数值容差须发布前校准，不能因某算法结果改变权重。
 
+当前文献对齐主榜采用[task card §13](../task-cards/unit-commitment.md#13-文献对齐的研究目标与配置2026-10-15)与[速度合同](../protocol/unit-commitment-speed.md)：先核可行性资格，再比较达到共同参考质量的PAR2时间，成本/gap辅助报告。0.1%主目标、0.01%补充档和300/600秒预算有原文量级依据；单核8GiB、端到端计时、Reward与校准门槛属于本项目设计，未通过性能验收。共同离线下界下的达标时间不称最优性证明时间；文献原秒数与本机重跑分别成表。
+
 派生DC SCUC保留自己的版本、网络/安全行、限额及安全范围；以`track_id=derived-dc-scuc`单列。它不是PGLib-UC的官方赛道，也不声称交流SCUC全物理安全。两例RTS和已有case14/30保留校准记录；第一阶段从原库挑选高难完整实例，同case开发、计数反馈与复核。按系统／日期分组的泛化留到第二阶段。[UnitCommitment.jl实例与模型](https://anl-ceeesa.github.io/UnitCommitment.jl/0.4/guides/instances/)。
 
 ### 本task需补齐的设置

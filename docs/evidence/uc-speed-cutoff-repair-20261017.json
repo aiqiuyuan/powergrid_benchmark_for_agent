@@ -1,0 +1,107 @@
+{
+  "checked_at_utc": "2026-10-17T04:12:00.797220+00:00",
+  "kind": "UC-canary-completion-and-cutoff-repair",
+  "runs": [
+    {
+      "n": 0,
+      "passed": false,
+      "completed_record_at_utc": "2026-10-16T19:01:46.529070+00:00",
+      "final_score": null,
+      "evaluation_completed": false,
+      "exception_type": "RuntimeError",
+      "feedback_calls": 0,
+      "model_messages": 1909,
+      "counts_as_main_experiment": false,
+      "failure_stage": "framework-deadline-finalization-before-scoring",
+      "exception_message": "Container exceeded hard competition cutoff",
+      "certified_pre_cutoff_source_exists": false,
+      "rerun_requested": false,
+      "algorithmic_zero": false
+    },
+    {
+      "n": 1,
+      "passed": true,
+      "completed_record_at_utc": "2026-10-16T22:32:50.617568+00:00",
+      "final_score": 0.8594457102583126,
+      "evaluation_completed": true,
+      "exception_type": null,
+      "feedback_calls": 1,
+      "model_messages": 2053,
+      "counts_as_main_experiment": false,
+      "feasible_replays": 3,
+      "target_hit_replays": 3,
+      "mean_penalized_seconds": 84.33257384501242
+    }
+  ],
+  "n_effect_comparison_available": false,
+  "cutoff_repair": {
+    "preparation": "uc-speed-canary-20261017-v5-cutoff",
+    "status": "prepared-synthetic-Docker-and-Harbor-transfer-accepted; no-developer-rerun",
+    "development_seconds": 43200,
+    "stop_reserve_seconds": 15,
+    "aggregate_token_cap": null,
+    "feedback_budgets": [
+      0,
+      1
+    ],
+    "candidate_freeze": "pause-and-confirm-before-monotonic-deadline; bounded-pre-KILL-snapshot",
+    "terminal_source": "trusted-host-published-read-only-/app/final-submission",
+    "feedback_source": "live-/app/submission",
+    "terminal_provenance_gate": "grader-received-hashes-equal-certified-freeze-hashes",
+    "late_freeze_oom_or_failed_stop": "invalid; retain-audit-before-raising",
+    "local_preparation_tests_passed": 40,
+    "existing_numeric_tests_passed": 17,
+    "independent_code_review": "approved-no-critical-or-high-findings",
+    "native_probe_source_sha256": "c70a409d58e755cd642347f320bb32b4f1fd79c32151f3ab97f696fc8c0e8904",
+    "native_acceptance_scope": "synthetic-Docker-and-Harbor-transfer-only; no-model-UC-solver-or-protected-scoring",
+    "developer_runs_submitted": 0,
+    "historical_sources_or_results_modified": false,
+    "main_study_release_ready": false,
+    "native_acceptance_checked_at_utc": "2026-10-17T04:37:00.158997+00:00",
+    "native_acceptance": {
+      "checked_at_utc": "2026-10-17T04:37:00.158997+00:00",
+      "job": "aqy-uc-cutoff-probe-c70a409d-20261017-123352",
+      "source_sha256": "c70a409d58e755cd642347f320bb32b4f1fd79c32151f3ab97f696fc8c0e8904",
+      "passed": true,
+      "docker_trials": 3,
+      "model_calls": 0,
+      "protected_evaluations": 0,
+      "freeze_elapsed_seconds": [
+        6.035399428976234,
+        6.033631737984251,
+        6.043417501961812
+      ],
+      "cleanup_elapsed_seconds": [
+        11.509226489986759,
+        27.77164603199344,
+        6.1872358020045795
+      ],
+      "injected_pre_kill_delay_seconds": [
+        0,
+        12,
+        0
+      ],
+      "harbor_transfer": {
+        "passed": true,
+        "harbor_version": "0.20.0",
+        "scope": "Synthetic transfer hash check; no UC solver, model or protected score",
+        "verified_manifest": {
+          "solver.jl": {
+            "size": 3,
+            "sha256": "6d976934be74941fba578b143ba964eded443d10384e3f3d62a1ba7b4d339df8"
+          }
+        },
+        "freeze_elapsed_seconds": 6.046105146000627,
+        "cleanup_elapsed_seconds": 18.291437129024416,
+        "live_source_unchanged_after_stop": false
+      },
+      "harbor_trial_exception": null,
+      "counts_as_experiment": false
+    }
+  },
+  "known_limits": [
+    "Exact n0 FinishedAt and overrun were not persisted by the old error path.",
+    "n0 has no certified pre-cutoff snapshot, so a valid score cannot be reconstructed retrospectively.",
+    "Synthetic transfer acceptance does not replace future source-matched full UC/native/model preflights."
+  ]
+}

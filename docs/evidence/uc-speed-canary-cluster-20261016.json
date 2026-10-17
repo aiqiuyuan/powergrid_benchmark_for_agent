@@ -1,0 +1,412 @@
+{
+  "date": "2026-10-16",
+  "status": "paired-canary-running",
+  "counts_as_main_experiment": false,
+  "kernel": "5.15.0-72-generic",
+  "landlock_abi": 1,
+  "runtime_image_id": "sha256:715175481737e1a48bea3a8170174590f289413413e5d05d2f6e2fe6c4e7d4c7",
+  "runtime_archive_sha256": "bb450a8aa6eb8f7af4e19259e20fdd704a2584ec805b957e35398deebe2f4575",
+  "frozen_deployment_manifest_sha256": "416db557ebddc2eb62abb12647a6b44a5bd40b34039bfa74b01d9b8b58cd5d55",
+  "secure_full_original_case": {
+    "passed": true,
+    "feasible": true,
+    "target_hit": true,
+    "penalized_seconds": 56.682674094918184,
+    "checker_seconds": 0.043554114061407745,
+    "cpus": 1,
+    "memory_gib": 8,
+    "network": "none"
+  },
+  "sandbox_negative_probes": "passed-actual-target-kernel",
+  "native_harbor": {
+    "0": {
+      "passed": true,
+      "feedback_budget": 0,
+      "feedback_calls": 0,
+      "feedback_collected": 0,
+      "exception_type": null,
+      "development_seconds": 600,
+      "baseline_replay_seconds": [
+        56.344679775997065,
+        65.54040400404483,
+        65.7922796329949
+      ],
+      "baseline_all_replays_qualified": true,
+      "transport": {
+        "passed": true,
+        "n": 0,
+        "idempotent_content_retry": false,
+        "over_budget_rejected": false,
+        "late_feedback_suppressed": false,
+        "network_mode": "none",
+        "stopped_before_final_snapshot": true
+      }
+    },
+    "1": {
+      "passed": true,
+      "feedback_budget": 1,
+      "feedback_calls": 1,
+      "feedback_collected": 1,
+      "exception_type": null,
+      "development_seconds": 600,
+      "baseline_replay_seconds": [
+        58.001596719026566,
+        63.632181255030446,
+        62.98659782495815
+      ],
+      "baseline_all_replays_qualified": true,
+      "transport": {
+        "passed": true,
+        "n": 1,
+        "idempotent_content_retry": true,
+        "over_budget_rejected": true,
+        "late_feedback_suppressed": true,
+        "network_mode": "none",
+        "stopped_before_final_snapshot": true
+      }
+    }
+  },
+  "actual_model_api": {
+    "passed": true,
+    "pinned_client": "2.1.280",
+    "configured_model": "bedrock/gpt-5.6-sol",
+    "returned_models": [
+      "global.openai.gpt-5.6-sol"
+    ],
+    "model_requests": 4,
+    "actual_recorded_tokens": 53711,
+    "aggregate_token_cap": null,
+    "token_reservation": false,
+    "output_token_override": null,
+    "shell_tool_marker": true,
+    "provider_weights_immutable_snapshot_available": false
+  },
+  "canary_jobs": [
+    {
+      "role": "n0-r1",
+      "n": 0,
+      "manifest_sha256": "416db557ebddc2eb62abb12647a6b44a5bd40b34039bfa74b01d9b8b58cd5d55",
+      "created_at": "2026-10-16T07:00:46.631923+00:00",
+      "prefix": "aqy-ucspeed-n0-r1",
+      "returncode": 0,
+      "jobs": [
+        "aqy-ucspeed-n0-r1-20261016-150046"
+      ],
+      "cluster": "dev",
+      "cpus": 4,
+      "memory": "20Gi",
+      "gpus": 0,
+      "counts_as_main_experiment": false,
+      "pods": [
+        {
+          "name": "aqy-ucspeed-n0-r1-20261016-150046-l9dcp",
+          "phase": "Running",
+          "node": "10.94.146.67"
+        }
+      ],
+      "results_available": false
+    },
+    {
+      "role": "n1-r1",
+      "n": 1,
+      "manifest_sha256": "416db557ebddc2eb62abb12647a6b44a5bd40b34039bfa74b01d9b8b58cd5d55",
+      "created_at": "2026-10-16T07:00:46.900088+00:00",
+      "prefix": "aqy-ucspeed-n1-r1",
+      "returncode": 0,
+      "jobs": [
+        "aqy-ucspeed-n1-r1-20261016-150046"
+      ],
+      "cluster": "dev",
+      "cpus": 4,
+      "memory": "20Gi",
+      "gpus": 0,
+      "counts_as_main_experiment": false,
+      "pods": [
+        {
+          "name": "aqy-ucspeed-n1-r1-20261016-150046-ch9pr",
+          "phase": "Running",
+          "node": "10.94.146.67"
+        }
+      ],
+      "results_available": false
+    }
+  ],
+  "security_acceptance": {
+    "passed": true,
+    "real_oom_classified": true,
+    "real_crash_and_deadline": true,
+    "hard_cutoff_and_stopped_snapshot": true
+  },
+  "harbor_policy_prebuilt_image": {
+    "tag": "harbor-prebuilt:harbor-docker-egress-control-sidecar--b1e6760734a9e6f6",
+    "context_hash": "b1e6760734a9e6f6",
+    "runner_harbor": "0.20.0",
+    "platform": "linux/amd64",
+    "reference": "harbor-prebuilt:harbor-docker-egress-control-sidecar--b1e6760734a9e6f6",
+    "image_id": "sha256:39893727d1a1be134be66e704332b32f6ec1400d621c4c856107bb9541f7ea3b",
+    "archive_sha256": "583ca812a0b705288ce43c3cd750f28e2473e1c33ae12eddee1bd2dc44462029",
+    "source": "unmodified Harbor 0.20.0 component from pinned runner; cached digest base; build network none"
+  },
+  "baseline_interpretation": "No-model transport acceptance only; these baseline times are not n0/n1 agent outcomes or main-study calibration.",
+  "main_study_release_ready": false,
+  "linux_ci": {
+    "head": "d1a951e88f66857aa8fc1eda264044cfc7f1032d",
+    "passed": true,
+    "url": "https://github.com/aiqiuyuan/powergrid_benchmark_for_agent/actions/runs/38863274301"
+  },
+  "startup": {
+    "checked_at_utc": "2026-10-16T07:02:43Z",
+    "conditions": [
+      {
+        "n": 0,
+        "status": {
+          "phase": "model-development",
+          "manifest_sha256": "416db557ebddc2eb62abb12647a6b44a5bd40b34039bfa74b01d9b8b58cd5d55",
+          "passed": false
+        },
+        "developer": {
+          "cpus": 3,
+          "memory_bytes": 8589934592,
+          "network_mode": "none",
+          "provider_credentials_mounted": false,
+          "mounts": [
+            {
+              "destination": "/logs/verifier",
+              "writable": true
+            },
+            {
+              "destination": "/logs/agent",
+              "writable": true
+            },
+            {
+              "destination": "/code",
+              "writable": false
+            },
+            {
+              "destination": "/service",
+              "writable": false
+            },
+            {
+              "destination": "/app/AGENTS.md",
+              "writable": false
+            },
+            {
+              "destination": "/app/CLAUDE.md",
+              "writable": false
+            },
+            {
+              "destination": "/logs/artifacts",
+              "writable": true
+            }
+          ]
+        },
+        "actual_recorded_tokens": 135880,
+        "aggregate_token_cap": null,
+        "model_requests": [
+          {
+            "state": "complete",
+            "response_model": "global.openai.gpt-5.6-sol"
+          },
+          {
+            "state": "complete",
+            "response_model": "global.openai.gpt-5.6-sol"
+          },
+          {
+            "state": "complete",
+            "response_model": "global.openai.gpt-5.6-sol"
+          },
+          {
+            "state": "complete",
+            "response_model": "global.openai.gpt-5.6-sol"
+          },
+          {
+            "state": "complete",
+            "response_model": "global.openai.gpt-5.6-sol"
+          },
+          {
+            "state": "complete",
+            "response_model": "global.openai.gpt-5.6-sol"
+          },
+          {
+            "state": "complete",
+            "response_model": "global.openai.gpt-5.6-sol"
+          },
+          {
+            "state": "complete",
+            "response_model": "global.openai.gpt-5.6-sol"
+          },
+          {
+            "state": "complete",
+            "response_model": "global.openai.gpt-5.6-sol"
+          },
+          {
+            "state": "complete",
+            "response_model": "global.openai.gpt-5.6-sol"
+          },
+          {
+            "state": "complete",
+            "response_model": "global.openai.gpt-5.6-sol"
+          },
+          {
+            "state": "complete",
+            "response_model": "global.openai.gpt-5.6-sol"
+          },
+          {
+            "state": "pending",
+            "response_model": null
+          }
+        ],
+        "clock": {
+          "started_epoch": 1792134090.920929,
+          "seconds": 43200,
+          "deadline_epoch": 1792177290.920929
+        },
+        "feedback_calls": 0,
+        "feedback_collected": 0
+      },
+      {
+        "n": 1,
+        "status": {
+          "phase": "model-development",
+          "manifest_sha256": "416db557ebddc2eb62abb12647a6b44a5bd40b34039bfa74b01d9b8b58cd5d55",
+          "passed": false
+        },
+        "developer": {
+          "cpus": 3,
+          "memory_bytes": 8589934592,
+          "network_mode": "none",
+          "provider_credentials_mounted": false,
+          "mounts": [
+            {
+              "destination": "/usr/local/bin/submit",
+              "writable": false
+            },
+            {
+              "destination": "/app/AGENTS.md",
+              "writable": false
+            },
+            {
+              "destination": "/service",
+              "writable": false
+            },
+            {
+              "destination": "/usr/local/bin/result",
+              "writable": false
+            },
+            {
+              "destination": "/logs/agent",
+              "writable": true
+            },
+            {
+              "destination": "/logs/artifacts",
+              "writable": true
+            },
+            {
+              "destination": "/opt/inloop/bin",
+              "writable": false
+            },
+            {
+              "destination": "/usr/local/bin/status",
+              "writable": false
+            },
+            {
+              "destination": "/app/CLAUDE.md",
+              "writable": false
+            },
+            {
+              "destination": "/code",
+              "writable": false
+            },
+            {
+              "destination": "/judge-service",
+              "writable": false
+            },
+            {
+              "destination": "/logs/verifier",
+              "writable": true
+            }
+          ]
+        },
+        "actual_recorded_tokens": 166764,
+        "aggregate_token_cap": null,
+        "model_requests": [
+          {
+            "state": "complete",
+            "response_model": "global.openai.gpt-5.6-sol"
+          },
+          {
+            "state": "complete",
+            "response_model": "global.openai.gpt-5.6-sol"
+          },
+          {
+            "state": "complete",
+            "response_model": "global.openai.gpt-5.6-sol"
+          },
+          {
+            "state": "complete",
+            "response_model": "global.openai.gpt-5.6-sol"
+          },
+          {
+            "state": "complete",
+            "response_model": "global.openai.gpt-5.6-sol"
+          },
+          {
+            "state": "complete",
+            "response_model": "global.openai.gpt-5.6-sol"
+          },
+          {
+            "state": "complete",
+            "response_model": "global.openai.gpt-5.6-sol"
+          },
+          {
+            "state": "complete",
+            "response_model": "global.openai.gpt-5.6-sol"
+          },
+          {
+            "state": "complete",
+            "response_model": "global.openai.gpt-5.6-sol"
+          },
+          {
+            "state": "complete",
+            "response_model": "global.openai.gpt-5.6-sol"
+          },
+          {
+            "state": "complete",
+            "response_model": "global.openai.gpt-5.6-sol"
+          },
+          {
+            "state": "complete",
+            "response_model": "global.openai.gpt-5.6-sol"
+          },
+          {
+            "state": "complete",
+            "response_model": "global.openai.gpt-5.6-sol"
+          },
+          {
+            "state": "complete",
+            "response_model": "global.openai.gpt-5.6-sol"
+          },
+          {
+            "state": "pending",
+            "response_model": null
+          }
+        ],
+        "clock": {
+          "started_epoch": 1792134090.8635275,
+          "seconds": 43200,
+          "deadline_epoch": 1792177290.8635275
+        },
+        "feedback_calls": 0,
+        "feedback_collected": 0
+      }
+    ]
+  },
+  "post_startup_audit": {
+    "checked_at_utc": "2026-10-16T09:22:06Z",
+    "original_n1_feedback_scoring_valid": false,
+    "historical_n1_acceptance_was_incomplete": true,
+    "reason": "The collected n1 result was a tarfile filter API infrastructure error before scoring. Historical transport counters and terminal baseline results remain recorded, but do not prove effective feedback.",
+    "replacement_evidence": "docs/evidence/uc-speed-n1-repair-20261016.json",
+    "original_n0_preserved": true
+  }
+}
