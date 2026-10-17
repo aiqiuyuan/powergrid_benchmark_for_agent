@@ -1,6 +1,6 @@
 {
   "schema_version": "rte-feedback-v2-launch-evidence-v1",
-  "observed_at_utc": "2026-10-17T05:23:48.606238+00:00",
+  "observed_at_utc": "2026-10-17T05:30:41.579725+00:00",
   "task": "rte-maintenance-abc-x15-v2",
   "protocol": "rte2020-abc-x15-v2",
   "source_manifest_sha256": "75d9b480cc2105b6831991a8fd65249af5f26f13f90dd8b20f4597bca59fcd1b",
@@ -193,11 +193,11 @@
       "n10-r3"
     ],
     "formal_pod_phase_counts": {
-      "Running": 6,
-      "Pending": 9
+      "Running": 7,
+      "Pending": 8
     },
-    "development_receipts_observed": 0,
-    "formal_model_response_runs": 0,
+    "development_receipts_observed": 6,
+    "formal_model_response_runs": 6,
     "primary_completed": 0,
     "supplementary_completed": 0,
     "pending_reason_categories": [
@@ -221,17 +221,26 @@
           "positive_n_budget_matches": null
         },
         "development": {
-          "receipt_present": false
+          "receipt_present": true,
+          "phase": "agent_running",
+          "time_budget_seconds": 43200.0,
+          "aggregate_token_cap_is_none": true,
+          "started_at": "2026-10-17T05:26:42.922868+00:00",
+          "development_deadline": "2026-10-17T17:26:42.922868+00:00",
+          "elapsed_seconds": 234.4,
+          "seconds_remaining": 42965.6
         },
         "model": {
-          "segments": 0,
-          "model_messages": 0,
-          "response_models": [],
-          "expected_model_only": false,
+          "segments": 1,
+          "model_messages": 132,
+          "response_models": [
+            "global.openai.gpt-5.6-sol"
+          ],
+          "expected_model_only": true,
           "api_error_events": 0,
-          "successful_Read": 0,
-          "successful_Bash": 0,
-          "partial_or_malformed_lines": 0
+          "successful_Read": 32,
+          "successful_Bash": 27,
+          "partial_or_malformed_lines": 1
         },
         "feedback": {
           "present": false,
@@ -262,17 +271,26 @@
           "positive_n_budget_matches": null
         },
         "development": {
-          "receipt_present": false
+          "receipt_present": true,
+          "phase": "agent_running",
+          "time_budget_seconds": 43200.0,
+          "aggregate_token_cap_is_none": true,
+          "started_at": "2026-10-17T05:27:09.832660+00:00",
+          "development_deadline": "2026-10-17T17:27:09.832660+00:00",
+          "elapsed_seconds": 207.7,
+          "seconds_remaining": 42992.3
         },
         "model": {
-          "segments": 0,
-          "model_messages": 0,
-          "response_models": [],
-          "expected_model_only": false,
+          "segments": 1,
+          "model_messages": 128,
+          "response_models": [
+            "global.openai.gpt-5.6-sol"
+          ],
+          "expected_model_only": true,
           "api_error_events": 0,
-          "successful_Read": 0,
-          "successful_Bash": 0,
-          "partial_or_malformed_lines": 0
+          "successful_Read": 24,
+          "successful_Bash": 38,
+          "partial_or_malformed_lines": 1
         },
         "feedback": {
           "present": false,
@@ -314,6 +332,56 @@
           "positive_n_budget_matches": true
         },
         "development": {
+          "receipt_present": true,
+          "phase": "agent_running",
+          "time_budget_seconds": 43200.0,
+          "aggregate_token_cap_is_none": true,
+          "started_at": "2026-10-17T05:27:57.052451+00:00",
+          "development_deadline": "2026-10-17T17:27:57.052451+00:00",
+          "elapsed_seconds": 160.8,
+          "seconds_remaining": 43039.2
+        },
+        "model": {
+          "segments": 1,
+          "model_messages": 183,
+          "response_models": [
+            "global.openai.gpt-5.6-sol"
+          ],
+          "expected_model_only": true,
+          "api_error_events": 0,
+          "successful_Read": 52,
+          "successful_Bash": 48,
+          "partial_or_malformed_lines": 1
+        },
+        "feedback": {
+          "present": false,
+          "rows": 0,
+          "feedback_used": 0,
+          "feedback_collected": 0,
+          "completed_panels": 0,
+          "infra_error_panels": 0,
+          "parsed_feedback_panels": 0,
+          "complete_v2_feedback_panels": 0,
+          "rich_diagnostic_panels": 0,
+          "truncated_panels": 0,
+          "partial_or_malformed_rows": 0
+        },
+        "disk_preflight_passed": true
+      },
+      {
+        "role": "n1-r2",
+        "submitted": true,
+        "pod_phase": "Running",
+        "lifecycle_phase": "harbor_running",
+        "plan": {
+          "plan_present": true,
+          "judge_declared": true,
+          "ledger_declared": true,
+          "declared_feedback_budget": 1,
+          "n0_judge_absent": null,
+          "positive_n_budget_matches": true
+        },
+        "development": {
           "receipt_present": false
         },
         "model": {
@@ -342,17 +410,6 @@
         "disk_preflight_passed": true
       },
       {
-        "role": "n1-r2",
-        "submitted": true,
-        "pod_phase": "Pending",
-        "lifecycle_phase": "not_started",
-        "plan": null,
-        "development": null,
-        "model": null,
-        "feedback": null,
-        "disk_preflight_passed": null
-      },
-      {
         "role": "n1-r3",
         "submitted": true,
         "pod_phase": "Pending",
@@ -377,22 +434,31 @@
           "positive_n_budget_matches": true
         },
         "development": {
-          "receipt_present": false
+          "receipt_present": true,
+          "phase": "agent_running",
+          "time_budget_seconds": 43200.0,
+          "aggregate_token_cap_is_none": true,
+          "started_at": "2026-10-17T05:28:06.974664+00:00",
+          "development_deadline": "2026-10-17T17:28:06.974664+00:00",
+          "elapsed_seconds": 151.2,
+          "seconds_remaining": 43048.8
         },
         "model": {
-          "segments": 0,
-          "model_messages": 0,
-          "response_models": [],
-          "expected_model_only": false,
+          "segments": 1,
+          "model_messages": 180,
+          "response_models": [
+            "global.openai.gpt-5.6-sol"
+          ],
+          "expected_model_only": true,
           "api_error_events": 0,
-          "successful_Read": 0,
-          "successful_Bash": 0,
-          "partial_or_malformed_lines": 0
+          "successful_Read": 42,
+          "successful_Bash": 41,
+          "partial_or_malformed_lines": 1
         },
         "feedback": {
-          "present": false,
-          "rows": 0,
-          "feedback_used": 0,
+          "present": true,
+          "rows": 1,
+          "feedback_used": 1,
           "feedback_collected": 0,
           "completed_panels": 0,
           "infra_error_panels": 0,
@@ -440,17 +506,26 @@
           "positive_n_budget_matches": true
         },
         "development": {
-          "receipt_present": false
+          "receipt_present": true,
+          "phase": "agent_running",
+          "time_budget_seconds": 43200.0,
+          "aggregate_token_cap_is_none": true,
+          "started_at": "2026-10-17T05:27:20.749295+00:00",
+          "development_deadline": "2026-10-17T17:27:20.749295+00:00",
+          "elapsed_seconds": 197.6,
+          "seconds_remaining": 43002.4
         },
         "model": {
-          "segments": 0,
-          "model_messages": 0,
-          "response_models": [],
-          "expected_model_only": false,
+          "segments": 1,
+          "model_messages": 121,
+          "response_models": [
+            "global.openai.gpt-5.6-sol"
+          ],
+          "expected_model_only": true,
           "api_error_events": 0,
-          "successful_Read": 0,
-          "successful_Bash": 0,
-          "partial_or_malformed_lines": 0
+          "successful_Read": 28,
+          "successful_Bash": 21,
+          "partial_or_malformed_lines": 1
         },
         "feedback": {
           "present": false,
@@ -503,17 +578,26 @@
           "positive_n_budget_matches": true
         },
         "development": {
-          "receipt_present": false
+          "receipt_present": true,
+          "phase": "agent_running",
+          "time_budget_seconds": 43200.0,
+          "aggregate_token_cap_is_none": true,
+          "started_at": "2026-10-17T05:28:07.120045+00:00",
+          "development_deadline": "2026-10-17T17:28:07.120045+00:00",
+          "elapsed_seconds": 151.5,
+          "seconds_remaining": 43048.5
         },
         "model": {
-          "segments": 0,
-          "model_messages": 0,
-          "response_models": [],
-          "expected_model_only": false,
+          "segments": 1,
+          "model_messages": 134,
+          "response_models": [
+            "global.openai.gpt-5.6-sol"
+          ],
+          "expected_model_only": true,
           "api_error_events": 0,
-          "successful_Read": 0,
-          "successful_Bash": 0,
-          "partial_or_malformed_lines": 0
+          "successful_Read": 49,
+          "successful_Bash": 34,
+          "partial_or_malformed_lines": 1
         },
         "feedback": {
           "present": false,
@@ -552,7 +636,17 @@
         "feedback": null,
         "disk_preflight_passed": null
       }
-    ]
+    ],
+    "formal_model_and_Read_Bash_verified_runs": 6,
+    "formal_api_error_events": 0,
+    "all_observed_development_budgets_match": true,
+    "formal_feedback_accepted": 1,
+    "formal_feedback_collected": 0,
+    "distinct_running_hosts": 7,
+    "startup_budgets_materialized": 7,
+    "phase_scope_note": "Running includes setup; six model and tool streams verified; one additional setup; eight queued; no final research result",
+    "outer_resources_match_all_running": true,
+    "running_container_restarts": 0
   },
   "verification": {
     "task_tests_passed": 33,

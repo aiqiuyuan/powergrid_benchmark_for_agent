@@ -1,6 +1,6 @@
 # PowerGrid Benchmark for Agent
 
-**2026-10-17反馈v2已重新提交：完整15组于13:19:59–13:20:05（Asia/Shanghai）创建成功，13:20:17启动快照为6个Running、9个Pending；Running仍在镜像／Harbor启动阶段，尚不代表开发agent已开始。** 当前v2已通过33项任务测试、18项原生提交／主成绩审计测试、初次CI的8项检查，真实n=0／n=1模型／工具／反馈验收及完整工业X15资源门禁通过。采用15分钟主评测、90分钟补充，先比可行例数、同覆盖再比质量，返回完整15例结构化诊断。**12小时开发、截止主成绩和补充结果均尚未完成。** [中文启动记录](docs/completion-rte-feedback-v2-launch-20261017.md)、[脱敏凭据](docs/evidence/rte-feedback-v2-launch-20261017.json)、[协议](docs/protocol/rte-feedback-v2.md)、[新任务包](task-packages/rte-maintenance-abc-x15-v2/README.md)。原v1七组恢复继续暂缓，旧八组90分钟结果独立保留；[恢复说明](docs/completion-rte-recovery-20261017.md)、[n=0历史分析](docs/experiments/rte-feedback-trajectory-analysis-20261017.md)。
+**2026-10-17反馈v2已重新提交：完整15组于13:19:59–13:20:05（Asia/Shanghai）创建成功，13:30:41启动快照为7个Running、8个Pending；其中6组已实际开发，预期模型与Read／Bash正常，API错误0，另1组初始化。** 当前v2已通过33项任务测试、18项原生提交／主成绩审计测试、初次CI的8项检查，真实n=0／n=1模型／工具／反馈验收及完整工业X15资源门禁通过。采用15分钟主评测、90分钟补充，先比可行例数、同覆盖再比质量，返回完整15例结构化诊断。**12小时开发、截止主成绩和补充结果均尚未完成。** [中文启动记录](docs/completion-rte-feedback-v2-launch-20261017.md)、[脱敏凭据](docs/evidence/rte-feedback-v2-launch-20261017.json)、[协议](docs/protocol/rte-feedback-v2.md)、[新任务包](task-packages/rte-maintenance-abc-x15-v2/README.md)。原v1七组恢复继续暂缓，旧八组90分钟结果独立保留；[恢复说明](docs/completion-rte-recovery-20261017.md)、[n=0历史分析](docs/experiments/rte-feedback-trajectory-analysis-20261017.md)。
 
 面向能源领域优化与ML的算法演化Benchmark。**当前优先完成RTE任务：ABC45开放开发和官方checker自测，X15受保护评测；过程反馈与截止主评测均每例15分钟、评测端15 CPU并行；同一截止源码每例90分钟补充评测，不回流开发。** n控制完整X面板的受理次数，ABC自测不计n。X同时用于反馈和终评，不声称独立未见测试。其他四任务暂沿用固定高难case的第一阶段设计。
 
