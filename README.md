@@ -10,6 +10,8 @@
 
 原[n=0/1流程小测](configs/unit-commitment-speed.canary.json)已结束：n=0在截止收尾时失败、最终分数缺失；修复后重跑的n=1终评Reward为0.8594457102583126。框架现已修复为截止前冻结、只读发布及终评哈希核对。2026-10-17用户授权[n=0/1/3各三次全新开发](configs/unit-commitment-speed.n013-three-repeats.json)，覆盖此前不重跑n=0的限制；历史成绩保留且不计入新九次。新版本已通过同源码n=0/1/3完整UC与真实模型验收，九个作业已于13:20提交、13:21核验均进入模型开发；完整状态以[最新task card](docs/task-cards/unit-commitment.md)及新配置为准。仍使用完整RTS流程用例，UC多case主实验尚未发布。
 
+2026-10-18新增[n=5/10各三次独立开发](configs/unit-commitment-speed.n510-three-repeats.json)：本版完整数值及真实模型验收通过后，16:29提交六个唯一Job；16:34启动核对均Running且已有真实模型响应。启动同时记录到失败模型请求，逐组计数和未证实的原因见[task card §19](docs/task-cards/unit-commitment.md#19-n510各三次全新重复2026-10-18)及[证据](docs/evidence/uc-speed-n510-three-repeats-20261018.json)。仍沿用12小时、无累计token cap与同一RTS流程用例，未发布多case主实验。
+
 **本轮研究设计已定：五task × n=0／1／3／5／10 × 三次独立开发，共75次；每次开发上限12小时，累计token不限且无累计预留截断。L2RPN主线恢复原赛动作范围，包括redispatch，在统一条件下重跑基线；375动作版本单列。** 本次已完成RTE启动门禁并提交15个正式run；其余任务的模型、实际资源、逐例执行限额、case ID和成本校准仍需逐项确定。正式研究结果尚未完成。新主线先按task分别报告原始指标，不设置跨task总分。
 
 **当前状态：Benchmark `v0.1-design`；已有独立参考实现版本为`0.2.0`。更新：2026-10-16。** 本阶段研究政策已整理，五任务运行包尚未全部适配。此前RTE在历史A4校准数据上通过Harbor／真实模型n=0、n=1配对canary，验证过旧公共选择、计数反馈／ACK、共同截止及独立终评；它不证明新ABC／X15模式、并行资源或新版网络限制已经验收。现有参考代码保留，不作为个人侧必迁路线；没有发布正式能源榜单。

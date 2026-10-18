@@ -1,0 +1,1132 @@
+{
+  "schema_version": "uc-speed-six-run-submission-evidence-v1",
+  "checked_at_utc": "2026-10-18T08:34:15.867262+00:00",
+  "campaign": "uc-speed-n510-three-repeats-20261018-v8",
+  "manifest_sha256": "42217a80e99c2e0c1359ce353b1467b54adda05e2d7fc4907e06023614744771",
+  "source_files": 98,
+  "local_tests": {
+    "preparation": 47,
+    "numerical": 17,
+    "all_passed": true
+  },
+  "isolated_real_serve_entry_checks": 9,
+  "independent_code_review": "passed-no-blocking-findings",
+  "counts_as_main_experiment": false,
+  "native_acceptance": {
+    "status": {
+      "passed": true,
+      "phase": "completed",
+      "manifest_sha256": "42217a80e99c2e0c1359ce353b1467b54adda05e2d7fc4907e06023614744771"
+    },
+    "submission": {
+      "role": "acceptance",
+      "n": 5,
+      "repeat": null,
+      "manifest_sha256": "42217a80e99c2e0c1359ce353b1467b54adda05e2d7fc4907e06023614744771",
+      "created_at": "2026-10-18T07:56:50.791403+00:00",
+      "prefix": "aqy-uc8-acceptance",
+      "returncode": 0,
+      "jobs": [
+        "aqy-uc8-acceptance-20261018-155650"
+      ],
+      "cluster": "dev",
+      "cpus": 4,
+      "memory": "20Gi",
+      "gpus": 0,
+      "counts_as_main_experiment": false
+    },
+    "security": {
+      "passed": true,
+      "real_oom_classified": true,
+      "real_crash_and_deadline": true,
+      "hard_cutoff_and_stopped_snapshot": true
+    },
+    "n5": {
+      "passed": true,
+      "feedback_budget": 5,
+      "feedback_calls": 5,
+      "feedback_collected": 5,
+      "feedback_evaluations_completed": 5,
+      "feedback_infrastructure_ok": true,
+      "finalization_eligible": true,
+      "exception_type": null,
+      "development_seconds": 3000,
+      "score": {
+        "valid": true,
+        "evaluation_completed": true,
+        "reward": 0.885311481302811
+      },
+      "graded_source_matches_certified_freeze": true,
+      "transport": {
+        "passed": true,
+        "n": 5,
+        "idempotent_content_retry": true,
+        "over_budget_rejected": true,
+        "late_feedback_suppressed": true,
+        "feedback_evaluation_completed_and_feasible": true,
+        "network_mode": "none",
+        "certified_snapshot_before_cleanup": true,
+        "read_only_terminal_artifact": true
+      }
+    },
+    "n10": {
+      "passed": true,
+      "feedback_budget": 10,
+      "feedback_calls": 10,
+      "feedback_collected": 10,
+      "feedback_evaluations_completed": 10,
+      "feedback_infrastructure_ok": true,
+      "finalization_eligible": true,
+      "exception_type": null,
+      "development_seconds": 6000,
+      "score": {
+        "valid": true,
+        "evaluation_completed": true,
+        "reward": 0.8684343570408721
+      },
+      "graded_source_matches_certified_freeze": true,
+      "transport": {
+        "passed": true,
+        "n": 10,
+        "idempotent_content_retry": true,
+        "over_budget_rejected": true,
+        "late_feedback_suppressed": true,
+        "feedback_evaluation_completed_and_feasible": true,
+        "network_mode": "none",
+        "certified_snapshot_before_cleanup": true,
+        "read_only_terminal_artifact": true
+      }
+    }
+  },
+  "real_model_acceptance": {
+    "status": {
+      "passed": true,
+      "phase": "completed",
+      "manifest_sha256": "42217a80e99c2e0c1359ce353b1467b54adda05e2d7fc4907e06023614744771"
+    },
+    "submission": {
+      "role": "api-smoke",
+      "n": 5,
+      "repeat": null,
+      "manifest_sha256": "42217a80e99c2e0c1359ce353b1467b54adda05e2d7fc4907e06023614744771",
+      "created_at": "2026-10-18T08:24:00.231369+00:00",
+      "prefix": "aqy-uc8-api-smoke",
+      "returncode": 0,
+      "jobs": [
+        "aqy-uc8-api-smoke-20261018-162400"
+      ],
+      "cluster": "dev",
+      "cpus": 4,
+      "memory": "20Gi",
+      "gpus": 0,
+      "counts_as_main_experiment": false
+    },
+    "completion": {
+      "passed": true,
+      "feedback_budget": 5,
+      "feedback_calls": 0,
+      "feedback_collected": 0,
+      "feedback_evaluations_completed": 0,
+      "feedback_infrastructure_ok": true,
+      "finalization_eligible": true,
+      "exception_type": null,
+      "development_seconds": 300,
+      "score": {
+        "valid": true,
+        "evaluation_completed": true,
+        "reward": 0.8989928023092862
+      },
+      "graded_source_matches_certified_freeze": true,
+      "transport": null
+    },
+    "tool": {
+      "passed": true,
+      "pinned_client": "2.1.280",
+      "aggregate_token_cap": null,
+      "output_token_override": null
+    },
+    "model_successes": 2,
+    "model_failures": 0,
+    "actual_recorded_tokens": 26579,
+    "aggregate_token_cap": null,
+    "response_models": [
+      "global.openai.gpt-5.6-sol"
+    ]
+  },
+  "batch": {
+    "manifest_sha256": "42217a80e99c2e0c1359ce353b1467b54adda05e2d7fc4907e06023614744771",
+    "roles": [
+      "n5-r1",
+      "n10-r1",
+      "n5-r2",
+      "n10-r2",
+      "n5-r3",
+      "n10-r3"
+    ],
+    "phase": "submitted",
+    "submitted": 6,
+    "completed_at": "2026-10-18T08:29:47.281016+00:00",
+    "receipts": [
+      {
+        "role": "n5-r1",
+        "n": 5,
+        "repeat": 1,
+        "manifest_sha256": "42217a80e99c2e0c1359ce353b1467b54adda05e2d7fc4907e06023614744771",
+        "created_at": "2026-10-18T08:29:45.812167+00:00",
+        "prefix": "aqy-uc8-n5-r1",
+        "returncode": 0,
+        "jobs": [
+          "aqy-uc8-n5-r1-20261018-162945"
+        ],
+        "cluster": "dev",
+        "cpus": 4,
+        "memory": "20Gi",
+        "gpus": 0,
+        "counts_as_main_experiment": false
+      },
+      {
+        "role": "n10-r1",
+        "n": 10,
+        "repeat": 1,
+        "manifest_sha256": "42217a80e99c2e0c1359ce353b1467b54adda05e2d7fc4907e06023614744771",
+        "created_at": "2026-10-18T08:29:46.087037+00:00",
+        "prefix": "aqy-uc8-n10-r1",
+        "returncode": 0,
+        "jobs": [
+          "aqy-uc8-n10-r1-20261018-162946"
+        ],
+        "cluster": "dev",
+        "cpus": 4,
+        "memory": "20Gi",
+        "gpus": 0,
+        "counts_as_main_experiment": false
+      },
+      {
+        "role": "n5-r2",
+        "n": 5,
+        "repeat": 2,
+        "manifest_sha256": "42217a80e99c2e0c1359ce353b1467b54adda05e2d7fc4907e06023614744771",
+        "created_at": "2026-10-18T08:29:46.364300+00:00",
+        "prefix": "aqy-uc8-n5-r2",
+        "returncode": 0,
+        "jobs": [
+          "aqy-uc8-n5-r2-20261018-162946"
+        ],
+        "cluster": "dev",
+        "cpus": 4,
+        "memory": "20Gi",
+        "gpus": 0,
+        "counts_as_main_experiment": false
+      },
+      {
+        "role": "n10-r2",
+        "n": 10,
+        "repeat": 2,
+        "manifest_sha256": "42217a80e99c2e0c1359ce353b1467b54adda05e2d7fc4907e06023614744771",
+        "created_at": "2026-10-18T08:29:46.642969+00:00",
+        "prefix": "aqy-uc8-n10-r2",
+        "returncode": 0,
+        "jobs": [
+          "aqy-uc8-n10-r2-20261018-162946"
+        ],
+        "cluster": "dev",
+        "cpus": 4,
+        "memory": "20Gi",
+        "gpus": 0,
+        "counts_as_main_experiment": false
+      },
+      {
+        "role": "n5-r3",
+        "n": 5,
+        "repeat": 3,
+        "manifest_sha256": "42217a80e99c2e0c1359ce353b1467b54adda05e2d7fc4907e06023614744771",
+        "created_at": "2026-10-18T08:29:46.863481+00:00",
+        "prefix": "aqy-uc8-n5-r3",
+        "returncode": 0,
+        "jobs": [
+          "aqy-uc8-n5-r3-20261018-162946"
+        ],
+        "cluster": "dev",
+        "cpus": 4,
+        "memory": "20Gi",
+        "gpus": 0,
+        "counts_as_main_experiment": false
+      },
+      {
+        "role": "n10-r3",
+        "n": 10,
+        "repeat": 3,
+        "manifest_sha256": "42217a80e99c2e0c1359ce353b1467b54adda05e2d7fc4907e06023614744771",
+        "created_at": "2026-10-18T08:29:47.147557+00:00",
+        "prefix": "aqy-uc8-n10-r3",
+        "returncode": 0,
+        "jobs": [
+          "aqy-uc8-n10-r3-20261018-162947"
+        ],
+        "cluster": "dev",
+        "cpus": 4,
+        "memory": "20Gi",
+        "gpus": 0,
+        "counts_as_main_experiment": false
+      }
+    ]
+  },
+  "controller": {
+    "phase": "submitted-six",
+    "manifest_sha256": "42217a80e99c2e0c1359ce353b1467b54adda05e2d7fc4907e06023614744771"
+  },
+  "controller_sha256": "3020219d9b460ae1b34fdb35026f40cf20983da73b788cb00ecd71af1ab6d8f5",
+  "runs": [
+    {
+      "role": "n5-r1",
+      "n": 5,
+      "repeat": 1,
+      "job": "aqy-uc8-n5-r1-20261018-162945",
+      "job_uid": "48ae3750-f047-4f3c-a2c1-67db04033c23",
+      "job_status": {
+        "active": 1,
+        "ready": 1,
+        "startTime": "2026-10-18T08:29:45Z",
+        "conditions": []
+      },
+      "pods": [
+        {
+          "name": "aqy-uc8-n5-r1-20261018-162945-mz75v",
+          "uid": "53e652e9-9043-4e1e-a1ad-da648c328a1f",
+          "node": "10.94.146.76",
+          "phase": "Running",
+          "reason": null,
+          "resources": [
+            {
+              "limits": {
+                "cce.baidubce.com/ip": "1",
+                "cpu": "4",
+                "memory": "20Gi"
+              },
+              "requests": {
+                "cce.baidubce.com/ip": "1",
+                "cpu": "4",
+                "memory": "20Gi"
+              }
+            }
+          ],
+          "containers": [
+            {
+              "name": "main",
+              "ready": true,
+              "restartCount": 0,
+              "imageID": "iregistry.baidu-int.com/chenmingju/tb-runner-dind@sha256:39b8159e18fabe9c662f34dd02e85269b58253ab4cc3ae1b0b05e917d810644b",
+              "state": {
+                "running": {
+                  "startedAt": "2026-10-18T08:29:48Z"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "runner_status": {
+        "phase": "model-development",
+        "manifest_sha256": "42217a80e99c2e0c1359ce353b1467b54adda05e2d7fc4907e06023614744771",
+        "passed": false
+      },
+      "identity": {
+        "n": 5,
+        "repeat": 1,
+        "role": "n5-r1",
+        "manifest_sha256": "42217a80e99c2e0c1359ce353b1467b54adda05e2d7fc4907e06023614744771",
+        "independent_developer_run": true
+      },
+      "developer_audit": {
+        "cpus": 3,
+        "memory_bytes": 8589934592,
+        "network_mode": "none",
+        "provider_credentials_mounted": false,
+        "mounts": [
+          {
+            "destination": "/opt/inloop/bin",
+            "writable": false
+          },
+          {
+            "destination": "/code",
+            "writable": false
+          },
+          {
+            "destination": "/service",
+            "writable": false
+          },
+          {
+            "destination": "/usr/local/bin/result",
+            "writable": false
+          },
+          {
+            "destination": "/usr/local/bin/status",
+            "writable": false
+          },
+          {
+            "destination": "/app/final-submission",
+            "writable": false
+          },
+          {
+            "destination": "/logs/agent",
+            "writable": true
+          },
+          {
+            "destination": "/usr/local/bin/submit",
+            "writable": false
+          },
+          {
+            "destination": "/app/CLAUDE.md",
+            "writable": false
+          },
+          {
+            "destination": "/app/AGENTS.md",
+            "writable": false
+          },
+          {
+            "destination": "/judge-service",
+            "writable": false
+          },
+          {
+            "destination": "/logs/artifacts",
+            "writable": true
+          },
+          {
+            "destination": "/logs/verifier",
+            "writable": true
+          }
+        ]
+      },
+      "clock": {
+        "started_epoch": 1792312230.2373652,
+        "seconds": 43200,
+        "deadline_epoch": 1792355430.2373652
+      },
+      "model_successes": 28,
+      "model_failures": 1,
+      "actual_recorded_tokens": 458711,
+      "aggregate_token_cap": null,
+      "response_models": [
+        "global.openai.gpt-5.6-sol"
+      ],
+      "feedback_count": 0,
+      "feedback_completed": 0,
+      "feedback_feasible": 0,
+      "feedback_collected": 0
+    },
+    {
+      "role": "n10-r1",
+      "n": 10,
+      "repeat": 1,
+      "job": "aqy-uc8-n10-r1-20261018-162946",
+      "job_uid": "a4f27070-48f6-4cf4-95db-0b0d6d210fd7",
+      "job_status": {
+        "active": 1,
+        "ready": 1,
+        "startTime": "2026-10-18T08:29:46Z",
+        "conditions": []
+      },
+      "pods": [
+        {
+          "name": "aqy-uc8-n10-r1-20261018-162946-f9d4d",
+          "uid": "bd7e9991-66eb-4575-8073-6c22347f2669",
+          "node": "10.94.146.80",
+          "phase": "Running",
+          "reason": null,
+          "resources": [
+            {
+              "limits": {
+                "cce.baidubce.com/ip": "1",
+                "cpu": "4",
+                "memory": "20Gi"
+              },
+              "requests": {
+                "cce.baidubce.com/ip": "1",
+                "cpu": "4",
+                "memory": "20Gi"
+              }
+            }
+          ],
+          "containers": [
+            {
+              "name": "main",
+              "ready": true,
+              "restartCount": 0,
+              "imageID": "iregistry.baidu-int.com/chenmingju/tb-runner-dind@sha256:39b8159e18fabe9c662f34dd02e85269b58253ab4cc3ae1b0b05e917d810644b",
+              "state": {
+                "running": {
+                  "startedAt": "2026-10-18T08:29:47Z"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "runner_status": {
+        "phase": "model-development",
+        "manifest_sha256": "42217a80e99c2e0c1359ce353b1467b54adda05e2d7fc4907e06023614744771",
+        "passed": false
+      },
+      "identity": {
+        "n": 10,
+        "repeat": 1,
+        "role": "n10-r1",
+        "manifest_sha256": "42217a80e99c2e0c1359ce353b1467b54adda05e2d7fc4907e06023614744771",
+        "independent_developer_run": true
+      },
+      "developer_audit": {
+        "cpus": 3,
+        "memory_bytes": 8589934592,
+        "network_mode": "none",
+        "provider_credentials_mounted": false,
+        "mounts": [
+          {
+            "destination": "/usr/local/bin/result",
+            "writable": false
+          },
+          {
+            "destination": "/logs/agent",
+            "writable": true
+          },
+          {
+            "destination": "/logs/artifacts",
+            "writable": true
+          },
+          {
+            "destination": "/usr/local/bin/status",
+            "writable": false
+          },
+          {
+            "destination": "/app/CLAUDE.md",
+            "writable": false
+          },
+          {
+            "destination": "/code",
+            "writable": false
+          },
+          {
+            "destination": "/service",
+            "writable": false
+          },
+          {
+            "destination": "/judge-service",
+            "writable": false
+          },
+          {
+            "destination": "/opt/inloop/bin",
+            "writable": false
+          },
+          {
+            "destination": "/usr/local/bin/submit",
+            "writable": false
+          },
+          {
+            "destination": "/app/AGENTS.md",
+            "writable": false
+          },
+          {
+            "destination": "/app/final-submission",
+            "writable": false
+          },
+          {
+            "destination": "/logs/verifier",
+            "writable": true
+          }
+        ]
+      },
+      "clock": {
+        "started_epoch": 1792312226.237651,
+        "seconds": 43200,
+        "deadline_epoch": 1792355426.237651
+      },
+      "model_successes": 34,
+      "model_failures": 53,
+      "actual_recorded_tokens": 654416,
+      "aggregate_token_cap": null,
+      "response_models": [
+        "global.openai.gpt-5.6-sol"
+      ],
+      "feedback_count": 1,
+      "feedback_completed": 1,
+      "feedback_feasible": 1,
+      "feedback_collected": 1
+    },
+    {
+      "role": "n5-r2",
+      "n": 5,
+      "repeat": 2,
+      "job": "aqy-uc8-n5-r2-20261018-162946",
+      "job_uid": "e63d5f72-84c9-4569-9c24-4785a1e8916f",
+      "job_status": {
+        "active": 1,
+        "ready": 1,
+        "startTime": "2026-10-18T08:29:46Z",
+        "conditions": []
+      },
+      "pods": [
+        {
+          "name": "aqy-uc8-n5-r2-20261018-162946-khpz4",
+          "uid": "3828fc70-7a43-4315-8367-f6a26c391ff3",
+          "node": "10.94.146.80",
+          "phase": "Running",
+          "reason": null,
+          "resources": [
+            {
+              "limits": {
+                "cce.baidubce.com/ip": "1",
+                "cpu": "4",
+                "memory": "20Gi"
+              },
+              "requests": {
+                "cce.baidubce.com/ip": "1",
+                "cpu": "4",
+                "memory": "20Gi"
+              }
+            }
+          ],
+          "containers": [
+            {
+              "name": "main",
+              "ready": true,
+              "restartCount": 0,
+              "imageID": "iregistry.baidu-int.com/chenmingju/tb-runner-dind@sha256:39b8159e18fabe9c662f34dd02e85269b58253ab4cc3ae1b0b05e917d810644b",
+              "state": {
+                "running": {
+                  "startedAt": "2026-10-18T08:29:48Z"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "runner_status": {
+        "phase": "model-development",
+        "manifest_sha256": "42217a80e99c2e0c1359ce353b1467b54adda05e2d7fc4907e06023614744771",
+        "passed": false
+      },
+      "identity": {
+        "n": 5,
+        "repeat": 2,
+        "role": "n5-r2",
+        "manifest_sha256": "42217a80e99c2e0c1359ce353b1467b54adda05e2d7fc4907e06023614744771",
+        "independent_developer_run": true
+      },
+      "developer_audit": {
+        "cpus": 3,
+        "memory_bytes": 8589934592,
+        "network_mode": "none",
+        "provider_credentials_mounted": false,
+        "mounts": [
+          {
+            "destination": "/app/AGENTS.md",
+            "writable": false
+          },
+          {
+            "destination": "/logs/agent",
+            "writable": true
+          },
+          {
+            "destination": "/usr/local/bin/status",
+            "writable": false
+          },
+          {
+            "destination": "/code",
+            "writable": false
+          },
+          {
+            "destination": "/usr/local/bin/result",
+            "writable": false
+          },
+          {
+            "destination": "/judge-service",
+            "writable": false
+          },
+          {
+            "destination": "/opt/inloop/bin",
+            "writable": false
+          },
+          {
+            "destination": "/usr/local/bin/submit",
+            "writable": false
+          },
+          {
+            "destination": "/app/CLAUDE.md",
+            "writable": false
+          },
+          {
+            "destination": "/app/final-submission",
+            "writable": false
+          },
+          {
+            "destination": "/service",
+            "writable": false
+          },
+          {
+            "destination": "/logs/verifier",
+            "writable": true
+          },
+          {
+            "destination": "/logs/artifacts",
+            "writable": true
+          }
+        ]
+      },
+      "clock": {
+        "started_epoch": 1792312226.056213,
+        "seconds": 43200,
+        "deadline_epoch": 1792355426.056213
+      },
+      "model_successes": 37,
+      "model_failures": 29,
+      "actual_recorded_tokens": 837625,
+      "aggregate_token_cap": null,
+      "response_models": [
+        "global.openai.gpt-5.6-sol"
+      ],
+      "feedback_count": 0,
+      "feedback_completed": 0,
+      "feedback_feasible": 0,
+      "feedback_collected": 0
+    },
+    {
+      "role": "n10-r2",
+      "n": 10,
+      "repeat": 2,
+      "job": "aqy-uc8-n10-r2-20261018-162946",
+      "job_uid": "b4ef036a-5aa0-46fc-b099-6512657f894c",
+      "job_status": {
+        "active": 1,
+        "ready": 1,
+        "startTime": "2026-10-18T08:29:46Z",
+        "conditions": []
+      },
+      "pods": [
+        {
+          "name": "aqy-uc8-n10-r2-20261018-162946-rnxmt",
+          "uid": "2051d66e-ad85-450b-8218-0695a80767e3",
+          "node": "10.94.146.77",
+          "phase": "Running",
+          "reason": null,
+          "resources": [
+            {
+              "limits": {
+                "cce.baidubce.com/ip": "1",
+                "cpu": "4",
+                "memory": "20Gi"
+              },
+              "requests": {
+                "cce.baidubce.com/ip": "1",
+                "cpu": "4",
+                "memory": "20Gi"
+              }
+            }
+          ],
+          "containers": [
+            {
+              "name": "main",
+              "ready": true,
+              "restartCount": 0,
+              "imageID": "iregistry.baidu-int.com/chenmingju/tb-runner-dind@sha256:39b8159e18fabe9c662f34dd02e85269b58253ab4cc3ae1b0b05e917d810644b",
+              "state": {
+                "running": {
+                  "startedAt": "2026-10-18T08:29:48Z"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "runner_status": {
+        "phase": "model-development",
+        "manifest_sha256": "42217a80e99c2e0c1359ce353b1467b54adda05e2d7fc4907e06023614744771",
+        "passed": false
+      },
+      "identity": {
+        "n": 10,
+        "repeat": 2,
+        "role": "n10-r2",
+        "manifest_sha256": "42217a80e99c2e0c1359ce353b1467b54adda05e2d7fc4907e06023614744771",
+        "independent_developer_run": true
+      },
+      "developer_audit": {
+        "cpus": 3,
+        "memory_bytes": 8589934592,
+        "network_mode": "none",
+        "provider_credentials_mounted": false,
+        "mounts": [
+          {
+            "destination": "/logs/verifier",
+            "writable": true
+          },
+          {
+            "destination": "/logs/agent",
+            "writable": true
+          },
+          {
+            "destination": "/service",
+            "writable": false
+          },
+          {
+            "destination": "/app/final-submission",
+            "writable": false
+          },
+          {
+            "destination": "/code",
+            "writable": false
+          },
+          {
+            "destination": "/judge-service",
+            "writable": false
+          },
+          {
+            "destination": "/app/CLAUDE.md",
+            "writable": false
+          },
+          {
+            "destination": "/logs/artifacts",
+            "writable": true
+          },
+          {
+            "destination": "/usr/local/bin/result",
+            "writable": false
+          },
+          {
+            "destination": "/usr/local/bin/submit",
+            "writable": false
+          },
+          {
+            "destination": "/app/AGENTS.md",
+            "writable": false
+          },
+          {
+            "destination": "/opt/inloop/bin",
+            "writable": false
+          },
+          {
+            "destination": "/usr/local/bin/status",
+            "writable": false
+          }
+        ]
+      },
+      "clock": {
+        "started_epoch": 1792312229.5918827,
+        "seconds": 43200,
+        "deadline_epoch": 1792355429.5918827
+      },
+      "model_successes": 29,
+      "model_failures": 15,
+      "actual_recorded_tokens": 631283,
+      "aggregate_token_cap": null,
+      "response_models": [
+        "global.openai.gpt-5.6-sol"
+      ],
+      "feedback_count": 1,
+      "feedback_completed": 1,
+      "feedback_feasible": 1,
+      "feedback_collected": 1
+    },
+    {
+      "role": "n5-r3",
+      "n": 5,
+      "repeat": 3,
+      "job": "aqy-uc8-n5-r3-20261018-162946",
+      "job_uid": "900ae2e5-6934-4d72-9ab6-dc05b3429114",
+      "job_status": {
+        "active": 1,
+        "ready": 1,
+        "startTime": "2026-10-18T08:29:46Z",
+        "conditions": []
+      },
+      "pods": [
+        {
+          "name": "aqy-uc8-n5-r3-20261018-162946-8dnf8",
+          "uid": "2d9cf6bb-86ee-45a3-b561-7d26d1579a6f",
+          "node": "10.94.147.32",
+          "phase": "Running",
+          "reason": null,
+          "resources": [
+            {
+              "limits": {
+                "cce.baidubce.com/ip": "1",
+                "cpu": "4",
+                "memory": "20Gi"
+              },
+              "requests": {
+                "cce.baidubce.com/ip": "1",
+                "cpu": "4",
+                "memory": "20Gi"
+              }
+            }
+          ],
+          "containers": [
+            {
+              "name": "main",
+              "ready": true,
+              "restartCount": 0,
+              "imageID": "iregistry.baidu-int.com/chenmingju/tb-runner-dind@sha256:39b8159e18fabe9c662f34dd02e85269b58253ab4cc3ae1b0b05e917d810644b",
+              "state": {
+                "running": {
+                  "startedAt": "2026-10-18T08:29:48Z"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "runner_status": {
+        "phase": "model-development",
+        "manifest_sha256": "42217a80e99c2e0c1359ce353b1467b54adda05e2d7fc4907e06023614744771",
+        "passed": false
+      },
+      "identity": {
+        "n": 5,
+        "repeat": 3,
+        "role": "n5-r3",
+        "manifest_sha256": "42217a80e99c2e0c1359ce353b1467b54adda05e2d7fc4907e06023614744771",
+        "independent_developer_run": true
+      },
+      "developer_audit": {
+        "cpus": 3,
+        "memory_bytes": 8589934592,
+        "network_mode": "none",
+        "provider_credentials_mounted": false,
+        "mounts": [
+          {
+            "destination": "/logs/artifacts",
+            "writable": true
+          },
+          {
+            "destination": "/logs/verifier",
+            "writable": true
+          },
+          {
+            "destination": "/usr/local/bin/status",
+            "writable": false
+          },
+          {
+            "destination": "/app/AGENTS.md",
+            "writable": false
+          },
+          {
+            "destination": "/code",
+            "writable": false
+          },
+          {
+            "destination": "/judge-service",
+            "writable": false
+          },
+          {
+            "destination": "/usr/local/bin/submit",
+            "writable": false
+          },
+          {
+            "destination": "/logs/agent",
+            "writable": true
+          },
+          {
+            "destination": "/service",
+            "writable": false
+          },
+          {
+            "destination": "/app/final-submission",
+            "writable": false
+          },
+          {
+            "destination": "/usr/local/bin/result",
+            "writable": false
+          },
+          {
+            "destination": "/app/CLAUDE.md",
+            "writable": false
+          },
+          {
+            "destination": "/opt/inloop/bin",
+            "writable": false
+          }
+        ]
+      },
+      "clock": {
+        "started_epoch": 1792312237.2041955,
+        "seconds": 43200,
+        "deadline_epoch": 1792355437.2041955
+      },
+      "model_successes": 30,
+      "model_failures": 12,
+      "actual_recorded_tokens": 660612,
+      "aggregate_token_cap": null,
+      "response_models": [
+        "global.openai.gpt-5.6-sol"
+      ],
+      "feedback_count": 1,
+      "feedback_completed": 0,
+      "feedback_feasible": 0,
+      "feedback_collected": 0
+    },
+    {
+      "role": "n10-r3",
+      "n": 10,
+      "repeat": 3,
+      "job": "aqy-uc8-n10-r3-20261018-162947",
+      "job_uid": "f9734215-b6a9-496b-92df-6b01b75e062c",
+      "job_status": {
+        "active": 1,
+        "ready": 1,
+        "startTime": "2026-10-18T08:29:47Z",
+        "conditions": []
+      },
+      "pods": [
+        {
+          "name": "aqy-uc8-n10-r3-20261018-162947-2nqfk",
+          "uid": "2e538cf0-e54b-4953-b76c-b39d357527b9",
+          "node": "10.94.147.32",
+          "phase": "Running",
+          "reason": null,
+          "resources": [
+            {
+              "limits": {
+                "cce.baidubce.com/ip": "1",
+                "cpu": "4",
+                "memory": "20Gi"
+              },
+              "requests": {
+                "cce.baidubce.com/ip": "1",
+                "cpu": "4",
+                "memory": "20Gi"
+              }
+            }
+          ],
+          "containers": [
+            {
+              "name": "main",
+              "ready": true,
+              "restartCount": 0,
+              "imageID": "iregistry.baidu-int.com/chenmingju/tb-runner-dind@sha256:39b8159e18fabe9c662f34dd02e85269b58253ab4cc3ae1b0b05e917d810644b",
+              "state": {
+                "running": {
+                  "startedAt": "2026-10-18T08:29:49Z"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "runner_status": {
+        "phase": "model-development",
+        "manifest_sha256": "42217a80e99c2e0c1359ce353b1467b54adda05e2d7fc4907e06023614744771",
+        "passed": false
+      },
+      "identity": {
+        "n": 10,
+        "repeat": 3,
+        "role": "n10-r3",
+        "manifest_sha256": "42217a80e99c2e0c1359ce353b1467b54adda05e2d7fc4907e06023614744771",
+        "independent_developer_run": true
+      },
+      "developer_audit": {
+        "cpus": 3,
+        "memory_bytes": 8589934592,
+        "network_mode": "none",
+        "provider_credentials_mounted": false,
+        "mounts": [
+          {
+            "destination": "/judge-service",
+            "writable": false
+          },
+          {
+            "destination": "/app/CLAUDE.md",
+            "writable": false
+          },
+          {
+            "destination": "/usr/local/bin/result",
+            "writable": false
+          },
+          {
+            "destination": "/app/AGENTS.md",
+            "writable": false
+          },
+          {
+            "destination": "/opt/inloop/bin",
+            "writable": false
+          },
+          {
+            "destination": "/usr/local/bin/submit",
+            "writable": false
+          },
+          {
+            "destination": "/logs/agent",
+            "writable": true
+          },
+          {
+            "destination": "/logs/verifier",
+            "writable": true
+          },
+          {
+            "destination": "/service",
+            "writable": false
+          },
+          {
+            "destination": "/code",
+            "writable": false
+          },
+          {
+            "destination": "/app/final-submission",
+            "writable": false
+          },
+          {
+            "destination": "/usr/local/bin/status",
+            "writable": false
+          },
+          {
+            "destination": "/logs/artifacts",
+            "writable": true
+          }
+        ]
+      },
+      "clock": {
+        "started_epoch": 1792312237.2041392,
+        "seconds": 43200,
+        "deadline_epoch": 1792355437.2041392
+      },
+      "model_successes": 25,
+      "model_failures": 14,
+      "actual_recorded_tokens": 418568,
+      "aggregate_token_cap": null,
+      "response_models": [
+        "global.openai.gpt-5.6-sol"
+      ],
+      "feedback_count": 1,
+      "feedback_completed": 1,
+      "feedback_feasible": 1,
+      "feedback_collected": 1
+    }
+  ],
+  "all_six_running": true,
+  "all_six_have_successful_model_requests": true,
+  "startup_contract_verified": true,
+  "startup_caveat": "Failed model requests occurred alongside successful responses. Examined failures were upstream HTTPError; the frozen gateway does not record upstream status/body, so the cause and stable recovery are not established. Preserve errors and actual clocks; no automatic developer retry or source changes.",
+  "preparation_failure": {
+    "campaign": "uc-speed-n510-three-repeats-20261018-v7",
+    "native_job": "aqy-uc7-acceptance-20261018-154938",
+    "job_uid": "36b82b0e-e426-4148-bd19-648a911a4071",
+    "cause": "leftover n1/n3-only isolated judge entry guard",
+    "model_execution_started": false,
+    "feedback_calls": 0,
+    "formal_developer_jobs_submitted": 0,
+    "source_and_evidence_preserved": true,
+    "counts_as_developer_repeat": false,
+    "correction": "new immutable v8 accepts only n5/n10 and adds isolated entry regressions"
+  },
+  "numerical_closure_equality": {
+    "base_campaign": "uc-speed-n013-three-repeats-20261017-v6",
+    "campaign": "uc-speed-n510-three-repeats-20261018-v8",
+    "frozen_files_compared": 62,
+    "all_hashes_identical": true,
+    "starter_files": {
+      "frozen/tasks/pglib-uc-speed-canary-v1/environment/app/submission/pglib_model.jl": "4b75a5eb5662830f40281f15aca68ced85a036995c29bb43f79e416a6698640f",
+      "frozen/tasks/pglib-uc-speed-canary-v1/environment/app/submission/solver.jl": "09a43312c960f49ca1f57c5443f2f214c192b8cfbeef019f657f0abefd8804c5"
+    },
+    "input_sha256": "2e68998a3c7849df2307780ab10de2147f21e71bf152d049015315c2b5ff7091"
+  },
+  "status": "six-running-startup-verified-with-model-http-errors",
+  "startup_failed_model_requests": 124
+}
