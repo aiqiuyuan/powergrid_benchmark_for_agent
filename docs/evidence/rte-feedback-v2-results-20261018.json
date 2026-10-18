@@ -1,0 +1,2655 @@
+{
+  "schema_version": "rte-feedback-v2-results-1",
+  "observed_at_utc": "2026-10-18T08:01:35.677761+00:00",
+  "crosschecked_at_utc": "2026-10-18T08:09:15.067469+00:00",
+  "batch_id": "rte2020-abc-x15-feedback-v2-20261017-v1",
+  "task_protocol": "rte2020-abc-x15-v2",
+  "source_lock_sha256": "75d9b480cc2105b6831991a8fd65249af5f26f13f90dd8b20f4597bca59fcd1b",
+  "data_lock_sha256": "574f9ca4d66f0c3d4edd7a73f003ea0dfa9f42342ac311e1bb256867d362f45b",
+  "settings": {
+    "n_levels": [
+      0,
+      1,
+      3,
+      5,
+      10
+    ],
+    "repetitions": 3,
+    "development_budget_seconds": 43200,
+    "aggregate_token_cap": null,
+    "primary_seconds_per_case": 900,
+    "supplemental_seconds_per_case": 5400,
+    "panel_size": 15,
+    "model": "global.openai.gpt-5.6-sol",
+    "developer_cpu": 2,
+    "developer_memory_GiB": 32,
+    "verifier_cpu": 15,
+    "verifier_memory_GiB": 256,
+    "candidate_cpu": 1,
+    "candidate_address_space_GiB": 16,
+    "candidate_seed": 2020,
+    "quality_denominator": 15,
+    "rank": [
+      "k descending",
+      "Q descending"
+    ],
+    "mean_reward_used_for_group_ranking": false
+  },
+  "statistical_notes": {
+    "independent_sampling_unit": "one complete agent development run",
+    "sample_sd_ddof": 1,
+    "hypothesis_tests_performed": false,
+    "case_outcomes_are_not_independent_replicates": true,
+    "reported_cost_is_verified_invoice": false,
+    "tokens_input_and_cache_must_not_be_added": true
+  },
+  "public_scope": "Only run/panel aggregates, hashes and audit flags; no X inputs, per-case objectives, solutions, candidate code, logs, credentials, host or cluster identifiers.",
+  "totals": {
+    "runs": 15,
+    "completed": 15,
+    "job_failed": 0,
+    "container_restarts": 0,
+    "protected_feedback_accepted": 57,
+    "protected_feedback_collected": 57,
+    "complete_rich_feedback_panels": 57,
+    "feedback_infrastructure_errors": 0,
+    "feedback_truncated": 0,
+    "developer_oom_roles": [
+      "n3-r3"
+    ],
+    "timeout_exception_roles": [
+      "n0-r2",
+      "n0-r3",
+      "n10-r1"
+    ],
+    "api_error_events_in_audited_segments": 0,
+    "reported_output_tokens": 6824171,
+    "reported_cost_usd": 1787.758207149999,
+    "development_hours": {
+      "mean": 11.821849682444444,
+      "sample_sd": 0.18039251633618372,
+      "min": 11.508139445555555,
+      "max": 12.000058612499998
+    },
+    "primary": {
+      "status_counts": {
+        "AC": 202,
+        "RE": 12,
+        "TLE": 11
+      },
+      "all_cases_feasible_runs": 6
+    },
+    "supplemental": {
+      "status_counts": {
+        "AC": 219,
+        "RE": 5,
+        "TLE": 1
+      },
+      "all_cases_feasible_runs": 13
+    }
+  },
+  "groups": [
+    {
+      "n": 0,
+      "repetitions": 3,
+      "primary": {
+        "k": {
+          "mean": 11.333333333333334,
+          "sample_sd": 3.7859388972001824,
+          "min": 7,
+          "max": 14
+        },
+        "Q": {
+          "mean": 0.16530059241227707,
+          "sample_sd": 0.050474353410425894,
+          "min": 0.108325482976729,
+          "max": 0.204420081610947
+        },
+        "reward": {
+          "mean": 0.7186646203591006,
+          "sample_sd": 0.23976592702813732,
+          "min": 0.44427034268604554,
+          "max": 0.8877762551006841
+        },
+        "all_cases_feasible_runs": 0,
+        "total_feasible_run_cases": 34
+      },
+      "supplemental": {
+        "k": {
+          "mean": 13,
+          "sample_sd": 2.6457513110645907,
+          "min": 10,
+          "max": 15
+        },
+        "Q": {
+          "mean": 0.19137271007557788,
+          "sample_sd": 0.03647091791732352,
+          "min": 0.15056933066953673,
+          "max": 0.2207988679356226
+        },
+        "reward": {
+          "mean": 0.8244607943797236,
+          "sample_sd": 0.16763485480140705,
+          "min": 0.6344105831668461,
+          "max": 0.9512999292459764
+        },
+        "all_cases_feasible_runs": 1,
+        "total_feasible_run_cases": 39
+      },
+      "development_hours": {
+        "mean": 11.988337701018517,
+        "sample_sd": 0.020268090734358035,
+        "min": 11.964934125833333,
+        "max": 12.000041340555555
+      },
+      "reported_output_tokens": {
+        "mean": 294275.6666666667,
+        "sample_sd": 197619.12004746235,
+        "min": 113539,
+        "max": 505284
+      },
+      "reported_cost_usd": {
+        "mean": 53.69968126666666,
+        "sample_sd": 14.450407086114351,
+        "min": 44.09704080000004,
+        "max": 70.31862549999998
+      }
+    },
+    {
+      "n": 1,
+      "repetitions": 3,
+      "primary": {
+        "k": {
+          "mean": 13.666666666666666,
+          "sample_sd": 1.5275252316519468,
+          "min": 12,
+          "max": 15
+        },
+        "Q": {
+          "mean": 0.1966305730252607,
+          "sample_sd": 0.02408943052098415,
+          "min": 0.17235242372644866,
+          "max": 0.22052674182219173
+        },
+        "reward": {
+          "mean": 0.8664560774807455,
+          "sample_sd": 0.09695291426026083,
+          "min": 0.760772026482903,
+          "max": 0.951282921363887
+        },
+        "all_cases_feasible_runs": 1,
+        "total_feasible_run_cases": 41
+      },
+      "supplemental": {
+        "k": {
+          "mean": 15,
+          "sample_sd": 0.0,
+          "min": 15,
+          "max": 15
+        },
+        "Q": {
+          "mean": 0.2189723883223083,
+          "sample_sd": 0.0021025707335892065,
+          "min": 0.21654495309763394,
+          "max": 0.22022447730748335
+        },
+        "reward": {
+          "mean": 0.9511857742701443,
+          "sample_sd": 0.00013141067084935636,
+          "min": 0.9510340595686021,
+          "max": 0.9512640298317178
+        },
+        "all_cases_feasible_runs": 3,
+        "total_feasible_run_cases": 45
+      },
+      "development_hours": {
+        "mean": 11.591761222685184,
+        "sample_sd": 0.08854873599689879,
+        "min": 11.508139445555555,
+        "max": 11.6845272625
+      },
+      "reported_output_tokens": {
+        "mean": 561654.3333333334,
+        "sample_sd": 628742.2064577289,
+        "min": 169429,
+        "max": 1286857
+      },
+      "reported_cost_usd": {
+        "mean": 185.4080956666667,
+        "sample_sd": 163.87419654318256,
+        "min": 87.1528415,
+        "max": 374.5863602500001
+      }
+    },
+    {
+      "n": 3,
+      "repetitions": 3,
+      "primary": {
+        "k": {
+          "mean": 13.333333333333334,
+          "sample_sd": 0.5773502691896257,
+          "min": 13,
+          "max": 14
+        },
+        "Q": {
+          "mean": 0.1968571241463871,
+          "sample_sd": 0.007944036556646612,
+          "min": 0.18824335934646824,
+          "max": 0.2038953082126033
+        },
+        "reward": {
+          "mean": 0.8456369035924826,
+          "sample_sd": 0.03646673490128767,
+          "min": 0.8242652099591543,
+          "max": 0.8877434567632877
+        },
+        "all_cases_feasible_runs": 0,
+        "total_feasible_run_cases": 40
+      },
+      "supplemental": {
+        "k": {
+          "mean": 15,
+          "sample_sd": 0.0,
+          "min": 15,
+          "max": 15
+        },
+        "Q": {
+          "mean": 0.2185006389648865,
+          "sample_sd": 0.004457062326145162,
+          "min": 0.21341765892515183,
+          "max": 0.22174062022728064
+        },
+        "reward": {
+          "mean": 0.9511562899353054,
+          "sample_sd": 0.00027856639538402896,
+          "min": 0.950838603682822,
+          "max": 0.951358788764205
+        },
+        "all_cases_feasible_runs": 3,
+        "total_feasible_run_cases": 45
+      },
+      "development_hours": {
+        "mean": 11.785334177962962,
+        "sample_sd": 0.17516901926763984,
+        "min": 11.646289028055556,
+        "max": 11.982073182777777
+      },
+      "reported_output_tokens": {
+        "mean": 468758.3333333333,
+        "sample_sd": 217945.2294530287,
+        "min": 237989,
+        "max": 671087
+      },
+      "reported_cost_usd": {
+        "mean": 115.40033324999976,
+        "sample_sd": 38.24173959238989,
+        "min": 92.76749874999986,
+        "max": 159.55341824999942
+      }
+    },
+    {
+      "n": 5,
+      "repetitions": 3,
+      "primary": {
+        "k": {
+          "mean": 15,
+          "sample_sd": 0.0,
+          "min": 15,
+          "max": 15
+        },
+        "Q": {
+          "mean": 0.21610780093223522,
+          "sample_sd": 0.0006740972205368578,
+          "min": 0.21536518940083163,
+          "max": 0.21668110458853324
+        },
+        "reward": {
+          "mean": 0.9510067375582647,
+          "sample_sd": 4.213107628356202e-05,
+          "min": 0.950960324337552,
+          "max": 0.9510425690367833
+        },
+        "all_cases_feasible_runs": 3,
+        "total_feasible_run_cases": 45
+      },
+      "supplemental": {
+        "k": {
+          "mean": 15,
+          "sample_sd": 0.0,
+          "min": 15,
+          "max": 15
+        },
+        "Q": {
+          "mean": 0.21611370385597578,
+          "sample_sd": 0.0008583290514195508,
+          "min": 0.21513910188349253,
+          "max": 0.21675702409402503
+        },
+        "reward": {
+          "mean": 0.9510071064909985,
+          "sample_sd": 5.364556571374584e-05,
+          "min": 0.9509461938677183,
+          "max": 0.9510473140058766
+        },
+        "all_cases_feasible_runs": 3,
+        "total_feasible_run_cases": 45
+      },
+      "development_hours": {
+        "mean": 11.947488036666666,
+        "sample_sd": 0.02262569848866469,
+        "min": 11.921888732222223,
+        "max": 11.9648075275
+      },
+      "reported_output_tokens": {
+        "mean": 583116.6666666666,
+        "sample_sd": 422212.0616471459,
+        "min": 167193,
+        "max": 1011348
+      },
+      "reported_cost_usd": {
+        "mean": 153.42078724999996,
+        "sample_sd": 84.30386496966459,
+        "min": 64.30928799999994,
+        "max": 231.91025424999992
+      }
+    },
+    {
+      "n": 10,
+      "repetitions": 3,
+      "primary": {
+        "k": {
+          "mean": 14,
+          "sample_sd": 1.7320508075688772,
+          "min": 12,
+          "max": 15
+        },
+        "Q": {
+          "mean": 0.20349656504482114,
+          "sample_sd": 0.029040511647550695,
+          "min": 0.16997274045527364,
+          "max": 0.22094126970808248
+        },
+        "reward": {
+          "mean": 0.8877185353153013,
+          "sample_sd": 0.11006771397866782,
+          "min": 0.7606232962784546,
+          "max": 0.9513088293567552
+        },
+        "all_cases_feasible_runs": 2,
+        "total_feasible_run_cases": 42
+      },
+      "supplemental": {
+        "k": {
+          "mean": 15,
+          "sample_sd": 0.0,
+          "min": 15,
+          "max": 15
+        },
+        "Q": {
+          "mean": 0.21938415011954981,
+          "sample_sd": 0.0020729037400246475,
+          "min": 0.21719999131617654,
+          "max": 0.22132417860971018
+        },
+        "reward": {
+          "mean": 0.9512115093824719,
+          "sample_sd": 0.0001295564837515149,
+          "min": 0.951074999457261,
+          "max": 0.9513327611631068
+        },
+        "all_cases_feasible_runs": 3,
+        "total_feasible_run_cases": 45
+      },
+      "development_hours": {
+        "mean": 11.796327273888888,
+        "sample_sd": 0.2017407775031185,
+        "min": 11.596637795833333,
+        "max": 12.000058612499998
+      },
+      "reported_output_tokens": {
+        "mean": 366918.6666666667,
+        "sample_sd": 118894.42336936301,
+        "min": 258962,
+        "max": 494347
+      },
+      "reported_cost_usd": {
+        "mean": 87.99050495000002,
+        "sample_sd": 37.16497527419523,
+        "min": 45.098796599999986,
+        "max": 110.64524425
+      }
+    }
+  ],
+  "runs": [
+    {
+      "role": "n0-r1",
+      "n": 0,
+      "repetition": 1,
+      "phase": "completed",
+      "passed": true,
+      "completed_at_utc": "2026-10-17T19:10:59.217213+00:00",
+      "primary": {
+        "k": 13,
+        "Q": 0.18315621264915524,
+        "reward": 0.8239472632905722,
+        "status_counts": {
+          "AC": 13,
+          "RE": 2
+        }
+      },
+      "supplemental": {
+        "k": 14,
+        "Q": 0.20274993162157434,
+        "reward": 0.8876718707263483,
+        "status_counts": {
+          "AC": 14,
+          "RE": 1
+        }
+      },
+      "candidate_sha256": "24c56ccf2844fbebd098974d34a3802d852f03a18e3ed41b5a711cb0641cdeb3",
+      "manifest_sha256": "f954c07cf2663311bf562f90318dfebfd844f9b83ab2331c00445f66ab827b1f",
+      "checks": {
+        "primary": {
+          "ordered_15_cases": true,
+          "candidate_matches_primary": true,
+          "seconds_match": true,
+          "evaluation_completed": true,
+          "secure_execution": true,
+          "protocol_matches": true,
+          "k_matches_cases": true,
+          "Q_matches_cases": true,
+          "reward_matches_cases": true,
+          "summary_cases_match_raw": true,
+          "summary_k_matches_raw": true,
+          "summary_Q_matches_raw": true,
+          "summary_reward_matches_raw": true,
+          "summary_manifest_matches_raw": true,
+          "summary_candidate_matches_audit": true
+        },
+        "supplemental": {
+          "ordered_15_cases": true,
+          "candidate_matches_primary": true,
+          "seconds_match": true,
+          "evaluation_completed": true,
+          "secure_execution": true,
+          "protocol_matches": true,
+          "k_matches_cases": true,
+          "Q_matches_cases": true,
+          "reward_matches_cases": true
+        }
+      },
+      "audit": {
+        "passed": true,
+        "evaluation_completed": true,
+        "exception_type": null,
+        "feedback_budget": 0,
+        "feedback_used": 0,
+        "feedback_collected": 0,
+        "oom_observed": false,
+        "oom_policy_revision": null,
+        "original_audit_passed": null,
+        "model_messages": 491,
+        "response_models": [
+          "global.openai.gpt-5.6-sol"
+        ],
+        "api_error_events": 0,
+        "resource_observed": true,
+        "observed_resource_roles": [
+          "developer"
+        ]
+      },
+      "agent_usage_reported": {
+        "n_input_tokens": 42614753,
+        "n_cache_tokens": 41989821,
+        "n_output_tokens": 113539,
+        "cost_usd": 46.68337749999995
+      },
+      "development": {
+        "phase": "agent_stopped",
+        "started_at": "2026-10-17T05:26:42.922868+00:00",
+        "stopped_at": "2026-10-17T17:24:36.685721+00:00",
+        "development_deadline": "2026-10-17T17:26:42.922868+00:00",
+        "time_budget_sec": 43200.0,
+        "aggregate_token_cap": null,
+        "elapsed_seconds": 43073.762853
+      },
+      "feedback_ledger": {},
+      "feedback_points": [],
+      "record_sha256": {
+        "status.json": "2f56fff05bb8eb4cf85ff647ffdf80b6003fe8f2f0fa0b06bd3b515c5a3643ea",
+        "primary-900-summary.json": "aedc989fddf15204c823c3e698df145e82e345830b3e5a04c3f6980a3c4024f9",
+        "reports/final.json": "744c81402d33295d70e4aeedc76c1428f1ff18626aac90759aaa1465ab6cfced"
+      },
+      "feedback_comparison": null
+    },
+    {
+      "role": "n0-r2",
+      "n": 0,
+      "repetition": 2,
+      "phase": "completed",
+      "passed": true,
+      "completed_at_utc": "2026-10-17T18:27:08.277324+00:00",
+      "primary": {
+        "k": 14,
+        "Q": 0.204420081610947,
+        "reward": 0.8877762551006841,
+        "status_counts": {
+          "AC": 14,
+          "TLE": 1
+        }
+      },
+      "supplemental": {
+        "k": 15,
+        "Q": 0.2207988679356226,
+        "reward": 0.9512999292459764,
+        "status_counts": {
+          "AC": 15
+        }
+      },
+      "candidate_sha256": "f61567d254fbf1c7781275e053ea7a0ddd555370e9283f2dc10b906cc3e338b4",
+      "manifest_sha256": "f954c07cf2663311bf562f90318dfebfd844f9b83ab2331c00445f66ab827b1f",
+      "checks": {
+        "primary": {
+          "ordered_15_cases": true,
+          "candidate_matches_primary": true,
+          "seconds_match": true,
+          "evaluation_completed": true,
+          "secure_execution": true,
+          "protocol_matches": true,
+          "k_matches_cases": true,
+          "Q_matches_cases": true,
+          "reward_matches_cases": true,
+          "summary_cases_match_raw": true,
+          "summary_k_matches_raw": true,
+          "summary_Q_matches_raw": true,
+          "summary_reward_matches_raw": true,
+          "summary_manifest_matches_raw": true,
+          "summary_candidate_matches_audit": true
+        },
+        "supplemental": {
+          "ordered_15_cases": true,
+          "candidate_matches_primary": true,
+          "seconds_match": true,
+          "evaluation_completed": true,
+          "secure_execution": true,
+          "protocol_matches": true,
+          "k_matches_cases": true,
+          "Q_matches_cases": true,
+          "reward_matches_cases": true
+        }
+      },
+      "audit": {
+        "passed": true,
+        "evaluation_completed": true,
+        "exception_type": "AgentTimeoutError",
+        "feedback_budget": 0,
+        "feedback_used": 0,
+        "feedback_collected": 0,
+        "oom_observed": false,
+        "oom_policy_revision": null,
+        "original_audit_passed": null,
+        "model_messages": 107,
+        "response_models": [
+          "global.openai.gpt-5.6-sol"
+        ],
+        "api_error_events": 0,
+        "resource_observed": true,
+        "observed_resource_roles": [
+          "developer"
+        ]
+      },
+      "agent_usage_reported": {
+        "n_input_tokens": 81003782,
+        "n_cache_tokens": 79608782,
+        "n_output_tokens": 264004,
+        "cost_usd": 44.09704080000004
+      },
+      "development": {
+        "phase": "agent_stopped",
+        "started_at": "2026-10-17T05:27:09.832660+00:00",
+        "stopped_at": "2026-10-17T17:27:09.968152+00:00",
+        "development_deadline": "2026-10-17T17:27:09.832660+00:00",
+        "time_budget_sec": 43200.0,
+        "aggregate_token_cap": null,
+        "elapsed_seconds": 43200.135492
+      },
+      "feedback_ledger": {},
+      "feedback_points": [],
+      "record_sha256": {
+        "status.json": "e2b16cfb542640e910c4a7e05ed85e99a002e6a80ad62fbfcde5cd343b310574",
+        "primary-900-summary.json": "ba4c198cdc72456167e257c384a6ba0d51c70f596497cca6d504cc1f3ff30b1d",
+        "reports/final.json": "910b48c79a025d3ae94d4890cc07fbb769319147f751d0611500b4586df5328f"
+      },
+      "feedback_comparison": null
+    },
+    {
+      "role": "n0-r3",
+      "n": 0,
+      "repetition": 3,
+      "phase": "completed",
+      "passed": true,
+      "completed_at_utc": "2026-10-18T07:55:32.762443+00:00",
+      "primary": {
+        "k": 7,
+        "Q": 0.108325482976729,
+        "reward": 0.44427034268604554,
+        "status_counts": {
+          "AC": 7,
+          "RE": 5,
+          "TLE": 3
+        }
+      },
+      "supplemental": {
+        "k": 10,
+        "Q": 0.15056933066953673,
+        "reward": 0.6344105831668461,
+        "status_counts": {
+          "AC": 10,
+          "RE": 4,
+          "TLE": 1
+        }
+      },
+      "candidate_sha256": "3d8985fa246bf0afcbb0164b4a9364441cf30307febbe8038ebb6009aca1aa8e",
+      "manifest_sha256": "f954c07cf2663311bf562f90318dfebfd844f9b83ab2331c00445f66ab827b1f",
+      "checks": {
+        "primary": {
+          "ordered_15_cases": true,
+          "candidate_matches_primary": true,
+          "seconds_match": true,
+          "evaluation_completed": true,
+          "secure_execution": true,
+          "protocol_matches": true,
+          "k_matches_cases": true,
+          "Q_matches_cases": true,
+          "reward_matches_cases": true,
+          "summary_cases_match_raw": true,
+          "summary_k_matches_raw": true,
+          "summary_Q_matches_raw": true,
+          "summary_reward_matches_raw": true,
+          "summary_manifest_matches_raw": true,
+          "summary_candidate_matches_audit": true
+        },
+        "supplemental": {
+          "ordered_15_cases": true,
+          "candidate_matches_primary": true,
+          "seconds_match": true,
+          "evaluation_completed": true,
+          "secure_execution": true,
+          "protocol_matches": true,
+          "k_matches_cases": true,
+          "Q_matches_cases": true,
+          "reward_matches_cases": true
+        }
+      },
+      "audit": {
+        "passed": true,
+        "evaluation_completed": true,
+        "exception_type": "AgentTimeoutError",
+        "feedback_budget": 0,
+        "feedback_used": 0,
+        "feedback_collected": 0,
+        "oom_observed": false,
+        "oom_policy_revision": null,
+        "original_audit_passed": null,
+        "model_messages": 1298,
+        "response_models": [
+          "global.openai.gpt-5.6-sol"
+        ],
+        "api_error_events": 0,
+        "resource_observed": true,
+        "observed_resource_roles": [
+          "developer"
+        ]
+      },
+      "agent_usage_reported": {
+        "n_input_tokens": 106992370,
+        "n_cache_tokens": 105095418,
+        "n_output_tokens": 505284,
+        "cost_usd": 70.31862549999998
+      },
+      "development": {
+        "phase": "agent_stopped",
+        "started_at": "2026-10-17T18:08:16.573852+00:00",
+        "stopped_at": "2026-10-18T06:08:16.722678+00:00",
+        "development_deadline": "2026-10-18T06:08:16.573852+00:00",
+        "time_budget_sec": 43200.0,
+        "aggregate_token_cap": null,
+        "elapsed_seconds": 43200.148826
+      },
+      "feedback_ledger": {},
+      "feedback_points": [],
+      "record_sha256": {
+        "status.json": "dc8395b89e0462c7147942a2a71394937b986664821cb9f0b9e41105877ce782",
+        "primary-900-summary.json": "67bfe04f01aedd43fcfc3ab269d5018eec69690314b1f72f0e0cacb93bc491ad",
+        "reports/final.json": "75399ce8020b2a4440da3e6b6b4f71a5886fc54c102ccc995ee88b8f2dc1fb5f"
+      },
+      "feedback_comparison": null
+    },
+    {
+      "role": "n1-r1",
+      "n": 1,
+      "repetition": 1,
+      "phase": "completed",
+      "passed": true,
+      "completed_at_utc": "2026-10-17T17:45:11.020417+00:00",
+      "primary": {
+        "k": 15,
+        "Q": 0.22052674182219173,
+        "reward": 0.951282921363887,
+        "status_counts": {
+          "AC": 15
+        }
+      },
+      "supplemental": {
+        "k": 15,
+        "Q": 0.22022447730748335,
+        "reward": 0.9512640298317178,
+        "status_counts": {
+          "AC": 15
+        }
+      },
+      "candidate_sha256": "4f4725be6acb4cc15d746cfe5004ec4b6b501028fc16eb71c3ed4cb5106fc8e8",
+      "manifest_sha256": "f954c07cf2663311bf562f90318dfebfd844f9b83ab2331c00445f66ab827b1f",
+      "checks": {
+        "primary": {
+          "ordered_15_cases": true,
+          "candidate_matches_primary": true,
+          "seconds_match": true,
+          "evaluation_completed": true,
+          "secure_execution": true,
+          "protocol_matches": true,
+          "k_matches_cases": true,
+          "Q_matches_cases": true,
+          "reward_matches_cases": true,
+          "summary_cases_match_raw": true,
+          "summary_k_matches_raw": true,
+          "summary_Q_matches_raw": true,
+          "summary_reward_matches_raw": true,
+          "summary_manifest_matches_raw": true,
+          "summary_candidate_matches_audit": true
+        },
+        "supplemental": {
+          "ordered_15_cases": true,
+          "candidate_matches_primary": true,
+          "seconds_match": true,
+          "evaluation_completed": true,
+          "secure_execution": true,
+          "protocol_matches": true,
+          "k_matches_cases": true,
+          "Q_matches_cases": true,
+          "reward_matches_cases": true
+        }
+      },
+      "audit": {
+        "passed": true,
+        "evaluation_completed": true,
+        "exception_type": null,
+        "feedback_budget": 1,
+        "feedback_used": 1,
+        "feedback_collected": 1,
+        "oom_observed": false,
+        "oom_policy_revision": null,
+        "original_audit_passed": null,
+        "model_messages": 177,
+        "response_models": [
+          "global.openai.gpt-5.6-sol"
+        ],
+        "api_error_events": 0,
+        "resource_observed": true,
+        "observed_resource_roles": [
+          "developer"
+        ]
+      },
+      "agent_usage_reported": {
+        "n_input_tokens": 44943503,
+        "n_cache_tokens": 44286918,
+        "n_output_tokens": 169429,
+        "cost_usd": 87.1528415
+      },
+      "development": {
+        "phase": "agent_stopped",
+        "started_at": "2026-10-17T05:27:57.052451+00:00",
+        "stopped_at": "2026-10-17T17:09:01.350596+00:00",
+        "development_deadline": "2026-10-17T17:27:57.052451+00:00",
+        "time_budget_sec": 43200.0,
+        "aggregate_token_cap": null,
+        "elapsed_seconds": 42064.298145
+      },
+      "feedback_ledger": {
+        "counted": 1,
+        "collected": 1,
+        "infra_error": 0,
+        "truncated": 0,
+        "complete_v2": 1,
+        "rich_diagnostics": 1
+      },
+      "feedback_points": [
+        {
+          "index": 1,
+          "k": 14,
+          "Q": 0.20195224251571148,
+          "reward": 0.8876220151572319,
+          "candidate_sha256": "211b0927686946207a8b9ccc5cb369d2c72ee64986e8ef4e6077e9c459db5034",
+          "submitted_at": "2026-10-17T10:48:28Z",
+          "collected_at": "2026-10-17T11:03:40Z"
+        }
+      ],
+      "record_sha256": {
+        "status.json": "f1f2880c228d64cc27ccd9695815ecd5248204c4096ccb831da54674311de8b7",
+        "primary-900-summary.json": "29632ed3af0d1f69cb3e401147a993162f3f25058d1fceed72022cbb699fc5dd",
+        "reports/final.json": "0a36b6eb4ee5491c400a1ca4b4c291a2e2f7940f6456fdbdc04e5aa4af402109"
+      },
+      "feedback_comparison": {
+        "last_k": 14,
+        "last_Q": 0.20195224251571148,
+        "best_index": 1,
+        "best_k": 14,
+        "best_Q": 0.20195224251571148,
+        "final_matches_last_sha": false,
+        "final_matches_best_sha": false,
+        "primary_minus_last_k": 1,
+        "primary_minus_best_k": 1
+      }
+    },
+    {
+      "role": "n1-r2",
+      "n": 1,
+      "repetition": 2,
+      "phase": "completed",
+      "passed": true,
+      "completed_at_utc": "2026-10-17T18:01:46.634429+00:00",
+      "primary": {
+        "k": 14,
+        "Q": 0.19701255352714178,
+        "reward": 0.8873132845954463,
+        "status_counts": {
+          "AC": 14,
+          "RE": 1
+        }
+      },
+      "supplemental": {
+        "k": 15,
+        "Q": 0.21654495309763394,
+        "reward": 0.9510340595686021,
+        "status_counts": {
+          "AC": 15
+        }
+      },
+      "candidate_sha256": "b4728834984d36208f5a647cdd4b3b7bc0948be21471207a4ce92004c7a1cc8b",
+      "manifest_sha256": "f954c07cf2663311bf562f90318dfebfd844f9b83ab2331c00445f66ab827b1f",
+      "checks": {
+        "primary": {
+          "ordered_15_cases": true,
+          "candidate_matches_primary": true,
+          "seconds_match": true,
+          "evaluation_completed": true,
+          "secure_execution": true,
+          "protocol_matches": true,
+          "k_matches_cases": true,
+          "Q_matches_cases": true,
+          "reward_matches_cases": true,
+          "summary_cases_match_raw": true,
+          "summary_k_matches_raw": true,
+          "summary_Q_matches_raw": true,
+          "summary_reward_matches_raw": true,
+          "summary_manifest_matches_raw": true,
+          "summary_candidate_matches_audit": true
+        },
+        "supplemental": {
+          "ordered_15_cases": true,
+          "candidate_matches_primary": true,
+          "seconds_match": true,
+          "evaluation_completed": true,
+          "secure_execution": true,
+          "protocol_matches": true,
+          "k_matches_cases": true,
+          "Q_matches_cases": true,
+          "reward_matches_cases": true
+        }
+      },
+      "audit": {
+        "passed": true,
+        "evaluation_completed": true,
+        "exception_type": null,
+        "feedback_budget": 1,
+        "feedback_used": 1,
+        "feedback_collected": 1,
+        "oom_observed": false,
+        "oom_policy_revision": null,
+        "original_audit_passed": null,
+        "model_messages": 89,
+        "response_models": [
+          "global.openai.gpt-5.6-sol"
+        ],
+        "api_error_events": 0,
+        "resource_observed": true,
+        "observed_resource_roles": [
+          "developer"
+        ]
+      },
+      "agent_usage_reported": {
+        "n_input_tokens": 80454615,
+        "n_cache_tokens": 79337781,
+        "n_output_tokens": 228677,
+        "cost_usd": 94.48508524999998
+      },
+      "development": {
+        "phase": "agent_stopped",
+        "started_at": "2026-10-17T05:34:11.898183+00:00",
+        "stopped_at": "2026-10-17T17:04:41.200187+00:00",
+        "development_deadline": "2026-10-17T17:34:11.898183+00:00",
+        "time_budget_sec": 43200.0,
+        "aggregate_token_cap": null,
+        "elapsed_seconds": 41429.302004
+      },
+      "feedback_ledger": {
+        "counted": 1,
+        "collected": 1,
+        "infra_error": 0,
+        "truncated": 0,
+        "complete_v2": 1,
+        "rich_diagnostics": 1
+      },
+      "feedback_points": [
+        {
+          "index": 1,
+          "k": 13,
+          "Q": 0.19141635112707003,
+          "reward": 0.8244635219454419,
+          "candidate_sha256": "87d8a54f4e43ed9047deeb2274cb9ff7db44f50c4e9a643b856b414d8d401910",
+          "submitted_at": "2026-10-17T07:58:21Z",
+          "collected_at": "2026-10-17T08:14:04Z"
+        }
+      ],
+      "record_sha256": {
+        "status.json": "874d9886ac439ee5112fdfae49768af3665c35189c1cef6beb0af201772493d9",
+        "primary-900-summary.json": "5f67781df47272208b002cb5fdceecddf0ef4eafcd71d860513483073cf333fd",
+        "reports/final.json": "d20363c196bff5e4c7cfc630fe6a2ce0fbc1fc4ed47a20d4b35f5e09856dab71"
+      },
+      "feedback_comparison": {
+        "last_k": 13,
+        "last_Q": 0.19141635112707003,
+        "best_index": 1,
+        "best_k": 13,
+        "best_Q": 0.19141635112707003,
+        "final_matches_last_sha": false,
+        "final_matches_best_sha": false,
+        "primary_minus_last_k": 1,
+        "primary_minus_best_k": 1
+      }
+    },
+    {
+      "role": "n1-r3",
+      "n": 1,
+      "repetition": 3,
+      "phase": "completed",
+      "passed": true,
+      "completed_at_utc": "2026-10-18T07:22:24.528229+00:00",
+      "primary": {
+        "k": 12,
+        "Q": 0.17235242372644866,
+        "reward": 0.760772026482903,
+        "status_counts": {
+          "AC": 12,
+          "TLE": 3
+        }
+      },
+      "supplemental": {
+        "k": 15,
+        "Q": 0.2201477345618076,
+        "reward": 0.951259233410113,
+        "status_counts": {
+          "AC": 15
+        }
+      },
+      "candidate_sha256": "3872ae704d2937a94428de30b8a23672c155dd95eb51c45e7e40e97304111107",
+      "manifest_sha256": "f954c07cf2663311bf562f90318dfebfd844f9b83ab2331c00445f66ab827b1f",
+      "checks": {
+        "primary": {
+          "ordered_15_cases": true,
+          "candidate_matches_primary": true,
+          "seconds_match": true,
+          "evaluation_completed": true,
+          "secure_execution": true,
+          "protocol_matches": true,
+          "k_matches_cases": true,
+          "Q_matches_cases": true,
+          "reward_matches_cases": true,
+          "summary_cases_match_raw": true,
+          "summary_k_matches_raw": true,
+          "summary_Q_matches_raw": true,
+          "summary_reward_matches_raw": true,
+          "summary_manifest_matches_raw": true,
+          "summary_candidate_matches_audit": true
+        },
+        "supplemental": {
+          "ordered_15_cases": true,
+          "candidate_matches_primary": true,
+          "seconds_match": true,
+          "evaluation_completed": true,
+          "secure_execution": true,
+          "protocol_matches": true,
+          "k_matches_cases": true,
+          "Q_matches_cases": true,
+          "reward_matches_cases": true
+        }
+      },
+      "audit": {
+        "passed": true,
+        "evaluation_completed": true,
+        "exception_type": null,
+        "feedback_budget": 1,
+        "feedback_used": 1,
+        "feedback_collected": 1,
+        "oom_observed": false,
+        "oom_policy_revision": null,
+        "original_audit_passed": null,
+        "model_messages": 2093,
+        "response_models": [
+          "global.openai.gpt-5.6-sol"
+        ],
+        "api_error_events": 0,
+        "resource_observed": true,
+        "observed_resource_roles": [
+          "developer"
+        ]
+      },
+      "agent_usage_reported": {
+        "n_input_tokens": 236818142,
+        "n_cache_tokens": 231112248,
+        "n_output_tokens": 1286857,
+        "cost_usd": 374.5863602500001
+      },
+      "development": {
+        "phase": "agent_stopped",
+        "started_at": "2026-10-17T18:29:38.598054+00:00",
+        "stopped_at": "2026-10-18T06:04:36.019110+00:00",
+        "development_deadline": "2026-10-18T06:29:38.598054+00:00",
+        "time_budget_sec": 43200.0,
+        "aggregate_token_cap": null,
+        "elapsed_seconds": 41697.421056
+      },
+      "feedback_ledger": {
+        "counted": 1,
+        "collected": 1,
+        "infra_error": 0,
+        "truncated": 0,
+        "complete_v2": 1,
+        "rich_diagnostics": 1
+      },
+      "feedback_points": [
+        {
+          "index": 1,
+          "k": 13,
+          "Q": 0.18854540901849776,
+          "reward": 0.8242840880636562,
+          "candidate_sha256": "64f0e763e0e7ab1dec35c87edc8f69fd11d14533411578e76b258c1cfa102b7e",
+          "submitted_at": "2026-10-17T19:47:41Z",
+          "collected_at": "2026-10-17T20:03:05Z"
+        }
+      ],
+      "record_sha256": {
+        "status.json": "0e74c0c60d6e5b8a93107b89dd6e89e15bd638a474afb82110adfd8c00f02dff",
+        "primary-900-summary.json": "4ee08d07aaa84c7c949538a58721fe6e86ce7df659767060435b853b8320097b",
+        "reports/final.json": "3880ab69f4d095310d1e959abe6d889140325412c31c4f67397223086138f307"
+      },
+      "feedback_comparison": {
+        "last_k": 13,
+        "last_Q": 0.18854540901849776,
+        "best_index": 1,
+        "best_k": 13,
+        "best_Q": 0.18854540901849776,
+        "final_matches_last_sha": false,
+        "final_matches_best_sha": false,
+        "primary_minus_last_k": -1,
+        "primary_minus_best_k": -1
+      }
+    },
+    {
+      "role": "n3-r1",
+      "n": 3,
+      "repetition": 1,
+      "phase": "completed",
+      "passed": true,
+      "completed_at_utc": "2026-10-17T18:01:35.154539+00:00",
+      "primary": {
+        "k": 14,
+        "Q": 0.2038953082126033,
+        "reward": 0.8877434567632877,
+        "status_counts": {
+          "AC": 14,
+          "TLE": 1
+        }
+      },
+      "supplemental": {
+        "k": 15,
+        "Q": 0.21341765892515183,
+        "reward": 0.950838603682822,
+        "status_counts": {
+          "AC": 15
+        }
+      },
+      "candidate_sha256": "965368a10839eb08bab17a646e6d1a60ac00a09838d4509f151e908329ab2e1e",
+      "manifest_sha256": "f954c07cf2663311bf562f90318dfebfd844f9b83ab2331c00445f66ab827b1f",
+      "checks": {
+        "primary": {
+          "ordered_15_cases": true,
+          "candidate_matches_primary": true,
+          "seconds_match": true,
+          "evaluation_completed": true,
+          "secure_execution": true,
+          "protocol_matches": true,
+          "k_matches_cases": true,
+          "Q_matches_cases": true,
+          "reward_matches_cases": true,
+          "summary_cases_match_raw": true,
+          "summary_k_matches_raw": true,
+          "summary_Q_matches_raw": true,
+          "summary_reward_matches_raw": true,
+          "summary_manifest_matches_raw": true,
+          "summary_candidate_matches_audit": true
+        },
+        "supplemental": {
+          "ordered_15_cases": true,
+          "candidate_matches_primary": true,
+          "seconds_match": true,
+          "evaluation_completed": true,
+          "secure_execution": true,
+          "protocol_matches": true,
+          "k_matches_cases": true,
+          "Q_matches_cases": true,
+          "reward_matches_cases": true
+        }
+      },
+      "audit": {
+        "passed": true,
+        "evaluation_completed": true,
+        "exception_type": null,
+        "feedback_budget": 3,
+        "feedback_used": 3,
+        "feedback_collected": 3,
+        "oom_observed": false,
+        "oom_policy_revision": null,
+        "original_audit_passed": null,
+        "model_messages": 30,
+        "response_models": [
+          "global.openai.gpt-5.6-sol"
+        ],
+        "api_error_events": 0,
+        "resource_observed": true,
+        "observed_resource_roles": [
+          "developer"
+        ]
+      },
+      "agent_usage_reported": {
+        "n_input_tokens": 72353753,
+        "n_cache_tokens": 71202242,
+        "n_output_tokens": 237989,
+        "cost_usd": 92.76749874999986
+      },
+      "development": {
+        "phase": "agent_stopped",
+        "started_at": "2026-10-17T05:28:06.974664+00:00",
+        "stopped_at": "2026-10-17T17:11:46.479827+00:00",
+        "development_deadline": "2026-10-17T17:28:06.974664+00:00",
+        "time_budget_sec": 43200.0,
+        "aggregate_token_cap": null,
+        "elapsed_seconds": 42219.505163
+      },
+      "feedback_ledger": {
+        "counted": 3,
+        "collected": 3,
+        "infra_error": 0,
+        "truncated": 0,
+        "complete_v2": 3,
+        "rich_diagnostics": 3
+      },
+      "feedback_points": [
+        {
+          "index": 1,
+          "k": 6,
+          "Q": 0.09747549924125783,
+          "reward": 0.3810922187025786,
+          "candidate_sha256": "ed51f16524846e40ba7f6b51ef3158a2081e41fa1def51b2fd21fcbbf4b7f86d",
+          "submitted_at": "2026-10-17T05:30:21Z",
+          "collected_at": "2026-10-17T05:45:25Z"
+        },
+        {
+          "index": 2,
+          "k": 9,
+          "Q": 0.13873569549932166,
+          "reward": 0.5711709809687076,
+          "candidate_sha256": "ea71b66cf2ea3f5ac5e5ce25eadaeb0778f4cc2892eea8f875a03c1ff3431b6c",
+          "submitted_at": "2026-10-17T06:02:21Z",
+          "collected_at": "2026-10-17T06:17:26Z"
+        },
+        {
+          "index": 3,
+          "k": 12,
+          "Q": 0.1761856328688133,
+          "reward": 0.7610116020543009,
+          "candidate_sha256": "9897ed024a1a7c01b2584be8b6650335f3f5e7d67669cf5fda1f4cd4ae2db67d",
+          "submitted_at": "2026-10-17T07:24:03Z",
+          "collected_at": "2026-10-17T07:43:11Z"
+        }
+      ],
+      "record_sha256": {
+        "status.json": "c839e64518a15b37b8fd5172e11b3b9f742b715bf749f20aaada0cb98ba80bf4",
+        "primary-900-summary.json": "1b41534ab84f3a36c15a49529a4da7c1c8e0adbef3a4d8eb4ff33721baaa77dd",
+        "reports/final.json": "b0ef6e084ab88a63f8b88727220c301f443e42befc01d09f3a6e038a3c19073e"
+      },
+      "feedback_comparison": {
+        "last_k": 12,
+        "last_Q": 0.1761856328688133,
+        "best_index": 3,
+        "best_k": 12,
+        "best_Q": 0.1761856328688133,
+        "final_matches_last_sha": false,
+        "final_matches_best_sha": false,
+        "primary_minus_last_k": 2,
+        "primary_minus_best_k": 2
+      }
+    },
+    {
+      "role": "n3-r2",
+      "n": 3,
+      "repetition": 2,
+      "phase": "completed",
+      "passed": true,
+      "completed_at_utc": "2026-10-18T07:51:49.087417+00:00",
+      "primary": {
+        "k": 13,
+        "Q": 0.18824335934646824,
+        "reward": 0.8242652099591543,
+        "status_counts": {
+          "AC": 13,
+          "RE": 1,
+          "TLE": 1
+        }
+      },
+      "supplemental": {
+        "k": 15,
+        "Q": 0.22034363774222707,
+        "reward": 0.9512714773588892,
+        "status_counts": {
+          "AC": 15
+        }
+      },
+      "candidate_sha256": "ffd4f6cf9f01582ebe9984062ceddc72707d18a7b3cf7a4348a71fc01311b266",
+      "manifest_sha256": "f954c07cf2663311bf562f90318dfebfd844f9b83ab2331c00445f66ab827b1f",
+      "checks": {
+        "primary": {
+          "ordered_15_cases": true,
+          "candidate_matches_primary": true,
+          "seconds_match": true,
+          "evaluation_completed": true,
+          "secure_execution": true,
+          "protocol_matches": true,
+          "k_matches_cases": true,
+          "Q_matches_cases": true,
+          "reward_matches_cases": true,
+          "summary_cases_match_raw": true,
+          "summary_k_matches_raw": true,
+          "summary_Q_matches_raw": true,
+          "summary_reward_matches_raw": true,
+          "summary_manifest_matches_raw": true,
+          "summary_candidate_matches_audit": true
+        },
+        "supplemental": {
+          "ordered_15_cases": true,
+          "candidate_matches_primary": true,
+          "seconds_match": true,
+          "evaluation_completed": true,
+          "secure_execution": true,
+          "protocol_matches": true,
+          "k_matches_cases": true,
+          "Q_matches_cases": true,
+          "reward_matches_cases": true
+        }
+      },
+      "audit": {
+        "passed": true,
+        "evaluation_completed": true,
+        "exception_type": null,
+        "feedback_budget": 3,
+        "feedback_used": 3,
+        "feedback_collected": 3,
+        "oom_observed": false,
+        "oom_policy_revision": null,
+        "original_audit_passed": null,
+        "model_messages": 183,
+        "response_models": [
+          "global.openai.gpt-5.6-sol"
+        ],
+        "api_error_events": 0,
+        "resource_observed": true,
+        "observed_resource_roles": [
+          "developer"
+        ]
+      },
+      "agent_usage_reported": {
+        "n_input_tokens": 139546885,
+        "n_cache_tokens": 136573254,
+        "n_output_tokens": 671087,
+        "cost_usd": 159.55341824999942
+      },
+      "development": {
+        "phase": "agent_stopped",
+        "started_at": "2026-10-17T18:34:22.508782+00:00",
+        "stopped_at": "2026-10-18T06:33:17.972240+00:00",
+        "development_deadline": "2026-10-18T06:34:22.508782+00:00",
+        "time_budget_sec": 43200.0,
+        "aggregate_token_cap": null,
+        "elapsed_seconds": 43135.463458
+      },
+      "feedback_ledger": {
+        "counted": 3,
+        "collected": 3,
+        "infra_error": 0,
+        "truncated": 0,
+        "complete_v2": 3,
+        "rich_diagnostics": 3
+      },
+      "feedback_points": [
+        {
+          "index": 1,
+          "k": 9,
+          "Q": 0.13914419485487173,
+          "reward": 0.5711965121784295,
+          "candidate_sha256": "ed51f16524846e40ba7f6b51ef3158a2081e41fa1def51b2fd21fcbbf4b7f86d",
+          "submitted_at": "2026-10-17T18:35:10Z",
+          "collected_at": "2026-10-17T18:50:40Z"
+        },
+        {
+          "index": 2,
+          "k": 11,
+          "Q": 0.16258682229360863,
+          "reward": 0.6976616763933505,
+          "candidate_sha256": "22ca54506b4107c2ed1fa65788f61154a17871d4eb1963e7e9fff643fdcdd31a",
+          "submitted_at": "2026-10-17T18:51:59Z",
+          "collected_at": "2026-10-17T19:07:38Z"
+        },
+        {
+          "index": 3,
+          "k": 9,
+          "Q": 0.13982652727843908,
+          "reward": 0.5712391579549024,
+          "candidate_sha256": "105716cbe9fe563deb22403c9a1d3aef7796feb1a86eb2272829880720fc7bb2",
+          "submitted_at": "2026-10-17T19:17:05Z",
+          "collected_at": "2026-10-17T19:32:36Z"
+        }
+      ],
+      "record_sha256": {
+        "status.json": "720521fd94b6bd88bd3cae34aaca1d785d2aaad4c31e5a288faef959909844e4",
+        "primary-900-summary.json": "e197ae49c7d11466b79ac1a6e6ba87041744cc5974828f2a063988cd0e635555",
+        "reports/final.json": "c485694c2dad11c9623e108db7af6d4f411de90c5f47b15c74f48aa7858dcb01"
+      },
+      "feedback_comparison": {
+        "last_k": 9,
+        "last_Q": 0.13982652727843908,
+        "best_index": 2,
+        "best_k": 11,
+        "best_Q": 0.16258682229360863,
+        "final_matches_last_sha": false,
+        "final_matches_best_sha": false,
+        "primary_minus_last_k": 4,
+        "primary_minus_best_k": 2
+      }
+    },
+    {
+      "role": "n3-r3",
+      "n": 3,
+      "repetition": 3,
+      "phase": "completed",
+      "passed": true,
+      "completed_at_utc": "2026-10-18T07:11:09.976542+00:00",
+      "primary": {
+        "k": 13,
+        "Q": 0.1984327048800897,
+        "reward": 0.8249020440550056,
+        "status_counts": {
+          "AC": 13,
+          "TLE": 1,
+          "RE": 1
+        }
+      },
+      "supplemental": {
+        "k": 15,
+        "Q": 0.22174062022728064,
+        "reward": 0.951358788764205,
+        "status_counts": {
+          "AC": 15
+        }
+      },
+      "candidate_sha256": "1816406746fefcf68b15b148bf6dd97e582262b81213178c27647d29602c6432",
+      "manifest_sha256": "f954c07cf2663311bf562f90318dfebfd844f9b83ab2331c00445f66ab827b1f",
+      "checks": {
+        "primary": {
+          "ordered_15_cases": true,
+          "candidate_matches_primary": true,
+          "seconds_match": true,
+          "evaluation_completed": true,
+          "secure_execution": true,
+          "protocol_matches": true,
+          "k_matches_cases": true,
+          "Q_matches_cases": true,
+          "reward_matches_cases": true,
+          "summary_cases_match_raw": true,
+          "summary_k_matches_raw": true,
+          "summary_Q_matches_raw": true,
+          "summary_reward_matches_raw": true,
+          "summary_manifest_matches_raw": true,
+          "summary_candidate_matches_audit": true
+        },
+        "supplemental": {
+          "ordered_15_cases": true,
+          "candidate_matches_primary": true,
+          "seconds_match": true,
+          "evaluation_completed": true,
+          "secure_execution": true,
+          "protocol_matches": true,
+          "k_matches_cases": true,
+          "Q_matches_cases": true,
+          "reward_matches_cases": true
+        }
+      },
+      "audit": {
+        "passed": true,
+        "evaluation_completed": true,
+        "exception_type": null,
+        "feedback_budget": 3,
+        "feedback_used": 3,
+        "feedback_collected": 3,
+        "oom_observed": true,
+        "oom_policy_revision": "developer-oom-completed-native-v1",
+        "original_audit_passed": false,
+        "model_messages": 476,
+        "response_models": [
+          "global.openai.gpt-5.6-sol"
+        ],
+        "api_error_events": 0,
+        "resource_observed": true,
+        "observed_resource_roles": [
+          "developer"
+        ]
+      },
+      "agent_usage_reported": {
+        "n_input_tokens": 83825765,
+        "n_cache_tokens": 81160054,
+        "n_output_tokens": 497199,
+        "cost_usd": 93.88008275
+      },
+      "development": {
+        "phase": "agent_stopped",
+        "started_at": "2026-10-17T18:06:23.759851+00:00",
+        "stopped_at": "2026-10-18T05:45:10.400352+00:00",
+        "development_deadline": "2026-10-18T06:06:23.759851+00:00",
+        "time_budget_sec": 43200.0,
+        "aggregate_token_cap": null,
+        "elapsed_seconds": 41926.640501
+      },
+      "feedback_ledger": {
+        "counted": 3,
+        "collected": 3,
+        "infra_error": 0,
+        "truncated": 0,
+        "complete_v2": 3,
+        "rich_diagnostics": 3
+      },
+      "feedback_points": [
+        {
+          "index": 1,
+          "k": 7,
+          "Q": 0.1076537102416997,
+          "reward": 0.44422835689010626,
+          "candidate_sha256": "ed51f16524846e40ba7f6b51ef3158a2081e41fa1def51b2fd21fcbbf4b7f86d",
+          "submitted_at": "2026-10-17T18:07:27Z",
+          "collected_at": "2026-10-17T18:44:01Z"
+        },
+        {
+          "index": 2,
+          "k": 15,
+          "Q": 0.21679947740218122,
+          "reward": 0.9510499673376364,
+          "candidate_sha256": "f0b0b7e73b7b0e2b03a7d81433bea9786e320a2cf8f1e173ae11f58f54a82e4b",
+          "submitted_at": "2026-10-17T19:28:44Z",
+          "collected_at": "2026-10-17T19:46:52Z"
+        },
+        {
+          "index": 3,
+          "k": 15,
+          "Q": 0.22013269957663306,
+          "reward": 0.9512582937235395,
+          "candidate_sha256": "a27b6e1cad777378f593d126b06bef356fd425a32cf285f04a005fbb4a141a4e",
+          "submitted_at": "2026-10-17T21:06:43Z",
+          "collected_at": "2026-10-17T21:21:25Z"
+        }
+      ],
+      "record_sha256": {
+        "status.json": "f98216384b2153bdec192e15892380ca5fb2c9499007188d2e30844cf12c448a",
+        "primary-900-summary.json": "a07ef3ed6e8eb6073eb9fb92411b7d06656e10b17d936c2a26b38329c787e323",
+        "reports/final.json": "304eb462aa1e692d3740c2506af71248b149c1567ffed87eb9ecc29c6a4efa0a"
+      },
+      "feedback_comparison": {
+        "last_k": 15,
+        "last_Q": 0.22013269957663306,
+        "best_index": 3,
+        "best_k": 15,
+        "best_Q": 0.22013269957663306,
+        "final_matches_last_sha": false,
+        "final_matches_best_sha": false,
+        "primary_minus_last_k": -2,
+        "primary_minus_best_k": -2
+      }
+    },
+    {
+      "role": "n5-r1",
+      "n": 5,
+      "repetition": 1,
+      "phase": "completed",
+      "passed": true,
+      "completed_at_utc": "2026-10-17T18:22:06.062454+00:00",
+      "primary": {
+        "k": 15,
+        "Q": 0.21668110458853324,
+        "reward": 0.9510425690367833,
+        "status_counts": {
+          "AC": 15
+        }
+      },
+      "supplemental": {
+        "k": 15,
+        "Q": 0.21675702409402503,
+        "reward": 0.9510473140058766,
+        "status_counts": {
+          "AC": 15
+        }
+      },
+      "candidate_sha256": "cc0b162a4246ce8abe6e80a7d9061d6465bd64f23c52c775b7e5e3107969401a",
+      "manifest_sha256": "f954c07cf2663311bf562f90318dfebfd844f9b83ab2331c00445f66ab827b1f",
+      "checks": {
+        "primary": {
+          "ordered_15_cases": true,
+          "candidate_matches_primary": true,
+          "seconds_match": true,
+          "evaluation_completed": true,
+          "secure_execution": true,
+          "protocol_matches": true,
+          "k_matches_cases": true,
+          "Q_matches_cases": true,
+          "reward_matches_cases": true,
+          "summary_cases_match_raw": true,
+          "summary_k_matches_raw": true,
+          "summary_Q_matches_raw": true,
+          "summary_reward_matches_raw": true,
+          "summary_manifest_matches_raw": true,
+          "summary_candidate_matches_audit": true
+        },
+        "supplemental": {
+          "ordered_15_cases": true,
+          "candidate_matches_primary": true,
+          "seconds_match": true,
+          "evaluation_completed": true,
+          "secure_execution": true,
+          "protocol_matches": true,
+          "k_matches_cases": true,
+          "Q_matches_cases": true,
+          "reward_matches_cases": true
+        }
+      },
+      "audit": {
+        "passed": true,
+        "evaluation_completed": true,
+        "exception_type": null,
+        "feedback_budget": 5,
+        "feedback_used": 5,
+        "feedback_collected": 5,
+        "oom_observed": false,
+        "oom_policy_revision": null,
+        "original_audit_passed": null,
+        "model_messages": 43,
+        "response_models": [
+          "global.openai.gpt-5.6-sol"
+        ],
+        "api_error_events": 0,
+        "resource_observed": true,
+        "observed_resource_roles": [
+          "developer"
+        ]
+      },
+      "agent_usage_reported": {
+        "n_input_tokens": 46932579,
+        "n_cache_tokens": 46042493,
+        "n_output_tokens": 167193,
+        "cost_usd": 64.30928799999994
+      },
+      "development": {
+        "phase": "agent_stopped",
+        "started_at": "2026-10-17T05:27:20.749295+00:00",
+        "stopped_at": "2026-10-17T17:24:41.513556+00:00",
+        "development_deadline": "2026-10-17T17:27:20.749295+00:00",
+        "time_budget_sec": 43200.0,
+        "aggregate_token_cap": null,
+        "elapsed_seconds": 43040.764261
+      },
+      "feedback_ledger": {
+        "counted": 5,
+        "collected": 5,
+        "infra_error": 0,
+        "truncated": 0,
+        "complete_v2": 5,
+        "rich_diagnostics": 5
+      },
+      "feedback_points": [
+        {
+          "index": 1,
+          "k": 11,
+          "Q": 0.16194219209888008,
+          "reward": 0.69762138700618,
+          "candidate_sha256": "7680fa9e6c98f08c49ea1b71430cbcd09fc268ce6184af869014b0f3910dea5e",
+          "submitted_at": "2026-10-17T05:52:19Z",
+          "collected_at": "2026-10-17T06:35:31Z"
+        },
+        {
+          "index": 2,
+          "k": 7,
+          "Q": 0.10044693023154258,
+          "reward": 0.4437779331394714,
+          "candidate_sha256": "d58da999b91a5772117c747d3056a4d6701bb981b3009412b07fbba41d17a16f",
+          "submitted_at": "2026-10-17T06:49:10Z",
+          "collected_at": "2026-10-17T07:09:00Z"
+        },
+        {
+          "index": 3,
+          "k": 13,
+          "Q": 0.18315417739096426,
+          "reward": 0.8239471360869353,
+          "candidate_sha256": "4b9a7c5540f747a427d5573f725171fd603fe896efd2c83e64e41f4ba45cde98",
+          "submitted_at": "2026-10-17T07:09:14Z",
+          "collected_at": "2026-10-17T07:38:12Z"
+        },
+        {
+          "index": 4,
+          "k": 14,
+          "Q": 0.1979497670467009,
+          "reward": 0.8873718604404188,
+          "candidate_sha256": "9d5dd29181993aa041db1eb7503c16c283d2c3a69bd9c9d08d265f3c689a6edc",
+          "submitted_at": "2026-10-17T07:38:48Z",
+          "collected_at": "2026-10-17T07:56:31Z"
+        },
+        {
+          "index": 5,
+          "k": 12,
+          "Q": 0.16500004947426872,
+          "reward": 0.7603125030921418,
+          "candidate_sha256": "72096549f01e11e62f52115f1e4b703003d42f58eaed948baa3bbadc92fda26b",
+          "submitted_at": "2026-10-17T08:46:48Z",
+          "collected_at": "2026-10-17T09:02:09Z"
+        }
+      ],
+      "record_sha256": {
+        "status.json": "b3624075df1abdf78822bf206ad03b2c57bcde18836fb52767076147b280c025",
+        "primary-900-summary.json": "7ecd56c231ce1066f6617d322a65899581b41ae350a6fad95b5958d9f3f0d6af",
+        "reports/final.json": "b4d620fb2f85ba3a1bed185f3886cdd79d178184f96ab89be0ddecb60af01b87"
+      },
+      "feedback_comparison": {
+        "last_k": 12,
+        "last_Q": 0.16500004947426872,
+        "best_index": 4,
+        "best_k": 14,
+        "best_Q": 0.1979497670467009,
+        "final_matches_last_sha": false,
+        "final_matches_best_sha": false,
+        "primary_minus_last_k": 3,
+        "primary_minus_best_k": 1
+      }
+    },
+    {
+      "role": "n5-r2",
+      "n": 5,
+      "repetition": 2,
+      "phase": "completed",
+      "passed": true,
+      "completed_at_utc": "2026-10-17T23:28:56.549887+00:00",
+      "primary": {
+        "k": 15,
+        "Q": 0.21536518940083163,
+        "reward": 0.950960324337552,
+        "status_counts": {
+          "AC": 15
+        }
+      },
+      "supplemental": {
+        "k": 15,
+        "Q": 0.21513910188349253,
+        "reward": 0.9509461938677183,
+        "status_counts": {
+          "AC": 15
+        }
+      },
+      "candidate_sha256": "727ab7b716d16090211ebc06312d7c7cfbb0f3698bb788e102fa475cfcd75757",
+      "manifest_sha256": "f954c07cf2663311bf562f90318dfebfd844f9b83ab2331c00445f66ab827b1f",
+      "checks": {
+        "primary": {
+          "ordered_15_cases": true,
+          "candidate_matches_primary": true,
+          "seconds_match": true,
+          "evaluation_completed": true,
+          "secure_execution": true,
+          "protocol_matches": true,
+          "k_matches_cases": true,
+          "Q_matches_cases": true,
+          "reward_matches_cases": true,
+          "summary_cases_match_raw": true,
+          "summary_k_matches_raw": true,
+          "summary_Q_matches_raw": true,
+          "summary_reward_matches_raw": true,
+          "summary_manifest_matches_raw": true,
+          "summary_candidate_matches_audit": true
+        },
+        "supplemental": {
+          "ordered_15_cases": true,
+          "candidate_matches_primary": true,
+          "seconds_match": true,
+          "evaluation_completed": true,
+          "secure_execution": true,
+          "protocol_matches": true,
+          "k_matches_cases": true,
+          "Q_matches_cases": true,
+          "reward_matches_cases": true
+        }
+      },
+      "audit": {
+        "passed": true,
+        "evaluation_completed": true,
+        "exception_type": null,
+        "feedback_budget": 5,
+        "feedback_used": 5,
+        "feedback_collected": 5,
+        "oom_observed": false,
+        "oom_policy_revision": null,
+        "original_audit_passed": null,
+        "model_messages": 257,
+        "response_models": [
+          "global.openai.gpt-5.6-sol"
+        ],
+        "api_error_events": 0,
+        "resource_observed": true,
+        "observed_resource_roles": [
+          "developer"
+        ]
+      },
+      "agent_usage_reported": {
+        "n_input_tokens": 149227399,
+        "n_cache_tokens": 146646230,
+        "n_output_tokens": 570809,
+        "cost_usd": 164.0428195
+      },
+      "development": {
+        "phase": "agent_stopped",
+        "started_at": "2026-10-17T10:26:15.230483+00:00",
+        "stopped_at": "2026-10-17T22:21:34.029919+00:00",
+        "development_deadline": "2026-10-17T22:26:15.230483+00:00",
+        "time_budget_sec": 43200.0,
+        "aggregate_token_cap": null,
+        "elapsed_seconds": 42918.799436
+      },
+      "feedback_ledger": {
+        "counted": 5,
+        "collected": 5,
+        "infra_error": 0,
+        "truncated": 0,
+        "complete_v2": 5,
+        "rich_diagnostics": 5
+      },
+      "feedback_points": [
+        {
+          "index": 1,
+          "k": 6,
+          "Q": 0.09747747394635091,
+          "reward": 0.38109234212164694,
+          "candidate_sha256": "ed51f16524846e40ba7f6b51ef3158a2081e41fa1def51b2fd21fcbbf4b7f86d",
+          "submitted_at": "2026-10-17T10:27:21Z",
+          "collected_at": "2026-10-17T10:43:22Z"
+        },
+        {
+          "index": 2,
+          "k": 11,
+          "Q": 0.16154132407150398,
+          "reward": 0.697596332754469,
+          "candidate_sha256": "f952f967a0e94c4c8538536afb969206575e85694eadb2935a73b54e721add79",
+          "submitted_at": "2026-10-17T10:46:10Z",
+          "collected_at": "2026-10-17T11:06:46Z"
+        },
+        {
+          "index": 3,
+          "k": 10,
+          "Q": 0.15319507175407007,
+          "reward": 0.6345746919846293,
+          "candidate_sha256": "414bdd2f4367fc90108c8df4478fdf0c83980838418155495c13bf5b1c0a2c06",
+          "submitted_at": "2026-10-17T11:08:54Z",
+          "collected_at": "2026-10-17T11:26:13Z"
+        },
+        {
+          "index": 4,
+          "k": 10,
+          "Q": 0.15341538319403888,
+          "reward": 0.6345884614496274,
+          "candidate_sha256": "790b39757e3bb152edc1a62a96b73bad8cc475f9843d6433cc7b4b9d2ede4ce7",
+          "submitted_at": "2026-10-17T11:27:30Z",
+          "collected_at": "2026-10-17T11:46:57Z"
+        },
+        {
+          "index": 5,
+          "k": 13,
+          "Q": 0.18685433214738076,
+          "reward": 0.8241783957592113,
+          "candidate_sha256": "f355cbe6526ac98ac786bce50fb2cb2d52998abbded6d2a19fc0fa44a1a49067",
+          "submitted_at": "2026-10-17T12:58:57Z",
+          "collected_at": "2026-10-17T13:14:01Z"
+        }
+      ],
+      "record_sha256": {
+        "status.json": "1bcdc75e91584b3c63b70f8441d8c826a28971bd4dfc3c616aac906ae9b59ce2",
+        "primary-900-summary.json": "105a3e9ba2120a8c187d20f34cc70e63834fbf3a4a4917b65f2f451585215d38",
+        "reports/final.json": "a7ced0527ccb1a93d2c96a048c2ea462d30bf83f63151ecd668306357f255527"
+      },
+      "feedback_comparison": {
+        "last_k": 13,
+        "last_Q": 0.18685433214738076,
+        "best_index": 5,
+        "best_k": 13,
+        "best_Q": 0.18685433214738076,
+        "final_matches_last_sha": false,
+        "final_matches_best_sha": false,
+        "primary_minus_last_k": 2,
+        "primary_minus_best_k": 2
+      }
+    },
+    {
+      "role": "n5-r3",
+      "n": 5,
+      "repetition": 3,
+      "phase": "completed",
+      "passed": true,
+      "completed_at_utc": "2026-10-18T03:04:14.185086+00:00",
+      "primary": {
+        "k": 15,
+        "Q": 0.21627710880734083,
+        "reward": 0.9510173193004589,
+        "status_counts": {
+          "AC": 15
+        }
+      },
+      "supplemental": {
+        "k": 15,
+        "Q": 0.21644498559040976,
+        "reward": 0.9510278115994006,
+        "status_counts": {
+          "AC": 15
+        }
+      },
+      "candidate_sha256": "77821100140ac8c8b48aa7da99e63409b4640030f4ac768b7907387edbbb29aa",
+      "manifest_sha256": "f954c07cf2663311bf562f90318dfebfd844f9b83ab2331c00445f66ab827b1f",
+      "checks": {
+        "primary": {
+          "ordered_15_cases": true,
+          "candidate_matches_primary": true,
+          "seconds_match": true,
+          "evaluation_completed": true,
+          "secure_execution": true,
+          "protocol_matches": true,
+          "k_matches_cases": true,
+          "Q_matches_cases": true,
+          "reward_matches_cases": true,
+          "summary_cases_match_raw": true,
+          "summary_k_matches_raw": true,
+          "summary_Q_matches_raw": true,
+          "summary_reward_matches_raw": true,
+          "summary_manifest_matches_raw": true,
+          "summary_candidate_matches_audit": true
+        },
+        "supplemental": {
+          "ordered_15_cases": true,
+          "candidate_matches_primary": true,
+          "seconds_match": true,
+          "evaluation_completed": true,
+          "secure_execution": true,
+          "protocol_matches": true,
+          "k_matches_cases": true,
+          "Q_matches_cases": true,
+          "reward_matches_cases": true
+        }
+      },
+      "audit": {
+        "passed": true,
+        "evaluation_completed": true,
+        "exception_type": null,
+        "feedback_budget": 5,
+        "feedback_used": 5,
+        "feedback_collected": 5,
+        "oom_observed": false,
+        "oom_policy_revision": null,
+        "original_audit_passed": null,
+        "model_messages": 1216,
+        "response_models": [
+          "global.openai.gpt-5.6-sol"
+        ],
+        "api_error_events": 0,
+        "resource_observed": true,
+        "observed_resource_roles": [
+          "developer"
+        ]
+      },
+      "agent_usage_reported": {
+        "n_input_tokens": 190560388,
+        "n_cache_tokens": 185766365,
+        "n_output_tokens": 1011348,
+        "cost_usd": 231.91025424999992
+      },
+      "development": {
+        "phase": "agent_stopped",
+        "started_at": "2026-10-17T14:07:59.979972+00:00",
+        "stopped_at": "2026-10-18T02:05:53.287071+00:00",
+        "development_deadline": "2026-10-18T02:07:59.979972+00:00",
+        "time_budget_sec": 43200.0,
+        "aggregate_token_cap": null,
+        "elapsed_seconds": 43073.307099
+      },
+      "feedback_ledger": {
+        "counted": 5,
+        "collected": 5,
+        "infra_error": 0,
+        "truncated": 0,
+        "complete_v2": 5,
+        "rich_diagnostics": 5
+      },
+      "feedback_points": [
+        {
+          "index": 1,
+          "k": 8,
+          "Q": 0.12051377376218611,
+          "reward": 0.5075321108601366,
+          "candidate_sha256": "ed51f16524846e40ba7f6b51ef3158a2081e41fa1def51b2fd21fcbbf4b7f86d",
+          "submitted_at": "2026-10-17T14:09:52Z",
+          "collected_at": "2026-10-17T14:25:04Z"
+        },
+        {
+          "index": 2,
+          "k": 13,
+          "Q": 0.18516638976132366,
+          "reward": 0.8240728993600828,
+          "candidate_sha256": "353c7ade2e214b3d281810ce5864dc29d92b1d87869e7c8b516af59580aaea4b",
+          "submitted_at": "2026-10-17T14:57:16Z",
+          "collected_at": "2026-10-17T15:13:35Z"
+        },
+        {
+          "index": 3,
+          "k": 13,
+          "Q": 0.18198553965396683,
+          "reward": 0.8238740962283729,
+          "candidate_sha256": "2a166875bfb56ef99dff202bc1ab3e10083f010170e3e8b707599614461a3fd1",
+          "submitted_at": "2026-10-17T15:13:55Z",
+          "collected_at": "2026-10-17T15:28:55Z"
+        },
+        {
+          "index": 4,
+          "k": 13,
+          "Q": 0.18414749436819117,
+          "reward": 0.824009218398012,
+          "candidate_sha256": "2cd7c89b5ed276e9c76c1cbe019a44b2d5e3fa5d17bc5dbe1d64e4fcc1ec4aa0",
+          "submitted_at": "2026-10-17T15:34:14Z",
+          "collected_at": "2026-10-17T15:49:21Z"
+        },
+        {
+          "index": 5,
+          "k": 13,
+          "Q": 0.189756230223551,
+          "reward": 0.824359764388972,
+          "candidate_sha256": "3d3b4e5fae200b6b9e72f4c07744762fb379c9489fd3484aa91b9e57f3ec7dd4",
+          "submitted_at": "2026-10-17T15:51:56Z",
+          "collected_at": "2026-10-17T16:07:04Z"
+        }
+      ],
+      "record_sha256": {
+        "status.json": "c629ef9c781649ec7249a654743b10d31c200b4fae67ff6496011e013a9e3632",
+        "primary-900-summary.json": "603a3e72d318c87bf55cc205d2d78089d09edb012c49119ca06a77fe6fc35e09",
+        "reports/final.json": "c700d53a27b17d5ebe42ce32ddbfea1c02622c7416404096b53935913c72a255"
+      },
+      "feedback_comparison": {
+        "last_k": 13,
+        "last_Q": 0.189756230223551,
+        "best_index": 5,
+        "best_k": 13,
+        "best_Q": 0.189756230223551,
+        "final_matches_last_sha": false,
+        "final_matches_best_sha": false,
+        "primary_minus_last_k": 2,
+        "primary_minus_best_k": 2
+      }
+    },
+    {
+      "role": "n10-r1",
+      "n": 10,
+      "repetition": 1,
+      "phase": "completed",
+      "passed": true,
+      "completed_at_utc": "2026-10-17T17:58:12.839896+00:00",
+      "primary": {
+        "k": 15,
+        "Q": 0.22094126970808248,
+        "reward": 0.9513088293567552,
+        "status_counts": {
+          "AC": 15
+        }
+      },
+      "supplemental": {
+        "k": 15,
+        "Q": 0.22132417860971018,
+        "reward": 0.9513327611631068,
+        "status_counts": {
+          "AC": 15
+        }
+      },
+      "candidate_sha256": "af3f51b3319689942d7e0fadece69b853732347d319210a7b5b8f32011f636d0",
+      "manifest_sha256": "f954c07cf2663311bf562f90318dfebfd844f9b83ab2331c00445f66ab827b1f",
+      "checks": {
+        "primary": {
+          "ordered_15_cases": true,
+          "candidate_matches_primary": true,
+          "seconds_match": true,
+          "evaluation_completed": true,
+          "secure_execution": true,
+          "protocol_matches": true,
+          "k_matches_cases": true,
+          "Q_matches_cases": true,
+          "reward_matches_cases": true,
+          "summary_cases_match_raw": true,
+          "summary_k_matches_raw": true,
+          "summary_Q_matches_raw": true,
+          "summary_reward_matches_raw": true,
+          "summary_manifest_matches_raw": true,
+          "summary_candidate_matches_audit": true
+        },
+        "supplemental": {
+          "ordered_15_cases": true,
+          "candidate_matches_primary": true,
+          "seconds_match": true,
+          "evaluation_completed": true,
+          "secure_execution": true,
+          "protocol_matches": true,
+          "k_matches_cases": true,
+          "Q_matches_cases": true,
+          "reward_matches_cases": true
+        }
+      },
+      "audit": {
+        "passed": true,
+        "evaluation_completed": true,
+        "exception_type": "AgentTimeoutError",
+        "feedback_budget": 10,
+        "feedback_used": 10,
+        "feedback_collected": 10,
+        "oom_observed": false,
+        "oom_policy_revision": null,
+        "original_audit_passed": null,
+        "model_messages": 293,
+        "response_models": [
+          "global.openai.gpt-5.6-sol"
+        ],
+        "api_error_events": 0,
+        "resource_observed": true,
+        "observed_resource_roles": [
+          "developer"
+        ]
+      },
+      "agent_usage_reported": {
+        "n_input_tokens": 82814703,
+        "n_cache_tokens": 81337464,
+        "n_output_tokens": 258962,
+        "cost_usd": 45.098796599999986
+      },
+      "development": {
+        "phase": "agent_stopped",
+        "started_at": "2026-10-17T05:28:07.120045+00:00",
+        "stopped_at": "2026-10-17T17:28:07.331050+00:00",
+        "development_deadline": "2026-10-17T17:28:07.120045+00:00",
+        "time_budget_sec": 43200.0,
+        "aggregate_token_cap": null,
+        "elapsed_seconds": 43200.211005
+      },
+      "feedback_ledger": {
+        "counted": 10,
+        "collected": 10,
+        "infra_error": 0,
+        "truncated": 0,
+        "complete_v2": 10,
+        "rich_diagnostics": 10
+      },
+      "feedback_points": [
+        {
+          "index": 1,
+          "k": 5,
+          "Q": 0.08213620275164332,
+          "reward": 0.3176335126719777,
+          "candidate_sha256": "ed51f16524846e40ba7f6b51ef3158a2081e41fa1def51b2fd21fcbbf4b7f86d",
+          "submitted_at": "2026-10-17T05:30:39Z",
+          "collected_at": "2026-10-17T05:45:55Z"
+        },
+        {
+          "index": 2,
+          "k": 9,
+          "Q": 0.13878692053955127,
+          "reward": 0.571174182533722,
+          "candidate_sha256": "3931fc6f29abf3943bf21d73f14d423fb527b2bd7f088ce682b3b2e649c36911",
+          "submitted_at": "2026-10-17T05:53:26Z",
+          "collected_at": "2026-10-17T06:09:23Z"
+        },
+        {
+          "index": 3,
+          "k": 5,
+          "Q": 0.08129933433160955,
+          "reward": 0.3175812083957256,
+          "candidate_sha256": "012c930207812ffc1bca692782fd1d7e9967ca6601936f6c2e1ecf2039d0ca60",
+          "submitted_at": "2026-10-17T06:19:20Z",
+          "collected_at": "2026-10-17T06:37:19Z"
+        },
+        {
+          "index": 4,
+          "k": 8,
+          "Q": 0.12998911814262168,
+          "reward": 0.5081243198839138,
+          "candidate_sha256": "dde379a14cd46d6c5bb0dbf84a455d6dc06ec290f462f4c8ed928e4f797e6039",
+          "submitted_at": "2026-10-17T06:43:43Z",
+          "collected_at": "2026-10-17T06:58:50Z"
+        },
+        {
+          "index": 5,
+          "k": 7,
+          "Q": 0.11154276423362848,
+          "reward": 0.4444714227646018,
+          "candidate_sha256": "c3e4b416e02387494cc27876edc2cf01a09c7a01a32ec96abf0d5bca96b227d3",
+          "submitted_at": "2026-10-17T06:59:48Z",
+          "collected_at": "2026-10-17T07:14:54Z"
+        },
+        {
+          "index": 6,
+          "k": 4,
+          "Q": 0.06627226079798344,
+          "reward": 0.254142016299874,
+          "candidate_sha256": "800d4611ee46767ebe306032de276b8b515cbac7233dbc72bdb2490f1cf21aaa",
+          "submitted_at": "2026-10-17T07:16:13Z",
+          "collected_at": "2026-10-17T07:31:22Z"
+        },
+        {
+          "index": 7,
+          "k": 6,
+          "Q": 0.09692854493917061,
+          "reward": 0.38105803405869815,
+          "candidate_sha256": "4b24778159d44d193be134dbf31f862a812d1cfba289f91bf96245c63797bbcf",
+          "submitted_at": "2026-10-17T07:32:08Z",
+          "collected_at": "2026-10-17T07:47:44Z"
+        },
+        {
+          "index": 8,
+          "k": 6,
+          "Q": 0.09284969885537156,
+          "reward": 0.38080310617846075,
+          "candidate_sha256": "1f6190a40f6986b6972a27be6e226d63c60404296a8f894707887814ffdb096f",
+          "submitted_at": "2026-10-17T07:49:47Z",
+          "collected_at": "2026-10-17T08:04:57Z"
+        },
+        {
+          "index": 9,
+          "k": 8,
+          "Q": 0.12446658991012202,
+          "reward": 0.5077791618693827,
+          "candidate_sha256": "ab604132a48793d8c14eb98228b1226ebe1e80acc95e76d49d5b390e847b2ba0",
+          "submitted_at": "2026-10-17T08:05:40Z",
+          "collected_at": "2026-10-17T08:20:48Z"
+        },
+        {
+          "index": 10,
+          "k": 13,
+          "Q": 0.18171382957793164,
+          "reward": 0.8238571143486207,
+          "candidate_sha256": "f7bcfbccd53de0cc5a20304dfd39f93eda21c459fa1d9ea3230285cf201d948f",
+          "submitted_at": "2026-10-17T08:46:42Z",
+          "collected_at": "2026-10-17T09:03:11Z"
+        }
+      ],
+      "record_sha256": {
+        "status.json": "1c27bbd4652ef469adbbd90c316c337488abaa4bd7663378f2d4a296c6e86592",
+        "primary-900-summary.json": "97e2c3f4b15a0e1a6aaa619b3d526bb4f1062c34ffb73ce57caa7b78302b98e6",
+        "reports/final.json": "96b43812a5112f042f4c7304916b0dcd529dab2e1852eb369b991dd2fbc20d0f"
+      },
+      "feedback_comparison": {
+        "last_k": 13,
+        "last_Q": 0.18171382957793164,
+        "best_index": 10,
+        "best_k": 13,
+        "best_Q": 0.18171382957793164,
+        "final_matches_last_sha": false,
+        "final_matches_best_sha": false,
+        "primary_minus_last_k": 2,
+        "primary_minus_best_k": 2
+      }
+    },
+    {
+      "role": "n10-r2",
+      "n": 10,
+      "repetition": 2,
+      "phase": "completed",
+      "passed": true,
+      "completed_at_utc": "2026-10-18T06:46:31.338357+00:00",
+      "primary": {
+        "k": 15,
+        "Q": 0.21957568497110733,
+        "reward": 0.9512234803106943,
+        "status_counts": {
+          "AC": 15
+        }
+      },
+      "supplemental": {
+        "k": 15,
+        "Q": 0.21962828043276275,
+        "reward": 0.9512267675270477,
+        "status_counts": {
+          "AC": 15
+        }
+      },
+      "candidate_sha256": "af77cd153521ea23345d3c4db0f22923fb2e5f779756a8a99536a10c6eccf7bf",
+      "manifest_sha256": "f954c07cf2663311bf562f90318dfebfd844f9b83ab2331c00445f66ab827b1f",
+      "checks": {
+        "primary": {
+          "ordered_15_cases": true,
+          "candidate_matches_primary": true,
+          "seconds_match": true,
+          "evaluation_completed": true,
+          "secure_execution": true,
+          "protocol_matches": true,
+          "k_matches_cases": true,
+          "Q_matches_cases": true,
+          "reward_matches_cases": true,
+          "summary_cases_match_raw": true,
+          "summary_k_matches_raw": true,
+          "summary_Q_matches_raw": true,
+          "summary_reward_matches_raw": true,
+          "summary_manifest_matches_raw": true,
+          "summary_candidate_matches_audit": true
+        },
+        "supplemental": {
+          "ordered_15_cases": true,
+          "candidate_matches_primary": true,
+          "seconds_match": true,
+          "evaluation_completed": true,
+          "secure_execution": true,
+          "protocol_matches": true,
+          "k_matches_cases": true,
+          "Q_matches_cases": true,
+          "reward_matches_cases": true
+        }
+      },
+      "audit": {
+        "passed": true,
+        "evaluation_completed": true,
+        "exception_type": null,
+        "feedback_budget": 10,
+        "feedback_used": 10,
+        "feedback_collected": 10,
+        "oom_observed": false,
+        "oom_policy_revision": null,
+        "original_audit_passed": null,
+        "model_messages": 456,
+        "response_models": [
+          "global.openai.gpt-5.6-sol"
+        ],
+        "api_error_events": 0,
+        "resource_observed": true,
+        "observed_resource_roles": [
+          "developer"
+        ]
+      },
+      "agent_usage_reported": {
+        "n_input_tokens": 93439278,
+        "n_cache_tokens": 91452476,
+        "n_output_tokens": 347447,
+        "cost_usd": 108.22747400000006
+      },
+      "development": {
+        "phase": "agent_stopped",
+        "started_at": "2026-10-17T18:08:48.047209+00:00",
+        "stopped_at": "2026-10-18T05:56:20.274697+00:00",
+        "development_deadline": "2026-10-18T06:08:48.047209+00:00",
+        "time_budget_sec": 43200.0,
+        "aggregate_token_cap": null,
+        "elapsed_seconds": 42452.227488
+      },
+      "feedback_ledger": {
+        "counted": 10,
+        "collected": 10,
+        "infra_error": 0,
+        "truncated": 0,
+        "complete_v2": 10,
+        "rich_diagnostics": 10
+      },
+      "feedback_points": [
+        {
+          "index": 1,
+          "k": 6,
+          "Q": 0.09749950880799907,
+          "reward": 0.38109371930049996,
+          "candidate_sha256": "ed51f16524846e40ba7f6b51ef3158a2081e41fa1def51b2fd21fcbbf4b7f86d",
+          "submitted_at": "2026-10-17T18:11:16Z",
+          "collected_at": "2026-10-17T18:26:38Z"
+        },
+        {
+          "index": 2,
+          "k": 10,
+          "Q": 0.15356830497150958,
+          "reward": 0.6345980190607193,
+          "candidate_sha256": "222d58348fd8332c822ee0fe7aa19633d40f2ee8e17865f0bb96d0ae077d7f56",
+          "submitted_at": "2026-10-17T18:28:43Z",
+          "collected_at": "2026-10-17T18:51:17Z"
+        },
+        {
+          "index": 3,
+          "k": 10,
+          "Q": 0.15361409484022437,
+          "reward": 0.634600880927514,
+          "candidate_sha256": "b5829aa8cee8e02d38ffca96eae75d4e0f91635dae486802482447f4b213557b",
+          "submitted_at": "2026-10-17T18:51:28Z",
+          "collected_at": "2026-10-17T19:06:31Z"
+        },
+        {
+          "index": 4,
+          "k": 15,
+          "Q": 0.214126554706171,
+          "reward": 0.9508829096691357,
+          "candidate_sha256": "edfbb3f6cafec9a2bbbc9f4e4a6106a48509939d9c6d0409f67d409ce247d52f",
+          "submitted_at": "2026-10-17T19:23:10Z",
+          "collected_at": "2026-10-17T19:37:00Z"
+        },
+        {
+          "index": 5,
+          "k": 14,
+          "Q": 0.1960108202388167,
+          "reward": 0.887250676264926,
+          "candidate_sha256": "96ea19754fa277bdc1d29e2e64ada87455ab7285e006c766b946072c60e38cb5",
+          "submitted_at": "2026-10-17T19:37:41Z",
+          "collected_at": "2026-10-17T19:52:36Z"
+        },
+        {
+          "index": 6,
+          "k": 15,
+          "Q": 0.21907538142077168,
+          "reward": 0.9511922113387983,
+          "candidate_sha256": "1204a30a661481813f2f42c10654dbcbbec915957e3d8c185eba96abc7cbb266",
+          "submitted_at": "2026-10-17T20:01:11Z",
+          "collected_at": "2026-10-17T20:14:20Z"
+        },
+        {
+          "index": 7,
+          "k": 15,
+          "Q": 0.2186535283344059,
+          "reward": 0.9511658455209003,
+          "candidate_sha256": "c10afa2d9bcf19aadae49cbd7f52a61683aaf92bc45b01d0398f0ecead3527e9",
+          "submitted_at": "2026-10-17T20:14:58Z",
+          "collected_at": "2026-10-17T20:28:03Z"
+        },
+        {
+          "index": 8,
+          "k": 15,
+          "Q": 0.2194574611353679,
+          "reward": 0.9512160913209605,
+          "candidate_sha256": "8554de07c1e7e957da4c7622e39fa0edcd3b9517a088df516fd3e39b89096518",
+          "submitted_at": "2026-10-17T20:31:55Z",
+          "collected_at": "2026-10-17T20:46:20Z"
+        },
+        {
+          "index": 9,
+          "k": 15,
+          "Q": 0.21940605890768747,
+          "reward": 0.9512128786817304,
+          "candidate_sha256": "51e71da5783234768b0968c5796dfffa55d39ea42260cd455b0997935151c69e",
+          "submitted_at": "2026-10-17T20:47:57Z",
+          "collected_at": "2026-10-17T21:02:14Z"
+        },
+        {
+          "index": 10,
+          "k": 15,
+          "Q": 0.21951441121766252,
+          "reward": 0.9512196507011039,
+          "candidate_sha256": "cb67a2c635f35cc9978bf52d8b51ec899f1b11a69f737c9a69aaad0aac5e210f",
+          "submitted_at": "2026-10-17T21:36:36Z",
+          "collected_at": "2026-10-17T21:50:08Z"
+        }
+      ],
+      "record_sha256": {
+        "status.json": "99fa172f78a4c9a669a88f6c42284c7074aac52be9d52b03134923641d76596a",
+        "primary-900-summary.json": "4105d06d19eae2f0a4f34a4de14175313057982b610177d32475986c340f9195",
+        "reports/final.json": "2c82dc1ec386ca7537c0ea1c761afeb3722e6c5440f8b07f7b4f5bbe15bc9b5b"
+      },
+      "feedback_comparison": {
+        "last_k": 15,
+        "last_Q": 0.21951441121766252,
+        "best_index": 10,
+        "best_k": 15,
+        "best_Q": 0.21951441121766252,
+        "final_matches_last_sha": false,
+        "final_matches_best_sha": false,
+        "primary_minus_last_k": 0,
+        "primary_minus_best_k": 0
+      }
+    },
+    {
+      "role": "n10-r3",
+      "n": 10,
+      "repetition": 3,
+      "phase": "completed",
+      "passed": true,
+      "completed_at_utc": "2026-10-18T05:48:29.405545+00:00",
+      "primary": {
+        "k": 12,
+        "Q": 0.16997274045527364,
+        "reward": 0.7606232962784546,
+        "status_counts": {
+          "AC": 12,
+          "RE": 2,
+          "TLE": 1
+        }
+      },
+      "supplemental": {
+        "k": 15,
+        "Q": 0.21719999131617654,
+        "reward": 0.951074999457261,
+        "status_counts": {
+          "AC": 15
+        }
+      },
+      "candidate_sha256": "93aaa940190a2cecd9362c0239eb42eabfec83b1e7943db93dad82949cc6c9c2",
+      "manifest_sha256": "f954c07cf2663311bf562f90318dfebfd844f9b83ab2331c00445f66ab827b1f",
+      "checks": {
+        "primary": {
+          "ordered_15_cases": true,
+          "candidate_matches_primary": true,
+          "seconds_match": true,
+          "evaluation_completed": true,
+          "secure_execution": true,
+          "protocol_matches": true,
+          "k_matches_cases": true,
+          "Q_matches_cases": true,
+          "reward_matches_cases": true,
+          "summary_cases_match_raw": true,
+          "summary_k_matches_raw": true,
+          "summary_Q_matches_raw": true,
+          "summary_reward_matches_raw": true,
+          "summary_manifest_matches_raw": true,
+          "summary_candidate_matches_audit": true
+        },
+        "supplemental": {
+          "ordered_15_cases": true,
+          "candidate_matches_primary": true,
+          "seconds_match": true,
+          "evaluation_completed": true,
+          "secure_execution": true,
+          "protocol_matches": true,
+          "k_matches_cases": true,
+          "Q_matches_cases": true,
+          "reward_matches_cases": true
+        }
+      },
+      "audit": {
+        "passed": true,
+        "evaluation_completed": true,
+        "exception_type": null,
+        "feedback_budget": 10,
+        "feedback_used": 10,
+        "feedback_collected": 10,
+        "oom_observed": false,
+        "oom_policy_revision": null,
+        "original_audit_passed": null,
+        "model_messages": 47,
+        "response_models": [
+          "global.openai.gpt-5.6-sol"
+        ],
+        "api_error_events": 0,
+        "resource_observed": true,
+        "observed_resource_roles": [
+          "developer"
+        ]
+      },
+      "agent_usage_reported": {
+        "n_input_tokens": 90752834,
+        "n_cache_tokens": 87811191,
+        "n_output_tokens": 494347,
+        "cost_usd": 110.64524425
+      },
+      "development": {
+        "phase": "agent_stopped",
+        "started_at": "2026-10-17T17:06:57.902135+00:00",
+        "stopped_at": "2026-10-18T04:42:45.798200+00:00",
+        "development_deadline": "2026-10-18T05:06:57.902135+00:00",
+        "time_budget_sec": 43200.0,
+        "aggregate_token_cap": null,
+        "elapsed_seconds": 41747.896065
+      },
+      "feedback_ledger": {
+        "counted": 10,
+        "collected": 10,
+        "infra_error": 0,
+        "truncated": 0,
+        "complete_v2": 10,
+        "rich_diagnostics": 10
+      },
+      "feedback_points": [
+        {
+          "index": 1,
+          "k": 8,
+          "Q": 0.12053264646164535,
+          "reward": 0.5075332904038529,
+          "candidate_sha256": "ed51f16524846e40ba7f6b51ef3158a2081e41fa1def51b2fd21fcbbf4b7f86d",
+          "submitted_at": "2026-10-17T17:08:02Z",
+          "collected_at": "2026-10-17T17:26:13Z"
+        },
+        {
+          "index": 2,
+          "k": 11,
+          "Q": 0.16217070460209473,
+          "reward": 0.697635669037631,
+          "candidate_sha256": "60b385b5de2162b71843280e633f0dbaf845ed7e6af7fa3a438ec64669e4b161",
+          "submitted_at": "2026-10-17T17:26:24Z",
+          "collected_at": "2026-10-17T17:56:07Z"
+        },
+        {
+          "index": 3,
+          "k": 10,
+          "Q": 0.15366017284417674,
+          "reward": 0.634603760802761,
+          "candidate_sha256": "cdc5ecdf1409d309b214e71b6a53a7899e5a4c26d4ae900677ed26b8203a130e",
+          "submitted_at": "2026-10-17T17:56:17Z",
+          "collected_at": "2026-10-17T18:17:52Z"
+        },
+        {
+          "index": 4,
+          "k": 10,
+          "Q": 0.1536658343594297,
+          "reward": 0.6346041146474644,
+          "candidate_sha256": "ab9274678b8b1ee681bff69c515fad69fdb06c416f35496bc9248ceb113a7a58",
+          "submitted_at": "2026-10-17T18:49:00Z",
+          "collected_at": "2026-10-17T19:04:26Z"
+        },
+        {
+          "index": 5,
+          "k": 11,
+          "Q": 0.1628456770023192,
+          "reward": 0.697677854812645,
+          "candidate_sha256": "bb26e46433f166c548fb13c25762138b2c8540c318d733ac02b95e2b8017abeb",
+          "submitted_at": "2026-10-17T19:18:59Z",
+          "collected_at": "2026-10-17T19:34:25Z"
+        },
+        {
+          "index": 6,
+          "k": 11,
+          "Q": 0.16208355222872242,
+          "reward": 0.6976302220142951,
+          "candidate_sha256": "a888ce3184de505200ddb878a88606a7d647b157290c99bcb8f3cc75731cd7e4",
+          "submitted_at": "2026-10-17T19:34:38Z",
+          "collected_at": "2026-10-17T19:49:57Z"
+        },
+        {
+          "index": 7,
+          "k": 12,
+          "Q": 0.17071501238625605,
+          "reward": 0.760669688274141,
+          "candidate_sha256": "16a59dbdd58a5242c40b03040a996a3a0ec3ec08eeb38372a8e4c1d3fc83c820",
+          "submitted_at": "2026-10-17T20:14:44Z",
+          "collected_at": "2026-10-17T20:29:49Z"
+        },
+        {
+          "index": 8,
+          "k": 12,
+          "Q": 0.17072027072308285,
+          "reward": 0.7606700169201926,
+          "candidate_sha256": "784b30a127e48f2bda8a93d7ab3584b8d953a9a15d10b07527fa8cbeab2d5117",
+          "submitted_at": "2026-10-17T20:30:00Z",
+          "collected_at": "2026-10-17T20:45:08Z"
+        },
+        {
+          "index": 9,
+          "k": 12,
+          "Q": 0.1707076073729514,
+          "reward": 0.7606692254608095,
+          "candidate_sha256": "e0c831c96570bd9095f8febfad790e7ad73487ec14d2d2c6aefe72b4eabbb302",
+          "submitted_at": "2026-10-17T20:47:34Z",
+          "collected_at": "2026-10-17T21:02:59Z"
+        },
+        {
+          "index": 10,
+          "k": 12,
+          "Q": 0.17005249897764013,
+          "reward": 0.7606282811861025,
+          "candidate_sha256": "92c8c64a275cdb5d9e5212d6645f641cfe615c4e3b680c3f62b4f5307f097382",
+          "submitted_at": "2026-10-17T21:03:55Z",
+          "collected_at": "2026-10-17T21:19:02Z"
+        }
+      ],
+      "record_sha256": {
+        "status.json": "9c6d345eb7d53f30806c9bd3bc155e1dd76d62c2f92d26fd6e14c78598db4000",
+        "primary-900-summary.json": "56212ac60fc10f59e8bb38879778d434f30645a36dac937398aed777a087b11d",
+        "reports/final.json": "fcc42813c3277bf08052e7f11852572f35fd7998c54cc20e37c1e8b09e26f326"
+      },
+      "feedback_comparison": {
+        "last_k": 12,
+        "last_Q": 0.17005249897764013,
+        "best_index": 8,
+        "best_k": 12,
+        "best_Q": 0.17072027072308285,
+        "final_matches_last_sha": false,
+        "final_matches_best_sha": false,
+        "primary_minus_last_k": 0,
+        "primary_minus_best_k": 0
+      }
+    }
+  ]
+}

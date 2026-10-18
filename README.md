@@ -1,30 +1,31 @@
 # PowerGrid Benchmark for Agent
 
-**2026-10-17反馈v2已重新提交：完整15组于13:19:59–13:20:05（Asia/Shanghai）创建成功，13:30:41启动快照为7个Running、8个Pending；其中6组已实际开发，预期模型与Read／Bash正常，API错误0，另1组初始化。** 当前v2已通过33项任务测试、18项原生提交／主成绩审计测试、初次CI的8项检查，真实n=0／n=1模型／工具／反馈验收及完整工业X15资源门禁通过。采用15分钟主评测、90分钟补充，先比可行例数、同覆盖再比质量，返回完整15例结构化诊断。**12小时开发、截止主成绩和补充结果均尚未完成。** [中文启动记录](docs/completion-rte-feedback-v2-launch-20261017.md)、[脱敏凭据](docs/evidence/rte-feedback-v2-launch-20261017.json)、[协议](docs/protocol/rte-feedback-v2.md)、[新任务包](task-packages/rte-maintenance-abc-x15-v2/README.md)。原v1七组恢复继续暂缓，旧八组90分钟结果独立保留；[恢复说明](docs/completion-rte-recovery-20261017.md)、[n=0历史分析](docs/experiments/rte-feedback-trajectory-analysis-20261017.md)。
+**2026-10-18 16:01:35（Asia/Shanghai）更新：RTE反馈v2的15组实验全部completed／passed，900秒主评测与5400秒补充报告均已齐全；作业全部Succeeded、容器重启0。** 57次受保护反馈全部完整返回，无评分基础设施错误或截断。主评测共有6/15组全板可行，n=5三次均15/15可行；补充评测共有13/15组全板可行。n3-r3的开发OOM按预设审计政策保留，不能称整批无OOM。每档仅3次独立开发，当前结果用于描述性比较。[正式结果与分析](docs/experiments/rte-feedback-v2-results-20261018.md)、[脱敏结果证据](docs/evidence/rte-feedback-v2-results-20261018.json)、[反馈v2协议](docs/protocol/rte-feedback-v2.md)。[10月17日启动记录](docs/completion-rte-feedback-v2-launch-20261017.md)保留历史快照；原v1七组补跑继续暂缓，与v2分开。
 
-面向能源领域优化与ML的算法演化Benchmark。**当前优先完成RTE任务：ABC45开放开发和官方checker自测，X15受保护评测；过程反馈与截止主评测均每例15分钟、评测端15 CPU并行；同一截止源码每例90分钟补充评测，不回流开发。** n控制完整X面板的受理次数，ABC自测不计n。X同时用于反馈和终评，不声称独立未见测试。其他四任务暂沿用固定高难case的第一阶段设计。
+面向能源领域优化与ML的算法演化Benchmark。**当前RTE采用ABC45开放开发和官方checker自测，X15受保护评测；过程反馈与截止主评测均每例15分钟、评测端15 CPU并行；同一截止源码每例90分钟补充评测，不回流开发。** n控制完整X面板的受理次数，ABC自测不计n。X同时用于反馈和终评，不声称独立未见测试。其他四任务暂沿用固定高难case的第一阶段设计。
 
 **当前个人开发范围：直接复用 eval-in-loop 做小规模测试，只修阻断运行或导致错误结果的具体问题。** 原框架负责启动、Harbor、agent、反馈和既有记录；个人侧整理已有 task、原生配置和结果。独立基础包保留为参考，不要求迁移五任务、补齐49字段或完成生产故障矩阵才能小测。详见[精简设计决定](docs/decisions/0004-minimal-local-testing.md)。下文基础包与集群验收记录保留其原有适用范围。
 
 **当前RTE以[决定0006](docs/decisions/0006-rte-abc-open-x15-protected.md)为准。** [新版配置与操作](docs/protocol/rte-abc-x15-configuration.md)、[v2原生任务包](task-packages/rte-maintenance-abc-x15-v2/README.md)和[反馈v2协议](docs/protocol/rte-feedback-v2.md)说明当前提交、分数、资源及冻结工具；[v1任务包](task-packages/rte-maintenance-abc-x15-v1/README.md)保留历史。[决定0005](docs/decisions/0005-fixed-case-evolution-first.md)和[X04配置](docs/protocol/rte-x04-configuration.md)保留先前选择过程；其中RTE单例及禁止ABC本地评分条款已被覆盖。[公平比较清单](docs/framework/fair-ranking.md)已同步RTE例外，其他任务的设置继续逐项核实。
 
-**本轮研究设计已定：五task × n=0／1／3／5／10 × 三次独立开发，共75次；每次开发上限12小时，累计token不限且无累计预留截断。L2RPN主线恢复原赛动作范围，包括redispatch，在统一条件下重跑基线；375动作版本单列。** RTE此前v1曾提交15个正式run；本次v2已通过新版本验收并重新提交完整15组，旧批次不与其混合。其余任务的模型、实际资源、逐例执行限额、case ID和成本校准仍需逐项确定。正式研究结果尚未完成。新主线先按task分别报告原始指标，不设置跨task总分。
+**本轮研究设计已定：五task × n=0／1／3／5／10 × 三次独立开发，共75次；每次开发上限12小时，累计token不限且无累计预留截断。L2RPN主线恢复原赛动作范围，包括redispatch，在统一条件下重跑基线；375动作版本单列。** RTE此前v1曾提交15个正式run；本次v2完整15组及两档评分已完成，旧批次不与其混合。其余任务的模型、实际资源、逐例执行限额、case ID和成本校准仍需逐项确定，五任务整体实验计划尚未完成。新主线先按task分别报告原始指标，不设置跨task总分。
 
-**当前状态：Benchmark `v0.1-design`；已有独立参考实现版本为`0.2.0`。更新：2026-10-17。** 本阶段研究政策已整理，五任务运行包尚未全部适配。此前RTE在历史A4校准数据上通过Harbor／真实模型n=0、n=1配对canary，验证过旧公共选择、计数反馈／ACK、共同截止及独立终评；它不证明新ABC／X15模式、并行资源或新版网络限制已经验收。现有参考代码保留，不作为个人侧必迁路线；没有发布正式能源榜单。
+**当前状态：Benchmark `v0.1-design`；已有独立参考实现版本为`0.2.0`。更新：2026-10-18。** 本阶段研究政策已整理，五任务运行包尚未全部适配。此前RTE在历史A4校准数据上通过Harbor／真实模型n=0、n=1配对canary，验证过旧公共选择、计数反馈／ACK、共同截止及独立终评；它不证明新ABC／X15模式、并行资源或新版网络限制已经验收。现有参考代码保留，不作为个人侧必迁路线；没有发布正式能源榜单。
 
-**本地eval-in-loop已更新到`chufan_dev@c1fffbf`，保留原有改动及实验文件，完成必要兼容修复与本地测试／静态计划检查。** RTE X_04历史数据已独立核查；ABC／X15曾完成v5资源验收及v6微型生命周期／网络验收并提交v1批次；当前v2另行完成独立门禁、重新提交，状态以上述本轮记录为准。详见[本轮完成说明](docs/completion-fixed-case-20261015.md)及[X_04配置草案](docs/protocol/rte-x04-configuration.md)。
+**本地eval-in-loop已更新到`chufan_dev@c1fffbf`，保留原有改动及实验文件，完成必要兼容修复与本地测试／静态计划检查。** RTE X_04历史数据已独立核查；ABC／X15曾完成v5资源验收及v6微型生命周期／网络验收并提交v1批次；当前v2另行完成独立门禁及完整15组两档实验，结果以上述本轮记录为准。详见[本轮完成说明](docs/completion-fixed-case-20261015.md)及[X_04配置草案](docs/protocol/rte-x04-configuration.md)。
 
 三类模块已经整理为明确接口：**Configuration保留49字段的参考目录和待填模板，本轮已定设计以上文为准；Task adapters逐任务明确可执行提交、公平排行路线和缺少条件；Reliability extensions把历史故障归入共同生命周期，并区分已有本地实现与外部部署验收。**
 
-早期ABC／X15任务包与数据准备见[历史完成说明](docs/completion-rte-abc-x15-20261015.md)；当前v2实现、验收与15组提交见[本轮完成说明](docs/completion-rte-feedback-v2-launch-20261017.md)。
+早期ABC／X15任务包与数据准备见[历史完成说明](docs/completion-rte-abc-x15-20261015.md)；v2实现、验收与提交过程见[启动历史记录](docs/completion-rte-feedback-v2-launch-20261017.md)，当前完整成绩见[结果报告](docs/experiments/rte-feedback-v2-results-20261018.md)。
 
-原批次历史启动记录（2026-10-16）：15角色、固定客户端、启动前验收和当时提交状态见[运行配置](docs/experiments/rte-abc-x15-formal-20261015.md)与[最新中文工作说明](docs/completion-rte-formal-launch-20261015.md)。**RTE的15个正式run于2026-10-16 16:10提交；当日16:13历史快照为6个Running、9个Pending排队，当时完成数为0。v6真实n=0／n=1微型验收均通过，已修复v5发现的直连旁路；完整X15资源凭据由v5经一致性核对复用。`release_ready=true`仅表示本次RTE启动门禁通过。** 设置为n=0／1／3／5／10各3次、开发12小时、反馈900秒／例和冻结后90分钟／例评分；候选地址空间16GiB，verifier15 CPU／256GiB，Pod21 CPU／296GiB。6个已运行Pod位于6个不同节点；16:19早期检查另从已回收的Claude记录片段确认这6组均有预期模型响应及Read／Bash等工具调用，未见API或生命周期错误。最终分数与研究结论仍待开发和截止后评分完成。
+原批次历史启动记录（2026-10-16）：15角色、固定客户端、启动前验收和当时提交状态见[运行配置](docs/experiments/rte-abc-x15-formal-20261015.md)与[最新中文工作说明](docs/completion-rte-formal-launch-20261015.md)。**RTE的15个正式run于2026-10-16 16:10提交；当日16:13历史快照为6个Running、9个Pending排队，当时完成数为0。v6真实n=0／n=1微型验收均通过，已修复v5发现的直连旁路；完整X15资源凭据由v5经一致性核对复用。`release_ready=true`仅表示本次RTE启动门禁通过。** 设置为n=0／1／3／5／10各3次、开发12小时、反馈900秒／例和冻结后90分钟／例评分；候选地址空间16GiB，verifier15 CPU／256GiB，Pod21 CPU／296GiB。6个已运行Pod位于6个不同节点；16:19早期检查另从已回收的Claude记录片段确认这6组均有预期模型响应及Read／Bash等工具调用，未见API或生命周期错误。以上是2026-10-16当时的启动快照；原v1现保留8组90分钟完整结果与7组缺失，七组补跑暂缓。当前v2完整结果见页首新报告，两版本不合并。
 
 ## 从哪里开始
 
 | 需要了解的内容 | 文档 |
 |---|---|
-| 最新反馈v2实现、验收边界及新15组启动状态 | [中文完成与启动记录](docs/completion-rte-feedback-v2-launch-20261017.md)、[反馈v2协议](docs/protocol/rte-feedback-v2.md)、[v2任务包](task-packages/rte-maintenance-abc-x15-v2/README.md) |
+| 最新RTE反馈v2完整15组结果、900秒主成绩与5400秒补充 | [结果报告](docs/experiments/rte-feedback-v2-results-20261018.md)、[脱敏结果证据](docs/evidence/rte-feedback-v2-results-20261018.json) |
+| 反馈v2机制、任务包及10月17日历史启动过程 | [反馈v2协议](docs/protocol/rte-feedback-v2.md)、[v2任务包](task-packages/rte-maintenance-abc-x15-v2/README.md)、[启动记录](docs/completion-rte-feedback-v2-launch-20261017.md) |
 | 原七组恢复暂缓、磁盘／OOM修复和历史证据 | [恢复准备说明](docs/completion-rte-recovery-20261017.md)、[脱敏凭据](docs/evidence/rte-recovery-readiness-20261017.json) |
 | 为什么n=0在原批次90分钟结果中暂时领先 | [轨迹分析](docs/experiments/rte-feedback-trajectory-analysis-20261017.md)、[聚合证据](docs/evidence/rte-feedback-analysis-20261017.json) |
 | 当前RTE如何开发、计n，做15分钟主评测与90分钟补充 | [反馈v2协议](docs/protocol/rte-feedback-v2.md)、[v2任务包](task-packages/rte-maintenance-abc-x15-v2/README.md)；[决定0006](docs/decisions/0006-rte-abc-open-x15-protected.md)保留ABC／X边界 |
@@ -139,7 +140,7 @@ flowchart LR
 1. **研究契约与任务范围：文档完成。** 固定研究对象、五个任务族、主线与扩展边界、比较单位和主要研究问题。
 2. **任务卡与统一评测契约：已同步第一阶段政策。** 五卡§12记录固定难例、严格计n、artifacts冻结与同case复核；旧四角色留作历史／第二阶段参考。
 3. **基础框架统一：合同、本地参考实现和RTE真实Harbor／模型主链路验收完成。** 已验证共同计时、反馈账本、实际反馈／ACK、容器停止、冻结与独立终评；G1其余故障矩阵、开发中完整中断恢复及部署认证继续推进。
-4. **当前优先：任务包实现与校准。** 先完成RTE ABC／X15包及其15路并行，落实数据权限、基线、资源和完整评分；其他四题按同原则推进。
+4. **任务包实现与校准。** RTE反馈v2已完成首个15组、两档完整批次；其他四题仍按同原则落实数据权限、基线、资源和完整评分。
 5. **批量认证与 release 冻结。** 清洁环境、恶意/无效产物、故障注入、目标并发、重放和跨任务批次全部验收。
 6. **正式研究。** 第一阶段在各task约定的评测面板上比较反馈预算与方法基线，再做智能体／演化结构消融；RTE使用ABC／X15协议，其他四task暂按同case设计。未见泛化另行设计。
 
