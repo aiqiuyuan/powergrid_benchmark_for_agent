@@ -30,7 +30,7 @@
 | MAPDN | 15 | 14 有效、1 个候选失败；3 次开发提前结束 |
 | PowerGym | 15 | 14 有效、1 个候选失败；6 次开发提前结束 |
 
-本次材料核对补充了 UC v8 的终态及 RTE ABC/X15 的后续 feedback-v2 批次；旧启动快照和旧评分合同不作为它们的当前结果。其他批次采用各卡注明的已保存终态快照，没有重跑算法或重新评分。
+本节演化终态整理补充了 UC v8 及 RTE ABC/X15 的后续 feedback-v2 批次；旧启动快照和旧评分合同不作为当前结果。其余演化批次采用各卡注明的终态快照，未重跑历史演化算法；新增固定基线另见 §1.1。
 
 ### 1.1 传统方法、竞赛与论文复现锚点
 
@@ -38,18 +38,18 @@
 
 | 子 case | 已测传统方法／本轮起点 | 原赛结果与原 case 复现情况 | 论文／强方法复现状态 |
 |---|---|---|---|
-| [GOC2000](goc-sc-ac-opf.md#baseline-anchors) | 完整 starter J=1,003,485.357522 | 官方同 case LLNL 历史 J=988,356.792003；历史结果提取，未按本轮资源重跑 | gollnlp / PMSC 已定位方法及实现；本轮完整重放待补 |
-| [GOC2312](goc-sc-ac-opf.md#baseline-anchors) | 完整 starter J=7,278,497.380231，含巨大软惩罚 | 官方同 case LLNL 历史 J=374,222.320075；不能将相对弱起点的降幅解读为强基线优势 | 同上，必须覆盖全部 982 个故障与本轮执行合同 |
-| [UC / RTS-GMLC](unit-commitment.md#baseline-anchors) | 未改 MILP / HiGHS 原生验收均值 224.359 s；同算法注释变体另有 68.958 / 67.728 s 观测 | 开放 benchmark 库，无对应竞赛排名；原 case 已完整验解 | 已有同合同 starter 实跑；Tight / Compact / Random1 论文 formulation 待等价核验及实跑；验收时差不能作固定加速比分母 |
-| [RTE X04](rte-maintenance.md#baseline-anchors) | 同合同 starter F900=11,560.512 | 官方 S34 历史 F900=11,315.946；可比较原始目标值，未完成同环境冠军重放 | 公开 S34 / S56 代码及 MIP 方法已定位；当前合同复现待补 |
-| [RTE X15](rte-maintenance.md#baseline-anchors) | 当前 feedback-v2 同合同完整 starter 面板基线尚缺 | 已补全部 15 例官方 900 / 5400 s 逐实例最小值，并列同一冻结算法的逐例 F900 | 不拼接不同参赛者的实例最好值当作一份冠军算法；当前合同代码重放待补 |
-| [HEFTCom](heftcom-forecast-trade.md#baseline-anchors) | 非线性 ridge 85,204,183.37 GBP；最好演化结果相对高 3.35% | 原赛 Benchmark 82,234,089.27、SVK 88,882,213.67 GBP；已复现原报价结算，尚未复现模型重训 | SVK CatBoost / 直接报价及 GEB 价格差方法已核验；当前受限输入、冻结训练复现待补 |
-| [MAPDN](mapdn-voltage-control.md#baseline-anchors) | 同信息局部 droop 1.835251 MWh；另列积分反馈、迭代 droop、全信息 AC OPF | 当前绑定无竞赛榜单；传统方法已在完整原日实跑 | MADDPG / MATD3 的论文原协议与当前 case 区分；同合同 MARL 复现待补 |
-| [PowerGym](powergym-volt-var-control.md#baseline-anchors) | 同信息 coordinated rule quality=0.057844；另列固定动作、迟滞、负荷搜索与全日 oracle | 当前绑定无竞赛榜单；八种传统方法已测，特权方法单列 | 原论文 PPO / SAC 数值、34Bus pilot 与当前 123Bus 压力 case 分开；当前原 case RL 复现待补 |
+| [GOC2000](goc-sc-ac-opf.md#baseline-anchors) | 完整 starter J=1,003,485.357522；新完整 PMSC strict FP **1,002,774.015027** | LLNL 历史 J=988,356.792003，未按本轮资源重跑 | PMSC soft／strict 两次已完成、全 2421 故障有效可行；gollnlp 缺作者定制 Ipopt/HSL 库 |
+| [GOC2312](goc-sc-ac-opf.md#baseline-anchors) | starter J=7,278,497.380231；新完整 PMSC strict FP **381,423.195821** | LLNL 历史 J=374,222.320075；保留历史合同差异 | PMSC soft／strict 两次已完成、全 982 故障有效可行；gollnlp 同上阻塞 |
+| [UC / RTS-GMLC](unit-commitment.md#baseline-anchors) | 新交错校准 18/18 seed 执行有效达标；starter 9 次均值 **58.458 s** | 开放 benchmark 库，无对应竞赛排名；历史 224.359 s 未在新校准复现 | EGRET v4 适配失败保留；修正等式平衡的 **v5 native gate 通过、三份正式 Job 已提交**；不同运行时不发布固定加速比 |
+| [RTE X04](rte-maintenance.md#baseline-anchors) | 新重跑 starter F900=**11,560.512**；均值／可行 MILP 已启动 | S34 历史 F900=11,315.946，未完成同环境冠军重放 | S34 缺 Gurobi；S56、Gouvine 缺 CPLEX；实际构建缺口已记录 |
+| [RTE X15](rte-maintenance.md#baseline-anchors) | 完整 starter、均值风险／可行 MILP 的 900／5400 s 原面板重跑已启动 | 15 例官方逐例最小值及同一冻结算法逐例 F900 已列 | 不拼接不同参赛者实例最好值；三份实际 Job 覆盖 X04／X15 两档 |
+| [HEFTCom](heftcom-forecast-trade.md#baseline-anchors) | **7/7 新固定方法有效**（含扩展参考）；price-aware ridge **85,657,916.25 GBP** | Benchmark／SVK 原报价结算已复现，完整原赛模型重训仍分开 | GEB／organizer-spline 受限适配已完成；SVK-inspired CatBoost **84,604,672.88 GBP**，运行时扩展单列 |
+| [MAPDN](mapdn-voltage-control.md#baseline-anchors) | 同信息 droop 1.835251 MWh，另列积分反馈／迭代 droop／全信息 OPF | 无绑定竞赛榜单；传统方法已在完整原日实跑 | 原作者 MADDPG+Bowl／MATD3+Bowl 各 5 seeds ×400 episodes，**10 个训练 Job 已启动**；额外训练权重轨道 |
+| [PowerGym](powergym-volt-var-control.md#baseline-anchors) | coordinated rule quality=0.057844；新 Random／PPO 各三 seeds 均硬能量失败、quality0 | 无绑定竞赛榜单；八种传统方法与特权方法已列 | PPO／integer SAC／cbat-SAC-projected 各 3 seeds ×40000 转移，**12 个 Job 已提交**（含 Random）；完成／失败逐项保留 |
 
 每张卡片分别标注四种证据状态：**当前 case 同合同实测**、**额外信息／计算参照**、**原赛／论文原协议结果**、**方法或代码已定位但当前 case 未复现**。原报价／排程的重新验解或结算，与从原始输入独立重跑算法分开记录；后者需要代码、依赖、参数、训练数据和资源证据。
 
-本次仅提取已有运行证据并核验公开来源，没有新开实验或更改原成绩。新增可移植基线证据为 [UC baseline v1](evidence/uc-baseline-v1.json) 与 [HEFTCom baseline v1](evidence/heftcom-baseline-v1.json)；其余传统／历史锚点链接到卡片内原有证据和官方来源。未完成的强基线复现保留明确缺口，不用文献成绩代填本轮实测成绩。
+前次补充仅提取已有运行证据并核验公开来源。随后根据补齐全部待补基线的要求，已启动[独立数值复现批次](baseline-reproductions-20261019.md)，并按实际提交、运行、完成、失败与依赖阻塞更新[执行证据](evidence/baseline-reproductions-20261019.json)。历史演化成绩未改。新增可移植基线证据为 [UC baseline v1](evidence/uc-baseline-v1.json) 与 [HEFTCom baseline v1](evidence/heftcom-baseline-v1.json)；其余传统／历史锚点链接到卡片内原有证据和官方来源。未完成的强基线复现保留明确缺口，不用文献成绩代填本轮实测成绩。
 
 ## 2. 每张卡片如何组织
 

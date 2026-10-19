@@ -149,6 +149,8 @@ n1/r3完成24步但第3/4块电池账面末能量偏差为10/16 kWh，实际积�
 
 <a id="baseline-anchors"></a>
 
+**后续数值补全已于 2026-10-19 启动。** 下文保留前次证据核对的历史口径；新增程序、实际 Job 身份、已回收结果和依赖阻塞以[本轮基线复现记录](baseline-reproductions-20261019.md)及[机器可读证据](evidence/baseline-reproductions-20261019.json)为准。进行中任务不填推测分数；训练权重、解释器扩展与原赛方法适配分别标注。
+
 ### 8.1 传统方法、论文方法与复现锚点
 
 | 指标 | 共同starter | 最佳最终n10/r2 |
@@ -238,7 +240,9 @@ pilot最终策略违反硬末能量条件；不能用SAC20k的较好检查点替
 下一项直接可比的复现是固定PPO/整数SAC实现，在本卡123Bus压力日和同一硬能量合同下重训、
 固定种子及最终检查点，再用本卡观测和禁在线搜索的actor接口终评。
 训练数据、仿真交互和算力若多于演化开发权限，须单列成本与权限；原论文数值复现另保留原Env轨道。
-这些工作尚未执行，本卡没有新增训练或将34Bus pilot混入15次正式重复。
+**2026-10-19已在本卡原123Bus压力case启动12个正式数值Job**：Random／PPO／integer SAC／cbat-SAC-projected各3seeds；后三者各40000次真实训练转移，Random为0次。使用全部8条训练profile，目标profile0包含在训练中，不称未见日测试；只采用最终检查点。Random与PPO各三seeds均已完整执行，六份均硬末能量失败、quality=0。其他完成／失败逐seed记录见[本轮复现§6](baseline-reproductions-20261019.md#6-mapdnpowergym固定种子训练已启动)与[JSON](evidence/baseline-reproductions-20261019.json)，不混入15次正式开发或34Bus pilot。
+
+作者训练器／权重未公开，PPO／SAC为独立重建；cbat采用连续Gaussian电池训练分支和离散设备Gumbel分支，最终推断显式投影到33档电池网格，因此命名`cbat-SAC-projected`。训练保留vanilla reward，不加硬能量修补；终评失败保留，不换中途较好权重。训练模拟器／reward、外部依赖与权重均为额外训练轨道，不能声称与stdlib-only正式actor或受保护反馈n具有相同开发信息预算。
 
 ### 8.2 全部15个截止候选
 

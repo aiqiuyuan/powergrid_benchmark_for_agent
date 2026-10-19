@@ -147,6 +147,8 @@ MAPDN n3/r1最终仅完成1/480步，错误为`controller closed its response ch
 
 <a id="baseline-anchors"></a>
 
+**后续数值补全已于 2026-10-19 启动。** 下文保留前次证据核对的历史口径；新增程序、实际 Job 身份、已回收结果和依赖阻塞以[本轮基线复现记录](baseline-reproductions-20261019.md)及[机器可读证据](evidence/baseline-reproductions-20261019.json)为准。进行中任务不填推测分数；训练权重、解释器扩展与原赛方法适配分别标注。
+
 ### 8.1 传统方法、论文方法与复现锚点
 
 #### 同一固定案例已测的传统方法
@@ -180,14 +182,14 @@ OPF来自[选例实验证据](../experiments/verification/distribution-case-sele
 
 | 候选锚点 | 原始协议 / 公开结果 | 本卡精确case的复现状态 |
 |---|---|---|
-| 原论文MADDPG / MATD3 | 33/141/322母线；训练episode为240步；5 seeds，周期性随机episode测试；CR与原文PL/代理奖励口径 | **未完成**当前480步固定日、因果观测和真实MWh目标下的重训/权重重放；不能用论文曲线充当本case分数 |
+| 原论文MADDPG / MATD3 | 33/141/322母线；训练episode为240步；5 seeds，周期性随机episode测试；CR与原文PL/代理奖励口径 | **10个正式训练Job已启动**：上游MADDPG+Bowl／MATD3+Bowl，各5seeds×400episodes，最终权重再重放480步原日；训练中的smoke/论文曲线不作正式成绩 |
 | 原论文droop / OPF | §5.3报告夏/冬典型日轨迹，图8展示33母线代表bus18；并非本卡所有母线的固定日汇总 | 已完成上表机制对齐droop移植和Pandapower OPF数值参照；未直接复跑原MATLAB环境、原日身份及原论文图线 |
 | 原竞赛排行榜 / 获奖解复跑 | MAPDN来源为研究环境与论文，本卡未绑定官方竞赛赛道或排行榜 | 当前没有可填写的同case竞赛分数；不借用L2RPN或其他任务的名次 |
 
 下一项可执行的论文锚点是冻结上游MADDPG+Bowl与MATD3训练实现、数据划分、5 seeds及交互/计算预算，
 分别报告原协议复现与本卡接口下的完整日重放；后者须保留局部观测、无在线仿真查询，
 并同时给出安全率和真实MWh。若使用额外训练数据、集中训练或外部权重，应单列其开发权限和成本。
-这是一项待完成复现，不是本次新增实验或已有成绩。
+这项复现已进入[新增训练与固定日重放批次](baseline-reproductions-20261019.md#6-mapdnpowergym固定种子训练已启动)，原作者trainer与固定源码哈希一致。每240时刻episode实际239转移，记录真实计数；固定seeds0–4（原论文具体编号未发布），仅采用最终400episode检查点。原生周期性test保留但不选权重。集中critic、额外训练模拟器与外部权重为额外信息轨道，不能与stdlib-only提交或正式n预算等同。完成前不以smoke分数替代正式训练结果。
 
 ### 8.2 全部15个截止候选
 

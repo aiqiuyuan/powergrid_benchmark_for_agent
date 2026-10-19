@@ -152,6 +152,8 @@ n10/r1 的开发容器记录 oom_killed=true，冻结资格失败，没有终评
 
 <a id="baseline-anchors"></a>
 
+**后续数值补全已于 2026-10-19 启动。** 下文保留前次证据核对的历史口径；新增程序、实际 Job 身份、已回收结果和依赖阻塞以[本轮基线复现记录](baseline-reproductions-20261019.md)及[机器可读证据](evidence/baseline-reproductions-20261019.json)为准。进行中任务不填推测分数；训练权重、解释器扩展与原赛方法适配分别标注。
+
 ### 8.1 基线与统计口径
 
 #### 8.1.1 已实测的传统 MILP 起点
@@ -167,7 +169,7 @@ n10/r1 的开发容器记录 oom_killed=true，冻结资格失败，没有终评
 
 验收 transport 源码和 manifest 哈希匹配：n0 不改 starter，正 n 仅追加注释以生成不同内容指纹。完整精度、逐 seed 达标时间／gap、源码与来源摘要见 [UC 基线证据 v1](evidence/uc-baseline-v1.json)。上述 n 是基础设施验收角色，不属于下表 15 次独立开发，也不向正式开发提供额外反馈。
 
-同一算法在这些验收样本间有明显时间差，现有记录没有分离 JIT／依赖缓存、节点负载或执行次序的影响。它们提供**实际运行量级锚点**，尚不是经随机交错、冷启动条件统一的重复性能校准。因此 n10/r3 的三 seed 均值 43.361 秒可与这些原始观测并列阅读，但不据此发布固定加速倍数。历史 macOS 功能验收约 52.05 秒另属不同环境，不作分母；参考 U/L 也不意味着已经证明最优。
+同一算法在这些历史验收样本间有明显时间差，记录没有分离 JIT／依赖缓存、节点负载或执行次序的影响。**2026-10-19 新增交错校准已完成**：3 blocks × starter／注释控制 × seeds0/1/2，共 18/18 有效达标；starter 9 次均值约 **58.458 s**、注释控制 9 次约 **59.351 s**，各新容器、原 1 CPU／8 GiB／300 s。旧 224.359 s 未在新校准复现；宿主缓存仍未受控，正式 n10/r3 的 43.361 s 也来自另一批执行，故不发布固定加速倍数。逐 seed 接收时间与完整收到的源码清单见[本轮复现 §3](baseline-reproductions-20261019.md#3-uc校准完成论文-formulation-已启动)。历史 macOS 功能验收约 52.05 秒另属不同环境，不作分母；参考 U/L 也不意味着已经证明最优。
 
 #### 8.1.2 竞赛与论文方法的复现状态
 
@@ -175,10 +177,10 @@ n10/r1 的开发容器记录 oom_killed=true，冻结资格失败，没有终评
 
 | 方法与可核验来源 | 当前复现进度 | 成为本轮性能基线还缺什么 |
 |---|---|---|
-| [PGLib-UC 原始数学模型](https://github.com/power-grid-lib/pglib-uc/blob/39a7f38cf4703de92f0291f0c873c2e98c789301/README.md) + 完整 MILP / HiGHS | 已实现并在上表同 case 实跑；已有独立验解与参考上下界 | 补统一启动条件、执行次序和多次 replay 的速度校准 |
-| Knueven、Ostrowski、Watson，*On Mixed-Integer Programming Formulations for the Unit Commitment Problem*（INFORMS Journal on Computing，2020，[DOI](https://doi.org/10.1287/ijoc.2019.0944)、[作者全文](https://optimization-online.org/wp-content/uploads/2018/11/6930.pdf)）；[EGRET 官方模型](https://github.com/grid-parity-exchange/Egret/blob/main/egret/models/unit_commitment.py)中的 Tight / Compact / Random1 | 论文和参考实现已定位；本轮原 case 的这些 formulation **尚未实跑**，无可报告成绩 | 固定实现版本，转为本卡铜板 UC；核对备用、初始状态、启动类别、分段成本及无弹性 slack 的数学等价，再用相同 checker、种子和完整墙钟重放 |
+| [PGLib-UC 原始数学模型](https://github.com/power-grid-lib/pglib-uc/blob/39a7f38cf4703de92f0291f0c873c2e98c789301/README.md) + 完整 MILP / HiGHS | 已实现并在上表同 case 实跑；新增交错校准 18/18 seed 有效达标 | 宿主缓存／节点负载仍未分离，不把新旧时间差归因于算法 |
+| Knueven、Ostrowski、Watson，*On Mixed-Integer Programming Formulations for the Unit Commitment Problem*（INFORMS Journal on Computing，2020，[DOI](https://doi.org/10.1287/ijoc.2019.0944)、[作者全文](https://optimization-online.org/wp-content/uploads/2018/11/6930.pdf)）；[EGRET 官方模型](https://github.com/grid-parity-exchange/Egret/blob/main/egret/models/unit_commitment.py)中的 Tight / Compact / Random1 | v4 完整 case 失败已定位铜板平衡适配缺陷；**修正后的 v5 同源 native gate 通过，三份正式 Job 已提交** | 原 checker、1 CPU／8 GiB、每 seed 300 s，含导入／建模／回调；实际完成前不填成绩 |
 
-优先补齐“完整 MILP 起点校准 → 论文强 formulation 的同 case 重放”。论文原实验的求解器、实例集合和计时条件不同，不能直接搬其时间到当前 Julia / HiGHS 合同。即使移植了同类有效不等式，也应标为方法重实现，取得当前输入上的验解与时间证据后才称该 case 的复现基线。
+EGRET 已固定作者 commit `28c324f9…`，显式关闭 demand slack 和 reserve shortfall。v4 完整 case 发现上游 `relax_balance=False` 被误处理为“发电≥需求”，造成适配合同失败，全部旧证据保留，不作论文方法质量结论。v5 在适配器显式绑定等式，作者文件与原物理 checker 不改；三种 formulation 的过发电拒绝、可再生能源削减、已知成本及原沙箱 native 验收通过后，才提交三份新正式 Job。两种接口的 HiGHS 后端同为 1.15.1，但 Python／Pyomo 与 Julia／JuMP 启动／建模不同。论文原实验的求解器、实例集合和计时条件也不同，不直接搬其时间到当前合同；实际状态见[本轮复现记录](baseline-reproductions-20261019.md)。
 
 #### 8.1.3 正式开发结果的统计口径
 
