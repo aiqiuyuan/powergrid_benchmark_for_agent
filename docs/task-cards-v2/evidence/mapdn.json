@@ -1,0 +1,1367 @@
+{
+  "schema_version": 1,
+  "task": "mapdn",
+  "cohort_id": "distribution-formal-20261016-v4",
+  "task_package_commit": "4ff98fe174da3dfb0b0df589bc5cecf2d830ba27",
+  "snapshot_observed_at_beijing": "2026-10-17T12:12:14.836167+08:00",
+  "evidence_scope": "15 formal independent development repeats only; historical canary and qualification runs excluded",
+  "source_manifest_sha256": "fa3937726662b7aa1fd862796c7b8f4bda7600ec7385a0617d819dc676c1ef15",
+  "sources": [
+    {
+      "source_id": "formal-status-bundle-20261017T0412Z",
+      "sha256": "1bd4c579c2d22f28661a4c94241791879ed85d44ada03328bb924492cada8d78",
+      "availability": "private raw evidence; sanitized numerical fields reproduced here"
+    },
+    {
+      "source_id": "formal-status-summary-20261017T0412Z",
+      "sha256": "caba6193124348825fc216a682f4efd3acbc3ebbd9e56aaf88d52d76b99f125a",
+      "availability": "private raw evidence"
+    },
+    {
+      "source_id": "distribution-formal-source-manifest-v4",
+      "sha256": "fa3937726662b7aa1fd862796c7b8f4bda7600ec7385a0617d819dc676c1ef15",
+      "availability": "private orchestration closure"
+    },
+    {
+      "source_id": "formal-protocol",
+      "repository_path": "configs/distribution-formal-20261016.json",
+      "sha256": "a2562a41f9c4bf89134b167b8496d2d20c1c1f1d3ed46c8d5855a4ebc5c67a2f"
+    },
+    {
+      "source_id": "mapdn-formal-package/formal-lock.json",
+      "repository_path": "task-packages/mapdn-voltage-control-formal-v1/formal-lock.json",
+      "sha256": "5de1e6a49cb36a662874000272daf183197ea3171035bb96e35b99f0202ed41f"
+    },
+    {
+      "source_id": "mapdn-formal-package/source-lock.json",
+      "repository_path": "task-packages/mapdn-voltage-control-formal-v1/source-lock.json",
+      "sha256": "ebf44dc5e93cf1a0ab3be9c8ccda2bfa0a77bce8e30c77a4607c943ea13e0d7e"
+    },
+    {
+      "source_id": "mapdn-formal-package/instruction.md",
+      "repository_path": "task-packages/mapdn-voltage-control-formal-v1/instruction.md",
+      "sha256": "444995316c1ff0a8f40e2588784d31a15bb114b723c6f312b1827b2c992fd871"
+    },
+    {
+      "source_id": "mapdn-formal-package/task.toml",
+      "repository_path": "task-packages/mapdn-voltage-control-formal-v1/task.toml",
+      "sha256": "55d8782762e928f6cdc4fd97e0a2e965758af011da94cfac11d2b4e1769af2a3"
+    },
+    {
+      "source_id": "mapdn-formal-package/environment/app/submission/controller.py",
+      "repository_path": "task-packages/mapdn-voltage-control-formal-v1/environment/app/submission/controller.py",
+      "sha256": "3d4e70898f63429e97542f9bb45e37633f9d17c066183ba9f366e66b4e2863ca"
+    }
+  ],
+  "protocol": {
+    "case": {
+      "package": "mapdn-voltage-control-formal-v1",
+      "case_id": "mapdn33-2012-02-03",
+      "intervals": 480,
+      "interval_hours": 0.05,
+      "voltage_bounds_pu": [
+        0.95,
+        1.05
+      ],
+      "voltage_tolerance_pu": 1e-09,
+      "information": "one current regional observation per PV per interval; private actor history; no shared state or extra simulator calls",
+      "metric": "mapdn33_formal_quality_v1",
+      "invalid_reward": 0.0,
+      "quality": "if all bus-time voltage points comply: 0.5+0.5/(1+actual_active_loss_MWh); otherwise 0.5*bus_time_compliance",
+      "reference_roles": {
+        "local_one_step_relaxed": "same-information reference and common starter",
+        "source_iterative_droop": "additional within-snapshot physical feedback reference",
+        "full_information_ac_opf": "privileged network-information reference; no global optimality claim"
+      },
+      "outer_cpus": 8,
+      "outer_memory_mb": 16384
+    },
+    "model": "global.openai.gpt-5.6-sol",
+    "client_version": "2.1.280",
+    "harbor_version": "0.20.0",
+    "intended_development_seconds": 43200,
+    "aggregate_token_cap": null,
+    "provider_sampling_seed_controlled": false,
+    "n_grid": [
+      0,
+      1,
+      3,
+      5,
+      10
+    ],
+    "independent_repeats_per_n": 3,
+    "feedback_policy": {
+      "n_is": "maximum accepted complete-case process evaluations; final replay is separate",
+      "n_zero": "terminal mode, no process judge",
+      "accepted_candidate_failure": "counts and returns zero reward",
+      "infrastructure_failure": "record separately; retry only the same evaluation identity",
+      "excess_requests": "reject before evaluation",
+      "unused_budget": "allowed; report accepted and collected counts",
+      "public_checks": "interface and synthetic toy checks only; no real target trajectory or free target score",
+      "feedback_precision": "aggregate metrics and reward as emitted by the frozen scorer; no trajectories"
+    },
+    "final_policy": "one controller.py at the wall-clock deadline, artifact hash verified in independent terminal replay; never select best feedback history"
+  },
+  "statistics_policy": {
+    "quality": "All three repeats per group are retained, including the two zero scores and all nine infrastructure/continuation early stops.",
+    "sample_sd": "Sample standard deviation, ddof=1; n=3 per quality group.",
+    "physical": "Group physical summaries use only candidate-valid complete-case replays; invalid raw physical values remain in per-run rows and must not be interpreted as feasible complete-day performance.",
+    "early_stop": "Six continuation cap stops and three provider-stream stops are flagged by the evidence summary; normal near-deadline return is not classified solely from elapsed_hours < 12.",
+    "quality_semantics": "Frozen benchmark contract score, not original MAPDN/PowerGym paper reward; the two task scores must not be pooled or compared across tasks.",
+    "interpretation": "Descriptive statistics only. The nine unequal development durations confound fair comparisons of n; no significance or causal dose-response claim.",
+    "provider_usage": "Available log-segment usage is incomplete and zero-filled fields are unknown; no actual total token or billing-cost claim."
+  },
+  "starter": {
+    "quality": 0.6763512272399992,
+    "actual_loss_mwh": 1.8352510375192463,
+    "bus_time_compliance": 1.0,
+    "all_bus_time_compliance": 1.0
+  },
+  "summary": {
+    "count": 15,
+    "valid_count": 14,
+    "invalid_roles": [
+      "mapdn-n3-r1"
+    ],
+    "early_stop_count": 3,
+    "continuation_cap_count": 3,
+    "api_stream_stop_count": 0,
+    "wins_starter_count": 13,
+    "quality_all_repeats": {
+      "count": 15,
+      "mean": 0.6563388805832442,
+      "sample_sd": 0.1819623885687804,
+      "min": 0.0,
+      "max": 0.7152609194380997
+    },
+    "feedback_used": 57,
+    "feedback_collected": 57,
+    "best_role": "mapdn-n1-r3",
+    "best_quality": 0.7152609194380997,
+    "worst_role": "mapdn-n3-r1",
+    "worst_quality": 0.0,
+    "worst_valid_role": "mapdn-n0-r2",
+    "worst_valid_quality": 0.6763031908852576,
+    "best_physical": {
+      "all_bus_time_compliance": 1.0,
+      "bus_time_compliance": 1.0,
+      "actual_loss_mwh": 1.3227625400149787,
+      "voltage_violation_pu_hours": 0.0,
+      "worst_undervoltage_pu": 0.0,
+      "worst_overvoltage_pu": 0.0,
+      "max_power_balance_residual_mw": 1.0900355895682168e-09,
+      "q_effort_mvar_hours": 29.451029640745638,
+      "compliant_bus_time_points": 15840,
+      "scheduled_bus_time_points": 15840
+    },
+    "best_compared_to_starter": {
+      "quality": {
+        "absolute_change": 0.038909692198100476,
+        "relative_change_percent": 5.752882619416555,
+        "reduction_percent": -5.752882619416555
+      },
+      "actual_loss_mwh": {
+        "absolute_change": -0.5124884975042676,
+        "relative_change_percent": -27.92470822939901,
+        "reduction_percent": 27.92470822939901
+      },
+      "bus_time_compliance": {
+        "absolute_change": 0.0,
+        "relative_change_percent": 0.0,
+        "reduction_percent": 0.0
+      },
+      "all_bus_time_compliance": {
+        "absolute_change": 0.0,
+        "relative_change_percent": 0.0,
+        "reduction_percent": 0.0
+      },
+      "phase_time_compliance_change_percentage_points": null
+    },
+    "battery_active_valid_count": null,
+    "physical_valid_complete_only": {
+      "actual_loss_mwh": {
+        "count": 14,
+        "mean": 1.4692830300613482,
+        "sample_sd": 0.15755279772527533,
+        "min": 1.3227625400149787,
+        "max": 1.836023542678885
+      },
+      "bus_time_compliance": {
+        "count": 14,
+        "mean": 1.0,
+        "sample_sd": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "all_bus_time_compliance": {
+        "count": 14,
+        "mean": 1.0,
+        "sample_sd": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "voltage_violation_pu_hours": {
+        "count": 14,
+        "mean": 0.0,
+        "sample_sd": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "q_effort_mvar_hours": {
+        "count": 14,
+        "mean": 34.18327075780223,
+        "sample_sd": 6.697457241106221,
+        "min": 26.606472826466575,
+        "max": 50.54172509431427
+      }
+    }
+  },
+  "groups": [
+    {
+      "task": "mapdn",
+      "n": 0,
+      "roles": [
+        "mapdn-n0-r1",
+        "mapdn-n0-r2",
+        "mapdn-n0-r3"
+      ],
+      "quality_values": [
+        0.6944334906482517,
+        0.6763031908852576,
+        0.7148287892458778
+      ],
+      "quality_all_three_repeats": {
+        "count": 3,
+        "mean": 0.6951884902597957,
+        "sample_sd": 0.019273892979131877,
+        "min": 0.6763031908852576,
+        "max": 0.7148287892458778
+      },
+      "valid_count": 3,
+      "early_stop_count": 0,
+      "continuation_cap_count": 0,
+      "api_stream_stop_count": 0,
+      "wins_starter_count": 2,
+      "feedback_used_total": 0,
+      "feedback_collected_total": 0,
+      "development_hours": {
+        "count": 3,
+        "mean": 11.980889513362404,
+        "sample_sd": 0.03316427697155371,
+        "min": 11.9425947056572,
+        "max": 12.000043562665846
+      },
+      "physical_valid_complete_only": {
+        "actual_loss_mwh": {
+          "count": 3,
+          "mean": 1.578343926672172,
+          "sample_sd": 0.254361960776614,
+          "min": 1.3274347993821969,
+          "max": 1.836023542678885
+        },
+        "bus_time_compliance": {
+          "count": 3,
+          "mean": 1.0,
+          "sample_sd": 0.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "all_bus_time_compliance": {
+          "count": 3,
+          "mean": 1.0,
+          "sample_sd": 0.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "voltage_violation_pu_hours": {
+          "count": 3,
+          "mean": 0.0,
+          "sample_sd": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "q_effort_mvar_hours": {
+          "count": 3,
+          "mean": 39.792029682547316,
+          "sample_sd": 9.87453363434751,
+          "min": 31.124849837960706,
+          "max": 50.54172509431427
+        }
+      }
+    },
+    {
+      "task": "mapdn",
+      "n": 1,
+      "roles": [
+        "mapdn-n1-r1",
+        "mapdn-n1-r2",
+        "mapdn-n1-r3"
+      ],
+      "quality_values": [
+        0.6905602102413066,
+        0.7105341102032486,
+        0.7152609194380997
+      ],
+      "quality_all_three_repeats": {
+        "count": 3,
+        "mean": 0.7054517466275516,
+        "sample_sd": 0.013111219369029424,
+        "min": 0.6905602102413066,
+        "max": 0.7152609194380997
+      },
+      "valid_count": 3,
+      "early_stop_count": 0,
+      "continuation_cap_count": 0,
+      "api_stream_stop_count": 0,
+      "wins_starter_count": 3,
+      "feedback_used_total": 3,
+      "feedback_collected_total": 3,
+      "development_hours": {
+        "count": 3,
+        "mean": 11.949262784654005,
+        "sample_sd": 0.04659399754626568,
+        "min": 11.908443182739946,
+        "max": 12.000025850378185
+      },
+      "physical_valid_complete_only": {
+        "actual_loss_mwh": {
+          "count": 3,
+          "mean": 1.4405057418932188,
+          "sample_sd": 0.1609012110087694,
+          "min": 1.3227625400149787,
+          "max": 1.6238426131396961
+        },
+        "bus_time_compliance": {
+          "count": 3,
+          "mean": 1.0,
+          "sample_sd": 0.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "all_bus_time_compliance": {
+          "count": 3,
+          "mean": 1.0,
+          "sample_sd": 0.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "voltage_violation_pu_hours": {
+          "count": 3,
+          "mean": 0.0,
+          "sample_sd": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "q_effort_mvar_hours": {
+          "count": 3,
+          "mean": 35.08346462230293,
+          "sample_sd": 8.814992806805288,
+          "min": 29.451029640745638,
+          "max": 45.24208330873455
+        }
+      }
+    },
+    {
+      "task": "mapdn",
+      "n": 3,
+      "roles": [
+        "mapdn-n3-r1",
+        "mapdn-n3-r2",
+        "mapdn-n3-r3"
+      ],
+      "quality_values": [
+        0.0,
+        0.7106081200742449,
+        0.7017837649937927
+      ],
+      "quality_all_three_repeats": {
+        "count": 3,
+        "mean": 0.4707972950226792,
+        "sample_sd": 0.4077462900642386,
+        "min": 0.0,
+        "max": 0.7106081200742449
+      },
+      "valid_count": 2,
+      "early_stop_count": 0,
+      "continuation_cap_count": 0,
+      "api_stream_stop_count": 0,
+      "wins_starter_count": 2,
+      "feedback_used_total": 9,
+      "feedback_collected_total": 9,
+      "development_hours": {
+        "count": 3,
+        "mean": 11.96881434356742,
+        "sample_sd": 0.05413087869308351,
+        "min": 11.906309399797271,
+        "max": 12.000098929361751
+      },
+      "physical_valid_complete_only": {
+        "actual_loss_mwh": {
+          "count": 2,
+          "mean": 1.4259887735454857,
+          "sample_sd": 0.07341362161921916,
+          "min": 1.3740775038670725,
+          "max": 1.477900043223899
+        },
+        "bus_time_compliance": {
+          "count": 2,
+          "mean": 1.0,
+          "sample_sd": 0.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "all_bus_time_compliance": {
+          "count": 2,
+          "mean": 1.0,
+          "sample_sd": 0.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "voltage_violation_pu_hours": {
+          "count": 2,
+          "mean": 0.0,
+          "sample_sd": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "q_effort_mvar_hours": {
+          "count": 2,
+          "mean": 35.864747120548685,
+          "sample_sd": 0.8655952118506898,
+          "min": 35.252678876486456,
+          "max": 36.476815364610914
+        }
+      }
+    },
+    {
+      "task": "mapdn",
+      "n": 5,
+      "roles": [
+        "mapdn-n5-r1",
+        "mapdn-n5-r2",
+        "mapdn-n5-r3"
+      ],
+      "quality_values": [
+        0.6922723003561203,
+        0.701750188387333,
+        0.6923682350709712
+      ],
+      "quality_all_three_repeats": {
+        "count": 3,
+        "mean": 0.6954635746048082,
+        "sample_sd": 0.0054445785424908685,
+        "min": 0.6922723003561203,
+        "max": 0.701750188387333
+      },
+      "valid_count": 3,
+      "early_stop_count": 1,
+      "continuation_cap_count": 1,
+      "api_stream_stop_count": 0,
+      "wins_starter_count": 3,
+      "feedback_used_total": 15,
+      "feedback_collected_total": 15,
+      "development_hours": {
+        "count": 3,
+        "mean": 11.199912553046188,
+        "sample_sd": 1.2350574757083448,
+        "min": 9.773791883528853,
+        "max": 11.914331300348891
+      },
+      "physical_valid_complete_only": {
+        "actual_loss_mwh": {
+          "count": 3,
+          "mean": 1.5593242461751287,
+          "sample_sd": 0.07016128574064028,
+          "min": 1.4783124318083294,
+          "max": 1.6004785872635672
+        },
+        "bus_time_compliance": {
+          "count": 3,
+          "mean": 1.0,
+          "sample_sd": 0.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "all_bus_time_compliance": {
+          "count": 3,
+          "mean": 1.0,
+          "sample_sd": 0.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "voltage_violation_pu_hours": {
+          "count": 3,
+          "mean": 0.0,
+          "sample_sd": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "q_effort_mvar_hours": {
+          "count": 3,
+          "mean": 32.95280281988103,
+          "sample_sd": 0.08840148806505194,
+          "min": 32.854917522346575,
+          "max": 33.02681885069095
+        }
+      }
+    },
+    {
+      "task": "mapdn",
+      "n": 10,
+      "roles": [
+        "mapdn-n10-r1",
+        "mapdn-n10-r2",
+        "mapdn-n10-r3"
+      ],
+      "quality_values": [
+        0.7146652267757214,
+        0.7150494356527153,
+        0.7146652267757214
+      ],
+      "quality_all_three_repeats": {
+        "count": 3,
+        "mean": 0.714793296401386,
+        "sample_sd": 0.00022182309855745086,
+        "min": 0.7146652267757214,
+        "max": 0.7150494356527153
+      },
+      "valid_count": 3,
+      "early_stop_count": 2,
+      "continuation_cap_count": 2,
+      "api_stream_stop_count": 0,
+      "wins_starter_count": 3,
+      "feedback_used_total": 30,
+      "feedback_collected_total": 30,
+      "development_hours": {
+        "count": 3,
+        "mean": 9.790039562568644,
+        "sample_sd": 2.626559117683515,
+        "min": 6.862051020834155,
+        "max": 11.938851417388037
+      },
+      "physical_valid_complete_only": {
+        "actual_loss_mwh": {
+          "count": 3,
+          "mean": 1.3278210431821151,
+          "sample_sd": 0.00240257395637799,
+          "min": 1.3250467897411895,
+          "max": 1.329208169902578
+        },
+        "bus_time_compliance": {
+          "count": 3,
+          "mean": 1.0,
+          "sample_sd": 0.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "all_bus_time_compliance": {
+          "count": 3,
+          "mean": 1.0,
+          "sample_sd": 0.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "voltage_violation_pu_hours": {
+          "count": 3,
+          "mean": 0.0,
+          "sample_sd": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "q_effort_mvar_hours": {
+          "count": 3,
+          "mean": 27.783801664646674,
+          "sample_sd": 1.019596682471983,
+          "min": 26.606472826466575,
+          "max": 28.37246608373672
+        }
+      }
+    }
+  ],
+  "runs": [
+    {
+      "role": "mapdn-n0-r1",
+      "task": "mapdn",
+      "n": 0,
+      "repeat": 1,
+      "quality": 0.6944334906482517,
+      "valid": true,
+      "candidate_error": null,
+      "completed_intervals": 480,
+      "scheduled_intervals": 480,
+      "physical": {
+        "all_bus_time_compliance": 1.0,
+        "bus_time_compliance": 1.0,
+        "actual_loss_mwh": 1.5715734379554338,
+        "voltage_violation_pu_hours": 0.0,
+        "worst_undervoltage_pu": 0.0,
+        "worst_overvoltage_pu": 0.0,
+        "max_power_balance_residual_mw": 1.4846406326540773e-09,
+        "q_effort_mvar_hours": 37.709514115366964,
+        "compliant_bus_time_points": 15840,
+        "scheduled_bus_time_points": 15840
+      },
+      "physical_eligible_for_complete_valid_comparison": true,
+      "feedback_used": 0,
+      "feedback_collected": 0,
+      "feedback_valid": 0,
+      "best_process_quality": null,
+      "last_process_quality": null,
+      "final_minus_best_process_quality": null,
+      "development_hours": 12.000030271764166,
+      "development_started_at_beijing": "2026-10-16T21:25:19.380526+08:00",
+      "frozen_at_beijing": "2026-10-17T09:25:19.489487+08:00",
+      "terminal_started_at_beijing": "2026-10-17T09:25:52.524952+08:00",
+      "terminal_finished_at_beijing": "2026-10-17T09:26:42.955622+08:00",
+      "status_completed_at_beijing": "2026-10-17T09:26:45.995256+08:00",
+      "freeze_reason": "wall_clock_deadline",
+      "early_stop_category": null,
+      "continuation_records": 89,
+      "wins_starter": true,
+      "source_sha256": "273da0ad6d8da0d9d88f1839cea00b023979f84a6de2f063b36448010d84797f",
+      "terminal_audit_sha256": "4f0f3556e9b572055d520af043f1274f55061d4612b3726b1034ce9ab353b362",
+      "reward_details_sha256": "84bc44969f29def4588239b20acdb0300f95139ae395b3f01831b0b77d5c5c70",
+      "source_id": "distribution-formal-20261016-v4/mapdn-n0-r1/deadline-controller.py",
+      "candidate_source_locally_inspected": false,
+      "lifecycle_audit_passed": true
+    },
+    {
+      "role": "mapdn-n0-r2",
+      "task": "mapdn",
+      "n": 0,
+      "repeat": 2,
+      "quality": 0.6763031908852576,
+      "valid": true,
+      "candidate_error": null,
+      "completed_intervals": 480,
+      "scheduled_intervals": 480,
+      "physical": {
+        "all_bus_time_compliance": 1.0,
+        "bus_time_compliance": 1.0,
+        "actual_loss_mwh": 1.836023542678885,
+        "voltage_violation_pu_hours": 0.0,
+        "worst_undervoltage_pu": 0.0,
+        "worst_overvoltage_pu": 0.0,
+        "max_power_balance_residual_mw": 1.3809325905000946e-09,
+        "q_effort_mvar_hours": 50.54172509431427,
+        "compliant_bus_time_points": 15840,
+        "scheduled_bus_time_points": 15840
+      },
+      "physical_eligible_for_complete_valid_comparison": true,
+      "feedback_used": 0,
+      "feedback_collected": 0,
+      "feedback_valid": 0,
+      "best_process_quality": null,
+      "last_process_quality": null,
+      "final_minus_best_process_quality": null,
+      "development_hours": 11.9425947056572,
+      "development_started_at_beijing": "2026-10-16T21:25:19.988074+08:00",
+      "frozen_at_beijing": "2026-10-17T09:21:53.328996+08:00",
+      "terminal_started_at_beijing": "2026-10-17T09:22:17.587792+08:00",
+      "terminal_finished_at_beijing": "2026-10-17T09:23:09.332123+08:00",
+      "status_completed_at_beijing": "2026-10-17T09:23:18.954383+08:00",
+      "freeze_reason": "agent_return_or_cancel",
+      "early_stop_category": null,
+      "continuation_records": 39,
+      "wins_starter": false,
+      "source_sha256": "2137acf246836c43dab368798a6dd45c118c0cf427b2781c726a77abc23b245a",
+      "terminal_audit_sha256": "75b75084e85993ac4fc0d24ba9b718ba38ed905a1d674b40df4c67e4f5c365a1",
+      "reward_details_sha256": "cd6a54187b1ac49b98f11a49712e8b0c04273e337fff95fbcda22e3159819ff2",
+      "source_id": "distribution-formal-20261016-v4/mapdn-n0-r2/deadline-controller.py",
+      "candidate_source_locally_inspected": false,
+      "lifecycle_audit_passed": true
+    },
+    {
+      "role": "mapdn-n0-r3",
+      "task": "mapdn",
+      "n": 0,
+      "repeat": 3,
+      "quality": 0.7148287892458778,
+      "valid": true,
+      "candidate_error": null,
+      "completed_intervals": 480,
+      "scheduled_intervals": 480,
+      "physical": {
+        "all_bus_time_compliance": 1.0,
+        "bus_time_compliance": 1.0,
+        "actual_loss_mwh": 1.3274347993821969,
+        "voltage_violation_pu_hours": 0.0,
+        "worst_undervoltage_pu": 0.0,
+        "worst_overvoltage_pu": 0.0,
+        "max_power_balance_residual_mw": 1.0175656567357194e-09,
+        "q_effort_mvar_hours": 31.124849837960706,
+        "compliant_bus_time_points": 15840,
+        "scheduled_bus_time_points": 15840
+      },
+      "physical_eligible_for_complete_valid_comparison": true,
+      "feedback_used": 0,
+      "feedback_collected": 0,
+      "feedback_valid": 0,
+      "best_process_quality": null,
+      "last_process_quality": null,
+      "final_minus_best_process_quality": null,
+      "development_hours": 12.000043562665846,
+      "development_started_at_beijing": "2026-10-16T21:25:19.302372+08:00",
+      "frozen_at_beijing": "2026-10-17T09:25:19.459176+08:00",
+      "terminal_started_at_beijing": "2026-10-17T09:25:49.988720+08:00",
+      "terminal_finished_at_beijing": "2026-10-17T09:26:41.544393+08:00",
+      "status_completed_at_beijing": "2026-10-17T09:26:44.632689+08:00",
+      "freeze_reason": "wall_clock_deadline",
+      "early_stop_category": null,
+      "continuation_records": 21,
+      "wins_starter": true,
+      "source_sha256": "1afe49fefa79dff62a32644c1fd23febefb7852609918927b04898c85ff3c95c",
+      "terminal_audit_sha256": "690091642d42f9dee4d5c53e11a2d1625eafe37389d1a2e559b75ef01130aa9a",
+      "reward_details_sha256": "1c84bfe031102949187c7fe5a984b00c7e2cb149d794b7a2086fc724233d5955",
+      "source_id": "distribution-formal-20261016-v4/mapdn-n0-r3/deadline-controller.py",
+      "candidate_source_locally_inspected": true,
+      "lifecycle_audit_passed": true
+    },
+    {
+      "role": "mapdn-n1-r1",
+      "task": "mapdn",
+      "n": 1,
+      "repeat": 1,
+      "quality": 0.6905602102413066,
+      "valid": true,
+      "candidate_error": null,
+      "completed_intervals": 480,
+      "scheduled_intervals": 480,
+      "physical": {
+        "all_bus_time_compliance": 1.0,
+        "bus_time_compliance": 1.0,
+        "actual_loss_mwh": 1.6238426131396961,
+        "voltage_violation_pu_hours": 0.0,
+        "worst_undervoltage_pu": 0.0,
+        "worst_overvoltage_pu": 0.0,
+        "max_power_balance_residual_mw": 1.4015814620016442e-09,
+        "q_effort_mvar_hours": 45.24208330873455,
+        "compliant_bus_time_points": 15840,
+        "scheduled_bus_time_points": 15840
+      },
+      "physical_eligible_for_complete_valid_comparison": true,
+      "feedback_used": 1,
+      "feedback_collected": 1,
+      "feedback_valid": 1,
+      "best_process_quality": 0.6763512272399992,
+      "last_process_quality": 0.6763512272399992,
+      "final_minus_best_process_quality": 0.014208983001307463,
+      "development_hours": 12.000025850378185,
+      "development_started_at_beijing": "2026-10-16T21:25:11.526691+08:00",
+      "frozen_at_beijing": "2026-10-17T09:25:11.619735+08:00",
+      "terminal_started_at_beijing": "2026-10-17T09:25:35.123998+08:00",
+      "terminal_finished_at_beijing": "2026-10-17T09:26:25.033410+08:00",
+      "status_completed_at_beijing": "2026-10-17T09:26:34.676859+08:00",
+      "freeze_reason": "wall_clock_deadline",
+      "early_stop_category": null,
+      "continuation_records": 10,
+      "wins_starter": true,
+      "source_sha256": "504873e71d3627337aa7285f34a511abbcf5094d59ae9d531956f26d647eeb4d",
+      "terminal_audit_sha256": "55484d93010f36c2b9e63fac83bf227f473392612eb3dede00c0c51168fdba45",
+      "reward_details_sha256": "c0b36e0c108c346424647d20942c47e11c298a0c702ed4f1510766f09f94fe58",
+      "source_id": "distribution-formal-20261016-v4/mapdn-n1-r1/deadline-controller.py",
+      "candidate_source_locally_inspected": false,
+      "lifecycle_audit_passed": true
+    },
+    {
+      "role": "mapdn-n1-r2",
+      "task": "mapdn",
+      "n": 1,
+      "repeat": 2,
+      "quality": 0.7105341102032486,
+      "valid": true,
+      "candidate_error": null,
+      "completed_intervals": 480,
+      "scheduled_intervals": 480,
+      "physical": {
+        "all_bus_time_compliance": 1.0,
+        "bus_time_compliance": 1.0,
+        "actual_loss_mwh": 1.3749120725249813,
+        "voltage_violation_pu_hours": 0.0,
+        "worst_undervoltage_pu": 0.0,
+        "worst_overvoltage_pu": 0.0,
+        "max_power_balance_residual_mw": 1.4576329865345627e-09,
+        "q_effort_mvar_hours": 30.5572809174286,
+        "compliant_bus_time_points": 15840,
+        "scheduled_bus_time_points": 15840
+      },
+      "physical_eligible_for_complete_valid_comparison": true,
+      "feedback_used": 1,
+      "feedback_collected": 1,
+      "feedback_valid": 1,
+      "best_process_quality": 0.7105341102032486,
+      "last_process_quality": 0.7105341102032486,
+      "final_minus_best_process_quality": 0.0,
+      "development_hours": 11.939319320843884,
+      "development_started_at_beijing": "2026-10-16T21:25:21.652989+08:00",
+      "frozen_at_beijing": "2026-10-17T09:21:43.202523+08:00",
+      "terminal_started_at_beijing": "2026-10-17T09:22:07.533176+08:00",
+      "terminal_finished_at_beijing": "2026-10-17T09:22:58.236191+08:00",
+      "status_completed_at_beijing": "2026-10-17T09:23:08.145198+08:00",
+      "freeze_reason": "agent_return_or_cancel",
+      "early_stop_category": null,
+      "continuation_records": 42,
+      "wins_starter": true,
+      "source_sha256": "e80b0d648809a262790b642d800b89f6e23c93404e7bcf5a112b39fd2603f812",
+      "terminal_audit_sha256": "b544e156c934f4bbcebab88647274a82a09c1b405e4f11be8d812cca76ac1593",
+      "reward_details_sha256": "f06f9cb6ee6b2fb46813e45eafed24cb57fa97228316100aa6bda826f9fab975",
+      "source_id": "distribution-formal-20261016-v4/mapdn-n1-r2/deadline-controller.py",
+      "candidate_source_locally_inspected": false,
+      "lifecycle_audit_passed": true
+    },
+    {
+      "role": "mapdn-n1-r3",
+      "task": "mapdn",
+      "n": 1,
+      "repeat": 3,
+      "quality": 0.7152609194380997,
+      "valid": true,
+      "candidate_error": null,
+      "completed_intervals": 480,
+      "scheduled_intervals": 480,
+      "physical": {
+        "all_bus_time_compliance": 1.0,
+        "bus_time_compliance": 1.0,
+        "actual_loss_mwh": 1.3227625400149787,
+        "voltage_violation_pu_hours": 0.0,
+        "worst_undervoltage_pu": 0.0,
+        "worst_overvoltage_pu": 0.0,
+        "max_power_balance_residual_mw": 1.0900355895682168e-09,
+        "q_effort_mvar_hours": 29.451029640745638,
+        "compliant_bus_time_points": 15840,
+        "scheduled_bus_time_points": 15840
+      },
+      "physical_eligible_for_complete_valid_comparison": true,
+      "feedback_used": 1,
+      "feedback_collected": 1,
+      "feedback_valid": 1,
+      "best_process_quality": 0.7150566512325925,
+      "last_process_quality": 0.7150566512325925,
+      "final_minus_best_process_quality": 0.00020426820550711877,
+      "development_hours": 11.908443182739946,
+      "development_started_at_beijing": "2026-10-16T21:25:29.483727+08:00",
+      "frozen_at_beijing": "2026-10-17T09:19:59.879167+08:00",
+      "terminal_started_at_beijing": "2026-10-17T09:20:29.518803+08:00",
+      "terminal_finished_at_beijing": "2026-10-17T09:21:27.416191+08:00",
+      "status_completed_at_beijing": "2026-10-17T09:21:38.695498+08:00",
+      "freeze_reason": "agent_return_or_cancel",
+      "early_stop_category": null,
+      "continuation_records": 71,
+      "wins_starter": true,
+      "source_sha256": "663b3769ca5626419ab8ff9e84f8b71369b9f9820958f6af0a587c4159ded5c8",
+      "terminal_audit_sha256": "91b93533d8708949e19f8a175357462200f3316efd6ed1a3745d0f281d7640d9",
+      "reward_details_sha256": "53b66c13fba7aa5a9ba639162049ad18ddf10fa4efdf5b23902aa17eac44baf4",
+      "source_id": "distribution-formal-20261016-v4/mapdn-n1-r3/deadline-controller.py",
+      "candidate_source_locally_inspected": true,
+      "lifecycle_audit_passed": true
+    },
+    {
+      "role": "mapdn-n3-r1",
+      "task": "mapdn",
+      "n": 3,
+      "repeat": 1,
+      "quality": 0.0,
+      "valid": false,
+      "candidate_error": "CandidateError: controller closed its response channel",
+      "completed_intervals": 1,
+      "scheduled_intervals": 480,
+      "physical": {
+        "all_bus_time_compliance": 0.0020833333333333333,
+        "bus_time_compliance": 0.0020833333333333333,
+        "actual_loss_mwh": 0.0020779978866050353,
+        "voltage_violation_pu_hours": 0.0,
+        "worst_undervoltage_pu": 0.0,
+        "worst_overvoltage_pu": 0.0,
+        "max_power_balance_residual_mw": 1.088646534030957e-11,
+        "q_effort_mvar_hours": 0.06462684055567645,
+        "compliant_bus_time_points": 33,
+        "scheduled_bus_time_points": 15840
+      },
+      "physical_eligible_for_complete_valid_comparison": false,
+      "feedback_used": 3,
+      "feedback_collected": 3,
+      "feedback_valid": 3,
+      "best_process_quality": 0.707299200596033,
+      "last_process_quality": 0.707299200596033,
+      "final_minus_best_process_quality": -0.707299200596033,
+      "development_hours": 12.000098929361751,
+      "development_started_at_beijing": "2026-10-16T21:29:01.856998+08:00",
+      "frozen_at_beijing": "2026-10-17T09:29:02.213118+08:00",
+      "terminal_started_at_beijing": "2026-10-17T09:29:38.375818+08:00",
+      "terminal_finished_at_beijing": "2026-10-17T09:30:06.374701+08:00",
+      "status_completed_at_beijing": "2026-10-17T09:30:10.138227+08:00",
+      "freeze_reason": "wall_clock_deadline",
+      "early_stop_category": null,
+      "continuation_records": 8,
+      "wins_starter": false,
+      "source_sha256": "1bf9cd3d4b41a83917a641fc24a764cf0a862cbdd9cbb57aee5c7a9628009c71",
+      "terminal_audit_sha256": "711be2a08ead49f5fbac3e38543bd824c7f3e679a9afa00c7bc457d6516e5d48",
+      "reward_details_sha256": "9342c55b3651cac6976a0a8a3c8346270860f92a28bdc50ebbfcd48f8fd7f113",
+      "source_id": "distribution-formal-20261016-v4/mapdn-n3-r1/deadline-controller.py",
+      "candidate_source_locally_inspected": false,
+      "lifecycle_audit_passed": true
+    },
+    {
+      "role": "mapdn-n3-r2",
+      "task": "mapdn",
+      "n": 3,
+      "repeat": 2,
+      "quality": 0.7106081200742449,
+      "valid": true,
+      "candidate_error": null,
+      "completed_intervals": 480,
+      "scheduled_intervals": 480,
+      "physical": {
+        "all_bus_time_compliance": 1.0,
+        "bus_time_compliance": 1.0,
+        "actual_loss_mwh": 1.3740775038670725,
+        "voltage_violation_pu_hours": 0.0,
+        "worst_undervoltage_pu": 0.0,
+        "worst_overvoltage_pu": 0.0,
+        "max_power_balance_residual_mw": 1.1297409119315205e-09,
+        "q_effort_mvar_hours": 35.252678876486456,
+        "compliant_bus_time_points": 15840,
+        "scheduled_bus_time_points": 15840
+      },
+      "physical_eligible_for_complete_valid_comparison": true,
+      "feedback_used": 3,
+      "feedback_collected": 3,
+      "feedback_valid": 3,
+      "best_process_quality": 0.710602030805277,
+      "last_process_quality": 0.710602030805277,
+      "final_minus_best_process_quality": 6.089268967945927e-06,
+      "development_hours": 11.906309399797271,
+      "development_started_at_beijing": "2026-10-16T21:50:42.306140+08:00",
+      "frozen_at_beijing": "2026-10-17T09:45:05.019961+08:00",
+      "terminal_started_at_beijing": "2026-10-17T09:45:29.717998+08:00",
+      "terminal_finished_at_beijing": "2026-10-17T09:46:23.462889+08:00",
+      "status_completed_at_beijing": "2026-10-17T09:46:33.715041+08:00",
+      "freeze_reason": "agent_return_or_cancel",
+      "early_stop_category": null,
+      "continuation_records": 26,
+      "wins_starter": true,
+      "source_sha256": "46001136af3b6d6b82d4f27157a4cc66bf764e8bf78d0839a1fae22ee6ab4491",
+      "terminal_audit_sha256": "1e40e9aaf6854f6059b442361528377bdc1d866c62ab57ea67ea749c51258813",
+      "reward_details_sha256": "944d9f19d9244965c9f932251d72f2a0b9a553433c2ec9549f74e0a9216d77d6",
+      "source_id": "distribution-formal-20261016-v4/mapdn-n3-r2/deadline-controller.py",
+      "candidate_source_locally_inspected": false,
+      "lifecycle_audit_passed": true
+    },
+    {
+      "role": "mapdn-n3-r3",
+      "task": "mapdn",
+      "n": 3,
+      "repeat": 3,
+      "quality": 0.7017837649937927,
+      "valid": true,
+      "candidate_error": null,
+      "completed_intervals": 480,
+      "scheduled_intervals": 480,
+      "physical": {
+        "all_bus_time_compliance": 1.0,
+        "bus_time_compliance": 1.0,
+        "actual_loss_mwh": 1.477900043223899,
+        "voltage_violation_pu_hours": 0.0,
+        "worst_undervoltage_pu": 0.0,
+        "worst_overvoltage_pu": 0.0,
+        "max_power_balance_residual_mw": 1.5541195552692955e-09,
+        "q_effort_mvar_hours": 36.476815364610914,
+        "compliant_bus_time_points": 15840,
+        "scheduled_bus_time_points": 15840
+      },
+      "physical_eligible_for_complete_valid_comparison": true,
+      "feedback_used": 3,
+      "feedback_collected": 3,
+      "feedback_valid": 3,
+      "best_process_quality": 0.7017584424404965,
+      "last_process_quality": 0.6996359383256578,
+      "final_minus_best_process_quality": 2.532255329623645e-05,
+      "development_hours": 12.000034701543239,
+      "development_started_at_beijing": "2026-10-16T21:50:40.735843+08:00",
+      "frozen_at_beijing": "2026-10-17T09:50:40.860748+08:00",
+      "terminal_started_at_beijing": "2026-10-17T09:51:17.225617+08:00",
+      "terminal_finished_at_beijing": "2026-10-17T09:52:10.755897+08:00",
+      "status_completed_at_beijing": "2026-10-17T09:52:14.372521+08:00",
+      "freeze_reason": "wall_clock_deadline",
+      "early_stop_category": null,
+      "continuation_records": 93,
+      "wins_starter": true,
+      "source_sha256": "4b30a278ec7760cb173830a852fa4c81b71c2420ad579a6c36fefc4f12985a4c",
+      "terminal_audit_sha256": "532829864fa722509a03fca282b031165da6920d78957a3f492c7da5f63b4d07",
+      "reward_details_sha256": "c9ed16ccaaf027c641ddd0d84618e1b6c59c342dec4677cba7699a8fb2b24f6d",
+      "source_id": "distribution-formal-20261016-v4/mapdn-n3-r3/deadline-controller.py",
+      "candidate_source_locally_inspected": false,
+      "lifecycle_audit_passed": true
+    },
+    {
+      "role": "mapdn-n5-r1",
+      "task": "mapdn",
+      "n": 5,
+      "repeat": 1,
+      "quality": 0.6922723003561203,
+      "valid": true,
+      "candidate_error": null,
+      "completed_intervals": 480,
+      "scheduled_intervals": 480,
+      "physical": {
+        "all_bus_time_compliance": 1.0,
+        "bus_time_compliance": 1.0,
+        "actual_loss_mwh": 1.6004785872635672,
+        "voltage_violation_pu_hours": 0.0,
+        "worst_undervoltage_pu": 0.0,
+        "worst_overvoltage_pu": 0.0,
+        "max_power_balance_residual_mw": 1.4117905178245849e-09,
+        "q_effort_mvar_hours": 32.854917522346575,
+        "compliant_bus_time_points": 15840,
+        "scheduled_bus_time_points": 15840
+      },
+      "physical_eligible_for_complete_valid_comparison": true,
+      "feedback_used": 5,
+      "feedback_collected": 5,
+      "feedback_valid": 5,
+      "best_process_quality": 0.6922690616635815,
+      "last_process_quality": 0.6922690616635815,
+      "final_minus_best_process_quality": 3.2386925388205867e-06,
+      "development_hours": 9.773791883528853,
+      "development_started_at_beijing": "2026-10-16T21:50:44.168637+08:00",
+      "frozen_at_beijing": "2026-10-17T07:37:09.819397+08:00",
+      "terminal_started_at_beijing": "2026-10-17T07:37:34.213002+08:00",
+      "terminal_finished_at_beijing": "2026-10-17T07:38:27.276294+08:00",
+      "status_completed_at_beijing": "2026-10-17T07:38:37.790398+08:00",
+      "freeze_reason": "agent_return_or_cancel",
+      "early_stop_category": "continuation_cap",
+      "continuation_records": 1000,
+      "wins_starter": true,
+      "source_sha256": "f8ccff10a73b713cdcbd980f2061fde6610510a475e75abab57f63ffea1c0ec3",
+      "terminal_audit_sha256": "f283ed0f48313de2bdbaadbba2da1e2bac091991bf05b4c8f6a3f9ecbd5c8d80",
+      "reward_details_sha256": "7191e271c903c2462d8c8127c218fbbdd2852cb6f99e82e57356fbf092d539d2",
+      "source_id": "distribution-formal-20261016-v4/mapdn-n5-r1/deadline-controller.py",
+      "candidate_source_locally_inspected": false,
+      "lifecycle_audit_passed": true
+    },
+    {
+      "role": "mapdn-n5-r2",
+      "task": "mapdn",
+      "n": 5,
+      "repeat": 2,
+      "quality": 0.701750188387333,
+      "valid": true,
+      "candidate_error": null,
+      "completed_intervals": 480,
+      "scheduled_intervals": 480,
+      "physical": {
+        "all_bus_time_compliance": 1.0,
+        "bus_time_compliance": 1.0,
+        "actual_loss_mwh": 1.4783124318083294,
+        "voltage_violation_pu_hours": 0.0,
+        "worst_undervoltage_pu": 0.0,
+        "worst_overvoltage_pu": 0.0,
+        "max_power_balance_residual_mw": 1.4540544879260153e-09,
+        "q_effort_mvar_hours": 33.02681885069095,
+        "compliant_bus_time_points": 15840,
+        "scheduled_bus_time_points": 15840
+      },
+      "physical_eligible_for_complete_valid_comparison": true,
+      "feedback_used": 5,
+      "feedback_collected": 5,
+      "feedback_valid": 5,
+      "best_process_quality": 0.701750188387333,
+      "last_process_quality": 0.701750188387333,
+      "final_minus_best_process_quality": 0.0,
+      "development_hours": 11.914331300348891,
+      "development_started_at_beijing": "2026-10-16T22:07:37.825583+08:00",
+      "frozen_at_beijing": "2026-10-17T10:02:29.418244+08:00",
+      "terminal_started_at_beijing": "2026-10-17T10:02:53.370550+08:00",
+      "terminal_finished_at_beijing": "2026-10-17T10:03:45.182382+08:00",
+      "status_completed_at_beijing": "2026-10-17T10:03:55.770935+08:00",
+      "freeze_reason": "agent_return_or_cancel",
+      "early_stop_category": null,
+      "continuation_records": 199,
+      "wins_starter": true,
+      "source_sha256": "d70578e3116b4909c5e5ef341402cfa31ac15657516fc52c984ef3425624f787",
+      "terminal_audit_sha256": "584a80b09eb224859dae03fe9031f7d3a7c4dfeeff87f1336b11f509e393ddbd",
+      "reward_details_sha256": "170b8e8fc4e2790a906a56b32576b9a54252654c786dccd80256546958f33612",
+      "source_id": "distribution-formal-20261016-v4/mapdn-n5-r2/deadline-controller.py",
+      "candidate_source_locally_inspected": false,
+      "lifecycle_audit_passed": true
+    },
+    {
+      "role": "mapdn-n5-r3",
+      "task": "mapdn",
+      "n": 5,
+      "repeat": 3,
+      "quality": 0.6923682350709712,
+      "valid": true,
+      "candidate_error": null,
+      "completed_intervals": 480,
+      "scheduled_intervals": 480,
+      "physical": {
+        "all_bus_time_compliance": 1.0,
+        "bus_time_compliance": 1.0,
+        "actual_loss_mwh": 1.5991817194534896,
+        "voltage_violation_pu_hours": 0.0,
+        "worst_undervoltage_pu": 0.0,
+        "worst_overvoltage_pu": 0.0,
+        "max_power_balance_residual_mw": 1.332855839586422e-09,
+        "q_effort_mvar_hours": 32.97667208660557,
+        "compliant_bus_time_points": 15840,
+        "scheduled_bus_time_points": 15840
+      },
+      "physical_eligible_for_complete_valid_comparison": true,
+      "feedback_used": 5,
+      "feedback_collected": 5,
+      "feedback_valid": 5,
+      "best_process_quality": 0.6923682350709719,
+      "last_process_quality": 0.6923682350709719,
+      "final_minus_best_process_quality": -6.661338147750939e-16,
+      "development_hours": 11.91161447526082,
+      "development_started_at_beijing": "2026-10-16T22:07:38.292595+08:00",
+      "frozen_at_beijing": "2026-10-17T10:02:20.104685+08:00",
+      "terminal_started_at_beijing": "2026-10-17T10:02:44.532739+08:00",
+      "terminal_finished_at_beijing": "2026-10-17T10:03:36.533396+08:00",
+      "status_completed_at_beijing": "2026-10-17T10:03:46.571675+08:00",
+      "freeze_reason": "agent_return_or_cancel",
+      "early_stop_category": null,
+      "continuation_records": 474,
+      "wins_starter": true,
+      "source_sha256": "74691dbcfe280619eacd110a4a5b1c837127e7b2bbccb773e9475341783c17d3",
+      "terminal_audit_sha256": "7bba0f066a053e25dfb0e1e7ad7fd49ff6420a950381538479ad3cc453f2f7a0",
+      "reward_details_sha256": "df8b57c5d0f72938f9d8b06a225e645746624300a0ae304a6b48ad960acc6d3b",
+      "source_id": "distribution-formal-20261016-v4/mapdn-n5-r3/deadline-controller.py",
+      "candidate_source_locally_inspected": false,
+      "lifecycle_audit_passed": true
+    },
+    {
+      "role": "mapdn-n10-r1",
+      "task": "mapdn",
+      "n": 10,
+      "repeat": 1,
+      "quality": 0.7146652267757214,
+      "valid": true,
+      "candidate_error": null,
+      "completed_intervals": 480,
+      "scheduled_intervals": 480,
+      "physical": {
+        "all_bus_time_compliance": 1.0,
+        "bus_time_compliance": 1.0,
+        "actual_loss_mwh": 1.329208169902578,
+        "voltage_violation_pu_hours": 0.0,
+        "worst_undervoltage_pu": 0.0,
+        "worst_overvoltage_pu": 0.0,
+        "max_power_balance_residual_mw": 1.0331983879563467e-09,
+        "q_effort_mvar_hours": 28.37246608373672,
+        "compliant_bus_time_points": 15840,
+        "scheduled_bus_time_points": 15840
+      },
+      "physical_eligible_for_complete_valid_comparison": true,
+      "feedback_used": 10,
+      "feedback_collected": 10,
+      "feedback_valid": 10,
+      "best_process_quality": 0.7146652267757214,
+      "last_process_quality": 0.7146652267757214,
+      "final_minus_best_process_quality": 0.0,
+      "development_hours": 6.862051020834155,
+      "development_started_at_beijing": "2026-10-16T22:07:53.806994+08:00",
+      "frozen_at_beijing": "2026-10-17T04:59:37.190651+08:00",
+      "terminal_started_at_beijing": "2026-10-17T05:00:00.668769+08:00",
+      "terminal_finished_at_beijing": "2026-10-17T05:00:51.715977+08:00",
+      "status_completed_at_beijing": "2026-10-17T05:02:07.550668+08:00",
+      "freeze_reason": "agent_return_or_cancel",
+      "early_stop_category": "continuation_cap",
+      "continuation_records": 1000,
+      "wins_starter": true,
+      "source_sha256": "36dea1cb3c7670c7e3e5cadd4ab1ee1c25f7df3201a0020a316ae6a5b030a33c",
+      "terminal_audit_sha256": "b769218994189ca967e39d1a11e487745bb1f03c444b7cd7e52c13079cb53b10",
+      "reward_details_sha256": "1ddb8806efaa498ec53ee6b0dc0063ff0883a9be0b1666ca0f8ec5a103283228",
+      "source_id": "distribution-formal-20261016-v4/mapdn-n10-r1/deadline-controller.py",
+      "candidate_source_locally_inspected": false,
+      "lifecycle_audit_passed": true
+    },
+    {
+      "role": "mapdn-n10-r2",
+      "task": "mapdn",
+      "n": 10,
+      "repeat": 2,
+      "quality": 0.7150494356527153,
+      "valid": true,
+      "candidate_error": null,
+      "completed_intervals": 480,
+      "scheduled_intervals": 480,
+      "physical": {
+        "all_bus_time_compliance": 1.0,
+        "bus_time_compliance": 1.0,
+        "actual_loss_mwh": 1.3250467897411895,
+        "voltage_violation_pu_hours": 0.0,
+        "worst_undervoltage_pu": 0.0,
+        "worst_overvoltage_pu": 0.0,
+        "max_power_balance_residual_mw": 1.041743663554584e-09,
+        "q_effort_mvar_hours": 26.606472826466575,
+        "compliant_bus_time_points": 15840,
+        "scheduled_bus_time_points": 15840
+      },
+      "physical_eligible_for_complete_valid_comparison": true,
+      "feedback_used": 10,
+      "feedback_collected": 10,
+      "feedback_valid": 10,
+      "best_process_quality": 0.7150494356527153,
+      "last_process_quality": 0.7150494356527153,
+      "final_minus_best_process_quality": 0.0,
+      "development_hours": 10.569216249483741,
+      "development_started_at_beijing": "2026-10-16T22:10:46.641737+08:00",
+      "frozen_at_beijing": "2026-10-17T08:44:55.820219+08:00",
+      "terminal_started_at_beijing": "2026-10-17T08:45:20.113385+08:00",
+      "terminal_finished_at_beijing": "2026-10-17T08:46:13.098822+08:00",
+      "status_completed_at_beijing": "2026-10-17T08:46:23.163752+08:00",
+      "freeze_reason": "agent_return_or_cancel",
+      "early_stop_category": "continuation_cap",
+      "continuation_records": 1000,
+      "wins_starter": true,
+      "source_sha256": "9978e2c7c58b676f20d350f7c20b74523907f1100b467d5dae9f44b17c347233",
+      "terminal_audit_sha256": "5feebab4c2229bb4b3fccaed9b3977a386d9766c29072a10c4f4c900f90f98ec",
+      "reward_details_sha256": "8a2fa552e1995915a97bd1a872e9581ca3ebc114a70a2a57181901fff6d0662b",
+      "source_id": "distribution-formal-20261016-v4/mapdn-n10-r2/deadline-controller.py",
+      "candidate_source_locally_inspected": false,
+      "lifecycle_audit_passed": true
+    },
+    {
+      "role": "mapdn-n10-r3",
+      "task": "mapdn",
+      "n": 10,
+      "repeat": 3,
+      "quality": 0.7146652267757214,
+      "valid": true,
+      "candidate_error": null,
+      "completed_intervals": 480,
+      "scheduled_intervals": 480,
+      "physical": {
+        "all_bus_time_compliance": 1.0,
+        "bus_time_compliance": 1.0,
+        "actual_loss_mwh": 1.329208169902578,
+        "voltage_violation_pu_hours": 0.0,
+        "worst_undervoltage_pu": 0.0,
+        "worst_overvoltage_pu": 0.0,
+        "max_power_balance_residual_mw": 1.0331983879563467e-09,
+        "q_effort_mvar_hours": 28.37246608373672,
+        "compliant_bus_time_points": 15840,
+        "scheduled_bus_time_points": 15840
+      },
+      "physical_eligible_for_complete_valid_comparison": true,
+      "feedback_used": 10,
+      "feedback_collected": 10,
+      "feedback_valid": 10,
+      "best_process_quality": 0.7146652267757214,
+      "last_process_quality": 0.7146652267757214,
+      "final_minus_best_process_quality": 0.0,
+      "development_hours": 11.938851417388037,
+      "development_started_at_beijing": "2026-10-16T22:16:35.371746+08:00",
+      "frozen_at_beijing": "2026-10-17T10:12:55.236828+08:00",
+      "terminal_started_at_beijing": "2026-10-17T10:13:19.536630+08:00",
+      "terminal_finished_at_beijing": "2026-10-17T10:14:11.506789+08:00",
+      "status_completed_at_beijing": "2026-10-17T10:14:34.918481+08:00",
+      "freeze_reason": "agent_return_or_cancel",
+      "early_stop_category": null,
+      "continuation_records": 448,
+      "wins_starter": true,
+      "source_sha256": "e64e60a571102750890e23a0a94ad310deec264ac4a78657560d7eea02f8ba00",
+      "terminal_audit_sha256": "0db289aa4764bb6ee4905327f5330a36d16414111541f38be789b66590c08e32",
+      "reward_details_sha256": "23f3c6de09c31502ef487eb252d01338d622dbe4482f59c74a6f24f094c319eb",
+      "source_id": "distribution-formal-20261016-v4/mapdn-n10-r3/deadline-controller.py",
+      "candidate_source_locally_inspected": false,
+      "lifecycle_audit_passed": true
+    }
+  ],
+  "representative_algorithms": [
+    {
+      "run_id": "mapdn-n0-r3",
+      "source_id": "distribution-formal-20261016-v4/mapdn-n0-r3/deadline-controller.py",
+      "file_basename": "deadline-controller.py",
+      "source_sha256": "1afe49fefa79dff62a32644c1fd23febefb7852609918927b04898c85ff3c95c",
+      "source_line_count": 578,
+      "checked_at_beijing": "2026-10-19T13:40:31.337278+08:00",
+      "starter_sha256": "3d4e70898f63429e97542f9bb45e37633f9d17c066183ba9f366e66b4e2863ca",
+      "mechanism_name_zh": "区域无功需求前馈与电压灵敏度安全选择",
+      "source_supported_changes_zh": [
+        "在单文件中编码标准33母线公共径向阻抗，用共同电阻路径加权区域Q需求，形成降损偏好。",
+        "用共同电抗路径近似dV/dQ，先把Q偏好投影到局部电压安全区间；区间冲突时枚举候选并按硬越限点数、最大越限、平方和、软边界及经济偏好作字典序选择。",
+        "结合当前测量Q、能力圆、阻尼及动作变化限幅，仍只调用声明的act接口。"
+      ],
+      "final_quality": 0.7148287892458778,
+      "final_valid": true,
+      "development_hours": 12.000043562665846,
+      "best_process_quality": null,
+      "source_excerpts": [
+        {
+          "start_line": 220,
+          "end_line": 256,
+          "text": "    def _loss_preference(self, rows, active):\n        own_resistance = (\n            self.shared_resistance[self.pv_bus] if self.pv_bus in range(33) else 0.0\n        )\n        load_preference = 0.0\n        demand_scale = 0.0\n        demand_terms = []\n        preference_terms = []\n        for bus, (_, _, _, demand_q) in rows.items():\n            if demand_q is None:\n                continue\n            magnitude = abs(demand_q)\n            demand_scale += magnitude\n            demand_terms.append(magnitude)\n            if own_resistance > 1e-12:\n                weight = self.shared_resistance[bus] / own_resistance\n                term = weight * demand_q\n                load_preference += term\n                preference_terms.append(term)\n\n        extreme = any(term > 1e150 for term in demand_terms)\n        if extreme:\n            demand_scale = _scaled_sum(demand_terms)\n            load_preference = _scaled_sum(preference_terms)\n\n        loading = abs(active) / max(self.capacity, 1e-12)\n        preference = (1.15 + 0.65 * loading**2) * load_preference\n        ceiling = 1.75 * demand_scale\n        if extreme and not math.isfinite(ceiling):\n            ceiling = _MAX_FLOAT\n        return _clip(preference, -ceiling, ceiling) if ceiling > 0.0 else 0.0\n\n    def _sensitivity(self, bus, voltage):\n        if bus not in range(33):\n            return 0.0\n        return self.shared_reactance[bus] / (\n            _BASE_KV_SQUARED * max(0.8, voltage)"
+        },
+        {
+          "start_line": 259,
+          "end_line": 285,
+          "text": "    def _safe_target(self, rows, current_q, q_limit, preference):\n        voltage_range = self.voltage_upper - self.voltage_lower\n        lower_margin = min(0.009, 0.2 * voltage_range)\n        upper_margin = min(0.008, 0.2 * voltage_range)\n        soft_lower = self.voltage_lower + lower_margin\n        soft_upper = self.voltage_upper - upper_margin\n        lower_q = -q_limit\n        upper_q = q_limit\n        constrained = False\n        sensitivities = {\n            bus: self._sensitivity(bus, row[0]) for bus, row in rows.items()\n        }\n\n        for bus, (voltage, _, _, _) in rows.items():\n            sensitivity = sensitivities[bus]\n            if sensitivity <= 0.0:\n                continue\n            constrained = True\n            lower_q = max(\n                lower_q, current_q + (soft_lower - voltage) / sensitivity\n            )\n            upper_q = min(\n                upper_q, current_q + (soft_upper - voltage) / sensitivity\n            )\n\n        if not constrained or lower_q <= upper_q:\n            return _clip(preference, lower_q, upper_q)"
+        },
+        {
+          "start_line": 476,
+          "end_line": 520,
+          "text": "        best_q = _clip(preference, -q_limit, q_limit)\n        best_cost = None\n        for candidate in sorted(candidates):\n            hard_count = 0\n            hard_worst = 0.0\n            hard_total = 0.0\n            soft_total = 0.0\n            hard_components = []\n            soft_components = []\n            for bus, (voltage, _, _, _) in rows.items():\n                sensitivity = sensitivities[bus]\n                predicted = (\n                    voltage\n                    if sensitivity == 0.0\n                    else voltage + sensitivity * (candidate - current_q)\n                )\n                hard_violation = max(\n                    0.0,\n                    self.voltage_lower - predicted,\n                    predicted - self.voltage_upper,\n                )\n                if (\n                    predicted < self.voltage_lower - 1e-9\n                    or predicted > self.voltage_upper + 1e-9\n                ):\n                    hard_count += 1\n                    hard_worst = max(hard_worst, hard_violation)\n                    hard_total += hard_violation * hard_violation\n                    hard_components.append(hard_violation)\n                soft_violation = max(\n                    0.0, soft_lower - predicted, predicted - soft_upper\n                )\n                soft_total += soft_violation * soft_violation\n                soft_components.append(soft_violation)\n            cost = (\n                hard_count,\n                hard_worst,\n                _square_metric(hard_components, hard_total),\n                _square_metric(soft_components, soft_total),\n                abs(candidate - preference),\n            )\n            if best_cost is None or cost < best_cost:\n                best_cost = cost\n                best_q = candidate\n        return best_q"
+        },
+        {
+          "start_line": 548,
+          "end_line": 578,
+          "text": "        if self.pv_bus in range(33):\n            existing = rows.get(self.pv_bus, (voltage, None, None, None))\n            rows[self.pv_bus] = (voltage, existing[1], existing[2], existing[3])\n\n        preference = self._loss_preference(rows, active)\n        target_q = self._safe_target(rows, current_q, q_limit, preference)\n        controllable = [\n            (bus, row)\n            for bus, row in rows.items()\n            if self._sensitivity(bus, row[0]) > 0.0\n        ]\n        hard_violation = any(\n            row[0] < self.voltage_lower - 1e-9\n            or row[0] > self.voltage_upper + 1e-9\n            for _, row in controllable\n        )\n        near_limit = any(\n            row[0] < self.voltage_lower + 0.009\n            or row[0] > self.voltage_upper - 0.008\n            for _, row in controllable\n        )\n        if hard_violation:\n            command_q = target_q\n        else:\n            blend = 0.9 if near_limit else 0.5\n            slew = self.capacity * (0.24 if near_limit else 0.14)\n            movement = _clip(blend * (target_q - current_q), -slew, slew)\n            command_q = current_q + movement\n        command_q = _clip(command_q, -q_limit, q_limit)\n        action = _clip(command_q / capability, -self.bound, self.bound)\n        return [float(action) if math.isfinite(action) else 0.0]"
+        }
+      ],
+      "interpretation": "Starter-to-final source comparison; full chronological development trajectory and causal attribution to individual code changes are not reconstructed."
+    },
+    {
+      "run_id": "mapdn-n1-r3",
+      "source_id": "distribution-formal-20261016-v4/mapdn-n1-r3/deadline-controller.py",
+      "file_basename": "deadline-controller.py",
+      "source_sha256": "663b3769ca5626419ab8ff9e84f8b71369b9f9820958f6af0a587c4159ded5c8",
+      "source_line_count": 717,
+      "checked_at_beijing": "2026-10-19T13:40:31.337278+08:00",
+      "starter_sha256": "3d4e70898f63429e97542f9bb45e37633f9d17c066183ba9f366e66b4e2863ca",
+      "mechanism_name_zh": "LinDistFlow损耗前馈加区域相量修正和方向余量保护",
+      "source_supported_changes_zh": [
+        "根据标准径向网络共同电阻路径建立PV耦合矩阵，计算无功负荷到逆变器Q的LinDistFlow系数；区域外负荷由名义空间分布与当前区域负荷水平估计。",
+        "用可见区域V/角度重建路径无功流，对未见多边间隔用线性压降近似，给前馈目标增加有界相量梯度修正。",
+        "按电压余量自适应跟踪经济目标，保留droop单侧保护；按估计dV/dQ、1.25敏感度裕量与0.35余量份额限制物理Q变化。"
+      ],
+      "final_quality": 0.7152609194380997,
+      "final_valid": true,
+      "development_hours": 11.908443182739946,
+      "best_process_quality": 0.7150566512325925,
+      "source_excerpts": [
+        {
+          "start_line": 91,
+          "end_line": 137,
+          "text": "def _loss_coefficients():\n    \"\"\"Return Q-load to optimal inverter-Q coefficients under LinDistFlow.\"\"\"\n    parent = [None] * _BUS_COUNT\n    edge_r = [0.0] * _BUS_COUNT\n    edge_x = [0.0] * _BUS_COUNT\n    for branch, reactance in zip(_BRANCHES, _BRANCH_X):\n        upstream, downstream, resistance = branch\n        parent[downstream] = upstream\n        edge_r[downstream] = resistance\n        edge_x[downstream] = reactance\n\n    paths = []\n    phasor_paths = []\n    for bus in range(_BUS_COUNT):\n        path = {}\n        phasor_path = []\n        node = bus\n        while node:\n            path[node] = edge_r[node]\n            phasor_path.append(\n                (parent[node], node, edge_r[node], edge_x[node])\n            )\n            node = parent[node]\n        paths.append(path)\n        phasor_paths.append(tuple(reversed(phasor_path)))\n\n    def common_resistance(first, second):\n        return math.fsum(resistance for edge, resistance in paths[first].items()\n                         if edge in paths[second])\n\n    coupling = [[common_resistance(first, second) for second in _PV_BUSES]\n                for first in _PV_BUSES]\n    inverse = _inverse(coupling)\n    load_coupling = [[common_resistance(pv, bus) for bus in range(_BUS_COUNT)]\n                     for pv in _PV_BUSES]\n    coefficients = []\n    for row in inverse:\n        values = []\n        for bus in range(_BUS_COUNT):\n            value = math.fsum(\n                weight * load_row[bus]\n                for weight, load_row in zip(row, load_coupling)\n            )\n            values.append(0.0 if abs(value) < 1e-10 else value)\n        coefficients.append(tuple(values))\n    return tuple(coefficients), tuple(paths), tuple(phasor_paths)\n"
+        },
+        {
+          "start_line": 310,
+          "end_line": 356,
+          "text": "    def _reactive_target(self, bus_ids, demands):\n        actual = {}\n        pairs = zip(bus_ids, demands)\n        for _ in range(_BUS_COUNT):\n            try:\n                external_bus, demand = next(pairs)\n            except StopIteration:\n                break\n            except Exception:\n                # A lazy transform may fail while zip advances either source.\n                # Stop rather than continuing with potentially misaligned pairs.\n                break\n            try:\n                numeric_bus = _as_float(external_bus)\n                value = _as_float(demand)\n            except Exception:\n                continue\n            bus = numeric_bus\n            if (numeric_bus.is_integer() and 0 <= bus < _BUS_COUNT and\n                    math.isfinite(value)):\n                bus = int(bus)\n                # Regional telemetry may expose more than one load element at a\n                # bus.  Their demands are additive, not last-record-wins.\n                actual[bus] = actual.get(bus, 0.0) + value\n\n        if not actual:\n            # Missing regional load telemetry is not evidence of zero demand.\n            # Let act() hold the economic command while retaining voltage control.\n            raise ValueError(\"no usable regional demand telemetry\")\n\n        if self.fixed_model:\n            nominal_observed = math.fsum(_NOMINAL_Q[bus] for bus in actual)\n            actual_observed = math.fsum(actual.values())\n            if nominal_observed <= 1e-12:\n                raise ValueError(\"no load-bearing bus in regional telemetry\")\n            level = _clip(actual_observed / nominal_observed, 0.0, 5.0)\n            row = _LOSS_COEFFICIENTS[self.pv_index]\n            target = math.fsum(\n                row[bus] * actual.get(bus, _NOMINAL_Q[bus] * level)\n                for bus in range(_BUS_COUNT)\n            )\n            # LinDistFlow omits line-consumed vars.  A small common, level-linear\n            # uplift is robust to the unobserved peer-PV active-power pattern;\n            # the voltage barriers remove it whenever that pattern makes it unsafe.\n            if target > 0.0:\n                target *= 1.0 + 0.02 * (level if level < 2.0 else 2.0)\n            return target"
+        },
+        {
+          "start_line": 502,
+          "end_line": 544,
+          "text": "        # Regional phasors contain the actual active-power pattern that load\n        # imputation cannot see.  Visible path edges give exact series Q; gaps\n        # use linear drops across their summed impedance.  A quality-aware,\n        # bounded correction reduces this measured loss gradient while the\n        # feed-forward model remains dominant over approximation error.\n        if self.fixed_model:\n            try:\n                weighted_q = _weighted_reactive_flow(\n                    observation[\"region_bus_ids\"],\n                    observation[\"region_voltage_pu\"],\n                    observation[\"region_angle_degree\"],\n                    self.pv_bus,\n                )\n                if weighted_q is not None:\n                    weighted_q, approximate = weighted_q\n                    phasor_q = (\n                        reactive\n                        + weighted_q / _PATH_RESISTANCE[self.pv_index]\n                    )\n                    if math.isfinite(phasor_q):\n                        if phasor_q >= q_limit:\n                            phasor_action = self.bound\n                        elif phasor_q <= -q_limit:\n                            phasor_action = -self.bound\n                        else:\n                            phasor_action = phasor_q / capability\n                        # The root-region inverter has weak common coupling and,\n                        # when every path edge is visible, an exact weighted-Q\n                        # sum; a larger correction is stable in that special case.\n                        # Other actors retain the conservative simultaneous blend,\n                        # even if overlapping telemetry exposes their full path.\n                        correction = phasor_action - loss_action\n                        if not approximate and self.pv_index == 0:\n                            blend = 0.50\n                        elif abs(correction) <= 0.10:\n                            # A bounded approximate correction cannot move the\n                            # target by more than 0.02 normalized action, so a\n                            # faster blend reduces steady tracking error without\n                            # weakening the independent voltage projection.\n                            blend = 0.20\n                        else:\n                            blend = 0.10\n                        loss_action += blend * correction"
+        },
+        {
+          "start_line": 678,
+          "end_line": 708,
+          "text": "        # Project every move against the bound in its direction: even support\n        # requested near one limit must not jump through the opposite limit.\n        # Work in physical MVAr so inverter size and solar capability cannot\n        # weaken protection.  Normally use at most 35% of measured headroom\n        # before the sensitivity margin, leaving the rest for unseen peer moves,\n        # and retain 0.001 pu for AC-model error.\n        if self.fixed_model:\n            sensitivity = 1.25 * _MAX_DV_DQ[self.pv_index]\n            # Use the measured physical baseline directly, avoiding a needless\n            # Q→normalized→Q round trip at capability and action boundaries.\n            physical_change = action * capability - reactive\n            if physical_change > 0.0:\n                voltage_budget = self.upper_voltage - 0.001 - maximum\n                if voltage_budget <= 0.0:\n                    q_budget = 0.0\n                else:\n                    q_budget = (\n                        _HEADROOM_SHARE * voltage_budget / sensitivity\n                    )\n                if physical_change > q_budget:\n                    action = (reactive + q_budget) / capability\n            elif physical_change < 0.0:\n                voltage_budget = minimum - self.lower_voltage - 0.001\n                if voltage_budget <= 0.0:\n                    q_budget = 0.0\n                else:\n                    q_budget = (\n                        _HEADROOM_SHARE * voltage_budget / sensitivity\n                    )\n                if -physical_change > q_budget:\n                    action = (reactive - q_budget) / capability"
+        }
+      ],
+      "interpretation": "Starter-to-final source comparison; full chronological development trajectory and causal attribution to individual code changes are not reconstructed."
+    }
+  ],
+  "known_gaps": [
+    "Full provider token usage and billing cost not verified.",
+    "No independent date/network generalization test.",
+    "Actual development early stops prevent confirmatory equal-12-hour comparison of n.",
+    "Only two selected final controller sources were inspected for mechanism descriptions; full per-step development chronology was not audited.",
+    "Representative controller source acquisition paths during development were not reconstructed; final code inspection alone does not prove where embedded public-network constants were obtained."
+  ],
+  "algorithm_sources_checked_at_beijing": "2026-10-19T13:40:31.337278+08:00"
+}

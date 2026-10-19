@@ -1,0 +1,1492 @@
+{
+  "schema": "task-card-evidence-v2-draft",
+  "family_id": "unit-commitment",
+  "compiled_at_beijing": "2026-10-19",
+  "snapshot_v6_at_beijing": "2026-10-18 15:30:10",
+  "snapshot_v8_at_beijing": "2026-10-19 13:39:13",
+  "sources": [
+    {
+      "source_id": "status-20261018-153010.json",
+      "sha256": "1856b1637b6801c7f31670f8305ef2a6cc82378b17520f1a7ff47a5ec6ce4f26"
+    },
+    {
+      "source_id": "configuration.json",
+      "sha256": "1e068c29292f1d404985da405004efcc51513b201ed7ad86041bdc40866c9c88"
+    },
+    {
+      "source_id": "startup-20261018-final.json",
+      "sha256": "8dee4e1bfd6f7f40eed1891b39a0acc5d487b7d26e25062f6f17dfde83130da1"
+    },
+    {
+      "source_id": "remote-missing-results.json",
+      "sha256": "899f8a048f52b594b57bf27e4e8ad0567213f282714b86a026fc66eddbcc6cbc",
+      "collected_at_utc": "2026-10-19T05:39:13.782550+00:00",
+      "scope": "read-only authoritative run/complete.json; no new scoring"
+    },
+    {
+      "source_id": "remote-supplemental-evidence.json",
+      "sha256": "fb650021b891a12eb7073f9d55bba4c62eadc708f9dde480607e838d9ef452cb",
+      "scope": "matched frozen Julia source and counted feedback ledger; operational paths omitted"
+    },
+    {
+      "source_id": "remote-artifact-locations.json",
+      "sha256": "ad065da921ba2cca7738a0088a9cd015b7ec7af0a0c9d16116bbaae80f4fe020",
+      "scope": "developer OOM and terminal eligibility evidence"
+    },
+    {
+      "source_id": "uc-v6-frozen-task/tests/data/manifest.json",
+      "sha256": "1a26a9e25615ab45e2094570fa4c37abb96b1742edd449859cd31e46bb613305",
+      "scope": "task contract, reference, starter or dependency lock"
+    },
+    {
+      "source_id": "uc-v6-frozen-task/support/scoring.py",
+      "sha256": "02b2c860a686b360fb81b34846fba4310166d83894b3c38a17d0e2fdf5bf18a2",
+      "scope": "task contract, reference, starter or dependency lock"
+    },
+    {
+      "source_id": "uc-v6-frozen-task/support/pglib_validate.py",
+      "sha256": "19d55b9623c8a3f9621cb0cb1fd8238ac810639c219a36fa745be9bac229840e",
+      "scope": "task contract, reference, starter or dependency lock"
+    },
+    {
+      "source_id": "uc-v6-frozen-task/environment/app/submission/solver.jl",
+      "sha256": "09a43312c960f49ca1f57c5443f2f214c192b8cfbeef019f657f0abefd8804c5",
+      "scope": "task contract, reference, starter or dependency lock"
+    },
+    {
+      "source_id": "uc-v6-frozen-task/images/Manifest.toml",
+      "sha256": "46e5fdbd442fcecc337d11cd54f4993355c99e02428c62e69ae7557497c3fc31",
+      "scope": "task contract, reference, starter or dependency lock"
+    }
+  ],
+  "campaigns": [
+    {
+      "id": "uc-speed-n013-three-repeats-20261017-v6",
+      "manifest_sha256": "9669c73c2f8b1cd384a95d858e1fe3bf8ac0aa5bf4eafc013f82ae265addfa18"
+    },
+    {
+      "id": "uc-speed-n510-three-repeats-20261018-v8",
+      "manifest_sha256": "42217a80e99c2e0c1359ce353b1467b54adda05e2d7fc4907e06023614744771"
+    }
+  ],
+  "instance": {
+    "id": "pglib-uc/rts_gmlc/2020-07-06",
+    "periods": 48,
+    "thermal_generators": 73,
+    "renewable_generators": 81,
+    "instance_sha256": "2e68998a3c7849df2307780ab10de2147f21e71bf152d049015315c2b5ff7091",
+    "reference_lower": 3728826.449349424,
+    "reference_upper": 3729194.9208988217,
+    "target_gap_ratio": 0.001,
+    "candidate_seconds": 300,
+    "terminal_seeds": [
+      0,
+      1,
+      2
+    ],
+    "feedback_seed": 0,
+    "case_selection_role": "workflow case; calibrated multi-case main study unreleased",
+    "semantic_equivalence_check": {
+      "upstream_source_id": "pglib-uc/rts_gmlc/2020-07-06.json",
+      "upstream_serialized_sha256": "97a9a4d8ae7e80f6251e47550a60565bb99f0253df4a76bd58b96ede17d1cec8",
+      "parsed_json_equal": true,
+      "normalized_json_sha256": "f01a0704a8da7e136b4fec429fed39c09fb9c72286d51f0fdd855c80ef31f924"
+    }
+  },
+  "group_statistics": [
+    {
+      "n": 0,
+      "planned": 3,
+      "terminal_evidence_count": 3,
+      "workflow_complete": 3,
+      "valid_count": 2,
+      "all_seed_target_hit_count": 0,
+      "reward_mean_all_repeats": 0.16128196210979862,
+      "reward_sample_sd_all_repeats": 0.2793485527185698,
+      "observed_mean_terminal_only": 0.16128196210979862,
+      "observed_sd_terminal_only": 0.2793485527185698,
+      "best_observed_reward": 0.48384588632939585,
+      "aggregation_policy": "include validly scored invalid/zero outcomes; missing terminal score stays null, full three-repeat group mean requires three scores"
+    },
+    {
+      "n": 1,
+      "planned": 3,
+      "terminal_evidence_count": 3,
+      "workflow_complete": 3,
+      "valid_count": 3,
+      "all_seed_target_hit_count": 2,
+      "reward_mean_all_repeats": 0.5159018998537902,
+      "reward_sample_sd_all_repeats": 0.2945530993858151,
+      "observed_mean_terminal_only": 0.5159018998537902,
+      "observed_sd_terminal_only": 0.2945530993858151,
+      "best_observed_reward": 0.7384713947452191,
+      "aggregation_policy": "include validly scored invalid/zero outcomes; missing terminal score stays null, full three-repeat group mean requires three scores"
+    },
+    {
+      "n": 3,
+      "planned": 3,
+      "terminal_evidence_count": 3,
+      "workflow_complete": 3,
+      "valid_count": 3,
+      "all_seed_target_hit_count": 3,
+      "reward_mean_all_repeats": 0.757934668808464,
+      "reward_sample_sd_all_repeats": 0.0370277191651532,
+      "observed_mean_terminal_only": 0.757934668808464,
+      "observed_sd_terminal_only": 0.0370277191651532,
+      "best_observed_reward": 0.7937699241563678,
+      "aggregation_policy": "include validly scored invalid/zero outcomes; missing terminal score stays null, full three-repeat group mean requires three scores"
+    },
+    {
+      "n": 5,
+      "planned": 3,
+      "terminal_evidence_count": 3,
+      "workflow_complete": 3,
+      "valid_count": 2,
+      "all_seed_target_hit_count": 2,
+      "reward_mean_all_repeats": 0.577620067273922,
+      "reward_sample_sd_all_repeats": 0.5002337967291176,
+      "observed_mean_terminal_only": 0.577620067273922,
+      "observed_sd_terminal_only": 0.5002337967291176,
+      "best_observed_reward": 0.8668106293336799,
+      "aggregation_policy": "include validly scored invalid/zero outcomes; missing terminal score stays null, full three-repeat group mean requires three scores"
+    },
+    {
+      "n": 10,
+      "planned": 3,
+      "terminal_evidence_count": 2,
+      "workflow_complete": 2,
+      "valid_count": 1,
+      "all_seed_target_hit_count": 1,
+      "reward_mean_all_repeats": null,
+      "reward_sample_sd_all_repeats": null,
+      "observed_mean_terminal_only": 0.463865970927808,
+      "observed_sd_terminal_only": 0.6560055472094699,
+      "best_observed_reward": 0.927731941855616,
+      "aggregation_policy": "include validly scored invalid/zero outcomes; missing terminal score stays null, full three-repeat group mean requires three scores"
+    }
+  ],
+  "runs": [
+    {
+      "case": "RTS-GMLC-2020-07-06",
+      "n": 0,
+      "repeat": 1,
+      "role": "n0-r1",
+      "campaign": "uc-speed-n013-three-repeats-20261017-v6",
+      "run_id": "aqy-uc6-n0-r1-20261017-132022",
+      "run_uid": "7bb554ee-7f3d-44ad-9eae-16f5bd735077",
+      "terminal_evidence_available": true,
+      "workflow_complete": true,
+      "valid": false,
+      "target_hit_all_seeds": false,
+      "reward": 0.0,
+      "penalized_seconds": 600.0,
+      "mean_reference_gap": null,
+      "failure_category": "candidate-failure",
+      "actual_feedback": 0,
+      "feedback": [],
+      "terminal_replays": [
+        {
+          "feasible": false,
+          "target_hit": false,
+          "penalized_seconds": 600.0,
+          "reference_gap": null,
+          "failure_category": "no-feasible-snapshot"
+        },
+        {
+          "feasible": false,
+          "target_hit": false,
+          "penalized_seconds": 600.0,
+          "reference_gap": null,
+          "failure_category": "no-feasible-snapshot"
+        },
+        {
+          "feasible": false,
+          "target_hit": false,
+          "penalized_seconds": 600.0,
+          "reference_gap": null,
+          "failure_category": "no-feasible-snapshot"
+        }
+      ],
+      "frozen_source_files": {
+        "pglib_model.jl": {
+          "size": 8135,
+          "sha256": "0b4ff25628675a6682f8e1fc2710725de27c5415ca23f1876fcd50ffbea5a52b"
+        },
+        "solver.jl": {
+          "size": 42659,
+          "sha256": "fbd5662388134480c0c2f8e81a97d05bc7bf172b48cfaa9bec84c054c0af5883"
+        }
+      },
+      "development_seconds": 43185.04086043313,
+      "actual_recorded_tokens": 144683835
+    },
+    {
+      "case": "RTS-GMLC-2020-07-06",
+      "n": 0,
+      "repeat": 2,
+      "role": "n0-r2",
+      "campaign": "uc-speed-n013-three-repeats-20261017-v6",
+      "run_id": "aqy-uc6-n0-r2-20261017-132023",
+      "run_uid": "68af7492-31dd-46a9-9f1f-d359c4a02455",
+      "terminal_evidence_available": true,
+      "workflow_complete": true,
+      "valid": true,
+      "target_hit_all_seeds": false,
+      "reward": 0.48384588632939585,
+      "penalized_seconds": 309.6924682023625,
+      "mean_reference_gap": 0.000759438657985245,
+      "failure_category": null,
+      "actual_feedback": 0,
+      "feedback": [],
+      "terminal_replays": [
+        {
+          "feasible": true,
+          "target_hit": false,
+          "penalized_seconds": 600.0,
+          "reference_gap": 0.0012342059440042094,
+          "failure_category": null
+        },
+        {
+          "feasible": true,
+          "target_hit": true,
+          "penalized_seconds": 162.7273653987795,
+          "reference_gap": 0.000464206627440958,
+          "failure_category": null
+        },
+        {
+          "feasible": true,
+          "target_hit": true,
+          "penalized_seconds": 166.35003920830786,
+          "reference_gap": 0.0005799034025105675,
+          "failure_category": null
+        }
+      ],
+      "frozen_source_files": {
+        "pglib_model.jl": {
+          "size": 15735,
+          "sha256": "ee4ec21f2f97d45a5c4fc811ff50b758d558dbb33c25c5855c56776a06ec5848"
+        },
+        "solver.jl": {
+          "size": 67955,
+          "sha256": "17c4e48eb522d5a7423a09599ec4600fed57f6ba7decc942c5635567d647cb7c"
+        }
+      },
+      "development_seconds": 43185.06050635688,
+      "actual_recorded_tokens": 179194219
+    },
+    {
+      "case": "RTS-GMLC-2020-07-06",
+      "n": 0,
+      "repeat": 3,
+      "role": "n0-r3",
+      "campaign": "uc-speed-n013-three-repeats-20261017-v6",
+      "run_id": "aqy-uc6-n0-r3-20261017-132024",
+      "run_uid": "dff7350a-cc50-48dd-b6f3-5743c64fd48a",
+      "terminal_evidence_available": true,
+      "workflow_complete": true,
+      "valid": true,
+      "target_hit_all_seeds": false,
+      "reward": 0.0,
+      "penalized_seconds": 600.0,
+      "mean_reference_gap": 0.027779109435609694,
+      "failure_category": null,
+      "actual_feedback": 0,
+      "feedback": [],
+      "terminal_replays": [
+        {
+          "feasible": true,
+          "target_hit": false,
+          "penalized_seconds": 600.0,
+          "reference_gap": 0.03862783181724977,
+          "failure_category": null
+        },
+        {
+          "feasible": true,
+          "target_hit": false,
+          "penalized_seconds": 600.0,
+          "reference_gap": 0.02248693050265472,
+          "failure_category": null
+        },
+        {
+          "feasible": true,
+          "target_hit": false,
+          "penalized_seconds": 600.0,
+          "reference_gap": 0.022222565986924594,
+          "failure_category": null
+        }
+      ],
+      "frozen_source_files": {
+        "pglib_model.jl": {
+          "size": 17608,
+          "sha256": "290c14d71ccee0de82c83bdafd6992669ee7e273e1c4cc79def6cad92026128b"
+        },
+        "solver.jl": {
+          "size": 22224,
+          "sha256": "ff93d7f54ce59415eb0f06213cb9e7e1934e0a4965ce06a8486f1969ca7c55e9"
+        }
+      },
+      "development_seconds": 43185.04595694796,
+      "actual_recorded_tokens": 170384794
+    },
+    {
+      "case": "RTS-GMLC-2020-07-06",
+      "n": 1,
+      "repeat": 1,
+      "role": "n1-r1",
+      "campaign": "uc-speed-n013-three-repeats-20261017-v6",
+      "run_id": "aqy-uc6-n1-r1-20261017-132022",
+      "run_uid": "73cc005d-ad95-4c6c-a671-ca140e85d064",
+      "terminal_evidence_available": true,
+      "workflow_complete": true,
+      "valid": true,
+      "target_hit_all_seeds": true,
+      "reward": 0.7384713947452191,
+      "penalized_seconds": 156.91716315286854,
+      "mean_reference_gap": 0.0002488952212927621,
+      "failure_category": null,
+      "actual_feedback": 1,
+      "feedback": [
+        {
+          "id": 1,
+          "reward": 0.900715,
+          "valid": true,
+          "collected_at_utc": "2026-10-17T08:58:49Z"
+        }
+      ],
+      "terminal_replays": [
+        {
+          "feasible": true,
+          "target_hit": true,
+          "penalized_seconds": 123.04602373950183,
+          "reference_gap": 0.0003238671431622352,
+          "failure_category": null
+        },
+        {
+          "feasible": true,
+          "target_hit": true,
+          "penalized_seconds": 260.7755684796721,
+          "reference_gap": 0.0002512469059020172,
+          "failure_category": null
+        },
+        {
+          "feasible": true,
+          "target_hit": true,
+          "penalized_seconds": 86.92989723943174,
+          "reference_gap": 0.00017157161481403405,
+          "failure_category": null
+        }
+      ],
+      "frozen_source_files": {
+        "pglib_model.jl": {
+          "size": 56466,
+          "sha256": "00ff29d885af3ac07418374241bf46a3a85f9a1bbd3a8f38b7d796ac7b623148"
+        },
+        "solver.jl": {
+          "size": 47874,
+          "sha256": "ee08734fb5cb595177efb08940650c41d4fbf316f49868a7f386d2f9ce18e8d5"
+        }
+      },
+      "development_seconds": 43185.03919182159,
+      "actual_recorded_tokens": 184461520
+    },
+    {
+      "case": "RTS-GMLC-2020-07-06",
+      "n": 1,
+      "repeat": 2,
+      "role": "n1-r2",
+      "campaign": "uc-speed-n013-three-repeats-20261017-v6",
+      "run_id": "aqy-uc6-n1-r2-20261017-132023",
+      "run_uid": "44fcb748-21c4-4009-86c4-581ff87cc878",
+      "terminal_evidence_available": true,
+      "workflow_complete": true,
+      "valid": true,
+      "target_hit_all_seeds": false,
+      "reward": 0.1818871739237673,
+      "penalized_seconds": 490.8676956457396,
+      "mean_reference_gap": 0.0013851616576466472,
+      "failure_category": null,
+      "actual_feedback": 1,
+      "feedback": [
+        {
+          "id": 1,
+          "reward": 0.6601483333333333,
+          "valid": true,
+          "collected_at_utc": "2026-10-17T05:45:43Z"
+        }
+      ],
+      "terminal_replays": [
+        {
+          "feasible": true,
+          "target_hit": true,
+          "penalized_seconds": 272.6030869372189,
+          "reference_gap": 0.0008359841221601935,
+          "failure_category": null
+        },
+        {
+          "feasible": true,
+          "target_hit": false,
+          "penalized_seconds": 600.0,
+          "reference_gap": 0.0017848911870473841,
+          "failure_category": null
+        },
+        {
+          "feasible": true,
+          "target_hit": false,
+          "penalized_seconds": 600.0,
+          "reference_gap": 0.001534609663732364,
+          "failure_category": null
+        }
+      ],
+      "frozen_source_files": {
+        "pglib_model.jl": {
+          "size": 6940,
+          "sha256": "a7a7a288003803fdddd596b65db864df00edc77420207095f29b1dd60e7972d4"
+        },
+        "rolling.jl": {
+          "size": 9379,
+          "sha256": "55db6823eec863b72d01bd5c538ac7e9ecac67dc624f27eb3a55beb2d6abdb4f"
+        },
+        "solver.jl": {
+          "size": 31320,
+          "sha256": "6282e98bc3cb705037f23195b83a19fe9fb6e7a4a734358daede598bc3450f9d"
+        }
+      },
+      "development_seconds": 43185.086337756366,
+      "actual_recorded_tokens": 187540362
+    },
+    {
+      "case": "RTS-GMLC-2020-07-06",
+      "n": 1,
+      "repeat": 3,
+      "role": "n1-r3",
+      "campaign": "uc-speed-n013-three-repeats-20261017-v6",
+      "run_id": "aqy-uc6-n1-r3-20261017-132024",
+      "run_uid": "1a532b63-d602-4637-87f5-4545996ff6fc",
+      "terminal_evidence_available": true,
+      "workflow_complete": true,
+      "valid": true,
+      "target_hit_all_seeds": true,
+      "reward": 0.6273471308923844,
+      "penalized_seconds": 223.59172146456936,
+      "mean_reference_gap": 0.0006601176435438323,
+      "failure_category": null,
+      "actual_feedback": 1,
+      "feedback": [
+        {
+          "id": 1,
+          "reward": 0.5714466666666667,
+          "valid": true,
+          "collected_at_utc": "2026-10-17T05:38:40Z"
+        }
+      ],
+      "terminal_replays": [
+        {
+          "feasible": true,
+          "target_hit": true,
+          "penalized_seconds": 236.06522414460778,
+          "reference_gap": 0.0009522318709531526,
+          "failure_category": null
+        },
+        {
+          "feasible": true,
+          "target_hit": true,
+          "penalized_seconds": 253.68861221522093,
+          "reference_gap": 0.0004962608315758936,
+          "failure_category": null
+        },
+        {
+          "feasible": true,
+          "target_hit": true,
+          "penalized_seconds": 181.0213280338794,
+          "reference_gap": 0.0005318602281024504,
+          "failure_category": null
+        }
+      ],
+      "frozen_source_files": {
+        "clustered_model.jl": {
+          "size": 59058,
+          "sha256": "571620eab51354166dc2a5af1ea6619c49e574899a9f557760d7a721b5e53e1c"
+        },
+        "pglib_model.jl": {
+          "size": 18991,
+          "sha256": "bc692fe373f0b8978342a819c3b69be07a1f94335286dbf8150c981e1da09f5e"
+        },
+        "solver.jl": {
+          "size": 33436,
+          "sha256": "eb32a405b6140c46d9ce46d4805e7e5a3df97cc9c40623cf9087fe2b06cca4af"
+        }
+      },
+      "development_seconds": 43185.04341370985,
+      "actual_recorded_tokens": 198961342
+    },
+    {
+      "case": "RTS-GMLC-2020-07-06",
+      "n": 3,
+      "repeat": 1,
+      "role": "n3-r1",
+      "campaign": "uc-speed-n013-three-repeats-20261017-v6",
+      "run_id": "aqy-uc6-n3-r1-20261017-132022",
+      "run_uid": "1b9bdce0-50cf-4442-84d2-55b879ff712a",
+      "terminal_evidence_available": true,
+      "workflow_complete": true,
+      "valid": true,
+      "target_hit_all_seeds": true,
+      "reward": 0.7602142647602078,
+      "penalized_seconds": 143.87144114387533,
+      "mean_reference_gap": 0.00010286935276426753,
+      "failure_category": null,
+      "actual_feedback": 3,
+      "feedback": [
+        {
+          "id": 1,
+          "reward": 0.897985,
+          "valid": true,
+          "collected_at_utc": "2026-10-17T05:23:27Z"
+        },
+        {
+          "id": 2,
+          "reward": 0.9240916666666666,
+          "valid": true,
+          "collected_at_utc": "2026-10-17T05:26:40Z"
+        },
+        {
+          "id": 3,
+          "reward": 0.9097516666666666,
+          "valid": true,
+          "collected_at_utc": "2026-10-17T06:12:16Z"
+        }
+      ],
+      "terminal_replays": [
+        {
+          "feasible": true,
+          "target_hit": true,
+          "penalized_seconds": 132.79204307310283,
+          "reference_gap": 9.88072646273993e-05,
+          "failure_category": null
+        },
+        {
+          "feasible": true,
+          "target_hit": true,
+          "penalized_seconds": 162.85636451281607,
+          "reference_gap": 9.88072646273993e-05,
+          "failure_category": null
+        },
+        {
+          "feasible": true,
+          "target_hit": true,
+          "penalized_seconds": 135.96591584570706,
+          "reference_gap": 0.000110993529038004,
+          "failure_category": null
+        }
+      ],
+      "frozen_source_files": {
+        "full_fallback.jl": {
+          "size": 4163,
+          "sha256": "7182b281f0b297d04948869b37e76cccaca03dad00b13e7c5e130b0c44e0f539"
+        },
+        "native_cluster.jl": {
+          "size": 34306,
+          "sha256": "c6ff79010fee02d5d19dff52094a467312fc8be1243082b715cc5d5e8208fe33"
+        },
+        "native_highs.jl": {
+          "size": 4765,
+          "sha256": "33151cfb3a5aa926248caa61fa2413ff8bcb93cdca596dcfb1585352ede7ee44"
+        },
+        "pglib_model.jl": {
+          "size": 12591,
+          "sha256": "d9321a8bb858ffe357287f0dc92cd21bdb320681c397ef44d629a6a78bc2d1e2"
+        },
+        "solver.jl": {
+          "size": 14943,
+          "sha256": "7ccd485fe44a530ba952fc64881a309b2c0fa0ba56ba95a0ac7e2946ce098375"
+        }
+      },
+      "development_seconds": 43185.040174324065,
+      "actual_recorded_tokens": 188662992
+    },
+    {
+      "case": "RTS-GMLC-2020-07-06",
+      "n": 3,
+      "repeat": 2,
+      "role": "n3-r2",
+      "campaign": "uc-speed-n013-three-repeats-20261017-v6",
+      "run_id": "aqy-uc6-n3-r2-20261017-132023",
+      "run_uid": "433b296d-5d0d-48a5-8ce0-2aba6f9bae61",
+      "terminal_evidence_available": true,
+      "workflow_complete": true,
+      "valid": true,
+      "target_hit_all_seeds": true,
+      "reward": 0.7198198175088166,
+      "penalized_seconds": 168.10810949471002,
+      "mean_reference_gap": 9.88072646227796e-05,
+      "failure_category": null,
+      "actual_feedback": 3,
+      "feedback": [
+        {
+          "id": 1,
+          "reward": 0.9064183333333333,
+          "valid": true,
+          "collected_at_utc": "2026-10-17T05:27:21Z"
+        },
+        {
+          "id": 2,
+          "reward": 0.9395866666666667,
+          "valid": true,
+          "collected_at_utc": "2026-10-17T05:36:55Z"
+        },
+        {
+          "id": 3,
+          "reward": 0.7619983333333333,
+          "valid": true,
+          "collected_at_utc": "2026-10-17T06:24:31Z"
+        }
+      ],
+      "terminal_replays": [
+        {
+          "feasible": true,
+          "target_hit": true,
+          "penalized_seconds": 144.4772378290072,
+          "reference_gap": 9.880726462764901e-05,
+          "failure_category": null
+        },
+        {
+          "feasible": true,
+          "target_hit": true,
+          "penalized_seconds": 170.90332509810105,
+          "reference_gap": 9.880726461291591e-05,
+          "failure_category": null
+        },
+        {
+          "feasible": true,
+          "target_hit": true,
+          "penalized_seconds": 188.94376555702183,
+          "reference_gap": 9.880726462777387e-05,
+          "failure_category": null
+        }
+      ],
+      "frozen_source_files": {
+        "pglib_model.jl": {
+          "size": 5284,
+          "sha256": "4b06804b0ba57bdfb6e105c66fed470e586abb03de2e84573ec292346b5abe6f"
+        },
+        "solver.jl": {
+          "size": 23482,
+          "sha256": "7b3409987a628d685afb1956de8646b674cdb15edbe6a286465a92c4283e20c7"
+        }
+      },
+      "development_seconds": 43185.06335671898,
+      "actual_recorded_tokens": 238115299
+    },
+    {
+      "case": "RTS-GMLC-2020-07-06",
+      "n": 3,
+      "repeat": 3,
+      "role": "n3-r3",
+      "campaign": "uc-speed-n013-three-repeats-20261017-v6",
+      "run_id": "aqy-uc6-n3-r3-20261017-132024",
+      "run_uid": "dd218e49-68a1-4f7e-89a3-0a4d783f7d3f",
+      "terminal_evidence_available": true,
+      "workflow_complete": true,
+      "valid": true,
+      "target_hit_all_seeds": true,
+      "reward": 0.7937699241563678,
+      "penalized_seconds": 123.73804550617933,
+      "mean_reference_gap": 9.880726460842106e-05,
+      "failure_category": null,
+      "actual_feedback": 3,
+      "feedback": [
+        {
+          "id": 1,
+          "counted": true,
+          "state": "done",
+          "reward": 0.914415,
+          "valid": true,
+          "upload_sha256": "ecdfaa2a10601c37",
+          "submitted_after_sec": 1238.7,
+          "collected_at": "2026-10-17T05:46:30Z"
+        },
+        {
+          "id": 2,
+          "counted": true,
+          "state": "done",
+          "reward": 0.8994716666666667,
+          "valid": true,
+          "upload_sha256": "01ce2c06ad41d2cc",
+          "submitted_after_sec": 2537.5,
+          "collected_at": "2026-10-17T06:05:46Z"
+        },
+        {
+          "id": 3,
+          "counted": true,
+          "state": "done",
+          "reward": 0.8870116666666666,
+          "valid": true,
+          "upload_sha256": "3dbce3a442df1fbf",
+          "submitted_after_sec": 3979.0,
+          "collected_at": "2026-10-17T06:28:51Z"
+        }
+      ],
+      "terminal_replays": [
+        {
+          "feasible": true,
+          "target_hit": true,
+          "penalized_seconds": 120.6549745425582,
+          "reference_gap": 9.880726456971546e-05,
+          "failure_category": null
+        },
+        {
+          "feasible": true,
+          "target_hit": true,
+          "penalized_seconds": 127.78042724728584,
+          "reference_gap": 9.880726462764901e-05,
+          "failure_category": null
+        },
+        {
+          "feasible": true,
+          "target_hit": true,
+          "penalized_seconds": 122.77873472869396,
+          "reference_gap": 9.880726462789873e-05,
+          "failure_category": null
+        }
+      ],
+      "frozen_source_files": {
+        "pglib_model.jl": {
+          "size": 18047,
+          "sha256": "6a904e5e866de42649981abed3a1beb5a5e1079e3b5e6e62ffd32252dc1cc656"
+        },
+        "solver.jl": {
+          "size": 9672,
+          "sha256": "443afe608e23937dd95a9d4f4d88e7381dc44faee2ac11e3762eba85ee52bdb3"
+        }
+      },
+      "development_seconds": 43185.034278612584,
+      "actual_recorded_tokens": 168290377
+    },
+    {
+      "case": "RTS-GMLC-2020-07-06",
+      "n": 5,
+      "repeat": 1,
+      "role": "n5-r1",
+      "campaign": "uc-speed-n510-three-repeats-20261018-v8",
+      "run_id": "aqy-uc8-n5-r1-20261018-162945",
+      "terminal_evidence_available": true,
+      "workflow_complete": true,
+      "valid": true,
+      "target_hit_all_seeds": true,
+      "reward": 0.8660495724880861,
+      "penalized_seconds": 80.37025650714834,
+      "mean_reference_gap": 0.00011099342993229983,
+      "actual_feedback": 5,
+      "missing_reason": null,
+      "completion_evidence_available": true,
+      "terminal_replays": [
+        {
+          "feasible": true,
+          "target_hit": true,
+          "penalized_seconds": 90.21482920646667,
+          "reference_gap": 9.880726434547268e-05,
+          "failure_category": null
+        },
+        {
+          "feasible": true,
+          "target_hit": true,
+          "penalized_seconds": 100.41358497552574,
+          "reference_gap": 0.00011099352903850341,
+          "failure_category": null
+        },
+        {
+          "feasible": true,
+          "target_hit": true,
+          "penalized_seconds": 50.482355339452624,
+          "reference_gap": 0.00012317949641292342,
+          "failure_category": null
+        }
+      ],
+      "frozen_source_files": {
+        "pglib_model.jl": {
+          "size": 14345,
+          "sha256": "d6aa8ffeefb193e5332ea2f7529b725c90355a977c7a219591f3a809093f4650"
+        },
+        "solver.jl": {
+          "size": 8549,
+          "sha256": "5c3327571e787cfea51ea94e68ddde3e32380f9899000d93541dae0316694a34"
+        }
+      },
+      "failure_category": null,
+      "finalization_eligible": true,
+      "exception_type": null,
+      "completion_source_sha256": "94c9e9cfb566bfad678ffb67f3717ea7dc754699c79de551309a7002a5f1f28e"
+    },
+    {
+      "case": "RTS-GMLC-2020-07-06",
+      "n": 5,
+      "repeat": 2,
+      "role": "n5-r2",
+      "campaign": "uc-speed-n510-three-repeats-20261018-v8",
+      "run_id": "aqy-uc8-n5-r2-20261018-162946",
+      "terminal_evidence_available": true,
+      "workflow_complete": true,
+      "valid": false,
+      "target_hit_all_seeds": false,
+      "reward": 0.0,
+      "penalized_seconds": 457.5318174076577,
+      "mean_reference_gap": null,
+      "actual_feedback": 5,
+      "missing_reason": null,
+      "completion_evidence_available": true,
+      "terminal_replays": [
+        {
+          "feasible": false,
+          "target_hit": false,
+          "penalized_seconds": 600.0,
+          "reference_gap": null,
+          "failure_category": "no-feasible-snapshot"
+        },
+        {
+          "feasible": true,
+          "target_hit": true,
+          "penalized_seconds": 172.5954522229731,
+          "reference_gap": 9.880726462527673e-05,
+          "failure_category": null
+        },
+        {
+          "feasible": false,
+          "target_hit": false,
+          "penalized_seconds": 600.0,
+          "reference_gap": null,
+          "failure_category": "no-feasible-snapshot"
+        }
+      ],
+      "frozen_source_files": {
+        "pglib_model.jl": {
+          "size": 15094,
+          "sha256": "6d25ccd3f4443a7dbf9bbb3d7a46cdb5d7e9d0ba8ab4926974d5ef1229230322"
+        },
+        "solver.jl": {
+          "size": 28202,
+          "sha256": "740ea581e18c8bdd86454977c743af22c80d553fe1bed9221e461d77a973b0c3"
+        }
+      },
+      "failure_category": "candidate-failure",
+      "finalization_eligible": true,
+      "exception_type": null,
+      "completion_source_sha256": "4300c8c5318ecba424ecbaa795ce6c140f1317dd219795a53afa2d2e8eddd9d5",
+      "feedback": [
+        {
+          "id": 1,
+          "counted": true,
+          "state": "done",
+          "reward": 0.8152583333333333,
+          "valid": true,
+          "upload_sha256": "1ecd904023772649",
+          "submitted_after_sec": 1337.2,
+          "collected_at": "2026-10-18T08:56:31Z"
+        },
+        {
+          "id": 2,
+          "counted": true,
+          "state": "done",
+          "reward": 0.9250816666666667,
+          "valid": true,
+          "upload_sha256": "969565d9962de901",
+          "submitted_after_sec": 2437.1,
+          "collected_at": "2026-10-18T09:15:16Z"
+        },
+        {
+          "id": 3,
+          "counted": true,
+          "state": "done",
+          "reward": 0.8674933333333333,
+          "valid": true,
+          "upload_sha256": "747b2d7f08d0469b",
+          "submitted_after_sec": 2800.2,
+          "collected_at": "2026-10-18T09:19:42Z"
+        },
+        {
+          "id": 4,
+          "counted": true,
+          "state": "done",
+          "reward": 0.9257233333333333,
+          "valid": true,
+          "upload_sha256": "be5e5bb40e668deb",
+          "submitted_after_sec": 3073.1,
+          "collected_at": "2026-10-18T09:29:32Z"
+        },
+        {
+          "id": 5,
+          "counted": true,
+          "state": "done",
+          "reward": 0.9134266666666666,
+          "valid": true,
+          "upload_sha256": "0aaa1372b0e961b8",
+          "submitted_after_sec": 4108.6,
+          "collected_at": "2026-10-18T09:40:20Z"
+        }
+      ]
+    },
+    {
+      "case": "RTS-GMLC-2020-07-06",
+      "n": 5,
+      "repeat": 3,
+      "role": "n5-r3",
+      "campaign": "uc-speed-n510-three-repeats-20261018-v8",
+      "run_id": "aqy-uc8-n5-r3-20261018-162946",
+      "terminal_evidence_available": true,
+      "workflow_complete": true,
+      "valid": true,
+      "target_hit_all_seeds": true,
+      "reward": 0.8668106293336799,
+      "penalized_seconds": 79.91362239979208,
+      "mean_reference_gap": 0.00022339827119511712,
+      "actual_feedback": 5,
+      "missing_reason": null,
+      "completion_evidence_available": true,
+      "terminal_replays": [
+        {
+          "feasible": true,
+          "target_hit": true,
+          "penalized_seconds": 59.367195062339306,
+          "reference_gap": 0.00012553595461631788,
+          "failure_category": null
+        },
+        {
+          "feasible": true,
+          "target_hit": true,
+          "penalized_seconds": 92.75210858881474,
+          "reference_gap": 0.0002640295978001654,
+          "failure_category": null
+        },
+        {
+          "feasible": true,
+          "target_hit": true,
+          "penalized_seconds": 87.62156354822218,
+          "reference_gap": 0.00028062926116886807,
+          "failure_category": null
+        }
+      ],
+      "frozen_source_files": {
+        "pglib_model.jl": {
+          "size": 23522,
+          "sha256": "8ff3f45896ebbeb30d7b38d7dad35962836f3ee84be0a3f6253d95ecc1739059"
+        },
+        "solver.jl": {
+          "size": 19510,
+          "sha256": "b62aaf786ff7152b811514de1c9f129da82a95f9803448a41425f0de299b7106"
+        }
+      },
+      "failure_category": null,
+      "finalization_eligible": true,
+      "exception_type": null,
+      "completion_source_sha256": "eb572666a803a233eee1ace040920f0b3f953ad1622fa325f41395155ee28d8b"
+    },
+    {
+      "case": "RTS-GMLC-2020-07-06",
+      "n": 10,
+      "repeat": 1,
+      "role": "n10-r1",
+      "campaign": "uc-speed-n510-three-repeats-20261018-v8",
+      "run_id": "aqy-uc8-n10-r1-20261018-162946",
+      "terminal_evidence_available": false,
+      "workflow_complete": false,
+      "valid": null,
+      "target_hit_all_seeds": null,
+      "reward": null,
+      "penalized_seconds": null,
+      "mean_reference_gap": null,
+      "actual_feedback": 10,
+      "missing_reason": "developer container OOM killed; certified terminal eligibility false; no terminal score",
+      "completion_evidence_available": true,
+      "terminal_replays": [],
+      "frozen_source_files": {},
+      "failure_category": null,
+      "finalization_eligible": false,
+      "exception_type": "RuntimeError",
+      "completion_source_sha256": "28f768ad989784eff051a4d4d3639d1533c446c313528d6debb64d1ec770679e",
+      "cutoff_failure": {
+        "eligible": false,
+        "error": "Container was OOM killed",
+        "oom_killed": true,
+        "container_stopped": true,
+        "frozen_source_verified": true,
+        "compute_elapsed_seconds": 43185.047033211216,
+        "elapsed_seconds": 43185.63572085276
+      },
+      "cutoff_failure_source_sha256": "744221403e779c45e3642d43c4420d815b198e8b75df5cc8d7884b37c1b1d77d"
+    },
+    {
+      "case": "RTS-GMLC-2020-07-06",
+      "n": 10,
+      "repeat": 2,
+      "role": "n10-r2",
+      "campaign": "uc-speed-n510-three-repeats-20261018-v8",
+      "run_id": "aqy-uc8-n10-r2-20261018-162946",
+      "terminal_evidence_available": true,
+      "workflow_complete": true,
+      "valid": false,
+      "target_hit_all_seeds": false,
+      "reward": 0.0,
+      "penalized_seconds": 600.0,
+      "mean_reference_gap": null,
+      "actual_feedback": 10,
+      "missing_reason": null,
+      "completion_evidence_available": true,
+      "terminal_replays": [
+        {
+          "feasible": false,
+          "target_hit": false,
+          "penalized_seconds": 600.0,
+          "reference_gap": null,
+          "failure_category": "no-feasible-snapshot"
+        },
+        {
+          "feasible": false,
+          "target_hit": false,
+          "penalized_seconds": 600.0,
+          "reference_gap": null,
+          "failure_category": "no-feasible-snapshot"
+        },
+        {
+          "feasible": false,
+          "target_hit": false,
+          "penalized_seconds": 600.0,
+          "reference_gap": null,
+          "failure_category": "no-feasible-snapshot"
+        }
+      ],
+      "frozen_source_files": {
+        "pglib_model.jl": {
+          "size": 14273,
+          "sha256": "967f711dbdd3e89cc80471a50dd0249ea6fd18c7617b20b191771e5e702ce33d"
+        },
+        "solver.jl": {
+          "size": 22583,
+          "sha256": "7e1a8dfb4e341444b7d3131476d73a05a0a4e7f33bb6ff4d513c4e788f71d3f9"
+        }
+      },
+      "failure_category": "candidate-failure",
+      "finalization_eligible": true,
+      "exception_type": null,
+      "completion_source_sha256": "3b0d16f462d524b09f5bb0ee9c680094797bfa0648e9925110530d15c40cff93"
+    },
+    {
+      "case": "RTS-GMLC-2020-07-06",
+      "n": 10,
+      "repeat": 3,
+      "role": "n10-r3",
+      "campaign": "uc-speed-n510-three-repeats-20261018-v8",
+      "run_id": "aqy-uc8-n10-r3-20261018-162947",
+      "terminal_evidence_available": true,
+      "workflow_complete": true,
+      "valid": true,
+      "target_hit_all_seeds": true,
+      "reward": 0.927731941855616,
+      "penalized_seconds": 43.36083488663038,
+      "mean_reference_gap": 0.00019141024830909262,
+      "actual_feedback": 10,
+      "missing_reason": null,
+      "completion_evidence_available": true,
+      "terminal_replays": [
+        {
+          "feasible": true,
+          "target_hit": true,
+          "penalized_seconds": 41.8624327480793,
+          "reference_gap": 0.0001109935290350075,
+          "failure_category": null
+        },
+        {
+          "feasible": true,
+          "target_hit": true,
+          "penalized_seconds": 42.3005334995687,
+          "reference_gap": 0.00011099352903812884,
+          "failure_category": null
+        },
+        {
+          "feasible": true,
+          "target_hit": true,
+          "penalized_seconds": 45.91953841224313,
+          "reference_gap": 0.0003522436868541415,
+          "failure_category": null
+        }
+      ],
+      "frozen_source_files": {
+        "fast_copy.jl": {
+          "size": 2899,
+          "sha256": "e7431f71661bed7ab8a131d4b797128baa789219b760e59e661bb1c49bd7694b"
+        },
+        "highs_c_api.jl": {
+          "size": 8618,
+          "sha256": "8e297916e0ecc3fcc8aab24233e89b471e56c3601d4762644ac81c88dedb20a9"
+        },
+        "pglib_model.jl": {
+          "size": 17332,
+          "sha256": "08a9361a4b63eb28c8b26e001897e5aa4952c625788ddf91384c89ad45af8328"
+        },
+        "solver.jl": {
+          "size": 6260,
+          "sha256": "f8fddc32e68b866f85d8175b4c398caeb940f14c72373afff70ff424c6b0e4c6"
+        }
+      },
+      "failure_category": null,
+      "finalization_eligible": true,
+      "exception_type": null,
+      "completion_source_sha256": "da8094506bdaf71bae96349a63fa87779acb0a15d771f4d40f9ee953e14129c7",
+      "feedback": [
+        {
+          "id": 1,
+          "counted": true,
+          "state": "done",
+          "reward": 0.8922366666666667,
+          "valid": true,
+          "upload_sha256": "90b8395820b7c253",
+          "submitted_after_sec": 52.6,
+          "collected_at": "2026-10-18T08:32:29Z"
+        },
+        {
+          "id": 2,
+          "counted": true,
+          "state": "done",
+          "reward": 0.9261283333333333,
+          "valid": true,
+          "upload_sha256": "c72ac3cdbdf7109f",
+          "submitted_after_sec": 501.1,
+          "collected_at": "2026-10-18T08:39:37Z"
+        },
+        {
+          "id": 3,
+          "counted": true,
+          "state": "done",
+          "reward": 0.9362266666666667,
+          "valid": true,
+          "upload_sha256": "31ef38f426dae693",
+          "submitted_after_sec": 558.3,
+          "collected_at": "2026-10-18T08:40:57Z"
+        },
+        {
+          "id": 4,
+          "counted": true,
+          "state": "done",
+          "reward": 0.8729716666666667,
+          "valid": true,
+          "upload_sha256": "1fa08663a49e4cad",
+          "submitted_after_sec": 740.9,
+          "collected_at": "2026-10-18T08:44:10Z"
+        },
+        {
+          "id": 5,
+          "counted": true,
+          "state": "done",
+          "reward": 0.93748,
+          "valid": true,
+          "upload_sha256": "e05dac5c8a642b8b",
+          "submitted_after_sec": 837.9,
+          "collected_at": "2026-10-18T08:45:08Z"
+        },
+        {
+          "id": 6,
+          "counted": true,
+          "state": "done",
+          "reward": 0.8660916666666667,
+          "valid": true,
+          "upload_sha256": "4d60f41552f320a8",
+          "submitted_after_sec": 938.6,
+          "collected_at": "2026-10-18T08:47:32Z"
+        },
+        {
+          "id": 7,
+          "counted": true,
+          "state": "done",
+          "reward": 0.8698533333333334,
+          "valid": true,
+          "upload_sha256": "11797278a269f1af",
+          "submitted_after_sec": 1079.6,
+          "collected_at": "2026-10-18T08:50:48Z"
+        },
+        {
+          "id": 8,
+          "counted": true,
+          "state": "done",
+          "reward": 0.940165,
+          "valid": true,
+          "upload_sha256": "474717737e4af27e",
+          "submitted_after_sec": 1260.0,
+          "collected_at": "2026-10-18T08:52:09Z"
+        },
+        {
+          "id": 9,
+          "counted": true,
+          "state": "done",
+          "reward": 0.8487816666666667,
+          "valid": true,
+          "upload_sha256": "75d93112a063d888",
+          "submitted_after_sec": 1410.5,
+          "collected_at": "2026-10-18T08:55:34Z"
+        },
+        {
+          "id": 10,
+          "counted": true,
+          "state": "done",
+          "reward": 0.8916233333333333,
+          "valid": true,
+          "upload_sha256": "56309a13021d0a5d",
+          "submitted_after_sec": 1706.1,
+          "collected_at": "2026-10-18T09:00:30Z"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "n10r1 workflow failed before eligible terminal grading; its score remains null",
+    "n10 full three-repeat group mean not computed",
+    "feedback seed0 score is not interchangeable with mean terminal score seeds0/1/2",
+    "workflow completion independent of schedule validity and all-seed quality hits"
+  ],
+  "algorithm_evidence": [
+    {
+      "role": "n3-r3",
+      "files": [
+        {
+          "filename": "pglib_model.jl",
+          "sha256": "6a904e5e866de42649981abed3a1beb5a5e1079e3b5e6e62ffd32252dc1cc656",
+          "terminal_manifest_matched": true
+        },
+        {
+          "filename": "solver.jl",
+          "sha256": "443afe608e23937dd95a9d4f4d88e7381dc44faee2ac11e3762eba85ee52bdb3",
+          "terminal_manifest_matched": true
+        }
+      ],
+      "feedback_ledger_sha256": "bfafa37121e87a3429f98ebab8e22dcd514b0c6f4b6a8730ad047e814ec3d161",
+      "feedback": [
+        {
+          "id": 1,
+          "counted": true,
+          "state": "done",
+          "reward": 0.914415,
+          "valid": true,
+          "upload_sha256": "ecdfaa2a10601c37",
+          "submitted_after_sec": 1238.7,
+          "collected_at": "2026-10-17T05:46:30Z"
+        },
+        {
+          "id": 2,
+          "counted": true,
+          "state": "done",
+          "reward": 0.8994716666666667,
+          "valid": true,
+          "upload_sha256": "01ce2c06ad41d2cc",
+          "submitted_after_sec": 2537.5,
+          "collected_at": "2026-10-17T06:05:46Z"
+        },
+        {
+          "id": 3,
+          "counted": true,
+          "state": "done",
+          "reward": 0.8870116666666666,
+          "valid": true,
+          "upload_sha256": "3dbce3a442df1fbf",
+          "submitted_after_sec": 3979.0,
+          "collected_at": "2026-10-17T06:28:51Z"
+        }
+      ],
+      "evidence_limit": "matched final source and feedback sequence; no isolated module ablation or full chronological code-diff chain"
+    },
+    {
+      "role": "n10-r3",
+      "files": [
+        {
+          "filename": "fast_copy.jl",
+          "sha256": "e7431f71661bed7ab8a131d4b797128baa789219b760e59e661bb1c49bd7694b",
+          "terminal_manifest_matched": true
+        },
+        {
+          "filename": "highs_c_api.jl",
+          "sha256": "8e297916e0ecc3fcc8aab24233e89b471e56c3601d4762644ac81c88dedb20a9",
+          "terminal_manifest_matched": true
+        },
+        {
+          "filename": "pglib_model.jl",
+          "sha256": "08a9361a4b63eb28c8b26e001897e5aa4952c625788ddf91384c89ad45af8328",
+          "terminal_manifest_matched": true
+        },
+        {
+          "filename": "solver.jl",
+          "sha256": "f8fddc32e68b866f85d8175b4c398caeb940f14c72373afff70ff424c6b0e4c6",
+          "terminal_manifest_matched": true
+        }
+      ],
+      "feedback_ledger_sha256": "4dcdd196aedc06085e191a35dff4e67e2c5293577599b22280e6dd011d428021",
+      "feedback": [
+        {
+          "id": 1,
+          "counted": true,
+          "state": "done",
+          "reward": 0.8922366666666667,
+          "valid": true,
+          "upload_sha256": "90b8395820b7c253",
+          "submitted_after_sec": 52.6,
+          "collected_at": "2026-10-18T08:32:29Z"
+        },
+        {
+          "id": 2,
+          "counted": true,
+          "state": "done",
+          "reward": 0.9261283333333333,
+          "valid": true,
+          "upload_sha256": "c72ac3cdbdf7109f",
+          "submitted_after_sec": 501.1,
+          "collected_at": "2026-10-18T08:39:37Z"
+        },
+        {
+          "id": 3,
+          "counted": true,
+          "state": "done",
+          "reward": 0.9362266666666667,
+          "valid": true,
+          "upload_sha256": "31ef38f426dae693",
+          "submitted_after_sec": 558.3,
+          "collected_at": "2026-10-18T08:40:57Z"
+        },
+        {
+          "id": 4,
+          "counted": true,
+          "state": "done",
+          "reward": 0.8729716666666667,
+          "valid": true,
+          "upload_sha256": "1fa08663a49e4cad",
+          "submitted_after_sec": 740.9,
+          "collected_at": "2026-10-18T08:44:10Z"
+        },
+        {
+          "id": 5,
+          "counted": true,
+          "state": "done",
+          "reward": 0.93748,
+          "valid": true,
+          "upload_sha256": "e05dac5c8a642b8b",
+          "submitted_after_sec": 837.9,
+          "collected_at": "2026-10-18T08:45:08Z"
+        },
+        {
+          "id": 6,
+          "counted": true,
+          "state": "done",
+          "reward": 0.8660916666666667,
+          "valid": true,
+          "upload_sha256": "4d60f41552f320a8",
+          "submitted_after_sec": 938.6,
+          "collected_at": "2026-10-18T08:47:32Z"
+        },
+        {
+          "id": 7,
+          "counted": true,
+          "state": "done",
+          "reward": 0.8698533333333334,
+          "valid": true,
+          "upload_sha256": "11797278a269f1af",
+          "submitted_after_sec": 1079.6,
+          "collected_at": "2026-10-18T08:50:48Z"
+        },
+        {
+          "id": 8,
+          "counted": true,
+          "state": "done",
+          "reward": 0.940165,
+          "valid": true,
+          "upload_sha256": "474717737e4af27e",
+          "submitted_after_sec": 1260.0,
+          "collected_at": "2026-10-18T08:52:09Z"
+        },
+        {
+          "id": 9,
+          "counted": true,
+          "state": "done",
+          "reward": 0.8487816666666667,
+          "valid": true,
+          "upload_sha256": "75d93112a063d888",
+          "submitted_after_sec": 1410.5,
+          "collected_at": "2026-10-18T08:55:34Z"
+        },
+        {
+          "id": 10,
+          "counted": true,
+          "state": "done",
+          "reward": 0.8916233333333333,
+          "valid": true,
+          "upload_sha256": "56309a13021d0a5d",
+          "submitted_after_sec": 1706.1,
+          "collected_at": "2026-10-18T09:00:30Z"
+        }
+      ],
+      "evidence_limit": "matched final source and feedback sequence; no isolated module ablation or full chronological code-diff chain"
+    },
+    {
+      "role": "n5-r2",
+      "files": [
+        {
+          "filename": "pglib_model.jl",
+          "sha256": "6d25ccd3f4443a7dbf9bbb3d7a46cdb5d7e9d0ba8ab4926974d5ef1229230322",
+          "terminal_manifest_matched": true
+        },
+        {
+          "filename": "solver.jl",
+          "sha256": "740ea581e18c8bdd86454977c743af22c80d553fe1bed9221e461d77a973b0c3",
+          "terminal_manifest_matched": true
+        }
+      ],
+      "feedback_ledger_sha256": "ef88cbbe46cb8237e5389222b4384827266abb977b098843a896b78a7748791b",
+      "feedback": [
+        {
+          "id": 1,
+          "counted": true,
+          "state": "done",
+          "reward": 0.8152583333333333,
+          "valid": true,
+          "upload_sha256": "1ecd904023772649",
+          "submitted_after_sec": 1337.2,
+          "collected_at": "2026-10-18T08:56:31Z"
+        },
+        {
+          "id": 2,
+          "counted": true,
+          "state": "done",
+          "reward": 0.9250816666666667,
+          "valid": true,
+          "upload_sha256": "969565d9962de901",
+          "submitted_after_sec": 2437.1,
+          "collected_at": "2026-10-18T09:15:16Z"
+        },
+        {
+          "id": 3,
+          "counted": true,
+          "state": "done",
+          "reward": 0.8674933333333333,
+          "valid": true,
+          "upload_sha256": "747b2d7f08d0469b",
+          "submitted_after_sec": 2800.2,
+          "collected_at": "2026-10-18T09:19:42Z"
+        },
+        {
+          "id": 4,
+          "counted": true,
+          "state": "done",
+          "reward": 0.9257233333333333,
+          "valid": true,
+          "upload_sha256": "be5e5bb40e668deb",
+          "submitted_after_sec": 3073.1,
+          "collected_at": "2026-10-18T09:29:32Z"
+        },
+        {
+          "id": 5,
+          "counted": true,
+          "state": "done",
+          "reward": 0.9134266666666666,
+          "valid": true,
+          "upload_sha256": "0aaa1372b0e961b8",
+          "submitted_after_sec": 4108.6,
+          "collected_at": "2026-10-18T09:40:20Z"
+        }
+      ],
+      "evidence_limit": "matched final source and feedback sequence; no isolated module ablation or full chronological code-diff chain"
+    }
+  ]
+}

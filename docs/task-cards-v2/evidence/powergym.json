@@ -1,0 +1,1773 @@
+{
+  "schema_version": 1,
+  "task": "powergym",
+  "cohort_id": "distribution-formal-20261016-v4",
+  "task_package_commit": "4ff98fe174da3dfb0b0df589bc5cecf2d830ba27",
+  "snapshot_observed_at_beijing": "2026-10-17T12:12:14.836167+08:00",
+  "evidence_scope": "15 formal independent development repeats only; historical canary and qualification runs excluded",
+  "source_manifest_sha256": "fa3937726662b7aa1fd862796c7b8f4bda7600ec7385a0617d819dc676c1ef15",
+  "sources": [
+    {
+      "source_id": "formal-status-bundle-20261017T0412Z",
+      "sha256": "1bd4c579c2d22f28661a4c94241791879ed85d44ada03328bb924492cada8d78",
+      "availability": "private raw evidence; sanitized numerical fields reproduced here"
+    },
+    {
+      "source_id": "formal-status-summary-20261017T0412Z",
+      "sha256": "caba6193124348825fc216a682f4efd3acbc3ebbd9e56aaf88d52d76b99f125a",
+      "availability": "private raw evidence"
+    },
+    {
+      "source_id": "distribution-formal-source-manifest-v4",
+      "sha256": "fa3937726662b7aa1fd862796c7b8f4bda7600ec7385a0617d819dc676c1ef15",
+      "availability": "private orchestration closure"
+    },
+    {
+      "source_id": "formal-protocol",
+      "repository_path": "configs/distribution-formal-20261016.json",
+      "sha256": "a2562a41f9c4bf89134b167b8496d2d20c1c1f1d3ed46c8d5855a4ebc5c67a2f"
+    },
+    {
+      "source_id": "powergym-formal-package/formal-lock.json",
+      "repository_path": "task-packages/powergym-volt-var-control-formal-v1/formal-lock.json",
+      "sha256": "c69b84fd035bd43942683710d70048f7f9c148afe3d7958e3099b9b2c7560f6f"
+    },
+    {
+      "source_id": "powergym-formal-package/source-lock.json",
+      "repository_path": "task-packages/powergym-volt-var-control-formal-v1/source-lock.json",
+      "sha256": "4ce9d87201dcb2d00fee5cce619ee12f12c0e2d5cbe7018e9b977912a0536f1e"
+    },
+    {
+      "source_id": "powergym-formal-package/instruction.md",
+      "repository_path": "task-packages/powergym-volt-var-control-formal-v1/instruction.md",
+      "sha256": "38bbe266f137485a1f8a372489b08df293b25c46b09b9d0ebefc6b8d902c2e93"
+    },
+    {
+      "source_id": "powergym-formal-package/task.toml",
+      "repository_path": "task-packages/powergym-volt-var-control-formal-v1/task.toml",
+      "sha256": "e2b66449833a938d6a012bffde0e2406022884f98c6eab194c22d77d8e78bd71"
+    },
+    {
+      "source_id": "powergym-formal-package/environment/app/submission/controller.py",
+      "repository_path": "task-packages/powergym-volt-var-control-formal-v1/environment/app/submission/controller.py",
+      "sha256": "94f26ad9bb48fedfc5f083b757b5e67b5019af1d75e6d14965699ab945b59ead"
+    }
+  ],
+  "protocol": {
+    "case": {
+      "package": "powergym-volt-var-control-formal-v1",
+      "case_id": "123Bus-stress-p000-s2.5",
+      "intervals": 24,
+      "interval_hours": 1.0,
+      "load_scale": 2.5,
+      "voltage_bounds_pu": [
+        0.95,
+        1.05
+      ],
+      "information": "causal device states, previous completed-hour bus-phase voltages and battery actual power; initial observation uses hour0 initial state; no load trajectory or simulator query",
+      "metric": "powergym_formal_quality",
+      "invalid_reward": 0.0,
+      "quality": "1/(1+bus_envelope_voltage_violation_pu_hours+actual_active_loss_kWh/1000+(capacitor_switches+tap_moves)/33)",
+      "voltage_feasibility": "soft cost, separately report compliance; not a hard candidate-validity gate",
+      "hard_validity": [
+        "finite in-range integer device actions",
+        "all 24 steps converge",
+        "per-battery absolute terminal ledger deviation <=1kWh",
+        "per-battery absolute actual terminal-power integral <=1kWh"
+      ],
+      "numerics": "OpenDSS tolerance1e-10, BuildYMatrix(2,True), SolutionInitialized=False for every query; original Generator Q=P/pf; Python round integer-kWh ledger",
+      "reference_roles": {
+        "coordinated_voltage": "same-information executable reference and common starter",
+        "hysteresis_idle": "same-information executable reference",
+        "strong_current_idle": "privileged current load and circuit optimization reference",
+        "oracle_day_idle": "privileged full-day device reference",
+        "oracle_day_storage": "privileged full-day storage reference, fixed device plan; no joint global optimality claim"
+      },
+      "outer_cpus": 6,
+      "outer_memory_mb": 12288
+    },
+    "model": "global.openai.gpt-5.6-sol",
+    "client_version": "2.1.280",
+    "harbor_version": "0.20.0",
+    "intended_development_seconds": 43200,
+    "aggregate_token_cap": null,
+    "provider_sampling_seed_controlled": false,
+    "n_grid": [
+      0,
+      1,
+      3,
+      5,
+      10
+    ],
+    "independent_repeats_per_n": 3,
+    "feedback_policy": {
+      "n_is": "maximum accepted complete-case process evaluations; final replay is separate",
+      "n_zero": "terminal mode, no process judge",
+      "accepted_candidate_failure": "counts and returns zero reward",
+      "infrastructure_failure": "record separately; retry only the same evaluation identity",
+      "excess_requests": "reject before evaluation",
+      "unused_budget": "allowed; report accepted and collected counts",
+      "public_checks": "interface and synthetic toy checks only; no real target trajectory or free target score",
+      "feedback_precision": "aggregate metrics and reward as emitted by the frozen scorer; no trajectories"
+    },
+    "final_policy": "one controller.py at the wall-clock deadline, artifact hash verified in independent terminal replay; never select best feedback history"
+  },
+  "statistics_policy": {
+    "quality": "All three repeats per group are retained, including the two zero scores and all nine infrastructure/continuation early stops.",
+    "sample_sd": "Sample standard deviation, ddof=1; n=3 per quality group.",
+    "physical": "Group physical summaries use only candidate-valid complete-case replays; invalid raw physical values remain in per-run rows and must not be interpreted as feasible complete-day performance.",
+    "early_stop": "Six continuation cap stops and three provider-stream stops are flagged by the evidence summary; normal near-deadline return is not classified solely from elapsed_hours < 12.",
+    "quality_semantics": "Frozen benchmark contract score, not original MAPDN/PowerGym paper reward; the two task scores must not be pooled or compared across tasks.",
+    "interpretation": "Descriptive statistics only. The nine unequal development durations confound fair comparisons of n; no significance or causal dose-response claim.",
+    "provider_usage": "Available log-segment usage is incomplete and zero-filled fields are unknown; no actual total token or billing-cost claim."
+  },
+  "starter": {
+    "quality": 0.05784402165191499,
+    "active_loss_kwh": 5854.903549093662,
+    "voltage_violation_pu_hours": 5.675391962338271,
+    "phase_time_compliance": 0.9025779376498801,
+    "capacitor_switches": 3,
+    "tap_moves": 154,
+    "battery_throughput_kwh": 0.0
+  },
+  "summary": {
+    "count": 15,
+    "valid_count": 14,
+    "invalid_roles": [
+      "powergym-n1-r3"
+    ],
+    "early_stop_count": 6,
+    "continuation_cap_count": 3,
+    "api_stream_stop_count": 3,
+    "wins_starter_count": 9,
+    "quality_all_repeats": {
+      "count": 15,
+      "mean": 0.0547901771246415,
+      "sample_sd": 0.03684584611870875,
+      "min": 0.0,
+      "max": 0.104470296662257
+    },
+    "feedback_used": 57,
+    "feedback_collected": 57,
+    "best_role": "powergym-n10-r2",
+    "best_quality": 0.104470296662257,
+    "worst_role": "powergym-n1-r3",
+    "worst_quality": 0.0,
+    "worst_valid_role": "powergym-n0-r1",
+    "worst_valid_quality": 0.00578379453853791,
+    "best_physical": {
+      "reward": 0.104470296662257,
+      "valid": true,
+      "completed_steps": 24,
+      "active_loss_kwh": 5205.399485104182,
+      "voltage_violation_pu_hours": 0.1848811204765971,
+      "phase_time_compliance": 0.9869604316546763,
+      "capacitor_switches": 0,
+      "tap_moves": 105,
+      "final_soc": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "terminal_energy_error_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "actual_net_energy_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "ledger_terminal_energy_valid": true,
+      "actual_terminal_energy_valid": true,
+      "battery_throughput_kwh": 0.0,
+      "candidate_sha256": "edc8eec2b5d9ccf90f0dd318fc7ea4a98249b1394c937640deedbd669f8a0afb",
+      "error": null
+    },
+    "best_compared_to_starter": {
+      "quality": {
+        "absolute_change": 0.046626275010342014,
+        "relative_change_percent": 80.6069040132143,
+        "reduction_percent": -80.6069040132143
+      },
+      "active_loss_kwh": {
+        "absolute_change": -649.5040639894805,
+        "relative_change_percent": -11.093334989096848,
+        "reduction_percent": 11.093334989096848
+      },
+      "voltage_violation_pu_hours": {
+        "absolute_change": -5.490510841861673,
+        "relative_change_percent": -96.7424078952879,
+        "reduction_percent": 96.7424078952879
+      },
+      "phase_time_compliance": {
+        "absolute_change": 0.08438249400479614,
+        "relative_change_percent": 9.349053470607771,
+        "reduction_percent": -9.349053470607771
+      },
+      "capacitor_switches": {
+        "absolute_change": -3,
+        "relative_change_percent": -100.0,
+        "reduction_percent": 100.0
+      },
+      "tap_moves": {
+        "absolute_change": -49,
+        "relative_change_percent": -31.818181818181824,
+        "reduction_percent": 31.818181818181824
+      },
+      "phase_time_compliance_change_percentage_points": 8.438249400479613
+    },
+    "battery_active_valid_count": 0,
+    "physical_valid_complete_only": {
+      "active_loss_kwh": {
+        "count": 14,
+        "mean": 5428.540671213902,
+        "sample_sd": 230.39744392915802,
+        "min": 5205.399485104182,
+        "max": 5804.617755338724
+      },
+      "voltage_violation_pu_hours": {
+        "count": 14,
+        "mean": 32.92014551034833,
+        "sample_sd": 58.157296802280214,
+        "min": 0.1848811204765971,
+        "max": 166.15380852744323
+      },
+      "phase_time_compliance": {
+        "count": 14,
+        "mean": 0.8044492977046934,
+        "sample_sd": 0.23651604031632384,
+        "min": 0.29706235011990406,
+        "max": 0.9869604316546763
+      },
+      "capacitor_switches": {
+        "count": 14,
+        "mean": 1,
+        "sample_sd": 2.0,
+        "min": 0,
+        "max": 7
+      },
+      "tap_moves": {
+        "count": 14,
+        "mean": 85.21428571428571,
+        "sample_sd": 60.537564398451835,
+        "min": 0,
+        "max": 238
+      },
+      "battery_throughput_kwh": {
+        "count": 14,
+        "mean": 0.0,
+        "sample_sd": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      }
+    }
+  },
+  "groups": [
+    {
+      "task": "powergym",
+      "n": 0,
+      "roles": [
+        "powergym-n0-r1",
+        "powergym-n0-r2",
+        "powergym-n0-r3"
+      ],
+      "quality_values": [
+        0.00578379453853791,
+        0.020464179309227795,
+        0.03219407000088962
+      ],
+      "quality_all_three_repeats": {
+        "count": 3,
+        "mean": 0.019480681282885107,
+        "sample_sd": 0.013232577744913845,
+        "min": 0.00578379453853791,
+        "max": 0.03219407000088962
+      },
+      "valid_count": 3,
+      "early_stop_count": 3,
+      "continuation_cap_count": 1,
+      "api_stream_stop_count": 2,
+      "wins_starter_count": 0,
+      "feedback_used_total": 0,
+      "feedback_collected_total": 0,
+      "development_hours": {
+        "count": 3,
+        "mean": 8.447712075043485,
+        "sample_sd": 2.075546991460631,
+        "min": 6.578329393874705,
+        "max": 10.681230427693356
+      },
+      "physical_valid_complete_only": {
+        "active_loss_kwh": {
+          "count": 3,
+          "mean": 5505.423241808238,
+          "sample_sd": 206.05275082634705,
+          "min": 5376.497743879545,
+          "max": 5743.066238234539
+        },
+        "voltage_violation_pu_hours": {
+          "count": 3,
+          "mean": 76.85017462803829,
+          "sample_sd": 77.76953132280278,
+          "min": 24.02855159500731,
+          "max": 166.15380852744323
+        },
+        "phase_time_compliance": {
+          "count": 3,
+          "mean": 0.580335731414868,
+          "sample_sd": 0.24566824531335738,
+          "min": 0.29706235011990406,
+          "max": 0.7350119904076738
+        },
+        "capacitor_switches": {
+          "count": 3,
+          "mean": 0,
+          "sample_sd": 0.0,
+          "min": 0,
+          "max": 0
+        },
+        "tap_moves": {
+          "count": 3,
+          "mean": 30.333333333333332,
+          "sample_sd": 35.92121007612819,
+          "min": 0,
+          "max": 70
+        },
+        "battery_throughput_kwh": {
+          "count": 3,
+          "mean": 0.0,
+          "sample_sd": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        }
+      }
+    },
+    {
+      "task": "powergym",
+      "n": 1,
+      "roles": [
+        "powergym-n1-r1",
+        "powergym-n1-r2",
+        "powergym-n1-r3"
+      ],
+      "quality_values": [
+        0.00578379453853791,
+        0.0205992571721648,
+        0.0
+      ],
+      "quality_all_three_repeats": {
+        "count": 3,
+        "mean": 0.008794350570234236,
+        "sample_sd": 0.010624496916383057,
+        "min": 0.0,
+        "max": 0.0205992571721648
+      },
+      "valid_count": 2,
+      "early_stop_count": 1,
+      "continuation_cap_count": 0,
+      "api_stream_stop_count": 1,
+      "wins_starter_count": 0,
+      "feedback_used_total": 3,
+      "feedback_collected_total": 3,
+      "development_hours": {
+        "count": 3,
+        "mean": 10.387420809311852,
+        "sample_sd": 2.7791142049412008,
+        "min": 7.178389764898037,
+        "max": 12.00003454720139
+      },
+      "physical_valid_complete_only": {
+        "active_loss_kwh": {
+          "count": 2,
+          "mean": 5565.934557538196,
+          "sample_sd": 250.50202516670848,
+          "min": 5388.8028768418535,
+          "max": 5743.066238234539
+        },
+        "voltage_violation_pu_hours": {
+          "count": 2,
+          "mean": 103.24613184106397,
+          "sample_sd": 88.96488954725932,
+          "min": 40.3384551546847,
+          "max": 166.15380852744323
+        },
+        "phase_time_compliance": {
+          "count": 2,
+          "mean": 0.4985011990407674,
+          "sample_sd": 0.28487755213270977,
+          "min": 0.29706235011990406,
+          "max": 0.6999400479616307
+        },
+        "capacitor_switches": {
+          "count": 2,
+          "mean": 0,
+          "sample_sd": 0.0,
+          "min": 0,
+          "max": 0
+        },
+        "tap_moves": {
+          "count": 2,
+          "mean": 30,
+          "sample_sd": 42.42640687119285,
+          "min": 0,
+          "max": 60
+        },
+        "battery_throughput_kwh": {
+          "count": 2,
+          "mean": 0.0,
+          "sample_sd": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        }
+      }
+    },
+    {
+      "task": "powergym",
+      "n": 3,
+      "roles": [
+        "powergym-n3-r1",
+        "powergym-n3-r2",
+        "powergym-n3-r3"
+      ],
+      "quality_values": [
+        0.06241859130303104,
+        0.06477728429931259,
+        0.06887979266435011
+      ],
+      "quality_all_three_repeats": {
+        "count": 3,
+        "mean": 0.06535855608889792,
+        "sample_sd": 0.0032695853602412108,
+        "min": 0.06241859130303104,
+        "max": 0.06887979266435011
+      },
+      "valid_count": 3,
+      "early_stop_count": 0,
+      "continuation_cap_count": 0,
+      "api_stream_stop_count": 0,
+      "wins_starter_count": 3,
+      "feedback_used_total": 9,
+      "feedback_collected_total": 9,
+      "development_hours": {
+        "count": 3,
+        "mean": 11.980985216128788,
+        "sample_sd": 0.017013325519850922,
+        "min": 11.967333492336135,
+        "max": 12.000045295342183
+      },
+      "physical_valid_complete_only": {
+        "active_loss_kwh": {
+          "count": 3,
+          "mean": 5283.190906701005,
+          "sample_sd": 36.53047457990976,
+          "min": 5242.401808624438,
+          "max": 5312.894735067388
+        },
+        "voltage_violation_pu_hours": {
+          "count": 3,
+          "mean": 4.143293937763549,
+          "sample_sd": 2.1848938355072423,
+          "min": 1.7189917985066652,
+          "max": 5.960284180754151
+        },
+        "phase_time_compliance": {
+          "count": 3,
+          "mean": 0.9350519584332534,
+          "sample_sd": 0.008439105687953944,
+          "min": 0.9256594724220624,
+          "max": 0.9419964028776978
+        },
+        "capacitor_switches": {
+          "count": 3,
+          "mean": 3,
+          "sample_sd": 3.605551275463989,
+          "min": 0,
+          "max": 7
+        },
+        "tap_moves": {
+          "count": 3,
+          "mean": 158.66666666666666,
+          "sample_sd": 69.06036007242746,
+          "min": 112,
+          "max": 238
+        },
+        "battery_throughput_kwh": {
+          "count": 3,
+          "mean": 0.0,
+          "sample_sd": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        }
+      }
+    },
+    {
+      "task": "powergym",
+      "n": 5,
+      "roles": [
+        "powergym-n5-r1",
+        "powergym-n5-r2",
+        "powergym-n5-r3"
+      ],
+      "quality_values": [
+        0.090654412997437,
+        0.0943397929777351,
+        0.09344710259205999
+      ],
+      "quality_all_three_repeats": {
+        "count": 3,
+        "mean": 0.0928137695224107,
+        "sample_sd": 0.001922586664530124,
+        "min": 0.090654412997437,
+        "max": 0.0943397929777351
+      },
+      "valid_count": 3,
+      "early_stop_count": 1,
+      "continuation_cap_count": 1,
+      "api_stream_stop_count": 0,
+      "wins_starter_count": 3,
+      "feedback_used_total": 15,
+      "feedback_collected_total": 15,
+      "development_hours": {
+        "count": 3,
+        "mean": 10.572187352940544,
+        "sample_sd": 2.456428085510765,
+        "min": 7.7357703683137276,
+        "max": 12.000037228788974
+      },
+      "physical_valid_complete_only": {
+        "active_loss_kwh": {
+          "count": 3,
+          "mean": 5419.972265754654,
+          "sample_sd": 308.84628835152705,
+          "min": 5237.064766294718,
+          "max": 5776.557425938947
+        },
+        "voltage_violation_pu_hours": {
+          "count": 3,
+          "mean": 1.438210758022701,
+          "sample_sd": 0.8658988454522769,
+          "min": 0.6053403371857646,
+          "max": 2.3337346419941603
+        },
+        "phase_time_compliance": {
+          "count": 3,
+          "mean": 0.9589828137490007,
+          "sample_sd": 0.020095860066024332,
+          "min": 0.9392985611510791,
+          "max": 0.9794664268585132
+        },
+        "capacitor_switches": {
+          "count": 3,
+          "mean": 1,
+          "sample_sd": 1.7320508075688772,
+          "min": 0,
+          "max": 3
+        },
+        "tap_moves": {
+          "count": 3,
+          "mean": 95.33333333333333,
+          "sample_sd": 27.15388247255507,
+          "min": 70,
+          "max": 124
+        },
+        "battery_throughput_kwh": {
+          "count": 3,
+          "mean": 0.0,
+          "sample_sd": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        }
+      }
+    },
+    {
+      "task": "powergym",
+      "n": 10,
+      "roles": [
+        "powergym-n10-r1",
+        "powergym-n10-r2",
+        "powergym-n10-r3"
+      ],
+      "quality_values": [
+        0.07893369495096476,
+        0.104470296662257,
+        0.07910659286311686
+      ],
+      "quality_all_three_repeats": {
+        "count": 3,
+        "mean": 0.08750352815877954,
+        "sample_sd": 0.014693906849777998,
+        "min": 0.07893369495096476,
+        "max": 0.104470296662257
+      },
+      "valid_count": 3,
+      "early_stop_count": 1,
+      "continuation_cap_count": 1,
+      "api_stream_stop_count": 0,
+      "wins_starter_count": 3,
+      "feedback_used_total": 30,
+      "feedback_collected_total": 30,
+      "development_hours": {
+        "count": 3,
+        "mean": 10.360119603300948,
+        "sample_sd": 2.816076238511156,
+        "min": 7.1083974733855575,
+        "max": 11.989554667563384
+      },
+      "physical_valid_complete_only": {
+        "active_loss_kwh": {
+          "count": 3,
+          "mean": 5413.980346375514,
+          "sample_sd": 338.56177244903614,
+          "min": 5205.399485104182,
+          "max": 5804.617755338724
+        },
+        "voltage_violation_pu_hours": {
+          "count": 3,
+          "mean": 2.364911830425027,
+          "sample_sd": 1.9962919886129007,
+          "min": 0.1848811204765971,
+          "max": 4.1036037469931985
+        },
+        "phase_time_compliance": {
+          "count": 3,
+          "mean": 0.9473920863309353,
+          "sample_sd": 0.034689391226593376,
+          "min": 0.9222122302158273,
+          "max": 0.9869604316546763
+        },
+        "capacitor_switches": {
+          "count": 3,
+          "mean": 0.6666666666666666,
+          "sample_sd": 1.1547005383792515,
+          "min": 0,
+          "max": 2
+        },
+        "tap_moves": {
+          "count": 3,
+          "mean": 93.33333333333333,
+          "sample_sd": 14.571661996262929,
+          "min": 77,
+          "max": 105
+        },
+        "battery_throughput_kwh": {
+          "count": 3,
+          "mean": 0.0,
+          "sample_sd": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        }
+      }
+    }
+  ],
+  "runs": [
+    {
+      "role": "powergym-n0-r1",
+      "task": "powergym",
+      "n": 0,
+      "repeat": 1,
+      "quality": 0.00578379453853791,
+      "valid": true,
+      "candidate_error": null,
+      "completed_intervals": 24,
+      "scheduled_intervals": 24,
+      "physical": {
+        "reward": 0.00578379453853791,
+        "valid": true,
+        "completed_steps": 24,
+        "active_loss_kwh": 5743.066238234539,
+        "voltage_violation_pu_hours": 166.15380852744323,
+        "phase_time_compliance": 0.29706235011990406,
+        "capacitor_switches": 0,
+        "tap_moves": 0,
+        "final_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "actual_net_energy_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ledger_terminal_energy_valid": true,
+        "actual_terminal_energy_valid": true,
+        "battery_throughput_kwh": 0.0,
+        "candidate_sha256": "75279e75312307f19917a55f4ebbe4ecfe213be3f5b468044f5e6538b5cd8bcb",
+        "error": null
+      },
+      "physical_eligible_for_complete_valid_comparison": true,
+      "feedback_used": 0,
+      "feedback_collected": 0,
+      "feedback_valid": 0,
+      "best_process_quality": null,
+      "last_process_quality": null,
+      "final_minus_best_process_quality": null,
+      "development_hours": 8.083576403562393,
+      "development_started_at_beijing": "2026-10-16T22:10:46.878129+08:00",
+      "frozen_at_beijing": "2026-10-17T06:15:47.753164+08:00",
+      "terminal_started_at_beijing": "2026-10-17T06:16:12.033951+08:00",
+      "terminal_finished_at_beijing": "2026-10-17T06:16:29.913885+08:00",
+      "status_completed_at_beijing": "2026-10-17T06:16:39.889727+08:00",
+      "freeze_reason": "agent_return_or_cancel",
+      "early_stop_category": "continuation_cap",
+      "continuation_records": 1000,
+      "wins_starter": false,
+      "source_sha256": "75279e75312307f19917a55f4ebbe4ecfe213be3f5b468044f5e6538b5cd8bcb",
+      "terminal_audit_sha256": "3d82166197b89f3d6723fc12c17872a57e4b754b9165b0e7ccc0289230dbb53f",
+      "reward_details_sha256": "d1c88872ff2a5a911a77777bdc51984896ded795bd8478aa15464dd70b470ca2",
+      "source_id": "distribution-formal-20261016-v4/powergym-n0-r1/deadline-controller.py",
+      "candidate_source_locally_inspected": false,
+      "lifecycle_audit_passed": true
+    },
+    {
+      "role": "powergym-n0-r2",
+      "task": "powergym",
+      "n": 0,
+      "repeat": 2,
+      "quality": 0.020464179309227795,
+      "valid": true,
+      "candidate_error": null,
+      "completed_intervals": 24,
+      "scheduled_intervals": 24,
+      "physical": {
+        "reward": 0.020464179309227795,
+        "valid": true,
+        "completed_steps": 24,
+        "active_loss_kwh": 5376.497743879545,
+        "voltage_violation_pu_hours": 40.36816376166431,
+        "phase_time_compliance": 0.7089328537170264,
+        "capacitor_switches": 0,
+        "tap_moves": 70,
+        "final_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "actual_net_energy_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ledger_terminal_energy_valid": true,
+        "actual_terminal_energy_valid": true,
+        "battery_throughput_kwh": 0.0,
+        "candidate_sha256": "3e5ce66cd5a4bfa4947c60031810e285032d823eead03dcbe36069148d7504b4",
+        "error": null
+      },
+      "physical_eligible_for_complete_valid_comparison": true,
+      "feedback_used": 0,
+      "feedback_collected": 0,
+      "feedback_valid": 0,
+      "best_process_quality": null,
+      "last_process_quality": null,
+      "final_minus_best_process_quality": null,
+      "development_hours": 6.578329393874705,
+      "development_started_at_beijing": "2026-10-16T22:16:33.887571+08:00",
+      "frozen_at_beijing": "2026-10-17T04:51:15.873359+08:00",
+      "terminal_started_at_beijing": "2026-10-17T04:51:40.779094+08:00",
+      "terminal_finished_at_beijing": "2026-10-17T04:52:03.791774+08:00",
+      "status_completed_at_beijing": "2026-10-17T04:53:21.553142+08:00",
+      "freeze_reason": "agent_return_or_cancel",
+      "early_stop_category": "api_stream_error",
+      "continuation_records": 10,
+      "wins_starter": false,
+      "source_sha256": "3e5ce66cd5a4bfa4947c60031810e285032d823eead03dcbe36069148d7504b4",
+      "terminal_audit_sha256": "3c42882e5638ccfb5bb592045ed921a9a1b1462c775ce868f7387ec0d18f8729",
+      "reward_details_sha256": "54926203e539820947071bf46158942c2bda7ee058353e8f0ff1d5880dfeb083",
+      "source_id": "distribution-formal-20261016-v4/powergym-n0-r2/deadline-controller.py",
+      "candidate_source_locally_inspected": false,
+      "lifecycle_audit_passed": true
+    },
+    {
+      "role": "powergym-n0-r3",
+      "task": "powergym",
+      "n": 0,
+      "repeat": 3,
+      "quality": 0.03219407000088962,
+      "valid": true,
+      "candidate_error": null,
+      "completed_intervals": 24,
+      "scheduled_intervals": 24,
+      "physical": {
+        "reward": 0.03219407000088962,
+        "valid": true,
+        "completed_steps": 24,
+        "active_loss_kwh": 5396.705743310632,
+        "voltage_violation_pu_hours": 24.02855159500731,
+        "phase_time_compliance": 0.7350119904076738,
+        "capacitor_switches": 0,
+        "tap_moves": 21,
+        "final_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "actual_net_energy_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ledger_terminal_energy_valid": true,
+        "actual_terminal_energy_valid": true,
+        "battery_throughput_kwh": 0.0,
+        "candidate_sha256": "2305d6016a42e5c4af55c64d80926a15d2129b94769a7f0b22b017b08b37a1e9",
+        "error": null
+      },
+      "physical_eligible_for_complete_valid_comparison": true,
+      "feedback_used": 0,
+      "feedback_collected": 0,
+      "feedback_valid": 0,
+      "best_process_quality": null,
+      "last_process_quality": null,
+      "final_minus_best_process_quality": null,
+      "development_hours": 10.681230427693356,
+      "development_started_at_beijing": "2026-10-16T22:16:47.676712+08:00",
+      "frozen_at_beijing": "2026-10-17T08:57:40.106232+08:00",
+      "terminal_started_at_beijing": "2026-10-17T08:58:05.009749+08:00",
+      "terminal_finished_at_beijing": "2026-10-17T08:58:24.482799+08:00",
+      "status_completed_at_beijing": "2026-10-17T08:58:34.912434+08:00",
+      "freeze_reason": "agent_return_or_cancel",
+      "early_stop_category": "api_stream_error",
+      "continuation_records": 14,
+      "wins_starter": false,
+      "source_sha256": "2305d6016a42e5c4af55c64d80926a15d2129b94769a7f0b22b017b08b37a1e9",
+      "terminal_audit_sha256": "2b3e7f3d86f35ee87fdcf4fb9c248025732f09aeff9f6fe766380a15900db6bc",
+      "reward_details_sha256": "65e640e68ea071342c02383dad4a329bbf94bd2e52d6e55ab0669e45ec7f117a",
+      "source_id": "distribution-formal-20261016-v4/powergym-n0-r3/deadline-controller.py",
+      "candidate_source_locally_inspected": false,
+      "lifecycle_audit_passed": true
+    },
+    {
+      "role": "powergym-n1-r1",
+      "task": "powergym",
+      "n": 1,
+      "repeat": 1,
+      "quality": 0.00578379453853791,
+      "valid": true,
+      "candidate_error": null,
+      "completed_intervals": 24,
+      "scheduled_intervals": 24,
+      "physical": {
+        "reward": 0.00578379453853791,
+        "valid": true,
+        "completed_steps": 24,
+        "active_loss_kwh": 5743.066238234539,
+        "voltage_violation_pu_hours": 166.15380852744323,
+        "phase_time_compliance": 0.29706235011990406,
+        "capacitor_switches": 0,
+        "tap_moves": 0,
+        "final_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "actual_net_energy_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ledger_terminal_energy_valid": true,
+        "actual_terminal_energy_valid": true,
+        "battery_throughput_kwh": 0.0,
+        "candidate_sha256": "27bd36e423b399146a70efe48291875d3f825ea9ebd978e2cedd01f75a5929cd",
+        "error": null
+      },
+      "physical_eligible_for_complete_valid_comparison": true,
+      "feedback_used": 1,
+      "feedback_collected": 1,
+      "feedback_valid": 1,
+      "best_process_quality": 0.020467877023790597,
+      "last_process_quality": 0.020467877023790597,
+      "final_minus_best_process_quality": -0.014684082485252686,
+      "development_hours": 12.00003454720139,
+      "development_started_at_beijing": "2026-10-16T22:16:48.107499+08:00",
+      "frozen_at_beijing": "2026-10-17T10:16:48.231847+08:00",
+      "terminal_started_at_beijing": "2026-10-17T10:17:57.027214+08:00",
+      "terminal_finished_at_beijing": "2026-10-17T10:18:14.593999+08:00",
+      "status_completed_at_beijing": "2026-10-17T10:18:18.333156+08:00",
+      "freeze_reason": "wall_clock_deadline",
+      "early_stop_category": null,
+      "continuation_records": 21,
+      "wins_starter": false,
+      "source_sha256": "27bd36e423b399146a70efe48291875d3f825ea9ebd978e2cedd01f75a5929cd",
+      "terminal_audit_sha256": "4f40152afdb47dd810db1d2deec7059bcc96ce196a0e3786eb92421f52993569",
+      "reward_details_sha256": "af584a2aef9bc08801acf1cfcf2987466782bd3271c81d7350e798457edf394c",
+      "source_id": "distribution-formal-20261016-v4/powergym-n1-r1/deadline-controller.py",
+      "candidate_source_locally_inspected": false,
+      "lifecycle_audit_passed": true
+    },
+    {
+      "role": "powergym-n1-r2",
+      "task": "powergym",
+      "n": 1,
+      "repeat": 2,
+      "quality": 0.0205992571721648,
+      "valid": true,
+      "candidate_error": null,
+      "completed_intervals": 24,
+      "scheduled_intervals": 24,
+      "physical": {
+        "reward": 0.0205992571721648,
+        "valid": true,
+        "completed_steps": 24,
+        "active_loss_kwh": 5388.8028768418535,
+        "voltage_violation_pu_hours": 40.3384551546847,
+        "phase_time_compliance": 0.6999400479616307,
+        "capacitor_switches": 0,
+        "tap_moves": 60,
+        "final_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "actual_net_energy_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ledger_terminal_energy_valid": true,
+        "actual_terminal_energy_valid": true,
+        "battery_throughput_kwh": 0.0,
+        "candidate_sha256": "e6fff2c2088b42570417e7d8e2fabe85a40a0b7ef322f9d76dabb00ccbe8b6bc",
+        "error": null
+      },
+      "physical_eligible_for_complete_valid_comparison": true,
+      "feedback_used": 1,
+      "feedback_collected": 1,
+      "feedback_valid": 1,
+      "best_process_quality": 0.05784402165191499,
+      "last_process_quality": 0.05784402165191499,
+      "final_minus_best_process_quality": -0.03724476447975019,
+      "development_hours": 7.178389764898037,
+      "development_started_at_beijing": "2026-10-16T22:23:57.868889+08:00",
+      "frozen_at_beijing": "2026-10-17T05:34:40.072027+08:00",
+      "terminal_started_at_beijing": "2026-10-17T05:35:04.594147+08:00",
+      "terminal_finished_at_beijing": "2026-10-17T05:35:23.505144+08:00",
+      "status_completed_at_beijing": "2026-10-17T05:35:32.933120+08:00",
+      "freeze_reason": "agent_return_or_cancel",
+      "early_stop_category": "api_stream_error",
+      "continuation_records": 11,
+      "wins_starter": false,
+      "source_sha256": "e6fff2c2088b42570417e7d8e2fabe85a40a0b7ef322f9d76dabb00ccbe8b6bc",
+      "terminal_audit_sha256": "e78005f18b73916ebe4df0edf00d3b94ebdcb15041b92c053c8efc48746b33b3",
+      "reward_details_sha256": "fcddcf205e9c243b36093ec81c3189ff7386087f03766fd38f378facbc92a657",
+      "source_id": "distribution-formal-20261016-v4/powergym-n1-r2/deadline-controller.py",
+      "candidate_source_locally_inspected": false,
+      "lifecycle_audit_passed": true
+    },
+    {
+      "role": "powergym-n1-r3",
+      "task": "powergym",
+      "n": 1,
+      "repeat": 3,
+      "quality": 0.0,
+      "valid": false,
+      "candidate_error": "terminal_energy_violation",
+      "completed_intervals": 24,
+      "scheduled_intervals": 24,
+      "physical": {
+        "reward": 0.0,
+        "valid": false,
+        "completed_steps": 24,
+        "active_loss_kwh": 5246.396195342093,
+        "voltage_violation_pu_hours": 1.4824015776334787,
+        "phase_time_compliance": 0.9658273381294964,
+        "capacitor_switches": 0,
+        "tap_moves": 68,
+        "final_soc": [
+          1.0,
+          1.0,
+          0.99,
+          0.984
+        ],
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0,
+          10.0,
+          16.0
+        ],
+        "actual_net_energy_kwh": [
+          1.794404624888557e-10,
+          -1.5309353784687119e-10,
+          10.050038517723578,
+          16.67388442295976
+        ],
+        "ledger_terminal_energy_valid": false,
+        "actual_terminal_energy_valid": false,
+        "battery_throughput_kwh": 1467.0887279369178,
+        "candidate_sha256": "092aeaa14a0419717b0284b63b79043a350a088218befa0cbace36e5d6138bf0",
+        "error": "terminal_energy_violation"
+      },
+      "physical_eligible_for_complete_valid_comparison": false,
+      "feedback_used": 1,
+      "feedback_collected": 1,
+      "feedback_valid": 1,
+      "best_process_quality": 0.05784402165191499,
+      "last_process_quality": 0.05784402165191499,
+      "final_minus_best_process_quality": -0.05784402165191499,
+      "development_hours": 11.983838115836132,
+      "development_started_at_beijing": "2026-10-16T22:47:21.174719+08:00",
+      "frozen_at_beijing": "2026-10-17T10:46:22.991901+08:00",
+      "terminal_started_at_beijing": "2026-10-17T10:46:49.313376+08:00",
+      "terminal_finished_at_beijing": "2026-10-17T10:47:08.898046+08:00",
+      "status_completed_at_beijing": "2026-10-17T10:47:21.831042+08:00",
+      "freeze_reason": "agent_return_or_cancel",
+      "early_stop_category": null,
+      "continuation_records": 21,
+      "wins_starter": false,
+      "source_sha256": "092aeaa14a0419717b0284b63b79043a350a088218befa0cbace36e5d6138bf0",
+      "terminal_audit_sha256": "6c4de516f79a65e37a51fbb63f5ca29265320cfdde30ac047314ec13483ca9d0",
+      "reward_details_sha256": "44d9ef93feaa5937268aae9acaa4990e6c5d0b1d8225af891caee7c5e748bc8b",
+      "source_id": "distribution-formal-20261016-v4/powergym-n1-r3/deadline-controller.py",
+      "candidate_source_locally_inspected": false,
+      "lifecycle_audit_passed": true
+    },
+    {
+      "role": "powergym-n3-r1",
+      "task": "powergym",
+      "n": 3,
+      "repeat": 1,
+      "quality": 0.06241859130303104,
+      "valid": true,
+      "candidate_error": null,
+      "completed_intervals": 24,
+      "scheduled_intervals": 24,
+      "physical": {
+        "reward": 0.06241859130303104,
+        "valid": true,
+        "completed_steps": 24,
+        "active_loss_kwh": 5242.401808624438,
+        "voltage_violation_pu_hours": 5.960284180754151,
+        "phase_time_compliance": 0.9256594724220624,
+        "capacitor_switches": 0,
+        "tap_moves": 126,
+        "final_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "actual_net_energy_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ledger_terminal_energy_valid": true,
+        "actual_terminal_energy_valid": true,
+        "battery_throughput_kwh": 0.0,
+        "candidate_sha256": "be855d62ab2b826ec6fa8dbe0881911908a6946ea892465105ee792deb98f53b",
+        "error": null
+      },
+      "physical_eligible_for_complete_valid_comparison": true,
+      "feedback_used": 3,
+      "feedback_collected": 3,
+      "feedback_valid": 3,
+      "best_process_quality": 0.05784402165191499,
+      "last_process_quality": 0.05758633590850009,
+      "final_minus_best_process_quality": 0.0045745696511160505,
+      "development_hours": 11.975576860708049,
+      "development_started_at_beijing": "2026-10-16T23:02:07.579798+08:00",
+      "frozen_at_beijing": "2026-10-17T11:00:39.656472+08:00",
+      "terminal_started_at_beijing": "2026-10-17T11:01:04.462010+08:00",
+      "terminal_finished_at_beijing": "2026-10-17T11:01:22.451137+08:00",
+      "status_completed_at_beijing": "2026-10-17T11:02:05.938046+08:00",
+      "freeze_reason": "agent_return_or_cancel",
+      "early_stop_category": null,
+      "continuation_records": 16,
+      "wins_starter": true,
+      "source_sha256": "be855d62ab2b826ec6fa8dbe0881911908a6946ea892465105ee792deb98f53b",
+      "terminal_audit_sha256": "c0ed1363f1b3917e76f310fa334e362320b8c876dda123ed27a4c9e076143571",
+      "reward_details_sha256": "d6c00a130f55789799723eb3d29ab776cd237bce8ff88fb5e0e164a8dab7754a",
+      "source_id": "distribution-formal-20261016-v4/powergym-n3-r1/deadline-controller.py",
+      "candidate_source_locally_inspected": false,
+      "lifecycle_audit_passed": true
+    },
+    {
+      "role": "powergym-n3-r2",
+      "task": "powergym",
+      "n": 3,
+      "repeat": 2,
+      "quality": 0.06477728429931259,
+      "valid": true,
+      "candidate_error": null,
+      "completed_intervals": 24,
+      "scheduled_intervals": 24,
+      "physical": {
+        "reward": 0.06477728429931259,
+        "valid": true,
+        "completed_steps": 24,
+        "active_loss_kwh": 5294.276176411188,
+        "voltage_violation_pu_hours": 1.7189917985066652,
+        "phase_time_compliance": 0.9419964028776978,
+        "capacitor_switches": 7,
+        "tap_moves": 238,
+        "final_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "actual_net_energy_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ledger_terminal_energy_valid": true,
+        "actual_terminal_energy_valid": true,
+        "battery_throughput_kwh": 0.0,
+        "candidate_sha256": "07337e5833c60b541933134873c15cd7119fcc11d9bba50ee62a097ff5c97f90",
+        "error": null
+      },
+      "physical_eligible_for_complete_valid_comparison": true,
+      "feedback_used": 3,
+      "feedback_collected": 3,
+      "feedback_valid": 3,
+      "best_process_quality": 0.06477728429931259,
+      "last_process_quality": 0.06477728429931259,
+      "final_minus_best_process_quality": 0.0,
+      "development_hours": 11.967333492336135,
+      "development_started_at_beijing": "2026-10-16T23:02:07.341687+08:00",
+      "frozen_at_beijing": "2026-10-17T11:00:09.742237+08:00",
+      "terminal_started_at_beijing": "2026-10-17T11:00:34.086300+08:00",
+      "terminal_finished_at_beijing": "2026-10-17T11:00:52.033420+08:00",
+      "status_completed_at_beijing": "2026-10-17T11:01:02.881953+08:00",
+      "freeze_reason": "agent_return_or_cancel",
+      "early_stop_category": null,
+      "continuation_records": 945,
+      "wins_starter": true,
+      "source_sha256": "07337e5833c60b541933134873c15cd7119fcc11d9bba50ee62a097ff5c97f90",
+      "terminal_audit_sha256": "c5da9a6db14eeb66a529177838e460106b5756816b996d3241382cc8e6c00765",
+      "reward_details_sha256": "701a50694d4fa1597f38960eaf550986b40953a51d55698e65797c0e20ab8568",
+      "source_id": "distribution-formal-20261016-v4/powergym-n3-r2/deadline-controller.py",
+      "candidate_source_locally_inspected": false,
+      "lifecycle_audit_passed": true
+    },
+    {
+      "role": "powergym-n3-r3",
+      "task": "powergym",
+      "n": 3,
+      "repeat": 3,
+      "quality": 0.06887979266435011,
+      "valid": true,
+      "candidate_error": null,
+      "completed_intervals": 24,
+      "scheduled_intervals": 24,
+      "physical": {
+        "reward": 0.06887979266435011,
+        "valid": true,
+        "completed_steps": 24,
+        "active_loss_kwh": 5312.894735067388,
+        "voltage_violation_pu_hours": 4.750605834029831,
+        "phase_time_compliance": 0.9375,
+        "capacitor_switches": 2,
+        "tap_moves": 112,
+        "final_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "actual_net_energy_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ledger_terminal_energy_valid": true,
+        "actual_terminal_energy_valid": true,
+        "battery_throughput_kwh": 0.0,
+        "candidate_sha256": "ad58628468bfdaa9d220d17739807c9d5685d0fa54e3ba0a8a094d83cac65418",
+        "error": null
+      },
+      "physical_eligible_for_complete_valid_comparison": true,
+      "feedback_used": 3,
+      "feedback_collected": 3,
+      "feedback_valid": 3,
+      "best_process_quality": 0.06887979266435011,
+      "last_process_quality": 0.06887979266435011,
+      "final_minus_best_process_quality": 0.0,
+      "development_hours": 12.000045295342183,
+      "development_started_at_beijing": "2026-10-16T23:06:37.664902+08:00",
+      "frozen_at_beijing": "2026-10-17T11:06:37.827942+08:00",
+      "terminal_started_at_beijing": "2026-10-17T11:07:59.514494+08:00",
+      "terminal_finished_at_beijing": "2026-10-17T11:08:17.055649+08:00",
+      "status_completed_at_beijing": "2026-10-17T11:08:21.014276+08:00",
+      "freeze_reason": "wall_clock_deadline",
+      "early_stop_category": null,
+      "continuation_records": 31,
+      "wins_starter": true,
+      "source_sha256": "ad58628468bfdaa9d220d17739807c9d5685d0fa54e3ba0a8a094d83cac65418",
+      "terminal_audit_sha256": "2d6960a525e09af48b0e6b350ca8979b04911ab65e6a31f0603864534fab2bfa",
+      "reward_details_sha256": "34d1bc5c39b77af69b8824a1ac392539963b07ab69de1215747439875adad790",
+      "source_id": "distribution-formal-20261016-v4/powergym-n3-r3/deadline-controller.py",
+      "candidate_source_locally_inspected": false,
+      "lifecycle_audit_passed": true
+    },
+    {
+      "role": "powergym-n5-r1",
+      "task": "powergym",
+      "n": 5,
+      "repeat": 1,
+      "quality": 0.090654412997437,
+      "valid": true,
+      "candidate_error": null,
+      "completed_intervals": 24,
+      "scheduled_intervals": 24,
+      "physical": {
+        "reward": 0.090654412997437,
+        "valid": true,
+        "completed_steps": 24,
+        "active_loss_kwh": 5776.557425938947,
+        "voltage_violation_pu_hours": 1.375557294888178,
+        "phase_time_compliance": 0.95818345323741,
+        "capacitor_switches": 3,
+        "tap_moves": 92,
+        "final_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "actual_net_energy_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ledger_terminal_energy_valid": true,
+        "actual_terminal_energy_valid": true,
+        "battery_throughput_kwh": 0.0,
+        "candidate_sha256": "36537a41a0f30f42091972393707a0c8d396d8f6802ac92d9819d817a7e736b9",
+        "error": null
+      },
+      "physical_eligible_for_complete_valid_comparison": true,
+      "feedback_used": 5,
+      "feedback_collected": 5,
+      "feedback_valid": 5,
+      "best_process_quality": 0.06008077662778278,
+      "last_process_quality": 0.022160268240592952,
+      "final_minus_best_process_quality": 0.030573636369654218,
+      "development_hours": 11.98075446171893,
+      "development_started_at_beijing": "2026-10-16T23:06:38.384088+08:00",
+      "frozen_at_beijing": "2026-10-17T11:05:29.100127+08:00",
+      "terminal_started_at_beijing": "2026-10-17T11:05:54.204146+08:00",
+      "terminal_finished_at_beijing": "2026-10-17T11:06:11.917965+08:00",
+      "status_completed_at_beijing": "2026-10-17T11:06:23.833733+08:00",
+      "freeze_reason": "agent_return_or_cancel",
+      "early_stop_category": null,
+      "continuation_records": 316,
+      "wins_starter": true,
+      "source_sha256": "36537a41a0f30f42091972393707a0c8d396d8f6802ac92d9819d817a7e736b9",
+      "terminal_audit_sha256": "10a2d8a84510cbfcba99928836a5bb2595579356b66847a318574ddb9ecd564a",
+      "reward_details_sha256": "78517f74c9b1ab988f1c12fe04354a5c75d4474eba95ac133b22fba7db9a27d7",
+      "source_id": "distribution-formal-20261016-v4/powergym-n5-r1/deadline-controller.py",
+      "candidate_source_locally_inspected": false,
+      "lifecycle_audit_passed": true
+    },
+    {
+      "role": "powergym-n5-r2",
+      "task": "powergym",
+      "n": 5,
+      "repeat": 2,
+      "quality": 0.0943397929777351,
+      "valid": true,
+      "candidate_error": null,
+      "completed_intervals": 24,
+      "scheduled_intervals": 24,
+      "physical": {
+        "reward": 0.0943397929777351,
+        "valid": true,
+        "completed_steps": 24,
+        "active_loss_kwh": 5237.064766294718,
+        "voltage_violation_pu_hours": 0.6053403371857646,
+        "phase_time_compliance": 0.9794664268585132,
+        "capacitor_switches": 0,
+        "tap_moves": 124,
+        "final_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "actual_net_energy_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ledger_terminal_energy_valid": true,
+        "actual_terminal_energy_valid": true,
+        "battery_throughput_kwh": 0.0,
+        "candidate_sha256": "d87439ff6aa7ffbbc750bf664bf73ace544be4b79d79e47a54e8b8145b4c537e",
+        "error": null
+      },
+      "physical_eligible_for_complete_valid_comparison": true,
+      "feedback_used": 5,
+      "feedback_collected": 5,
+      "feedback_valid": 5,
+      "best_process_quality": 0.0943397929777351,
+      "last_process_quality": 0.0943397929777351,
+      "final_minus_best_process_quality": 0.0,
+      "development_hours": 12.000037228788974,
+      "development_started_at_beijing": "2026-10-16T23:07:59.815668+08:00",
+      "frozen_at_beijing": "2026-10-17T11:07:59.949659+08:00",
+      "terminal_started_at_beijing": "2026-10-17T11:08:39.115615+08:00",
+      "terminal_finished_at_beijing": "2026-10-17T11:08:56.641312+08:00",
+      "status_completed_at_beijing": "2026-10-17T11:09:00.311751+08:00",
+      "freeze_reason": "wall_clock_deadline",
+      "early_stop_category": null,
+      "continuation_records": 155,
+      "wins_starter": true,
+      "source_sha256": "d87439ff6aa7ffbbc750bf664bf73ace544be4b79d79e47a54e8b8145b4c537e",
+      "terminal_audit_sha256": "6f324d0094aab69a68a4f00d8c093e2fe3c31b5acf75f0db973b8e7cbed32c37",
+      "reward_details_sha256": "bd57f6ecf6fbf2306671a7a1023cb0a633cb1fa70bd4a4c5c13cc81f4a53aa4f",
+      "source_id": "distribution-formal-20261016-v4/powergym-n5-r2/deadline-controller.py",
+      "candidate_source_locally_inspected": true,
+      "lifecycle_audit_passed": true
+    },
+    {
+      "role": "powergym-n5-r3",
+      "task": "powergym",
+      "n": 5,
+      "repeat": 3,
+      "quality": 0.09344710259205999,
+      "valid": true,
+      "candidate_error": null,
+      "completed_intervals": 24,
+      "scheduled_intervals": 24,
+      "physical": {
+        "reward": 0.09344710259205999,
+        "valid": true,
+        "completed_steps": 24,
+        "active_loss_kwh": 5246.294605030297,
+        "voltage_violation_pu_hours": 2.3337346419941603,
+        "phase_time_compliance": 0.9392985611510791,
+        "capacitor_switches": 0,
+        "tap_moves": 70,
+        "final_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "actual_net_energy_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ledger_terminal_energy_valid": true,
+        "actual_terminal_energy_valid": true,
+        "battery_throughput_kwh": 0.0,
+        "candidate_sha256": "bb43428cf440ba74c3a7527efde4ae8058a7a2137908c74875c034ef9f94c87e",
+        "error": null
+      },
+      "physical_eligible_for_complete_valid_comparison": true,
+      "feedback_used": 5,
+      "feedback_collected": 5,
+      "feedback_valid": 5,
+      "best_process_quality": 0.09344710259205999,
+      "last_process_quality": 0.09344710259205999,
+      "final_minus_best_process_quality": 0.0,
+      "development_hours": 7.7357703683137276,
+      "development_started_at_beijing": "2026-10-16T23:11:30.300311+08:00",
+      "frozen_at_beijing": "2026-10-17T06:55:39.073615+08:00",
+      "terminal_started_at_beijing": "2026-10-17T06:56:02.929096+08:00",
+      "terminal_finished_at_beijing": "2026-10-17T06:56:20.014045+08:00",
+      "status_completed_at_beijing": "2026-10-17T06:56:30.306922+08:00",
+      "freeze_reason": "agent_return_or_cancel",
+      "early_stop_category": "continuation_cap",
+      "continuation_records": 1000,
+      "wins_starter": true,
+      "source_sha256": "bb43428cf440ba74c3a7527efde4ae8058a7a2137908c74875c034ef9f94c87e",
+      "terminal_audit_sha256": "1c6124cdd62da567e9e97a534db9eb02ded7329948c395e0aa7fb4df86ba88a0",
+      "reward_details_sha256": "f3cb673f95c822fc72ee4dfa7bbeaf071f2ae083a812313c031f7329d437d661",
+      "source_id": "distribution-formal-20261016-v4/powergym-n5-r3/deadline-controller.py",
+      "candidate_source_locally_inspected": false,
+      "lifecycle_audit_passed": true
+    },
+    {
+      "role": "powergym-n10-r1",
+      "task": "powergym",
+      "n": 10,
+      "repeat": 1,
+      "quality": 0.07893369495096476,
+      "valid": true,
+      "candidate_error": null,
+      "completed_intervals": 24,
+      "scheduled_intervals": 24,
+      "physical": {
+        "reward": 0.07893369495096476,
+        "valid": true,
+        "completed_steps": 24,
+        "active_loss_kwh": 5231.923798683637,
+        "voltage_violation_pu_hours": 4.1036037469931985,
+        "phase_time_compliance": 0.9222122302158273,
+        "capacitor_switches": 0,
+        "tap_moves": 77,
+        "final_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "actual_net_energy_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ledger_terminal_energy_valid": true,
+        "actual_terminal_energy_valid": true,
+        "battery_throughput_kwh": 0.0,
+        "candidate_sha256": "ad43eff061df7d05e965e461e8580a68ea64e499a7c3ddc65c63bdde57832a63",
+        "error": null
+      },
+      "physical_eligible_for_complete_valid_comparison": true,
+      "feedback_used": 10,
+      "feedback_collected": 10,
+      "feedback_valid": 9,
+      "best_process_quality": 0.07893369495096476,
+      "last_process_quality": 0.0,
+      "final_minus_best_process_quality": 0.0,
+      "development_hours": 7.1083974733855575,
+      "development_started_at_beijing": "2026-10-16T23:11:30.470045+08:00",
+      "frozen_at_beijing": "2026-10-17T06:18:00.700929+08:00",
+      "terminal_started_at_beijing": "2026-10-17T06:18:23.960664+08:00",
+      "terminal_finished_at_beijing": "2026-10-17T06:18:41.107739+08:00",
+      "status_completed_at_beijing": "2026-10-17T06:18:51.240969+08:00",
+      "freeze_reason": "agent_return_or_cancel",
+      "early_stop_category": "continuation_cap",
+      "continuation_records": 1000,
+      "wins_starter": true,
+      "source_sha256": "ad43eff061df7d05e965e461e8580a68ea64e499a7c3ddc65c63bdde57832a63",
+      "terminal_audit_sha256": "adfbf6cd9d5076918e2bcec1d96235e315e1c874bcbfd39714e5ae764be45fe6",
+      "reward_details_sha256": "a468967fe046dc02c0649e54e03bccb074d45d2fb0115800fdb0668c7c009499",
+      "source_id": "distribution-formal-20261016-v4/powergym-n10-r1/deadline-controller.py",
+      "candidate_source_locally_inspected": false,
+      "lifecycle_audit_passed": true
+    },
+    {
+      "role": "powergym-n10-r2",
+      "task": "powergym",
+      "n": 10,
+      "repeat": 2,
+      "quality": 0.104470296662257,
+      "valid": true,
+      "candidate_error": null,
+      "completed_intervals": 24,
+      "scheduled_intervals": 24,
+      "physical": {
+        "reward": 0.104470296662257,
+        "valid": true,
+        "completed_steps": 24,
+        "active_loss_kwh": 5205.399485104182,
+        "voltage_violation_pu_hours": 0.1848811204765971,
+        "phase_time_compliance": 0.9869604316546763,
+        "capacitor_switches": 0,
+        "tap_moves": 105,
+        "final_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "actual_net_energy_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ledger_terminal_energy_valid": true,
+        "actual_terminal_energy_valid": true,
+        "battery_throughput_kwh": 0.0,
+        "candidate_sha256": "edc8eec2b5d9ccf90f0dd318fc7ea4a98249b1394c937640deedbd669f8a0afb",
+        "error": null
+      },
+      "physical_eligible_for_complete_valid_comparison": true,
+      "feedback_used": 10,
+      "feedback_collected": 10,
+      "feedback_valid": 9,
+      "best_process_quality": 0.104470296662257,
+      "last_process_quality": 0.104470296662257,
+      "final_minus_best_process_quality": 0.0,
+      "development_hours": 11.989554667563384,
+      "development_started_at_beijing": "2026-10-16T23:11:30.271106+08:00",
+      "frozen_at_beijing": "2026-10-17T11:10:52.667890+08:00",
+      "terminal_started_at_beijing": "2026-10-17T11:11:16.048483+08:00",
+      "terminal_finished_at_beijing": "2026-10-17T11:11:33.004900+08:00",
+      "status_completed_at_beijing": "2026-10-17T11:12:06.761293+08:00",
+      "freeze_reason": "agent_return_or_cancel",
+      "early_stop_category": null,
+      "continuation_records": 209,
+      "wins_starter": true,
+      "source_sha256": "edc8eec2b5d9ccf90f0dd318fc7ea4a98249b1394c937640deedbd669f8a0afb",
+      "terminal_audit_sha256": "eb2b93192dc5ae38f936bfcb27e710f5920bb068c68aaad4e5e2b0019c529ee4",
+      "reward_details_sha256": "ef21b068c0a0562aa38c9d4e6387b26c3e824bee724c4662698e5e1eb33dea0e",
+      "source_id": "distribution-formal-20261016-v4/powergym-n10-r2/deadline-controller.py",
+      "candidate_source_locally_inspected": true,
+      "lifecycle_audit_passed": true
+    },
+    {
+      "role": "powergym-n10-r3",
+      "task": "powergym",
+      "n": 10,
+      "repeat": 3,
+      "quality": 0.07910659286311686,
+      "valid": true,
+      "candidate_error": null,
+      "completed_intervals": 24,
+      "scheduled_intervals": 24,
+      "physical": {
+        "reward": 0.07910659286311686,
+        "valid": true,
+        "completed_steps": 24,
+        "active_loss_kwh": 5804.617755338724,
+        "voltage_violation_pu_hours": 2.806250623805286,
+        "phase_time_compliance": 0.9330035971223022,
+        "capacitor_switches": 2,
+        "tap_moves": 98,
+        "final_soc": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "terminal_energy_error_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "actual_net_energy_kwh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "ledger_terminal_energy_valid": true,
+        "actual_terminal_energy_valid": true,
+        "battery_throughput_kwh": 0.0,
+        "candidate_sha256": "3b23450fd9440f815d9f866c7b3a17b4c1b783ccf3005a08b7e68fd0823243b5",
+        "error": null
+      },
+      "physical_eligible_for_complete_valid_comparison": true,
+      "feedback_used": 10,
+      "feedback_collected": 10,
+      "feedback_valid": 9,
+      "best_process_quality": 0.07910659286311686,
+      "last_process_quality": 0.07898107039686389,
+      "final_minus_best_process_quality": 0.0,
+      "development_hours": 11.982406668953901,
+      "development_started_at_beijing": "2026-10-16T23:48:20.356301+08:00",
+      "frozen_at_beijing": "2026-10-17T11:47:17.020285+08:00",
+      "terminal_started_at_beijing": "2026-10-17T11:47:41.449705+08:00",
+      "terminal_finished_at_beijing": "2026-10-17T11:47:58.745497+08:00",
+      "status_completed_at_beijing": "2026-10-17T11:48:57.494336+08:00",
+      "freeze_reason": "agent_return_or_cancel",
+      "early_stop_category": null,
+      "continuation_records": 147,
+      "wins_starter": true,
+      "source_sha256": "3b23450fd9440f815d9f866c7b3a17b4c1b783ccf3005a08b7e68fd0823243b5",
+      "terminal_audit_sha256": "7d7be8b8b9c29a5fb89fdf3514331b9d3666cdfddd7f01681fbdb6fd20dada8f",
+      "reward_details_sha256": "e5e52cb9d5e7b490e5bbfe8ae5601e3ee7395b70df0c32a5146a27d040b91278",
+      "source_id": "distribution-formal-20261016-v4/powergym-n10-r3/deadline-controller.py",
+      "candidate_source_locally_inspected": false,
+      "lifecycle_audit_passed": true
+    }
+  ],
+  "representative_algorithms": [
+    {
+      "run_id": "powergym-n5-r2",
+      "source_id": "distribution-formal-20261016-v4/powergym-n5-r2/deadline-controller.py",
+      "file_basename": "deadline-controller.py",
+      "source_sha256": "d87439ff6aa7ffbbc750bf664bf73ace544be4b79d79e47a54e8b8145b4c537e",
+      "source_line_count": 219,
+      "checked_at_beijing": "2026-10-19T13:40:31.337278+08:00",
+      "starter_sha256": "94f26ad9bb48fedfc5f083b757b5e67b5019af1d75e6d14965699ab945b59ead",
+      "mechanism_name_zh": "首步灵敏度校准的共同tap与分相平衡",
+      "source_supported_changes_zh": [
+        "电容器全部投入（状态1）、电池保持中间档闲置，避免切换及末能量风险。",
+        "用第0步tap动作及第1步可见电压响应估计聚合tap灵敏度，并把估计限制在[0.00625,0.01875]。",
+        "从每相电压包络构造±1档平衡量，加上共同电压平移；运行中共同平移截在±6档，首步允许更大复位。"
+      ],
+      "final_quality": 0.0943397929777351,
+      "final_valid": true,
+      "development_hours": 12.000037228788974,
+      "best_process_quality": 0.0943397929777351,
+      "source_excerpts": [
+        {
+          "start_line": 15,
+          "end_line": 40,
+          "text": "        \"_previous_probe\",\n    )\n\n    _INITIAL_SENSITIVITY = 0.010\n    _PHASE_BY_SUFFIX = {\"a\": 0, \"b\": 1, \"c\": 2}\n    _TAP_STEP_PU = 0.00625\n    _MAX_SENSITIVITY = 0.01875\n    _INITIAL_SHIFT_MIN = -16\n    _INITIAL_SHIFT_MAX = 8\n    _RUNNING_SHIFT_MIN = -6\n    _RUNNING_SHIFT_MAX = 6\n    _PHASE_SHIFT_MIN = -1\n    _PHASE_SHIFT_MAX = 1\n\n    # Keep a small margin inside the scorer's 0.95--1.05 voltage band.\n    _NOMINAL_VOLTAGE = 1.0\n    _DEADBAND_LOW = 0.952\n    _DEADBAND_HIGH = 1.048\n    _LOW_TARGET = 0.953\n    _HIGH_TARGET = 1.047\n    _ZERO_PHASE_SHIFTS = (0, 0, 0)\n\n    def __init__(self, metadata):\n        capacitors = int(metadata[\"capacitor_count\"])\n        regulators = int(metadata[\"regulator_count\"])\n        batteries = int(metadata[\"battery_count\"])"
+        },
+        {
+          "start_line": 58,
+          "end_line": 96,
+          "text": "        )\n        self._has_phase_target = any(phase_counts)\n\n        # This benchmark starts with capacitors on and batteries full.\n        # Holding those states avoids switching and guarantees exact terminal\n        # battery closure.\n        self._capacitor_actions = (1,) * capacitors\n        self._battery_actions = (battery_idle,) * batteries\n        self._reset_episode()\n\n    def _reset_episode(self):\n        self.sensitivity = self._INITIAL_SENSITIVITY\n        self._previous_probe = None\n\n    def _update_sensitivity(self, step, center, taps):\n        \"\"\"Record the initial probe or calibrate from its first response.\"\"\"\n        if step == 0:\n            self._previous_probe = (center, taps[0]) if taps else None\n            return\n\n        previous_probe = self._previous_probe\n        self._previous_probe = None\n        if previous_probe is None or not taps:\n            return\n        previous_center, previous_tap = previous_probe\n        movement = taps[0] - previous_tap\n        if not movement:\n            return\n        measured = (center - previous_center) / movement\n        if not (measured > 0.0):\n            return\n        self.sensitivity = max(\n            self._TAP_STEP_PU,\n            min(self._MAX_SENSITIVITY, measured),\n        )\n\n    @staticmethod\n    def _overflow_safe_average(values):\n        \"\"\"Average finite values without overflowing their direct sum.\"\"\""
+        },
+        {
+          "start_line": 122,
+          "end_line": 147,
+          "text": "            self._overflow_safe_average((min(phase_values), max(phase_values)))\n            for phase_values in zip(*phase_rows)\n        ]\n        mean = self._overflow_safe_average(centers)\n        return [\n            self._bounded_delta(\n                mean,\n                phase_center,\n                phase_scale,\n                self._PHASE_SHIFT_MIN,\n                self._PHASE_SHIFT_MAX,\n            )\n            for phase_center, phase_scale in zip(centers, self.phase_scales)\n        ]\n\n    def _voltage_summary(self, bus_voltages, include_phase_balance):\n        \"\"\"Collect the envelope and optional phase shifts in one pass.\"\"\"\n        values = []\n        if include_phase_balance:\n            phase_rows = []\n            for bus_values in bus_voltages.values():\n                values.extend(bus_values)\n                if len(bus_values) == 3:\n                    phase_rows.append(bus_values)\n        else:\n            phase_rows = None"
+        },
+        {
+          "start_line": 177,
+          "end_line": 215,
+          "text": "            target, measured = self._LOW_TARGET, low\n        else:\n            target, measured = self._NOMINAL_VOLTAGE, center\n        return self._bounded_delta(\n            target,\n            measured,\n            self.sensitivity,\n            self._RUNNING_SHIFT_MIN,\n            self._RUNNING_SHIFT_MAX,\n        )\n\n    def act(self, observation: dict) -> list[int]:\n        step = observation[\"step\"]\n        if step == 0:\n            self._reset_episode()\n        bus_voltages = observation[\"bus_voltages\"]\n        include_phase_balance = step != 0 and self._has_phase_target\n        low, high, center, phase_shifts = self._voltage_summary(\n            bus_voltages, include_phase_balance\n        )\n        taps = [int(tap) for tap in observation[\"regulator_taps\"]]\n\n        if step == 0 or step == 1:\n            self._update_sensitivity(step, center, taps)\n        common_shift = self._common_shift(step, low, high, center)\n\n        actions = list(self._capacitor_actions)\n        for index, tap in enumerate(taps):\n            phase = (\n                self.regulator_phases[index]\n                if index < len(self.regulator_phases)\n                else None\n            )\n            phase_shift = phase_shifts[phase] if phase is not None else 0\n            target = tap + common_shift + phase_shift\n            if target < 0:\n                target = 0\n            elif target > self.tap_max:\n                target = self.tap_max"
+        },
+        {
+          "start_line": 217,
+          "end_line": 219,
+          "text": "\n        actions.extend(self._battery_actions)\n        return actions"
+        }
+      ],
+      "interpretation": "Starter-to-final source comparison; full chronological development trajectory and causal attribution to individual code changes are not reconstructed."
+    },
+    {
+      "run_id": "powergym-n10-r2",
+      "source_id": "distribution-formal-20261016-v4/powergym-n10-r2/deadline-controller.py",
+      "file_basename": "deadline-controller.py",
+      "source_sha256": "edc8eec2b5d9ccf90f0dd318fc7ea4a98249b1394c937640deedbd669f8a0afb",
+      "source_line_count": 191,
+      "checked_at_beijing": "2026-10-19T13:40:31.337278+08:00",
+      "starter_sha256": "94f26ad9bb48fedfc5f083b757b5e67b5019af1d75e6d14965699ab945b59ead",
+      "mechanism_name_zh": "固定启动tap与每相首个调压器的单档滞环控制",
+      "source_supported_changes_zh": [
+        "首步将全部调压器设为20，电容器始终保持1，电池始终返回idle中间档。",
+        "从设备名称后缀解析相别，每相只移动第一个映射调压器；其余保持观测tap。",
+        "使用上一小时每相电压最小/最大包络，外守卫0.956/1.044及包络和1.994/2.006决定±1档，减少跨设备同步大幅动作。"
+      ],
+      "final_quality": 0.104470296662257,
+      "final_valid": true,
+      "development_hours": 11.989554667563384,
+      "best_process_quality": 0.104470296662257,
+      "source_excerpts": [
+        {
+          "start_line": 29,
+          "end_line": 43,
+          "text": "\n    PHASE_COUNT = 3\n\n    # Frozen startup tap and per-unit voltage bounds from the best valid evaluation.\n    # Do not retune without target feedback: nearby tested settings scored lower.\n    STARTUP_TAP = 20\n    LOW_GUARD = 0.956\n    HIGH_GUARD = 1.044\n    # Doubled midpoint bounds avoid division in the per-phase hot path.\n    CENTER_LOW_SUM = 1.994\n    CENTER_HIGH_SUM = 2.006\n    # Bundle the frozen bounds for one hot-path attribute lookup.\n    _CONTROL_BOUNDS = (LOW_GUARD, HIGH_GUARD, CENTER_LOW_SUM, CENTER_HIGH_SUM)\n\n    def __init__(self, metadata: dict) -> None:"
+        },
+        {
+          "start_line": 55,
+          "end_line": 75,
+          "text": "        # Initial capacitors are already on, so holding state 1 adds no switch cost.\n        self.capacitor_actions: tuple[int, ...] = (1,) * capacitor_count\n        # The target's 0..32 midpoint is its terminal-energy-safe battery hold.\n        self.battery_actions: tuple[int, ...] = (battery_max // 2,) * battery_count\n        # Cache the immutable startup layout; act() still returns a fresh list.\n        self.startup_action: tuple[int, ...] = (\n            self.capacitor_actions\n            + (startup_tap,) * regulator_count\n            + self.battery_actions\n        )\n\n        phase_regulators: list[int | None] = [None, None, None]\n        unassigned_phases = self.PHASE_COUNT\n        # Scan target A/B/C or 1/2/3 suffixes without slicing; keep the first per phase.\n        for index, name in enumerate(metadata[\"regulator_names\"]):\n            if index == regulator_count:\n                break\n            name_text = str(name)\n            if not name_text:\n                continue\n            # Only the suffix needs case folding for phase classification."
+        },
+        {
+          "start_line": 77,
+          "end_line": 112,
+          "text": "            if suffix in \"a1\":\n                phase = 0\n            elif suffix in \"b2\":\n                phase = 1\n            elif suffix in \"c3\":\n                phase = 2\n            else:\n                continue\n            if phase_regulators[phase] is None:\n                phase_regulators[phase] = index\n                unassigned_phases -= 1\n                if not unassigned_phases:\n                    break\n        if unassigned_phases:\n            mapped_regulators: list[tuple[int, int]] = []\n            for phase, index in enumerate(phase_regulators):\n                if index is not None:\n                    mapped_regulators.append((phase, index))\n            self.phase_regulators = tuple(mapped_regulators)\n        else:\n            # Direct construction avoids generator overhead for the target's full map.\n            self.phase_regulators = (\n                (0, phase_regulators[0]),\n                (1, phase_regulators[1]),\n                (2, phase_regulators[2]),\n            )\n\n    def act(self, observation: dict) -> list[int]:\n        \"\"\"Return a fresh action of exact built-in int values in contract order.\n\n        Step zero returns the startup layout. Later observations are lagged\n        feedback for the next action.\n\n        Tap readings must be int-convertible. Fractional values are truncated,\n        then clamped to the legal range; conversion failures propagate.\n        Non-iterable and non-three-entry voltage rows are ignored; participating"
+        },
+        {
+          "start_line": 188,
+          "end_line": 191,
+          "text": "                        taps[index] = tap - 1\n\n        # Contract order: capacitors, regulators, then batteries.\n        return [*self.capacitor_actions, *taps, *self.battery_actions]"
+        }
+      ],
+      "interpretation": "Starter-to-final source comparison; full chronological development trajectory and causal attribution to individual code changes are not reconstructed."
+    }
+  ],
+  "known_gaps": [
+    "Full provider token usage and billing cost not verified.",
+    "No independent date/network generalization test.",
+    "Actual development early stops prevent confirmatory equal-12-hour comparison of n.",
+    "Only two selected final controller sources were inspected for mechanism descriptions; full per-step development chronology was not audited.",
+    "Representative controller source acquisition paths during development were not reconstructed; final code inspection alone does not prove where embedded public-network constants were obtained."
+  ],
+  "algorithm_sources_checked_at_beijing": "2026-10-19T13:40:31.337278+08:00"
+}
