@@ -1,0 +1,275 @@
+{
+  "schema": "uc-starter-baseline-evidence-v1",
+  "version": "uc-baseline-v1",
+  "compiled_on_beijing": "2026-10-19",
+  "family_id": "unit-commitment",
+  "scope": "Sanitized extraction of existing current-v6 no-model native acceptance observations; no new experiments or scoring.",
+  "campaign_id": "uc-speed-n013-three-repeats-20261017-v6",
+  "source_manifest_sha256": "9669c73c2f8b1cd384a95d858e1fe3bf8ac0aa5bf4eafc013f82ae265addfa18",
+  "case": {
+    "id": "pglib-uc/rts_gmlc/2020-07-06",
+    "periods": 48,
+    "thermal_generators": 73,
+    "renewable_generators": 81,
+    "instance_sha256": "2e68998a3c7849df2307780ab10de2147f21e71bf152d049015315c2b5ff7091",
+    "network_model": "original copperplate UC; no SCUC or N-1 extension"
+  },
+  "reference": {
+    "lower": 3728826.449349424,
+    "upper": 3729194.9208988217,
+    "target_gap_ratio": 0.001,
+    "status": "valid common MILP/HiGHS bounds; not a proved optimum",
+    "numerical_guard": "g=max(0.01,1e-6*abs(U))",
+    "quality_hit_test": "(c+g-L)/max(1,abs(c+g)) <= 0.001"
+  },
+  "execution_contract": {
+    "scorer_cpus": 1,
+    "solver_threads": 1,
+    "scorer_memory_bytes": 8589934592,
+    "gpu": 0,
+    "candidate_seconds_limit_per_seed": 300,
+    "terminal_seeds": [
+      0,
+      1,
+      2
+    ],
+    "miss_penalized_seconds": 600,
+    "reward_if_all_three_replays_valid": "max(0,1-mean(penalized_seconds)/600)",
+    "reward_if_any_replay_invalid": 0
+  },
+  "starter": {
+    "method": "complete original PGLib UC MILP in Julia/JuMP/HiGHS",
+    "files": {
+      "solver.jl": {
+        "size_bytes": 1741,
+        "sha256": "09a43312c960f49ca1f57c5443f2f214c192b8cfbeef019f657f0abefd8804c5",
+        "frozen_manifest_entry": "frozen/tasks/pglib-uc-speed-canary-v1/environment/app/submission/solver.jl",
+        "preserved_bytes_match_manifest": true
+      },
+      "pglib_model.jl": {
+        "size_bytes": 5246,
+        "sha256": "4b75a5eb5662830f40281f15aca68ced85a036995c29bb43f79e416a6698640f",
+        "frozen_manifest_entry": "frozen/tasks/pglib-uc-speed-canary-v1/environment/app/submission/pglib_model.jl",
+        "preserved_bytes_match_manifest": true
+      }
+    }
+  },
+  "native_driver_proof": {
+    "source_id": "uc-v6/code/transport_smoke.py",
+    "sha256": "61f070049a5ac10e16e43d2050965e99be15c445043221c31300ff8938e790b7",
+    "sha256_matches_frozen_manifest": true,
+    "n0_source_edits": "none",
+    "positive_budget_source_edits": "append comments only: acceptance-call comments for distinct content identities plus an over-budget-test comment",
+    "numerical_algorithm_modified": false,
+    "runtime_summary_source_binding": "Each native record reports graded_source_matches_certified_freeze=true. Compact acceptance summary omits the per-replay graded-file manifests; the starter identity is bound through the source-matched frozen driver and campaign manifest."
+  },
+  "primary_untouched_native_baseline": {
+    "native_test_feedback_budget": 0,
+    "source_id": "uc-v6/submission-evidence.json",
+    "source_relation": "untouched starter",
+    "valid": true,
+    "evaluation_completed": true,
+    "reward": 0.6260679219973584,
+    "mean_penalized_seconds": 224.35924680158496,
+    "all_three_seeds_feasible_and_target_hit": true,
+    "graded_source_matches_certified_freeze": true,
+    "replays": [
+      {
+        "seed": 0,
+        "feasible": true,
+        "target_hit": true,
+        "penalized_seconds": 210.01343953609467,
+        "reference_gap": 9.880726462764901e-05,
+        "failure_category": null,
+        "execution": {
+          "candidate_wall_seconds": 210.1383585166186,
+          "checker_seconds": 0.05348852276802063,
+          "snapshots_received": 1,
+          "status": "OK"
+        }
+      },
+      {
+        "seed": 1,
+        "feasible": true,
+        "target_hit": true,
+        "penalized_seconds": 237.22503301128745,
+        "reference_gap": 9.880726461291591e-05,
+        "failure_category": null,
+        "execution": {
+          "candidate_wall_seconds": 237.39181828312576,
+          "checker_seconds": 0.07346389256417751,
+          "snapshots_received": 1,
+          "status": "OK"
+        }
+      },
+      {
+        "seed": 2,
+        "feasible": true,
+        "target_hit": true,
+        "penalized_seconds": 225.83926785737276,
+        "reference_gap": 9.880726462777387e-05,
+        "failure_category": null,
+        "execution": {
+          "candidate_wall_seconds": 225.87662894837558,
+          "checker_seconds": 0.0467993039637804,
+          "snapshots_received": 1,
+          "status": "OK"
+        }
+      }
+    ],
+    "no_model_native_driver": true,
+    "counts_as_independent_developer_repeat": false
+  },
+  "supplementary_comment_variant_gate_observations": [
+    {
+      "native_test_feedback_budget": 1,
+      "source_id": "uc-v6/submission-evidence.json",
+      "source_relation": "starter with only comment suffixes added by native gate",
+      "valid": true,
+      "evaluation_completed": true,
+      "reward": 0.8850702328338391,
+      "mean_penalized_seconds": 68.95786029969652,
+      "all_three_seeds_feasible_and_target_hit": true,
+      "graded_source_matches_certified_freeze": true,
+      "replays": [
+        {
+          "seed": 0,
+          "feasible": true,
+          "target_hit": true,
+          "penalized_seconds": 68.55869359150529,
+          "reference_gap": 9.880726462764901e-05,
+          "failure_category": null,
+          "execution": {
+            "candidate_wall_seconds": 68.59536766633391,
+            "checker_seconds": 0.047477126121520996,
+            "snapshots_received": 1,
+            "status": "OK"
+          }
+        },
+        {
+          "seed": 1,
+          "feasible": true,
+          "target_hit": true,
+          "penalized_seconds": 70.7878370154649,
+          "reference_gap": 9.880726461291591e-05,
+          "failure_category": null,
+          "execution": {
+            "candidate_wall_seconds": 70.82441097684205,
+            "checker_seconds": 0.04552231915295124,
+            "snapshots_received": 1,
+            "status": "OK"
+          }
+        },
+        {
+          "seed": 2,
+          "feasible": true,
+          "target_hit": true,
+          "penalized_seconds": 67.52705029211938,
+          "reference_gap": 9.880726462777387e-05,
+          "failure_category": null,
+          "execution": {
+            "candidate_wall_seconds": 67.56326186470687,
+            "checker_seconds": 0.04489141143858433,
+            "snapshots_received": 1,
+            "status": "OK"
+          }
+        }
+      ],
+      "no_model_native_driver": true,
+      "counts_as_independent_developer_repeat": false
+    },
+    {
+      "native_test_feedback_budget": 3,
+      "source_id": "uc-v6/submission-evidence.json",
+      "source_relation": "starter with only comment suffixes added by native gate",
+      "valid": true,
+      "evaluation_completed": true,
+      "reward": 0.8871199539697004,
+      "mean_penalized_seconds": 67.72802761817972,
+      "all_three_seeds_feasible_and_target_hit": true,
+      "graded_source_matches_certified_freeze": true,
+      "replays": [
+        {
+          "seed": 0,
+          "feasible": true,
+          "target_hit": true,
+          "penalized_seconds": 65.65646537579596,
+          "reference_gap": 9.880726462764901e-05,
+          "failure_category": null,
+          "execution": {
+            "candidate_wall_seconds": 65.71788650751114,
+            "checker_seconds": 0.047452228143811226,
+            "snapshots_received": 1,
+            "status": "OK"
+          }
+        },
+        {
+          "seed": 1,
+          "feasible": true,
+          "target_hit": true,
+          "penalized_seconds": 69.73430778644979,
+          "reference_gap": 9.880726461291591e-05,
+          "failure_category": null,
+          "execution": {
+            "candidate_wall_seconds": 69.77123337425292,
+            "checker_seconds": 0.044591182842850685,
+            "snapshots_received": 1,
+            "status": "OK"
+          }
+        },
+        {
+          "seed": 2,
+          "feasible": true,
+          "target_hit": true,
+          "penalized_seconds": 67.7933096922934,
+          "reference_gap": 9.880726462777387e-05,
+          "failure_category": null,
+          "execution": {
+            "candidate_wall_seconds": 67.87131150253117,
+            "checker_seconds": 0.045009320601820946,
+            "snapshots_received": 1,
+            "status": "OK"
+          }
+        }
+      ],
+      "no_model_native_driver": true,
+      "counts_as_independent_developer_repeat": false
+    }
+  ],
+  "v8_numerical_closure": {
+    "campaign_id": "uc-speed-n510-three-repeats-20261018-v8",
+    "source_manifest_sha256": "42217a80e99c2e0c1359ce353b1467b54adda05e2d7fc4907e06023614744771",
+    "frozen_files_compared": 62,
+    "all_hashes_identical": true
+  },
+  "limitations": [
+    "The three seeds replay one frozen starter algorithm; they are not three independent algorithm-development repetitions.",
+    "Native n0 has mean penalized time about 224.36 seconds, whereas algorithm-identical n1/n3 gate samples take about 68 seconds. The records do not identify the cause of this substantial timing variation.",
+    "Do not select the slow or fast native gate as a calibrated speedup denominator. Independent repeated same-environment calibration remains missing.",
+    "The original accepted compact summary has source-freeze consistency flags but omits raw per-replay graded-file manifests; no stronger runtime-byte claim is inferred.",
+    "These native gate scores are supplementary acceptance observations; they do not alter the 15 formal developer results or the fixed normalized-v1 anchors.",
+    "The historical approximately 52.05-second macOS local run and older-version cluster gates are excluded from this current-v6 baseline evidence."
+  ],
+  "sources": [
+    {
+      "source_id": "uc-v6/source-manifest.json",
+      "sha256": "9669c73c2f8b1cd384a95d858e1fe3bf8ac0aa5bf4eafc013f82ae265addfa18",
+      "scope": "current v6 frozen source closure"
+    },
+    {
+      "source_id": "uc-v6/code/transport_smoke.py",
+      "sha256": "61f070049a5ac10e16e43d2050965e99be15c445043221c31300ff8938e790b7",
+      "scope": "untouched n0 and comment-only positive-budget native driver"
+    },
+    {
+      "source_id": "uc-v6/submission-evidence.json",
+      "sha256": "f35504d3a46cee1f5cf95939b92e18b77d00e7128403bb0721cc25d1b9a8d9ea",
+      "scope": "source-matched native acceptance score, raw per-seed times/gaps, execution observations"
+    },
+    {
+      "source_id": "uc-v8/numerical-closure-equality.json",
+      "sha256": "e0f35c7cbff1d0a50a38bc34a8c8a8e312251fcab6e0d1a49fc3afb43ba2ac9f",
+      "scope": "62 frozen numerical/dependency files and starter hashes match v6"
+    }
+  ]
+}

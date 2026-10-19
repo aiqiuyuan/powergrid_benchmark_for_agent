@@ -150,11 +150,37 @@ n10/r1 的开发容器记录 oom_killed=true，冻结资格失败，没有终评
 
 ## 8. 基线、最新结果与代表性算法
 
+<a id="baseline-anchors"></a>
+
 ### 8.1 基线与统计口径
 
-完整 MILP starter 是当前起点；参考上下界用于定义一致质量门槛。
-历史本地功能验收约 52.05 秒命中，但未使用集群 Linux 沙箱，不能作为本轮同条件速度基线。
-强基线的多次同环境校准仍待补齐，不用历史 macOS 时间宣称集群加速比。
+#### 8.1.1 已实测的传统 MILP 起点
+
+完整原始 PGLib MILP / JuMP / HiGHS 是传统优化起点。重新核对已保存的 **v6 原生 Linux 验收**，可补出当前 case 的真实基线；本次仅整理记录，没有新增求解。三列依次为 solver seeds=0/1/2 的首次达标快照接收时间，均包含启动、加载、建模和输出，使用本卡同一输入、共同下界、1 CPU / 8 GiB 与每 seed 300 秒限额。
+
+| 方法／记录 | seed0 / seed1 / seed2 达标时间 s ↓ | 平均惩罚时间 s ↓ | reward ↑ | 复现状态 |
+|---|---|---:|---:|---|
+| 未修改完整 MILP starter；native n0 | 210.013 / 237.225 / 225.839 | 224.359 | 0.626068 | 当前原 case、同评分合同实跑；3/3 有效且达标 |
+| 同一算法，仅追加 Julia 注释；native n1 | 68.559 / 70.788 / 67.527 | 68.958 | 0.885070 | 计数／冻结验收样本，非新算法 |
+| 同一算法，仅追加 Julia 注释；native n3 | 65.656 / 69.734 / 67.793 | 67.728 | 0.887120 | 计数／冻结验收样本，非新算法 |
+| 参考界运行：完整原始 MILP / HiGHS | 不作计时基线 | — | — | U=3729194.9208988217；L=3728826.449349424 |
+
+验收 transport 源码和 manifest 哈希匹配：n0 不改 starter，正 n 仅追加注释以生成不同内容指纹。完整精度、逐 seed 达标时间／gap、源码与来源摘要见 [UC 基线证据 v1](evidence/uc-baseline-v1.json)。上述 n 是基础设施验收角色，不属于下表 15 次独立开发，也不向正式开发提供额外反馈。
+
+同一算法在这些验收样本间有明显时间差，现有记录没有分离 JIT／依赖缓存、节点负载或执行次序的影响。它们提供**实际运行量级锚点**，尚不是经随机交错、冷启动条件统一的重复性能校准。因此 n10/r3 的三 seed 均值 43.361 秒可与这些原始观测并列阅读，但不据此发布固定加速倍数。历史 macOS 功能验收约 52.05 秒另属不同环境，不作分母；参考 U/L 也不意味着已经证明最优。
+
+#### 8.1.2 竞赛与论文方法的复现状态
+
+本例来自开放 benchmark 库，当前材料没有对应竞赛榜单；不用其他 UC／SCUC 竞赛的成本或名次替代本 case 基线。
+
+| 方法与可核验来源 | 当前复现进度 | 成为本轮性能基线还缺什么 |
+|---|---|---|
+| [PGLib-UC 原始数学模型](https://github.com/power-grid-lib/pglib-uc/blob/39a7f38cf4703de92f0291f0c873c2e98c789301/README.md) + 完整 MILP / HiGHS | 已实现并在上表同 case 实跑；已有独立验解与参考上下界 | 补统一启动条件、执行次序和多次 replay 的速度校准 |
+| Knueven、Ostrowski、Watson，*On Mixed-Integer Programming Formulations for the Unit Commitment Problem*（INFORMS Journal on Computing，2020，[DOI](https://doi.org/10.1287/ijoc.2019.0944)、[作者全文](https://optimization-online.org/wp-content/uploads/2018/11/6930.pdf)）；[EGRET 官方模型](https://github.com/grid-parity-exchange/Egret/blob/main/egret/models/unit_commitment.py)中的 Tight / Compact / Random1 | 论文和参考实现已定位；本轮原 case 的这些 formulation **尚未实跑**，无可报告成绩 | 固定实现版本，转为本卡铜板 UC；核对备用、初始状态、启动类别、分段成本及无弹性 slack 的数学等价，再用相同 checker、种子和完整墙钟重放 |
+
+优先补齐“完整 MILP 起点校准 → 论文强 formulation 的同 case 重放”。论文原实验的求解器、实例集合和计时条件不同，不能直接搬其时间到当前 Julia / HiGHS 合同。即使移植了同类有效不等式，也应标为方法重实现，取得当前输入上的验解与时间证据后才称该 case 的复现基线。
+
+#### 8.1.3 正式开发结果的统计口径
 
 各完整组 reward 均值与样本标准差包含有效评分的 0 分，无效终评不会被筛掉。
 n10/r1 无终评分数，因此不计算完整三重复组均值。
