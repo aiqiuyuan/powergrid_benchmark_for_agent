@@ -1,6 +1,6 @@
 # Benchmark task cards v2
 
-第一版整理日期：**2026-10-19（北京时间）**。本目录按实际实验设置重写六个任务族、八个子 case，保留任务定义、开发权限、执行预算、终态成绩和代表性演化算法。L2RPN 暂不纳入本轮重写，现有资料见[原卡片](../task-cards/l2rpn-grid-control.md)。
+第一版整理日期：**2026-10-19（北京时间）**；**2026-10-20 补充 L2RPN**。本目录按实际实验设置重写七个任务族、九个子 case，保留任务定义、开发权限、执行预算、终态成绩和代表性演化算法。
 
 每张卡片绑定具体数据与运行协议。结果的证据时间、有效性定义和统计口径分别写在卡片中；本目录的整理日期不表示所有结果都在当天重新测量。旧卡片保留为历史资料。
 
@@ -14,6 +14,7 @@
 | HEFTCom Trading | 2024-02-20—2024-05-19 完整 90 市场日 | 冻结训练、逐日预测与报价流水线 | 12 h | [HEFTCom](heftcom-forecast-trade.md) |
 | MAPDN | 33 节点、2012-02-03、完整 480 个间隔 | 局部信息下的逆变器无功控制 | 12 h | [MAPDN](mapdn-voltage-control.md) |
 | PowerGym | 123Bus、profile 0、2.5 倍负荷、完整 24 h | 电容器、调压器和储能的混合控制 | 12 h | [PowerGym](powergym-volt-var-control.md) |
+| L2RPN | nov26.2 完整 2016 步周场景 | 原赛动作范围下的拓扑、线路与再调度控制器 | 12 h | [L2RPN](l2rpn-grid-control.md) |
 
 表中的开发上限是配置值。实际提前停止、OOM 或终态冻结失败仍占据其原有重复位置，具体影响在相应结果表中披露。GOC 两个子 case 与 RTE 两个子 case 各自有独立参数和结果，不合并成一个总分。
 
@@ -29,6 +30,7 @@
 | HEFTCom | 15 | 原产物统一按修正规则终评：12 有效、3 个算法进程失败 |
 | MAPDN | 15 | 14 有效、1 个候选失败；3 次开发提前结束 |
 | PowerGym | 15 | 14 有效、1 个候选失败；6 次开发提前结束 |
+| L2RPN V4 | 15 | 15 份有效原生终评，14 次开发流程完成；n1/r3 提前失败但保留有效终态，全部未完整存活一周 |
 
 本节演化终态整理补充了 UC v8 及 RTE ABC/X15 的后续 feedback-v2 批次；旧启动快照和旧评分合同不作为当前结果。其余演化批次采用各卡注明的终态快照，未重跑历史演化算法；新增固定基线另见 §1.1。
 
@@ -46,6 +48,7 @@
 | [HEFTCom](heftcom-forecast-trade.md#baseline-anchors) | **7/7 新固定方法有效**（含扩展参考）；price-aware ridge **85,657,916.25 GBP** | Benchmark／SVK 原报价结算已复现，完整原赛模型重训仍分开 | GEB／organizer-spline 受限适配已完成；SVK-inspired CatBoost **84,604,672.88 GBP**，运行时扩展单列 |
 | [MAPDN](mapdn-voltage-control.md#baseline-anchors) | 同信息 droop 1.835251 MWh，另列积分反馈／迭代 droop／全信息 OPF | 无绑定竞赛榜单；传统方法已在完整原日实跑 | 原作者 MADDPG+Bowl／MATD3+Bowl 各 5 seeds ×400 episodes，**10 个训练 Job 已启动**；额外训练权重轨道 |
 | [PowerGym](powergym-volt-var-control.md#baseline-anchors) | coordinated rule quality=0.057844；新 Random／PPO 各三 seeds 均硬能量失败、quality0 | 无绑定竞赛榜单；八种传统方法与特权方法已列 | PPO／integer SAC／cbat-SAC-projected 各 3 seeds ×40000 转移，**12 个 Job 已提交**（含 Random）；完成／失败逐项保留 |
+| [L2RPN](l2rpn-grid-control.md#baseline-anchors) | Greedy128/512/2048/4096 已校准；Greedy4096 原生分数 **0.087109662**、204/2016 成功步 | rl_agent／binbinchen／lujixiang 已按共同接口重放；同 case 最好 **0.087109662**，不恢复原赛 24 周排名 | 24 周 × 3 方法的 72 组结果与 native 一致；旧受限动作 PPO／ES 不作当前完整动作新基线 |
 
 每张卡片分别标注四种证据状态：**当前 case 同合同实测**、**额外信息／计算参照**、**原赛／论文原协议结果**、**方法或代码已定位但当前 case 未复现**。原报价／排程的重新验解或结算，与从原始输入独立重跑算法分开记录；后者需要代码、依赖、参数、训练数据和资源证据。
 
@@ -87,10 +90,10 @@
 
 每档 `n` 首先展示每次重复的终态值和有效数/总数。均值、标准差、最好值的计算范围紧邻结果表说明；保留各历史批次已经采用的统计政策，不因整理卡片而事后改变失败处理。
 
-<!-- normalized-overview-v1:start -->
+<!-- normalized-overview-v2:start -->
 <a id="normalized-results"></a>
 
-### 4.1 归一化可视化：每次重复与横向比较
+### 4.1 归一化可视化 v2：九个子 case 的每次重复与横向比较
 
 使用**本 case 观测范围归一化**：对每个固定子 case，把全部 `n` 的合格终态成绩共同映射到 0–100。低值更优的目标取反方向，高值更优的目标保持方向。所有原始结果和正式统计均保留。
 
@@ -98,9 +101,9 @@
 
 两个视角同时阅读：左图为**有效样本归一化均值**，右图为纳入数／计划数。均值只描述纳入结果的质量，未纳入记录不填零；条件均值不替代各 card 的原始主统计。斜线标出不足 3 次纳入的组。RTE X15 的纳入是完整面板终评有定义成绩，不要求 15/15 例均可行。
 
-![各子case不同n的归一化有效均值与纳入率](assets/normalized-v1/overview.png)
+![九个子case不同n的归一化有效均值与纳入率，L2RPN中断开发单独标记](assets/normalized-v2/overview.png)
 
-下表每格为 `均值 · 纳入/计划`；八行分别使用自己的锚点，只比较各行内不同 `n` 的表现，不进行跨 case 总分、难度排名或显著性判断。
+下表每格为 `均值 · 纳入/计划`；九行分别使用自己的锚点，只比较各行内不同 `n` 的表现，不进行跨 case 总分、难度排名或显著性判断。
 
 | 子 case | n=0 | n=1 | n=3 | n=5 | n=10 |
 |---|---|---|---|---|---|
@@ -112,16 +115,19 @@
 | [HEFTCom](heftcom-forecast-trade.md) | 26.34 · **2/3** | 24.93 · **3/3** | 89.34 · **2/3** | 59.03 · **2/3** | 95.44 · **3/3** |
 | [MAPDN](mapdn-voltage-control.md) | 48.48 · **3/3** | 74.82 · **3/3** | 76.73 · **2/3** | 49.18 · **3/3** | 98.80 · **3/3** |
 | [PowerGym](powergym-volt-var-control.md) | 13.88 · **3/3** | 7.51 · **2/3** | 60.37 · **3/3** | 88.19 · **3/3** | 82.81 · **3/3** |
+| [L2RPN](l2rpn-grid-control.md) | 58.33 · **3/3** | 88.36* · **3/3** | 91.61 · **3/3** | 77.19 · **3/3** | 90.85 · **3/3** |
 
 例如 UC n10 为 `100 · 1/3`：只有一个有效算法达到本批最好，另两次分别为无效候选和缺失终评；不能据此认为 n10 整体达到 100 分。RTE X15 的完整终评均有定义成绩，但全 15 例可行数在 n0/1/3/5/10 分别为 0/1/0/3/2（每档 3 次），应结合该 card 的 `k` 与 `Q` 阅读。
 
+L2RPN 的 n1 为 `88.36* · 3/3`：三份保留终态均有效，但 n1/r3 的开发流程提前失败，只有两次流程完成；该候选按卡片已声明的槽位统计口径保留，不填零或删除。L2RPN 的原生经济分数与完整周存活分别报告，不能把本图约 90 的相对分数读成约 90% 存活。
+
 #### 每次独立开发结果
 
-![全部独立开发重复的归一化成绩及失败状态](assets/normalized-v1/repeats.png)
+![九个子case各次独立开发的归一化成绩及失败状态](assets/normalized-v2/repeats.png)
 
-图中 `r1/r2/r3` 对应独立开发重复；不同 `n` 的同编号重复不构成配对实验。`F`＝候选无效，`M`＝缺失终评，`A`＝流程收尾审计失败，`NS`＝未设置。0 分是最弱合格结果，不等于失败；`*`＝MAPDN/PowerGym 已记录的提前结束，`~`＝HEFTCom 原超时、本次统一补评有效。
+图中 `r1/r2/r3` 对应独立开发重复；不同 `n` 的同编号重复不构成配对实验。`F`＝候选无效，`M`＝缺失终评，`A`＝流程收尾审计失败，`NS`＝未设置。0 分是最弱合格结果，不等于失败；`*`＝MAPDN/PowerGym 已记录的提前结束或 L2RPN 开发中断但保留有效终态，`~`＝HEFTCom 原超时、本次统一补评有效。
 
-#### v1 固定锚点与主指标
+#### v2 固定锚点与主指标
 
 | 子 case | 归一化主指标 | 方向 | 原始最小 L | 原始最大 U | 纳入数 |
 |---|---|---|---:|---:|---:|
@@ -133,13 +139,18 @@
 | HEFTCom | amended revenue / GBP | ↑ | 83644907.4901 | 88060765.8206 | 12/15 |
 | MAPDN | terminal quality | ↑ | 0.676303190885 | 0.715260919438 | 14/15 |
 | PowerGym | terminal quality | ↑ | 0.00578379453854 | 0.104470296662 | 14/15 |
+| L2RPN | native economic score S | ↑ | -1.28281310831 | 0.232733628867 | 15/15* |
 
-锚点只取本批纳入的截止冻结产物，不使用 starter、过程最好值或 5400 秒补充成绩。GOC 的合格条件仅指流程完成且数值有效／硬可行，访问审计仍待复核；其他异常和权限边界见对应 card。MAPDN/PowerGym 提前结束仍保留其可用终态，归一化不消除时长差异。
+锚点只取本批纳入的截止冻结产物，不使用 starter、过程最好值或 5400 秒补充成绩。GOC 的合格条件仅指流程完成且数值有效／硬可行，访问审计仍待复核；其他异常和权限边界见对应 card。MAPDN/PowerGym 提前结束及 L2RPN 中断开发仍保留合格终态；L2RPN 为 15 份有效终评、14 次流程完成。归一化不消除时长差异，也不统一各任务的失败处理政策。
 
-版本 `normalized-v1` 固定于 2026-10-19。完整精度锚点、全部逐次值、状态、组统计和六份来源 JSON 的 SHA256 见 [normalized-v1.json](evidence/normalized-v1.json)；新增结果须另建版本，不能静默改变本版锚点或色阶。[总览矢量图](assets/normalized-v1/overview.svg) · [逐次矢量图](assets/normalized-v1/repeats.svg)。
+版本 **`normalized-v2` 固定于 2026-10-20**：继承 v1 八个子 case 的全部结果、纳入政策、锚点和统计，追加 L2RPN，不重新归一化旧 case。完整精度数据、来源 SHA256 和继承关系见 [normalized-v2.json](evidence/normalized-v2.json)；[总览矢量图](assets/normalized-v2/overview.svg) · [逐次矢量图](assets/normalized-v2/repeats.svg)。
+
+历史 **`normalized-v1`（2026-10-19）** 的数据和图像继续保留：[证据](evidence/normalized-v1.json) · [八子 case 总览](assets/normalized-v1/overview.png) · [逐次结果](assets/normalized-v1/repeats.png)。本次不修改其原有资产；后续新结果也须另建版本。
 
 
-<!-- normalized-overview-v1:end -->
+<!-- normalized-overview-v2:end -->
+
+L2RPN 的[原生经济分数与存活图](l2rpn-grid-control.md#l2rpn-results-figure)另列全部 15 个重复、组均值／样本标准差、成熟基线及完整 2016 步时域。相对归一化图用于同一 case 内比较 n，原生图保留分数和存活的实际量级。
 
 以下几种状态单独报告：
 
@@ -178,5 +189,6 @@
 | [heftcom.json](evidence/heftcom.json) | 原开发批次与 V3 终评修正 |
 | [mapdn.json](evidence/mapdn.json) | MAPDN 正式固定 case |
 | [powergym.json](evidence/powergym.json) | PowerGym 正式固定 case |
+| [l2rpn.json](evidence/l2rpn.json) | L2RPN V4 完整动作固定周、校准基线及 15 份保留终态；其中 1 次开发中断 |
 
 任务设置已有实跑记录、一次批次已有终态结果、公开仓库可以独立复现，是不同的完成状态。每张卡片分别说明实际可用的数据、运行包、依赖、评分入口及尚需补齐的内容。私有模型凭据、服务器路径与集群运维记录不进入这些公开摘要。
