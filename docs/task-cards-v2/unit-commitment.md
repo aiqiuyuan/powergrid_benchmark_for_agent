@@ -1,6 +1,6 @@
 # UC：达到参考质量的求解速度
 
-> 第一版整理：2026-10-19，北京时间。n0/1/3 结果核对至 2026-10-18 15:30；n5/10 补充核对至 2026-10-19 13:39。15 次开发中 14 次形成终评，11 次排程有效；1 次开发 OOM 后未形成合格终态产物。
+> 第一版整理：2026-10-19，北京时间。n0/1/3 结果核对至 2026-10-18 15:30；n5/10 补充核对至 2026-10-19 13:39。15 次开发中 14 次形成终评，11 次排程有效；1 次开发 OOM 后未形成合格终态产物。固定基线完成结果更新核对至 **2026-10-20 14:48，北京时间**。
 
 ## 1. 任务概览与来源
 
@@ -152,13 +152,13 @@ n10/r1 的开发容器记录 oom_killed=true，冻结资格失败，没有终评
 
 <a id="baseline-anchors"></a>
 
-**后续数值补全已于 2026-10-19 启动。** 下文保留前次证据核对的历史口径；新增程序、实际 Job 身份、已回收结果和依赖阻塞以[本轮基线复现记录](baseline-reproductions-20261019.md)及[机器可读证据](evidence/baseline-reproductions-20261019.json)为准。进行中任务不填推测分数；训练权重、解释器扩展与原赛方法适配分别标注。
+**2026-10-19 固定基线实验已完成，2026-10-20 回收核对。** 新增 18 次交错校准及 EGRET v5 三种 formulation、9 次 seed 重放均有效达标。程序、实际 Job 身份、完整精度结果及保留的失败版本见[本轮基线复现记录](baseline-reproductions-20261019.md)和[机器可读证据](evidence/baseline-reproductions-20261019.json)。这些是固定算法重执行，不增加下表独立智能体开发重复数。
 
 ### 8.1 基线与统计口径
 
 #### 8.1.1 已实测的传统 MILP 起点
 
-完整原始 PGLib MILP / JuMP / HiGHS 是传统优化起点。重新核对已保存的 **v6 原生 Linux 验收**，可补出当前 case 的真实基线；本次仅整理记录，没有新增求解。三列依次为 solver seeds=0/1/2 的首次达标快照接收时间，均包含启动、加载、建模和输出，使用本卡同一输入、共同下界、1 CPU / 8 GiB 与每 seed 300 秒限额。
+完整原始 PGLib MILP / JuMP / HiGHS 是传统优化起点。下表先保留已保存的 **v6 原生 Linux 验收**，其数值来自历史记录；随后另列新增校准和论文方法重执行。三列依次为 solver seeds=0/1/2 的首次达标快照接收时间，均包含启动、加载、建模和输出，使用本卡同一输入、共同下界、1 CPU / 8 GiB 与每 seed 300 秒限额。
 
 | 方法／记录 | seed0 / seed1 / seed2 达标时间 s ↓ | 平均惩罚时间 s ↓ | reward ↑ | 复现状态 |
 |---|---|---:|---:|---|
@@ -175,12 +175,22 @@ n10/r1 的开发容器记录 oom_killed=true，冻结资格失败，没有终评
 
 本例来自开放 benchmark 库，当前材料没有对应竞赛榜单；不用其他 UC／SCUC 竞赛的成本或名次替代本 case 基线。
 
-| 方法与可核验来源 | 当前复现进度 | 成为本轮性能基线还缺什么 |
+| 方法与可核验来源 | 当前复现结果 | 比较限制 |
 |---|---|---|
 | [PGLib-UC 原始数学模型](https://github.com/power-grid-lib/pglib-uc/blob/39a7f38cf4703de92f0291f0c873c2e98c789301/README.md) + 完整 MILP / HiGHS | 已实现并在上表同 case 实跑；新增交错校准 18/18 seed 有效达标 | 宿主缓存／节点负载仍未分离，不把新旧时间差归因于算法 |
-| Knueven、Ostrowski、Watson，*On Mixed-Integer Programming Formulations for the Unit Commitment Problem*（INFORMS Journal on Computing，2020，[DOI](https://doi.org/10.1287/ijoc.2019.0944)、[作者全文](https://optimization-online.org/wp-content/uploads/2018/11/6930.pdf)）；[EGRET 官方模型](https://github.com/grid-parity-exchange/Egret/blob/main/egret/models/unit_commitment.py)中的 Tight / Compact / Random1 | v4 完整 case 失败已定位铜板平衡适配缺陷；**修正后的 v5 同源 native gate 通过，三份正式 Job 已提交** | 原 checker、1 CPU／8 GiB、每 seed 300 s，含导入／建模／回调；实际完成前不填成绩 |
+| Knueven、Ostrowski、Watson，*On Mixed-Integer Programming Formulations for the Unit Commitment Problem*（INFORMS Journal on Computing，2020，[DOI](https://doi.org/10.1287/ijoc.2019.0944)、[作者全文](https://optimization-online.org/wp-content/uploads/2018/11/6930.pdf)）；[EGRET 官方模型](https://github.com/grid-parity-exchange/Egret/blob/main/egret/models/unit_commitment.py)中的 Tight / Compact / Random1 | **v5 完整 case 的三种方法各 3/3 seed 有效达标**，共 9/9；逐 seed 时间及 reward 如下 | 原 checker、1 CPU／8 GiB、每 seed 300 s；Python／Pyomo 接口扩展，不能直接与 Julia／JuMP 作纯 formulation 加速归因 |
 
-EGRET 已固定作者 commit `28c324f9…`，显式关闭 demand slack 和 reserve shortfall。v4 完整 case 发现上游 `relax_balance=False` 被误处理为“发电≥需求”，造成适配合同失败，全部旧证据保留，不作论文方法质量结论。v5 在适配器显式绑定等式，作者文件与原物理 checker 不改；三种 formulation 的过发电拒绝、可再生能源削减、已知成本及原沙箱 native 验收通过后，才提交三份新正式 Job。两种接口的 HiGHS 后端同为 1.15.1，但 Python／Pyomo 与 Julia／JuMP 启动／建模不同。论文原实验的求解器、实例集合和计时条件也不同，不直接搬其时间到当前合同；实际状态见[本轮复现记录](baseline-reproductions-20261019.md)。
+EGRET 已固定作者 commit `28c324f9bf4fb3913b0a60dba3dd732b46084c3b`，显式关闭 demand slack 和 reserve shortfall。v4 完整 case 发现上游 `relax_balance=False` 被误处理为“发电≥需求”，造成适配合同失败：三种方法的 9 次 seed 重放均无有效快照、reward=0，全部旧证据保留，不作论文方法质量结论。v5 在适配器显式绑定等式，作者文件与原物理 checker 不改；三种 formulation 的过发电拒绝、可再生能源削减、已知成本及原沙箱 native 验收通过后，才提交三份新固定数值 Job，现已全部成功完成。
+
+| EGRET v5 方法 | seed0 首次达标 s ↓ | seed1 首次达标 s ↓ | seed2 首次达标 s ↓ | 平均惩罚时间 s ↓ | reward ↑ | 有效且达标 |
+|---|---:|---:|---:|---:|---:|---:|
+| Tight | 71.877536 | 70.484365 | 67.395412 | 69.919104 | 0.883468160 | 3/3 |
+| Compact | 95.064006 | 63.803503 | 83.069477 | 80.645662 | 0.865590563 | 3/3 |
+| Random1 | 45.342455 | 15.983200 | 14.450795 | 25.258817 | 0.957901972 | 3/3 |
+
+时间采用原监督器收到首个达标快照的记录，不是 solver 自报时间或整个求解进程退出时间；三次 seed 独立启动，所有完整排程由原 checker 验证，共同下界相对 gap 约 `9.8807×10⁻⁵`。v5 冻结闭包 SHA256 为 `aaec66575bac354f9972b6005ea6f19a45381229692137a1fdc25a46563579f2`，三份完成回执、原始精度及 v4 失败记录均见[机器可读证据](evidence/baseline-reproductions-20261019.json)。
+
+两种接口的 HiGHS 后端同为 1.15.1，但 Python／Pyomo 与 Julia／JuMP 启动／建模不同；宿主缓存、节点负载及执行批次也没有被配对控制。Random1 在本次重放中较早达标，是当前 case 的已测锚点，不据此发布相对 starter 或演化程序的稳定加速倍数。论文原实验的求解器、实例集合和计时条件也不同，不直接搬其时间到当前合同。
 
 #### 8.1.3 正式开发结果的统计口径
 

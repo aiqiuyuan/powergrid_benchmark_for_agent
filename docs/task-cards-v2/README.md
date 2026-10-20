@@ -36,23 +36,23 @@
 
 ### 1.1 传统方法、竞赛与论文复现锚点
 
-**2026-10-19 补充基线核对。** 各 card 的第 8 节现将演化结果与传统方法、原赛同实例记录、方法复现进度并列。这里的“锚点”指有来源的原始物理／经济指标，不表示理论最优，也不自动加入下文 `normalized-v1` 的观测范围。
+**2026-10-20 补充基线完成结果。** 各 card 的第 8 节现将演化结果与传统方法、原赛同实例记录、方法复现进度并列。这里的“锚点”指有来源的原始物理／经济指标，不表示理论最优，也不自动加入冻结的 `normalized-v1`／`normalized-v2` 观测范围。
 
 | 子 case | 已测传统方法／本轮起点 | 原赛结果与原 case 复现情况 | 论文／强方法复现状态 |
 |---|---|---|---|
 | [GOC2000](goc-sc-ac-opf.md#baseline-anchors) | 完整 starter J=1,003,485.357522；新完整 PMSC strict FP **1,002,774.015027** | LLNL 历史 J=988,356.792003，未按本轮资源重跑 | PMSC soft／strict 两次已完成、全 2421 故障有效可行；gollnlp 缺作者定制 Ipopt/HSL 库 |
 | [GOC2312](goc-sc-ac-opf.md#baseline-anchors) | starter J=7,278,497.380231；新完整 PMSC strict FP **381,423.195821** | LLNL 历史 J=374,222.320075；保留历史合同差异 | PMSC soft／strict 两次已完成、全 982 故障有效可行；gollnlp 同上阻塞 |
-| [UC / RTS-GMLC](unit-commitment.md#baseline-anchors) | 新交错校准 18/18 seed 执行有效达标；starter 9 次均值 **58.458 s** | 开放 benchmark 库，无对应竞赛排名；历史 224.359 s 未在新校准复现 | EGRET v4 适配失败保留；修正等式平衡的 **v5 native gate 通过、三份正式 Job 已提交**；不同运行时不发布固定加速比 |
-| [RTE X04](rte-maintenance.md#baseline-anchors) | 新重跑 starter F900=**11,560.512**；均值／可行 MILP 已启动 | S34 历史 F900=11,315.946，未完成同环境冠军重放 | S34 缺 Gurobi；S56、Gouvine 缺 CPLEX；实际构建缺口已记录 |
-| [RTE X15](rte-maintenance.md#baseline-anchors) | 完整 starter、均值风险／可行 MILP 的 900／5400 s 原面板重跑已启动 | 15 例官方逐例最小值及同一冻结算法逐例 F900 已列 | 不拼接不同参赛者实例最好值；三份实际 Job 覆盖 X04／X15 两档 |
+| [UC / RTS-GMLC](unit-commitment.md#baseline-anchors) | 新交错校准 18/18 seed 执行有效达标；starter 9 次均值 **58.458 s** | 开放 benchmark 库，无对应竞赛排名；历史 224.359 s 未在新校准复现 | EGRET v5 三 formulation **9/9 seed 有效且达标**；Random1 平均首次达标 **25.259 s**；v4 适配失败保留，不同运行时不发布固定加速比 |
+| [RTE X04](rte-maintenance.md#baseline-anchors) | 三方法两档均已完成；starter F900=**11,560.512**／F5400=**11,494.032**；mean／900 s 为 RE | S34 历史 F900=11,315.946，未完成同环境冠军重放 | S34 缺 Gurobi；S56、Gouvine 缺 CPLEX；实际构建缺口已记录 |
+| [RTE X15](rte-maintenance.md#baseline-anchors) | 三方法两档 **6 份完整面板均已完成**；900 s 可行 9／9／6，5400 s 为 14／14／11（各 15 例） | 15 例官方逐例最小值及同一冻结算法逐例 F900 已列 | 不拼接不同参赛者实例最好值；12 个阶段已完成，失败计入全 15 例质量，均未达 15/15 可行 |
 | [HEFTCom](heftcom-forecast-trade.md#baseline-anchors) | **7/7 新固定方法有效**（含扩展参考）；price-aware ridge **85,657,916.25 GBP** | Benchmark／SVK 原报价结算已复现，完整原赛模型重训仍分开 | GEB／organizer-spline 受限适配已完成；SVK-inspired CatBoost **84,604,672.88 GBP**，运行时扩展单列 |
-| [MAPDN](mapdn-voltage-control.md#baseline-anchors) | 同信息 droop 1.835251 MWh，另列积分反馈／迭代 droop／全信息 OPF | 无绑定竞赛榜单；传统方法已在完整原日实跑 | 原作者 MADDPG+Bowl／MATD3+Bowl 各 5 seeds ×400 episodes，**10 个训练 Job 已启动**；额外训练权重轨道 |
-| [PowerGym](powergym-volt-var-control.md#baseline-anchors) | coordinated rule quality=0.057844；新 Random／PPO 各三 seeds 均硬能量失败、quality0 | 无绑定竞赛榜单；八种传统方法与特权方法已列 | PPO／integer SAC／cbat-SAC-projected 各 3 seeds ×40000 转移，**12 个 Job 已提交**（含 Random）；完成／失败逐项保留 |
+| [MAPDN](mapdn-voltage-control.md#baseline-anchors) | 同信息 droop 1.835251 MWh，另列积分反馈／迭代 droop／全信息 OPF | 无绑定竞赛榜单；传统方法已在完整原日实跑 | 原作者 MADDPG／MATD3 **10/10 完成训练及 480 步重放**；全节点同时安全率均值 44.458%／37.250%，网损均值 1.730718／1.777307 MWh；额外训练权重轨道 |
+| [PowerGym](powergym-volt-var-control.md#baseline-anchors) | coordinated rule quality=0.057844；新 cbat 三 seeds quality 均值 **0.033358310**、最好 **0.059648916** | 无绑定竞赛榜单；八种传统方法与特权方法已列 | **12/12 完成，3/12 通过双能量条件**，仅 cbat 三 seeds 有效；其余 9 份正式 quality0，保留 SAC seed1 原始诊断与实际积分失败 |
 | [L2RPN](l2rpn-grid-control.md#baseline-anchors) | Greedy128/512/2048/4096 已校准；Greedy4096 原生分数 **0.087109662**、204/2016 成功步 | rl_agent／binbinchen／lujixiang 已按共同接口重放；同 case 最好 **0.087109662**，不恢复原赛 24 周排名 | 24 周 × 3 方法的 72 组结果与 native 一致；旧受限动作 PPO／ES 不作当前完整动作新基线 |
 
 每张卡片分别标注四种证据状态：**当前 case 同合同实测**、**额外信息／计算参照**、**原赛／论文原协议结果**、**方法或代码已定位但当前 case 未复现**。原报价／排程的重新验解或结算，与从原始输入独立重跑算法分开记录；后者需要代码、依赖、参数、训练数据和资源证据。
 
-前次补充仅提取已有运行证据并核验公开来源。随后根据补齐全部待补基线的要求，已启动[独立数值复现批次](baseline-reproductions-20261019.md)，并按实际提交、运行、完成、失败与依赖阻塞更新[执行证据](evidence/baseline-reproductions-20261019.json)。历史演化成绩未改。新增可移植基线证据为 [UC baseline v1](evidence/uc-baseline-v1.json) 与 [HEFTCom baseline v1](evidence/heftcom-baseline-v1.json)；其余传统／历史锚点链接到卡片内原有证据和官方来源。未完成的强基线复现保留明确缺口，不用文献成绩代填本轮实测成绩。
+前次补充仅提取已有运行证据并核验公开来源。随后根据补齐全部待补基线的要求，已完成[独立数值复现批次](baseline-reproductions-20261019.md)中全部可执行 Job；2026-10-20 14:48 核对 35 个当前正式数值／训练 Job 全部结束，0 运行、0 排队，并将原始指标、完成回执、失败及依赖阻塞更新至[执行证据](evidence/baseline-reproductions-20261019.json)。历史演化成绩未改。新增可移植基线证据为 [UC baseline v1](evidence/uc-baseline-v1.json) 与 [HEFTCom baseline v1](evidence/heftcom-baseline-v1.json)；其余传统／历史锚点链接到卡片内原有证据和官方来源。未完成的强基线复现保留明确缺口，不用文献成绩代填本轮实测成绩。
 
 ## 2. 每张卡片如何组织
 
