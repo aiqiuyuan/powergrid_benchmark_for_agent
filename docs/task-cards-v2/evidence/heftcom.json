@@ -1,0 +1,536 @@
+{
+  "schema": "task-card-v2-evidence-1",
+  "family": "heftcom-forecast-trade",
+  "checked_at_beijing": "2026-10-19T12:23:37+08:00",
+  "result_contract": "all 15 original cutoff artifacts uniformly regraded, no new developer repeats or model calls",
+  "original_campaign_id": "heftcom-fixed-trade-12h-20261018-v6",
+  "original_source_manifest_sha256": "94f37506d0d59b8dae82f122b68824e814735cba17991a3a5c0782794d4c6116",
+  "amendment_id": "heftcom-terminal-regrade-20261019-v3",
+  "amendment_source_manifest_sha256": "7638ea48a252e3a1fb25ca623dd16a755778c0586c36f4c07496f00f862c30e6",
+  "model": "bedrock/gpt-5.6-sol",
+  "developer_seconds": 43200,
+  "freeze_reserve_seconds": 15,
+  "cumulative_token_cap": null,
+  "developer_resources": {
+    "cpus": 3,
+    "memory_gib": 8,
+    "gpus": 0
+  },
+  "scoring": {
+    "cpus": 1,
+    "memory_gib": 8,
+    "seed": 0,
+    "training_seconds": 300,
+    "daily_prediction_seconds": 10,
+    "total_seconds": 600,
+    "market_days": 90,
+    "periods": 4318,
+    "higher_is_better": true,
+    "unit": "GBP"
+  },
+  "groups": [
+    {
+      "n": 0,
+      "best_revenue_gbp": 85322539.62877557,
+      "mean_revenue_gbp": null,
+      "total": 3,
+      "valid_count": 2,
+      "sample_sd_revenue_gbp": null,
+      "statistics_policy": "mean and sample SD only when all three developer repeats are valid"
+    },
+    {
+      "n": 1,
+      "best_revenue_gbp": 86514060.07292178,
+      "mean_revenue_gbp": 84745625.27632594,
+      "total": 3,
+      "valid_count": 3,
+      "sample_sd_revenue_gbp": 1546736.448247786,
+      "statistics_policy": "mean and sample SD only when all three developer repeats are valid"
+    },
+    {
+      "n": 3,
+      "best_revenue_gbp": 87592102.60197543,
+      "mean_revenue_gbp": null,
+      "total": 3,
+      "valid_count": 2,
+      "sample_sd_revenue_gbp": null,
+      "statistics_policy": "mean and sample SD only when all three developer repeats are valid"
+    },
+    {
+      "n": 5,
+      "best_revenue_gbp": 86968812.93362705,
+      "mean_revenue_gbp": null,
+      "total": 3,
+      "valid_count": 2,
+      "sample_sd_revenue_gbp": null,
+      "statistics_policy": "mean and sample SD only when all three developer repeats are valid"
+    },
+    {
+      "n": 10,
+      "best_revenue_gbp": 88060765.82055467,
+      "mean_revenue_gbp": 87859396.41134852,
+      "total": 3,
+      "valid_count": 3,
+      "sample_sd_revenue_gbp": 175842.54693709165,
+      "statistics_policy": "mean and sample SD only when all three developer repeats are valid"
+    }
+  ],
+  "records": [
+    {
+      "role": "n0-r1",
+      "n": 0,
+      "repeat": 1,
+      "original_valid": false,
+      "original_revenue_gbp": null,
+      "original_error": "Only source, metadata and declared NumPy weights accepted",
+      "amended_valid": false,
+      "amended_revenue_gbp": null,
+      "amended_reward": 0.0,
+      "amended_error": "Algorithm process failed",
+      "amended_training_and_daily_replay_seconds": null,
+      "revenue_delta_gbp": null,
+      "excluded_cache_count": 1,
+      "graded_source_manifest": {
+        "solution.py": {
+          "sha256": "0ce2f9816ecc8abf1360c055a0b7487eab33f4f1e9bcfaca0e3cf6b0d07636d1",
+          "size": 60088
+        }
+      },
+      "feedback": {
+        "submitted": 0,
+        "completed": 0,
+        "collected": 0
+      }
+    },
+    {
+      "role": "n0-r2",
+      "n": 0,
+      "repeat": 2,
+      "original_valid": false,
+      "original_revenue_gbp": null,
+      "original_error": "Only source, metadata and declared NumPy weights accepted",
+      "amended_valid": true,
+      "amended_revenue_gbp": 84293270.55280104,
+      "amended_reward": 0.9552708378343118,
+      "amended_error": null,
+      "amended_training_and_daily_replay_seconds": 191.72960524260998,
+      "revenue_delta_gbp": null,
+      "excluded_cache_count": 1,
+      "graded_source_manifest": {
+        "solution.py": {
+          "sha256": "e1ffe492282aefe231904d60f33714ed895122caacb12c1e5f149badee983ded",
+          "size": 44221
+        }
+      },
+      "feedback": {
+        "submitted": 0,
+        "completed": 0,
+        "collected": 0
+      }
+    },
+    {
+      "role": "n0-r3",
+      "n": 0,
+      "repeat": 3,
+      "original_valid": true,
+      "original_revenue_gbp": 85322539.62877557,
+      "original_error": null,
+      "amended_valid": true,
+      "amended_revenue_gbp": 85322539.62877557,
+      "amended_reward": 0.9574510028433884,
+      "amended_error": null,
+      "amended_training_and_daily_replay_seconds": 250.81008737161756,
+      "revenue_delta_gbp": 0.0,
+      "excluded_cache_count": 0,
+      "graded_source_manifest": {
+        "solution.py": {
+          "sha256": "9f73a3a1ba332f3e52bb0fedfea0f53c67780d73966b58661e0241ac74b9456f",
+          "size": 14567
+        }
+      },
+      "feedback": {
+        "submitted": 0,
+        "completed": 0,
+        "collected": 0
+      }
+    },
+    {
+      "role": "n1-r1",
+      "n": 1,
+      "repeat": 1,
+      "original_valid": true,
+      "original_revenue_gbp": 84077908.26597208,
+      "original_error": null,
+      "amended_valid": true,
+      "amended_revenue_gbp": 84077908.26597208,
+      "amended_reward": 0.954815919764769,
+      "amended_error": null,
+      "amended_training_and_daily_replay_seconds": 132.67810307070613,
+      "revenue_delta_gbp": 0.0,
+      "excluded_cache_count": 0,
+      "graded_source_manifest": {
+        "solution.py": {
+          "sha256": "2e7167a326715fe143bfc7ac7a08217229ce27d09e6502dd7fe6d52c189d7668",
+          "size": 22188
+        }
+      },
+      "feedback": {
+        "submitted": 1,
+        "completed": 1,
+        "collected": 1
+      }
+    },
+    {
+      "role": "n1-r2",
+      "n": 1,
+      "repeat": 2,
+      "original_valid": true,
+      "original_revenue_gbp": 86514060.07292178,
+      "original_error": null,
+      "amended_valid": true,
+      "amended_revenue_gbp": 86514060.07292178,
+      "amended_reward": 0.9599873045180038,
+      "amended_error": null,
+      "amended_training_and_daily_replay_seconds": 164.60972102731466,
+      "revenue_delta_gbp": 0.0,
+      "excluded_cache_count": 0,
+      "graded_source_manifest": {
+        "solution.py": {
+          "sha256": "bebb5a064c84456231763c4c63f8493558b3450599c3ebf5ac7ba5d49adb6cc3",
+          "size": 12851
+        }
+      },
+      "feedback": {
+        "submitted": 1,
+        "completed": 1,
+        "collected": 1
+      }
+    },
+    {
+      "role": "n1-r3",
+      "n": 1,
+      "repeat": 3,
+      "original_valid": true,
+      "original_revenue_gbp": 83644907.49008395,
+      "original_error": null,
+      "amended_valid": true,
+      "amended_revenue_gbp": 83644907.49008395,
+      "amended_reward": 0.9539025855779036,
+      "amended_error": null,
+      "amended_training_and_daily_replay_seconds": 222.13744563050568,
+      "revenue_delta_gbp": 0.0,
+      "excluded_cache_count": 0,
+      "graded_source_manifest": {
+        "solution.py": {
+          "sha256": "5966bec552a934428ce1ebf5d739cb6d5ab88409bd367a6f50aa1cf52c91a96c",
+          "size": 27456
+        }
+      },
+      "feedback": {
+        "submitted": 1,
+        "completed": 1,
+        "collected": 1
+      }
+    },
+    {
+      "role": "n3-r1",
+      "n": 3,
+      "repeat": 1,
+      "original_valid": false,
+      "original_revenue_gbp": null,
+      "original_error": "Only source, metadata and declared NumPy weights accepted",
+      "amended_valid": false,
+      "amended_revenue_gbp": null,
+      "amended_reward": 0.0,
+      "amended_error": "Algorithm process failed",
+      "amended_training_and_daily_replay_seconds": null,
+      "revenue_delta_gbp": null,
+      "excluded_cache_count": 1,
+      "graded_source_manifest": {
+        "solution.py": {
+          "sha256": "733ab749eb2fe138dbf41a75d15251d59894d994fd37cdf0f7dda18d860059dc",
+          "size": 33468
+        }
+      },
+      "feedback": {
+        "submitted": 3,
+        "completed": 3,
+        "collected": 3
+      }
+    },
+    {
+      "role": "n3-r2",
+      "n": 3,
+      "repeat": 2,
+      "original_valid": false,
+      "original_revenue_gbp": null,
+      "original_error": "Algorithm execution timeout",
+      "amended_valid": true,
+      "amended_revenue_gbp": 87587628.67191324,
+      "amended_reward": 0.9622840662668619,
+      "amended_error": null,
+      "amended_training_and_daily_replay_seconds": 385.81186005473137,
+      "revenue_delta_gbp": null,
+      "excluded_cache_count": 0,
+      "graded_source_manifest": {
+        "solution.py": {
+          "sha256": "1eebb4168ddb0645bfd86bde2dcc9e61f2672194512666bfd83d731b00706af0",
+          "size": 19500
+        }
+      },
+      "feedback": {
+        "submitted": 3,
+        "completed": 3,
+        "collected": 3
+      }
+    },
+    {
+      "role": "n3-r3",
+      "n": 3,
+      "repeat": 3,
+      "original_valid": true,
+      "original_revenue_gbp": 87592102.60197543,
+      "original_error": null,
+      "amended_valid": true,
+      "amended_revenue_gbp": 87592102.60197543,
+      "amended_reward": 0.9622936606591659,
+      "amended_error": null,
+      "amended_training_and_daily_replay_seconds": 136.7557325977832,
+      "revenue_delta_gbp": 0.0,
+      "excluded_cache_count": 0,
+      "graded_source_manifest": {
+        "solution.py": {
+          "sha256": "badc64a41b62cceacbdd8866b5a67cac9b8537d0a7804bccd67f5c7da2db7f4a",
+          "size": 20920
+        }
+      },
+      "feedback": {
+        "submitted": 3,
+        "completed": 3,
+        "collected": 3
+      }
+    },
+    {
+      "role": "n5-r1",
+      "n": 5,
+      "repeat": 1,
+      "original_valid": false,
+      "original_revenue_gbp": null,
+      "original_error": "Only source, metadata and declared NumPy weights accepted",
+      "amended_valid": false,
+      "amended_revenue_gbp": null,
+      "amended_reward": 0.0,
+      "amended_error": "Algorithm process failed",
+      "amended_training_and_daily_replay_seconds": null,
+      "revenue_delta_gbp": null,
+      "excluded_cache_count": 1,
+      "graded_source_manifest": {
+        "solution.py": {
+          "sha256": "1fa6dacf96b95c24622e59d030cfb856d936acbd9ddd51962a93392c6c2ce26d",
+          "size": 26910
+        }
+      },
+      "feedback": {
+        "submitted": 5,
+        "completed": 5,
+        "collected": 5
+      }
+    },
+    {
+      "role": "n5-r2",
+      "n": 5,
+      "repeat": 2,
+      "original_valid": false,
+      "original_revenue_gbp": null,
+      "original_error": "Algorithm execution timeout",
+      "amended_valid": true,
+      "amended_revenue_gbp": 86968812.93362705,
+      "amended_reward": 0.9609588498784755,
+      "amended_error": null,
+      "amended_training_and_daily_replay_seconds": 304.68145967647433,
+      "revenue_delta_gbp": null,
+      "excluded_cache_count": 0,
+      "graded_source_manifest": {
+        "solution.py": {
+          "sha256": "8e3742d208e27e58b698ff872a756e64015d97cafa5a8ce000177378665f8539",
+          "size": 9514
+        }
+      },
+      "feedback": {
+        "submitted": 5,
+        "completed": 5,
+        "collected": 5
+      }
+    },
+    {
+      "role": "n5-r3",
+      "n": 5,
+      "repeat": 3,
+      "original_valid": true,
+      "original_revenue_gbp": 85534440.47037254,
+      "original_error": null,
+      "amended_valid": true,
+      "amended_revenue_gbp": 85534440.47037254,
+      "amended_reward": 0.9579010803045321,
+      "amended_error": null,
+      "amended_training_and_daily_replay_seconds": 180.91832828894258,
+      "revenue_delta_gbp": 0.0,
+      "excluded_cache_count": 0,
+      "graded_source_manifest": {
+        "solution.py": {
+          "sha256": "be16801df5313869f442cb020bc289303863d07414752744a917063220f7137d",
+          "size": 27284
+        }
+      },
+      "feedback": {
+        "submitted": 5,
+        "completed": 5,
+        "collected": 5
+      }
+    },
+    {
+      "role": "n10-r1",
+      "n": 10,
+      "repeat": 1,
+      "original_valid": true,
+      "original_revenue_gbp": 87736164.59849852,
+      "original_error": null,
+      "amended_valid": true,
+      "amended_revenue_gbp": 87736164.59849852,
+      "amended_reward": 0.9626027054972353,
+      "amended_error": null,
+      "amended_training_and_daily_replay_seconds": 172.32424794323742,
+      "revenue_delta_gbp": 0.0,
+      "excluded_cache_count": 0,
+      "graded_source_manifest": {
+        "solution.py": {
+          "sha256": "a3244f733ee10228fc6fe16755572fa969e0be2bd3463d727356de8d5020b741",
+          "size": 6668
+        }
+      },
+      "feedback": {
+        "submitted": 10,
+        "completed": 10,
+        "collected": 10
+      }
+    },
+    {
+      "role": "n10-r2",
+      "n": 10,
+      "repeat": 2,
+      "original_valid": true,
+      "original_revenue_gbp": 87781258.81499238,
+      "original_error": null,
+      "amended_valid": true,
+      "amended_revenue_gbp": 87781258.81499238,
+      "amended_reward": 0.9626994833593966,
+      "amended_error": null,
+      "amended_training_and_daily_replay_seconds": 129.0684456359595,
+      "revenue_delta_gbp": 0.0,
+      "excluded_cache_count": 0,
+      "graded_source_manifest": {
+        "solution.py": {
+          "sha256": "d1a1f67bbd3644d25a649b6a0325b273db118ff64fe53e4efa3459e574b4daaf",
+          "size": 12452
+        }
+      },
+      "feedback": {
+        "submitted": 10,
+        "completed": 10,
+        "collected": 10
+      }
+    },
+    {
+      "role": "n10-r3",
+      "n": 10,
+      "repeat": 3,
+      "original_valid": true,
+      "original_revenue_gbp": 88060765.82055467,
+      "original_error": null,
+      "amended_valid": true,
+      "amended_revenue_gbp": 88060765.82055467,
+      "amended_reward": 0.9632997749467593,
+      "amended_error": null,
+      "amended_training_and_daily_replay_seconds": 44.133690344169736,
+      "revenue_delta_gbp": 0.0,
+      "excluded_cache_count": 0,
+      "graded_source_manifest": {
+        "PROVENANCE.md": {
+          "sha256": "60ce871fbc2703d82174dcd870ed6bea47fea110ce1b0755e3cf14feeb7af4f7",
+          "size": 1850
+        },
+        "solution.py": {
+          "sha256": "138c19a36d0a712bb1e995b4a4d340918055a1063e680fb7a5b1a27a4e94d85c",
+          "size": 13198
+        }
+      },
+      "feedback": {
+        "submitted": 10,
+        "completed": 10,
+        "collected": 10
+      }
+    }
+  ],
+  "feedback_counts": {
+    "submitted": 57,
+    "completed": 57,
+    "collected": 57,
+    "added_by_amendment": 0
+  },
+  "amendment_execution": {
+    "new_developer_repeats": 0,
+    "model_requests": 0,
+    "job_uid": "d6b61218-d0a4-4b82-8723-d836b91b00cd",
+    "pod_uid": "ad2ceadd-78bf-455e-b731-abf087f202ed",
+    "exit_code": 0,
+    "restarts": 0,
+    "original_valid_reproduced_exactly": 9,
+    "archive_execution": false
+  },
+  "provenance_boundaries": [
+    "original nine valid revenues reproduced with zero difference",
+    "n3-r2 and n5-r2 changed from timeout to valid without cache exclusions; timing variation is separate from cache policy",
+    "runner did not preserve original candidate stdout/stderr for generic Algorithm process failed",
+    "first valid ledger SHA sample was after regrade began; completion hashes match that sample, not a pre-start byte baseline",
+    "source-level algorithm mechanism descriptions are not independent ablations or complete edit histories"
+  ],
+  "sources": [
+    {
+      "source_id": "HEFT-RESULTS",
+      "sha256": "20e2ef5d5ad29d55e85c6b087ef9622006b145b322152a7d987513d5aef92f85"
+    },
+    {
+      "source_id": "HEFT-PROTOCOL",
+      "sha256": "4256ebefac91f840a90b31225aadd659ddc93aa05c42cbdd1fd19a46a287ad32"
+    },
+    {
+      "source_id": "HEFT-LEDGER-FINAL",
+      "sha256": "d2bacdf4b03f37433d145a4c8ef6d9ee2ba05bea2a2126b3b58ae28ca5c103d9"
+    },
+    {
+      "source_id": "HEFT-ORIGINAL-RESULTS",
+      "sha256": "575debcacc15504685d5e1ad403714681bb697e6ddcbc09fd8ed7669aee37d35"
+    },
+    {
+      "source_id": "HEFT-COMPARABILITY",
+      "sha256": "aedb45479d968195a8af416a4a8e7cad1f0dcc84a2801a5fa043a9643537a4f3"
+    }
+  ],
+  "algorithm_sources": [
+    {
+      "role": "n0-r3",
+      "solution_sha256": "9f73a3a1ba332f3e52bb0fedfea0f53c67780d73966b58661e0241ac74b9456f",
+      "evidence_level": "archived terminal source, compared with common starter; no independent ablation"
+    },
+    {
+      "role": "n3-r3",
+      "solution_sha256": "badc64a41b62cceacbdd8866b5a67cac9b8537d0a7804bccd67f5c7da2db7f4a",
+      "evidence_level": "archived terminal source, compared with common starter; no independent ablation"
+    },
+    {
+      "role": "n10-r3",
+      "solution_sha256": "138c19a36d0a712bb1e995b4a4d340918055a1063e680fb7a5b1a27a4e94d85c",
+      "evidence_level": "archived terminal source, compared with common starter; no independent ablation"
+    }
+  ]
+}

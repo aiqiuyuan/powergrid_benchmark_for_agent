@@ -1,0 +1,339 @@
+{
+  "schema": "heftcom-starter-baseline-evidence-v1",
+  "version": "heftcom-baseline-v1",
+  "compiled_on_beijing": "2026-10-19",
+  "family_id": "heftcom-forecast-trade",
+  "scope": "Sanitized extraction of existing native acceptance records. No new development, model requests, process feedback or scoring was performed for this extraction.",
+  "original_campaign_id": "heftcom-fixed-trade-12h-20261018-v6",
+  "original_source_manifest_sha256": "94f37506d0d59b8dae82f122b68824e814735cba17991a3a5c0782794d4c6116",
+  "amendment_id": "heftcom-terminal-regrade-20261019-v3",
+  "amendment_source_manifest_sha256": "7638ea48a252e3a1fb25ca623dd16a755778c0586c36f4c07496f00f862c30e6",
+  "case": {
+    "id": "full-90-market-days/frozen-training-Trading",
+    "first_market_day": "2024-02-20",
+    "last_market_day": "2024-05-19",
+    "market_days": 90,
+    "half_hour_periods": 4318,
+    "market_day_timezone": "Europe/London",
+    "market_day_boundary_local_hour": 23,
+    "decision_cutoff": "D-1 09:20 UTC",
+    "training_label_cutoff_utc": "2024-02-17T23:30:00Z",
+    "input_track": "fixed training history; DWD aggregate weather and calendar; frozen weights; no target labels, target prices, external data or online updating",
+    "settlement_energy": "actual_mwh=(Wind_MW+Solar_MW)/2+boa_MWh",
+    "bid_bounds_mwh": [
+      0,
+      1800
+    ]
+  },
+  "execution_contract": {
+    "scorer_cpus": 1,
+    "scorer_memory_bytes": 8589934592,
+    "gpu": 0,
+    "execution_seed": 0,
+    "training_seconds_limit": 300,
+    "per_market_day_prediction_seconds_limit": 10,
+    "training_and_all_prediction_seconds_limit": 600,
+    "terminal_rule": "heftcom-terminal-python-cache-exclusion-v1",
+    "execution_storage": "dedicated-node-local-emptydir",
+    "source_archive_read_only_and_never_executed": true
+  },
+  "starter": {
+    "method": "causal nonlinear ridge with weather polynomial features and conservative price-adjustment mixture",
+    "training_policy": "train once on the fixed history; freeze weights for daily replay",
+    "original_manifest_entry": "frozen/tasks/heftcom-fixed-trade-v3/environment/app/submission/solution.py",
+    "source_size_bytes": 2166,
+    "source_sha256": "2910557c9b4facf0d82661fcf1587b99fe06bd2d67a7a187daa2fd4f30e9c318",
+    "original_manifest_entry_matches_preserved_starter_bytes": true
+  },
+  "amended_terminal_acceptance": {
+    "clean": {
+      "source_id": "heftcom-v3/clean-starter-reward-details.json",
+      "valid": true,
+      "evaluation_completed": true,
+      "cumulative_revenue_gbp": 85204183.36975802,
+      "mean_revenue_gbp": 19732.32593093053,
+      "mean_oracle_regret_gbp": 4471.396873687751,
+      "reward": 0.9571997981505507,
+      "periods": 4318,
+      "market_days": 90,
+      "model_seed": 0,
+      "training_and_daily_replay_seconds": 16.118274100124836,
+      "graded_source_manifest": {
+        "solution.py": {
+          "size": 2166,
+          "sha256": "2910557c9b4facf0d82661fcf1587b99fe06bd2d67a7a187daa2fd4f30e9c318"
+        }
+      }
+    },
+    "cached": {
+      "source_id": "heftcom-v3/cached-starter-reward-details.json",
+      "valid": true,
+      "evaluation_completed": true,
+      "cumulative_revenue_gbp": 85204183.36975802,
+      "mean_revenue_gbp": 19732.32593093053,
+      "mean_oracle_regret_gbp": 4471.396873687751,
+      "reward": 0.9571997981505507,
+      "periods": 4318,
+      "market_days": 90,
+      "model_seed": 0,
+      "training_and_daily_replay_seconds": 16.279384238645434,
+      "graded_source_manifest": {
+        "solution.py": {
+          "size": 2166,
+          "sha256": "2910557c9b4facf0d82661fcf1587b99fe06bd2d67a7a187daa2fd4f30e9c318"
+        }
+      }
+    }
+  },
+  "equivalence_checks": {
+    "acceptance_passed": true,
+    "original_evidence_unchanged": true,
+    "cache_equivalence_passed": true,
+    "real_security_passed": true,
+    "raw_clean_manifest": {
+      "solution.py": {
+        "size": 2166,
+        "sha256": "2910557c9b4facf0d82661fcf1587b99fe06bd2d67a7a187daa2fd4f30e9c318"
+      }
+    },
+    "raw_cached_manifest": {
+      "__pycache__/solution.cpython-312.pyc": {
+        "size": 44,
+        "sha256": "1f04a098e1ff6e707138164eca339e82d1eaec8b5cc7f6d98330a4fbf3b135dc"
+      },
+      "solution.py": {
+        "size": 2166,
+        "sha256": "2910557c9b4facf0d82661fcf1587b99fe06bd2d67a7a187daa2fd4f30e9c318"
+      },
+      "solution.pyc": {
+        "size": 24,
+        "sha256": "08ebf7ac37c3efd7ce16a7fa45fb206dbcec5ed9192fd77e06170577cf7fd80f"
+      }
+    },
+    "normalized_manifest": {
+      "solution.py": {
+        "size": 2166,
+        "sha256": "2910557c9b4facf0d82661fcf1587b99fe06bd2d67a7a187daa2fd4f30e9c318"
+      }
+    },
+    "excluded_cache_manifest": {
+      "__pycache__/solution.cpython-312.pyc": {
+        "size": 44,
+        "sha256": "1f04a098e1ff6e707138164eca339e82d1eaec8b5cc7f6d98330a4fbf3b135dc"
+      },
+      "solution.pyc": {
+        "size": 24,
+        "sha256": "08ebf7ac37c3efd7ce16a7fa45fb206dbcec5ed9192fd77e06170577cf7fd80f"
+      }
+    },
+    "clean_archive_and_execution_manifest_match_normalized": true,
+    "cached_archive_and_execution_manifest_match_normalized": true,
+    "absolute_revenue_difference_gbp": 0.0,
+    "model_requests": 0,
+    "process_feedback_calls": 0,
+    "all_original_native_gate_revenues_equal_amended_starter": true,
+    "native_n0_clean_and_cached_execution_source_hashes_equal_frozen_starter": true,
+    "positive_native_gate_comment_only_hash_reconstructions_passed": true,
+    "native_transport_driver_sha256": "8ba74ef42605b0574ee4f64e4dea6b75e92563e7961874967c90a8a410d748da"
+  },
+  "original_native_gate_checks": [
+    {
+      "source_id": "heftcom-v6/native-acceptance-n0-complete.json",
+      "valid": true,
+      "evaluation_completed": true,
+      "cumulative_revenue_gbp": 85204183.36975802,
+      "mean_revenue_gbp": 19732.32593093053,
+      "mean_oracle_regret_gbp": 4471.396873687751,
+      "reward": 0.9571997981505507,
+      "periods": 4318,
+      "market_days": 90,
+      "model_seed": 0,
+      "training_and_daily_replay_seconds": 18.855216693133116,
+      "graded_source_manifest": {
+        "solution.py": {
+          "size": 2166,
+          "sha256": "2910557c9b4facf0d82661fcf1587b99fe06bd2d67a7a187daa2fd4f30e9c318"
+        }
+      },
+      "native_test_feedback_budget": 0,
+      "model_messages": 0,
+      "feedback_calls": 0,
+      "counts_as_main_experiment": false,
+      "source_relation": "untouched starter",
+      "comment_suffix_bytes": 0,
+      "reconstructed_source_matches_recorded_size_and_sha256": true
+    },
+    {
+      "source_id": "heftcom-v6/native-acceptance-n1-complete.json",
+      "valid": true,
+      "evaluation_completed": true,
+      "cumulative_revenue_gbp": 85204183.36975802,
+      "mean_revenue_gbp": 19732.32593093053,
+      "mean_oracle_regret_gbp": 4471.396873687751,
+      "reward": 0.9571997981505507,
+      "periods": 4318,
+      "market_days": 90,
+      "model_seed": 0,
+      "training_and_daily_replay_seconds": 22.45688139088452,
+      "graded_source_manifest": {
+        "solution.py": {
+          "size": 2195,
+          "sha256": "7431e3104ba2aab8d2aad67f160debb4dc85af6bc295b1cab5e628b2587527eb"
+        }
+      },
+      "native_test_feedback_budget": 1,
+      "model_messages": 0,
+      "feedback_calls": 1,
+      "counts_as_main_experiment": false,
+      "source_relation": "starter plus comment-only native-gate suffix",
+      "comment_suffix_bytes": 29,
+      "reconstructed_source_matches_recorded_size_and_sha256": true
+    },
+    {
+      "source_id": "heftcom-v6/native-acceptance-n3-complete.json",
+      "valid": true,
+      "evaluation_completed": true,
+      "cumulative_revenue_gbp": 85204183.36975802,
+      "mean_revenue_gbp": 19732.32593093053,
+      "mean_oracle_regret_gbp": 4471.396873687751,
+      "reward": 0.9571997981505507,
+      "periods": 4318,
+      "market_days": 90,
+      "model_seed": 0,
+      "training_and_daily_replay_seconds": 17.965252747759223,
+      "graded_source_manifest": {
+        "solution.py": {
+          "size": 2237,
+          "sha256": "6ed8c3ba86947eca300d3e1df210296cff3f5262f2722446bfc5b77e6829b3c9"
+        }
+      },
+      "native_test_feedback_budget": 3,
+      "model_messages": 0,
+      "feedback_calls": 3,
+      "counts_as_main_experiment": false,
+      "source_relation": "starter plus comment-only native-gate suffix",
+      "comment_suffix_bytes": 71,
+      "reconstructed_source_matches_recorded_size_and_sha256": true
+    },
+    {
+      "source_id": "heftcom-v6/native-acceptance-n5-complete.json",
+      "valid": true,
+      "evaluation_completed": true,
+      "cumulative_revenue_gbp": 85204183.36975802,
+      "mean_revenue_gbp": 19732.32593093053,
+      "mean_oracle_regret_gbp": 4471.396873687751,
+      "reward": 0.9571997981505507,
+      "periods": 4318,
+      "market_days": 90,
+      "model_seed": 0,
+      "training_and_daily_replay_seconds": 19.8047627620399,
+      "graded_source_manifest": {
+        "solution.py": {
+          "size": 2279,
+          "sha256": "3eee33e3fe5427abb77f0c7814a8c80d496e76fa41cfbf32e254c3cf7ca1c4c0"
+        }
+      },
+      "native_test_feedback_budget": 5,
+      "model_messages": 0,
+      "feedback_calls": 5,
+      "counts_as_main_experiment": false,
+      "source_relation": "starter plus comment-only native-gate suffix",
+      "comment_suffix_bytes": 113,
+      "reconstructed_source_matches_recorded_size_and_sha256": true
+    },
+    {
+      "source_id": "heftcom-v6/native-acceptance-n10-complete.json",
+      "valid": true,
+      "evaluation_completed": true,
+      "cumulative_revenue_gbp": 85204183.36975802,
+      "mean_revenue_gbp": 19732.32593093053,
+      "mean_oracle_regret_gbp": 4471.396873687751,
+      "reward": 0.9571997981505507,
+      "periods": 4318,
+      "market_days": 90,
+      "model_seed": 0,
+      "training_and_daily_replay_seconds": 24.88715247064829,
+      "graded_source_manifest": {
+        "solution.py": {
+          "size": 2385,
+          "sha256": "1407f699457e520be97ac78e127d030c83a042a1f6b3a377408dac7360122794"
+        }
+      },
+      "native_test_feedback_budget": 10,
+      "model_messages": 0,
+      "feedback_calls": 10,
+      "counts_as_main_experiment": false,
+      "source_relation": "starter plus comment-only native-gate suffix",
+      "comment_suffix_bytes": 219,
+      "reconstructed_source_matches_recorded_size_and_sha256": true
+    }
+  ],
+  "limitations": [
+    "Native n0 and clean/cached replays are untouched-starter anchors; positive-budget native gates append verified comments and are supplementary algorithm-identical observations.",
+    "These are acceptance observations, not independent developer repeats or a repeated runtime calibration.",
+    "This benchmark adaptation does not retrain the original competition Benchmark or SVK algorithm and gives no original-competition ranking.",
+    "The starter is a feasible reference, not an optimality certificate."
+  ],
+  "sources": [
+    {
+      "source_id": "heftcom-v6/source-manifest.json",
+      "sha256": "94f37506d0d59b8dae82f122b68824e814735cba17991a3a5c0782794d4c6116",
+      "scope": "original frozen source and starter identity"
+    },
+    {
+      "source_id": "heftcom-v3/source-manifest.json",
+      "sha256": "7638ea48a252e3a1fb25ca623dd16a755778c0586c36f4c07496f00f862c30e6",
+      "scope": "terminal amendment and fixed resource contract"
+    },
+    {
+      "source_id": "heftcom-v6/code/transport_smoke.py",
+      "sha256": "8ba74ef42605b0574ee4f64e4dea6b75e92563e7961874967c90a8a410d748da",
+      "scope": "no-model driver; positive-budget changes append comments only"
+    },
+    {
+      "source_id": "heftcom-v6/native-acceptance-n0-complete.json",
+      "sha256": "87ba38ab07b895db64e709875cb8ec01951b6aaef3d5c3d24db5b9cb90cc4336",
+      "scope": "original no-model native gate observation; no independent developer repeat"
+    },
+    {
+      "source_id": "heftcom-v6/native-acceptance-n1-complete.json",
+      "sha256": "11a83787cda0d8ca8350c595d9a9bee833c3afe13e032cfdb29f4343a50ba9cc",
+      "scope": "original no-model native gate observation; no independent developer repeat"
+    },
+    {
+      "source_id": "heftcom-v6/native-acceptance-n3-complete.json",
+      "sha256": "72f2c7c4ecbb17bbf8f2eba583da5dacfa0d475dfc2df6f6fe5bbdbe96433f72",
+      "scope": "original no-model native gate observation; no independent developer repeat"
+    },
+    {
+      "source_id": "heftcom-v6/native-acceptance-n5-complete.json",
+      "sha256": "121c4da347b1014636820c1f541538a8e84bd4b9155d7a25e91d39be689127e0",
+      "scope": "original no-model native gate observation; no independent developer repeat"
+    },
+    {
+      "source_id": "heftcom-v6/native-acceptance-n10-complete.json",
+      "sha256": "80474151093e1c6eb92cae275e6e6b98da00a0476255869861629938350f3a2e",
+      "scope": "original no-model native gate observation; no independent developer repeat"
+    },
+    {
+      "source_id": "heftcom-v3/clean-starter-reward-details.json",
+      "sha256": "e570748c1624c97d1a2a5a289ce1db56fbea698773495acceec9908efdd12cfe",
+      "scope": "amended terminal contract starter replay"
+    },
+    {
+      "source_id": "heftcom-v3/cached-starter-reward-details.json",
+      "sha256": "229fc5781e2cf295a894ac4d4fe8031288c6d8eb869461b250cde3ea1d06ae5d",
+      "scope": "amended terminal contract starter replay"
+    },
+    {
+      "source_id": "heftcom-v3/cache-equivalence.json",
+      "sha256": "54e231288697aa1a4865ae8be78f976f496093e8b0a6d0f319fe323606106d36",
+      "scope": "source normalization, archive/execution identity and clean/cached equality"
+    },
+    {
+      "source_id": "heftcom-v3/native-acceptance-status.json",
+      "sha256": "d391eb76059ae00bfff9b4bae8e743cfd90b7efd2e3da359c7ab21cf34f4a757",
+      "scope": "completed source-matched native acceptance"
+    }
+  ]
+}

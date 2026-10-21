@@ -1,0 +1,118 @@
+{
+  "agent_runs": 0,
+  "attempts": 192,
+  "candidate_count": 30,
+  "candidate_isolation_certified_by_this_run": false,
+  "checks": {
+    "final_documentation_review": true,
+    "independent_source_raw_result_and_metrics_audit": true,
+    "mapdn_backend_tests": {
+      "log_sha256": "4ad6a4ee69bb0312e1e017244f00d9afc293b0379986a900f6654ebfd8903e7a",
+      "passed": true,
+      "skipped": 0,
+      "tests": 16
+    },
+    "optional_cluster_runtime_unit_tests": {
+      "log_sha256": "dceead147f6cdb1b7565d9ddba57dc362a83562dd09a792887bb1f68370d7594",
+      "new_linux_execution": false,
+      "passed": true,
+      "skipped": 0,
+      "tests": 12
+    },
+    "powergym_backend_tests": {
+      "log_sha256": "a43db30f5a284e4a2f99e4c6d1fc3227929b3090be1baa76772a7895d0e39f5a",
+      "passed": true,
+      "skipped": 0,
+      "tests": 10
+    },
+    "repository_unittest": {
+      "passed": true,
+      "skipped": 27,
+      "tests": 161
+    },
+    "ruff_check_src_tests_new_tools": true,
+    "ruff_format_check_src_tests": true
+  },
+  "controller_wall_seconds_sum": 3338.1304976660176,
+  "evidence_sha256": {
+    "docs/experiments/verification/distribution-case-selection-20261016-mapdn.json": "e1061b4be6179a7da10bd2437db7066efe7f5f3aa1e6804cb401f5431408ec8c",
+    "docs/experiments/verification/distribution-case-selection-20261016-powergym.json": "da28f9e79b7704169c903e6306f3f71445ee9c01a7244c75839496ea11e3961c"
+  },
+  "executed_source_sha256": {
+    "configs/distribution-case-selection-20261016.json": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+    "src/powergrid_bench/__init__.py": "6f1e1881c7b78c9acffc82e7c174c34b6b26ba90f6eade14ce19ba6b5cc2ba7f",
+    "src/powergrid_bench/adapters.py": "2704e2b2023f10ac4ed497aa58a1ffcbbcc23d2bf58b95a87f08ff38ae81f2d2",
+    "src/powergrid_bench/artifacts.py": "cd6cbe13d1980cad6dab7c8070a433c2b2f2542c9b29d69a6fdfd7552e891033",
+    "src/powergrid_bench/broker.py": "59522c9c6caf710d35fe49fa09fe420424511d5292eb9c1570abcb7a53c9ed8c",
+    "src/powergrid_bench/cli.py": "91cdf314aa0686f61c7ba6535df324dd273d7f76059d609fa8268c00efec2bbd",
+    "src/powergrid_bench/clock.py": "a9a92af6c37026f77e1e058f995c9a86c62fc62d5c1da8dad84d740df899060a",
+    "src/powergrid_bench/config.py": "43030940592bf3f07ef5325c9e3640b873d970c7dd12c503735ac48a2fea91f4",
+    "src/powergrid_bench/distribution/__init__.py": "f8a69945e2bd36b069e4612a6ce36be08ada0bdf3dc93f09120fe9670e1a3cde",
+    "src/powergrid_bench/distribution/common.py": "809e9e4557977a567b58dfde7a7e2554a18e3d5883b64155e2bd3a75f372af53",
+    "src/powergrid_bench/distribution/mapdn.py": "46157dc689f3638476c737d6b8e6e7a8cec81e92140ccfe8292190d55fc091bb",
+    "src/powergrid_bench/distribution/powergym.py": "b96563a4fac668bd0504dd3bf1fa1a00e76b5cd67ff9230ee394e37a62cb18e5",
+    "src/powergrid_bench/distribution/preparation.py": "22c53f334e410ac47ecd7ad2b6632086a58cc7035899227fa27166729103614c",
+    "src/powergrid_bench/distribution/profiles.py": "bf2f7198982ab51c42b9409c2f49cf03575193d8fe87594cbd6e66b544f8faf6",
+    "src/powergrid_bench/fixtures.py": "2b6417d7e8db1badf627c0eebf19f9dd82cdc5a6032a34b368a0b5e652a86333",
+    "src/powergrid_bench/ledger.py": "f66e809cb1c295a5259b9f5238c107cdbd5d60d2d364a86945752c7323fc2883",
+    "src/powergrid_bench/lifecycle.py": "73cd905f07e9d9219a880bb046474326bcbd0c0cdd53c993fdb57210af7360a7",
+    "src/powergrid_bench/process.py": "c5b0ea3b91d6d275eaa515a44ef104e0e8a9cb5771dd405149cfa2f65f0f0574",
+    "src/powergrid_bench/rte.py": "baea55f7c86e74e65fd11f421616bf53e24b3b115e62ab63ac678af0e613f7f5",
+    "task-packages/mapdn-voltage-control-canary-v1/environment/app/submission/controller.py": "f20d2001116be460e9190e0a7b9e8f3473affd72699c15ce857e95d23c93afff",
+    "tools/distribution_selection/mapdn_baselines/__init__.py": "ae7962b70c83cb80210e8bcf314ccf94be5c37b25f3424803883bb23cef6e5d3",
+    "tools/distribution_selection/mapdn_baselines/controllers.py": "fca6ae6ce4f3cb7f0f9151073949b15bb990dc40d88035e494b9c9109539eeab",
+    "tools/distribution_selection/mapdn_baselines/reference.py": "b753066abd47b1042d1d7e53764594a3a327ba98caea0d32388fce04fd9804ec",
+    "tools/distribution_selection/mapdn_baselines/simulation.py": "ab9d5acf906644bbbaf2daa422d9deaa6b57e27d90b328f0ec36b8a0015892c5",
+    "tools/distribution_selection/mapdn_selection.py": "803280f6f97b7d3ef92027c228f5f0be16b12e4b3cb646de6fb29f693566b621",
+    "tools/distribution_selection/powergym_baselines/__init__.py": "6f11ed481703f91327075c09d059fb70d26279578160a3c039a9ff200ebfeb6d",
+    "tools/distribution_selection/powergym_baselines/backend.py": "b16e44db8f2a0235cca8294129da4a02082f1162e2fc69c18b1bdec695867df8",
+    "tools/distribution_selection/powergym_baselines/controllers.py": "98cb5797be00417b7b98366742e040d2b3071ad825484f1a3ff3cf574556d1ff",
+    "tools/distribution_selection/powergym_selection.py": "e2099e02a33d5291d97a9cbf77e1295341ee38307648df6c9d7f23eef44edcdd",
+    "tools/distribution_selection/runtime_cluster.py": "14f24ee184c416e6df0200f327dab6dd8c01b115b3dd486fb659fd9e9c349c1b",
+    "tools/distribution_selection/runtime_fetch_mapdn141.py": "ca7b7d19cb88e2368ddc9897a1ebe28a7c0f360ba58fce63cc840d8953138fa9",
+    "tools/distribution_selection/runtime_tests.py": "e87857e818deb71a79a83fd3b02da7151f9480450069e437c469643288f65424"
+  },
+  "execution_platform": "macOS-15.7.3-arm64-arm-64bit",
+  "experiment_id": "distribution-case-selection-20261016",
+  "explicit_opf_calls": 5760,
+  "explicit_pf_calls": 124995,
+  "failure_counts": {
+    "local_mapdn_pf_nonconvergence": 10,
+    "mapdn_opf_reference_invalid": 5
+  },
+  "formal_case_frozen_by_this_run": false,
+  "full_horizon_records": 181,
+  "gain_calibration_supplement_sha256": "3c036e85a43fd0d173feeb38d5adfed063a7157c2f1edf2b8967d94fda9b6ca4",
+  "kind": "trusted-numerical-selection-evidence-index",
+  "known_limits": [
+    "Finite deterministic candidate coverage, not a random representative sample.",
+    "Low-gain supplement was declared after observing initial high-gain instability; not all-stage blind preregistration.",
+    "Per-case best droop is an offline tuned reference; OPF has full-network information and no global optimum certificate.",
+    "Five invalid MAPDN141 OPF references do not prove physical infeasibility.",
+    "PowerGym snapshot search is myopic and all batteries are idle; long-horizon storage difficulty is unproven.",
+    "Exact executed scripts are retained byte-for-byte; lint passes. Formatting checks cover src/tests; frozen scripts are not reformatted after execution.",
+    "No original MARL/PPO/SAC training reproduction or formal strict-n task qualification in this batch."
+  ],
+  "new_cluster_jobs": 0,
+  "protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+  "python": "3.12.14",
+  "release_ready": false,
+  "schema_version": 1,
+  "shortlist": {
+    "mapdn_alternatives": [
+      "mapdn33-2014-05-28",
+      "mapdn141-2012-07-01"
+    ],
+    "mapdn_priority": "mapdn33-2012-02-03",
+    "powergym_pending_stronger_reference": [
+      "34Bus-standard-p000-s1",
+      "34Bus-standard-p006-s1",
+      "34Bus-standard-p015-s1"
+    ]
+  },
+  "source_freeze_receipt_sha256": "9ffb1dc73560d4b4aaf0c3bd07db178f1f4879178fb6a2b879dc1bf66fa53e56",
+  "strict_n_certified_by_this_run": false,
+  "valid_under_method_specific_criteria": 177,
+  "validity_interpretation": "Local methods require complete converged legal trajectories, not perfect voltage compliance. MAPDN OPF references additionally require full-day independent voltage-feasibility checks.",
+  "wall_time_interpretation": "Sum of individual controller wall times; overlapping runs; excludes source preparation and is not end-to-end elapsed time."
+}

@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "parent_protocol_sha256": "8d5854ccf3e11273d7977913dba0720fdadb0e7d2b7b980f19ad4853f40b7fa0",
+  "stage": "supplemental-stability-calibration",
+  "reason": "Initial gains 5/10/20 cause closed-loop instability on 141 buses. Do not interpret a poorly calibrated controller as intrinsic case difficulty.",
+  "networks": [33, 141],
+  "cases": "all six frozen candidates in each network; no case selection based on this stage",
+  "additional_normalized_droop_gains": [0.25, 0.5, 1.5, 2.5],
+  "initial_results_retained": true,
+  "frozen_case_pool_changed": false,
+  "score_changed": false,
+  "agent_experiments": 0,
+  "interpretation": "Predeclare this supplement before its execution; per-case best gain across both stages is an offline tuned reference, not an unseen-case policy result."
+}

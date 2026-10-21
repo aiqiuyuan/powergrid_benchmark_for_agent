@@ -1,0 +1,1274 @@
+{
+  "schema": "rte-historical-x15-reference-v1",
+  "scope": "Trusted terminal grading only; fixed original 13-team X15 field",
+  "source_workbook": {
+    "url": "https://roadef.org/challenge/2020/en/compiler_X.xlsx",
+    "file": "compiler_X.xlsx",
+    "sha256": "89e01077f6eae8e0aad2e5ddb0421400487a2c325085209e1be5e055bf6c9d7b",
+    "bytes": 69420
+  },
+  "audit_source_sha256": "2b514502905b9eac125c17d456fcd7564ba3dafe3e2288a21302e48dde67221c",
+  "historical_value_policy": "Use published cached weighted objective cells without recomputing historical objectives",
+  "candidate_weight_expression": "0.8*F900+(1-0.8)*F5400",
+  "failure_objective_for_points_only": 1e+99,
+  "anchors": {
+    "first": {
+      "team": "S34",
+      "published_x15_points": 149
+    },
+    "last": {
+      "team": "S28",
+      "published_x15_points": 6
+    }
+  },
+  "historical_teams": [
+    {
+      "team": "J3",
+      "published_x15_points": 27,
+      "cases": [
+        {
+          "case": "X_01",
+          "weighted_objective": 4105.968867924527,
+          "published_points": 1,
+          "source_cells": "J3!C2:H3; Results!D7:D11"
+        },
+        {
+          "case": "X_02",
+          "weighted_objective": 34221.01037735844,
+          "published_points": 3,
+          "source_cells": "J3!C4:H5; Results!D12:D16"
+        },
+        {
+          "case": "X_03",
+          "weighted_objective": 8291.278301886787,
+          "published_points": 2,
+          "source_cells": "J3!C6:H7; Results!D17:D21"
+        },
+        {
+          "case": "X_04",
+          "weighted_objective": 11684.1116,
+          "published_points": 7,
+          "source_cells": "J3!C8:H9; Results!D22:D26"
+        },
+        {
+          "case": "X_05",
+          "weighted_objective": 23411.489681818137,
+          "published_points": 2,
+          "source_cells": "J3!C10:H11; Results!D27:D31"
+        },
+        {
+          "case": "X_06",
+          "weighted_objective": 48343.35409999996,
+          "published_points": 1,
+          "source_cells": "J3!C12:H13; Results!D32:D36"
+        },
+        {
+          "case": "X_07",
+          "weighted_objective": 13461.16949999994,
+          "published_points": 0,
+          "source_cells": "J3!C14:H15; Results!D37:D41"
+        },
+        {
+          "case": "X_08",
+          "weighted_objective": 14214.789699999961,
+          "published_points": 0,
+          "source_cells": "J3!C16:H17; Results!D42:D46"
+        },
+        {
+          "case": "X_09",
+          "weighted_objective": 21450.662,
+          "published_points": 3,
+          "source_cells": "J3!C18:H19; Results!D47:D51"
+        },
+        {
+          "case": "X_10",
+          "weighted_objective": 8e+98,
+          "published_points": 1,
+          "source_cells": "J3!C20:H21; Results!D52:D56"
+        },
+        {
+          "case": "X_11",
+          "weighted_objective": 40288.41664122132,
+          "published_points": 1,
+          "source_cells": "J3!C22:H23; Results!D57:D61"
+        },
+        {
+          "case": "X_12",
+          "weighted_objective": 50404.76251908392,
+          "published_points": 3,
+          "source_cells": "J3!C24:H25; Results!D62:D66"
+        },
+        {
+          "case": "X_13",
+          "weighted_objective": 16051.11900943394,
+          "published_points": 0,
+          "source_cells": "J3!C26:H27; Results!D67:D71"
+        },
+        {
+          "case": "X_14",
+          "weighted_objective": 82302.67827777771,
+          "published_points": 0,
+          "source_cells": "J3!C28:H29; Results!D72:D76"
+        },
+        {
+          "case": "X_15",
+          "weighted_objective": 48157.66511111108,
+          "published_points": 3,
+          "source_cells": "J3!C30:H31; Results!D77:D81"
+        }
+      ]
+    },
+    {
+      "team": "J24",
+      "published_x15_points": 33,
+      "cases": [
+        {
+          "case": "X_01",
+          "weighted_objective": 4161.2479245283,
+          "published_points": 0,
+          "source_cells": "J24!C2:H3; Results!E7:E11"
+        },
+        {
+          "case": "X_02",
+          "weighted_objective": 35562.7718867924,
+          "published_points": 2,
+          "source_cells": "J24!C4:H5; Results!E12:E16"
+        },
+        {
+          "case": "X_03",
+          "weighted_objective": 8370.572830188676,
+          "published_points": 1,
+          "source_cells": "J24!C6:H7; Results!E17:E21"
+        },
+        {
+          "case": "X_04",
+          "weighted_objective": 11955.9919999999,
+          "published_points": 6,
+          "source_cells": "J24!C8:H9; Results!E22:E26"
+        },
+        {
+          "case": "X_05",
+          "weighted_objective": 23392.16409090902,
+          "published_points": 3,
+          "source_cells": "J24!C10:H11; Results!E27:E31"
+        },
+        {
+          "case": "X_06",
+          "weighted_objective": 47743.7241,
+          "published_points": 2,
+          "source_cells": "J24!C12:H13; Results!E32:E36"
+        },
+        {
+          "case": "X_07",
+          "weighted_objective": 13472.769433333242,
+          "published_points": 0,
+          "source_cells": "J24!C14:H15; Results!E37:E41"
+        },
+        {
+          "case": "X_08",
+          "weighted_objective": 14055.27523333328,
+          "published_points": 0,
+          "source_cells": "J24!C16:H17; Results!E42:E46"
+        },
+        {
+          "case": "X_09",
+          "weighted_objective": 21575.1903333333,
+          "published_points": 2,
+          "source_cells": "J24!C18:H19; Results!E47:E51"
+        },
+        {
+          "case": "X_10",
+          "weighted_objective": 18145.277999999962,
+          "published_points": 3,
+          "source_cells": "J24!C20:H21; Results!E52:E56"
+        },
+        {
+          "case": "X_11",
+          "weighted_objective": 40207.578931297656,
+          "published_points": 2,
+          "source_cells": "J24!C22:H23; Results!E57:E61"
+        },
+        {
+          "case": "X_12",
+          "weighted_objective": 49153.01816793891,
+          "published_points": 5,
+          "source_cells": "J24!C24:H25; Results!E62:E66"
+        },
+        {
+          "case": "X_13",
+          "weighted_objective": 15989.09249999992,
+          "published_points": 2,
+          "source_cells": "J24!C26:H27; Results!E67:E71"
+        },
+        {
+          "case": "X_14",
+          "weighted_objective": 81413.5095555555,
+          "published_points": 1,
+          "source_cells": "J24!C28:H29; Results!E72:E76"
+        },
+        {
+          "case": "X_15",
+          "weighted_objective": 46806.4231111111,
+          "published_points": 4,
+          "source_cells": "J24!C30:H31; Results!E77:E81"
+        }
+      ]
+    },
+    {
+      "team": "J43",
+      "published_x15_points": 26,
+      "cases": [
+        {
+          "case": "X_01",
+          "weighted_objective": 4018.4516981132037,
+          "published_points": 7,
+          "source_cells": "J43!C2:H3; Results!F7:F11"
+        },
+        {
+          "case": "X_02",
+          "weighted_objective": 8e+98,
+          "published_points": 1,
+          "source_cells": "J43!C4:H5; Results!F12:F16"
+        },
+        {
+          "case": "X_03",
+          "weighted_objective": 8e+98,
+          "published_points": 0,
+          "source_cells": "J43!C6:H7; Results!F17:F21"
+        },
+        {
+          "case": "X_04",
+          "weighted_objective": 1e+99,
+          "published_points": 0,
+          "source_cells": "J43!C8:H9; Results!F22:F26"
+        },
+        {
+          "case": "X_05",
+          "weighted_objective": 23349.514863636297,
+          "published_points": 4,
+          "source_cells": "J43!C10:H11; Results!F27:F31"
+        },
+        {
+          "case": "X_06",
+          "weighted_objective": 8e+98,
+          "published_points": 0,
+          "source_cells": "J43!C12:H13; Results!F32:F36"
+        },
+        {
+          "case": "X_07",
+          "weighted_objective": 13402.9004333333,
+          "published_points": 0,
+          "source_cells": "J43!C14:H15; Results!F37:F41"
+        },
+        {
+          "case": "X_08",
+          "weighted_objective": 14118.54763333332,
+          "published_points": 0,
+          "source_cells": "J43!C16:H17; Results!F42:F46"
+        },
+        {
+          "case": "X_09",
+          "weighted_objective": 8e+98,
+          "published_points": 1,
+          "source_cells": "J43!C18:H19; Results!F47:F51"
+        },
+        {
+          "case": "X_10",
+          "weighted_objective": 17476.21085714282,
+          "published_points": 4,
+          "source_cells": "J43!C20:H21; Results!F52:F56"
+        },
+        {
+          "case": "X_11",
+          "weighted_objective": 40023.92992366408,
+          "published_points": 3,
+          "source_cells": "J43!C22:H23; Results!F57:F61"
+        },
+        {
+          "case": "X_12",
+          "weighted_objective": 49295.6283969465,
+          "published_points": 4,
+          "source_cells": "J43!C24:H25; Results!F62:F66"
+        },
+        {
+          "case": "X_13",
+          "weighted_objective": 16127.25665094332,
+          "published_points": 0,
+          "source_cells": "J43!C26:H27; Results!F67:F71"
+        },
+        {
+          "case": "X_14",
+          "weighted_objective": 8e+98,
+          "published_points": 0,
+          "source_cells": "J43!C28:H29; Results!F72:F76"
+        },
+        {
+          "case": "X_15",
+          "weighted_objective": 8e+98,
+          "published_points": 2,
+          "source_cells": "J43!C30:H31; Results!F77:F81"
+        }
+      ]
+    },
+    {
+      "team": "J49",
+      "published_x15_points": 22,
+      "cases": [
+        {
+          "case": "X_01",
+          "weighted_objective": 4059.5845283018825,
+          "published_points": 2,
+          "source_cells": "J49!C2:H3; Results!G7:G11"
+        },
+        {
+          "case": "X_02",
+          "weighted_objective": 1e+99,
+          "published_points": 0,
+          "source_cells": "J49!C4:H5; Results!G12:G16"
+        },
+        {
+          "case": "X_03",
+          "weighted_objective": 1e+99,
+          "published_points": 0,
+          "source_cells": "J49!C6:H7; Results!G17:G21"
+        },
+        {
+          "case": "X_04",
+          "weighted_objective": 1e+99,
+          "published_points": 0,
+          "source_cells": "J49!C8:H9; Results!G22:G26"
+        },
+        {
+          "case": "X_05",
+          "weighted_objective": 1e+99,
+          "published_points": 0,
+          "source_cells": "J49!C10:H11; Results!G27:G31"
+        },
+        {
+          "case": "X_06",
+          "weighted_objective": 47525.401199999964,
+          "published_points": 4,
+          "source_cells": "J49!C12:H13; Results!G32:G36"
+        },
+        {
+          "case": "X_07",
+          "weighted_objective": 13346.18059999994,
+          "published_points": 3,
+          "source_cells": "J49!C14:H15; Results!G37:G41"
+        },
+        {
+          "case": "X_08",
+          "weighted_objective": 13879.5731333333,
+          "published_points": 3,
+          "source_cells": "J49!C16:H17; Results!G42:G46"
+        },
+        {
+          "case": "X_09",
+          "weighted_objective": 1e+99,
+          "published_points": 0,
+          "source_cells": "J49!C18:H19; Results!G47:G51"
+        },
+        {
+          "case": "X_10",
+          "weighted_objective": 1e+99,
+          "published_points": 0,
+          "source_cells": "J49!C20:H21; Results!G52:G56"
+        },
+        {
+          "case": "X_11",
+          "weighted_objective": 8e+98,
+          "published_points": 0,
+          "source_cells": "J49!C22:H23; Results!G57:G61"
+        },
+        {
+          "case": "X_12",
+          "weighted_objective": 8e+98,
+          "published_points": 1,
+          "source_cells": "J49!C24:H25; Results!G62:G66"
+        },
+        {
+          "case": "X_13",
+          "weighted_objective": 15913.648867924461,
+          "published_points": 4,
+          "source_cells": "J49!C26:H27; Results!G67:G71"
+        },
+        {
+          "case": "X_14",
+          "weighted_objective": 80751.2929444444,
+          "published_points": 3,
+          "source_cells": "J49!C28:H29; Results!G72:G76"
+        },
+        {
+          "case": "X_15",
+          "weighted_objective": 8e+98,
+          "published_points": 2,
+          "source_cells": "J49!C30:H31; Results!G77:G81"
+        }
+      ]
+    },
+    {
+      "team": "J73",
+      "published_x15_points": 79,
+      "cases": [
+        {
+          "case": "X_01",
+          "weighted_objective": 4053.101509433954,
+          "published_points": 3,
+          "source_cells": "J73!C2:H3; Results!H7:H11"
+        },
+        {
+          "case": "X_02",
+          "weighted_objective": 32272.60716981128,
+          "published_points": 6,
+          "source_cells": "J73!C4:H5; Results!H12:H16"
+        },
+        {
+          "case": "X_03",
+          "weighted_objective": 8244.477924528299,
+          "published_points": 4,
+          "source_cells": "J73!C6:H7; Results!H17:H21"
+        },
+        {
+          "case": "X_04",
+          "weighted_objective": 11526.37079999998,
+          "published_points": 8,
+          "source_cells": "J73!C8:H9; Results!H22:H26"
+        },
+        {
+          "case": "X_05",
+          "weighted_objective": 22979.875681818117,
+          "published_points": 6,
+          "source_cells": "J73!C10:H11; Results!H27:H31"
+        },
+        {
+          "case": "X_06",
+          "weighted_objective": 47062.799199999936,
+          "published_points": 7,
+          "source_cells": "J73!C12:H13; Results!H32:H36"
+        },
+        {
+          "case": "X_07",
+          "weighted_objective": 13229.8426,
+          "published_points": 5,
+          "source_cells": "J73!C14:H15; Results!H37:H41"
+        },
+        {
+          "case": "X_08",
+          "weighted_objective": 13820.82793333326,
+          "published_points": 5,
+          "source_cells": "J73!C16:H17; Results!H42:H46"
+        },
+        {
+          "case": "X_09",
+          "weighted_objective": 20343.32699999994,
+          "published_points": 6,
+          "source_cells": "J73!C18:H19; Results!H47:H51"
+        },
+        {
+          "case": "X_10",
+          "weighted_objective": 17402.77371428568,
+          "published_points": 5,
+          "source_cells": "J73!C20:H21; Results!H52:H56"
+        },
+        {
+          "case": "X_11",
+          "weighted_objective": 39165.09450381674,
+          "published_points": 5,
+          "source_cells": "J73!C22:H23; Results!H57:H61"
+        },
+        {
+          "case": "X_12",
+          "weighted_objective": 51659.68641221372,
+          "published_points": 2,
+          "source_cells": "J73!C24:H25; Results!H62:H66"
+        },
+        {
+          "case": "X_13",
+          "weighted_objective": 15849.12877358488,
+          "published_points": 5,
+          "source_cells": "J73!C26:H27; Results!H67:H71"
+        },
+        {
+          "case": "X_14",
+          "weighted_objective": 79527.46444444438,
+          "published_points": 6,
+          "source_cells": "J73!C28:H29; Results!H72:H76"
+        },
+        {
+          "case": "X_15",
+          "weighted_objective": 45894.42244444444,
+          "published_points": 6,
+          "source_cells": "J73!C30:H31; Results!H77:H81"
+        }
+      ]
+    },
+    {
+      "team": "S14",
+      "published_x15_points": 27,
+      "cases": [
+        {
+          "case": "X_01",
+          "weighted_objective": 4117.42113207547,
+          "published_points": 0,
+          "source_cells": "S14!C2:H3; Results!I7:I11"
+        },
+        {
+          "case": "X_02",
+          "weighted_objective": 8e+98,
+          "published_points": 1,
+          "source_cells": "S14!C4:H5; Results!I12:I16"
+        },
+        {
+          "case": "X_03",
+          "weighted_objective": 8265.071509433956,
+          "published_points": 3,
+          "source_cells": "S14!C6:H7; Results!I17:I21"
+        },
+        {
+          "case": "X_04",
+          "weighted_objective": 8e+98,
+          "published_points": 4,
+          "source_cells": "S14!C8:H9; Results!I22:I26"
+        },
+        {
+          "case": "X_05",
+          "weighted_objective": 23484.313499999982,
+          "published_points": 1,
+          "source_cells": "S14!C10:H11; Results!I27:I31"
+        },
+        {
+          "case": "X_06",
+          "weighted_objective": 47582.587366666645,
+          "published_points": 3,
+          "source_cells": "S14!C12:H13; Results!I32:I36"
+        },
+        {
+          "case": "X_07",
+          "weighted_objective": 13375.95336666666,
+          "published_points": 2,
+          "source_cells": "S14!C14:H15; Results!I37:I41"
+        },
+        {
+          "case": "X_08",
+          "weighted_objective": 14018.1142333333,
+          "published_points": 1,
+          "source_cells": "S14!C16:H17; Results!I42:I46"
+        },
+        {
+          "case": "X_09",
+          "weighted_objective": 20989.83033333332,
+          "published_points": 4,
+          "source_cells": "S14!C18:H19; Results!I47:I51"
+        },
+        {
+          "case": "X_10",
+          "weighted_objective": 1.9999999999999994e+98,
+          "published_points": 2,
+          "source_cells": "S14!C20:H21; Results!I52:I56"
+        },
+        {
+          "case": "X_11",
+          "weighted_objective": 8e+98,
+          "published_points": 0,
+          "source_cells": "S14!C22:H23; Results!I57:I61"
+        },
+        {
+          "case": "X_12",
+          "weighted_objective": 8e+98,
+          "published_points": 1,
+          "source_cells": "S14!C24:H25; Results!I62:I66"
+        },
+        {
+          "case": "X_13",
+          "weighted_objective": 15993.34745283012,
+          "published_points": 1,
+          "source_cells": "S14!C26:H27; Results!I67:I71"
+        },
+        {
+          "case": "X_14",
+          "weighted_objective": 80945.71572222216,
+          "published_points": 2,
+          "source_cells": "S14!C28:H29; Results!I72:I76"
+        },
+        {
+          "case": "X_15",
+          "weighted_objective": 8e+98,
+          "published_points": 2,
+          "source_cells": "S14!C30:H31; Results!I77:I81"
+        }
+      ]
+    },
+    {
+      "team": "S19",
+      "published_x15_points": 84,
+      "cases": [
+        {
+          "case": "X_01",
+          "weighted_objective": 4020.6428301886776,
+          "published_points": 6,
+          "source_cells": "S19!C2:H3; Results!J7:J11"
+        },
+        {
+          "case": "X_02",
+          "weighted_objective": 32378.098867924462,
+          "published_points": 4,
+          "source_cells": "S19!C4:H5; Results!J12:J16"
+        },
+        {
+          "case": "X_03",
+          "weighted_objective": 8164.187547169808,
+          "published_points": 6,
+          "source_cells": "S19!C6:H7; Results!J17:J21"
+        },
+        {
+          "case": "X_04",
+          "weighted_objective": 1.9999999999999994e+98,
+          "published_points": 5,
+          "source_cells": "S19!C8:H9; Results!J22:J26"
+        },
+        {
+          "case": "X_05",
+          "weighted_objective": 23002.8446363636,
+          "published_points": 5,
+          "source_cells": "S19!C10:H11; Results!J27:J31"
+        },
+        {
+          "case": "X_06",
+          "weighted_objective": 47096.5098333333,
+          "published_points": 5,
+          "source_cells": "S19!C12:H13; Results!J32:J36"
+        },
+        {
+          "case": "X_07",
+          "weighted_objective": 13246.06026666658,
+          "published_points": 4,
+          "source_cells": "S19!C14:H15; Results!J37:J41"
+        },
+        {
+          "case": "X_08",
+          "weighted_objective": 13753.4536,
+          "published_points": 7,
+          "source_cells": "S19!C16:H17; Results!J42:J46"
+        },
+        {
+          "case": "X_09",
+          "weighted_objective": 20417.208999999937,
+          "published_points": 5,
+          "source_cells": "S19!C18:H19; Results!J47:J51"
+        },
+        {
+          "case": "X_10",
+          "weighted_objective": 17373.13657142856,
+          "published_points": 7,
+          "source_cells": "S19!C20:H21; Results!J52:J56"
+        },
+        {
+          "case": "X_11",
+          "weighted_objective": 39214.391984732734,
+          "published_points": 4,
+          "source_cells": "S19!C22:H23; Results!J57:J61"
+        },
+        {
+          "case": "X_12",
+          "weighted_objective": 47765.633053435056,
+          "published_points": 7,
+          "source_cells": "S19!C24:H25; Results!J62:J66"
+        },
+        {
+          "case": "X_13",
+          "weighted_objective": 15832.13655660376,
+          "published_points": 7,
+          "source_cells": "S19!C26:H27; Results!J67:J71"
+        },
+        {
+          "case": "X_14",
+          "weighted_objective": 79672.6649444444,
+          "published_points": 4,
+          "source_cells": "S19!C28:H29; Results!J72:J76"
+        },
+        {
+          "case": "X_15",
+          "weighted_objective": 45676.4109444444,
+          "published_points": 8,
+          "source_cells": "S19!C30:H31; Results!J77:J81"
+        }
+      ]
+    },
+    {
+      "team": "S28",
+      "published_x15_points": 6,
+      "cases": [
+        {
+          "case": "X_01",
+          "weighted_objective": 4118.87547169811,
+          "published_points": 0,
+          "source_cells": "S28!C2:H3; Results!K7:K11"
+        },
+        {
+          "case": "X_02",
+          "weighted_objective": 1e+99,
+          "published_points": 0,
+          "source_cells": "S28!C4:H5; Results!K12:K16"
+        },
+        {
+          "case": "X_03",
+          "weighted_objective": 1e+99,
+          "published_points": 0,
+          "source_cells": "S28!C6:H7; Results!K17:K21"
+        },
+        {
+          "case": "X_04",
+          "weighted_objective": 1e+99,
+          "published_points": 0,
+          "source_cells": "S28!C8:H9; Results!K22:K26"
+        },
+        {
+          "case": "X_05",
+          "weighted_objective": 1e+99,
+          "published_points": 0,
+          "source_cells": "S28!C10:H11; Results!K27:K31"
+        },
+        {
+          "case": "X_06",
+          "weighted_objective": 8e+98,
+          "published_points": 0,
+          "source_cells": "S28!C12:H13; Results!K32:K36"
+        },
+        {
+          "case": "X_07",
+          "weighted_objective": 13378.98666666662,
+          "published_points": 1,
+          "source_cells": "S28!C14:H15; Results!K37:K41"
+        },
+        {
+          "case": "X_08",
+          "weighted_objective": 13999.5167666666,
+          "published_points": 2,
+          "source_cells": "S28!C16:H17; Results!K42:K46"
+        },
+        {
+          "case": "X_09",
+          "weighted_objective": 1e+99,
+          "published_points": 0,
+          "source_cells": "S28!C18:H19; Results!K47:K51"
+        },
+        {
+          "case": "X_10",
+          "weighted_objective": 1e+99,
+          "published_points": 0,
+          "source_cells": "S28!C20:H21; Results!K52:K56"
+        },
+        {
+          "case": "X_11",
+          "weighted_objective": 1e+99,
+          "published_points": 0,
+          "source_cells": "S28!C22:H23; Results!K57:K61"
+        },
+        {
+          "case": "X_12",
+          "weighted_objective": 1e+99,
+          "published_points": 0,
+          "source_cells": "S28!C24:H25; Results!K62:K66"
+        },
+        {
+          "case": "X_13",
+          "weighted_objective": 15972.05566037734,
+          "published_points": 3,
+          "source_cells": "S28!C26:H27; Results!K67:K71"
+        },
+        {
+          "case": "X_14",
+          "weighted_objective": 1e+99,
+          "published_points": 0,
+          "source_cells": "S28!C28:H29; Results!K72:K76"
+        },
+        {
+          "case": "X_15",
+          "weighted_objective": 1e+99,
+          "published_points": 0,
+          "source_cells": "S28!C30:H31; Results!K77:K81"
+        }
+      ]
+    },
+    {
+      "team": "S34",
+      "published_x15_points": 149,
+      "cases": [
+        {
+          "case": "X_01",
+          "weighted_objective": 4013.7718867924505,
+          "published_points": 10,
+          "source_cells": "S34!C2:H3; Results!L7:L11"
+        },
+        {
+          "case": "X_02",
+          "weighted_objective": 32230.878301886718,
+          "published_points": 10,
+          "source_cells": "S34!C4:H5; Results!L12:L16"
+        },
+        {
+          "case": "X_03",
+          "weighted_objective": 8104.14811320754,
+          "published_points": 10,
+          "source_cells": "S34!C6:H7; Results!L17:L21"
+        },
+        {
+          "case": "X_04",
+          "weighted_objective": 11313.4368,
+          "published_points": 10,
+          "source_cells": "S34!C8:H9; Results!L22:L26"
+        },
+        {
+          "case": "X_05",
+          "weighted_objective": 22853.975954545378,
+          "published_points": 10,
+          "source_cells": "S34!C10:H11; Results!L27:L31"
+        },
+        {
+          "case": "X_06",
+          "weighted_objective": 47032.797799999964,
+          "published_points": 10,
+          "source_cells": "S34!C12:H13; Results!L32:L36"
+        },
+        {
+          "case": "X_07",
+          "weighted_objective": 13221.56596666662,
+          "published_points": 10,
+          "source_cells": "S34!C14:H15; Results!L37:L41"
+        },
+        {
+          "case": "X_08",
+          "weighted_objective": 13715.35326666664,
+          "published_points": 10,
+          "source_cells": "S34!C16:H17; Results!L42:L46"
+        },
+        {
+          "case": "X_09",
+          "weighted_objective": 20194.13533333328,
+          "published_points": 10,
+          "source_cells": "S34!C18:H19; Results!L47:L51"
+        },
+        {
+          "case": "X_10",
+          "weighted_objective": 17285.01628571426,
+          "published_points": 10,
+          "source_cells": "S34!C20:H21; Results!L52:L56"
+        },
+        {
+          "case": "X_11",
+          "weighted_objective": 39120.30068702286,
+          "published_points": 10,
+          "source_cells": "S34!C22:H23; Results!L57:L61"
+        },
+        {
+          "case": "X_12",
+          "weighted_objective": 47500.295419847294,
+          "published_points": 10,
+          "source_cells": "S34!C24:H25; Results!L62:L66"
+        },
+        {
+          "case": "X_13",
+          "weighted_objective": 15784.23499999996,
+          "published_points": 10,
+          "source_cells": "S34!C26:H27; Results!L67:L71"
+        },
+        {
+          "case": "X_14",
+          "weighted_objective": 79420.69949999993,
+          "published_points": 9,
+          "source_cells": "S34!C28:H29; Results!L72:L76"
+        },
+        {
+          "case": "X_15",
+          "weighted_objective": 45477.9039999999,
+          "published_points": 10,
+          "source_cells": "S34!C30:H31; Results!L77:L81"
+        }
+      ]
+    },
+    {
+      "team": "S56",
+      "published_x15_points": 103,
+      "cases": [
+        {
+          "case": "X_01",
+          "weighted_objective": 4017.62094339622,
+          "published_points": 8,
+          "source_cells": "S56!C2:H3; Results!M7:M11"
+        },
+        {
+          "case": "X_02",
+          "weighted_objective": 32240.747924528237,
+          "published_points": 7,
+          "source_cells": "S56!C4:H5; Results!M12:M16"
+        },
+        {
+          "case": "X_03",
+          "weighted_objective": 8136.16698113207,
+          "published_points": 7,
+          "source_cells": "S56!C6:H7; Results!M17:M21"
+        },
+        {
+          "case": "X_04",
+          "weighted_objective": 1e+99,
+          "published_points": 0,
+          "source_cells": "S56!C8:H9; Results!M22:M26"
+        },
+        {
+          "case": "X_05",
+          "weighted_objective": 22873.068318181777,
+          "published_points": 9,
+          "source_cells": "S56!C10:H11; Results!M27:M31"
+        },
+        {
+          "case": "X_06",
+          "weighted_objective": 47039.355066666605,
+          "published_points": 8,
+          "source_cells": "S56!C12:H13; Results!M32:M36"
+        },
+        {
+          "case": "X_07",
+          "weighted_objective": 13222.870366666659,
+          "published_points": 9,
+          "source_cells": "S56!C14:H15; Results!M37:M41"
+        },
+        {
+          "case": "X_08",
+          "weighted_objective": 13744.858833333321,
+          "published_points": 8,
+          "source_cells": "S56!C16:H17; Results!M42:M46"
+        },
+        {
+          "case": "X_09",
+          "weighted_objective": 1e+99,
+          "published_points": 0,
+          "source_cells": "S56!C18:H19; Results!M47:M51"
+        },
+        {
+          "case": "X_10",
+          "weighted_objective": 17296.44799999994,
+          "published_points": 9,
+          "source_cells": "S56!C20:H21; Results!M52:M56"
+        },
+        {
+          "case": "X_11",
+          "weighted_objective": 39127.40541984728,
+          "published_points": 6,
+          "source_cells": "S56!C22:H23; Results!M57:M61"
+        },
+        {
+          "case": "X_12",
+          "weighted_objective": 47633.59435114498,
+          "published_points": 8,
+          "source_cells": "S56!C24:H25; Results!M62:M66"
+        },
+        {
+          "case": "X_13",
+          "weighted_objective": 15804.670849056522,
+          "published_points": 8,
+          "source_cells": "S56!C26:H27; Results!M67:M71"
+        },
+        {
+          "case": "X_14",
+          "weighted_objective": 79424.15655555547,
+          "published_points": 7,
+          "source_cells": "S56!C28:H29; Results!M72:M76"
+        },
+        {
+          "case": "X_15",
+          "weighted_objective": 45510.27155555554,
+          "published_points": 9,
+          "source_cells": "S56!C30:H31; Results!M77:M81"
+        }
+      ]
+    },
+    {
+      "team": "S58",
+      "published_x15_points": 90,
+      "cases": [
+        {
+          "case": "X_01",
+          "weighted_objective": 4030.86226415094,
+          "published_points": 5,
+          "source_cells": "S58!C2:H3; Results!N7:N11"
+        },
+        {
+          "case": "X_02",
+          "weighted_objective": 32237.28075471696,
+          "published_points": 9,
+          "source_cells": "S58!C4:H5; Results!N12:N16"
+        },
+        {
+          "case": "X_03",
+          "weighted_objective": 8132.7809433962175,
+          "published_points": 8,
+          "source_cells": "S58!C6:H7; Results!N17:N21"
+        },
+        {
+          "case": "X_04",
+          "weighted_objective": 11359.743999999999,
+          "published_points": 9,
+          "source_cells": "S58!C8:H9; Results!N22:N26"
+        },
+        {
+          "case": "X_05",
+          "weighted_objective": 22913.50427272726,
+          "published_points": 8,
+          "source_cells": "S58!C10:H11; Results!N27:N31"
+        },
+        {
+          "case": "X_06",
+          "weighted_objective": 48967.10779999994,
+          "published_points": 0,
+          "source_cells": "S58!C12:H13; Results!N32:N36"
+        },
+        {
+          "case": "X_07",
+          "weighted_objective": 13224.13839999992,
+          "published_points": 7,
+          "source_cells": "S58!C14:H15; Results!N37:N41"
+        },
+        {
+          "case": "X_08",
+          "weighted_objective": 13814.77006666664,
+          "published_points": 6,
+          "source_cells": "S58!C16:H17; Results!N42:N46"
+        },
+        {
+          "case": "X_09",
+          "weighted_objective": 20299.43133333328,
+          "published_points": 8,
+          "source_cells": "S58!C18:H19; Results!N47:N51"
+        },
+        {
+          "case": "X_10",
+          "weighted_objective": 17387.1968571428,
+          "published_points": 6,
+          "source_cells": "S58!C20:H21; Results!N52:N56"
+        },
+        {
+          "case": "X_11",
+          "weighted_objective": 39121.54465648848,
+          "published_points": 8,
+          "source_cells": "S58!C22:H23; Results!N57:N61"
+        },
+        {
+          "case": "X_12",
+          "weighted_objective": 8e+98,
+          "published_points": 1,
+          "source_cells": "S58!C24:H25; Results!N62:N66"
+        },
+        {
+          "case": "X_13",
+          "weighted_objective": 8e+98,
+          "published_points": 0,
+          "source_cells": "S58!C26:H27; Results!N67:N71"
+        },
+        {
+          "case": "X_14",
+          "weighted_objective": 79422.55666666666,
+          "published_points": 8,
+          "source_cells": "S58!C28:H29; Results!N72:N76"
+        },
+        {
+          "case": "X_15",
+          "weighted_objective": 45815.45383333328,
+          "published_points": 7,
+          "source_cells": "S58!C30:H31; Results!N77:N81"
+        }
+      ]
+    },
+    {
+      "team": "S66",
+      "published_x15_points": 112,
+      "cases": [
+        {
+          "case": "X_01",
+          "weighted_objective": 4016.9560377358457,
+          "published_points": 9,
+          "source_cells": "S66!C2:H3; Results!O7:O11"
+        },
+        {
+          "case": "X_02",
+          "weighted_objective": 32239.95943396218,
+          "published_points": 8,
+          "source_cells": "S66!C4:H5; Results!O12:O16"
+        },
+        {
+          "case": "X_03",
+          "weighted_objective": 8132.311886792446,
+          "published_points": 9,
+          "source_cells": "S66!C6:H7; Results!O17:O21"
+        },
+        {
+          "case": "X_04",
+          "weighted_objective": 8e+98,
+          "published_points": 4,
+          "source_cells": "S66!C8:H9; Results!O22:O26"
+        },
+        {
+          "case": "X_05",
+          "weighted_objective": 8e+98,
+          "published_points": 0,
+          "source_cells": "S66!C10:H11; Results!O27:O31"
+        },
+        {
+          "case": "X_06",
+          "weighted_objective": 47033.76459999994,
+          "published_points": 9,
+          "source_cells": "S66!C12:H13; Results!O32:O36"
+        },
+        {
+          "case": "X_07",
+          "weighted_objective": 13223.0457666666,
+          "published_points": 8,
+          "source_cells": "S66!C14:H15; Results!O37:O41"
+        },
+        {
+          "case": "X_08",
+          "weighted_objective": 13728.622466666598,
+          "published_points": 9,
+          "source_cells": "S66!C16:H17; Results!O42:O46"
+        },
+        {
+          "case": "X_09",
+          "weighted_objective": 20195.86133333332,
+          "published_points": 9,
+          "source_cells": "S66!C18:H19; Results!O47:O51"
+        },
+        {
+          "case": "X_10",
+          "weighted_objective": 17297.81228571422,
+          "published_points": 8,
+          "source_cells": "S66!C20:H21; Results!O52:O56"
+        },
+        {
+          "case": "X_11",
+          "weighted_objective": 39120.86977099234,
+          "published_points": 9,
+          "source_cells": "S66!C22:H23; Results!O57:O61"
+        },
+        {
+          "case": "X_12",
+          "weighted_objective": 47565.2907633587,
+          "published_points": 9,
+          "source_cells": "S66!C24:H25; Results!O62:O66"
+        },
+        {
+          "case": "X_13",
+          "weighted_objective": 15798.415801886738,
+          "published_points": 9,
+          "source_cells": "S66!C26:H27; Results!O67:O71"
+        },
+        {
+          "case": "X_14",
+          "weighted_objective": 79417.11805555553,
+          "published_points": 10,
+          "source_cells": "S66!C28:H29; Results!O72:O76"
+        },
+        {
+          "case": "X_15",
+          "weighted_objective": 8e+98,
+          "published_points": 2,
+          "source_cells": "S66!C30:H31; Results!O77:O81"
+        }
+      ]
+    },
+    {
+      "team": "S68",
+      "published_x15_points": 73,
+      "cases": [
+        {
+          "case": "X_01",
+          "weighted_objective": 4041.9528301886703,
+          "published_points": 4,
+          "source_cells": "S68!C2:H3; Results!P7:P11"
+        },
+        {
+          "case": "X_02",
+          "weighted_objective": 32298.6266037735,
+          "published_points": 5,
+          "source_cells": "S68!C4:H5; Results!P12:P16"
+        },
+        {
+          "case": "X_03",
+          "weighted_objective": 8201.08679245283,
+          "published_points": 5,
+          "source_cells": "S68!C6:H7; Results!P17:P21"
+        },
+        {
+          "case": "X_04",
+          "weighted_objective": 1e+99,
+          "published_points": 0,
+          "source_cells": "S68!C8:H9; Results!P22:P26"
+        },
+        {
+          "case": "X_05",
+          "weighted_objective": 22943.427863636298,
+          "published_points": 7,
+          "source_cells": "S68!C10:H11; Results!P27:P31"
+        },
+        {
+          "case": "X_06",
+          "weighted_objective": 47068.09809999994,
+          "published_points": 6,
+          "source_cells": "S68!C12:H13; Results!P32:P36"
+        },
+        {
+          "case": "X_07",
+          "weighted_objective": 13224.8626666666,
+          "published_points": 6,
+          "source_cells": "S68!C14:H15; Results!P37:P41"
+        },
+        {
+          "case": "X_08",
+          "weighted_objective": 13840.745299999959,
+          "published_points": 4,
+          "source_cells": "S68!C16:H17; Results!P42:P46"
+        },
+        {
+          "case": "X_09",
+          "weighted_objective": 20326.4716666666,
+          "published_points": 7,
+          "source_cells": "S68!C18:H19; Results!P47:P51"
+        },
+        {
+          "case": "X_10",
+          "weighted_objective": 1e+99,
+          "published_points": 0,
+          "source_cells": "S68!C20:H21; Results!P52:P56"
+        },
+        {
+          "case": "X_11",
+          "weighted_objective": 39125.2870229007,
+          "published_points": 7,
+          "source_cells": "S68!C22:H23; Results!P57:P61"
+        },
+        {
+          "case": "X_12",
+          "weighted_objective": 48263.3194656488,
+          "published_points": 6,
+          "source_cells": "S68!C24:H25; Results!P62:P66"
+        },
+        {
+          "case": "X_13",
+          "weighted_objective": 15844.5931603773,
+          "published_points": 6,
+          "source_cells": "S68!C26:H27; Results!P67:P71"
+        },
+        {
+          "case": "X_14",
+          "weighted_objective": 79629.74933333328,
+          "published_points": 5,
+          "source_cells": "S68!C28:H29; Results!P72:P76"
+        },
+        {
+          "case": "X_15",
+          "weighted_objective": 45915.0559444444,
+          "published_points": 5,
+          "source_cells": "S68!C30:H31; Results!P77:P81"
+        }
+      ]
+    }
+  ]
+}

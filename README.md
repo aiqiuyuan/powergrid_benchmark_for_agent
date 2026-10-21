@@ -95,7 +95,7 @@ GOC 的 500/793/2000/2312 等规模属于同一任务族；UC 为核心，受限
 
 ## 两个新增配电网扩展任务
 
-2026-10-15 按用户要求加入以下两题。**已交付卡片、设计声明、来源锁、基础合同代码、starter、小样例和原生 task 骨架；完整仿真运行器、正式难例及资源/基线校准仍待验收，均为 `release_ready=false`。** 它们尚未加入上面的五任务75-run计划。
+2026-10-15 按用户要求加入以下两题。**现已完成卡片、来源锁、真实仿真运行器、选例与强基线补充，并新增两个正式固定案例运行包。2026-10-16的目标集群及两题各n=0/1的四角色原生生命周期均已验收通过，共享执行框架另在MAPDN上通过60秒真实模型门禁。** 它们有独立的30-run正式扩展清单；家族层面的完整公开发布认证仍为 `release_ready=false`，本轮固定案例启动资格单列为 `formal_fixed_case_launch_ready=true`。
 
 | 扩展任务 | 用途与基础接入 |
 |---|---|
@@ -103,6 +103,12 @@ GOC 的 500/793/2000/2312 等规模属于同一任务族；UC 为核心，受限
 | [PowerGym 混合设备 Volt/VAR 控制](docs/task-cards/powergym-volt-var-control.md) | 电容器、调压器与储能；校验混合动作和SOC，确定性打包负荷并隔离worker目录 |
 
 完成范围与验证见[中文完成说明](docs/completion-distribution-20261015.md)。接入方法见[配电网基础适配说明](docs/framework/distribution-control-integration.md)、[原生task骨架](task-packages/README.md)和[来源锁](configs/distribution-sources.json)。`distribution-prepare`将固定上游版本复制到可信评测准备目录，核对源文件摘要；它不生成开发数据包或执行潮流。公开starter只提供人工合成的接口自检，不含完整目标评分器。
+
+2026-10-16已完成[正式选例基础实验](docs/experiments/distribution-case-selection-20261016.md)及[强基线补充](docs/experiments/distribution-baseline-qualification-20261016.md)。补充16条MAPDN、45条PowerGym完整日：MAPDN强局部控制已使四候选日CR全部100%，33节点2012-02-03仅保留为安全约束下降损候选；PowerGym34Bus只剩上游边界微小越限、123Bus标准被静态设备解决，暂不冻结混合设备主case。报告保留旧结果、真实损耗、储能贡献、数值设置与信息权限；[补充工具](tools/distribution_qualification/README.md)可重放。本轮不改写旧n=0/1记录，也不构成正式严格n认证。
+
+另已完成[PowerGym PPO / 整数SAC单seed pilot](docs/experiments/powergym-rl-pilot-20261016.md)：参照论文公开参数独立实现，在当前合同下各训练40,000步，并独立评测20k / 40k检查点。固定40k策略在8个留出日均未满足末能量条件，质量为0；失败与完整物理指标均保留。这是方法重实现及流程验证，原论文训练源码未公开、完整设置仍有缺口，不能标为原曲线数值复现。参数来源、实现假设及可复现性判断见[核验说明](docs/experiments/powergym-rl-paper-audit-20261016.md)，工具见[训练入口](tools/powergym_rl/README.md)。
+
+后续已按[决定0008](docs/decisions/0008-distribution-formal-fixed-cases.md)进入[两题正式固定案例扩展](docs/experiments/distribution-formal-20261016.md)：MAPDN33节点2月3日采用安全优先真实网损指标；PowerGym123Bus压力日采用软电压综合代价与双能量硬约束。每题n=0/1/3/5/10、各3次独立开发，限时12小时且无累计token cap。v4已通过全部启动验收与独立审查，**30/30个正式作业于2026-10-16 21:24–21:25（UTC+8）确认受理**。实际提交清单、回执SHA及作业ID见[实验ledger](manifests/experiments/distribution-formal-20261016.json)，正式终评完成数仍为0。
 
 ## 共同实验语义
 

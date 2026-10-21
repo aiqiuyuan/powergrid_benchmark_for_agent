@@ -4,6 +4,8 @@
 
 ## 1. 家族定位与演化对象
 
+**2026-10-16正式扩展：** 已按[决定0008](../decisions/0008-distribution-formal-fixed-cases.md)冻结123Bus profile0、负荷倍率2.5完整24小时，新增[正式运行包](../../task-packages/powergym-volt-var-control-formal-v1/README.md)。电压、实际网损和操作次数构成软代价，末账面能量与实际功率积分各有±1kWh硬约束；共同starter升级为同信息coordinated策略。新包已通过本地9组参照轨迹对齐、集群runtime及本题n=0/1真实原生验收；共享执行框架另在MAPDN上完成60秒真实模型门禁，独立审查通过。**本题15个正式作业已确认受理，终评尚未完成。** 该决定收窄为固定案例软代价的n比较，不撤销之前“尚无全程电压可行的强储能挑战认证”的判断。实验规模、验收和提交状态见[正式实验记录](../experiments/distribution-formal-20261016.md)；其余早期待冻结描述以新协议为准。
+
 **家族 ID：`powergym-volt-var-control`。** 在配电网内联合控制电容器开关、调压器分接头和电池充放电，研究离散与连续动作的协调、设备操作代价、跨时段 SOC 管理以及电压与实际有功网损的权衡。它给现有 L2RPN 输电网拓扑控制增加不同的设备和能量约束，不以“又一个 RL 环境”作为加入理由。
 
 演化对象是可执行控制算法：电压滞环、设备优先级、候选动作筛选、坐标搜索、短视规划、SOC-aware 规则，或具有可追溯训练流程的策略。提交源码、参数、依赖和可选权重；截止后重新执行冻结算法，不接受以保存好的动作轨迹替代算法。默认推理阶段不调用在线 LLM。
@@ -48,6 +50,8 @@
 **PowerGym 的特殊隔离缺口：** 完整公开负荷、完整仿真器和目标公式足以重建完整评分；原生 `step()` 的 reward、完整电压/损耗轨迹和可重构诊断也能泄露等价结果。只隐藏一个 `score` 字段或删掉一个 checker 文件不足以证明严格 n。开发可见完整目标数据的范围必须在 release 中冻结，并实际检查文件、包、日志、网络与搜索权限。完整 target 环境及完整 checker 不随开发包分发；若提供公开物理模型或搜索辅助接口，须确保其输出不把完整目标评价免费送回开发 agent。候选在受信执行阶段的获准内部物理计算与优化不按完整评分次数逐次计 n，但其反馈和副产物遵守相同的信息边界。
 
 ## 4. 选例与完整性
+
+2026-10-16的[选例基础实验](../experiments/distribution-case-selection-20261016.md)完成18个候选、72条完整24步轨迹，随后[强基线补充](../experiments/distribution-baseline-qualification-20261016.md)再完成45条设备、储能及匹配校准参考。初轮34Bus的持续越界经强搜索只剩上游边界微小越限；123Bus标准日静态设备即全天合规，压力日含电池仍未全天可行。因此暂不冻结正式混合设备主case，先保留压力日作研究候选；完整物理指标、储能贡献和权限见第9节及补充报告。
 
 优先在 34Bus / 123Bus 候选及预先声明的负荷尺度中，以同条件参考方法测可行性、控制质量、耗时和动态设备贡献，再选一个尽可能困难、完整且可运行的 case。不能按母线数量、原始 reward 大小或一次运行失败直接选“最难”，也不能先观察 n 效应再挑 case。123Bus 不自动比 34Bus 更难。
 
@@ -113,11 +117,19 @@ DSS 日模式从 hour=0、stepsize=3600 开始；reset 用 SolveNoControl，后�
 
 ## 9. 基线与论文可复现性
 
+2026-10-16已完成[强基线补充](../experiments/distribution-baseline-qualification-20261016.md)：5案例×5新参考，另加20条同数值设置校准，45条均完成24步并通过能量验收。三个34Bus标准日强设备搜索的剩余越限仅在sourcebus/800，最大约2.14–2.83×10⁻⁶p.u.；原严格评分不改，但不再据该CR残差认定显著持续电压难度。允许idle的储能搜索均选idle，强制非零循环反而增大越界。123Bus标准日固定tap/cap即全天合规，同设备加储能仅降损0.187%；2.5倍压力日储能使CR从75%升至79.17%，仍未全天可行。**暂不冻结正式混合设备主case**，保留压力日作研究候选。
+
+新搜索均为有限启发式，不是论文PPO/SAC复现或全局最优证书；含电池搜索固定无电池设备计划，检查原末端账面±1kWh及额外实际净能量±1kWh，不能把容差内结果称为严格零净能量。查询与终评采用运行前冻结的冷启动数值协议，旧四策略已同设置重跑，历史分数保留。论文RL复现与统一合同重训另存实验。
+
 最低参考面板：seeded random、保持当前设备状态且电池 idle、native DSS、电压滞环加 SOC-aware 控制、受限坐标/短视搜索；RL 作为另外实现并同合同重跑的可选强基线。**全零动作不是 DoNothing**：它关电容器、取最小 tap，并在离散电池中请求充电；离散电池 idle index 为 16，连续为 0。初始化 regulator 在最大 tap，caps on。[动作映射](https://github.com/siemens/powergym/blob/c9fc6d8357308a1f2bd2389474b56089c2a6bd78/powergym/env.py#L143-L157)、[电池档位](https://github.com/siemens/powergym/blob/c9fc6d8357308a1f2bd2389474b56089c2a6bd78/powergym/circuit.py#L788-L801)。
 
 native DSS 模式和直接算法模式必须区分。默认 `dss_act=False` 关闭自动控制；`dss_step()` 开启原 DSS 控制，但明确不控制电池。34/123 active daily 文件没有 CapControl，因此该参考主要是调压器自动控制、其余按初态/idle，而非全设备最优基线。直接动作赛道不得无意叠加自动控制。[ControlMode](https://github.com/siemens/powergym/blob/c9fc6d8357308a1f2bd2389474b56089c2a6bd78/powergym/circuit.py#L78-L100)、[dss_step](https://github.com/siemens/powergym/blob/c9fc6d8357308a1f2bd2389474b56089c2a6bd78/powergym/env.py#L513-L561)。
 
-论文比较 PPO、SAC、连续电池 SAC 和 random，但当前仓库没有对应训练代码或权重；维护者也明确说明未发布这些 agent。不能把外部通用 SAC 直接当原论文多离散/混合动作实现。论文随机 profile halves 与十 seed 的总表不是本固定 case 的基线分数，PowerGym 也没有可供本单日成绩插入的官方竞赛榜。[维护者确认](https://github.com/siemens/powergym/issues/4#issuecomment-1128028790)、[正式论文 §6.1](https://proceedings.mlr.press/v168/fan22a/fan22a.pdf)。
+本轮新增 PPO / 整数 SAC 的**独立方法重实现**，在当前冻结 benchmark 合同下重训。主要超参数参照[扩展版附录 Table 6，第19页](https://arxiv.org/pdf/2109.03970v3#page=19)；该表是 suggested hyperparameters，并非完整训练配置。论文未公开的网络 / 更新细节、初始化、warmup 等补齐项均显式记录为实现假设。整数 SAC 采用 straight-through Gumbel-Softmax 的整数重参数化，不能把通用连续 SAC 取整称为同一方法。完整来源、参数归属和合同差异见[论文复现来源核验](../experiments/powergym-rl-paper-audit-20261016.md)。
+
+**官方开源的是环境与数据；本次核验的官方仓库未见论文使用的 PPO / SAC 训练源码或权重。** [维护者在 issue #4 明确说明这些 agent 尚未发布](https://github.com/siemens/powergym/issues/4#issuecomment-1128028790)。本项目新增实现不是作者训练代码，也未恢复作者当时的 profile split、十个 seed 身份和完整运行设置。论文随机 profile halves 与十 seed 的总表不是本固定 case 的基线分数，PowerGym 也没有可供本单日成绩插入的官方竞赛榜。[正式论文 §6.1](https://proceedings.mlr.press/v168/fan22a/fan22a.pdf)。
+
+**原论文曲线尚未完成数值复现。** 当前物理执行、观测时序、硬末能量条件和评分与原环境存在差异，Figure 2 的 40k / 20k 计数歧义也未消除；这限制了可作出的复现结论，并不证明原结果无法复现。本轮已完成[34Bus、seed=0的PPO / 整数SAC各40k pilot](../experiments/powergym-rl-pilot-20261016.md)，20k / 40k检查点均独立评测；固定40k最终策略在8个留出案例均因末能量条件无效、quality=0，不能据此冻结正式主case或推断算法类别无效。首次奖励适配失败及纠正后重跑均保留。该额外算法参照不与正式 Famou n 轨道冒称同开发预算。
 
 校准应同时比较 static-only、no-battery 和 full-device 控制：若静态 tap/cap 已解决问题，或提升仅来自花掉初始能量，则尚不足以证明这个 case 测出了混合设备跨期控制。先报告该情况，再按预先规则选其他完整可运行候选，不削弱基线或观察 n 效应后再挑选。
 
@@ -138,4 +150,4 @@ native DSS 模式和直接算法模式必须区分。默认 `dss_act=False` 关�
 5. 走原生 task 生命周期短验：n=0 无完整目标过程反馈，正 n 计数、超额拒绝、失败计费、截止冻结、唯一 artifacts 同 case 复核；记录实际防旁路覆盖。
 6. 冻结模型/资源、seed、反馈 schema/精度、release 摘要和新扩展的运行清单后，才可进入正式开发比较。
 
-登记后的canary已补上真实后端、完整日基线、串并行重放、末能量硬约束及目标集群Linux隔离验收，详见[流程校准记录](../experiments/distribution-canary-20261015.md)。PowerGym n=0/1均已有目标模型、反馈计数、最终候选哈希和同case终评回执，反馈受理/收集分别为0/0和1/1；n=0在完整终评后因末能量违规判0分，其原生审计未通过状态保留，n=1通过。来源许可、强基线、跨期设备贡献及正式严格n等扩展门槛继续保持待认证。机器声明：[powergym-volt-var-control.json](../../manifests/task-adapters/powergym-volt-var-control.json)；接入说明：[distribution-control-integration.md](../framework/distribution-control-integration.md)。
+登记后的canary已补上真实后端、完整日基线、串并行重放、末能量硬约束及目标集群Linux隔离验收，详见[流程校准记录](../experiments/distribution-canary-20261015.md)。PowerGym n=0/1均已有目标模型、反馈计数、最终候选哈希和同case终评回执，反馈受理/收集分别为0/0和1/1；n=0在完整终评后因末能量违规判0分，其原生审计未通过状态保留，n=1通过。来源许可、正式案例的难度、显著跨期设备贡献及严格n等扩展门槛继续保持待认证。机器声明：[powergym-volt-var-control.json](../../manifests/task-adapters/powergym-volt-var-control.json)；接入说明：[distribution-control-integration.md](../framework/distribution-control-integration.md)。

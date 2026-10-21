@@ -1,0 +1,260 @@
+{
+  "schema_version": "powergym-formal-reference-parity-v1",
+  "status": "passed",
+  "sandbox_validated": false,
+  "records": [
+    {
+      "baseline": "best_active_storage",
+      "reference_sha256": "29a94b1281d5387af3bc5bde6033fe03f97379ad94b9340f1ffec8e17825a2e7",
+      "permissions": "full-day load oracle; paired discharge then charge; actual backend replay of complete trajectories",
+      "interpretation": "trusted recorded-plan numerical parity; not a legal observation-only controller",
+      "all_24_rows_exact": true,
+      "valid": true,
+      "reward": 0.077338897693124,
+      "completed_steps": 24,
+      "active_loss_kwh": 5434.911608568717,
+      "voltage_violation_pu_hours": 0.010344030486120315,
+      "phase_time_compliance": 0.9979016786570744,
+      "actual_net_energy_kwh": [
+        -4.0801140244184353e-10,
+        0.0,
+        0.22528835667691283,
+        0.6715967828951328
+      ],
+      "terminal_energy_error_kwh": [
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ],
+      "wall_seconds": 0.24841333396034315,
+      "pf_calls": 25,
+      "candidate_sha256": "61413c1ae4073ee02af15da86185ac73e8ce79bc11d65712a96f24ed36e0c97d"
+    },
+    {
+      "baseline": "canary_hysteresis",
+      "reference_sha256": "b51b5b27d24ff621f987d79107a87d22c056e2ca29b1bb8d396bb4e5c2c72978",
+      "permissions": "canary lagged observation only",
+      "interpretation": "trusted recorded-plan numerical parity; not a legal observation-only controller",
+      "all_24_rows_exact": true,
+      "valid": true,
+      "reward": 0.0247983666859411,
+      "completed_steps": 24,
+      "active_loss_kwh": 5288.594346510892,
+      "voltage_violation_pu_hours": 31.49118755059948,
+      "phase_time_compliance": 0.7831235011990407,
+      "actual_net_energy_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "terminal_energy_error_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "wall_seconds": 0.05641125002875924,
+      "pf_calls": 25,
+      "candidate_sha256": "10440ef987e9e5212f612fb813be9f9cf64159db07498d00ddb41321f06f870d"
+    },
+    {
+      "baseline": "coordinated_voltage",
+      "reference_sha256": "6699b04ac992b0ae6aaba5b1f9f7af19848b1154c0e0f9b9f7279b83facbedb8",
+      "permissions": "canary lagged observation only",
+      "interpretation": "trusted recorded-plan numerical parity; not a legal observation-only controller",
+      "all_24_rows_exact": true,
+      "valid": true,
+      "reward": 0.057844021683668784,
+      "completed_steps": 24,
+      "active_loss_kwh": 5854.903548985061,
+      "voltage_violation_pu_hours": 5.675391952956601,
+      "phase_time_compliance": 0.9025779376498801,
+      "actual_net_energy_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "terminal_energy_error_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "wall_seconds": 0.05594912503147498,
+      "pf_calls": 25,
+      "candidate_sha256": "4f2c8f9b76ac03d972126a214e8d088899566aba837df20cd0063a4da3f5d9c6"
+    },
+    {
+      "baseline": "full_information_snapshot",
+      "reference_sha256": "d4b9126fe3645979dc2487085b54f05472d81bf013bf289c3e0e1971d4a2ba29",
+      "permissions": "current load and full circuit; no future load",
+      "interpretation": "trusted recorded-plan numerical parity; not a legal observation-only controller",
+      "all_24_rows_exact": true,
+      "valid": true,
+      "reward": 0.06814657493797387,
+      "completed_steps": 24,
+      "active_loss_kwh": 5497.912630803047,
+      "voltage_violation_pu_hours": 7.206642200271877,
+      "phase_time_compliance": 0.9087230215827338,
+      "actual_net_energy_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "terminal_energy_error_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "wall_seconds": 0.05748637503711507,
+      "pf_calls": 25,
+      "candidate_sha256": "2ba5b0f99f45b6b686e5a4397de5e3a2c30bf2a5c4885e94ff0203cc4de942fb"
+    },
+    {
+      "baseline": "hold_idle",
+      "reference_sha256": "3043636da833e41dcd4a4be5ba95baf4078ef5de1e1ab3ee234677514ef85c47",
+      "permissions": "canary lagged observation only",
+      "interpretation": "trusted recorded-plan numerical parity; not a legal observation-only controller",
+      "all_24_rows_exact": true,
+      "valid": true,
+      "reward": 0.005783794538675795,
+      "completed_steps": 24,
+      "active_loss_kwh": 5743.06623838855,
+      "voltage_violation_pu_hours": 166.15380852316736,
+      "phase_time_compliance": 0.29706235011990406,
+      "actual_net_energy_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "terminal_energy_error_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "wall_seconds": 0.06071237497963011,
+      "pf_calls": 25,
+      "candidate_sha256": "8e1418c705eda026b81af065b7bb7ef9603759e4b0c253debe1b9c3fde363602"
+    },
+    {
+      "baseline": "oracle_day_idle",
+      "reference_sha256": "dd7809b94837fd03a88788221928d7b31c88a1690ac699269a8fc9ce84ae2346",
+      "permissions": "full-day load oracle; time-varying devices; battery idle",
+      "interpretation": "trusted recorded-plan numerical parity; not a legal observation-only controller",
+      "all_24_rows_exact": true,
+      "valid": true,
+      "reward": 0.07731041012482699,
+      "completed_steps": 24,
+      "active_loss_kwh": 5437.008927222703,
+      "voltage_violation_pu_hours": 0.013011234795116233,
+      "phase_time_compliance": 0.997152278177458,
+      "actual_net_energy_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "terminal_energy_error_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "wall_seconds": 0.06048195803305134,
+      "pf_calls": 25,
+      "candidate_sha256": "752270af83547b7c40c6919d0b143a2647e68ced5f53f19e213e637574106bcc"
+    },
+    {
+      "baseline": "oracle_day_storage",
+      "reference_sha256": "ebc0f1f312c187027e71951c2d8316f79c0eaf64464b66be4d6fe8bba4b89b1b",
+      "permissions": "full-day load oracle; paired discharge then charge; actual backend replay of complete trajectories",
+      "interpretation": "trusted recorded-plan numerical parity; not a legal observation-only controller",
+      "all_24_rows_exact": true,
+      "valid": true,
+      "reward": 0.077338897693124,
+      "completed_steps": 24,
+      "active_loss_kwh": 5434.911608568717,
+      "voltage_violation_pu_hours": 0.010344030486120315,
+      "phase_time_compliance": 0.9979016786570744,
+      "actual_net_energy_kwh": [
+        -4.0801140244184353e-10,
+        0.0,
+        0.22528835667691283,
+        0.6715967828951328
+      ],
+      "terminal_energy_error_kwh": [
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ],
+      "wall_seconds": 0.05908512504538521,
+      "pf_calls": 25,
+      "candidate_sha256": "61413c1ae4073ee02af15da86185ac73e8ce79bc11d65712a96f24ed36e0c97d"
+    },
+    {
+      "baseline": "static_day_idle",
+      "reference_sha256": "52e8fc4b69ca3ac34aa6042d7b60e0ca6d5a23a15b0ce0649253f9906fa6ab66",
+      "permissions": "full-day load oracle; constant tap/cap state; battery idle",
+      "interpretation": "trusted recorded-plan numerical parity; not a legal observation-only controller",
+      "all_24_rows_exact": true,
+      "valid": true,
+      "reward": 0.09469961834157078,
+      "completed_steps": 24,
+      "active_loss_kwh": 5726.060279694887,
+      "voltage_violation_pu_hours": 0.803341338368387,
+      "phase_time_compliance": 0.9560851318944844,
+      "actual_net_energy_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "terminal_energy_error_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "wall_seconds": 0.057344208005815744,
+      "pf_calls": 25,
+      "candidate_sha256": "cf1c1c01c9b7ad2091231c8171d2e4e04246f81c6659cd6452d252f18746103a"
+    },
+    {
+      "baseline": "strong_current_idle",
+      "reference_sha256": "c0fecfdab819ec23a264d453adb89cc8759267e89977664d3367787bbc92ba3c",
+      "permissions": "full current circuit and current load; no future load",
+      "interpretation": "trusted recorded-plan numerical parity; not a legal observation-only controller",
+      "all_24_rows_exact": true,
+      "valid": true,
+      "reward": 0.07758129316089064,
+      "completed_steps": 24,
+      "active_loss_kwh": 5452.366551411737,
+      "voltage_violation_pu_hours": 0.013096251689329264,
+      "phase_time_compliance": 0.9970023980815348,
+      "actual_net_energy_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "terminal_energy_error_kwh": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "wall_seconds": 0.05832954199286178,
+      "pf_calls": 25,
+      "candidate_sha256": "bf3bb693b6ff52de405c3f8878ec63dcd3b2b39ce6919a367ee6bd2845624fe2"
+    }
+  ],
+  "all_candidate_episodes_below_30_seconds": true
+}

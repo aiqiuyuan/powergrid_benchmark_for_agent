@@ -1,0 +1,4 @@
+torch==2.9.0
+numpy==1.26.4
+dss-python==0.15.7
+dss-python-backend==0.14.5

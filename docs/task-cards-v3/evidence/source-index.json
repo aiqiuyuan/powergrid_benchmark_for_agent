@@ -1,0 +1,285 @@
+{
+  "schema": "task-cards-v3-protocol-source-index-v1",
+  "compiled_date_beijing": "2026-10-21",
+  "scope": "protocol and baseline provenance only; no new formal evolution outcomes",
+  "public_runtime_closures_included": false,
+  "source_record_semantics": "Source file digests identify local snapshots used to compile the cards. They do not turn unavailable local paths into public downloads or replace the frozen campaign-manifest digest. No credentials/raw private configs are included.",
+  "cases": [
+    {
+      "id": "goc",
+      "protocol_or_campaign": "goc500-panel48-20261020-v5",
+      "campaign_or_source_manifest_sha256": "4f42f1a6b1cf1f45b6c966af0928cf3fa22ae785b442a3b2607509501d51bc3f",
+      "development_max_seconds": 172800,
+      "developer_cpu": 8,
+      "developer_memory_gib": 32,
+      "developer_gpu": 0,
+      "feedback_unit": "20 public scenarios",
+      "n": [
+        0,
+        1,
+        3,
+        5,
+        10
+      ],
+      "independent_development_repeats_per_n": 3,
+      "cumulative_token_cap": null,
+      "rte_existing_campaign_no_resubmission": false
+    },
+    {
+      "id": "uc",
+      "protocol_or_campaign": "uc56-shared-48h-20261021-v4",
+      "campaign_or_source_manifest_sha256": "a311e7829cdefa8e36ea9cba3a8301443c3d16691c9fb37ffb978be63121727c",
+      "development_max_seconds": 172800,
+      "developer_cpu": 3,
+      "developer_memory_gib": 8,
+      "developer_gpu": 0,
+      "feedback_unit": "56 public instances",
+      "n": [
+        0,
+        1,
+        3,
+        5,
+        10
+      ],
+      "independent_development_repeats_per_n": 3,
+      "cumulative_token_cap": null,
+      "rte_existing_campaign_no_resubmission": false
+    },
+    {
+      "id": "mapdn",
+      "protocol_or_campaign": "mapdn-rl-cpu-formal-12h-20261021-v9",
+      "campaign_or_source_manifest_sha256": "5e6e28bbf1be3982d19bace4967e5eccaec1a3d0f9ee282dbb9f4b051dcd6039",
+      "development_max_seconds": 43200,
+      "developer_cpu": 3,
+      "developer_memory_gib": 8,
+      "developer_gpu": 0,
+      "feedback_unit": "36 protected validation episodes; separate terminal test36",
+      "n": [
+        0,
+        1,
+        3,
+        5,
+        10
+      ],
+      "independent_development_repeats_per_n": 3,
+      "cumulative_token_cap": null,
+      "rte_existing_campaign_no_resubmission": false
+    },
+    {
+      "id": "l2rpn",
+      "protocol_or_campaign": "l2rpn-idf2023-gpu-rl-24h-20261021-v3",
+      "campaign_or_source_manifest_sha256": "8f5c1988f53929f2d612431cc4940eda2007c792f18ccaf6366bec8011eab223",
+      "development_max_seconds": 86400,
+      "developer_cpu": 4,
+      "developer_memory_gib": 32,
+      "developer_gpu": 1,
+      "feedback_unit": "104 ordered public weeks",
+      "n": [
+        0,
+        1,
+        3,
+        5,
+        10
+      ],
+      "independent_development_repeats_per_n": 3,
+      "cumulative_token_cap": null,
+      "rte_existing_campaign_no_resubmission": false
+    },
+    {
+      "id": "heftcom",
+      "protocol_or_campaign": "heftcom-trading-replay-60h-20261021-v5",
+      "campaign_or_source_manifest_sha256": "54b7a53b9ea9a08f7d581f6baaccd543a89892a26ebb45cb7f1dac67f6ca3248",
+      "development_max_seconds": 216000,
+      "developer_cpu": 4,
+      "developer_memory_gib": 16,
+      "developer_gpu": 0,
+      "feedback_unit": "90 market days / 4318 periods",
+      "n": [
+        0,
+        1,
+        3,
+        5,
+        10
+      ],
+      "independent_development_repeats_per_n": 3,
+      "cumulative_token_cap": null,
+      "rte_existing_campaign_no_resubmission": false
+    },
+    {
+      "id": "rte",
+      "protocol_or_campaign": "rte2020-abc-x15-v2",
+      "campaign_or_source_manifest_sha256": "75d9b480cc2105b6831991a8fd65249af5f26f13f90dd8b20f4597bca59fcd1b",
+      "development_max_seconds": 43200,
+      "developer_cpu": 2,
+      "developer_memory_gib": 32,
+      "developer_gpu": 0,
+      "feedback_unit": "X15 at900s; terminal900s plus5400s",
+      "n": [
+        0,
+        1,
+        3,
+        5,
+        10
+      ],
+      "independent_development_repeats_per_n": 3,
+      "cumulative_token_cap": null,
+      "rte_existing_campaign_no_resubmission": true
+    }
+  ],
+  "sources": [
+    {
+      "workspace_relative_path": "plan/goc500-panel-evolution-20261020/src/panel_data.py",
+      "sha256": "04025e2f31e7669a2ea3f523ab8a81a52337845506e3dae7fbd62308df66e11a",
+      "bytes": 14011,
+      "purpose": "GOC panel/resource constants"
+    },
+    {
+      "workspace_relative_path": "plan/goc500-panel-evolution-20261020/src/prepare_campaign.py",
+      "sha256": "50d7a3751ecc9e6931cf64beaaa0fbead1db76296900071bd0cd3379db7cfc49",
+      "bytes": 20157,
+      "purpose": "current generic instruction generator, not old single-case template"
+    },
+    {
+      "workspace_relative_path": "plan/goc500-panel-evolution-20261020/src/panel_feedback.py",
+      "sha256": "6dca577b404f62e6d12a4bf6a0903776528d31e39263bcf6378a80c216aca5be",
+      "bytes": 33183,
+      "purpose": "full-panel accounting and diagnostics"
+    },
+    {
+      "workspace_relative_path": "plan/goc500-panel-evolution-20261020/src/panel_protocol.py",
+      "sha256": "cabf9c072626b48732929bd64237463ef24b5f52ee6eb09de03a225530fe80d8",
+      "bytes": 14043,
+      "purpose": "coverage comparator"
+    },
+    {
+      "workspace_relative_path": "plan/goc500-panel-evolution-20261020/evidence/acceptance-and-performance-v5.json",
+      "sha256": "0448959cdd76e5aa48c4a975a1da15bb01434b2a62cc083d94e1ed24bb0dab4b",
+      "bytes": 39783,
+      "purpose": "report-transfer timing, not numerical batch wall time"
+    },
+    {
+      "workspace_relative_path": "plan/uc56-formal-evolution-20261020/build/formal-assets-v11/public-app/problem.md",
+      "sha256": "c69c6b529eaa773de67f3a3564ee76e6f84139cf3f8f9186d73f82cd41487028",
+      "bytes": 6923,
+      "purpose": "current UC task definition"
+    },
+    {
+      "workspace_relative_path": "plan/uc56-formal-evolution-20261020/build/formal-assets-v11/public-app/docs/policy-contract.md",
+      "sha256": "1028379601812068713df596d8e88b411bd0b099ca0dff3936716adcc8e0bcf1",
+      "bytes": 6309,
+      "purpose": "allowed UC controls and warm starts"
+    },
+    {
+      "workspace_relative_path": "plan/uc56-formal-evolution-20261020/build/formal-assets-v11/public-app/docs/feedback-contract.md",
+      "sha256": "0060d4eec9ed366945ee0481f0d12e9ded4246db99af3514d69db8a6ba8890df",
+      "bytes": 3792,
+      "purpose": "UC feedback and ranking"
+    },
+    {
+      "workspace_relative_path": "plan/uc56-formal-evolution-20261020/build/formal-assets-v11/public-app/panel.json",
+      "sha256": "95b1d36335c6f16326abd4364201b51b123344f9324920c6e08ef4854e2a44e9",
+      "bytes": 30168,
+      "purpose": "exact public UC input inventory"
+    },
+    {
+      "workspace_relative_path": "plan/uc56-formal-evolution-20261020/evidence/supplement-terminal-audit-20261021.json",
+      "sha256": "c60767485d02054f01b73c775541b32638f95c7915f596472ef3da3c9a7ffdef",
+      "bytes": 70215,
+      "purpose": "UC starter calibration timing"
+    },
+    {
+      "workspace_relative_path": "powergrid_benchmark_for_agent/task-packages/mapdn-rl-evolution-v2/protocol.json",
+      "sha256": "ce2e14859813ef6e319500038e2e9af42428d51478a7abbb4003ddfa3ee8c137",
+      "bytes": 3874,
+      "purpose": "MAPDN data partition and native environment"
+    },
+    {
+      "workspace_relative_path": "powergrid_benchmark_for_agent/task-packages/mapdn-rl-cpu-formal-v4/protocol.json",
+      "sha256": "dc25e65afe40ec3f5f6d26611705554be3e7d520ab59b1e9d25ea00a4f1c92fc",
+      "bytes": 2165,
+      "purpose": "MAPDN CPU comparison and feedback"
+    },
+    {
+      "workspace_relative_path": "powergrid_benchmark_for_agent/task-packages/mapdn-rl-cpu-formal-v4/profile.json",
+      "sha256": "aa7c08c2901dcd15c996c16aa8fe0f8ccbc3e7a1ab8e40c155732d4fa3a3d26b",
+      "bytes": 344,
+      "purpose": "MAPDN inner resource profile"
+    },
+    {
+      "workspace_relative_path": "powergrid_benchmark_for_agent/docs/experiments/verification/mapdn-rl-cpu-paper-baselines-20261021.json",
+      "sha256": "22ad1841a0622fd06f2f40fa82b65313f5237a5a34fd9b9f2460eda516dbe23a",
+      "bytes": 17352,
+      "purpose": "MAPDN same-panel measured baseline definitions"
+    },
+    {
+      "workspace_relative_path": "plan/mapdn-rl-formal-release-20261020/evidence-v9/deployment.json",
+      "sha256": "b73cdf1fb4a5a4bc622fcfc9afa4efe0217b1186c6b1b810746016b46c98e00a",
+      "bytes": 6738,
+      "purpose": "MAPDN actual outer resources"
+    },
+    {
+      "workspace_relative_path": "plan/l2rpn-idf2023-gpu-rl-20261021/protocol.md",
+      "sha256": "0fbf95f0a90bed44443bcbe90f27e917c2688356bbf74603928044cec3af8013",
+      "bytes": 5984,
+      "purpose": "L2RPN current native contract and timing"
+    },
+    {
+      "workspace_relative_path": "plan/l2rpn-idf2023-gpu-rl-20261021/evidence/final-campaign-v3/configs/n10-r1.json",
+      "sha256": "2fcd9097d832b63e2d91615d39b7793d0bb1ec2ec62756ffe0c2724ba8ae992d",
+      "bytes": 11894,
+      "purpose": "L2RPN bound formal resource config; raw contents excluded"
+    },
+    {
+      "workspace_relative_path": "powergrid_benchmark_for_agent/task-packages/heftcom-trading-replay-v3/task-config.json",
+      "sha256": "5484f5486b7c8aaa43bf1636b7152f530982b413162e562dbdffed3860ca2695",
+      "bytes": 14302,
+      "purpose": "HEFTCom causal replay/resources/calibration public projection"
+    },
+    {
+      "workspace_relative_path": "powergrid_benchmark_for_agent/task-packages/heftcom-trading-replay-v3/source-lock.json",
+      "sha256": "3497c59838ecdae23effc0f8a7b35035955661996842e35d79beb990d330f26c",
+      "bytes": 11910,
+      "purpose": "HEFTCom source/data provenance"
+    },
+    {
+      "workspace_relative_path": "powergrid_benchmark_for_agent/task-packages/rte-abc-x15-evolution-v2/backend-task.json",
+      "sha256": "a9d681adccc59b5a790a329481db39c6f30b9329deedbc47dec095ec8a171fdd",
+      "bytes": 2751,
+      "purpose": "RTE resource and terminal binding"
+    },
+    {
+      "workspace_relative_path": "powergrid_benchmark_for_agent/task-packages/rte-abc-x15-evolution-v2/grading/historical-x15-reference.json",
+      "sha256": "b007699ceac0c92132fdb1ae637b84e6475336a1ac9568afc21a2291f150c4b1",
+      "bytes": 38077,
+      "purpose": "RTE fixed published original thirteen-team X15 reference"
+    },
+    {
+      "workspace_relative_path": "powergrid_benchmark_for_agent/docs/experiments/rte-abc-x15-formal-20261015.md",
+      "sha256": "690aa3355896090ac1d552fdd43748a429b258d0cff5eeb08968f846fec3a616",
+      "bytes": 13956,
+      "purpose": "RTE historical full-panel resource calibration"
+    }
+  ],
+  "exported_snapshots": [
+    {
+      "file": "goc500-panel.json",
+      "sha256": "cee4b375cd33ca1e2bf8ba519e42eb3f43e010c7876ac12e2d017aa45eed19b6",
+      "bytes": 4474
+    },
+    {
+      "file": "mapdn-baseline-anchors.json",
+      "sha256": "1093cf39108f538e58e80cb0f7d8381b674d20208b19671572f33a200d554250",
+      "bytes": 7618
+    },
+    {
+      "file": "rte-historical-x15-reference.json",
+      "sha256": "b007699ceac0c92132fdb1ae637b84e6475336a1ac9568afc21a2291f150c4b1",
+      "bytes": 38077
+    },
+    {
+      "file": "uc56-panel.json",
+      "sha256": "36fd64a12063f0a8f6eb740e9f185a4eb0ce9f641044a4337217e281ed2d2633",
+      "bytes": 30105
+    }
+  ]
+}

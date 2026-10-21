@@ -1,0 +1,132 @@
+{
+  "assumptions": {
+    "final_partial_rollout": "20k saves unfinished PPO buffer; only40k finish flushes remaining buffer",
+    "observation": "fixed physical scales and frozen benchmark lag rather than original native Gym observation timing",
+    "ppo": {
+      "activation": "tanh",
+      "depth": 2,
+      "epochs": 10,
+      "gae_lambda": 0.95,
+      "max_grad_norm": 0.5,
+      "normalize_advantages": true,
+      "value_coef": 0.5,
+      "width": 64
+    },
+    "runtime": {
+      "device": "cpu",
+      "torch_threads": 1
+    },
+    "sac": {
+      "activation": "relu",
+      "critic_action": "one ST-Gumbel integer scalar per device normalized to [-1,1]",
+      "entropy_estimator": "sampled log probability",
+      "gumbel_temperature": 1.0,
+      "learning_starts": 1000,
+      "learning_starts_provenance": "1000 random steps reported for paper case study; adopted here as an integer-SAC warmup assumption",
+      "replay_capacity": 100000,
+      "target_update": "each gradient step",
+      "tau": 0.005,
+      "updates_per_step": 1
+    },
+    "split": "numpy.default_rng(0).permutation(16), first8 train and last8 heldout; ascending ids within each set",
+    "training_steps": "40000 actual env.step transitions,20k/40k fixed checkpoints"
+  },
+  "benchmark_valid_gate": "original: full24h and each battery ledger terminal deviation <=1kWh",
+  "checkpoint_selection": "fixed final 40000 only; no test-based tuning or selection",
+  "checkpoints": [
+    20000,
+    40000
+  ],
+  "correction_stage": {
+    "new_reward_field": "rl_paper_vanilla_reward; preserve existing paper_vanilla_reward_diagnostic including None",
+    "old_runs_preserved": [
+      "rl-ppo-final",
+      "rl-sac-final"
+    ],
+    "reason": "v1 stopped on finite physical reverse-flow rows because old optional diagnostic was None; not PPO/SAC numerical divergence",
+    "scope": "RL-only native reward reconstruction; original physics, quality, old diagnostic, data, algorithms, hyperparameters and budgets unchanged",
+    "signed_ratio_rule": "NumPy divide(loss_kw,source_active_kw), then original Python max(0,min(1,ratio)); finite negative source ->0; no denominator epsilon",
+    "source_reference": "pinned powergym/env.py:334 and435",
+    "zero_source_scope": "match pinned NumPy scalar semantics and original clamp argument order: positive loss/+0 ->1, positive loss/-0 ->0, zero/zero ->1; reject nonfinite physical inputs before division"
+  },
+  "evaluation_interval": 120,
+  "evaluation_profiles": "all eight heldout profiles, deterministic actions",
+  "extra_comparison": {
+    "all_five_reference_cases": [
+      "34Bus-standard-p000-s1",
+      "34Bus-standard-p006-s1",
+      "34Bus-standard-p015-s1",
+      "123Bus-standard-p000-s1",
+      "123Bus-stress-p000-s2.5"
+    ],
+    "frozen_primary_results": "work/distribution-qualification-20261016/powergym-final",
+    "pilot_compatible_profiles": [
+      0,
+      6,
+      15
+    ],
+    "purpose": "fixed final-policy descriptive comparison only; no model selection;123Bus requires separate compatible training"
+  },
+  "full_budget_not_completed": {
+    "algorithms": [
+      "ppo",
+      "sac"
+    ],
+    "networks": [
+      "34Bus",
+      "123Bus"
+    ],
+    "scope": "planned34/123 two-network ten-seed matrix, not full original four-network/cbat paper matrix",
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "training_steps_per_run": 40000,
+    "training_steps_total": 1600000
+  },
+  "network": "34Bus",
+  "observation_scaling": "all phase volts pu; capacitors 0/1; taps divided by32; battery SOC and actual terminal kW/maxkW; no running normalization",
+  "paper_reported": {
+    "evaluation": "10 seeds and random complete-profile half split; exact seeds/splits unpublished",
+    "ppo": {
+      "batch_size": 64,
+      "clip_epsilon": 0.2,
+      "entropy_coef": 0.01,
+      "gamma": 0.95,
+      "lr": 0.0003,
+      "update_interval": 512
+    },
+    "sac": {
+      "batch_size": 256,
+      "depth": 3,
+      "entropy_coef": 0.4,
+      "gamma": 0.95,
+      "lr": 0.0003,
+      "width": 512
+    },
+    "training": "Fig2 caption40k versus axes20k discrepancy unresolved; exact original transition count not established"
+  },
+  "parent_protocol_sha256": "2b33141634f971d979541a2ab8ec8338ec31c4ab160d6205db3a3cb4d1e49ddb",
+  "physical_contract": "frozen qualification deterministic backend; original lagged observation, Generator P/Q, projected commands, actual terminal power and Python integer-kWh ledger",
+  "qualification_gate": "additional strong-reference gate: benchmark_valid AND each abs(actual terminal-kW integral)<=1kWh; report both gates",
+  "reward": "native vanilla reward reconstructed from physical rows and frozen weights; preserve old diagnostic; soc_w=0.0, no added terminal penalty",
+  "schema_version": "powergym-rl-pilot-protocol-v2",
+  "scope": "same-contract retraining, not native Gym paper-score reproduction",
+  "seed": 0,
+  "sources": [
+    "https://arxiv.org/pdf/2109.03970#page=19",
+    "https://arxiv.org/html/2109.08512",
+    "https://github.com/siemens/powergym/issues/4#issuecomment-1128028790"
+  ],
+  "split_seed": 0,
+  "status": "frozen",
+  "training_steps": 40000
+}

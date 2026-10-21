@@ -1,0 +1,54 @@
+{
+  "schema": "mapdn-formal-local-numerical-check-v1",
+  "status": "passed",
+  "isolation_acceptance": false,
+  "runtime": {
+    "python": "3.12.14",
+    "platform": "macOS-15.7.3-arm64-arm-64bit",
+    "pandapower": "3.3.0",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "scipy": "1.15.3"
+  },
+  "qualified_reference_actual_loss_mwh": 1.8352510375191953,
+  "absolute_loss_difference_mwh": 2.220446049250313e-16,
+  "result": {
+    "case_id": "mapdn33-2012-02-03",
+    "metric_name": "mapdn33_formal_quality_v1",
+    "valid": true,
+    "reward": 0.6763512272400023,
+    "scheduled_intervals": 480,
+    "completed_intervals": 480,
+    "pf_calls": 960,
+    "pf_attempts": 960,
+    "actor_limits": {
+      "count": 6,
+      "address_space_mib_per_actor": 384,
+      "cpu_seconds_per_actor": 60,
+      "response_seconds": 1,
+      "initialization_seconds": 15,
+      "episode_seconds": 240
+    },
+    "secure_execution": false,
+    "error": null,
+    "manifest_sha256": "c133d5f38ee46fba690a30e457d4fc785c5e0210787934471d40e044b1c10888",
+    "candidate_sha256": "3d4e70898f63429e97542f9bb45e37633f9d17c066183ba9f366e66b4e2863ca",
+    "metrics": {
+      "all_bus_time_compliance": 1.0,
+      "bus_time_compliance": 1.0,
+      "actual_loss_mwh": 1.835251037519195,
+      "voltage_violation_pu_hours": 0.0,
+      "worst_undervoltage_pu": 0.0,
+      "worst_overvoltage_pu": 0.0,
+      "max_power_balance_residual_mw": 1.3521517516768e-09,
+      "q_effort_mvar_hours": 48.190702151717204,
+      "compliant_bus_time_points": 15840,
+      "scheduled_bus_time_points": 15840
+    },
+    "voltage_feasible": true,
+    "score_tier": "voltage_feasible",
+    "wall_seconds": 10.103217582975049,
+    "peak_rss": 159383552,
+    "peak_rss_unit": "bytes"
+  }
+}
