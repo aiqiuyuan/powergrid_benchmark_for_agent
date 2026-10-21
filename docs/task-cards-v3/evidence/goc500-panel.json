@@ -1,0 +1,159 @@
+{
+  "schema": "task-cards-v3-goc500-public-input-inventory-v1",
+  "scope": "public scenario identifiers and full contingency counts; no historical solutions",
+  "source": {
+    "workspace_relative_path": "plan/goc500-panel-evolution-20261020/src/panel_data.py",
+    "sha256": "04025e2f31e7669a2ea3f523ab8a81a52337845506e3dae7fbd62308df66e11a",
+    "bytes": 14011,
+    "purpose": "frozen panel constants"
+  },
+  "campaign": "goc500-panel48-20261020-v5",
+  "network": "Network_02R-173",
+  "archive_sha256": "dba1705e5ecd61db385797882e6a21c16126a5cdfe2e986ccb7392b4441694f4",
+  "buses_per_case": 500,
+  "generator_records_per_case": 224,
+  "contingencies_total": 14554,
+  "scored_states_including_base": 14574,
+  "cases": [
+    {
+      "scenario": "scenario_1",
+      "contingencies": 724,
+      "code1_limit_seconds": 600,
+      "code2_limit_seconds": 1448,
+      "official_grader_limit_seconds": 3000
+    },
+    {
+      "scenario": "scenario_5",
+      "contingencies": 714,
+      "code1_limit_seconds": 600,
+      "code2_limit_seconds": 1428,
+      "official_grader_limit_seconds": 3000
+    },
+    {
+      "scenario": "scenario_9",
+      "contingencies": 731,
+      "code1_limit_seconds": 600,
+      "code2_limit_seconds": 1462,
+      "official_grader_limit_seconds": 3000
+    },
+    {
+      "scenario": "scenario_15",
+      "contingencies": 760,
+      "code1_limit_seconds": 600,
+      "code2_limit_seconds": 1520,
+      "official_grader_limit_seconds": 3000
+    },
+    {
+      "scenario": "scenario_33",
+      "contingencies": 709,
+      "code1_limit_seconds": 600,
+      "code2_limit_seconds": 1418,
+      "official_grader_limit_seconds": 3000
+    },
+    {
+      "scenario": "scenario_65",
+      "contingencies": 744,
+      "code1_limit_seconds": 600,
+      "code2_limit_seconds": 1488,
+      "official_grader_limit_seconds": 3000
+    },
+    {
+      "scenario": "scenario_67",
+      "contingencies": 693,
+      "code1_limit_seconds": 600,
+      "code2_limit_seconds": 1386,
+      "official_grader_limit_seconds": 3000
+    },
+    {
+      "scenario": "scenario_72",
+      "contingencies": 742,
+      "code1_limit_seconds": 600,
+      "code2_limit_seconds": 1484,
+      "official_grader_limit_seconds": 3000
+    },
+    {
+      "scenario": "scenario_75",
+      "contingencies": 735,
+      "code1_limit_seconds": 600,
+      "code2_limit_seconds": 1470,
+      "official_grader_limit_seconds": 3000
+    },
+    {
+      "scenario": "scenario_123",
+      "contingencies": 761,
+      "code1_limit_seconds": 600,
+      "code2_limit_seconds": 1522,
+      "official_grader_limit_seconds": 3000
+    },
+    {
+      "scenario": "scenario_128",
+      "contingencies": 719,
+      "code1_limit_seconds": 600,
+      "code2_limit_seconds": 1438,
+      "official_grader_limit_seconds": 3000
+    },
+    {
+      "scenario": "scenario_131",
+      "contingencies": 725,
+      "code1_limit_seconds": 600,
+      "code2_limit_seconds": 1450,
+      "official_grader_limit_seconds": 3000
+    },
+    {
+      "scenario": "scenario_135",
+      "contingencies": 738,
+      "code1_limit_seconds": 600,
+      "code2_limit_seconds": 1476,
+      "official_grader_limit_seconds": 3000
+    },
+    {
+      "scenario": "scenario_136",
+      "contingencies": 732,
+      "code1_limit_seconds": 600,
+      "code2_limit_seconds": 1464,
+      "official_grader_limit_seconds": 3000
+    },
+    {
+      "scenario": "scenario_140",
+      "contingencies": 708,
+      "code1_limit_seconds": 600,
+      "code2_limit_seconds": 1416,
+      "official_grader_limit_seconds": 3000
+    },
+    {
+      "scenario": "scenario_156",
+      "contingencies": 713,
+      "code1_limit_seconds": 600,
+      "code2_limit_seconds": 1426,
+      "official_grader_limit_seconds": 3000
+    },
+    {
+      "scenario": "scenario_159",
+      "contingencies": 703,
+      "code1_limit_seconds": 600,
+      "code2_limit_seconds": 1406,
+      "official_grader_limit_seconds": 3000
+    },
+    {
+      "scenario": "scenario_165",
+      "contingencies": 722,
+      "code1_limit_seconds": 600,
+      "code2_limit_seconds": 1444,
+      "official_grader_limit_seconds": 3000
+    },
+    {
+      "scenario": "scenario_167",
+      "contingencies": 723,
+      "code1_limit_seconds": 600,
+      "code2_limit_seconds": 1446,
+      "official_grader_limit_seconds": 3000
+    },
+    {
+      "scenario": "scenario_169",
+      "contingencies": 758,
+      "code1_limit_seconds": 600,
+      "code2_limit_seconds": 1516,
+      "official_grader_limit_seconds": 3000
+    }
+  ]
+}

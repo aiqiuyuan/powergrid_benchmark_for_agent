@@ -1,0 +1,299 @@
+{
+  "schema": "task-cards-v3-mapdn-baseline-projection-v1",
+  "scope": "fixed baseline definitions and normalization, not formal agent outcomes",
+  "source": {
+    "workspace_relative_path": "powergrid_benchmark_for_agent/docs/experiments/verification/mapdn-rl-cpu-paper-baselines-20261021.json",
+    "sha256": "22ad1841a0622fd06f2f40fa82b65313f5237a5a34fd9b9f2460eda516dbe23a",
+    "bytes": 17352,
+    "purpose": "same-panel author baseline anchors adopted without retraining"
+  },
+  "runtime": {
+    "training_cpus": 3,
+    "training_memory_gib": 8,
+    "test_cpus": 2,
+    "test_memory_gib": 8,
+    "gpu": false
+  },
+  "all_seeds_included": true,
+  "failed_seeds_filtered": false,
+  "training_episodes_per_seed": 400,
+  "training_transitions_per_seed": 95600,
+  "test_episodes_per_seed": 36,
+  "test_transitions_per_episode": 479,
+  "anchors": {
+    "best_measured_paper_cr": 0.9509394572025052,
+    "best_measured_paper_pl_mw": 0.06779034008380874,
+    "no_control": {
+      "cr": 0.7258176757132916,
+      "pl_mw": 0.06742760627554109,
+      "return": -10.202796441011484
+    }
+  },
+  "method_summaries": {
+    "coma": {
+      "complete": true,
+      "expected_seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "metrics": {
+        "cr": 0.9509394572025052,
+        "pl_mw": 0.10385368138115045,
+        "return": -17.63505187782581
+      },
+      "observed_seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "per_seed": [
+        {
+          "historical_score": -81.63707337029365,
+          "metrics": {
+            "cr": 0.9753537462305729,
+            "pl_mw": 0.10213583873953298,
+            "return": -17.59869896505023
+          },
+          "seed": 0,
+          "valid": true
+        },
+        {
+          "historical_score": -133.11799070428012,
+          "metrics": {
+            "cr": 0.9166666666666666,
+            "pl_mw": 0.11292587032687701,
+            "return": -17.857557027422654
+          },
+          "seed": 1,
+          "valid": true
+        },
+        {
+          "historical_score": -105.52375619207717,
+          "metrics": {
+            "cr": 0.9314544189283229,
+            "pl_mw": 0.10640524955575027,
+            "return": -17.878103732307753
+          },
+          "seed": 2,
+          "valid": true
+        },
+        {
+          "historical_score": -69.53697685744764,
+          "metrics": {
+            "cr": 0.9651472976107631,
+            "pl_mw": 0.09853850809497694,
+            "return": -16.627855804467398
+          },
+          "seed": 3,
+          "valid": true
+        },
+        {
+          "historical_score": -72.16545499688934,
+          "metrics": {
+            "cr": 0.9660751565762005,
+            "pl_mw": 0.09926294018861506,
+            "return": -18.21304385988102
+          },
+          "seed": 4,
+          "valid": true
+        }
+      ],
+      "training_seed_population_sd": {
+        "cr": 0.02272135788637311,
+        "pl_mw": 0.0053121006676614645,
+        "return": 0.5400783167912238
+      },
+      "valid_seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    "maddpg": {
+      "complete": true,
+      "expected_seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "metrics": {
+        "cr": 0.9187195546276966,
+        "pl_mw": 0.0694417655170036,
+        "return": -13.723220527568376
+      },
+      "observed_seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "per_seed": [
+        {
+          "historical_score": 49.073331007134264,
+          "metrics": {
+            "cr": 0.9169566225933659,
+            "pl_mw": 0.06556894786234155,
+            "return": -13.1249143849108
+          },
+          "seed": 0,
+          "valid": true
+        },
+        {
+          "historical_score": 34.72770817673574,
+          "metrics": {
+            "cr": 0.9002551612154952,
+            "pl_mw": 0.06856030980534612,
+            "return": -13.333877372670798
+          },
+          "seed": 1,
+          "valid": true
+        },
+        {
+          "historical_score": 25.629528023921253,
+          "metrics": {
+            "cr": 0.917594525632104,
+            "pl_mw": 0.07169254323492794,
+            "return": -13.566994676993351
+          },
+          "seed": 2,
+          "valid": true
+        },
+        {
+          "historical_score": 44.23499228658479,
+          "metrics": {
+            "cr": 0.9251333797262816,
+            "pl_mw": 0.06718847321787456,
+            "return": -15.20768501748194
+          },
+          "seed": 3,
+          "valid": true
+        },
+        {
+          "historical_score": 18.722924817567925,
+          "metrics": {
+            "cr": 0.9336580839712364,
+            "pl_mw": 0.07419855346452783,
+            "return": -13.382631185784993
+          },
+          "seed": 4,
+          "valid": true
+        }
+      ],
+      "training_seed_population_sd": {
+        "cr": 0.011041777529204062,
+        "pl_mw": 0.0031159601684362516,
+        "return": 0.755460226689142
+      },
+      "valid_seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    "matd3": {
+      "complete": true,
+      "expected_seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "metrics": {
+        "cr": 0.9215263279981443,
+        "pl_mw": 0.06779034008380874,
+        "return": -13.68478486617376
+      },
+      "observed_seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "per_seed": [
+        {
+          "historical_score": 43.06585706967607,
+          "metrics": {
+            "cr": 0.9245534678728833,
+            "pl_mw": 0.06746680601340628,
+            "return": -13.403433882887978
+          },
+          "seed": 0,
+          "valid": true
+        },
+        {
+          "historical_score": 36.24753998085737,
+          "metrics": {
+            "cr": 0.8799002551612155,
+            "pl_mw": 0.0672651066699288,
+            "return": -13.08520283511129
+          },
+          "seed": 1,
+          "valid": true
+        },
+        {
+          "historical_score": 50.19399932540071,
+          "metrics": {
+            "cr": 0.9390512642078404,
+            "pl_mw": 0.06625454804853162,
+            "return": -13.154783696377105
+          },
+          "seed": 2,
+          "valid": true
+        },
+        {
+          "historical_score": 38.619537131326325,
+          "metrics": {
+            "cr": 0.9177105080027835,
+            "pl_mw": 0.06832026933917552,
+            "return": -14.726775782853856
+          },
+          "seed": 3,
+          "valid": true
+        },
+        {
+          "historical_score": 38.40644426197722,
+          "metrics": {
+            "cr": 0.9464161447459987,
+            "pl_mw": 0.06964497034800152,
+            "return": -14.053728133638575
+          },
+          "seed": 4,
+          "valid": true
+        }
+      ],
+      "training_seed_population_sd": {
+        "cr": 0.023164975133935364,
+        "pl_mw": 0.0011366336297982007,
+        "return": 0.6231247760771735
+      },
+      "valid_seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    }
+  },
+  "normalized_cr_formula": "100*(candidate_cr-no_control_cr)/(best_method_mean_cr-no_control_cr)",
+  "normalized_pl": null,
+  "normalized_equal_weight": null,
+  "normalization_reasons": [
+    "PL: no measured method mean improves No Control"
+  ],
+  "claim": "Paper open-source L1 methods retrained and tested on identical independent-date panels; historical Table 3 is a separate reference, not reproduced here. Fixed400-episode references and12-hour evolution are not matched-compute experiments."
+}
